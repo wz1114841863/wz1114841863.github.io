@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Introduce</title>
-    <url>/%E5%85%B6%E4%BB%96/introduce/</url>
-    <content><![CDATA[<p>无意间看到可以用GitHub来发博客，便心血来潮自己也搞了一个。</p>
-<span id="more"></span>正好刚考上研究生，希望能够用来记录自己的一些学习路线或者学习心得之类的，也希望自己不要太懒惰(笑)。
-
-
-
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>闲聊</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo_init</title>
     <url>/%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE/hexo-init/</url>
     <content><![CDATA[<h1 id="踩坑日记："><a href="#踩坑日记：" class="headerlink" title="踩坑日记："></a>踩坑日记：</h1><p>​    该踩的坑是一个都没少踩，记录一下自己踩的一些坑吧，好多都忘了。</p>
@@ -46,6 +30,44 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Introduce</title>
+    <url>/%E5%85%B6%E4%BB%96/introduce/</url>
+    <content><![CDATA[<p>无意间看到可以用GitHub来发博客，便心血来潮自己也搞了一个。</p>
+<span id="more"></span>正好刚考上研究生，希望能够用来记录自己的一些学习路线或者学习心得之类的，也希望自己不要太懒惰(笑)。
+
+
+
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>闲聊</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>learing_route</title>
+    <url>/%E5%85%B6%E4%BB%96/learing-route/</url>
+    <content><![CDATA[<h1 id="学习路线"><a href="#学习路线" class="headerlink" title="学习路线"></a>学习路线</h1><p>​    本科专业是电子工程与技术，研究生报考的也是本院的实验室，未曾想研究方向居然是CV。塞翁失马，焉知非福。不管怎么说。也算是接触一个全新的领域，还有很多东西需要去学，所以也做一个小小的规划。<span id="more"></span></p>
+<h2 id="编程语言学习"><a href="#编程语言学习" class="headerlink" title="编程语言学习"></a>编程语言学习</h2><h3 id="C-：从入门到入土"><a href="#C-：从入门到入土" class="headerlink" title="C++：从入门到入土"></a>C++：从入门到入土</h3><p>​        大学时期没有了解过C++，但是OpenCV等好多底层文件都是用C++写的，那咋办嘛，学呗。</p>
+<h3 id="OpenCV-C-Python"><a href="#OpenCV-C-Python" class="headerlink" title="OpenCV: C++/Python"></a>OpenCV: C++/Python</h3><p>​        总感觉和OpenCV有种莫名的缘分(笑)，OpenCV分为C++和Python两种版本，各有优劣，应该会用到很多吧。</p>
+<h3 id="Python：-人人都会的编程语言"><a href="#Python：-人人都会的编程语言" class="headerlink" title="Python： 人人都会的编程语言"></a>Python： 人人都会的编程语言</h3><p>​        python只能说 会写但没完全会。</p>
+<h2 id="机器学习-深度学习"><a href="#机器学习-深度学习" class="headerlink" title="机器学习/深度学习"></a>机器学习/深度学习</h2><p>​        没了解之前确实觉得机器学习和深度学习都蛮神秘的，了解之后，嗯，都是我学不会的东西呢。</p>
+<h3 id="pytorch框架"><a href="#pytorch框架" class="headerlink" title="pytorch框架"></a>pytorch框架</h3><p>​        应该需要去了解一下这个框架，跟tensorflow相比好像更容易一点。</p>
+<h3 id="花书-西瓜书-鱼书"><a href="#花书-西瓜书-鱼书" class="headerlink" title="花书/西瓜书/鱼书"></a>花书/西瓜书/鱼书</h3><p>​        收藏从未停止，学习从未开始。</p>
+<h2 id="计算机基础四大件："><a href="#计算机基础四大件：" class="headerlink" title="计算机基础四大件："></a>计算机基础四大件：</h2><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><h3 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h3><h3 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h3><h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><p>​            为什么要为难我一个电子院出身的人呢。问就是北邮特色，不会真有不会编程的北邮人吧。</p>
+<h2 id="LeetCode刷题"><a href="#LeetCode刷题" class="headerlink" title="LeetCode刷题"></a>LeetCode刷题</h2><p>​            刚清空之前的刷题记录，虽然也没几道就是了(/(ㄒoㄒ)/~~)。问就是要加油啊。</p>
+<h2 id="Liunx-shell编程"><a href="#Liunx-shell编程" class="headerlink" title="Liunx/shell编程"></a>Liunx/shell编程</h2><p>​            多练练手，别忘光了就好。</p>
+<p>​    </p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>闲聊</tag>
       </tags>
   </entry>
 </search>
