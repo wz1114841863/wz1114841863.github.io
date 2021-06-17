@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Introduce</title>
-    <url>/%E5%85%B6%E4%BB%96/introduce/</url>
-    <content><![CDATA[<p>无意间看到可以用GitHub来发博客，便心血来潮自己也搞了一个。</p>
-<span id="more"></span>正好刚考上研究生，希望能够用来记录自己的一些学习路线或者学习心得之类的，也希望自己不要太懒惰(笑)。
-
-
-
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>闲聊</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo_init</title>
     <url>/%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE/hexo-init/</url>
     <content><![CDATA[<h1 id="踩坑日记："><a href="#踩坑日记：" class="headerlink" title="踩坑日记："></a>踩坑日记：</h1><p>​    该踩的坑是一个都没少踩，记录一下自己踩的一些坑吧，好多都忘了。</p>
 <p>​    <span id="more"></span></p>
 <h2 id="Git不区分大小写"><a href="#Git不区分大小写" class="headerlink" title="Git不区分大小写"></a>Git不区分大小写</h2><p>​    查看别人如何实现仅显示部分内容时，都推荐使用“&lt;！– more –&gt;”来分割文章，尝试后本地可正常工作，而部署到github后点击 阅读全文 按钮后，显示文章404。最后发现url后显示为 …/others/Introduce.html 而实际上应该是 …/Others/Introduce.html，所以找不到对应文件。出现这个问题是因为windows版的git在上传文件夹时不区分大小写，导致出错，害的我以为是hexo的锅。修改为中文后就可以正显示。</p>
-<img src="./images/hexo-init_01.png" >
+<img src="./hexo-init_01.png" >
 
 <h2 id="侧边栏头像下不显示description"><a href="#侧边栏头像下不显示description" class="headerlink" title="侧边栏头像下不显示description"></a>侧边栏头像下不显示description</h2><p>​    不管如何设置全局配置文件的description都不能显示出来，后来知道next主题配置文件中有个seo的选项配置，用来优化搜索引擎，我也用不到，就全都false。</p>
 <p><img src=".%5Chexo-init%5Chexo-init_02.png" alt="hexo-init_02"></p>
@@ -43,6 +27,22 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Introduce</title>
+    <url>/%E5%85%B6%E4%BB%96/introduce/</url>
+    <content><![CDATA[<p>无意间看到可以用GitHub来发博客，便心血来潮自己也搞了一个。</p>
+<span id="more"></span>正好刚考上研究生，希望能够用来记录自己的一些学习路线或者学习心得之类的，也希望自己不要太懒惰(笑)。
+
+
+
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>闲聊</tag>
       </tags>
   </entry>
 </search>
