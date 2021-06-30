@@ -56,7 +56,7 @@
     <content><![CDATA[<h1 id="踩坑日记："><a href="#踩坑日记：" class="headerlink" title="踩坑日记："></a>踩坑日记：</h1><p>​    该踩的坑是一个都没少踩，记录一下自己踩的一些坑吧，好多都忘了。</p>
 <p>​    <span id="more"></span></p>
 <h2 id="Git不区分大小写"><a href="#Git不区分大小写" class="headerlink" title="Git不区分大小写"></a>Git不区分大小写</h2><p>​    查看别人如何实现仅显示部分内容时，都推荐使用“&lt;！– more –&gt;”来分割文章，尝试后本地可正常工作，而部署到github后点击 阅读全文 按钮后，显示文章404。最后发现url后显示为 …/others/Introduce.html 而实际上应该是 …/Others/Introduce.html，所以找不到对应文件。出现这个问题是因为windows版的git在上传文件夹时不区分大小写，导致出错，害的我以为是hexo的锅。修改为中文后就可以正显示。</p>
-<img src="./hexo-init_01.png" >
+<img src="../images/hexo-init/hexo-init_01.png" >
 
 <h2 id="侧边栏头像下不显示description"><a href="#侧边栏头像下不显示description" class="headerlink" title="侧边栏头像下不显示description"></a>侧边栏头像下不显示description</h2><p>​    不管如何设置全局配置文件的description都不能显示出来，后来知道next主题配置文件中有个seo的选项配置，用来优化搜索引擎，我也用不到，就全都false。</p>
 <img src="./hexo-init_02.png" >
