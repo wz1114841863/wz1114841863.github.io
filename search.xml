@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C++学习过程中遇到的问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp-01/</url>
-    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><span id="more"></span>
-
-<h2 id="输入cin-指令无效"><a href="#输入cin-指令无效" class="headerlink" title="输入cin 指令无效"></a>输入cin 指令无效</h2><p>​    在一个简单的交互程序中，使用 cin 来读取输入时，第一次读取输入的字符串正常读取，第二次读取输入的数字时命令被忽略，直接跳过执行。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cin &gt;&gt; number; <span class="comment">//通常情况会进行输入读取一个数值，前提是cin正常。如果cin被核定为false，则cin就不会被执行啦。</span></span><br></pre></td></tr></table></figure>
-
-<p>   上述例子中，由于输入字符串时，输入了结束符进行退出，所以 cin 已经被核定为false了，所以下边的 cin&gt;&gt;number 无法正常执行输入操作。</p>
-<p>cin 被核定为 false 的情况：</p>
-<p>​    （1）遇到结束符。</p>
-<p>​    （2）遇到非法输入。</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    使用cin.clear() 和 cin.sync() 使 cin 恢复正常状态。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两者需要同时使用。</span></span><br><span class="line">    cin.<span class="built_in">sync</span>();</span><br><span class="line">    cin.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
-
-<p>   更多的具体细节可以搜索函数的定义和功能。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git-push-problem-01</title>
     <url>/%E5%AD%A6%E4%B9%A0/gitPushProblem/</url>
     <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><span id="more"></span>
@@ -48,6 +24,30 @@
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习过程中遇到的问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp-01/</url>
+    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><span id="more"></span>
+
+<h2 id="输入cin-指令无效"><a href="#输入cin-指令无效" class="headerlink" title="输入cin 指令无效"></a>输入cin 指令无效</h2><p>​    在一个简单的交互程序中，使用 cin 来读取输入时，第一次读取输入的字符串正常读取，第二次读取输入的数字时命令被忽略，直接跳过执行。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cin &gt;&gt; number; <span class="comment">//通常情况会进行输入读取一个数值，前提是cin正常。如果cin被核定为false，则cin就不会被执行啦。</span></span><br></pre></td></tr></table></figure>
+
+<p>   上述例子中，由于输入字符串时，输入了结束符进行退出，所以 cin 已经被核定为false了，所以下边的 cin&gt;&gt;number 无法正常执行输入操作。</p>
+<p>cin 被核定为 false 的情况：</p>
+<p>​    （1）遇到结束符。</p>
+<p>​    （2）遇到非法输入。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    使用cin.clear() 和 cin.sync() 使 cin 恢复正常状态。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两者需要同时使用。</span></span><br><span class="line">    cin.<span class="built_in">sync</span>();</span><br><span class="line">    cin.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
+
+<p>   更多的具体细节可以搜索函数的定义和功能。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
