@@ -73,6 +73,14 @@
 <h2 id="侧边栏点击后显示报错"><a href="#侧边栏点击后显示报错" class="headerlink" title="侧边栏点击后显示报错"></a>侧边栏点击后显示报错</h2><p>​    next 主题官方的锅，menu下的每一项后的 ‘/‘与 ‘||’不能有空格。</p>
 <img src="/images/hexo-init/hexo-init_04.png" > 
 
+<h2 id="博客添加图片"><a href="#博客添加图片" class="headerlink" title="博客添加图片"></a>博客添加图片</h2><p>​    添加图片的坑更多了！！！</p>
+<p>​    目前已知的方法有：</p>
+<p>​        1.使用插件。（试过，但有问题，而且每个博客都会建一个文件夹来存放图片，很烦。）</p>
+<p>​        2.使用图床。（需要注册图床，然后导出图片链接，快捷方法是 Typora 与 ipic 结合使用，不过ipic仅支持mac。不过也有大佬自己写了几个插件来使用。）</p>
+<p>​        3.参考hexo官网，有以下描述。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">资源（Asset）代表 source 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 source/images 文件夹中。然后通过类似于 ![](/images/image.jpg) 的方法访问它们。</span><br></pre></td></tr></table></figure>
+
+<p>​        缺点就是本地写博客时无法浏览，其他的都很方便，我就选择的是这种方式,，在source文件中自己创建了images文件夹，在Github上浏览时发现会和已有的images文件夹相加。同时注意这里使用的是绝对路径  /images/。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​    还有好多坑都不记得了，不过最后还是依靠 百度+ 谷歌，全都解决了。</p>
 ]]></content>
       <categories>
