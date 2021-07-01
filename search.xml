@@ -3,7 +3,8 @@
   <entry>
     <title>C++学习过程中遇到的问题-01</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp-01/</url>
-    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><span id="more"></span>
+    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好难啊。 指针+对象。</p>
+<span id="more"></span>
 
 <h2 id="输入cin-指令无效"><a href="#输入cin-指令无效" class="headerlink" title="输入cin 指令无效"></a>输入cin 指令无效</h2><p>​    在一个简单的交互程序中，使用 cin 来读取输入时，第一次读取输入的字符串正常读取，第二次读取输入的数字时命令被忽略，直接跳过执行。</p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cin &gt;&gt; number; <span class="comment">//通常情况会进行输入读取一个数值，前提是cin正常。如果cin被核定为false，则cin就不会被执行啦。</span></span><br></pre></td></tr></table></figure>
@@ -25,9 +26,10 @@
       </tags>
   </entry>
   <entry>
-    <title>git-push-problem-01</title>
+    <title>git使用过程中遇到的一些问题-01</title>
     <url>/%E5%AD%A6%E4%B9%A0/gitPushProblem/</url>
-    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><span id="more"></span>
+    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
+<span id="more"></span>
 
 <h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
 <h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
@@ -42,12 +44,35 @@
 <p>​    接着重新上传，成功。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
 
+<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenCV-Tutorials</title>
+    <url>/%E5%AD%A6%E4%B9%A0/OpenCV-tutorials/</url>
+    <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>​    OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
+<span id="more"></span>
+
+<h3 id="CV与Matplotlib的颜色冲突"><a href="#CV与Matplotlib的颜色冲突" class="headerlink" title="CV与Matplotlib的颜色冲突"></a>CV与Matplotlib的颜色冲突</h3><p> OpenCV中读取彩图的颜色是以BGR来排序的，而Matplotlib中图片是以RGB排序的，因此如果想要使用pyplot来展示图片，就需要对图片的颜色域顺序进行处理，不过实现起来也很方便。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv.imread(<span class="string">&quot;o1.png&quot;</span>)</span><br><span class="line">img = img[:,:,::-<span class="number">1</span>]</span><br><span class="line">plt.show(<span class="string">&quot;Image&quot;</span>,img)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>OpenCV</tag>
       </tags>
   </entry>
   <entry>

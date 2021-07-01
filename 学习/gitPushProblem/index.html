@@ -77,15 +77,15 @@
 
 
 
-<meta name="description" content="记录Git使用过程中存在的一些问题">
+<meta name="description" content="记录Git使用过程中存在的一些问题​    使用git的过程中总会遇到一些问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git-push-problem-01">
+<meta property="og:title" content="git使用过程中遇到的一些问题-01">
 <meta property="og:url" content="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/gitPushProblem/index.html">
 <meta property="og:site_name" content="越长大越孤单">
-<meta property="og:description" content="记录Git使用过程中存在的一些问题">
+<meta property="og:description" content="记录Git使用过程中存在的一些问题​    使用git的过程中总会遇到一些问题。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-06-30T02:03:01.000Z">
-<meta property="article:modified_time" content="2021-06-30T02:21:43.880Z">
+<meta property="article:modified_time" content="2021-07-01T06:46:51.139Z">
 <meta property="article:author" content="wangzhang">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -122,7 +122,7 @@
 
 
 
-  <title>git-push-problem-01 | 越长大越孤单</title>
+  <title>git使用过程中遇到的一些问题-01 | 越长大越孤单</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git-push-problem-01</h1>
+          <h1 class="post-title" itemprop="name headline">git使用过程中遇到的一些问题-01</h1>
         
 
         <div class="post-meta">
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-06-30T10:21:43+08:00">
-                2021-06-30
+              <time title="更新于" itemprop="dateModified" datetime="2021-07-01T14:46:51+08:00">
+                2021-07-01
               </time>
             
           </span>
@@ -398,7 +398,8 @@
       
 
       
-        <h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><span id="more"></span>
+        <h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
+<span id="more"></span>
 
 <h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
 <h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
@@ -412,6 +413,12 @@
 
 <p>​    接着重新上传，成功。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
 
 
       
@@ -452,6 +459,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/%E5%AD%A6%E4%B9%A0/OpenCV-tutorials/" rel="prev" title="OpenCV-Tutorials">
+                OpenCV-Tutorials <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -532,7 +543,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -554,7 +565,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -603,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95Git%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="nav-text">记录Git使用过程中存在的一些问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%BB%91%E5%AE%9A"><span class="nav-text">用户绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#push%E6%97%B6%E4%BD%BF%E7%94%A8-git-git"><span class="nav-text">push时使用 git@git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BA%E9%94%99%E5%8E%9F%E5%9B%A0"><span class="nav-text">出错原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">解决方法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95Git%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="nav-text">记录Git使用过程中存在的一些问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%BB%91%E5%AE%9A"><span class="nav-text">用户绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#push%E6%97%B6%E4%BD%BF%E7%94%A8-git-git"><span class="nav-text">push时使用 git@git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BA%E9%94%99%E5%8E%9F%E5%9B%A0"><span class="nav-text">出错原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="nav-text">忽略文件夹名大小写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-1"><span class="nav-text">解决方法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
