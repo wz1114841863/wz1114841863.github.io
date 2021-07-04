@@ -139,7 +139,7 @@
 <p> 请务必记得 git checkout – <file> 是一个危险的命令。 对那个文件在本地的任何修改都会消失——Git 会用最近提交的版本覆盖掉它。 除非你确实清楚不想要对那个文件的本地修改了，否则请不要使用这个命令</p>
 <h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote </span><br><span class="line">#列出指定的每一个远程服务器的简写。 如果你已经克隆了自己的仓库，那么至少应该能看到 origin ——这是 Git 给你克隆的仓库服务器的默认名字</span><br></pre></td></tr></table></figure>
 
-<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add &lt;shortname&gt; &lt;url&gt; </span><br></pre></td></tr></table></figure>
+<h3 id="添加、移除远程仓库"><a href="#添加、移除远程仓库" class="headerlink" title="添加、移除远程仓库"></a>添加、移除远程仓库</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add &lt;shortname&gt; &lt;url&gt; </span><br><span class="line">git remote remove &lt;ahortname&gt;</span><br></pre></td></tr></table></figure>
 
 <p>添加一个新的远程 Git 仓库，同时指定一个方便使用的简写</p>
 <h3 id="从远程仓库抓取"><a href="#从远程仓库抓取" class="headerlink" title="从远程仓库抓取"></a>从远程仓库抓取</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch &lt;remote&gt;</span><br></pre></td></tr></table></figure>
@@ -148,6 +148,39 @@
 <h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push &lt;remote&gt; &lt;branch&gt;</span><br></pre></td></tr></table></figure>
 
 <p>只有当你有所克隆服务器的写入权限，并且之前没有人推送过时，这条命令才能生效。 当你和其他人在同一时间克隆，他们先推送到上游然后你再推送到上游，你的推送就会毫无疑问地被拒绝。 你必须先抓取他们的工作并将其合并进你的工作后才能推送。</p>
+<h3 id="查看远程仓库的信息"><a href="#查看远程仓库的信息" class="headerlink" title="查看远程仓库的信息"></a>查看远程仓库的信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote show &lt;shortname&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="远程仓库重命名"><a href="#远程仓库重命名" class="headerlink" title="远程仓库重命名"></a>远程仓库重命名</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote  rename name1 name2</span><br></pre></td></tr></table></figure>
+
+<h2 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h2><p>​    像其他版本控制系统（VCS）一样，Git 可以给仓库历史中的某一个提交打上标签，以示重要。</p>
+<h3 id="列出标签"><a href="#列出标签" class="headerlink" title="列出标签"></a>列出标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git tag </span><br><span class="line">git tag -l &quot;关键词&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><p>git支持两种标签：</p>
+<p>​    1.轻量标签</p>
+<p>​        某个特定提交的引用。</p>
+<p>​    2.附注标签</p>
+<p>​     附注标签是存储在 Git 数据库中的一个完整对象， 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间， 此外还有一个标签信息，并且可以使用 GNU Privacy Guard （GPG）签名并验证。</p>
+<p>创建附注标签：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建附注标签</span><br><span class="line">git tag -a &lt;tagname&gt; -m &quot;注释信息&quot;</span><br><span class="line">#查看所有标签</span><br><span class="line">git tag </span><br><span class="line">#显示注释信息</span><br><span class="line">git show &lt;tagname&gt;</span><br></pre></td></tr></table></figure>
+
+<p>创建轻量标签：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git tag &lt;tagname&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="共享标签"><a href="#共享标签" class="headerlink" title="共享标签"></a>共享标签</h3><p>​    默认情况下，git push 命令并不会传送标签到远程仓库服务器上。 在创建完标签后你必须显式地推送标签到共享服务器上。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#推送特定标签</span><br><span class="line">git push origin &lt;tagname&gt;</span><br><span class="line">#推送所有标签 </span><br><span class="line">git push origin --tags</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git tag -d &lt;tagname&gt;</span><br><span class="line">#注意上述命令并不会从任何远程仓库中移除这个标签，你必须用 </span><br><span class="line">git push &lt;remote&gt; :refs/tags/&lt;tagname&gt; </span><br><span class="line">#来更新你的远程仓库,或者</span><br><span class="line">git push origin --delete &lt;tagname&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git别名"><a href="#Git别名" class="headerlink" title="Git别名"></a>Git别名</h2><p>Git 并不会在你输入部分命令时自动推断出你想要的命令。 如果不想每次都输入完整的 Git 命令，可以通过 git config 文件来轻松地为每一个命令设置一个别名。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#git 别名</span><br><span class="line">git config --global alias.co checkout</span><br><span class="line">git config --global alias.br branch</span><br><span class="line">git config --global alias.ci commit</span><br><span class="line">git config --global alias.st status</span><br><span class="line">git config --global alias.unstage &#x27;reset HEAD --&#x27;</span><br><span class="line">git config --global alias.last &#x27;log -1 HEAD&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>也可以在用户的配置文件下修改：</p>
+<p>Windows下.config文件路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Users\username\.gitconfig</span><br></pre></td></tr></table></figure>
+
+<p>添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[alias]</span><br><span class="line">	co = checkout</span><br><span class="line">	br = branch</span><br><span class="line">	ci = commit</span><br><span class="line">	st = status</span><br><span class="line">	unstage = reset HEAD --=</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>学习</category>
@@ -180,6 +213,39 @@
 
 <p>true 表示忽略文件名大小写，可以将其设置为false。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git学习笔记02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/gitNote02/</url>
+    <content><![CDATA[<h2 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h2><p>​    像其他版本控制系统（VCS）一样，Git 可以给仓库历史中的某一个提交打上标签，以示重要。</p>
+<h3 id="列出标签"><a href="#列出标签" class="headerlink" title="列出标签"></a>列出标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git tag </span><br><span class="line">git tag -l &quot;关键词&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><p>git支持两种标签：</p>
+<p>​    1.轻量标签</p>
+<p>​        某个特定提交的引用。</p>
+<p>​    2.附注标签</p>
+<p>​     附注标签是存储在 Git 数据库中的一个完整对象， 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间， 此外还有一个标签信息，并且可以使用 GNU Privacy Guard （GPG）签名并验证。</p>
+<p>创建附注标签：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建附注标签</span><br><span class="line">git tag -a &lt;tagname&gt; -m &quot;注释信息&quot;</span><br><span class="line">#查看所有标签</span><br><span class="line">git tag </span><br><span class="line">#显示注释信息</span><br><span class="line">git show &lt;tagname&gt;</span><br></pre></td></tr></table></figure>
+
+<p>创建轻量标签：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git tag &lt;tagname&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="共享标签"><a href="#共享标签" class="headerlink" title="共享标签"></a>共享标签</h3><p>​    默认情况下，git push 命令并不会传送标签到远程仓库服务器上。 在创建完标签后你必须显式地推送标签到共享服务器上。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#推送特定标签</span><br><span class="line">git push origin &lt;tagname&gt;</span><br><span class="line">#推送所有标签 </span><br><span class="line">git push origin --tags</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git tag -d &lt;tagname&gt;</span><br><span class="line">#注意上述命令并不会从任何远程仓库中移除这个标签，你必须用 </span><br><span class="line">git push &lt;remote&gt; :refs/tags/&lt;tagname&gt; </span><br><span class="line">#来更新你的远程仓库,或者</span><br><span class="line">git push origin --delete &lt;tagname&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git别名"><a href="#Git别名" class="headerlink" title="Git别名"></a>Git别名</h2><p>Git 并不会在你输入部分命令时自动推断出你想要的命令。 如果不想每次都输入完整的 Git 命令，可以通过 git config 文件来轻松地为每一个命令设置一个别名。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#git 别名</span><br><span class="line">git config --global alias.co checkout</span><br><span class="line">git config --global alias.br branch</span><br><span class="line">git config --global alias.ci commit</span><br><span class="line">git config --global alias.st status</span><br><span class="line">git config --global alias.unstage &#x27;reset HEAD --&#x27;</span><br><span class="line">git config --global alias.last &#x27;log -1 HEAD&#x27;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
