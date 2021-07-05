@@ -77,15 +77,15 @@
 
 
 
-<meta name="description" content="​    我好像还没有用过分支(丢人)。">
+<meta name="description" content="​">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git学习笔记02">
 <meta property="og:url" content="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/gitNote02/index.html">
 <meta property="og:site_name" content="越长大越孤单">
-<meta property="og:description" content="​    我好像还没有用过分支(丢人)。">
+<meta property="og:description" content="​">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-07-04T15:13:24.000Z">
-<meta property="article:modified_time" content="2021-07-04T15:54:36.565Z">
+<meta property="article:modified_time" content="2021-07-05T04:03:55.188Z">
 <meta property="article:author" content="wangzhang">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-07-04T23:54:36+08:00">
-                2021-07-04
+              <time title="更新于" itemprop="dateModified" datetime="2021-07-05T12:03:55+08:00">
+                2021-07-05
               </time>
             
           </span>
@@ -398,8 +398,45 @@
       
 
       
-        <p>​    我好像还没有用过分支(丢人)。<span id="more"></span></p>
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>​    </p>
+        <p>​    <span id="more"></span></p>
+<h2 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h2><p>​        Git 保存的不是文件的变化或者差异，而是一系列不同时刻的快照 。在进行提交操作时，Git 会保存一个提交对象（commit object）。做些修改后再次提交，那么这次产生的提交对象会包含一个指向上次提交对象（父对象）的指针。Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git 的默认分支名字是 master。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 master 分支。 master 分支会在每次提交时自动向前移动。</p>
+<h3 id="分支创建"><a href="#分支创建" class="headerlink" title="分支创建"></a>分支创建</h3><p>创建新的分支实际就是创建一个新的指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch &lt;branchname&gt;</span><br></pre></td></tr></table></figure>
+
+<p>从而在当前所提交的对象上创建一个新的指针。</p>
+<h3 id="查看分支所指对象"><a href="#查看分支所指对象" class="headerlink" title="查看分支所指对象"></a>查看分支所指对象</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --oneline  --decorate</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此时，HEAD指针就指向了新的分支。</p>
+<p><em><strong>分支切换会改变你工作目录中的文件</strong></em><br>在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。</p>
+<p>不同的分支提交文件后就会产生项目分叉。</p>
+<h3 id="查看分叉历史"><a href="#查看分叉历史" class="headerlink" title="查看分叉历史"></a>查看分叉历史</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --oneline --decorate --graph --all</span><br></pre></td></tr></table></figure>
+
+<p>会输出你的提交历史、各个分支的指向以及项目的分支分叉情况。</p>
+<h3 id="创建分支的同时切换过去"><a href="#创建分支的同时切换过去" class="headerlink" title="创建分支的同时切换过去"></a>创建分支的同时切换过去</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b &lt;newbranchname&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="快进"><a href="#快进" class="headerlink" title="快进"></a>快进</h3><p>当你试图合并两个分支时， 如果顺着一个分支走下去能够到达另一个分支，那么 Git 在合并两者的时候， 只会简单的将指针向前推进（指针右移），因为这种情况下的合并操作没有需要解决的分歧——这就叫做 “快进（fast-forward）”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#快进</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h3><p>三方分别为：第一个分支，第二个分支，两分支的分叉点。</p>
+<p>Git 将三方合并的结果做了一个新的快照并且自动创建一个新的提<br>交指向它。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#三方合并</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="合并时遇到冲突"><a href="#合并时遇到冲突" class="headerlink" title="合并时遇到冲突"></a>合并时遇到冲突</h4><p>​        如果你在两个不同的分支中，对同一个文件的同一个部分进行了不同的修改，Git 就没法干净的合并它们。</p>
+<p>​        Git 会暂停下来，等待你去解决合并产生的冲突。你可以在合并冲突后的任意时刻使用 git status 命令来查看那些因包含合并冲突而处于未合并（unmerged）状态的文件</p>
+<p>​    在手动解决文件冲突后，可以再次提交，并确认分支合并。</p>
+<h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#查看已有分支和当前所处分支</span><br><span class="line">git branch</span><br><span class="line">#查看已合并的分支</span><br><span class="line">git branch --merged</span><br><span class="line">#查看未合并的分支</span><br><span class="line">git branch --no-merged</span><br></pre></td></tr></table></figure>
+
+<h2 id="分支开发工作流"><a href="#分支开发工作流" class="headerlink" title="分支开发工作流"></a>分支开发工作流</h2><h3 id="长期分支"><a href="#长期分支" class="headerlink" title="长期分支"></a>长期分支</h3><p>​        因为 Git 使用简单的三方合并，所以就算在一段较长的时间内，反复把一个分支合并入另一个分支，也不是什么难事。 也就是说，在整个项目开发周期的不同阶段，你可以同时拥有多个开放的分支；你可以定期地把某些主题分支合并入其他分支中。</p>
+<h3 id="主题分支"><a href="#主题分支" class="headerlink" title="主题分支"></a>主题分支</h3><p>​        主题分支对任何规模的项目都适用。 主题分支是一种短期分支，它被用来实现单一特性或其相关工作。</p>
+<h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>远程引用是对远程仓库的引用（指针），包括分支、标签等等。 你可以通过 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git ls-remote &lt;remote&gt; </span><br></pre></td></tr></table></figure>
+
+<p>来显式地获得远程引用的完整列表， 或者通过 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote show &lt;remote&gt; </span><br></pre></td></tr></table></figure>
+
+<p>获得远程分支的更多信息。 然而，一个更常见的做法是利用远程跟踪分支。</p>
 
       
     </div>
@@ -590,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%94%AF"><span class="nav-text">分支</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B"><span class="nav-text">分支简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E5%88%9B%E5%BB%BA"><span class="nav-text">分支创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF%E6%89%80%E6%8C%87%E5%AF%B9%E8%B1%A1"><span class="nav-text">查看分支所指对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E5%88%87%E6%8D%A2"><span class="nav-text">分支切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%88%86%E5%8F%89%E5%8E%86%E5%8F%B2"><span class="nav-text">查看分叉历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%E7%9A%84%E5%90%8C%E6%97%B6%E5%88%87%E6%8D%A2%E8%BF%87%E5%8E%BB"><span class="nav-text">创建分支的同时切换过去</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E8%BF%9B"><span class="nav-text">快进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6"><span class="nav-text">分支合并</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E6%97%B6%E9%81%87%E5%88%B0%E5%86%B2%E7%AA%81"><span class="nav-text">合并时遇到冲突</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF"><span class="nav-text">查看分支</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-text">分支开发工作流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%95%BF%E6%9C%9F%E5%88%86%E6%94%AF"><span class="nav-text">长期分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E5%88%86%E6%94%AF"><span class="nav-text">主题分支</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="nav-text">远程分支</span></a></li></ol></div>
             
 
           </div>
