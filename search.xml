@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C++学习过程中遇到的问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp-01/</url>
-    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好难啊。 指针+对象。</p>
-<span id="more"></span>
-
-<h2 id="输入cin-指令无效"><a href="#输入cin-指令无效" class="headerlink" title="输入cin 指令无效"></a>输入cin 指令无效</h2><p>​    在一个简单的交互程序中，使用 cin 来读取输入时，第一次读取输入的字符串正常读取，第二次读取输入的数字时命令被忽略，直接跳过执行。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cin &gt;&gt; number; <span class="comment">//通常情况会进行输入读取一个数值，前提是cin正常。如果cin被核定为false，则cin就不会被执行啦。</span></span><br></pre></td></tr></table></figure>
-
-<p>   上述例子中，由于输入字符串时，输入了结束符进行退出，所以 cin 已经被核定为false了，所以下边的 cin&gt;&gt;number 无法正常执行输入操作。</p>
-<p>cin 被核定为 false 的情况：</p>
-<p>​    （1）遇到结束符。</p>
-<p>​    （2）遇到非法输入。</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    使用cin.clear() 和 cin.sync() 使 cin 恢复正常状态。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两者需要同时使用。</span></span><br><span class="line">    cin.<span class="built_in">sync</span>();</span><br><span class="line">    cin.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
-
-<p>   更多的具体细节可以搜索函数的定义和功能。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DSA</title>
     <url>/%E5%AD%A6%E4%B9%A0/DSA/</url>
     <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>​    虽然一直知道数据结构和算法很重要，但是一直学的也不太行，毕竟不是计院学生，敲的代码也太少。<span id="more"></span></p>
@@ -69,6 +44,31 @@
       </tags>
   </entry>
   <entry>
+    <title>C++学习过程中遇到的问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp-01/</url>
+    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好难啊。 指针+对象。</p>
+<span id="more"></span>
+
+<h2 id="输入cin-指令无效"><a href="#输入cin-指令无效" class="headerlink" title="输入cin 指令无效"></a>输入cin 指令无效</h2><p>​    在一个简单的交互程序中，使用 cin 来读取输入时，第一次读取输入的字符串正常读取，第二次读取输入的数字时命令被忽略，直接跳过执行。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cin &gt;&gt; number; <span class="comment">//通常情况会进行输入读取一个数值，前提是cin正常。如果cin被核定为false，则cin就不会被执行啦。</span></span><br></pre></td></tr></table></figure>
+
+<p>   上述例子中，由于输入字符串时，输入了结束符进行退出，所以 cin 已经被核定为false了，所以下边的 cin&gt;&gt;number 无法正常执行输入操作。</p>
+<p>cin 被核定为 false 的情况：</p>
+<p>​    （1）遇到结束符。</p>
+<p>​    （2）遇到非法输入。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    使用cin.clear() 和 cin.sync() 使 cin 恢复正常状态。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两者需要同时使用。</span></span><br><span class="line">    cin.<span class="built_in">sync</span>();</span><br><span class="line">    cin.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
+
+<p>   更多的具体细节可以搜索函数的定义和功能。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenCV-Tutorials</title>
     <url>/%E5%AD%A6%E4%B9%A0/OpenCV-tutorials/</url>
     <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>​    OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
@@ -100,6 +100,10 @@
 
 <p>遇到的问题：</p>
 <p>​    刚开始绘制正方形时，整个图片全部变为黄色，后来意识到是因为阈值太低和匹配模式选择的问题。通过调整匹配模式和阈值，能大致匹配到合适位置，但由于匹配时采用的是灰度图片，所以水管口依旧被匹配到了，还需要进一步改进。</p>
+<h3 id="图片绘制形状"><a href="#图片绘制形状" class="headerlink" title="图片绘制形状"></a>图片绘制形状</h3><p>由于OpenCV读取的图片以BGR格式存储，如果想用plot绘图就需要用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img = img[:, :, :: -1]</span><br></pre></td></tr></table></figure>
+
+<p>但是如果想要在图形上绘图就不能先转变将图片变为RGB格式，否则无法绘制矩形等形状且不报错。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -129,14 +133,24 @@
       </tags>
   </entry>
   <entry>
-    <title>createMd</title>
-    <url>/category/createMd/</url>
-    <content><![CDATA[]]></content>
+    <title>右键添加创建.md文件</title>
+    <url>/%E5%AD%A6%E4%B9%A0/createMd/</url>
+    <content><![CDATA[<h1 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h1><p>​    推荐使用Typora来编写MarkDown文档。<span id="more"></span></p>
+<h2 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h2><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>注意：修改上述的typora文件路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot; --&gt; “修改成你自己的文件路径”</span><br></pre></td></tr></table></figure>
+
+<p>2.保存后重命名，修改后缀为  .reg 文件。</p>
+<p>3.双击执行，一路点是就行。</p>
+<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><img src = "/images/createMd/createMd01.png">
+]]></content>
       <categories>
-        <category>category</category>
+        <category>学习</category>
       </categories>
       <tags>
-        <tag>tag1</tag>
+        <tag>系统配置</tag>
       </tags>
   </entry>
   <entry>
@@ -304,39 +318,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git使用过程中遇到的一些问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/gitPushProblem/</url>
-    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
-<span id="more"></span>
-
-<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
-<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    接着重新上传，成功。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
-
-<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
-<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
-
-<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo_init</title>
     <url>/%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE/hexo-init/</url>
     <content><![CDATA[<h1 id="踩坑日记："><a href="#踩坑日记：" class="headerlink" title="踩坑日记："></a>踩坑日记：</h1><p>​    该踩的坑是一个都没少踩，记录一下自己踩的一些坑吧，好多都忘了。</p>
@@ -374,6 +355,39 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git使用过程中遇到的一些问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/gitPushProblem/</url>
+    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
+<span id="more"></span>
+
+<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
+<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    接着重新上传，成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
