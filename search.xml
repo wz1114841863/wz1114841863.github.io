@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C++学习过程中遇到的问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp-01/</url>
+    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂。</p>
+<span id="more"></span>
+
+<h2 id="输入cin-指令无效"><a href="#输入cin-指令无效" class="headerlink" title="输入cin 指令无效"></a>输入cin 指令无效</h2><p>​    在一个简单的交互程序中，使用 cin 来读取输入时，第一次读取输入的字符串正常读取，第二次读取输入的数字时命令被忽略，直接跳过执行。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cin &gt;&gt; number; <span class="comment">//通常情况会进行输入读取一个数值，前提是cin正常。如果cin被核定为false，则cin就不会被执行啦。</span></span><br></pre></td></tr></table></figure>
+
+<p>   上述例子中，由于输入字符串时，输入了结束符进行退出，所以 cin 已经被核定为false了，所以下边的 cin&gt;&gt;number 无法正常执行输入操作。</p>
+<p>cin 被核定为 false 的情况：</p>
+<p>​    （1）遇到结束符。</p>
+<p>​    （2）遇到非法输入。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    使用cin.clear() 和 cin.sync() 使 cin 恢复正常状态。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两者需要同时使用。</span></span><br><span class="line">    cin.<span class="built_in">sync</span>();</span><br><span class="line">    cin.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
+
+<p>   更多的具体细节可以搜索函数的定义和功能。</p>
+<h2 id="Null-与-nullptr"><a href="#Null-与-nullptr" class="headerlink" title="Null 与 nullptr"></a>Null 与 nullptr</h2><p>Null在C++中定义为0，在很多场合（尤其涉及到指针时）。因此</p>
+<p>更加提倡使用nullptr来代替Null。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DSA</title>
     <url>/%E5%AD%A6%E4%B9%A0/DSA/</url>
     <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>​    虽然一直知道数据结构和算法很重要，但是一直学的也不太行，毕竟不是计院学生，敲的代码也太少。<span id="more"></span></p>
@@ -41,31 +68,6 @@
       </categories>
       <tags>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++学习过程中遇到的问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp-01/</url>
-    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好难啊。 指针+对象。</p>
-<span id="more"></span>
-
-<h2 id="输入cin-指令无效"><a href="#输入cin-指令无效" class="headerlink" title="输入cin 指令无效"></a>输入cin 指令无效</h2><p>​    在一个简单的交互程序中，使用 cin 来读取输入时，第一次读取输入的字符串正常读取，第二次读取输入的数字时命令被忽略，直接跳过执行。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cin &gt;&gt; number; <span class="comment">//通常情况会进行输入读取一个数值，前提是cin正常。如果cin被核定为false，则cin就不会被执行啦。</span></span><br></pre></td></tr></table></figure>
-
-<p>   上述例子中，由于输入字符串时，输入了结束符进行退出，所以 cin 已经被核定为false了，所以下边的 cin&gt;&gt;number 无法正常执行输入操作。</p>
-<p>cin 被核定为 false 的情况：</p>
-<p>​    （1）遇到结束符。</p>
-<p>​    （2）遇到非法输入。</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    使用cin.clear() 和 cin.sync() 使 cin 恢复正常状态。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两者需要同时使用。</span></span><br><span class="line">    cin.<span class="built_in">sync</span>();</span><br><span class="line">    cin.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
-
-<p>   更多的具体细节可以搜索函数的定义和功能。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -113,6 +115,29 @@
       </tags>
   </entry>
   <entry>
+    <title>cpp Primer chapter 01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh01/</url>
+    <content><![CDATA[<p> C++ Primer 第一篇学习笔记。<span id="more"></span></p>
+<h2 id="第一篇-C-概述"><a href="#第一篇-C-概述" class="headerlink" title="第一篇 C++概述"></a>第一篇 C++概述</h2><h3 id="第一节"><a href="#第一节" class="headerlink" title="第一节"></a>第一节</h3><h3 id="第二节"><a href="#第二节" class="headerlink" title="第二节"></a>第二节</h3>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 03</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu使用中遇到的问题</title>
     <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/UbuntuUsing/</url>
     <content><![CDATA[<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。然后就开始疯狂踩坑！！！</p>
@@ -133,8 +158,92 @@
       </tags>
   </entry>
   <entry>
+    <title>cpp Primer chapter 2.6</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh02/</url>
+    <content><![CDATA[<p>C++ Primer 第二篇第六章学习笔记。<span id="more"></span></p>
+<h2 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h2><h3 id="第六章-抽象容器类型"><a href="#第六章-抽象容器类型" class="headerlink" title="第六章  抽象容器类型"></a>第六章  抽象容器类型</h3><h4 id="顺序容器：由单一类型元素组成的一个有序集合。"><a href="#顺序容器：由单一类型元素组成的一个有序集合。" class="headerlink" title="顺序容器：由单一类型元素组成的一个有序集合。"></a>顺序容器：由单一类型元素组成的一个有序集合。</h4><ol>
+<li>list：双向链表</li>
+<li>vector：向量</li>
+<li>deque：双端队列</li>
+</ol>
+<h4 id="关联容器：支持查询一个元素是否存在并且可以有效地获取元素"><a href="#关联容器：支持查询一个元素是否存在并且可以有效地获取元素" class="headerlink" title="关联容器：支持查询一个元素是否存在并且可以有效地获取元素"></a>关联容器：支持查询一个元素是否存在并且可以有效地获取元素</h4><ol>
+<li>map：键值对</li>
+<li>set：单一键值</li>
+</ol>
+<h4 id="6-1-文本查询系统"><a href="#6-1-文本查询系统" class="headerlink" title="6.1   文本查询系统"></a>6.1   文本查询系统</h4><p>任务支持：</p>
+<p>1.它必须允许用户指明要打开的文本文件的名字<br>2.它必须在内部组织文本文件以便能够识别出每个单词在句子中出现的次数以及在<br>该句子中的位置<br>3.它必须支持某种形式的布尔查询语言在我们的例子中它将支持<br>        &amp;&amp; 在一行中两个单词不仅存在而且相邻<br>        || 在一行中两个单词至少有一个存在<br>        ! 在一行中该单词不存在<br>        () 把子查询组合起来的方式</p>
+<p>注意：为了简化实现我们要求用空格分割每个单词包括括号和布尔操作符</p>
+<h4 id="6-2-vector还是list"><a href="#6-2-vector还是list" class="headerlink" title="6.2 vector还是list"></a>6.2 vector还是list</h4><h5 id="选择依据："><a href="#选择依据：" class="headerlink" title="选择依据："></a>选择依据：</h5><p>vector deque 以及list 都是动态增长的，在这三者之中选择的准则主要是<strong>关注插入特性以及对元素的后续访问要求</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">如果我们需要随机访问一个容器则vector 要比list 好得多。</span><br><span class="line">如果我们已知要存储元素的个数则vector 又是一个比list 好的选择。</span><br><span class="line">如果我们需要的不只是在容器两端插入和删除元素则list 显然要比vector 好。</span><br><span class="line">除非我们需要在容器首部插入和删除元素否则vector 要比deque 好。</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-3-vector怎样自己增长"><a href="#6-3-vector怎样自己增长" class="headerlink" title="6.3 vector怎样自己增长"></a>6.3 vector怎样自己增长</h4><p>​    获取vector的容量：容量是指在容器下一次需要增长自己之前能够被加入到容器中的元素的总数，容量只与连续存储的容器相关（例如vector deque 或string）， list 不要求容量。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//获取容器的容量</span><br><span class="line">capacity()</span><br><span class="line">//容器当前拥有元素的个数</span><br><span class="line">size()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	vector&lt;<span class="keyword">int</span>&gt; ivec;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;ivec:size:&quot;</span> &lt;&lt; ivec.<span class="built_in">size</span>() &lt;&lt; <span class="string">&quot;   &quot;</span></span><br><span class="line">         &lt;&lt; <span class="string">&quot;capacity:&quot;</span> &lt;&lt; ivec.<span class="built_in">capacity</span>() &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> ix=<span class="number">0</span>; ix&lt;<span class="number">24</span>; ix++)&#123;</span><br><span class="line">        ivec.<span class="built_in">push_back</span>(ix);</span><br><span class="line">    	cout &lt;&lt; <span class="string">&quot;ivec:size:&quot;</span> &lt;&lt; ivec.<span class="built_in">size</span>() &lt;&lt; <span class="string">&quot;   &quot;</span></span><br><span class="line">         	 &lt;&lt; <span class="string">&quot;capacity:&quot;</span> &lt;&lt; ivec.<span class="built_in">capacity</span>() &lt;&lt; endl;        </span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以通过指针间接存储复杂的类对象。即vector中仅存储指向复杂对象的指针，就不用重新释放对象和生成对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">reserve()操作允许程序员将容器的容量设置成一个显式指定的值。</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-4-定义一个顺序容器"><a href="#6-4-定义一个顺序容器" class="headerlink" title="6.4 定义一个顺序容器"></a>6.4 定义一个顺序容器</h4><p>关联的头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;list&gt;</span><br><span class="line">#include &lt;deque&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#inlucde &lt;set&gt;</span><br></pre></td></tr></table></figure>
+
+<p>声明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//简单声明</span><br><span class="line">vector&lt;string&gt;  svec;</span><br><span class="line">//指定长度</span><br><span class="line">list&lt; int &gt;  ilist( list_size );</span><br><span class="line">vector&lt; string &gt; svec(get_word_count(string(&quot;Chimera&quot;)));</span><br><span class="line">//指定长度和初始值</span><br><span class="line">list&lt; int &gt; ilist( list_size, - 1 );</span><br><span class="line">vector&lt; string &gt; svec( 24, &quot;pooh&quot; );</span><br><span class="line">//利用已有对象初始化</span><br><span class="line">vector&lt; string &gt; svec2( svec );</span><br><span class="line">list&lt; int &gt; ilist2( ilist );    </span><br></pre></td></tr></table></figure>
+
+<p>其余操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">//检查是否为空</span><br><span class="line">if(svec.empty() != True)&#123;</span><br><span class="line">	cout &lt;&lt; &quot;empty.&quot;</span><br><span class="line">&#125;</span><br><span class="line">//插入尾部</span><br><span class="line">string text_word;</span><br><span class="line">while(cin &gt;&gt; text_word)&#123;</span><br><span class="line">	svec.push_back(text_word);</span><br><span class="line">&#125;</span><br><span class="line">//list 和 deque 容器也支持 push_front() 它把新元素插入在链表的前端</span><br><span class="line"></span><br><span class="line">//重新设置长度</span><br><span class="line">svec.resize( 2 * svec.size(), &quot;piglet&quot; );</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-5-迭代器"><a href="#6-5-迭代器" class="headerlink" title="6.5 迭代器"></a>6.5 迭代器</h4><p>迭代器（iterator ）提供了一种一般化的方法对顺序或关联容器类型中的每个元素进行<br>连续访问。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">++iter;//指向下一个元素</span><br><span class="line">//iterator 算术论算只适用于vector 或deque 而不适用于list 因为list 的元素在内存中不是连续存储的.</span><br><span class="line">*iter;//指向元素的值</span><br><span class="line">/*</span><br><span class="line">返回iterator 指向元素的值</span><br><span class="line">每种容器类型都提供一个begin()和一个end()成员函数</span><br><span class="line">begin()返回一个iterator 它指向容器的第一个元素</span><br><span class="line">end()返回一个iterator 它指向容器的末元素的下一个位置</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<p>为了迭代任意容器类型的元素：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(iter=container.begin(); iter!=container.end(); ++iter)&#123;</span><br><span class="line">	do_some_thing_with_element(*iter)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>定义：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// vector&lt;string&gt; vec;</span><br><span class="line">vector&lt;string&gt;::iterator iter = vec.begin();</span><br><span class="line">vector&lt;string&gt;::iterator iter_end = vec.end();</span><br></pre></td></tr></table></figure>
+
+<p>利用迭代器初始化容器：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;string&gt; svec2( svec.begin(), svec.end() );</span><br></pre></td></tr></table></figure>
+
+<p>两个指向内置数组的指针也可以被用作元素范围标记器（range marker）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt; string &gt; vwords( words, words+4 );</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-6-顺序容器操作"><a href="#6-6-顺序容器操作" class="headerlink" title="6.6 顺序容器操作"></a>6.6 顺序容器操作</h4><p>1.插入：insert()</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt; string &gt; svec;</span><br><span class="line">list&lt; string &gt; slist;</span><br><span class="line">string spouse( &quot;Beth&quot; );</span><br><span class="line">slist.insert(slist.begin(), spouse)</span><br><span class="line">svec.insert(svec.begin(), spouse)</span><br><span class="line"></span><br><span class="line">list&lt;string&gt;::iterator iter;</span><br><span class="line">iter = find( slist.begin(), slist.end(), son );</span><br><span class="line">slist.insert( iter, spouse );</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>insert()方法的第一种形式支持在某个位置插入指定的元素。</li>
+<li>insert()方法的第二种形式支持在某个位置插入指定数量的元素。</li>
+<li>insert()方法的第三种形式支持向容器插入一段范围内的元素。</li>
+</ol>
+<p>2.删除：erase()</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">string searchValue( &quot;Quasimodo&quot; );</span><br><span class="line">list&lt; string &gt;::iterator iter = find( slist.begin(), slist.end(), searchValue );</span><br><span class="line">if ( iter != slist.end() )&#123;</span><br><span class="line">	slist.erase( iter );</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
+<p>​        如同在容器尾部插入一个元素的push_back()方法相仿pop_back()方法删除容器的末元素——它不返回元素只是简单地删除它</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt; string &gt;::iterator iter = buffer.begin();</span><br><span class="line">for ( ; iter != buffer.end(); iter++ )&#123;</span><br><span class="line">	slist.push_back( *iter );</span><br><span class="line">	if ( ! do_something( slist ))</span><br><span class="line">		slist.pop_back();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.交换：swap()</p>
+<p>swap()可以被看作是赋值操作符的互补操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">slist1.swap( slist2 );</span><br></pre></td></tr></table></figure>
+
+<p>4.泛型算法：</p>
+<p>把所有容器类型的公共操作抽取出来形成一个通用算法集合它能够被应用到全部容器类型以及内置数组类型上，这组通用算法被称作泛型算法。泛型算法通过一个iterator 对，被绑定到一个特殊的容器上。</p>
+<p>示例：find()</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;list&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">int ia[6] = &#123;0, 1, 2, 3, 4, 5&#125;;</span><br><span class="line">vector&lt;string&gt; svec;</span><br><span class="line">list&lt;double&gt; dlist;</span><br><span class="line"></span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">// 如果找到, find()返回指向该元素的iterator</span><br><span class="line">// 对于数组, 返回指针</span><br><span class="line">vector&lt;string&gt;::iterator viter;</span><br><span class="line">list&lt;double&gt;::iterator liter;</span><br><span class="line">int *pia;</span><br><span class="line"></span><br><span class="line">pia = find( &amp;ia[0], &amp;ia[6], some_int_value );</span><br><span class="line">liter = find( dlist.begin(), dlist.end(), some_double_value );</span><br><span class="line">viter = find( svec.begin(), svec.end(), some_string_value );</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-7-存储文本行"><a href="#6-7-存储文本行" class="headerlink" title="6.7 存储文本行"></a>6.7 存储文本行</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">vector&lt;string&gt; *retrieve_text()&#123;</span><br><span class="line"></span><br><span class="line">    string filename;</span><br><span class="line">    cout &lt;&lt; &quot;please input the filename:&quot; &lt;&lt; endl;</span><br><span class="line">    cin &gt;&gt; filename;</span><br><span class="line">    //打开文本文件</span><br><span class="line">    ifstream infile(filename.c_str(), ios::in);</span><br><span class="line">    if( ! infile )&#123;</span><br><span class="line">        cerr &lt;&lt; &quot;Open file failed.&quot; &lt;&lt; endl;</span><br><span class="line">        exit(-1)</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    //读文件</span><br><span class="line">    vector&lt;string&gt; *lines_of_text = new vector&lt;string&gt;;</span><br><span class="line">    string textLine;</span><br><span class="line">    //定义别名</span><br><span class="line">    typedef pair&lt;string::size_type, int&gt; stats;</span><br><span class="line">    stats maxline;</span><br><span class="line">    int linenum = 0;</span><br><span class="line"></span><br><span class="line">    while( getline(infile, textLine, &#x27;\n&#x27;))&#123;</span><br><span class="line">        cout &lt;&lt; &quot;line read: &quot; &lt;&lt; textLine &lt;&lt; endl;</span><br><span class="line">        if(maxline.first &lt;&lt; textLine.size())&#123;</span><br><span class="line">            maxline.first = textline.size();</span><br><span class="line">            maxline.second = linenum;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        lines_of_text-&gt;push_back(textLine);</span><br><span class="line">        linenum++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return lines_of_text;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>右键添加创建.md文件</title>
-    <url>/%E5%AD%A6%E4%B9%A0/createMd/</url>
+    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/createMd/</url>
     <content><![CDATA[<h1 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h1><p>​    推荐使用Typora来编写MarkDown文档。<span id="more"></span></p>
 <h2 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h2><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
@@ -147,10 +256,10 @@
 <h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><img src = "/images/createMd/createMd01.png">
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>系统配置</category>
       </categories>
       <tags>
-        <tag>系统配置</tag>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -318,6 +427,39 @@
       </tags>
   </entry>
   <entry>
+    <title>git使用过程中遇到的一些问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/gitPushProblem/</url>
+    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
+<span id="more"></span>
+
+<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
+<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    接着重新上传，成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo_init</title>
     <url>/%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE/hexo-init/</url>
     <content><![CDATA[<h1 id="踩坑日记："><a href="#踩坑日记：" class="headerlink" title="踩坑日记："></a>踩坑日记：</h1><p>​    该踩的坑是一个都没少踩，记录一下自己踩的一些坑吧，好多都忘了。</p>
@@ -355,39 +497,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git使用过程中遇到的一些问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/gitPushProblem/</url>
-    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
-<span id="more"></span>
-
-<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
-<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    接着重新上传，成功。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
-
-<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
-<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
-
-<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
