@@ -3,7 +3,7 @@
   <entry>
     <title>C++学习过程中遇到的问题-01</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp-01/</url>
-    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂。</p>
+    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊。(<em>¯ㅿ¯</em>;)</p>
 <span id="more"></span>
 
 <h2 id="输入cin-指令无效"><a href="#输入cin-指令无效" class="headerlink" title="输入cin 指令无效"></a>输入cin 指令无效</h2><p>​    在一个简单的交互程序中，使用 cin 来读取输入时，第一次读取输入的字符串正常读取，第二次读取输入的数字时命令被忽略，直接跳过执行。</p>
@@ -17,8 +17,42 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两者需要同时使用。</span></span><br><span class="line">    cin.<span class="built_in">sync</span>();</span><br><span class="line">    cin.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
 
 <p>   更多的具体细节可以搜索函数的定义和功能。</p>
-<h2 id="Null-与-nullptr"><a href="#Null-与-nullptr" class="headerlink" title="Null 与 nullptr"></a>Null 与 nullptr</h2><p>Null在C++中定义为0，在很多场合（尤其涉及到指针时）。因此</p>
-<p>更加提倡使用nullptr来代替Null。</p>
+<h2 id="Null-与-nullptr"><a href="#Null-与-nullptr" class="headerlink" title="Null 与 nullptr"></a>Null 与 nullptr</h2><p>Null在C++中定义为0，在很多场合（尤其涉及到指针时）。因此更加提倡使用 nullptr 来代替Null。</p>
+<h2 id="using用法"><a href="#using用法" class="headerlink" title="using用法"></a>using用法</h2><p>C/C++中可以使用  typedef 来定义别名。被重定义的类型并不是一个新的类型，仅仅只是原有的类型取了一个新的名字。</p>
+<p>使用 typedef 重定义类型是很方便的，但它也有一些限制，比如，无法重定义一个模板。</p>
+<p>而using 的别名语法覆盖了 typedef 的全部功能。using 别名语法比 typedef 更加清晰。因为 typedef 的别名语法本质上类似一种解方程的思路。而 using 语法通过赋值来定义别名，和我们平时的思考方式一致。</p>
+<p>因此很多情况二者可以互换  但更多情况下最好使用using。</p>
+<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>析构函数（destructor）是成员函数的一种，它的名字与类名相同，但前面要加<code>~</code>，没有参数和返回值。一个类有且仅有一个析构函数。如果定义类时没写析构函数，则编译器生成默认析构函数。析构函数在对象消亡时即自动被调用。可以定义析构函数在对象消亡前做善后工作。例如，对象如果在生存期间用 new 运算符动态分配了内存，则在各处写 delete 语句以确保程序的每条执行路径都能释放这片内存是比较麻烦的事情。有了析构函数，只要在析构函数中调用 delete 语句，就能确保对象运行中用 new 运算符分配的空间在对象消亡时被释放。</p>
+<h2 id="const的不同用法"><a href="#const的不同用法" class="headerlink" title="const的不同用法"></a>const的不同用法</h2><p>关键问题点：const 属于修饰符 ，关键是看const 修饰的位置在那里</p>
+<p>​    在 C++ 中const是用来修饰内置类型变量，自定义对象，成员函数，返回值，函数参数。</p>
+<p>​    C++ const 允许指定一个语义约束，编译器会强制实施这个约束，允许程序员告诉编译器某值是保持不变的。如果在编程中确实有某个值保持不变，就应该明确使用const，这样可以获得编译器的帮助。</p>
+<h3 id="修饰普通类型变量"><a href="#修饰普通类型变量" class="headerlink" title="修饰普通类型变量"></a>修饰普通类型变量</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int num = 7;</span><br><span class="line">num = 8;//错误，num不可修改。</span><br></pre></td></tr></table></figure>
+
+<h3 id="修饰指针变量"><a href="#修饰指针变量" class="headerlink" title="修饰指针变量"></a>修饰指针变量</h3><p>const 修饰指针变量有以下三种情况。</p>
+<ul>
+<li>A: const 修饰指针指向的内容，则内容为不可变量。</li>
+<li>B: const 修饰指针，则指针为不可变量。</li>
+<li>C: const 修饰指针和指针指向的内容，则指针和指针指向的内容都为不可变量。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//A情形：</span><br><span class="line">const int *p = 8;</span><br><span class="line">//左定值，指针指向的内容不可改变。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//B情形:</span><br><span class="line">int a = 8;</span><br><span class="line">int* const p = &amp;a;</span><br><span class="line">*p =9; //正确</span><br><span class="line">int b = 7;</span><br><span class="line">p = &amp;b; //错误</span><br><span class="line">//对于 const 指针 p 其指向的内存地址不能够被改变，但其内容可以改变。简称，右定向。因为 const 位于 * 号的右边。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//C情形</span><br><span class="line">int a = 8;</span><br><span class="line">const int * const  p = &amp;a;</span><br><span class="line">//const p 的指向的内容和指向的内存地址都已固定，不可改变。</span><br></pre></td></tr></table></figure>
+
+<p>根据 const 位于 * 号的位置不同，可总结三句话便于记忆的话：**”左定值，右定向，const修饰不变量”**。</p>
+<p>int const *a 和 const int *a 的意义是相同的 他们两个的作用等价</p>
+<h3 id="const参数传递和函数返回值"><a href="#const参数传递和函数返回值" class="headerlink" title="const参数传递和函数返回值"></a>const参数传递和函数返回值</h3><p>对于 const 修饰函数参数可以分为三种情况。</p>
+<p>A：值传递的 const 修饰传递，一般这种情况不需要 const 修饰，因为函数会自动产生临时变量复制实参值。</p>
+<p>B：当 const 参数为指针时，可以防止指针被意外篡改。</p>
+<p>C：自定义类型的参数传递，需要临时对象复制参数，对于临时对象的构造，需要调用构造函数，比较浪费时间，因此我们采取 const 外加引用传递的方法。并且对于一般的 int、double 等内置类型，我们不采用引用的传递方式。</p>
+<p>Const 修饰返回值分三种情况。</p>
+<p>A：const 修饰内置类型的返回值，修饰与不修饰返回值作用一样。</p>
+<p>B: const 修饰自定义类型的作为返回值，此时返回的值不能作为左值使用，既不能被赋值，也不能被修改。</p>
+<p>C: const 修饰返回的指针或者引用，是否返回一个指向 const 的指针，取决于我们想让用户干什么。</p>
+<h3 id="const修饰类成员函数"><a href="#const修饰类成员函数" class="headerlink" title="const修饰类成员函数"></a>const修饰类成员函数</h3><p>const 修饰类成员函数，其目的是防止成员函数修改被调用对象的值，如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
+<p><strong>注意：</strong>const 关键字不能与 static 关键字同时使用，因为 static 关键字修饰静态成员函数，静态成员函数不含有 this 指针，即不能实例化，const 成员函数必须具体到某一实例。</p>
+<p>如果有个成员函数想修改对象中的某一个成员可以使用 mutable 关键字修饰这个成员，被 mutable 关键字修饰的成员可以处于不断变化中.</p>
 ]]></content>
       <categories>
         <category>学习</category>
