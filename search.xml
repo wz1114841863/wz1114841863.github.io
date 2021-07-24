@@ -1,8 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>cpp Primer chapter 01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh01/</url>
+    <content><![CDATA[<p> C++ Primer 第一篇学习笔记。<span id="more"></span></p>
+<h1 id="第一篇-C-概述"><a href="#第一篇-C-概述" class="headerlink" title="第一篇 C++概述"></a>第一篇 C++概述</h1><h2 id="第一章-开始"><a href="#第一章-开始" class="headerlink" title="第一章  开始"></a>第一章  开始</h2><h3 id="C-支持多种程序设计方法："><a href="#C-支持多种程序设计方法：" class="headerlink" title="C++支持多种程序设计方法："></a>C++支持多种程序设计方法：</h3><p>​    过程化程序设计方法。　主要是函数。</p>
+<p>　对抽象数据类型程序设计方法。　主要是类。</p>
+<p>​    面向对象程序设计方法。　主要是继承和动态绑定。</p>
+<h3 id="分而治之-和-逐步求精-的思想"><a href="#分而治之-和-逐步求精-的思想" class="headerlink" title="分而治之 和 逐步求精 的思想"></a>分而治之 和 逐步求精 的思想</h3><p>​        解决大问题的一种方法是，把它分解成许多小问题，理想情况下，这些小问题可以很容易地被解决，然后再把它们合在一起，就可以解决大问题了。如果新分割的小问题解决起来还是太大，就把它分割得再小一些，重复整个过程，直到能够解决每个小问题。</p>
+<h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>​    C++标准库中的名字都是在一个称作std 的名字空间中声明的，这些名字在我们的程序文本文件中是不可见的，除非我们显式地使它们可见，using 指示符告诉编译器要使用在名字空间std 中声明的名字。</p>
+<h3 id="预处理器指示符"><a href="#预处理器指示符" class="headerlink" title="预处理器指示符"></a>预处理器指示符</h3><p>如果文件名用尖括号&lt; 和&gt; 括起来表明这个文件是一个工程或标准头文件，查找过程会检查预定义的目录，我们可以通过设置搜索路径环境变量或命令行选项来修改这些目录。如果文件名用一对引号括起来。则表明该文件是用户提供的头文件查找该文件时将从当前文件目录开始。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;some_file.h&gt;</span><br><span class="line">#include &quot;my_file.h&quot;</span><br><span class="line"></span><br><span class="line">#ifndef BOOKSTORE_H</span><br><span class="line">#define BOOKSTORE_H</span><br><span class="line">/* Bookstore.h 的内容 */</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+
+<p>编译C++程序时编译器自动定义了一个预处理器名字__cplusplus （注意前面有两个下划线）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#ifdef __cplusplus</span><br><span class="line">	// 我们要编译C++</span><br><span class="line">	// extern &quot;C&quot;</span><br><span class="line">	extern &quot;C&quot;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">__LINE__ 用来记录文件已经被编译的行数 。</span><br><span class="line"></span><br><span class="line">__FILE__ 包含正在被编译的文件的名字。</span><br><span class="line"></span><br><span class="line">__TIME__  和 __DATE__ </span><br></pre></td></tr></table></figure>
+
+<h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><p>终端输入也被称为标准输入standard input，与预定义的iostream 对象 cin ，绑定在一起，直接向终端输出，也被称为标准输出standard output， 与预定义的iostream 对象cout 绑定在一起，第三个预定义iostream 对象cerr 称为标准错误standard error ，也与终端绑定cerr 通常用来产生给程序用户的警告或错误信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br></pre></td></tr></table></figure>
+
+<p>除了显式地使用换行符外我们还可以使用预定义的iostream 操纵符 endl.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//为了打开一个文件供输入或输出除了iostream 头文件外还必须包含头文件</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">ofstream outFile(nameOfFile);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="第二章-C-浏览"><a href="#第二章-C-浏览" class="headerlink" title="第二章  C++浏览"></a>第二章  C++浏览</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>虽然C++对数组类型提供了内置支持，但是这种支持仅限于用来读写单个元素的机制，C++不支持数组的抽象，也不支持对整个数组的操作。</p>
+<h3 id="动态内存分配和指针"><a href="#动态内存分配和指针" class="headerlink" title="动态内存分配和指针"></a>动态内存分配和指针</h3><p>在C++中指针的主要用处是管理和操纵动态分配的内存。<br>静态与动态内存分配的两个主要区别是：<br>    1.静态对象是有名字的变量，我们直接对其进行操作，而动态对象是没有名字的变量，我们通过指针间接地对它进行操作。<br>    2.静态对象的分配与释放由编译器自动处理，程序员需要理解这一点，但不需要做任何事情，相反，动态对象的分配与释放必须由程序员显式地管理，相对来说比较容易出错，它通过new 和delete 两个表达式来完成。</p>
+<h4 id="new的两种分配方式："><a href="#new的两种分配方式：" class="headerlink" title="new的两种分配方式："></a>new的两种分配方式：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//第一种：分配特定类型的单个对象</span><br><span class="line">int *pint = new int( 1024 );</span><br><span class="line">//第二种：用于分配特定类型和维数的数组</span><br><span class="line">int *pia = new int[ 4 ];</span><br></pre></td></tr></table></figure>
+
+<h4 id="delete的释放方法："><a href="#delete的释放方法：" class="headerlink" title="delete的释放方法："></a>delete的释放方法：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//单一对象的delete 表达式形式如下</span><br><span class="line">// 删除单个对象</span><br><span class="line">delete pint;</span><br><span class="line">//数组形式的delete 表达式如下</span><br><span class="line">// 删除一个对象数组</span><br><span class="line">delete [] pia;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Class-概述"><a href="#Class-概述" class="headerlink" title="Class 概述"></a>Class 概述</h3><h4 id="类名和类体："><a href="#类名和类体：" class="headerlink" title="类名和类体："></a>类名和类体：</h4><p>类定义包括两个部分：类头class head 由关键字class 与相关联的类名构成。类体class body 由花括号括起来以分号结束。类头本身也用作类的声明。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 在程序中声明IntArray 类但是不提供定义</span><br><span class="line">class IntArray;</span><br></pre></td></tr></table></figure>
+
+<p>类体包含成员定义,以及访问标签,如public 和private .类的成员包括该类能执行的操作和代表类抽象所必需的数据.这些操作称为成员函数member function 或方法 method。</p>
+<h4 id="成员访问操作符：-和-gt"><a href="#成员访问操作符：-和-gt" class="headerlink" title="成员访问操作符：  .   和 -&gt;"></a>成员访问操作符：  .   和 -&gt;</h4><h4 id="public-和-private"><a href="#public-和-private" class="headerlink" title="public 和 private"></a>public 和 private</h4><p>关键字private 和public 控制对类成员的访问,出现在类体中公有public 部分的成员,在一般程序的任何地方都可以访问它们,出现在私有private 部分的成员,只能在该类的成员函数或友元friend 中被访问.</p>
+<p>由于C++不允许成员函数与数据成员共享同一个名字，所以在这样的情况下，一般的习惯是在数据成员名字前面加一个下划线_。、</p>
+<h4 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h4><p>内联函数在它的调用点上被展开,一般来说内联函数不会引入任何函数调用.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">array.size() 展开为 array._size;</span><br></pre></td></tr></table></figure>
+
+<h4 id="构造函数和函数重载"><a href="#构造函数和函数重载" class="headerlink" title="构造函数和函数重载"></a>构造函数和函数重载</h4><p>构造函数是一种特殊的类成员函数，专门用于初始化对象。如果构造函数被定义了，那么在类的每个对象第一次被使用之前，这构造函数就被自动应用在对象上。</p>
+<p>为了定义一个构造函数，我们只要给它与类相同的名字即可，另外我们不能给构造函数指定返回值，但是可以给类定义多个构造函数，尽管它们都具有相同的名字，但只要编译器能够根据参数表区分它们就行。</p>
+<p>被声明为static 的数据成员，是一类特殊的共享数据成员。无论这个类的对象被定义了多少个，静态数据成员在程序中也只有一份，这是在类的所有对象之间共享数据的一种方式。</p>
+<h4 id="域操作符"><a href="#域操作符" class="headerlink" title="域操作符"></a>域操作符</h4><p>双冒号:: 操作符被称为域操作符。可以非正式地把域看作是一个可视窗口， 全局域的对象在它被定义的整个文件里(一直到文件末尾)都是可见的。</p>
+<p>C++类的关键特征是接口与实现的分离。接口是一些用户可以应用到类对象上的操作的集合，它由三部分构成这些操作的名字、它们的返回值、以及它们的参数表。一般地这就是该类用户所需要知道的全部内容。私有实现包括为支持公有接口所必需的算法和数据。</p>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>在C++中被继承的类被称作基类， 新类从基类派生而来，我们把它叫做基类的派生类或子类型。</p>
+<h3 id="泛型设计"><a href="#泛型设计" class="headerlink" title="泛型设计"></a>泛型设计</h3><h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><p>C++的模板设施提供了一种机制它能够将类成函数定义内部的类型和值参数化。</p>
+<p>模板机制也支持面向对象的程序设计，类模板可以作为基类或派生类。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;typename T&gt;</span><br><span class="line">template&lt;class T&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="泛型算法"><a href="#泛型算法" class="headerlink" title="泛型算法"></a>泛型算法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">搜索算法</span><br><span class="line">find() find_if() search() binary_search() count() count_if()</span><br><span class="line">分类排序与通用排序算法</span><br><span class="line">sort() partial_sort() merge() partition() rotate() reverse() random_shuffle()</span><br><span class="line">删除算法</span><br><span class="line">unique() remove()</span><br><span class="line">算术算法</span><br><span class="line">accumulate() partial_sum() inner_product() adjacent_difference()</span><br><span class="line">生成和变异算法</span><br><span class="line">generate() fill() transformation() copy( for_each()</span><br><span class="line">关系算法</span><br><span class="line">equal() min 和max()</span><br></pre></td></tr></table></figure>
+
+<p>泛型算法接受一对迭代器，它们标记了要遍历元素的范围。</p>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>异常处理为响应运行时刻的程序异常,提供了一个标准的语言级的设施.它支持统一的语法和风格,也允许每个程序员进行微调.</p>
+<p>异常处理机制的主要构成如下:</p>
+<ol>
+<li><p>程序中异常出现的点.</p>
+</li>
+<li><p>程序中异常被处理的点.</p>
+<p>典型地,程序异常的抛出与处理位于独立的函数或成员函数调用中.找到处理代码通常要涉及到展开程序调用栈,一旦异常被处理完毕就恢复正常的程序执行,但不是在发生异常的地方恢复执行过程,而是在处理异常的<br>地方恢复执行过程.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catch(string exceptionMsg)&#123;</span><br><span class="line">    log_message( exceptionMsg );</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>catch 子句与try 块相关联,一个try 块用一个或多个catch 子句将一条或多条语句组织起来.</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">try&#123;</span><br><span class="line"></span><br><span class="line">&#125;catch()&#123;</span><br><span class="line"></span><br><span class="line">&#125;catrch( ... )&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="命名空间-1"><a href="#命名空间-1" class="headerlink" title="命名空间"></a>命名空间</h3><p>名字空间机制允许我们封装名字，否则这些名字就有可能会污染影响全局名字空间。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace Cplusplus_Primer_3E &#123;</span><br><span class="line">template &lt;class elemType&gt;</span><br><span class="line">class Array &#123; ... &#125;;</span><br><span class="line">// ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果名字空间内的声明对程序而言不是立即可见的，那么我们可以使用限定修饰名字符，格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace_identifier::entity_name</span><br></pre></td></tr></table></figure>
+
+<p>名字空间别名允许用一个可替代的短的或更一般的名字与一个现有的名字空间关联起来。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 提供一个更一般化的别名</span><br><span class="line">namespace LIB = IBM_Canada_Laboratory;</span><br><span class="line">// 提供一个更短的别名</span><br><span class="line">namespace DFA = Disney_Feature_Animation;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">using std::string;</span><br><span class="line">std::string;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 03</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>右键添加创建.md文件</title>
+    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/createMd/</url>
+    <content><![CDATA[<h1 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h1><p>​    推荐使用Typora来编写MarkDown文档。<span id="more"></span></p>
+<h2 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h2><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>注意：修改上述的typora文件路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot; --&gt; “修改成你自己的文件路径”</span><br></pre></td></tr></table></figure>
+
+<p>2.保存后重命名，修改后缀为  .reg 文件。</p>
+<p>3.双击执行，一路点是就行。</p>
+<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><img src = "/images/createMd/createMd01.png">
+]]></content>
+      <categories>
+        <category>系统配置</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++学习过程中遇到的问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp-01/</url>
+    <url>/%E5%AD%A6%E4%B9%A0/cppProblem01/</url>
     <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊。(<em>¯ㅿ¯</em>;)</p>
 <span id="more"></span>
 
@@ -63,7 +181,7 @@
   </entry>
   <entry>
     <title>DSA</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DSA/</url>
+    <url>/%E5%AD%A6%E4%B9%A0/dsa/</url>
     <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>​    虽然一直知道数据结构和算法很重要，但是一直学的也不太行，毕竟不是计院学生，敲的代码也太少。<span id="more"></span></p>
 <p>参考书籍清华邓俊辉教授撰写的《数据结构（C++语言版）》。</p>
 <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>​    O(1):常数时间复杂度算法</p>
@@ -105,116 +223,8 @@
       </tags>
   </entry>
   <entry>
-    <title>OpenCV-Tutorials</title>
-    <url>/%E5%AD%A6%E4%B9%A0/OpenCV-tutorials/</url>
-    <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>​    OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
-<span id="more"></span>
-
-<h3 id="CV与Matplotlib的颜色冲突"><a href="#CV与Matplotlib的颜色冲突" class="headerlink" title="CV与Matplotlib的颜色冲突"></a>CV与Matplotlib的颜色冲突</h3><p> OpenCV中读取彩图的颜色是以BGR来排序的，而Matplotlib中图片是以RGB排序的，因此如果想要使用pyplot来展示图片，就需要对图片的颜色域顺序进行处理，不过实现起来也很方便。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv.imread(<span class="string">&quot;o1.png&quot;</span>)</span><br><span class="line">img = img[:,:,::-<span class="number">1</span>]</span><br><span class="line">plt.show(<span class="string">&quot;Image&quot;</span>,img)</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用拉普拉斯算子获取图像边缘"><a href="#使用拉普拉斯算子获取图像边缘" class="headerlink" title="使用拉普拉斯算子获取图像边缘"></a>使用拉普拉斯算子获取图像边缘</h3><p>以下是示例和我按照示例的到的结果：</p>
-<p>官方示例：</p>
-<img src="/images/OpenCV/openCV_01.png">
-
-<p>我的结果：</p>
-<img src="/images/OpenCV/openCV_02.png">
-
-<p>可以看出并没有得到示例中所展示的效果。</p>
-<p>查看函数参数说明，可以看到有一项参数为：</p>
-<p><strong>CV_<bit_depth>(S|U|F)C<number_of_channels></strong></p>
-<p>说明如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bit_depth：比特数---代表8bite,16bites,32bites,64bites...</span><br><span class="line"></span><br><span class="line">如果你现在创建了一个存储--灰度图片的Mat对象,这个图像的大小为宽100,高100,那么,现在这张灰度图片中有10000个像素点，它每一个像素点在内存空间所占的空间大小是8bite,8位--所以它对应的就是CV_8。</span><br><span class="line">-------------</span><br><span class="line"></span><br><span class="line">S|U|F:</span><br><span class="line"></span><br><span class="line">S--代表---signed int---有符号整形</span><br><span class="line"></span><br><span class="line">U--代表--unsigned int--无符号整形</span><br><span class="line"></span><br><span class="line">F--代表--float---------单精度浮点型</span><br><span class="line"></span><br><span class="line">---------</span><br><span class="line"></span><br><span class="line">C&lt;number_of_channels&gt;----代表---一张图片的通道数,比如:</span><br><span class="line"></span><br><span class="line">channels = 1：灰度图片--grayImg---是--单通道图像</span><br><span class="line"></span><br><span class="line">channels = 3：RGB彩色图像---------是--3通道图像</span><br><span class="line"></span><br><span class="line">channels = 4：带Alph通道的RGB图像--是--4通道图像</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
-
-<p>修改参数为CV_8U后，调整内核大小，得到预期结果。</p>
-<h3 id="绘制轮廓"><a href="#绘制轮廓" class="headerlink" title="绘制轮廓"></a>绘制轮廓</h3><p>看函数说明时，需要使用二值图片才能更好的识别轮廓。所以我就直接选择了使用二值图片去查找轮廓。但是再绘制轮廓时发现无法绘制轮廓，观察函数发现：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cv2.drawContours(image, contours, contourIdx, color, thickness=None, lineType=None, hierarchy=None, maxLevel=None, offset=None)</span><br></pre></td></tr></table></figure>
-
-<p>其中要求image类型为彩色图片。所以就需要使用彩色图片从BGR-&gt;GRAY,在进行阈值化处理变为二值图片识别轮廓，最后再原图上画图。</p>
-<h3 id="多对象模板匹配"><a href="#多对象模板匹配" class="headerlink" title="多对象模板匹配"></a>多对象模板匹配</h3><p>源代码见github仓库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#函数：cv.matchTemplate(), cv.minMaxLoc()</span><br><span class="line">import numpy as np</span><br><span class="line">import cv2 as cv </span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line"></span><br><span class="line">img7 = cv.imread(&quot;../Images/img7.jpg&quot;)</span><br><span class="line">img7 = cv.cvtColor(img7, cv.COLOR_BGR2GRAY)</span><br><span class="line">target = img7.copy()</span><br><span class="line">template = cv.imread(&quot;../Images/img7_1.png&quot;)</span><br><span class="line">template = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">w, h = template.shape[::-1]</span><br><span class="line">#列表中所有的6种比较方法</span><br><span class="line">methods = [&#x27;cv.TM_CCOEFF&#x27;, &#x27;cv.TM_CCOEFF_NORMED&#x27;, &#x27;cv.TM_CCORR&#x27;,</span><br><span class="line">            &#x27;cv.TM_CCORR_NORMED&#x27;, &#x27;cv.TM_SQDIFF&#x27;, &#x27;cv.TM_SQDIFF_NORMED&#x27;]</span><br><span class="line">for meth in methods:</span><br><span class="line">    img7 = target.copy()</span><br><span class="line">    method = eval(meth)</span><br><span class="line">    # 应用模板匹配</span><br><span class="line">    res = cv.matchTemplate(img7,template,method)</span><br><span class="line">    min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)</span><br><span class="line">    # 如果方法是TM_SQDIFF或TM_SQDIFF_NORMED，则取最小值</span><br><span class="line">    if method in [cv.TM_SQDIFF, cv.TM_SQDIFF_NORMED]:</span><br><span class="line">        top_left = min_loc</span><br><span class="line">    else:</span><br><span class="line">        top_left = max_loc</span><br><span class="line">    bottom_right = (top_left[0] + w, top_left[1] + h)</span><br><span class="line">    cv.rectangle(img7,top_left, bottom_right, 255, 2)</span><br><span class="line">    plt.subplot(121),plt.imshow(res,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Matching Result&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.subplot(122),plt.imshow(img7,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Detected Point&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.suptitle(meth)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">#多对象匹配</span><br><span class="line">img22 = cv.imread(&quot;../Images/img22.png&quot;)</span><br><span class="line">img22_gray = cv.cvtColor(img22, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(img22_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">template = cv.imread(&#x27;../Images/img22_1.png&#x27;)</span><br><span class="line">template_gray = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(template_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">w, h = template_gray.shape[:: -1]</span><br><span class="line">print(w,h)</span><br><span class="line">res = cv.matchTemplate(img22_gray, template_gray, cv.TM_CCOEFF_NORMED)</span><br><span class="line">threshold = 0.55</span><br><span class="line">loc = np.where( res &gt;= threshold)</span><br><span class="line">for pt in zip(*loc[::-1]):</span><br><span class="line">    cv.rectangle(img22, pt, (pt[0] + w , pt[1]+ h), (0,255,255), 2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">cv.imshow(&quot;image&quot;,img22 )</span><br><span class="line">cv.waitKey(0)</span><br><span class="line">cv.destroyAllWindows()</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">img22 = img22[:, :, :: -1]</span><br><span class="line">plt.imshow(img22)</span><br><span class="line">plt.show()</span><br><span class="line">#错误原因分析：因为匹配时采用灰度图像，所以水管被匹配到了</span><br></pre></td></tr></table></figure>
-
-<p>遇到的问题：</p>
-<p>​    刚开始绘制正方形时，整个图片全部变为黄色，后来意识到是因为阈值太低和匹配模式选择的问题。通过调整匹配模式和阈值，能大致匹配到合适位置，但由于匹配时采用的是灰度图片，所以水管口依旧被匹配到了，还需要进一步改进。</p>
-<h3 id="图片绘制形状"><a href="#图片绘制形状" class="headerlink" title="图片绘制形状"></a>图片绘制形状</h3><p>由于OpenCV读取的图片以BGR格式存储，如果想用plot绘图就需要用</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img = img[:, :, :: -1]</span><br></pre></td></tr></table></figure>
-
-<p>但是如果想要在图形上绘图就不能先转变将图片变为RGB格式，否则无法绘制矩形等形状且不报错。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>OpenCV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu使用中遇到的问题</title>
-    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/UbuntuUsing/</url>
-    <content><![CDATA[<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。然后就开始疯狂踩坑！！！</p>
-<span id="more"></span>
-
-<h2 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h2><p>   没想到语言选择第一步就难住了我，安装的是中文版到但是一直没能成功设置为中文。直到看到一个鬼才方法。具体步骤如下：</p>
-<p>​    1.找到Ubuntu中Language support软件</p>
-<p>​    2.打开软件后添加简体中文语言包</p>
-<p>​    3.现在依然显示汉语为灰色无法选中，但是可以拖动！！！将汉语那一框拖动到最上面去，然后重启就可以了。</p>
-<p>参考的博客链接为：</p>
-<p><a href="https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.base">https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base</a></p>
-]]></content>
-      <categories>
-        <category>系统配置</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh01/</url>
-    <content><![CDATA[<p> C++ Primer 第一篇学习笔记。<span id="more"></span></p>
-<h2 id="第一篇-C-概述"><a href="#第一篇-C-概述" class="headerlink" title="第一篇 C++概述"></a>第一篇 C++概述</h2><h3 id="第一节"><a href="#第一节" class="headerlink" title="第一节"></a>第一节</h3><h3 id="第二节"><a href="#第二节" class="headerlink" title="第二节"></a>第二节</h3>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 03</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>右键添加创建.md文件</title>
-    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/createMd/</url>
-    <content><![CDATA[<h1 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h1><p>​    推荐使用Typora来编写MarkDown文档。<span id="more"></span></p>
-<h2 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h2><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
-
-<p>注意：修改上述的typora文件路径：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot; --&gt; “修改成你自己的文件路径”</span><br></pre></td></tr></table></figure>
-
-<p>2.保存后重命名，修改后缀为  .reg 文件。</p>
-<p>3.双击执行，一路点是就行。</p>
-<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><img src = "/images/createMd/createMd01.png">
-]]></content>
-      <categories>
-        <category>系统配置</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git学习笔记01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/gitNote/</url>
+    <url>/%E5%AD%A6%E4%B9%A0/gitNote01/</url>
     <content><![CDATA[<h2 id="系统的学习一下Git和Github的使用"><a href="#系统的学习一下Git和Github的使用" class="headerlink" title="系统的学习一下Git和Github的使用"></a>系统的学习一下Git和Github的使用</h2><p>​    已经了解和使用过Git和Github，但是并没有具体的学习过。通过系统学习能进一步加深影响。<span id="more"></span></p>
 <p>​    参考书籍《ProGit》。</p>
 <h3 id="获取Git仓库"><a href="#获取Git仓库" class="headerlink" title="获取Git仓库"></a>获取Git仓库</h3><p>​    获取方式通常有两种：</p>
@@ -488,8 +498,72 @@
       </tags>
   </entry>
   <entry>
+    <title>OpenCV-Tutorials</title>
+    <url>/%E5%AD%A6%E4%B9%A0/openCV-tutorials/</url>
+    <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>​    OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
+<span id="more"></span>
+
+<h3 id="CV与Matplotlib的颜色冲突"><a href="#CV与Matplotlib的颜色冲突" class="headerlink" title="CV与Matplotlib的颜色冲突"></a>CV与Matplotlib的颜色冲突</h3><p> OpenCV中读取彩图的颜色是以BGR来排序的，而Matplotlib中图片是以RGB排序的，因此如果想要使用pyplot来展示图片，就需要对图片的颜色域顺序进行处理，不过实现起来也很方便。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv.imread(<span class="string">&quot;o1.png&quot;</span>)</span><br><span class="line">img = img[:,:,::-<span class="number">1</span>]</span><br><span class="line">plt.show(<span class="string">&quot;Image&quot;</span>,img)</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用拉普拉斯算子获取图像边缘"><a href="#使用拉普拉斯算子获取图像边缘" class="headerlink" title="使用拉普拉斯算子获取图像边缘"></a>使用拉普拉斯算子获取图像边缘</h3><p>以下是示例和我按照示例的到的结果：</p>
+<p>官方示例：</p>
+<img src="/images/OpenCV/openCV_01.png">
+
+<p>我的结果：</p>
+<img src="/images/OpenCV/openCV_02.png">
+
+<p>可以看出并没有得到示例中所展示的效果。</p>
+<p>查看函数参数说明，可以看到有一项参数为：</p>
+<p><strong>CV_<bit_depth>(S|U|F)C<number_of_channels></strong></p>
+<p>说明如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bit_depth：比特数---代表8bite,16bites,32bites,64bites...</span><br><span class="line"></span><br><span class="line">如果你现在创建了一个存储--灰度图片的Mat对象,这个图像的大小为宽100,高100,那么,现在这张灰度图片中有10000个像素点，它每一个像素点在内存空间所占的空间大小是8bite,8位--所以它对应的就是CV_8。</span><br><span class="line">-------------</span><br><span class="line"></span><br><span class="line">S|U|F:</span><br><span class="line"></span><br><span class="line">S--代表---signed int---有符号整形</span><br><span class="line"></span><br><span class="line">U--代表--unsigned int--无符号整形</span><br><span class="line"></span><br><span class="line">F--代表--float---------单精度浮点型</span><br><span class="line"></span><br><span class="line">---------</span><br><span class="line"></span><br><span class="line">C&lt;number_of_channels&gt;----代表---一张图片的通道数,比如:</span><br><span class="line"></span><br><span class="line">channels = 1：灰度图片--grayImg---是--单通道图像</span><br><span class="line"></span><br><span class="line">channels = 3：RGB彩色图像---------是--3通道图像</span><br><span class="line"></span><br><span class="line">channels = 4：带Alph通道的RGB图像--是--4通道图像</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
+
+<p>修改参数为CV_8U后，调整内核大小，得到预期结果。</p>
+<h3 id="绘制轮廓"><a href="#绘制轮廓" class="headerlink" title="绘制轮廓"></a>绘制轮廓</h3><p>看函数说明时，需要使用二值图片才能更好的识别轮廓。所以我就直接选择了使用二值图片去查找轮廓。但是再绘制轮廓时发现无法绘制轮廓，观察函数发现：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cv2.drawContours(image, contours, contourIdx, color, thickness=None, lineType=None, hierarchy=None, maxLevel=None, offset=None)</span><br></pre></td></tr></table></figure>
+
+<p>其中要求image类型为彩色图片。所以就需要使用彩色图片从BGR-&gt;GRAY,在进行阈值化处理变为二值图片识别轮廓，最后再原图上画图。</p>
+<h3 id="多对象模板匹配"><a href="#多对象模板匹配" class="headerlink" title="多对象模板匹配"></a>多对象模板匹配</h3><p>源代码见github仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#函数：cv.matchTemplate(), cv.minMaxLoc()</span><br><span class="line">import numpy as np</span><br><span class="line">import cv2 as cv </span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line"></span><br><span class="line">img7 = cv.imread(&quot;../Images/img7.jpg&quot;)</span><br><span class="line">img7 = cv.cvtColor(img7, cv.COLOR_BGR2GRAY)</span><br><span class="line">target = img7.copy()</span><br><span class="line">template = cv.imread(&quot;../Images/img7_1.png&quot;)</span><br><span class="line">template = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">w, h = template.shape[::-1]</span><br><span class="line">#列表中所有的6种比较方法</span><br><span class="line">methods = [&#x27;cv.TM_CCOEFF&#x27;, &#x27;cv.TM_CCOEFF_NORMED&#x27;, &#x27;cv.TM_CCORR&#x27;,</span><br><span class="line">            &#x27;cv.TM_CCORR_NORMED&#x27;, &#x27;cv.TM_SQDIFF&#x27;, &#x27;cv.TM_SQDIFF_NORMED&#x27;]</span><br><span class="line">for meth in methods:</span><br><span class="line">    img7 = target.copy()</span><br><span class="line">    method = eval(meth)</span><br><span class="line">    # 应用模板匹配</span><br><span class="line">    res = cv.matchTemplate(img7,template,method)</span><br><span class="line">    min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)</span><br><span class="line">    # 如果方法是TM_SQDIFF或TM_SQDIFF_NORMED，则取最小值</span><br><span class="line">    if method in [cv.TM_SQDIFF, cv.TM_SQDIFF_NORMED]:</span><br><span class="line">        top_left = min_loc</span><br><span class="line">    else:</span><br><span class="line">        top_left = max_loc</span><br><span class="line">    bottom_right = (top_left[0] + w, top_left[1] + h)</span><br><span class="line">    cv.rectangle(img7,top_left, bottom_right, 255, 2)</span><br><span class="line">    plt.subplot(121),plt.imshow(res,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Matching Result&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.subplot(122),plt.imshow(img7,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Detected Point&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.suptitle(meth)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">#多对象匹配</span><br><span class="line">img22 = cv.imread(&quot;../Images/img22.png&quot;)</span><br><span class="line">img22_gray = cv.cvtColor(img22, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(img22_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">template = cv.imread(&#x27;../Images/img22_1.png&#x27;)</span><br><span class="line">template_gray = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(template_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">w, h = template_gray.shape[:: -1]</span><br><span class="line">print(w,h)</span><br><span class="line">res = cv.matchTemplate(img22_gray, template_gray, cv.TM_CCOEFF_NORMED)</span><br><span class="line">threshold = 0.55</span><br><span class="line">loc = np.where( res &gt;= threshold)</span><br><span class="line">for pt in zip(*loc[::-1]):</span><br><span class="line">    cv.rectangle(img22, pt, (pt[0] + w , pt[1]+ h), (0,255,255), 2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">cv.imshow(&quot;image&quot;,img22 )</span><br><span class="line">cv.waitKey(0)</span><br><span class="line">cv.destroyAllWindows()</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">img22 = img22[:, :, :: -1]</span><br><span class="line">plt.imshow(img22)</span><br><span class="line">plt.show()</span><br><span class="line">#错误原因分析：因为匹配时采用灰度图像，所以水管被匹配到了</span><br></pre></td></tr></table></figure>
+
+<p>遇到的问题：</p>
+<p>​    刚开始绘制正方形时，整个图片全部变为黄色，后来意识到是因为阈值太低和匹配模式选择的问题。通过调整匹配模式和阈值，能大致匹配到合适位置，但由于匹配时采用的是灰度图片，所以水管口依旧被匹配到了，还需要进一步改进。</p>
+<h3 id="图片绘制形状"><a href="#图片绘制形状" class="headerlink" title="图片绘制形状"></a>图片绘制形状</h3><p>由于OpenCV读取的图片以BGR格式存储，如果想用plot绘图就需要用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img = img[:, :, :: -1]</span><br></pre></td></tr></table></figure>
+
+<p>但是如果想要在图形上绘图就不能先转变将图片变为RGB格式，否则无法绘制矩形等形状且不报错。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>OpenCV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu使用中遇到的问题</title>
+    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ubuntuUsing/</url>
+    <content><![CDATA[<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。然后就开始疯狂踩坑！！！</p>
+<span id="more"></span>
+
+<h2 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h2><p>   没想到语言选择第一步就难住了我，安装的是中文版到但是一直没能成功设置为中文。直到看到一个鬼才方法。具体步骤如下：</p>
+<p>​    1.找到Ubuntu中Language support软件</p>
+<p>​    2.打开软件后添加简体中文语言包</p>
+<p>​    3.现在依然显示汉语为灰色无法选中，但是可以拖动！！！将汉语那一框拖动到最上面去，然后重启就可以了。</p>
+<p>参考的博客链接为：</p>
+<p><a href="https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.base">https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base</a></p>
+]]></content>
+      <categories>
+        <category>系统配置</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp Primer chapter 2.6</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh02/</url>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh02_6/</url>
     <content><![CDATA[<p>C++ Primer 第二篇第六章学习笔记。<span id="more"></span></p>
 <h2 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h2><h3 id="第六章-抽象容器类型"><a href="#第六章-抽象容器类型" class="headerlink" title="第六章  抽象容器类型"></a>第六章  抽象容器类型</h3><h4 id="顺序容器：由单一类型元素组成的一个有序集合。"><a href="#顺序容器：由单一类型元素组成的一个有序集合。" class="headerlink" title="顺序容器：由单一类型元素组成的一个有序集合。"></a>顺序容器：由单一类型元素组成的一个有序集合。</h4><ol>
 <li>list：双向链表</li>
