@@ -1,92 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>cpp Primer chapter 1.1</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh01/</url>
-    <content><![CDATA[<p> C++ Primer 第一篇学习笔记。<span id="more"></span></p>
-<h1 id="第一篇-C-概述"><a href="#第一篇-C-概述" class="headerlink" title="第一篇 C++概述"></a>第一篇 C++概述</h1><h2 id="第一章-开始"><a href="#第一章-开始" class="headerlink" title="第一章  开始"></a>第一章  开始</h2><h3 id="C-支持多种程序设计方法："><a href="#C-支持多种程序设计方法：" class="headerlink" title="C++支持多种程序设计方法："></a>C++支持多种程序设计方法：</h3><p>​    过程化程序设计方法。　主要是函数。</p>
-<p>　对抽象数据类型程序设计方法。　主要是类。</p>
-<p>​    面向对象程序设计方法。　主要是继承和动态绑定。</p>
-<h3 id="分而治之-和-逐步求精-的思想"><a href="#分而治之-和-逐步求精-的思想" class="headerlink" title="分而治之 和 逐步求精 的思想"></a>分而治之 和 逐步求精 的思想</h3><p>​        解决大问题的一种方法是，把它分解成许多小问题，理想情况下，这些小问题可以很容易地被解决，然后再把它们合在一起，就可以解决大问题了。如果新分割的小问题解决起来还是太大，就把它分割得再小一些，重复整个过程，直到能够解决每个小问题。</p>
-<h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>​    C++标准库中的名字都是在一个称作std 的名字空间中声明的，这些名字在我们的程序文本文件中是不可见的，除非我们显式地使它们可见，using 指示符告诉编译器要使用在名字空间std 中声明的名字。</p>
-<h3 id="预处理器指示符"><a href="#预处理器指示符" class="headerlink" title="预处理器指示符"></a>预处理器指示符</h3><p>如果文件名用尖括号&lt; 和&gt; 括起来表明这个文件是一个工程或标准头文件，查找过程会检查预定义的目录，我们可以通过设置搜索路径环境变量或命令行选项来修改这些目录。如果文件名用一对引号括起来。则表明该文件是用户提供的头文件查找该文件时将从当前文件目录开始。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;some_file.h&gt;</span><br><span class="line">#include &quot;my_file.h&quot;</span><br><span class="line"></span><br><span class="line">#ifndef BOOKSTORE_H</span><br><span class="line">#define BOOKSTORE_H</span><br><span class="line">/* Bookstore.h 的内容 */</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-
-<p>编译C++程序时编译器自动定义了一个预处理器名字__cplusplus （注意前面有两个下划线）。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#ifdef __cplusplus</span><br><span class="line">	// 我们要编译C++</span><br><span class="line">	// extern &quot;C&quot;</span><br><span class="line">	extern &quot;C&quot;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">__LINE__ 用来记录文件已经被编译的行数 。</span><br><span class="line"></span><br><span class="line">__FILE__ 包含正在被编译的文件的名字。</span><br><span class="line"></span><br><span class="line">__TIME__  和 __DATE__ </span><br></pre></td></tr></table></figure>
-
-<h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><p>终端输入也被称为标准输入standard input，与预定义的iostream 对象 cin ，绑定在一起，直接向终端输出，也被称为标准输出standard output， 与预定义的iostream 对象cout 绑定在一起，第三个预定义iostream 对象cerr 称为标准错误standard error ，也与终端绑定cerr 通常用来产生给程序用户的警告或错误信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br></pre></td></tr></table></figure>
-
-<p>除了显式地使用换行符外我们还可以使用预定义的iostream 操纵符 endl.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//为了打开一个文件供输入或输出除了iostream 头文件外还必须包含头文件</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">ofstream outFile(nameOfFile);</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="第二章-C-浏览"><a href="#第二章-C-浏览" class="headerlink" title="第二章  C++浏览"></a>第二章  C++浏览</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>虽然C++对数组类型提供了内置支持，但是这种支持仅限于用来读写单个元素的机制，C++不支持数组的抽象，也不支持对整个数组的操作。</p>
-<h3 id="动态内存分配和指针"><a href="#动态内存分配和指针" class="headerlink" title="动态内存分配和指针"></a>动态内存分配和指针</h3><p>在C++中指针的主要用处是管理和操纵动态分配的内存。<br>静态与动态内存分配的两个主要区别是：<br>    1.静态对象是有名字的变量，我们直接对其进行操作，而动态对象是没有名字的变量，我们通过指针间接地对它进行操作。<br>    2.静态对象的分配与释放由编译器自动处理，程序员需要理解这一点，但不需要做任何事情，相反，动态对象的分配与释放必须由程序员显式地管理，相对来说比较容易出错，它通过new 和delete 两个表达式来完成。</p>
-<h4 id="new的两种分配方式："><a href="#new的两种分配方式：" class="headerlink" title="new的两种分配方式："></a>new的两种分配方式：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//第一种：分配特定类型的单个对象</span><br><span class="line">int *pint = new int( 1024 );</span><br><span class="line">//第二种：用于分配特定类型和维数的数组</span><br><span class="line">int *pia = new int[ 4 ];</span><br></pre></td></tr></table></figure>
-
-<h4 id="delete的释放方法："><a href="#delete的释放方法：" class="headerlink" title="delete的释放方法："></a>delete的释放方法：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//单一对象的delete 表达式形式如下</span><br><span class="line">// 删除单个对象</span><br><span class="line">delete pint;</span><br><span class="line">//数组形式的delete 表达式如下</span><br><span class="line">// 删除一个对象数组</span><br><span class="line">delete [] pia;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Class-概述"><a href="#Class-概述" class="headerlink" title="Class 概述"></a>Class 概述</h3><h4 id="类名和类体："><a href="#类名和类体：" class="headerlink" title="类名和类体："></a>类名和类体：</h4><p>类定义包括两个部分：类头class head 由关键字class 与相关联的类名构成。类体class body 由花括号括起来以分号结束。类头本身也用作类的声明。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 在程序中声明IntArray 类但是不提供定义</span><br><span class="line">class IntArray;</span><br></pre></td></tr></table></figure>
-
-<p>类体包含成员定义,以及访问标签,如public 和private .类的成员包括该类能执行的操作和代表类抽象所必需的数据.这些操作称为成员函数member function 或方法 method。</p>
-<h4 id="成员访问操作符：-和-gt"><a href="#成员访问操作符：-和-gt" class="headerlink" title="成员访问操作符：  .   和 -&gt;"></a>成员访问操作符：  .   和 -&gt;</h4><h4 id="public-和-private"><a href="#public-和-private" class="headerlink" title="public 和 private"></a>public 和 private</h4><p>关键字private 和public 控制对类成员的访问,出现在类体中公有public 部分的成员,在一般程序的任何地方都可以访问它们,出现在私有private 部分的成员,只能在该类的成员函数或友元friend 中被访问.</p>
-<p>由于C++不允许成员函数与数据成员共享同一个名字，所以在这样的情况下，一般的习惯是在数据成员名字前面加一个下划线_。、</p>
-<h4 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h4><p>内联函数在它的调用点上被展开,一般来说内联函数不会引入任何函数调用.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">array.size() 展开为 array._size;</span><br></pre></td></tr></table></figure>
-
-<h4 id="构造函数和函数重载"><a href="#构造函数和函数重载" class="headerlink" title="构造函数和函数重载"></a>构造函数和函数重载</h4><p>构造函数是一种特殊的类成员函数，专门用于初始化对象。如果构造函数被定义了，那么在类的每个对象第一次被使用之前，这构造函数就被自动应用在对象上。</p>
-<p>为了定义一个构造函数，我们只要给它与类相同的名字即可，另外我们不能给构造函数指定返回值，但是可以给类定义多个构造函数，尽管它们都具有相同的名字，但只要编译器能够根据参数表区分它们就行。</p>
-<p>被声明为static 的数据成员，是一类特殊的共享数据成员。无论这个类的对象被定义了多少个，静态数据成员在程序中也只有一份，这是在类的所有对象之间共享数据的一种方式。</p>
-<h4 id="域操作符"><a href="#域操作符" class="headerlink" title="域操作符"></a>域操作符</h4><p>双冒号:: 操作符被称为域操作符。可以非正式地把域看作是一个可视窗口， 全局域的对象在它被定义的整个文件里(一直到文件末尾)都是可见的。</p>
-<p>C++类的关键特征是接口与实现的分离。接口是一些用户可以应用到类对象上的操作的集合，它由三部分构成这些操作的名字、它们的返回值、以及它们的参数表。一般地这就是该类用户所需要知道的全部内容。私有实现包括为支持公有接口所必需的算法和数据。</p>
-<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>在C++中被继承的类被称作基类， 新类从基类派生而来，我们把它叫做基类的派生类或子类型。</p>
-<h3 id="泛型设计"><a href="#泛型设计" class="headerlink" title="泛型设计"></a>泛型设计</h3><h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><p>C++的模板设施提供了一种机制它能够将类成函数定义内部的类型和值参数化。</p>
-<p>模板机制也支持面向对象的程序设计，类模板可以作为基类或派生类。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;typename T&gt;</span><br><span class="line">template&lt;class T&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="泛型算法"><a href="#泛型算法" class="headerlink" title="泛型算法"></a>泛型算法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">搜索算法</span><br><span class="line">find() find_if() search() binary_search() count() count_if()</span><br><span class="line">分类排序与通用排序算法</span><br><span class="line">sort() partial_sort() merge() partition() rotate() reverse() random_shuffle()</span><br><span class="line">删除算法</span><br><span class="line">unique() remove()</span><br><span class="line">算术算法</span><br><span class="line">accumulate() partial_sum() inner_product() adjacent_difference()</span><br><span class="line">生成和变异算法</span><br><span class="line">generate() fill() transformation() copy( for_each()</span><br><span class="line">关系算法</span><br><span class="line">equal() min 和max()</span><br></pre></td></tr></table></figure>
-
-<p>泛型算法接受一对迭代器，它们标记了要遍历元素的范围。</p>
-<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>异常处理为响应运行时刻的程序异常,提供了一个标准的语言级的设施.它支持统一的语法和风格,也允许每个程序员进行微调.</p>
-<p>异常处理机制的主要构成如下:</p>
-<ol>
-<li><p>程序中异常出现的点.</p>
-</li>
-<li><p>程序中异常被处理的点.</p>
-<p>典型地,程序异常的抛出与处理位于独立的函数或成员函数调用中.找到处理代码通常要涉及到展开程序调用栈,一旦异常被处理完毕就恢复正常的程序执行,但不是在发生异常的地方恢复执行过程,而是在处理异常的<br>地方恢复执行过程.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catch(string exceptionMsg)&#123;</span><br><span class="line">    log_message( exceptionMsg );</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>catch 子句与try 块相关联,一个try 块用一个或多个catch 子句将一条或多条语句组织起来.</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">try&#123;</span><br><span class="line"></span><br><span class="line">&#125;catch()&#123;</span><br><span class="line"></span><br><span class="line">&#125;catrch( ... )&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="命名空间-1"><a href="#命名空间-1" class="headerlink" title="命名空间"></a>命名空间</h3><p>名字空间机制允许我们封装名字，否则这些名字就有可能会污染影响全局名字空间。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace Cplusplus_Primer_3E &#123;</span><br><span class="line">template &lt;class elemType&gt;</span><br><span class="line">class Array &#123; ... &#125;;</span><br><span class="line">// ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果名字空间内的声明对程序而言不是立即可见的，那么我们可以使用限定修饰名字符，格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace_identifier::entity_name</span><br></pre></td></tr></table></figure>
-
-<p>名字空间别名允许用一个可替代的短的或更一般的名字与一个现有的名字空间关联起来。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 提供一个更一般化的别名</span><br><span class="line">namespace LIB = IBM_Canada_Laboratory;</span><br><span class="line">// 提供一个更短的别名</span><br><span class="line">namespace DFA = Disney_Feature_Animation;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">using std::string;</span><br><span class="line">std::string;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cpp Primer chapter 2.1</title>
     <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh02_1/</url>
     <content><![CDATA[<p>C++ Primer 第二篇第三章学习笔记。<span id="more"></span></p>
@@ -189,6 +103,92 @@
       </tags>
   </entry>
   <entry>
+    <title>cpp Primer chapter 1.1</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh01/</url>
+    <content><![CDATA[<p> C++ Primer 第一篇学习笔记。<span id="more"></span></p>
+<h1 id="第一篇-C-概述"><a href="#第一篇-C-概述" class="headerlink" title="第一篇 C++概述"></a>第一篇 C++概述</h1><h2 id="第一章-开始"><a href="#第一章-开始" class="headerlink" title="第一章  开始"></a>第一章  开始</h2><h3 id="C-支持多种程序设计方法："><a href="#C-支持多种程序设计方法：" class="headerlink" title="C++支持多种程序设计方法："></a>C++支持多种程序设计方法：</h3><p>​    过程化程序设计方法。　主要是函数。</p>
+<p>　对抽象数据类型程序设计方法。　主要是类。</p>
+<p>​    面向对象程序设计方法。　主要是继承和动态绑定。</p>
+<h3 id="分而治之-和-逐步求精-的思想"><a href="#分而治之-和-逐步求精-的思想" class="headerlink" title="分而治之 和 逐步求精 的思想"></a>分而治之 和 逐步求精 的思想</h3><p>​        解决大问题的一种方法是，把它分解成许多小问题，理想情况下，这些小问题可以很容易地被解决，然后再把它们合在一起，就可以解决大问题了。如果新分割的小问题解决起来还是太大，就把它分割得再小一些，重复整个过程，直到能够解决每个小问题。</p>
+<h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>​    C++标准库中的名字都是在一个称作std 的名字空间中声明的，这些名字在我们的程序文本文件中是不可见的，除非我们显式地使它们可见，using 指示符告诉编译器要使用在名字空间std 中声明的名字。</p>
+<h3 id="预处理器指示符"><a href="#预处理器指示符" class="headerlink" title="预处理器指示符"></a>预处理器指示符</h3><p>如果文件名用尖括号&lt; 和&gt; 括起来表明这个文件是一个工程或标准头文件，查找过程会检查预定义的目录，我们可以通过设置搜索路径环境变量或命令行选项来修改这些目录。如果文件名用一对引号括起来。则表明该文件是用户提供的头文件查找该文件时将从当前文件目录开始。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;some_file.h&gt;</span><br><span class="line">#include &quot;my_file.h&quot;</span><br><span class="line"></span><br><span class="line">#ifndef BOOKSTORE_H</span><br><span class="line">#define BOOKSTORE_H</span><br><span class="line">/* Bookstore.h 的内容 */</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+
+<p>编译C++程序时编译器自动定义了一个预处理器名字__cplusplus （注意前面有两个下划线）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#ifdef __cplusplus</span><br><span class="line">	// 我们要编译C++</span><br><span class="line">	// extern &quot;C&quot;</span><br><span class="line">	extern &quot;C&quot;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">__LINE__ 用来记录文件已经被编译的行数 。</span><br><span class="line"></span><br><span class="line">__FILE__ 包含正在被编译的文件的名字。</span><br><span class="line"></span><br><span class="line">__TIME__  和 __DATE__ </span><br></pre></td></tr></table></figure>
+
+<h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><p>终端输入也被称为标准输入standard input，与预定义的iostream 对象 cin ，绑定在一起，直接向终端输出，也被称为标准输出standard output， 与预定义的iostream 对象cout 绑定在一起，第三个预定义iostream 对象cerr 称为标准错误standard error ，也与终端绑定cerr 通常用来产生给程序用户的警告或错误信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br></pre></td></tr></table></figure>
+
+<p>除了显式地使用换行符外我们还可以使用预定义的iostream 操纵符 endl.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//为了打开一个文件供输入或输出除了iostream 头文件外还必须包含头文件</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">ofstream outFile(nameOfFile);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="第二章-C-浏览"><a href="#第二章-C-浏览" class="headerlink" title="第二章  C++浏览"></a>第二章  C++浏览</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>虽然C++对数组类型提供了内置支持，但是这种支持仅限于用来读写单个元素的机制，C++不支持数组的抽象，也不支持对整个数组的操作。</p>
+<h3 id="动态内存分配和指针"><a href="#动态内存分配和指针" class="headerlink" title="动态内存分配和指针"></a>动态内存分配和指针</h3><p>在C++中指针的主要用处是管理和操纵动态分配的内存。<br>静态与动态内存分配的两个主要区别是：<br>    1.静态对象是有名字的变量，我们直接对其进行操作，而动态对象是没有名字的变量，我们通过指针间接地对它进行操作。<br>    2.静态对象的分配与释放由编译器自动处理，程序员需要理解这一点，但不需要做任何事情，相反，动态对象的分配与释放必须由程序员显式地管理，相对来说比较容易出错，它通过new 和delete 两个表达式来完成。</p>
+<h4 id="new的两种分配方式："><a href="#new的两种分配方式：" class="headerlink" title="new的两种分配方式："></a>new的两种分配方式：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//第一种：分配特定类型的单个对象</span><br><span class="line">int *pint = new int( 1024 );</span><br><span class="line">//第二种：用于分配特定类型和维数的数组</span><br><span class="line">int *pia = new int[ 4 ];</span><br></pre></td></tr></table></figure>
+
+<h4 id="delete的释放方法："><a href="#delete的释放方法：" class="headerlink" title="delete的释放方法："></a>delete的释放方法：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//单一对象的delete 表达式形式如下</span><br><span class="line">// 删除单个对象</span><br><span class="line">delete pint;</span><br><span class="line">//数组形式的delete 表达式如下</span><br><span class="line">// 删除一个对象数组</span><br><span class="line">delete [] pia;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Class-概述"><a href="#Class-概述" class="headerlink" title="Class 概述"></a>Class 概述</h3><h4 id="类名和类体："><a href="#类名和类体：" class="headerlink" title="类名和类体："></a>类名和类体：</h4><p>类定义包括两个部分：类头class head 由关键字class 与相关联的类名构成。类体class body 由花括号括起来以分号结束。类头本身也用作类的声明。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 在程序中声明IntArray 类但是不提供定义</span><br><span class="line">class IntArray;</span><br></pre></td></tr></table></figure>
+
+<p>类体包含成员定义,以及访问标签,如public 和private .类的成员包括该类能执行的操作和代表类抽象所必需的数据.这些操作称为成员函数member function 或方法 method。</p>
+<h4 id="成员访问操作符：-和-gt"><a href="#成员访问操作符：-和-gt" class="headerlink" title="成员访问操作符：  .   和 -&gt;"></a>成员访问操作符：  .   和 -&gt;</h4><h4 id="public-和-private"><a href="#public-和-private" class="headerlink" title="public 和 private"></a>public 和 private</h4><p>关键字private 和public 控制对类成员的访问,出现在类体中公有public 部分的成员,在一般程序的任何地方都可以访问它们,出现在私有private 部分的成员,只能在该类的成员函数或友元friend 中被访问.</p>
+<p>由于C++不允许成员函数与数据成员共享同一个名字，所以在这样的情况下，一般的习惯是在数据成员名字前面加一个下划线_。、</p>
+<h4 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h4><p>内联函数在它的调用点上被展开,一般来说内联函数不会引入任何函数调用.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">array.size() 展开为 array._size;</span><br></pre></td></tr></table></figure>
+
+<h4 id="构造函数和函数重载"><a href="#构造函数和函数重载" class="headerlink" title="构造函数和函数重载"></a>构造函数和函数重载</h4><p>构造函数是一种特殊的类成员函数，专门用于初始化对象。如果构造函数被定义了，那么在类的每个对象第一次被使用之前，这构造函数就被自动应用在对象上。</p>
+<p>为了定义一个构造函数，我们只要给它与类相同的名字即可，另外我们不能给构造函数指定返回值，但是可以给类定义多个构造函数，尽管它们都具有相同的名字，但只要编译器能够根据参数表区分它们就行。</p>
+<p>被声明为static 的数据成员，是一类特殊的共享数据成员。无论这个类的对象被定义了多少个，静态数据成员在程序中也只有一份，这是在类的所有对象之间共享数据的一种方式。</p>
+<h4 id="域操作符"><a href="#域操作符" class="headerlink" title="域操作符"></a>域操作符</h4><p>双冒号:: 操作符被称为域操作符。可以非正式地把域看作是一个可视窗口， 全局域的对象在它被定义的整个文件里(一直到文件末尾)都是可见的。</p>
+<p>C++类的关键特征是接口与实现的分离。接口是一些用户可以应用到类对象上的操作的集合，它由三部分构成这些操作的名字、它们的返回值、以及它们的参数表。一般地这就是该类用户所需要知道的全部内容。私有实现包括为支持公有接口所必需的算法和数据。</p>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>在C++中被继承的类被称作基类， 新类从基类派生而来，我们把它叫做基类的派生类或子类型。</p>
+<h3 id="泛型设计"><a href="#泛型设计" class="headerlink" title="泛型设计"></a>泛型设计</h3><h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><p>C++的模板设施提供了一种机制它能够将类成函数定义内部的类型和值参数化。</p>
+<p>模板机制也支持面向对象的程序设计，类模板可以作为基类或派生类。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;typename T&gt;</span><br><span class="line">template&lt;class T&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="泛型算法"><a href="#泛型算法" class="headerlink" title="泛型算法"></a>泛型算法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">搜索算法</span><br><span class="line">find() find_if() search() binary_search() count() count_if()</span><br><span class="line">分类排序与通用排序算法</span><br><span class="line">sort() partial_sort() merge() partition() rotate() reverse() random_shuffle()</span><br><span class="line">删除算法</span><br><span class="line">unique() remove()</span><br><span class="line">算术算法</span><br><span class="line">accumulate() partial_sum() inner_product() adjacent_difference()</span><br><span class="line">生成和变异算法</span><br><span class="line">generate() fill() transformation() copy( for_each()</span><br><span class="line">关系算法</span><br><span class="line">equal() min 和max()</span><br></pre></td></tr></table></figure>
+
+<p>泛型算法接受一对迭代器，它们标记了要遍历元素的范围。</p>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>异常处理为响应运行时刻的程序异常,提供了一个标准的语言级的设施.它支持统一的语法和风格,也允许每个程序员进行微调.</p>
+<p>异常处理机制的主要构成如下:</p>
+<ol>
+<li><p>程序中异常出现的点.</p>
+</li>
+<li><p>程序中异常被处理的点.</p>
+<p>典型地,程序异常的抛出与处理位于独立的函数或成员函数调用中.找到处理代码通常要涉及到展开程序调用栈,一旦异常被处理完毕就恢复正常的程序执行,但不是在发生异常的地方恢复执行过程,而是在处理异常的<br>地方恢复执行过程.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catch(string exceptionMsg)&#123;</span><br><span class="line">    log_message( exceptionMsg );</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>catch 子句与try 块相关联,一个try 块用一个或多个catch 子句将一条或多条语句组织起来.</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">try&#123;</span><br><span class="line"></span><br><span class="line">&#125;catch()&#123;</span><br><span class="line"></span><br><span class="line">&#125;catrch( ... )&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="命名空间-1"><a href="#命名空间-1" class="headerlink" title="命名空间"></a>命名空间</h3><p>名字空间机制允许我们封装名字，否则这些名字就有可能会污染影响全局名字空间。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace Cplusplus_Primer_3E &#123;</span><br><span class="line">template &lt;class elemType&gt;</span><br><span class="line">class Array &#123; ... &#125;;</span><br><span class="line">// ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果名字空间内的声明对程序而言不是立即可见的，那么我们可以使用限定修饰名字符，格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace_identifier::entity_name</span><br></pre></td></tr></table></figure>
+
+<p>名字空间别名允许用一个可替代的短的或更一般的名字与一个现有的名字空间关联起来。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 提供一个更一般化的别名</span><br><span class="line">namespace LIB = IBM_Canada_Laboratory;</span><br><span class="line">// 提供一个更短的别名</span><br><span class="line">namespace DFA = Disney_Feature_Animation;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">using std::string;</span><br><span class="line">std::string;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp Primer chapter 2.3</title>
     <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh02_3/</url>
     <content><![CDATA[<p>C++ Primer 第二篇第五章学习笔记。<span id="more"></span></p>
@@ -279,49 +279,6 @@
       </tags>
   </entry>
   <entry>
-    <title>DSA</title>
-    <url>/%E5%AD%A6%E4%B9%A0/dsa/</url>
-    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数据结构和算法的重要性毋庸置疑啊，一方面刷题，一方面学习一下。<span id="more"></span></p>
-<p>参考书籍清华邓俊辉教授撰写的《数据结构（C++语言版）》。</p>
-<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>​    O(1):常数时间复杂度算法</p>
-<p>​    O(logn):对数时间复杂度——高效算法</p>
-<p>​    O(n):多项式时间复杂度算法.某问题若存在一个复杂度在此范围以内的算法，则称该问题是可有效求解的或易解的（tractable）</p>
-<p>​    O(x**n):指数复杂度，无法接受的算法。</p>
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>​        递归则是函数和过程调用的一种特殊形式，即允许函数和过程进行<br>自我调用。</p>
-<p>​        递归的价值在于，许多应用问题都可简洁而准确地描述为递归形式。</p>
-<p>​    递归也是一种基本而典型的算法设计模式。这一模式可以对实际问题中反复出现的结构和形式做高度概括，并从本质层面加以描述与刻画，进而导出高效的算法。</p>
-<h4 id="递归的基本模式"><a href="#递归的基本模式" class="headerlink" title="递归的基本模式"></a>递归的基本模式</h4><h5 id="线性递归"><a href="#线性递归" class="headerlink" title="线性递归"></a>线性递归</h5><p>举例：数组元素求和</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组求和：数组的前A[0,n-1)个数的和与末元素A[n-1]之和。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">arraySum</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span>&gt;n)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in"><span class="keyword">return</span></span> (<span class="built_in">arraySum</span>(A, n<span class="number">-1</span>) + A[n<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//时间复杂度：O(1)*递归深度 = O(1) * (n+1) = O(n)</span></span><br><span class="line"><span class="comment">//空间复杂度：O(n)</span></span><br></pre></td></tr></table></figure>
-
-<p>​        算法可能朝着更深一层进行自我调用，且每一递归实例对自身的调用至多一次。于是，每一层次上至多只有一个实例，且它们构成一个线性的次序关系。此类递归模式因而称作“线性递归”（linear recursion），它也是递归的最基本形式。</p>
-<p>​    线性递归往往对应于<em><strong>减而治之</strong></em>的算法策略：递归每深入一层，待求解问题的规模都缩减一个常数，直至最终蜕化为平凡的小（简单）问题。</p>
-<h5 id="递归分析"><a href="#递归分析" class="headerlink" title="递归分析"></a>递归分析</h5><p>1.递归跟踪：作为一种直观且可视的方法，递归跟踪（recursion trace）可用以分析递归算法的总体运行时间与空间。</p>
-<p>2.递推方程：通过对递归模式的数学归纳，导出复杂度定界函数的递推方程（组）及其边界条件，从而将复杂度的分析，转化为递归方程（组）的求解。</p>
-<h5 id="递归模式"><a href="#递归模式" class="headerlink" title="递归模式"></a>递归模式</h5><p>1.多递归基：为保证有穷性，递归算法都必须设置递归基，且确保总能执行到。</p>
-<p>举例：数组倒置</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>* A, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lo &lt; hi)&#123;</span><br><span class="line">		<span class="built_in">swap</span>(A[lo], A[hi]);</span><br><span class="line">		<span class="built_in">reverse</span>(A, lo+<span class="number">1</span>, hi<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">//O(hi + lo -1)</span></span><br></pre></td></tr></table></figure>
-
-<p>2.多向递归：递归算法中，不仅递归基可能有多个，递归调用也可能有多种可供选择的分支。</p>
-<p>举例：求2**n</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline __int64 sqr ( __int64 a ) &#123; return a * a; &#125;</span><br><span class="line">__int64 power2 ( int n ) &#123; //幂函数2^n算法（优化逑弻版），n &gt;= 0</span><br><span class="line"> 	if ( 0 == n ) return 1; //逑弻基；否则，规n癿奇偶分删逑弻</span><br><span class="line">    return ( n &amp; 1 ) ? sqr ( power2 ( n &gt;&gt; 1 ) ) &lt;&lt; 1 : sqr ( power2 ( n &gt;&gt; 1 ) );</span><br><span class="line">&#125; //O(logn) = O(r)，r为输入指数n癿比特位数</span><br></pre></td></tr></table></figure>
-
-<h5 id="递归消除"><a href="#递归消除" class="headerlink" title="递归消除"></a>递归消除</h5><p>空间成本:递归算法所消耗的空间量主要取决于递归深度，故较之同一算法的迭代版，递归版往往需耗费更多空间，并进而影响实际的运行速度。</p>
-<p>举例：尾递归消除</p>
-<p>在线性递归算法中，若递归调用在递归实例中恰好以最后一步操作的形式出现，则称作尾递<br>归（tail recursion）。属于尾递归形式的算法，均可以简捷地转换为等效的迭代版本。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#数组倒置</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">next:</span><br><span class="line">	if(lo &lt; hi)&#123;</span><br><span class="line">		swap(A[lo], A[hi]);</span><br><span class="line">		lo++;</span><br><span class="line">		hi--;</span><br><span class="line">		goto next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo + 1)</span><br><span class="line"></span><br><span class="line">#用while 代替 next if</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">	while( lo &lt; hi )&#123;</span><br><span class="line">		swap(A[lo++], A[hi--]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="二分递归"><a href="#二分递归" class="headerlink" title="二分递归"></a>二分递归</h5><p>分而治之：将大问题分解为若干规模更小的子问题，再通过递归机制分别求解。这种分解持续进行，直到子问题规模缩减至平凡情况。这也就是所谓的分而治之（divide-and-conquer）策略。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arraySum(int A[], int lo, int hi)&#123;</span><br><span class="line">	if( lo == hi)&#123;</span><br><span class="line">		return A[lo];</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int mi = (lo + hi) &gt;&gt; 1;</span><br><span class="line">		return sum(A, lo, mi) + sum(A, mi+1, hi);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo +1)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++学习过程中遇到的问题-01</title>
     <url>/%E5%AD%A6%E4%B9%A0/cppProblem01/</url>
     <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊。(<em>¯ㅿ¯</em>;)</p>
@@ -380,6 +337,49 @@
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DSA</title>
+    <url>/%E5%AD%A6%E4%B9%A0/dsa/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数据结构和算法的重要性毋庸置疑啊，一方面刷题，一方面学习一下。<span id="more"></span></p>
+<p>参考书籍清华邓俊辉教授撰写的《数据结构（C++语言版）》。</p>
+<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>​    O(1):常数时间复杂度算法</p>
+<p>​    O(logn):对数时间复杂度——高效算法</p>
+<p>​    O(n):多项式时间复杂度算法.某问题若存在一个复杂度在此范围以内的算法，则称该问题是可有效求解的或易解的（tractable）</p>
+<p>​    O(x**n):指数复杂度，无法接受的算法。</p>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>​        递归则是函数和过程调用的一种特殊形式，即允许函数和过程进行<br>自我调用。</p>
+<p>​        递归的价值在于，许多应用问题都可简洁而准确地描述为递归形式。</p>
+<p>​    递归也是一种基本而典型的算法设计模式。这一模式可以对实际问题中反复出现的结构和形式做高度概括，并从本质层面加以描述与刻画，进而导出高效的算法。</p>
+<h4 id="递归的基本模式"><a href="#递归的基本模式" class="headerlink" title="递归的基本模式"></a>递归的基本模式</h4><h5 id="线性递归"><a href="#线性递归" class="headerlink" title="线性递归"></a>线性递归</h5><p>举例：数组元素求和</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组求和：数组的前A[0,n-1)个数的和与末元素A[n-1]之和。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">arraySum</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span>&gt;n)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in"><span class="keyword">return</span></span> (<span class="built_in">arraySum</span>(A, n<span class="number">-1</span>) + A[n<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//时间复杂度：O(1)*递归深度 = O(1) * (n+1) = O(n)</span></span><br><span class="line"><span class="comment">//空间复杂度：O(n)</span></span><br></pre></td></tr></table></figure>
+
+<p>​        算法可能朝着更深一层进行自我调用，且每一递归实例对自身的调用至多一次。于是，每一层次上至多只有一个实例，且它们构成一个线性的次序关系。此类递归模式因而称作“线性递归”（linear recursion），它也是递归的最基本形式。</p>
+<p>​    线性递归往往对应于<em><strong>减而治之</strong></em>的算法策略：递归每深入一层，待求解问题的规模都缩减一个常数，直至最终蜕化为平凡的小（简单）问题。</p>
+<h5 id="递归分析"><a href="#递归分析" class="headerlink" title="递归分析"></a>递归分析</h5><p>1.递归跟踪：作为一种直观且可视的方法，递归跟踪（recursion trace）可用以分析递归算法的总体运行时间与空间。</p>
+<p>2.递推方程：通过对递归模式的数学归纳，导出复杂度定界函数的递推方程（组）及其边界条件，从而将复杂度的分析，转化为递归方程（组）的求解。</p>
+<h5 id="递归模式"><a href="#递归模式" class="headerlink" title="递归模式"></a>递归模式</h5><p>1.多递归基：为保证有穷性，递归算法都必须设置递归基，且确保总能执行到。</p>
+<p>举例：数组倒置</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>* A, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lo &lt; hi)&#123;</span><br><span class="line">		<span class="built_in">swap</span>(A[lo], A[hi]);</span><br><span class="line">		<span class="built_in">reverse</span>(A, lo+<span class="number">1</span>, hi<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">//O(hi + lo -1)</span></span><br></pre></td></tr></table></figure>
+
+<p>2.多向递归：递归算法中，不仅递归基可能有多个，递归调用也可能有多种可供选择的分支。</p>
+<p>举例：求2**n</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline __int64 sqr ( __int64 a ) &#123; return a * a; &#125;</span><br><span class="line">__int64 power2 ( int n ) &#123; //幂函数2^n算法（优化逑弻版），n &gt;= 0</span><br><span class="line"> 	if ( 0 == n ) return 1; //逑弻基；否则，规n癿奇偶分删逑弻</span><br><span class="line">    return ( n &amp; 1 ) ? sqr ( power2 ( n &gt;&gt; 1 ) ) &lt;&lt; 1 : sqr ( power2 ( n &gt;&gt; 1 ) );</span><br><span class="line">&#125; //O(logn) = O(r)，r为输入指数n癿比特位数</span><br></pre></td></tr></table></figure>
+
+<h5 id="递归消除"><a href="#递归消除" class="headerlink" title="递归消除"></a>递归消除</h5><p>空间成本:递归算法所消耗的空间量主要取决于递归深度，故较之同一算法的迭代版，递归版往往需耗费更多空间，并进而影响实际的运行速度。</p>
+<p>举例：尾递归消除</p>
+<p>在线性递归算法中，若递归调用在递归实例中恰好以最后一步操作的形式出现，则称作尾递<br>归（tail recursion）。属于尾递归形式的算法，均可以简捷地转换为等效的迭代版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#数组倒置</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">next:</span><br><span class="line">	if(lo &lt; hi)&#123;</span><br><span class="line">		swap(A[lo], A[hi]);</span><br><span class="line">		lo++;</span><br><span class="line">		hi--;</span><br><span class="line">		goto next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo + 1)</span><br><span class="line"></span><br><span class="line">#用while 代替 next if</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">	while( lo &lt; hi )&#123;</span><br><span class="line">		swap(A[lo++], A[hi--]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="二分递归"><a href="#二分递归" class="headerlink" title="二分递归"></a>二分递归</h5><p>分而治之：将大问题分解为若干规模更小的子问题，再通过递归机制分别求解。这种分解持续进行，直到子问题规模缩减至平凡情况。这也就是所谓的分而治之（divide-and-conquer）策略。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arraySum(int A[], int lo, int hi)&#123;</span><br><span class="line">	if( lo == hi)&#123;</span><br><span class="line">		return A[lo];</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int mi = (lo + hi) &gt;&gt; 1;</span><br><span class="line">		return sum(A, lo, mi) + sum(A, mi+1, hi);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo +1)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -495,6 +495,39 @@
       </tags>
   </entry>
   <entry>
+    <title>git使用过程中遇到的一些问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/gitPushProblem/</url>
+    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
+<span id="more"></span>
+
+<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
+<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    接着重新上传，成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git学习笔记02</title>
     <url>/%E5%AD%A6%E4%B9%A0/gitNote02/</url>
     <content><![CDATA[<p>  Git 处理分支的方式可谓是难以置信的轻量，创建新分支这一操作几乎能在瞬间完成，并且在不同分支之间的切换操作也是一样便捷。</p>
@@ -538,39 +571,6 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote show &lt;remote&gt; </span><br></pre></td></tr></table></figure>
 
 <p>获得远程分支的更多信息。 然而，一个更常见的做法是利用远程跟踪分支。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git使用过程中遇到的一些问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/gitPushProblem/</url>
-    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
-<span id="more"></span>
-
-<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
-<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    接着重新上传，成功。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
-
-<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
-<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
-
-<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>学习</category>
