@@ -212,7 +212,8 @@
   <entry>
     <title>cpp Primer chapter 03</title>
     <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p> C++ Primer 第三篇第七章学习笔记。<span id="more"></span></p>
+]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -988,6 +989,32 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 指示符: cplusplus_primer 的所有成员都变成可见的</span><br><span class="line">using namespace cplusplus_primer;</span><br></pre></td></tr></table></figure>
 
 <p>使用多个using 指示符会引起全局名字空间污染问题，用多个选择性的using 声明来代替using 指示符会使这个问题最小化，由多个选择性的using 声明引起的二义性错误在声明点就能被检测到，因此建议使用using 声明而不是using 指示符以便更好地控制程序中的全局名字空间污染问题。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 3.3</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_3/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第九章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第九章-重载函数"><a href="#第九章-重载函数" class="headerlink" title="第九章 重载函数"></a>第九章 重载函数</h2><p>函数重载 允许多个函数共享同一个函数名但是针对不同参数类型提供共同的操作。</p>
+<p>如果两个函数的函数名相同，而参数表中参数的个数或类型不同则认为这两个函数是重载的。</p>
+<p>函数的返回类型不足以区分两个重载函数。</p>
+<p>当一个参数类型是const 或volatile 时在识别函数声明是否相同时并不考虑const 和volatile 修饰符。</p>
+<p>但是，如果把const 或volatile 应用在指针或引用参数指向的类型上，则在判断函数声明是否相同时，就要考虑const 和volatile 修饰符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 声明了不同的函数</span><br><span class="line">void f( int* );</span><br><span class="line">void f( const int* );</span><br><span class="line">// 也声明了不同的函数</span><br><span class="line">void f( int&amp; );</span><br><span class="line">void f( const int&amp; );</span><br></pre></td></tr></table></figure>
+
+<p>重载函数集合中的全部函数都应在同一个域中声明。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;string&gt;</span><br><span class="line">void print( const string &amp; );</span><br><span class="line">void print( double ); // overloads print()</span><br><span class="line">void fooBar( int ival )</span><br><span class="line">&#123;</span><br><span class="line">    // 独立的域隐藏print()的两个实例</span><br><span class="line">    extern void print( int );</span><br><span class="line">    // 错误: print( const string &amp; )在这个域中被隐藏</span><br><span class="line">    print( &quot;Value : &quot; );</span><br><span class="line">    print( ival ); // ok: print( int ) 可见</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 声明</span><br><span class="line">using libs_R_us::max;</span><br><span class="line">using libs_R_us::print( double ); // 错误</span><br><span class="line">//用户不能在using 声明中为一个函数指定参数表</span><br></pre></td></tr></table></figure>
+
+<h3 id="重载解析"><a href="#重载解析" class="headerlink" title="重载解析"></a>重载解析</h3><p>函数重载解析是把函数调用与重载函数集合中的一个函数相关联的过程，在存在多个同名函数的情况下，根据函数调用中指定的实参，选择其中一个函数。</p>
+<p>函数重载解析的步骤如下：<br>    1 确定函数调用考虑的重载函数的集合确定函数调用中实参表的属性。<br>    2 从重载函数集合中选择函数该函数可以在给出实参个数和类型的情况下用调用中指定的实参进行调用。<br>    3 选择与调用最匹配的函数。</p>
 ]]></content>
       <categories>
         <category>学习</category>
