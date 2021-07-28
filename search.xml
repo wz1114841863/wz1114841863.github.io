@@ -221,64 +221,6 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 3.1</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh3_1/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第七章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇  基于过程的程序设计"></a>第三篇  基于过程的程序设计</h1><h2 id="第七章-函数"><a href="#第七章-函数" class="headerlink" title="第七章 函数"></a>第七章 函数</h2><p>函数声明由函数返回类型、函数名、和参数表构成。这三个元素被称为函数声明或函数原型。一个函数可在一个文件中被声明多次。</p>
-<p>函数类型和内置数组类型不能用作返同类型。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 非法: 数组不能作返回类型</span><br><span class="line">int[10] foo_bar();</span><br><span class="line">// ok: 指向数组的第一个元素的指针</span><br><span class="line">int *foo_bar();</span><br></pre></td></tr></table></figure>
-
-<p>类类型和容器类型可以被直接返回，但是效率很低。</p>
-<p>为了修改实参，有两种方法：</p>
-<p>​        1.参数被声明成指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// pswap()交换v1 和v2 指向的值</span><br><span class="line">void pswap( int *v1, int *v2 ) &#123;</span><br><span class="line">	int tmp = *v2;</span><br><span class="line">	*v2 = *v1;</span><br><span class="line">	*v1 = tmp;</span><br><span class="line">&#125;</span><br><span class="line">//调用</span><br><span class="line">pswap( &amp;i, &amp;j );</span><br></pre></td></tr></table></figure>
-
-<p>​        2.参数声明成引用。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// rswap() 交换v1 和v2 引用的值</span><br><span class="line">	void rswap( int &amp;v1, int &amp;v2 ) &#123;</span><br><span class="line">	int tmp = v2;</span><br><span class="line">	v2 = v1;</span><br><span class="line">	v1 = tmp;</span><br><span class="line">&#125;</span><br><span class="line">//调用</span><br><span class="line">rswap( i, j );</span><br></pre></td></tr></table></figure>
-
-<p>如果一个参数可能在函数中指向不同的对象，或者这个参数可能不指向任何对象，则必须使用指针参数。</p>
-<p>引用参数的一个重要用法是，它允许我们在有效地实现重载操作符的同时，还能保证用法的直观性。</p>
-<h3 id="省略号"><a href="#省略号" class="headerlink" title="省略号"></a>省略号</h3><p>有时候我们无法列出传递给函数的所有实参的类型和数目。在这种情况下我们可以用省略号指定函数参数表。</p>
-<p>省略号挂起类型检查机制。它们的出现告知编译器当函数被调用时可以有0 个或多个实参，而实参的类型未知。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void foo( parm_list, ... );</span><br><span class="line">void foo( ... );</span><br></pre></td></tr></table></figure>
-
-<p>此外：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void f();</span><br><span class="line">void f(...);</span><br><span class="line">//声明不等价。</span><br></pre></td></tr></table></figure>
-
-<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>当声明一个返回引用的函数时，程序员应当知道下面两个易犯的错误：</p>
-<p>​    1. 返回一个指向局部对象的引用，局部对象的生命期随函数的结束而结束。在函数结束后该引用变成未定义内存的别名。</p>
-<p>​    2.函数返回一个左值，对返回值的任何修改都将改变被返回的实际对象。为防止对引用返回值的无意修改，返回值应该被声明为const。</p>
-<h3 id="inline函数"><a href="#inline函数" class="headerlink" title="inline函数"></a>inline函数</h3><p>调用函数比直接计算条件操作符要慢得多。inline 内联函数给出了一种解决方案。若一个函数被指定为inline 函数，则它将在程序中每个调用点上被内联地展开。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline int min( int v1, int v2 ) &#123; </span><br><span class="line">	//do some thing.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>inline 机制用来优化,小的只有几行的,经常被调用的函数.</p>
-<p>inline 函数对编译器而言必须是可见的,以便它能够在调用点内联展开.该函数与非inline函数不同的是.inline 函数必须在调用该函数的每个文本文件中定义.</p>
-<h3 id="链接指示符-extern-“C”"><a href="#链接指示符-extern-“C”" class="headerlink" title="链接指示符:  extern “C”"></a>链接指示符:  extern “C”</h3><p>​        用链接指示符告诉编译器,该函数是用其他的程序设计语言编写的.链接指示符有两种形式:  既可以是单一语句形式也可以是复合语句形式.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 单一语句形式的链接指示符</span><br><span class="line">extern &quot;C&quot; void exit(int);</span><br><span class="line">// 复合语句形式的链接指示符</span><br><span class="line">extern &quot;C&quot; &#123;</span><br><span class="line">    int printf( const char* ... );</span><br><span class="line">    int scanf( const char* ... );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>链接指示符不能出现在函数体中，把链接指示符放在头文件中更合适。</p>
-<h3 id="处理命令行选项"><a href="#处理命令行选项" class="headerlink" title="处理命令行选项"></a>处理命令行选项</h3><p>命令行选项是main()的实参，在main()函数中，我们可以通过一个名为argv 的C 风格字符串数组访问它。</p>
-<p>最好是把处理命令行选项的细节封装起来，使得它不会扰乱main()。</p>
-<h3 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h3><p>当一个函数名没有被调用操作符修饰时，会被解释成指向该类型函数的指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lexicoCompare;</span><br><span class="line">//会被解释成类型</span><br><span class="line">//int (*)( const string &amp;, const string &amp; );</span><br><span class="line">//将取地址操作符作用在函数名上也能产生指向该函数类型的指针</span><br><span class="line">&amp;lexicoCompare;</span><br></pre></td></tr></table></figure>
-
-<p>函数指针可以用0 来初始化或赋值，以表示该指针不指向任何函数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int (*pfi2s)( const string &amp;, const string &amp; ) = 0;</span><br></pre></td></tr></table></figure>
-
-<p>指向函数的指针可以被用来调用它所指向的函数，调用函数时，不需要解引用操作符，无论是用函数名直接调用函数，还是用指针间接调用函数，两者的写法是一样的。</p>
-<h4 id="函数指针数组"><a href="#函数指针数组" class="headerlink" title="函数指针数组"></a>函数指针数组</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int (*testCases[10])();</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// typedefs 使声明更易读</span><br><span class="line">typedef int (*PFV)(); // 定义函数类型指针的typedef</span><br><span class="line">PFV testCases[10];</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++学习过程中遇到的问题-01</title>
     <url>/%E5%AD%A6%E4%B9%A0/cppProblem01/</url>
     <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊。(<em>¯ㅿ¯</em>;)</p>
@@ -920,6 +862,132 @@
 <p>pop():删除，但不返回栈顶元素。在priority_queue 中队首元素代表优先级最高的元素.</p>
 <p>front:返回，但不删除栈顶元素。它只能应用在一般队列上.<br>back():返回，但不删除队尾元素。它只能应用在一般队列上.<br>top() 返回但不删除priority_queue 的优先级最高的元素只能应用在priority_queue 上.push(item):在队尾放入一个新元素对于priority_queue 将根据优先级排序.</p>
 <p>priority_queue 的元素被强加了顺序关系,以便元素可以从大到小管理。这里所谓最大即<br>等价于拥有最高优先级。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 3.1</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_1/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第七章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇  基于过程的程序设计"></a>第三篇  基于过程的程序设计</h1><h2 id="第七章-函数"><a href="#第七章-函数" class="headerlink" title="第七章 函数"></a>第七章 函数</h2><p>函数声明由函数返回类型、函数名、和参数表构成。这三个元素被称为函数声明或函数原型。一个函数可在一个文件中被声明多次。</p>
+<p>函数类型和内置数组类型不能用作返同类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 非法: 数组不能作返回类型</span><br><span class="line">int[10] foo_bar();</span><br><span class="line">// ok: 指向数组的第一个元素的指针</span><br><span class="line">int *foo_bar();</span><br></pre></td></tr></table></figure>
+
+<p>类类型和容器类型可以被直接返回，但是效率很低。</p>
+<p>为了修改实参，有两种方法：</p>
+<p>​        1.参数被声明成指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// pswap()交换v1 和v2 指向的值</span><br><span class="line">void pswap( int *v1, int *v2 ) &#123;</span><br><span class="line">	int tmp = *v2;</span><br><span class="line">	*v2 = *v1;</span><br><span class="line">	*v1 = tmp;</span><br><span class="line">&#125;</span><br><span class="line">//调用</span><br><span class="line">pswap( &amp;i, &amp;j );</span><br></pre></td></tr></table></figure>
+
+<p>​        2.参数声明成引用。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// rswap() 交换v1 和v2 引用的值</span><br><span class="line">	void rswap( int &amp;v1, int &amp;v2 ) &#123;</span><br><span class="line">	int tmp = v2;</span><br><span class="line">	v2 = v1;</span><br><span class="line">	v1 = tmp;</span><br><span class="line">&#125;</span><br><span class="line">//调用</span><br><span class="line">rswap( i, j );</span><br></pre></td></tr></table></figure>
+
+<p>如果一个参数可能在函数中指向不同的对象，或者这个参数可能不指向任何对象，则必须使用指针参数。</p>
+<p>引用参数的一个重要用法是，它允许我们在有效地实现重载操作符的同时，还能保证用法的直观性。</p>
+<h3 id="省略号"><a href="#省略号" class="headerlink" title="省略号"></a>省略号</h3><p>有时候我们无法列出传递给函数的所有实参的类型和数目。在这种情况下我们可以用省略号指定函数参数表。</p>
+<p>省略号挂起类型检查机制。它们的出现告知编译器当函数被调用时可以有0 个或多个实参，而实参的类型未知。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void foo( parm_list, ... );</span><br><span class="line">void foo( ... );</span><br></pre></td></tr></table></figure>
+
+<p>此外：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void f();</span><br><span class="line">void f(...);</span><br><span class="line">//声明不等价。</span><br></pre></td></tr></table></figure>
+
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>当声明一个返回引用的函数时，程序员应当知道下面两个易犯的错误：</p>
+<p>​    1. 返回一个指向局部对象的引用，局部对象的生命期随函数的结束而结束。在函数结束后该引用变成未定义内存的别名。</p>
+<p>​    2.函数返回一个左值，对返回值的任何修改都将改变被返回的实际对象。为防止对引用返回值的无意修改，返回值应该被声明为const。</p>
+<h3 id="inline函数"><a href="#inline函数" class="headerlink" title="inline函数"></a>inline函数</h3><p>调用函数比直接计算条件操作符要慢得多。inline 内联函数给出了一种解决方案。若一个函数被指定为inline 函数，则它将在程序中每个调用点上被内联地展开。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline int min( int v1, int v2 ) &#123; </span><br><span class="line">	//do some thing.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>inline 机制用来优化,小的只有几行的,经常被调用的函数.</p>
+<p>inline 函数对编译器而言必须是可见的,以便它能够在调用点内联展开.该函数与非inline函数不同的是.inline 函数必须在调用该函数的每个文本文件中定义.</p>
+<h3 id="链接指示符-extern-“C”"><a href="#链接指示符-extern-“C”" class="headerlink" title="链接指示符:  extern “C”"></a>链接指示符:  extern “C”</h3><p>​        用链接指示符告诉编译器,该函数是用其他的程序设计语言编写的.链接指示符有两种形式:  既可以是单一语句形式也可以是复合语句形式.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 单一语句形式的链接指示符</span><br><span class="line">extern &quot;C&quot; void exit(int);</span><br><span class="line">// 复合语句形式的链接指示符</span><br><span class="line">extern &quot;C&quot; &#123;</span><br><span class="line">    int printf( const char* ... );</span><br><span class="line">    int scanf( const char* ... );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>链接指示符不能出现在函数体中，把链接指示符放在头文件中更合适。</p>
+<h3 id="处理命令行选项"><a href="#处理命令行选项" class="headerlink" title="处理命令行选项"></a>处理命令行选项</h3><p>命令行选项是main()的实参，在main()函数中，我们可以通过一个名为argv 的C 风格字符串数组访问它。</p>
+<p>最好是把处理命令行选项的细节封装起来，使得它不会扰乱main()。</p>
+<h3 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h3><p>当一个函数名没有被调用操作符修饰时，会被解释成指向该类型函数的指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lexicoCompare;</span><br><span class="line">//会被解释成类型</span><br><span class="line">//int (*)( const string &amp;, const string &amp; );</span><br><span class="line">//将取地址操作符作用在函数名上也能产生指向该函数类型的指针</span><br><span class="line">&amp;lexicoCompare;</span><br></pre></td></tr></table></figure>
+
+<p>函数指针可以用0 来初始化或赋值，以表示该指针不指向任何函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int (*pfi2s)( const string &amp;, const string &amp; ) = 0;</span><br></pre></td></tr></table></figure>
+
+<p>指向函数的指针可以被用来调用它所指向的函数，调用函数时，不需要解引用操作符，无论是用函数名直接调用函数，还是用指针间接调用函数，两者的写法是一样的。</p>
+<h4 id="函数指针数组"><a href="#函数指针数组" class="headerlink" title="函数指针数组"></a>函数指针数组</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int (*testCases[10])();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// typedefs 使声明更易读</span><br><span class="line">typedef int (*PFV)(); // 定义函数类型指针的typedef</span><br><span class="line">PFV testCases[10];</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 3.2</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_2/</url>
+    <content><![CDATA[<p>C++primer第三篇第八章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第八章-域和生命期"><a href="#第八章-域和生命期" class="headerlink" title="第八章  域和生命期"></a>第八章  域和生命期</h2><h3 id="域"><a href="#域" class="headerlink" title="域"></a>域</h3><p>C++支持三种形式的域局部域、名字空间域、以及类域。</p>
+<h4 id="局部域"><a href="#局部域" class="headerlink" title="局部域"></a>局部域</h4><p>局部域是包含在函数定义或者函数块中的程序文本部分。每一个函数都有一个独立的局部域，在函数中的每个复合语句或块也有一个独立的局部域。、</p>
+<p>局部域内的名字解析：首先查找使用该名字的域，如果找到一个声明，则该名字被解析。如果没有找到，则查找包含该域的域这个过程会一直继续下去直到找到<br>一个声明或已经查找完整个全局域如果后一种情况发生 即没有找到该名字的声明则这<br>个名字的用法将被标记为错误</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int low;</span><br><span class="line">int binSearch( const vector&lt;int&gt; &amp;vec, int val )&#123;</span><br><span class="line">    // low 的局部声明</span><br><span class="line">    // 隐藏了全局域中的声明</span><br><span class="line">    int low = 0;</span><br><span class="line">    // ...</span><br><span class="line">    // low 是局部变量</span><br><span class="line">    while ( low &lt;= high )&#123; </span><br><span class="line">    	// ...</span><br><span class="line">    &#125;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="名字空间域"><a href="#名字空间域" class="headerlink" title="名字空间域"></a>名字空间域</h4><p>名字空间域是不包含在函数声明、函数定义或者类定义内的程序文本部分。程序的最外层的名字空间域被称作全局域。对象、函数、类型以及模板都可以在全局域中定义，程序员也可以利用名字空间定义来定义用户声明的的名字空间。它们被嵌套在全局域内，每个用户声明的名字空间都是一个不同的域，它们都与全局域不同，与全局域相同的是，用户声明的名字空间，可以包含对象、函数、类型和模板的声明与定义，以及被嵌套其内的用户声明的名字空间。</p>
+<h4 id="类域"><a href="#类域" class="headerlink" title="类域"></a>类域</h4><p>每个类定义都引入了一个独立的类域。</p>
+<h4 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h4><p>在一个程序中，一个全局对象只能有一个定义，因为在使用文件中的对象之前必须先要声明这个对象，所以对于一个由多个文件构成的程序来说，它应该能够只声明一个对象而不定义它。</p>
+<p>关键字extern 为声明但不定义一个对象提供了一种方法，实际上它类似于函数声明，承诺了该对象会在其他地方被定义，或者在此文本文件中的其他地方，或者在程序的其他文本文件中。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">extern int i;</span><br></pre></td></tr></table></figure>
+
+<h4 id="局部对象"><a href="#局部对象" class="headerlink" title="局部对象"></a>局部对象</h4><p>在局部域中的变量声明引入了局部对象。有三种局部对象：自动对象、寄存器对象以及局部静态对象。<br>区分这些对象的是对象所在存储区的属性和生命期。自动对象所在存储区从声明它的函数被调用时开始一直到该函数结束为止。寄存器对象是一种自动对象，它支持对其值的快速存。取局部静态对象的存储区在该程序的整个执行期间一直存在。</p>
+<h4 id="动态分配的对象"><a href="#动态分配的对象" class="headerlink" title="动态分配的对象"></a>动态分配的对象</h4><p>动态分配的对象允许程序员完全控制它的分配与释放。动态分配的对象，被分配在程序的空闲存储区的可用内存池中。</p>
+<h5 id="单个对象的分配与释放"><a href="#单个对象的分配与释放" class="headerlink" title="单个对象的分配与释放"></a>单个对象的分配与释放</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *pi = new int;</span><br></pre></td></tr></table></figure>
+
+<p>在运行时刻，从空闲存储区中分配内存，比如通过上面的new 表达式我们称之为动态内存分配，们说pi 指向的内存是被动态分配的。</p>
+<p>下面三个常见程序错误都与动态内存分配有关：<br>1 应用delete 表达式失败，使内存无法返回空闲存储区，这被称作内存泄漏。<br>2 对同一内存区应用了两次delete 表达式，这通常发生在两个指针指向同一个动态分配对象的时候，这是一个很难踉踪的问题，若多个指针指向同一个对象，当通过某一个指针释放了该对象时，就会发生这样的情况，此时该对象的内存被返回给空闲存储区，然后又被分配给某个别的对象，接着指向旧对象的第二个指针被释放，新对象也就跟着消失了。<br>3 在对象被释放后读写该对象这常常会发生因为delete 表达式应用的指针没有被设置为0。</p>
+<h4 id="auto-ptr"><a href="#auto-ptr" class="headerlink" title="auto_ptr"></a>auto_ptr</h4><p>auto_ptr 是C++标准库提供的类模板,它可以帮助程序员自动管理用new 表达式动态分配的单个对象.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;memory&gt;</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier( ptr_allocated_by_new );</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier( auto_ptr_of_same_type );</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier;</span><br><span class="line">//type_pointed_to 代表由new 表达式创建的对象的类型</span><br></pre></td></tr></table></figure>
+
+<h4 id="数组的动态分配与释放"><a href="#数组的动态分配与释放" class="headerlink" title="数组的动态分配与释放"></a>数组的动态分配与释放</h4><p>new 表达式也可以在空闲存储区中分配数组，在这种情况下new 表达式中的类型指示符后面必须有一对方括号，里面的维数是数组的长度，且该组数可以是一个复杂的表达式。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//分配单个int类型对象</span><br><span class="line">int *Pi =  new int(1024)</span><br><span class="line">//分配一个含有1024个元素的数组</span><br><span class="line">int *pia = new int[1024]</span><br><span class="line">//分配一个含 4x1024 个元素的二维数组</span><br><span class="line">int (*pia2)[ 1024 ] = new int[ 4 ][ 1024 ];</span><br><span class="line">delete [] pia;</span><br></pre></td></tr></table></figure>
+
+<p>动态分配数组的主要好处是：它的第一维不必是常量值，即在编译时刻不需要知道维数，就像局部域或全局域中的定义所引入的数组的维数一样。</p>
+<p>对于用new 表达式分配的数组，只有第一维可以用运行时刻计算的表达式来指定，其他维必须是在编译时刻已知的常量值。</p>
+<h4 id="常量对象的动态分配与释放"><a href="#常量对象的动态分配与释放" class="headerlink" title="常量对象的动态分配与释放"></a>常量对象的动态分配与释放</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int *pci = new const int(1024);</span><br><span class="line">delete pci;</span><br></pre></td></tr></table></figure>
+
+<p>首先const 对象必须被初始化如果省略了括号中的初始值,就会产生编译错误,除此之外,对于具有缺省构造函数的class类型的对象,初始值可以省略.第二,用 new 表达式返回的值,作为初始值的指针,必须是一个指向const 类型的指针.</p>
+<h4 id="定位new-表达式"><a href="#定位new-表达式" class="headerlink" title="定位new 表达式"></a>定位new 表达式</h4><p>new 表达式的第三种形式,可以允许程序员要求将对象创建在已经被分配好的内存中,这种形式的new 表达式被称为定位new 表达式.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;new&gt;</span><br><span class="line">new (place_address) type -specifier</span><br></pre></td></tr></table></figure>
+
+<p>不存在与定位new 表达式相匹配的delete 表达式.</p>
+<h3 id="名字空间定义"><a href="#名字空间定义" class="headerlink" title="名字空间定义"></a>名字空间定义</h3><p>名字空间允许我们更好地处理全局名字空间污染问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace cplusplus_primer &#123;</span><br><span class="line">    class matrix &#123; /* ... */ &#125;;</span><br><span class="line">    void inverse ( matrix &amp; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在一个名字空间内声明的实体被称为名字空间成员。名字空间成员的名字会自动地与该名字空间名复合或被其限定修饰。</p>
+<p>名字空间的定义可以非连续，这对生成一个库很有帮助，它使我们更容易将库的源代码组织成接口和实现部分。</p>
+<p>名字空间的定义可以嵌套。</p>
+<h4 id="未命名的名字空间"><a href="#未命名的名字空间" class="headerlink" title="未命名的名字空间"></a>未命名的名字空间</h4><p>用未命名的名字空间可以用来声明一个局部于某一文件的实体。未命名的名字空间以关键字namespace 开头。后面直接跟花括号。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ----- SortLib.C -----</span><br><span class="line">    namespace &#123;</span><br><span class="line">    void swap( double *d1, double *d2 ) &#123; /* ... */ &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于未命名名字空间的成员是程序实体，所以函数swap()可以在程序整个执行期间被调用，但是未命名名字空间成员名只在特定的文件中可见，在构成程序的其他文件中是不可见的。</p>
+<p>在引入标准C++名字空间之前，解决此类声明局部化问题的常见方案是使用从C 语言中继承来的关键字static 。</p>
+<h3 id="使用名字空间成员"><a href="#使用名字空间成员" class="headerlink" title="使用名字空间成员"></a>使用名字空间成员</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace International_Business_Machines&#123;</span><br><span class="line">	/* ... */ </span><br><span class="line">&#125;</span><br><span class="line">namespace IBM = International_Business_Machines;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//通过使名字空间成员的名字可见来在程序中用该名字的非限定修饰方式引用这个成员</span><br><span class="line">//而不用前缀namespace_name::name</span><br><span class="line">namespace cplusplus_primer &#123;</span><br><span class="line">    namespace MatrixLib &#123;</span><br><span class="line">        class matrix &#123; /* ... */ &#125;;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">using cplusplus_primer::MatrixLib::matrix;  </span><br></pre></td></tr></table></figure>
+
+<p>与其他声明一样,using 声明引入的名字有以下特性:</p>
+<p>1.它在该域中必须惟一.<br>2.由外围域中的声明引入的相同名字被其隐藏.<br>3.它被嵌套域中的相同名字的声明隐藏.</p>
+<p>using 声明使名字空间成员易于使用.</p>
+<p><strong>using指示符</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 指示符: cplusplus_primer 的所有成员都变成可见的</span><br><span class="line">using namespace cplusplus_primer;</span><br></pre></td></tr></table></figure>
+
+<p>使用多个using 指示符会引起全局名字空间污染问题，用多个选择性的using 声明来代替using 指示符会使这个问题最小化，由多个选择性的using 声明引起的二义性错误在声明点就能被检测到，因此建议使用using 声明而不是using 指示符以便更好地控制程序中的全局名字空间污染问题。</p>
 ]]></content>
       <categories>
         <category>学习</category>
