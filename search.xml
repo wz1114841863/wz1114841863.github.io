@@ -1,6 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>cpp Primer chapter 1.1</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh01/</url>
+    <content><![CDATA[<p> C++ Primer 第一篇学习笔记。<span id="more"></span></p>
+<h1 id="第一篇-C-概述"><a href="#第一篇-C-概述" class="headerlink" title="第一篇 C++概述"></a>第一篇 C++概述</h1><h2 id="第一章-开始"><a href="#第一章-开始" class="headerlink" title="第一章  开始"></a>第一章  开始</h2><h3 id="C-支持多种程序设计方法："><a href="#C-支持多种程序设计方法：" class="headerlink" title="C++支持多种程序设计方法："></a>C++支持多种程序设计方法：</h3><p>​    过程化程序设计方法。　主要是函数。</p>
+<p>　对抽象数据类型程序设计方法。　主要是类。</p>
+<p>​    面向对象程序设计方法。　主要是继承和动态绑定。</p>
+<h3 id="分而治之-和-逐步求精-的思想"><a href="#分而治之-和-逐步求精-的思想" class="headerlink" title="分而治之 和 逐步求精 的思想"></a>分而治之 和 逐步求精 的思想</h3><p>​        解决大问题的一种方法是，把它分解成许多小问题，理想情况下，这些小问题可以很容易地被解决，然后再把它们合在一起，就可以解决大问题了。如果新分割的小问题解决起来还是太大，就把它分割得再小一些，重复整个过程，直到能够解决每个小问题。</p>
+<h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>​    C++标准库中的名字都是在一个称作std 的名字空间中声明的，这些名字在我们的程序文本文件中是不可见的，除非我们显式地使它们可见，using 指示符告诉编译器要使用在名字空间std 中声明的名字。</p>
+<h3 id="预处理器指示符"><a href="#预处理器指示符" class="headerlink" title="预处理器指示符"></a>预处理器指示符</h3><p>如果文件名用尖括号&lt; 和&gt; 括起来表明这个文件是一个工程或标准头文件，查找过程会检查预定义的目录，我们可以通过设置搜索路径环境变量或命令行选项来修改这些目录。如果文件名用一对引号括起来。则表明该文件是用户提供的头文件查找该文件时将从当前文件目录开始。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;some_file.h&gt;</span><br><span class="line">#include &quot;my_file.h&quot;</span><br><span class="line"></span><br><span class="line">#ifndef BOOKSTORE_H</span><br><span class="line">#define BOOKSTORE_H</span><br><span class="line">/* Bookstore.h 的内容 */</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+
+<p>编译C++程序时编译器自动定义了一个预处理器名字__cplusplus （注意前面有两个下划线）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#ifdef __cplusplus</span><br><span class="line">	// 我们要编译C++</span><br><span class="line">	// extern &quot;C&quot;</span><br><span class="line">	extern &quot;C&quot;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">__LINE__ 用来记录文件已经被编译的行数 。</span><br><span class="line"></span><br><span class="line">__FILE__ 包含正在被编译的文件的名字。</span><br><span class="line"></span><br><span class="line">__TIME__  和 __DATE__ </span><br></pre></td></tr></table></figure>
+
+<h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><p>终端输入也被称为标准输入standard input，与预定义的iostream 对象 cin ，绑定在一起，直接向终端输出，也被称为标准输出standard output， 与预定义的iostream 对象cout 绑定在一起，第三个预定义iostream 对象cerr 称为标准错误standard error ，也与终端绑定cerr 通常用来产生给程序用户的警告或错误信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br></pre></td></tr></table></figure>
+
+<p>除了显式地使用换行符外我们还可以使用预定义的iostream 操纵符 endl.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//为了打开一个文件供输入或输出除了iostream 头文件外还必须包含头文件</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">ofstream outFile(nameOfFile);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="第二章-C-浏览"><a href="#第二章-C-浏览" class="headerlink" title="第二章  C++浏览"></a>第二章  C++浏览</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>虽然C++对数组类型提供了内置支持，但是这种支持仅限于用来读写单个元素的机制，C++不支持数组的抽象，也不支持对整个数组的操作。</p>
+<h3 id="动态内存分配和指针"><a href="#动态内存分配和指针" class="headerlink" title="动态内存分配和指针"></a>动态内存分配和指针</h3><p>在C++中指针的主要用处是管理和操纵动态分配的内存。<br>静态与动态内存分配的两个主要区别是：<br>    1.静态对象是有名字的变量，我们直接对其进行操作，而动态对象是没有名字的变量，我们通过指针间接地对它进行操作。<br>    2.静态对象的分配与释放由编译器自动处理，程序员需要理解这一点，但不需要做任何事情，相反，动态对象的分配与释放必须由程序员显式地管理，相对来说比较容易出错，它通过new 和delete 两个表达式来完成。</p>
+<h4 id="new的两种分配方式："><a href="#new的两种分配方式：" class="headerlink" title="new的两种分配方式："></a>new的两种分配方式：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//第一种：分配特定类型的单个对象</span><br><span class="line">int *pint = new int( 1024 );</span><br><span class="line">//第二种：用于分配特定类型和维数的数组</span><br><span class="line">int *pia = new int[ 4 ];</span><br></pre></td></tr></table></figure>
+
+<h4 id="delete的释放方法："><a href="#delete的释放方法：" class="headerlink" title="delete的释放方法："></a>delete的释放方法：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//单一对象的delete 表达式形式如下</span><br><span class="line">// 删除单个对象</span><br><span class="line">delete pint;</span><br><span class="line">//数组形式的delete 表达式如下</span><br><span class="line">// 删除一个对象数组</span><br><span class="line">delete [] pia;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Class-概述"><a href="#Class-概述" class="headerlink" title="Class 概述"></a>Class 概述</h3><h4 id="类名和类体："><a href="#类名和类体：" class="headerlink" title="类名和类体："></a>类名和类体：</h4><p>类定义包括两个部分：类头class head 由关键字class 与相关联的类名构成。类体class body 由花括号括起来以分号结束。类头本身也用作类的声明。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 在程序中声明IntArray 类但是不提供定义</span><br><span class="line">class IntArray;</span><br></pre></td></tr></table></figure>
+
+<p>类体包含成员定义,以及访问标签,如public 和private .类的成员包括该类能执行的操作和代表类抽象所必需的数据.这些操作称为成员函数member function 或方法 method。</p>
+<h4 id="成员访问操作符：-和-gt"><a href="#成员访问操作符：-和-gt" class="headerlink" title="成员访问操作符：  .   和 -&gt;"></a>成员访问操作符：  .   和 -&gt;</h4><h4 id="public-和-private"><a href="#public-和-private" class="headerlink" title="public 和 private"></a>public 和 private</h4><p>关键字private 和public 控制对类成员的访问,出现在类体中公有public 部分的成员,在一般程序的任何地方都可以访问它们,出现在私有private 部分的成员,只能在该类的成员函数或友元friend 中被访问.</p>
+<p>由于C++不允许成员函数与数据成员共享同一个名字，所以在这样的情况下，一般的习惯是在数据成员名字前面加一个下划线_。、</p>
+<h4 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h4><p>内联函数在它的调用点上被展开,一般来说内联函数不会引入任何函数调用.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">array.size() 展开为 array._size;</span><br></pre></td></tr></table></figure>
+
+<h4 id="构造函数和函数重载"><a href="#构造函数和函数重载" class="headerlink" title="构造函数和函数重载"></a>构造函数和函数重载</h4><p>构造函数是一种特殊的类成员函数，专门用于初始化对象。如果构造函数被定义了，那么在类的每个对象第一次被使用之前，这构造函数就被自动应用在对象上。</p>
+<p>为了定义一个构造函数，我们只要给它与类相同的名字即可，另外我们不能给构造函数指定返回值，但是可以给类定义多个构造函数，尽管它们都具有相同的名字，但只要编译器能够根据参数表区分它们就行。</p>
+<p>被声明为static 的数据成员，是一类特殊的共享数据成员。无论这个类的对象被定义了多少个，静态数据成员在程序中也只有一份，这是在类的所有对象之间共享数据的一种方式。</p>
+<h4 id="域操作符"><a href="#域操作符" class="headerlink" title="域操作符"></a>域操作符</h4><p>双冒号:: 操作符被称为域操作符。可以非正式地把域看作是一个可视窗口， 全局域的对象在它被定义的整个文件里(一直到文件末尾)都是可见的。</p>
+<p>C++类的关键特征是接口与实现的分离。接口是一些用户可以应用到类对象上的操作的集合，它由三部分构成这些操作的名字、它们的返回值、以及它们的参数表。一般地这就是该类用户所需要知道的全部内容。私有实现包括为支持公有接口所必需的算法和数据。</p>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>在C++中被继承的类被称作基类， 新类从基类派生而来，我们把它叫做基类的派生类或子类型。</p>
+<h3 id="泛型设计"><a href="#泛型设计" class="headerlink" title="泛型设计"></a>泛型设计</h3><h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><p>C++的模板设施提供了一种机制它能够将类成函数定义内部的类型和值参数化。</p>
+<p>模板机制也支持面向对象的程序设计，类模板可以作为基类或派生类。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;typename T&gt;</span><br><span class="line">template&lt;class T&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="泛型算法"><a href="#泛型算法" class="headerlink" title="泛型算法"></a>泛型算法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">搜索算法</span><br><span class="line">find() find_if() search() binary_search() count() count_if()</span><br><span class="line">分类排序与通用排序算法</span><br><span class="line">sort() partial_sort() merge() partition() rotate() reverse() random_shuffle()</span><br><span class="line">删除算法</span><br><span class="line">unique() remove()</span><br><span class="line">算术算法</span><br><span class="line">accumulate() partial_sum() inner_product() adjacent_difference()</span><br><span class="line">生成和变异算法</span><br><span class="line">generate() fill() transformation() copy( for_each()</span><br><span class="line">关系算法</span><br><span class="line">equal() min 和max()</span><br></pre></td></tr></table></figure>
+
+<p>泛型算法接受一对迭代器，它们标记了要遍历元素的范围。</p>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>异常处理为响应运行时刻的程序异常,提供了一个标准的语言级的设施.它支持统一的语法和风格,也允许每个程序员进行微调.</p>
+<p>异常处理机制的主要构成如下:</p>
+<ol>
+<li><p>程序中异常出现的点.</p>
+</li>
+<li><p>程序中异常被处理的点.</p>
+<p>典型地,程序异常的抛出与处理位于独立的函数或成员函数调用中.找到处理代码通常要涉及到展开程序调用栈,一旦异常被处理完毕就恢复正常的程序执行,但不是在发生异常的地方恢复执行过程,而是在处理异常的<br>地方恢复执行过程.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catch(string exceptionMsg)&#123;</span><br><span class="line">    log_message( exceptionMsg );</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>catch 子句与try 块相关联,一个try 块用一个或多个catch 子句将一条或多条语句组织起来.</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">try&#123;</span><br><span class="line"></span><br><span class="line">&#125;catch()&#123;</span><br><span class="line"></span><br><span class="line">&#125;catrch( ... )&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="命名空间-1"><a href="#命名空间-1" class="headerlink" title="命名空间"></a>命名空间</h3><p>名字空间机制允许我们封装名字，否则这些名字就有可能会污染影响全局名字空间。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace Cplusplus_Primer_3E &#123;</span><br><span class="line">template &lt;class elemType&gt;</span><br><span class="line">class Array &#123; ... &#125;;</span><br><span class="line">// ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果名字空间内的声明对程序而言不是立即可见的，那么我们可以使用限定修饰名字符，格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace_identifier::entity_name</span><br></pre></td></tr></table></figure>
+
+<p>名字空间别名允许用一个可替代的短的或更一般的名字与一个现有的名字空间关联起来。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 提供一个更一般化的别名</span><br><span class="line">namespace LIB = IBM_Canada_Laboratory;</span><br><span class="line">// 提供一个更短的别名</span><br><span class="line">namespace DFA = Disney_Feature_Animation;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">using std::string;</span><br><span class="line">std::string;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp Primer chapter 2.1</title>
     <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh02_1/</url>
     <content><![CDATA[<p>C++ Primer 第二篇第三章学习笔记。<span id="more"></span></p>
@@ -103,82 +189,54 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 1.1</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh01/</url>
-    <content><![CDATA[<p> C++ Primer 第一篇学习笔记。<span id="more"></span></p>
-<h1 id="第一篇-C-概述"><a href="#第一篇-C-概述" class="headerlink" title="第一篇 C++概述"></a>第一篇 C++概述</h1><h2 id="第一章-开始"><a href="#第一章-开始" class="headerlink" title="第一章  开始"></a>第一章  开始</h2><h3 id="C-支持多种程序设计方法："><a href="#C-支持多种程序设计方法：" class="headerlink" title="C++支持多种程序设计方法："></a>C++支持多种程序设计方法：</h3><p>​    过程化程序设计方法。　主要是函数。</p>
-<p>　对抽象数据类型程序设计方法。　主要是类。</p>
-<p>​    面向对象程序设计方法。　主要是继承和动态绑定。</p>
-<h3 id="分而治之-和-逐步求精-的思想"><a href="#分而治之-和-逐步求精-的思想" class="headerlink" title="分而治之 和 逐步求精 的思想"></a>分而治之 和 逐步求精 的思想</h3><p>​        解决大问题的一种方法是，把它分解成许多小问题，理想情况下，这些小问题可以很容易地被解决，然后再把它们合在一起，就可以解决大问题了。如果新分割的小问题解决起来还是太大，就把它分割得再小一些，重复整个过程，直到能够解决每个小问题。</p>
-<h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>​    C++标准库中的名字都是在一个称作std 的名字空间中声明的，这些名字在我们的程序文本文件中是不可见的，除非我们显式地使它们可见，using 指示符告诉编译器要使用在名字空间std 中声明的名字。</p>
-<h3 id="预处理器指示符"><a href="#预处理器指示符" class="headerlink" title="预处理器指示符"></a>预处理器指示符</h3><p>如果文件名用尖括号&lt; 和&gt; 括起来表明这个文件是一个工程或标准头文件，查找过程会检查预定义的目录，我们可以通过设置搜索路径环境变量或命令行选项来修改这些目录。如果文件名用一对引号括起来。则表明该文件是用户提供的头文件查找该文件时将从当前文件目录开始。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;some_file.h&gt;</span><br><span class="line">#include &quot;my_file.h&quot;</span><br><span class="line"></span><br><span class="line">#ifndef BOOKSTORE_H</span><br><span class="line">#define BOOKSTORE_H</span><br><span class="line">/* Bookstore.h 的内容 */</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+    <title>cpp Primer chapter 3.1</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_1/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第七章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇  基于过程的程序设计"></a>第三篇  基于过程的程序设计</h1><h2 id="第七章-函数"><a href="#第七章-函数" class="headerlink" title="第七章 函数"></a>第七章 函数</h2><p>函数声明由函数返回类型、函数名、和参数表构成。这三个元素被称为函数声明或函数原型。一个函数可在一个文件中被声明多次。</p>
+<p>函数类型和内置数组类型不能用作返同类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 非法: 数组不能作返回类型</span><br><span class="line">int[10] foo_bar();</span><br><span class="line">// ok: 指向数组的第一个元素的指针</span><br><span class="line">int *foo_bar();</span><br></pre></td></tr></table></figure>
 
-<p>编译C++程序时编译器自动定义了一个预处理器名字__cplusplus （注意前面有两个下划线）。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#ifdef __cplusplus</span><br><span class="line">	// 我们要编译C++</span><br><span class="line">	// extern &quot;C&quot;</span><br><span class="line">	extern &quot;C&quot;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<p>类类型和容器类型可以被直接返回，但是效率很低。</p>
+<p>为了修改实参，有两种方法：</p>
+<p>​        1.参数被声明成指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// pswap()交换v1 和v2 指向的值</span><br><span class="line">void pswap( int *v1, int *v2 ) &#123;</span><br><span class="line">	int tmp = *v2;</span><br><span class="line">	*v2 = *v1;</span><br><span class="line">	*v1 = tmp;</span><br><span class="line">&#125;</span><br><span class="line">//调用</span><br><span class="line">pswap( &amp;i, &amp;j );</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">__LINE__ 用来记录文件已经被编译的行数 。</span><br><span class="line"></span><br><span class="line">__FILE__ 包含正在被编译的文件的名字。</span><br><span class="line"></span><br><span class="line">__TIME__  和 __DATE__ </span><br></pre></td></tr></table></figure>
+<p>​        2.参数声明成引用。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// rswap() 交换v1 和v2 引用的值</span><br><span class="line">	void rswap( int &amp;v1, int &amp;v2 ) &#123;</span><br><span class="line">	int tmp = v2;</span><br><span class="line">	v2 = v1;</span><br><span class="line">	v1 = tmp;</span><br><span class="line">&#125;</span><br><span class="line">//调用</span><br><span class="line">rswap( i, j );</span><br></pre></td></tr></table></figure>
 
-<h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><p>终端输入也被称为标准输入standard input，与预定义的iostream 对象 cin ，绑定在一起，直接向终端输出，也被称为标准输出standard output， 与预定义的iostream 对象cout 绑定在一起，第三个预定义iostream 对象cerr 称为标准错误standard error ，也与终端绑定cerr 通常用来产生给程序用户的警告或错误信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br></pre></td></tr></table></figure>
+<p>如果一个参数可能在函数中指向不同的对象，或者这个参数可能不指向任何对象，则必须使用指针参数。</p>
+<p>引用参数的一个重要用法是，它允许我们在有效地实现重载操作符的同时，还能保证用法的直观性。</p>
+<h3 id="省略号"><a href="#省略号" class="headerlink" title="省略号"></a>省略号</h3><p>有时候我们无法列出传递给函数的所有实参的类型和数目。在这种情况下我们可以用省略号指定函数参数表。</p>
+<p>省略号挂起类型检查机制。它们的出现告知编译器当函数被调用时可以有0 个或多个实参，而实参的类型未知。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void foo( parm_list, ... );</span><br><span class="line">void foo( ... );</span><br></pre></td></tr></table></figure>
 
-<p>除了显式地使用换行符外我们还可以使用预定义的iostream 操纵符 endl.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//为了打开一个文件供输入或输出除了iostream 头文件外还必须包含头文件</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">ofstream outFile(nameOfFile);</span><br></pre></td></tr></table></figure>
+<p>此外：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void f();</span><br><span class="line">void f(...);</span><br><span class="line">//声明不等价。</span><br></pre></td></tr></table></figure>
 
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>当声明一个返回引用的函数时，程序员应当知道下面两个易犯的错误：</p>
+<p>​    1. 返回一个指向局部对象的引用，局部对象的生命期随函数的结束而结束。在函数结束后该引用变成未定义内存的别名。</p>
+<p>​    2.函数返回一个左值，对返回值的任何修改都将改变被返回的实际对象。为防止对引用返回值的无意修改，返回值应该被声明为const。</p>
+<h3 id="inline函数"><a href="#inline函数" class="headerlink" title="inline函数"></a>inline函数</h3><p>调用函数比直接计算条件操作符要慢得多。inline 内联函数给出了一种解决方案。若一个函数被指定为inline 函数，则它将在程序中每个调用点上被内联地展开。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline int min( int v1, int v2 ) &#123; </span><br><span class="line">	//do some thing.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>inline 机制用来优化,小的只有几行的,经常被调用的函数.</p>
+<p>inline 函数对编译器而言必须是可见的,以便它能够在调用点内联展开.该函数与非inline函数不同的是.inline 函数必须在调用该函数的每个文本文件中定义.</p>
+<h3 id="链接指示符-extern-“C”"><a href="#链接指示符-extern-“C”" class="headerlink" title="链接指示符:  extern “C”"></a>链接指示符:  extern “C”</h3><p>​        用链接指示符告诉编译器,该函数是用其他的程序设计语言编写的.链接指示符有两种形式:  既可以是单一语句形式也可以是复合语句形式.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 单一语句形式的链接指示符</span><br><span class="line">extern &quot;C&quot; void exit(int);</span><br><span class="line">// 复合语句形式的链接指示符</span><br><span class="line">extern &quot;C&quot; &#123;</span><br><span class="line">    int printf( const char* ... );</span><br><span class="line">    int scanf( const char* ... );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="第二章-C-浏览"><a href="#第二章-C-浏览" class="headerlink" title="第二章  C++浏览"></a>第二章  C++浏览</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>虽然C++对数组类型提供了内置支持，但是这种支持仅限于用来读写单个元素的机制，C++不支持数组的抽象，也不支持对整个数组的操作。</p>
-<h3 id="动态内存分配和指针"><a href="#动态内存分配和指针" class="headerlink" title="动态内存分配和指针"></a>动态内存分配和指针</h3><p>在C++中指针的主要用处是管理和操纵动态分配的内存。<br>静态与动态内存分配的两个主要区别是：<br>    1.静态对象是有名字的变量，我们直接对其进行操作，而动态对象是没有名字的变量，我们通过指针间接地对它进行操作。<br>    2.静态对象的分配与释放由编译器自动处理，程序员需要理解这一点，但不需要做任何事情，相反，动态对象的分配与释放必须由程序员显式地管理，相对来说比较容易出错，它通过new 和delete 两个表达式来完成。</p>
-<h4 id="new的两种分配方式："><a href="#new的两种分配方式：" class="headerlink" title="new的两种分配方式："></a>new的两种分配方式：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//第一种：分配特定类型的单个对象</span><br><span class="line">int *pint = new int( 1024 );</span><br><span class="line">//第二种：用于分配特定类型和维数的数组</span><br><span class="line">int *pia = new int[ 4 ];</span><br></pre></td></tr></table></figure>
+<p>链接指示符不能出现在函数体中，把链接指示符放在头文件中更合适。</p>
+<h3 id="处理命令行选项"><a href="#处理命令行选项" class="headerlink" title="处理命令行选项"></a>处理命令行选项</h3><p>命令行选项是main()的实参，在main()函数中，我们可以通过一个名为argv 的C 风格字符串数组访问它。</p>
+<p>最好是把处理命令行选项的细节封装起来，使得它不会扰乱main()。</p>
+<h3 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h3><p>当一个函数名没有被调用操作符修饰时，会被解释成指向该类型函数的指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lexicoCompare;</span><br><span class="line">//会被解释成类型</span><br><span class="line">//int (*)( const string &amp;, const string &amp; );</span><br><span class="line">//将取地址操作符作用在函数名上也能产生指向该函数类型的指针</span><br><span class="line">&amp;lexicoCompare;</span><br></pre></td></tr></table></figure>
 
-<h4 id="delete的释放方法："><a href="#delete的释放方法：" class="headerlink" title="delete的释放方法："></a>delete的释放方法：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//单一对象的delete 表达式形式如下</span><br><span class="line">// 删除单个对象</span><br><span class="line">delete pint;</span><br><span class="line">//数组形式的delete 表达式如下</span><br><span class="line">// 删除一个对象数组</span><br><span class="line">delete [] pia;</span><br></pre></td></tr></table></figure>
+<p>函数指针可以用0 来初始化或赋值，以表示该指针不指向任何函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int (*pfi2s)( const string &amp;, const string &amp; ) = 0;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Class-概述"><a href="#Class-概述" class="headerlink" title="Class 概述"></a>Class 概述</h3><h4 id="类名和类体："><a href="#类名和类体：" class="headerlink" title="类名和类体："></a>类名和类体：</h4><p>类定义包括两个部分：类头class head 由关键字class 与相关联的类名构成。类体class body 由花括号括起来以分号结束。类头本身也用作类的声明。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 在程序中声明IntArray 类但是不提供定义</span><br><span class="line">class IntArray;</span><br></pre></td></tr></table></figure>
+<p>指向函数的指针可以被用来调用它所指向的函数，调用函数时，不需要解引用操作符，无论是用函数名直接调用函数，还是用指针间接调用函数，两者的写法是一样的。</p>
+<h4 id="函数指针数组"><a href="#函数指针数组" class="headerlink" title="函数指针数组"></a>函数指针数组</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int (*testCases[10])();</span><br></pre></td></tr></table></figure>
 
-<p>类体包含成员定义,以及访问标签,如public 和private .类的成员包括该类能执行的操作和代表类抽象所必需的数据.这些操作称为成员函数member function 或方法 method。</p>
-<h4 id="成员访问操作符：-和-gt"><a href="#成员访问操作符：-和-gt" class="headerlink" title="成员访问操作符：  .   和 -&gt;"></a>成员访问操作符：  .   和 -&gt;</h4><h4 id="public-和-private"><a href="#public-和-private" class="headerlink" title="public 和 private"></a>public 和 private</h4><p>关键字private 和public 控制对类成员的访问,出现在类体中公有public 部分的成员,在一般程序的任何地方都可以访问它们,出现在私有private 部分的成员,只能在该类的成员函数或友元friend 中被访问.</p>
-<p>由于C++不允许成员函数与数据成员共享同一个名字，所以在这样的情况下，一般的习惯是在数据成员名字前面加一个下划线_。、</p>
-<h4 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h4><p>内联函数在它的调用点上被展开,一般来说内联函数不会引入任何函数调用.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">array.size() 展开为 array._size;</span><br></pre></td></tr></table></figure>
-
-<h4 id="构造函数和函数重载"><a href="#构造函数和函数重载" class="headerlink" title="构造函数和函数重载"></a>构造函数和函数重载</h4><p>构造函数是一种特殊的类成员函数，专门用于初始化对象。如果构造函数被定义了，那么在类的每个对象第一次被使用之前，这构造函数就被自动应用在对象上。</p>
-<p>为了定义一个构造函数，我们只要给它与类相同的名字即可，另外我们不能给构造函数指定返回值，但是可以给类定义多个构造函数，尽管它们都具有相同的名字，但只要编译器能够根据参数表区分它们就行。</p>
-<p>被声明为static 的数据成员，是一类特殊的共享数据成员。无论这个类的对象被定义了多少个，静态数据成员在程序中也只有一份，这是在类的所有对象之间共享数据的一种方式。</p>
-<h4 id="域操作符"><a href="#域操作符" class="headerlink" title="域操作符"></a>域操作符</h4><p>双冒号:: 操作符被称为域操作符。可以非正式地把域看作是一个可视窗口， 全局域的对象在它被定义的整个文件里(一直到文件末尾)都是可见的。</p>
-<p>C++类的关键特征是接口与实现的分离。接口是一些用户可以应用到类对象上的操作的集合，它由三部分构成这些操作的名字、它们的返回值、以及它们的参数表。一般地这就是该类用户所需要知道的全部内容。私有实现包括为支持公有接口所必需的算法和数据。</p>
-<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>在C++中被继承的类被称作基类， 新类从基类派生而来，我们把它叫做基类的派生类或子类型。</p>
-<h3 id="泛型设计"><a href="#泛型设计" class="headerlink" title="泛型设计"></a>泛型设计</h3><h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><p>C++的模板设施提供了一种机制它能够将类成函数定义内部的类型和值参数化。</p>
-<p>模板机制也支持面向对象的程序设计，类模板可以作为基类或派生类。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;typename T&gt;</span><br><span class="line">template&lt;class T&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="泛型算法"><a href="#泛型算法" class="headerlink" title="泛型算法"></a>泛型算法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">搜索算法</span><br><span class="line">find() find_if() search() binary_search() count() count_if()</span><br><span class="line">分类排序与通用排序算法</span><br><span class="line">sort() partial_sort() merge() partition() rotate() reverse() random_shuffle()</span><br><span class="line">删除算法</span><br><span class="line">unique() remove()</span><br><span class="line">算术算法</span><br><span class="line">accumulate() partial_sum() inner_product() adjacent_difference()</span><br><span class="line">生成和变异算法</span><br><span class="line">generate() fill() transformation() copy( for_each()</span><br><span class="line">关系算法</span><br><span class="line">equal() min 和max()</span><br></pre></td></tr></table></figure>
-
-<p>泛型算法接受一对迭代器，它们标记了要遍历元素的范围。</p>
-<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>异常处理为响应运行时刻的程序异常,提供了一个标准的语言级的设施.它支持统一的语法和风格,也允许每个程序员进行微调.</p>
-<p>异常处理机制的主要构成如下:</p>
-<ol>
-<li><p>程序中异常出现的点.</p>
-</li>
-<li><p>程序中异常被处理的点.</p>
-<p>典型地,程序异常的抛出与处理位于独立的函数或成员函数调用中.找到处理代码通常要涉及到展开程序调用栈,一旦异常被处理完毕就恢复正常的程序执行,但不是在发生异常的地方恢复执行过程,而是在处理异常的<br>地方恢复执行过程.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catch(string exceptionMsg)&#123;</span><br><span class="line">    log_message( exceptionMsg );</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>catch 子句与try 块相关联,一个try 块用一个或多个catch 子句将一条或多条语句组织起来.</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">try&#123;</span><br><span class="line"></span><br><span class="line">&#125;catch()&#123;</span><br><span class="line"></span><br><span class="line">&#125;catrch( ... )&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="命名空间-1"><a href="#命名空间-1" class="headerlink" title="命名空间"></a>命名空间</h3><p>名字空间机制允许我们封装名字，否则这些名字就有可能会污染影响全局名字空间。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace Cplusplus_Primer_3E &#123;</span><br><span class="line">template &lt;class elemType&gt;</span><br><span class="line">class Array &#123; ... &#125;;</span><br><span class="line">// ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果名字空间内的声明对程序而言不是立即可见的，那么我们可以使用限定修饰名字符，格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace_identifier::entity_name</span><br></pre></td></tr></table></figure>
-
-<p>名字空间别名允许用一个可替代的短的或更一般的名字与一个现有的名字空间关联起来。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 提供一个更一般化的别名</span><br><span class="line">namespace LIB = IBM_Canada_Laboratory;</span><br><span class="line">// 提供一个更短的别名</span><br><span class="line">namespace DFA = Disney_Feature_Animation;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">using std::string;</span><br><span class="line">std::string;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// typedefs 使声明更易读</span><br><span class="line">typedef int (*PFV)(); // 定义函数类型指针的typedef</span><br><span class="line">PFV testCases[10];</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -201,6 +259,281 @@
 
 <h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>break 语句终止最近的while, do while, for 或switch 语句.</p>
 <h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>continue 语句导致最近的循环语句的当前迭代结束,执行权被传递给条件计算部分.</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 3.2</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_2/</url>
+    <content><![CDATA[<p>C++primer第三篇第八章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第八章-域和生命期"><a href="#第八章-域和生命期" class="headerlink" title="第八章  域和生命期"></a>第八章  域和生命期</h2><h3 id="域"><a href="#域" class="headerlink" title="域"></a>域</h3><p>C++支持三种形式的域局部域、名字空间域、以及类域。</p>
+<h4 id="局部域"><a href="#局部域" class="headerlink" title="局部域"></a>局部域</h4><p>局部域是包含在函数定义或者函数块中的程序文本部分。每一个函数都有一个独立的局部域，在函数中的每个复合语句或块也有一个独立的局部域。、</p>
+<p>局部域内的名字解析：首先查找使用该名字的域，如果找到一个声明，则该名字被解析。如果没有找到，则查找包含该域的域这个过程会一直继续下去直到找到<br>一个声明或已经查找完整个全局域如果后一种情况发生 即没有找到该名字的声明则这<br>个名字的用法将被标记为错误</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int low;</span><br><span class="line">int binSearch( const vector&lt;int&gt; &amp;vec, int val )&#123;</span><br><span class="line">    // low 的局部声明</span><br><span class="line">    // 隐藏了全局域中的声明</span><br><span class="line">    int low = 0;</span><br><span class="line">    // ...</span><br><span class="line">    // low 是局部变量</span><br><span class="line">    while ( low &lt;= high )&#123; </span><br><span class="line">    	// ...</span><br><span class="line">    &#125;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="名字空间域"><a href="#名字空间域" class="headerlink" title="名字空间域"></a>名字空间域</h4><p>名字空间域是不包含在函数声明、函数定义或者类定义内的程序文本部分。程序的最外层的名字空间域被称作全局域。对象、函数、类型以及模板都可以在全局域中定义，程序员也可以利用名字空间定义来定义用户声明的的名字空间。它们被嵌套在全局域内，每个用户声明的名字空间都是一个不同的域，它们都与全局域不同，与全局域相同的是，用户声明的名字空间，可以包含对象、函数、类型和模板的声明与定义，以及被嵌套其内的用户声明的名字空间。</p>
+<h4 id="类域"><a href="#类域" class="headerlink" title="类域"></a>类域</h4><p>每个类定义都引入了一个独立的类域。</p>
+<h4 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h4><p>在一个程序中，一个全局对象只能有一个定义，因为在使用文件中的对象之前必须先要声明这个对象，所以对于一个由多个文件构成的程序来说，它应该能够只声明一个对象而不定义它。</p>
+<p>关键字extern 为声明但不定义一个对象提供了一种方法，实际上它类似于函数声明，承诺了该对象会在其他地方被定义，或者在此文本文件中的其他地方，或者在程序的其他文本文件中。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">extern int i;</span><br></pre></td></tr></table></figure>
+
+<h4 id="局部对象"><a href="#局部对象" class="headerlink" title="局部对象"></a>局部对象</h4><p>在局部域中的变量声明引入了局部对象。有三种局部对象：自动对象、寄存器对象以及局部静态对象。<br>区分这些对象的是对象所在存储区的属性和生命期。自动对象所在存储区从声明它的函数被调用时开始一直到该函数结束为止。寄存器对象是一种自动对象，它支持对其值的快速存。取局部静态对象的存储区在该程序的整个执行期间一直存在。</p>
+<h4 id="动态分配的对象"><a href="#动态分配的对象" class="headerlink" title="动态分配的对象"></a>动态分配的对象</h4><p>动态分配的对象允许程序员完全控制它的分配与释放。动态分配的对象，被分配在程序的空闲存储区的可用内存池中。</p>
+<h5 id="单个对象的分配与释放"><a href="#单个对象的分配与释放" class="headerlink" title="单个对象的分配与释放"></a>单个对象的分配与释放</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *pi = new int;</span><br></pre></td></tr></table></figure>
+
+<p>在运行时刻，从空闲存储区中分配内存，比如通过上面的new 表达式我们称之为动态内存分配，们说pi 指向的内存是被动态分配的。</p>
+<p>下面三个常见程序错误都与动态内存分配有关：<br>1 应用delete 表达式失败，使内存无法返回空闲存储区，这被称作内存泄漏。<br>2 对同一内存区应用了两次delete 表达式，这通常发生在两个指针指向同一个动态分配对象的时候，这是一个很难踉踪的问题，若多个指针指向同一个对象，当通过某一个指针释放了该对象时，就会发生这样的情况，此时该对象的内存被返回给空闲存储区，然后又被分配给某个别的对象，接着指向旧对象的第二个指针被释放，新对象也就跟着消失了。<br>3 在对象被释放后读写该对象这常常会发生因为delete 表达式应用的指针没有被设置为0。</p>
+<h4 id="auto-ptr"><a href="#auto-ptr" class="headerlink" title="auto_ptr"></a>auto_ptr</h4><p>auto_ptr 是C++标准库提供的类模板,它可以帮助程序员自动管理用new 表达式动态分配的单个对象.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;memory&gt;</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier( ptr_allocated_by_new );</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier( auto_ptr_of_same_type );</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier;</span><br><span class="line">//type_pointed_to 代表由new 表达式创建的对象的类型</span><br></pre></td></tr></table></figure>
+
+<h4 id="数组的动态分配与释放"><a href="#数组的动态分配与释放" class="headerlink" title="数组的动态分配与释放"></a>数组的动态分配与释放</h4><p>new 表达式也可以在空闲存储区中分配数组，在这种情况下new 表达式中的类型指示符后面必须有一对方括号，里面的维数是数组的长度，且该组数可以是一个复杂的表达式。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//分配单个int类型对象</span><br><span class="line">int *Pi =  new int(1024)</span><br><span class="line">//分配一个含有1024个元素的数组</span><br><span class="line">int *pia = new int[1024]</span><br><span class="line">//分配一个含 4x1024 个元素的二维数组</span><br><span class="line">int (*pia2)[ 1024 ] = new int[ 4 ][ 1024 ];</span><br><span class="line">delete [] pia;</span><br></pre></td></tr></table></figure>
+
+<p>动态分配数组的主要好处是：它的第一维不必是常量值，即在编译时刻不需要知道维数，就像局部域或全局域中的定义所引入的数组的维数一样。</p>
+<p>对于用new 表达式分配的数组，只有第一维可以用运行时刻计算的表达式来指定，其他维必须是在编译时刻已知的常量值。</p>
+<h4 id="常量对象的动态分配与释放"><a href="#常量对象的动态分配与释放" class="headerlink" title="常量对象的动态分配与释放"></a>常量对象的动态分配与释放</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int *pci = new const int(1024);</span><br><span class="line">delete pci;</span><br></pre></td></tr></table></figure>
+
+<p>首先const 对象必须被初始化如果省略了括号中的初始值,就会产生编译错误,除此之外,对于具有缺省构造函数的class类型的对象,初始值可以省略.第二,用 new 表达式返回的值,作为初始值的指针,必须是一个指向const 类型的指针.</p>
+<h4 id="定位new-表达式"><a href="#定位new-表达式" class="headerlink" title="定位new 表达式"></a>定位new 表达式</h4><p>new 表达式的第三种形式,可以允许程序员要求将对象创建在已经被分配好的内存中,这种形式的new 表达式被称为定位new 表达式.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;new&gt;</span><br><span class="line">new (place_address) type -specifier</span><br></pre></td></tr></table></figure>
+
+<p>不存在与定位new 表达式相匹配的delete 表达式.</p>
+<h3 id="名字空间定义"><a href="#名字空间定义" class="headerlink" title="名字空间定义"></a>名字空间定义</h3><p>名字空间允许我们更好地处理全局名字空间污染问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace cplusplus_primer &#123;</span><br><span class="line">    class matrix &#123; /* ... */ &#125;;</span><br><span class="line">    void inverse ( matrix &amp; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在一个名字空间内声明的实体被称为名字空间成员。名字空间成员的名字会自动地与该名字空间名复合或被其限定修饰。</p>
+<p>名字空间的定义可以非连续，这对生成一个库很有帮助，它使我们更容易将库的源代码组织成接口和实现部分。</p>
+<p>名字空间的定义可以嵌套。</p>
+<h4 id="未命名的名字空间"><a href="#未命名的名字空间" class="headerlink" title="未命名的名字空间"></a>未命名的名字空间</h4><p>用未命名的名字空间可以用来声明一个局部于某一文件的实体。未命名的名字空间以关键字namespace 开头。后面直接跟花括号。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ----- SortLib.C -----</span><br><span class="line">    namespace &#123;</span><br><span class="line">    void swap( double *d1, double *d2 ) &#123; /* ... */ &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于未命名名字空间的成员是程序实体，所以函数swap()可以在程序整个执行期间被调用，但是未命名名字空间成员名只在特定的文件中可见，在构成程序的其他文件中是不可见的。</p>
+<p>在引入标准C++名字空间之前，解决此类声明局部化问题的常见方案是使用从C 语言中继承来的关键字static 。</p>
+<h3 id="使用名字空间成员"><a href="#使用名字空间成员" class="headerlink" title="使用名字空间成员"></a>使用名字空间成员</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace International_Business_Machines&#123;</span><br><span class="line">	/* ... */ </span><br><span class="line">&#125;</span><br><span class="line">namespace IBM = International_Business_Machines;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//通过使名字空间成员的名字可见来在程序中用该名字的非限定修饰方式引用这个成员</span><br><span class="line">//而不用前缀namespace_name::name</span><br><span class="line">namespace cplusplus_primer &#123;</span><br><span class="line">    namespace MatrixLib &#123;</span><br><span class="line">        class matrix &#123; /* ... */ &#125;;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">using cplusplus_primer::MatrixLib::matrix;  </span><br></pre></td></tr></table></figure>
+
+<p>与其他声明一样,using 声明引入的名字有以下特性:</p>
+<p>1.它在该域中必须惟一.<br>2.由外围域中的声明引入的相同名字被其隐藏.<br>3.它被嵌套域中的相同名字的声明隐藏.</p>
+<p>using 声明使名字空间成员易于使用.</p>
+<p><strong>using指示符</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 指示符: cplusplus_primer 的所有成员都变成可见的</span><br><span class="line">using namespace cplusplus_primer;</span><br></pre></td></tr></table></figure>
+
+<p>使用多个using 指示符会引起全局名字空间污染问题，用多个选择性的using 声明来代替using 指示符会使这个问题最小化，由多个选择性的using 声明引起的二义性错误在声明点就能被检测到，因此建议使用using 声明而不是using 指示符以便更好地控制程序中的全局名字空间污染问题。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 3.3</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_3/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第九章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第九章-重载函数"><a href="#第九章-重载函数" class="headerlink" title="第九章 重载函数"></a>第九章 重载函数</h2><p>函数重载 允许多个函数共享同一个函数名但是针对不同参数类型提供共同的操作。</p>
+<p>如果两个函数的函数名相同，而参数表中参数的个数或类型不同则认为这两个函数是重载的。</p>
+<p>函数的返回类型不足以区分两个重载函数。</p>
+<p>当一个参数类型是const 或volatile 时在识别函数声明是否相同时并不考虑const 和volatile 修饰符。</p>
+<p>但是，如果把const 或volatile 应用在指针或引用参数指向的类型上，则在判断函数声明是否相同时，就要考虑const 和volatile 修饰符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 声明了不同的函数</span><br><span class="line">void f( int* );</span><br><span class="line">void f( const int* );</span><br><span class="line">// 也声明了不同的函数</span><br><span class="line">void f( int&amp; );</span><br><span class="line">void f( const int&amp; );</span><br></pre></td></tr></table></figure>
+
+<p>重载函数集合中的全部函数都应在同一个域中声明。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;string&gt;</span><br><span class="line">void print( const string &amp; );</span><br><span class="line">void print( double ); // overloads print()</span><br><span class="line">void fooBar( int ival )</span><br><span class="line">&#123;</span><br><span class="line">    // 独立的域隐藏print()的两个实例</span><br><span class="line">    extern void print( int );</span><br><span class="line">    // 错误: print( const string &amp; )在这个域中被隐藏</span><br><span class="line">    print( &quot;Value : &quot; );</span><br><span class="line">    print( ival ); // ok: print( int ) 可见</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 声明</span><br><span class="line">using libs_R_us::max;</span><br><span class="line">using libs_R_us::print( double ); // 错误</span><br><span class="line">//用户不能在using 声明中为一个函数指定参数表</span><br></pre></td></tr></table></figure>
+
+<h3 id="重载解析"><a href="#重载解析" class="headerlink" title="重载解析"></a>重载解析</h3><p>函数重载解析是把函数调用与重载函数集合中的一个函数相关联的过程，在存在多个同名函数的情况下，根据函数调用中指定的实参，选择其中一个函数。</p>
+<p>函数重载解析的步骤如下：<br>    1 确定函数调用考虑的重载函数的集合确定函数调用中实参表的属性。<br>    2 从重载函数集合中选择函数该函数可以在给出实参个数和类型的情况下用调用中指定的实参进行调用。<br>    3 选择与调用最匹配的函数。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 3.4</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_4/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第十章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十章-函数模板"><a href="#第十章-函数模板" class="headerlink" title="第十章  函数模板"></a>第十章  函数模板</h2><pre><code>     函数模板提供一种用来自动生成各种类型函数实例的算法。程序员对于函数接口参数和返回类型中的全部或者部分类型进行参数化， 而函数体保持不变。
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;class T1, typename T2, int num&gt;</span><br><span class="line">//其中class、typename 是模板类型参数， int num 是非模板类型参数。</span><br></pre></td></tr></table></figure>
+
+<p>在函数模板参数表中关键字typename 和class 的意义相同，可以互换，使用它们两个都可以被用来声明同一模板参数表中的不同模板类型参数。</p>
+<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>函数模板指定了怎样根据一组或更多实际类型或值构造出独立的函数。这个构造过程被称为模板实例化，这个过程是隐式发生的，它可以被看作是函数模板调用或取函数模板的地址的副作用。</p>
+<p>用函数实参的类型来决定模板实参的类型和值的过程被称为模板实参推演。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 3.5</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_5/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第十一章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十一章-异常处理"><a href="#第十一章-异常处理" class="headerlink" title="第十一章 异常处理"></a>第十一章 异常处理</h2><p>C++程序中出现异常时检测到异常的程序段可以通过产生raise 或抛出throw 异常来通知 “异常已经发生”。</p>
+<p>通过throw 语句抛出异常对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if ( empty() )</span><br><span class="line">	throw popOnEmpty();</span><br><span class="line">//必须是对象。</span><br></pre></td></tr></table></figure>
+
+<p>try 块必须包围能够抛出异常的语句try 块，以关键字try 开始，后面是花括号括起来的语句序列，在try 块之后是一组处理代码被称为catch 子句，try 块把语句分成组，并将其与相应地处理这些语句可能抛出的异常的处理语句相关联。</p>
+<p>程序的控制流是下列几种情况之一：<br>1.如果没有异常发生则执行try 块中的代码和try 块相关联的处理代码被忽略程序main()返回0.</p>
+<p>2.如果try块中的语句发生错误。则跳到catch语句执行对应的异常操作。</p>
+<p>​      当某条语句抛出异常时，跟在该语句后面的语句将被跳过。程序执行权被转交给处理异常的catch 子句，如果没有catch 子句能够处理该异常，则程序执行权又将被转交给C++标准库中定义的函数。</p>
+<p>​    try 块可以包含任何C++语句——表达式以及声明，一个try 块引入一个局部域，在try块内声明的变量不能在try 块外被引用，包括在catch 子句中。</p>
+<p>​    C++的异常处理机制被称为是不可恢复的， 一旦异常被处理，程序的执行就不能够在异常被抛出的地方继续。</p>
+<h3 id="异常声明"><a href="#异常声明" class="headerlink" title="异常声明"></a>异常声明</h3><p>​    catch 子句的异常声明可以是一个类型声明或一个对象声明。</p>
+<p>​    当我们要获得throw 表达式的值，或者要操纵throw 表达式所创建的异常对象时，我们应该声明一个对象。当该异常被抛出时，我们把信息存储在异常对象中，如果catch 子句的异常声明声明了一个对象，则catch 子句中的语句就可以用该对象来引用由throw 表达式存储的信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 新异常类:</span><br><span class="line">// 负责保存不能被压入到栈中的值</span><br><span class="line">class pushOnFull &#123;</span><br><span class="line">public:</span><br><span class="line">    pushOnFull( int i ) : _value( i ) &#123; &#125;</span><br><span class="line">    int value() &#123; return _value; &#125;</span><br><span class="line">private:</span><br><span class="line">    int _value;</span><br><span class="line">&#125;;</span><br><span class="line">void iStack::push( int value )</span><br><span class="line">&#123;</span><br><span class="line">    if ( full() )</span><br><span class="line">    // 把value 存储在异常对象中</span><br><span class="line">    throw pushOnFull( value );</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br><span class="line">catch ( pushOnFull eObj ) &#123;</span><br><span class="line">    cerr &lt;&lt; &quot;trying to push the value &quot; &lt;&lt; eObj.value()</span><br><span class="line">    &lt;&lt; &quot; on a full stack\n&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>与函数参数的情形一样,catch 子句中的异常声明也可以被改变成引用声明,于是catch子句就可以直接引用由throw 表达式创建的异常对象,而不是创建一个局部拷贝了.为了防止不必要地拷贝大型类对象,class 类型的参数应该被声明为引用.<br>        在查找用来处理被抛出异常的catch 子句时因为异常而退出复合语句和函数定义这个过程被称作栈展开.</p>
+<h3 id="catch-all"><a href="#catch-all" class="headerlink" title="catch-all"></a>catch-all</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 对任何异常都会进人</span><br><span class="line">catch ( ... ) &#123;</span><br><span class="line">    // 这里是我们的代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="异常规范"><a href="#异常规范" class="headerlink" title="异常规范"></a>异常规范</h3><p>​        异常规范提供了一种方案，它能够随着函数声明，列出该函数可能抛出的异常，它保证该函数不会抛出任何<br>其他类型的异常。</p>
+<p>​        异常规范跟随在函数参数表之后，它用关键字throw ，来指定后面是用括号括起来的异常类型表。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class iStack &#123;</span><br><span class="line">public:</span><br><span class="line">    // ...</span><br><span class="line">void pop( int &amp;value ) throw(popOnEmpty);</span><br><span class="line">void push( int value ) throw(pushOnFull);</span><br><span class="line">private:</span><br><span class="line">    // ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 3.6</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_6/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第十二章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十二章-泛型算法"><a href="#第十二章-泛型算法" class="headerlink" title="第十二章 泛型算法"></a>第十二章 泛型算法</h2><p>​        每个泛型算法的实现都独立于单独的容器类型，因为已经消除了算法的类型依赖性，所以单个的模板实例可以操作在各种容器以及内置数组类型上。</p>
+<p>泛型算法一般支持两种形式来应用操作：</p>
+<p>​    1.使用内置或可能是被重载的操作符</p>
+<p>​    2.使用函数指针或函数对象执行操作</p>
+<h3 id="函数对象"><a href="#函数对象" class="headerlink" title="函数对象"></a>函数对象</h3><p>函数对象与函数指针相比较有两个方面的优点：</p>
+<p>首先如果被重载的调用操作符是inline函数，则编译器能够执行内联编译，提供可能的性能好处。</p>
+<p>其次函数对象可以拥有任意数目的额外数据，用这些数据可以缓冲结果，也可以缓冲有助于当前操作的数据。</p>
+<h4 id="三种来源"><a href="#三种来源" class="headerlink" title="三种来源"></a>三种来源</h4><p>1.标准库预定义的一组算术关系和逻辑函数对象。</p>
+<p>预定义函数对象被分成算术关系和逻辑操作，每个对象都是一个类模板，其中操作数的类型被参数化。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;functional&gt;</span><br><span class="line">plus&lt;int&gt; intAdd;</span><br><span class="line">int sum = intAdd(10, 20);</span><br><span class="line">//== sum = 10 + 20;</span><br></pre></td></tr></table></figure>
+
+<p>主要用法是作为泛型算法的实参,通常被用来改变缺省的操作.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt; string &gt; svec;</span><br><span class="line">// ...</span><br><span class="line">sort( svec.begin(), svec.end(), greater&lt;string&gt;() );</span><br></pre></td></tr></table></figure>
+
+<p>预定义的函数对象被分成算术、关系和逻辑三大类别。</p>
+<p>标准库还提供了一组函数适配器，用来特殊化或者扩展一元和二元函数对象。适配器是一种特殊的类，它被分成下面两类：</p>
+<p>1 绑定器：binder 通过把二元函数对象的一个实参绑定到一个特殊的值上，将其转换成一元函数对象。</p>
+<p>例如为了计数一个容器中小于或等于10 的元素的个数，我们可能会向count_if()传递一个less_equal 函数对象以及一个被绑定为10 的实参。</p>
+<p>2.取反器： negator 是一个将函数对象的值翻转的函数适配器。</p>
+<p>例如为了计数一个容器中所有大于10 的元素的个数，我们可以向count_if()传递less_equal 函数对象的negator ，该函数对象有一个实参被绑定为10。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 03</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh04/</url>
+    <content><![CDATA[<p> C++ Primer 第四篇第十二章学习笔记。<span id="more"></span></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 4.1</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh04_1/</url>
+    <content><![CDATA[<p> C++ Primer 第四篇第十三章学习笔记。<span id="more"></span></p>
+<h1 id="第四章-基于对象的程序设计"><a href="#第四章-基于对象的程序设计" class="headerlink" title="第四章 基于对象的程序设计"></a>第四章 基于对象的程序设计</h1><h2 id="第十三章-类"><a href="#第十三章-类" class="headerlink" title="第十三章 类"></a>第十三章 类</h2><h3 id="类定义"><a href="#类定义" class="headerlink" title="类定义"></a>类定义</h3><p>类定义包含两部分： 类头 + 类体。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Screen &#123; /* ... */ &#125;;</span><br><span class="line">class Screen &#123; /* ... */ &#125; myScreen, yourScreen;</span><br></pre></td></tr></table></figure>
+
+<p>除了静态 数据成员外，数据成员不能在类体中被显式地初始化，类的数据成员通过类的构造函数进行初始化。</p>
+<p>类成员的访问限制是通过类体内被标记为public、private 以及protected的部分来指定的。</p>
+<p>关键字public private 和protected 被称为访问限定符。</p>
+<p>在某些情况下，允许某个函数而不是整个程序可以访问类的私有成员这样做会比较方便。友元机制允许一个类授权其他的函数访问它的非公有成员。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Screen &#123;</span><br><span class="line">    friend istream&amp; operator&gt;&gt;( istream&amp;, Screen&amp; );</span><br><span class="line">    friend ostream&amp; operator&lt;&lt; ( ostream&amp;, const Screen&amp; );</span><br><span class="line">    public:</span><br><span class="line">    // ... Screen 类的其他部分</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>无论成员函数是在类体内还是外面，我们都说它在类域内。</p>
+<p>这有两个含义：</p>
+<p>1.成员函数的定义可以引用任何一个类成员，无论该成员是私有的还是公有的都不会破坏类访问限制。</p>
+<p>2.成员函数可以直接访问它所属的类的成员，而无需使用点或箭头成员访问操作符。</p>
+<p>只有被声明为const 的成员函数，才能被一个const 类对象调用。关键字const 被放在成员函数的参数表和函数体之间，对于在类体之外定义的const 成员函数，我们必须在它的定义和声明中同时指定关键字const。</p>
+<p>构造函数和析构函数是两个例外，即使构造函数和析构函数不是const 成员函数，const类对象也可以调用它。</p>
+<h3 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h3><p>每个类成员函数都含有一个指向被调用对象的指针，这个指针被称为this。</p>
+<p>为支持this 指针，必须要应用两个转变:</p>
+<pre><code>1. 改变类成员函数的定义,用额外的参数this 指针,来定义每个成员函数.
+2.  改变每个类成员函数的调用,加上一个额外的实参——被调用对象的地址.
+</code></pre>
+<h3 id="静态类成员"><a href="#静态类成员" class="headerlink" title="静态类成员"></a>静态类成员</h3><p>同全局对象相比,使用静态数据成员有两个优势:</p>
+<p>1.静态数据成员没有进入程序的全局名字空间,因此不存在与程序中其他全局名字冲突的可能性<br>2.可以实现信息隐藏,静态成员可以是private 成员,而全局对象不能.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Account &#123;</span><br><span class="line">    Account( double amount, const string &amp;owner );</span><br><span class="line">    string owner() &#123; return _owner; &#125;</span><br><span class="line">private:</span><br><span class="line">    static double _interestRate;</span><br><span class="line">    double _amount;</span><br><span class="line">    string _owner;</span><br><span class="line">&#125;;</span><br><span class="line">// 静态类成员的显式初始化</span><br><span class="line">#include &quot;account.h&quot;</span><br><span class="line">double Account::_interestRate = 0.0589;</span><br></pre></td></tr></table></figure>
+
+<p>静态数据成员的类型可以是其所属类,而非static 数据成员只能被声明为该类的对象的指针或引用.</p>
+<p>静态数据成员可以被作为类成员函数的缺省实参,而非static 成员不能。</p>
+<p>静态成员函数的声明，除了在类体中的函数声明前加上关键字static， 以及不能声明为const 或volatile 之外，与非静态成员函数相同，出现在类体外的函数定义不能指定关键字static。</p>
+<h3 id="指向类成员的指针"><a href="#指向类成员的指针" class="headerlink" title="指向类成员的指针"></a>指向类成员的指针</h3><p>指向成员函数的指针必须与向其赋值的函数类型匹配：<br>1.参数的类型和个数</p>
+<p>2.返回类型3</p>
+<p>3.它所属的类类型</p>
+<p>函数指针存储函数的地址,可以被用来直接调用那个函数.成员函数指针首先必须被绑定在一个对象或者一个指针上,才能得到被调用对象的this 指针,然后才调用指针所指的成员函数.</p>
+<p>定义一个成员函数指针需要指定函数返回类型参数表和类.</p>
+<p>静态类成员是属于该类的全局对象和函数,它们的指针是普通指针.</p>
+<h3 id="嵌套类"><a href="#嵌套类" class="headerlink" title="嵌套类"></a>嵌套类</h3><p>一个类可以在另一个类中定义，这样的类被称为嵌套类。嵌套类是其外围类的一个成员，嵌套类的定义可以出现在其外围类的公有私有或保护区中。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 4.2</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh04_2/</url>
+    <content><![CDATA[<p> C++ Primer 第四篇第十四章学习笔记。<span id="more"></span></p>
+<h1 id="第四篇-基于对象的程序设计"><a href="#第四篇-基于对象的程序设计" class="headerlink" title="第四篇  基于对象的程序设计"></a>第四篇  基于对象的程序设计</h1><h3 id="第十四章-类的初始化、赋值和析构"><a href="#第十四章-类的初始化、赋值和析构" class="headerlink" title="第十四章 类的初始化、赋值和析构"></a>第十四章 类的初始化、赋值和析构</h3><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数上惟一的语法限制是，它不能指定返回类型，甚至void 也不行。</p>
+<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>并不是每一个类都要求有析构函数，析构函数主要被用来放弃在类对象的构造函数或生命期中获得的资源，如释放互斥锁或删除由操作符new 分配的内存。</p>
+<p>一般地，析构函数可以执行“类设计者希望在最后一次使用对象之后执行的任何操作”。</p>
+<h3 id="类对象数组"><a href="#类对象数组" class="headerlink" title="类对象数组"></a>类对象数组</h3><p>类对象数组与内置类型数组的定义方式相同。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Account table[ 16 ];</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 03</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh04_3/</url>
+    <content><![CDATA[<p> C++ Primer 第四篇第十五章学习笔记。<span id="more"></span></p>
+<h1 id="第四篇-基于对象的程序设计"><a href="#第四篇-基于对象的程序设计" class="headerlink" title="第四篇 基于对象的程序设计"></a>第四篇 基于对象的程序设计</h1><h2 id="第十五章-重载操作符和用户定义的转换"><a href="#第十五章-重载操作符和用户定义的转换" class="headerlink" title="第十五章 重载操作符和用户定义的转换"></a>第十五章 重载操作符和用户定义的转换</h2><h3 id="操作符重载"><a href="#操作符重载" class="headerlink" title="操作符重载"></a>操作符重载</h3><p>操作符重载使得程序员能够为类类型的操作数定义预定义的操作符版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">string&amp; operator=( const String &amp; );</span><br><span class="line">string&amp; operator=( const char * );</span><br></pre></td></tr></table></figure>
+
+<p>重载的操作符在类体中被声明,声明方式同普通成员函数一样,只不过它的名字包含关键字operator ,以及紧随其后的一个预定义操作.</p>
+<p>如果一个重载操作符是类成员，那么只有当跟它一起被使用的左操作数是该类的对象时，它才会被调用。</p>
+<p>如果该操作符的左操作数必须是其他的类型，那么重载操作符必须是名字空间成员。</p>
+<p>C++要求：赋值= 、下标[] 、调用() 和成员访问箭头-&gt; 操作符必须被定义为类成员操作符，任何把这些操作符定义为名字空间成员的定义都会被标记为编译时刻错误。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 错误: 必须是类成员</span><br><span class="line">char&amp; operator[]( String &amp; ,int ix );</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>学习</category>
@@ -262,6 +595,7 @@
 <h3 id="const修饰类成员函数"><a href="#const修饰类成员函数" class="headerlink" title="const修饰类成员函数"></a>const修饰类成员函数</h3><p>const 修饰类成员函数，其目的是防止成员函数修改被调用对象的值，如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
 <p><strong>注意：</strong>const 关键字不能与 static 关键字同时使用，因为 static 关键字修饰静态成员函数，静态成员函数不含有 this 指针，即不能实例化，const 成员函数必须具体到某一实例。</p>
 <p>如果有个成员函数想修改对象中的某一个成员可以使用 mutable 关键字修饰这个成员，被 mutable 关键字修饰的成员可以处于不断变化中.</p>
+<h3 id="int-array"><a href="#int-array" class="headerlink" title="int array[[]][][]"></a>int array[[]][][]</h3><p>如果想要将一个二维数组当作函数形参或应用， 则必须实现定义第二维的大小，相比之下，更应该使用vector&lt;vector<int> &gt;.</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -426,39 +760,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git使用过程中遇到的一些问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/gitPushProblem/</url>
-    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
-<span id="more"></span>
-
-<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
-<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    接着重新上传，成功。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
-
-<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
-<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
-
-<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git学习笔记02</title>
     <url>/%E5%AD%A6%E4%B9%A0/gitNote02/</url>
     <content><![CDATA[<p>  Git 处理分支的方式可谓是难以置信的轻量，创建新分支这一操作几乎能在瞬间完成，并且在不同分支之间的切换操作也是一样便捷。</p>
@@ -502,6 +803,39 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote show &lt;remote&gt; </span><br></pre></td></tr></table></figure>
 
 <p>获得远程分支的更多信息。 然而，一个更常见的做法是利用远程跟踪分支。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git使用过程中遇到的一些问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/gitPushProblem/</url>
+    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
+<span id="more"></span>
+
+<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
+<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    接着重新上传，成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>学习</category>
@@ -630,6 +964,19 @@
       </categories>
       <tags>
         <tag>OpenCV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阅读过的书</title>
+    <url>/%E5%AD%A6%E4%B9%A0/readedBooks/</url>
+    <content><![CDATA[<p>  今天正好是情人节，就打算从今天开始记录自己看过的一些书，也不仅仅是学习方面的书，也包括网络小说，轻小说等等，五花八本的书都算,但起码看了得有意义，看完了没什么意思的书就没什么好记录的了。别人过节我看书，我也没有特别羡慕人家了！<span id="more"></span></p>
+<h3 id="lt-lt-C-primer-gt-gt"><a href="#lt-lt-C-primer-gt-gt" class="headerlink" title="&lt;&lt;C++ primer&gt;&gt;"></a>&lt;&lt;C++ primer&gt;&gt;</h3><p>这本书看了得有两个月，C++入门经典书籍，虽然看完了我也还没入门就是了。不过这本书也不是一遍就能掌握的，以后肯定会经常翻阅就是了。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>闲聊</tag>
       </tags>
   </entry>
   <entry>
@@ -851,300 +1198,6 @@
 <p>pop():删除，但不返回栈顶元素。在priority_queue 中队首元素代表优先级最高的元素.</p>
 <p>front:返回，但不删除栈顶元素。它只能应用在一般队列上.<br>back():返回，但不删除队尾元素。它只能应用在一般队列上.<br>top() 返回但不删除priority_queue 的优先级最高的元素只能应用在priority_queue 上.push(item):在队尾放入一个新元素对于priority_queue 将根据优先级排序.</p>
 <p>priority_queue 的元素被强加了顺序关系,以便元素可以从大到小管理。这里所谓最大即<br>等价于拥有最高优先级。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 3.1</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_1/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第七章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇  基于过程的程序设计"></a>第三篇  基于过程的程序设计</h1><h2 id="第七章-函数"><a href="#第七章-函数" class="headerlink" title="第七章 函数"></a>第七章 函数</h2><p>函数声明由函数返回类型、函数名、和参数表构成。这三个元素被称为函数声明或函数原型。一个函数可在一个文件中被声明多次。</p>
-<p>函数类型和内置数组类型不能用作返同类型。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 非法: 数组不能作返回类型</span><br><span class="line">int[10] foo_bar();</span><br><span class="line">// ok: 指向数组的第一个元素的指针</span><br><span class="line">int *foo_bar();</span><br></pre></td></tr></table></figure>
-
-<p>类类型和容器类型可以被直接返回，但是效率很低。</p>
-<p>为了修改实参，有两种方法：</p>
-<p>​        1.参数被声明成指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// pswap()交换v1 和v2 指向的值</span><br><span class="line">void pswap( int *v1, int *v2 ) &#123;</span><br><span class="line">	int tmp = *v2;</span><br><span class="line">	*v2 = *v1;</span><br><span class="line">	*v1 = tmp;</span><br><span class="line">&#125;</span><br><span class="line">//调用</span><br><span class="line">pswap( &amp;i, &amp;j );</span><br></pre></td></tr></table></figure>
-
-<p>​        2.参数声明成引用。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// rswap() 交换v1 和v2 引用的值</span><br><span class="line">	void rswap( int &amp;v1, int &amp;v2 ) &#123;</span><br><span class="line">	int tmp = v2;</span><br><span class="line">	v2 = v1;</span><br><span class="line">	v1 = tmp;</span><br><span class="line">&#125;</span><br><span class="line">//调用</span><br><span class="line">rswap( i, j );</span><br></pre></td></tr></table></figure>
-
-<p>如果一个参数可能在函数中指向不同的对象，或者这个参数可能不指向任何对象，则必须使用指针参数。</p>
-<p>引用参数的一个重要用法是，它允许我们在有效地实现重载操作符的同时，还能保证用法的直观性。</p>
-<h3 id="省略号"><a href="#省略号" class="headerlink" title="省略号"></a>省略号</h3><p>有时候我们无法列出传递给函数的所有实参的类型和数目。在这种情况下我们可以用省略号指定函数参数表。</p>
-<p>省略号挂起类型检查机制。它们的出现告知编译器当函数被调用时可以有0 个或多个实参，而实参的类型未知。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void foo( parm_list, ... );</span><br><span class="line">void foo( ... );</span><br></pre></td></tr></table></figure>
-
-<p>此外：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void f();</span><br><span class="line">void f(...);</span><br><span class="line">//声明不等价。</span><br></pre></td></tr></table></figure>
-
-<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>当声明一个返回引用的函数时，程序员应当知道下面两个易犯的错误：</p>
-<p>​    1. 返回一个指向局部对象的引用，局部对象的生命期随函数的结束而结束。在函数结束后该引用变成未定义内存的别名。</p>
-<p>​    2.函数返回一个左值，对返回值的任何修改都将改变被返回的实际对象。为防止对引用返回值的无意修改，返回值应该被声明为const。</p>
-<h3 id="inline函数"><a href="#inline函数" class="headerlink" title="inline函数"></a>inline函数</h3><p>调用函数比直接计算条件操作符要慢得多。inline 内联函数给出了一种解决方案。若一个函数被指定为inline 函数，则它将在程序中每个调用点上被内联地展开。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline int min( int v1, int v2 ) &#123; </span><br><span class="line">	//do some thing.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>inline 机制用来优化,小的只有几行的,经常被调用的函数.</p>
-<p>inline 函数对编译器而言必须是可见的,以便它能够在调用点内联展开.该函数与非inline函数不同的是.inline 函数必须在调用该函数的每个文本文件中定义.</p>
-<h3 id="链接指示符-extern-“C”"><a href="#链接指示符-extern-“C”" class="headerlink" title="链接指示符:  extern “C”"></a>链接指示符:  extern “C”</h3><p>​        用链接指示符告诉编译器,该函数是用其他的程序设计语言编写的.链接指示符有两种形式:  既可以是单一语句形式也可以是复合语句形式.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 单一语句形式的链接指示符</span><br><span class="line">extern &quot;C&quot; void exit(int);</span><br><span class="line">// 复合语句形式的链接指示符</span><br><span class="line">extern &quot;C&quot; &#123;</span><br><span class="line">    int printf( const char* ... );</span><br><span class="line">    int scanf( const char* ... );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>链接指示符不能出现在函数体中，把链接指示符放在头文件中更合适。</p>
-<h3 id="处理命令行选项"><a href="#处理命令行选项" class="headerlink" title="处理命令行选项"></a>处理命令行选项</h3><p>命令行选项是main()的实参，在main()函数中，我们可以通过一个名为argv 的C 风格字符串数组访问它。</p>
-<p>最好是把处理命令行选项的细节封装起来，使得它不会扰乱main()。</p>
-<h3 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h3><p>当一个函数名没有被调用操作符修饰时，会被解释成指向该类型函数的指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lexicoCompare;</span><br><span class="line">//会被解释成类型</span><br><span class="line">//int (*)( const string &amp;, const string &amp; );</span><br><span class="line">//将取地址操作符作用在函数名上也能产生指向该函数类型的指针</span><br><span class="line">&amp;lexicoCompare;</span><br></pre></td></tr></table></figure>
-
-<p>函数指针可以用0 来初始化或赋值，以表示该指针不指向任何函数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int (*pfi2s)( const string &amp;, const string &amp; ) = 0;</span><br></pre></td></tr></table></figure>
-
-<p>指向函数的指针可以被用来调用它所指向的函数，调用函数时，不需要解引用操作符，无论是用函数名直接调用函数，还是用指针间接调用函数，两者的写法是一样的。</p>
-<h4 id="函数指针数组"><a href="#函数指针数组" class="headerlink" title="函数指针数组"></a>函数指针数组</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int (*testCases[10])();</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// typedefs 使声明更易读</span><br><span class="line">typedef int (*PFV)(); // 定义函数类型指针的typedef</span><br><span class="line">PFV testCases[10];</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 3.2</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_2/</url>
-    <content><![CDATA[<p>C++primer第三篇第八章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第八章-域和生命期"><a href="#第八章-域和生命期" class="headerlink" title="第八章  域和生命期"></a>第八章  域和生命期</h2><h3 id="域"><a href="#域" class="headerlink" title="域"></a>域</h3><p>C++支持三种形式的域局部域、名字空间域、以及类域。</p>
-<h4 id="局部域"><a href="#局部域" class="headerlink" title="局部域"></a>局部域</h4><p>局部域是包含在函数定义或者函数块中的程序文本部分。每一个函数都有一个独立的局部域，在函数中的每个复合语句或块也有一个独立的局部域。、</p>
-<p>局部域内的名字解析：首先查找使用该名字的域，如果找到一个声明，则该名字被解析。如果没有找到，则查找包含该域的域这个过程会一直继续下去直到找到<br>一个声明或已经查找完整个全局域如果后一种情况发生 即没有找到该名字的声明则这<br>个名字的用法将被标记为错误</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int low;</span><br><span class="line">int binSearch( const vector&lt;int&gt; &amp;vec, int val )&#123;</span><br><span class="line">    // low 的局部声明</span><br><span class="line">    // 隐藏了全局域中的声明</span><br><span class="line">    int low = 0;</span><br><span class="line">    // ...</span><br><span class="line">    // low 是局部变量</span><br><span class="line">    while ( low &lt;= high )&#123; </span><br><span class="line">    	// ...</span><br><span class="line">    &#125;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="名字空间域"><a href="#名字空间域" class="headerlink" title="名字空间域"></a>名字空间域</h4><p>名字空间域是不包含在函数声明、函数定义或者类定义内的程序文本部分。程序的最外层的名字空间域被称作全局域。对象、函数、类型以及模板都可以在全局域中定义，程序员也可以利用名字空间定义来定义用户声明的的名字空间。它们被嵌套在全局域内，每个用户声明的名字空间都是一个不同的域，它们都与全局域不同，与全局域相同的是，用户声明的名字空间，可以包含对象、函数、类型和模板的声明与定义，以及被嵌套其内的用户声明的名字空间。</p>
-<h4 id="类域"><a href="#类域" class="headerlink" title="类域"></a>类域</h4><p>每个类定义都引入了一个独立的类域。</p>
-<h4 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h4><p>在一个程序中，一个全局对象只能有一个定义，因为在使用文件中的对象之前必须先要声明这个对象，所以对于一个由多个文件构成的程序来说，它应该能够只声明一个对象而不定义它。</p>
-<p>关键字extern 为声明但不定义一个对象提供了一种方法，实际上它类似于函数声明，承诺了该对象会在其他地方被定义，或者在此文本文件中的其他地方，或者在程序的其他文本文件中。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">extern int i;</span><br></pre></td></tr></table></figure>
-
-<h4 id="局部对象"><a href="#局部对象" class="headerlink" title="局部对象"></a>局部对象</h4><p>在局部域中的变量声明引入了局部对象。有三种局部对象：自动对象、寄存器对象以及局部静态对象。<br>区分这些对象的是对象所在存储区的属性和生命期。自动对象所在存储区从声明它的函数被调用时开始一直到该函数结束为止。寄存器对象是一种自动对象，它支持对其值的快速存。取局部静态对象的存储区在该程序的整个执行期间一直存在。</p>
-<h4 id="动态分配的对象"><a href="#动态分配的对象" class="headerlink" title="动态分配的对象"></a>动态分配的对象</h4><p>动态分配的对象允许程序员完全控制它的分配与释放。动态分配的对象，被分配在程序的空闲存储区的可用内存池中。</p>
-<h5 id="单个对象的分配与释放"><a href="#单个对象的分配与释放" class="headerlink" title="单个对象的分配与释放"></a>单个对象的分配与释放</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *pi = new int;</span><br></pre></td></tr></table></figure>
-
-<p>在运行时刻，从空闲存储区中分配内存，比如通过上面的new 表达式我们称之为动态内存分配，们说pi 指向的内存是被动态分配的。</p>
-<p>下面三个常见程序错误都与动态内存分配有关：<br>1 应用delete 表达式失败，使内存无法返回空闲存储区，这被称作内存泄漏。<br>2 对同一内存区应用了两次delete 表达式，这通常发生在两个指针指向同一个动态分配对象的时候，这是一个很难踉踪的问题，若多个指针指向同一个对象，当通过某一个指针释放了该对象时，就会发生这样的情况，此时该对象的内存被返回给空闲存储区，然后又被分配给某个别的对象，接着指向旧对象的第二个指针被释放，新对象也就跟着消失了。<br>3 在对象被释放后读写该对象这常常会发生因为delete 表达式应用的指针没有被设置为0。</p>
-<h4 id="auto-ptr"><a href="#auto-ptr" class="headerlink" title="auto_ptr"></a>auto_ptr</h4><p>auto_ptr 是C++标准库提供的类模板,它可以帮助程序员自动管理用new 表达式动态分配的单个对象.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;memory&gt;</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier( ptr_allocated_by_new );</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier( auto_ptr_of_same_type );</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier;</span><br><span class="line">//type_pointed_to 代表由new 表达式创建的对象的类型</span><br></pre></td></tr></table></figure>
-
-<h4 id="数组的动态分配与释放"><a href="#数组的动态分配与释放" class="headerlink" title="数组的动态分配与释放"></a>数组的动态分配与释放</h4><p>new 表达式也可以在空闲存储区中分配数组，在这种情况下new 表达式中的类型指示符后面必须有一对方括号，里面的维数是数组的长度，且该组数可以是一个复杂的表达式。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//分配单个int类型对象</span><br><span class="line">int *Pi =  new int(1024)</span><br><span class="line">//分配一个含有1024个元素的数组</span><br><span class="line">int *pia = new int[1024]</span><br><span class="line">//分配一个含 4x1024 个元素的二维数组</span><br><span class="line">int (*pia2)[ 1024 ] = new int[ 4 ][ 1024 ];</span><br><span class="line">delete [] pia;</span><br></pre></td></tr></table></figure>
-
-<p>动态分配数组的主要好处是：它的第一维不必是常量值，即在编译时刻不需要知道维数，就像局部域或全局域中的定义所引入的数组的维数一样。</p>
-<p>对于用new 表达式分配的数组，只有第一维可以用运行时刻计算的表达式来指定，其他维必须是在编译时刻已知的常量值。</p>
-<h4 id="常量对象的动态分配与释放"><a href="#常量对象的动态分配与释放" class="headerlink" title="常量对象的动态分配与释放"></a>常量对象的动态分配与释放</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int *pci = new const int(1024);</span><br><span class="line">delete pci;</span><br></pre></td></tr></table></figure>
-
-<p>首先const 对象必须被初始化如果省略了括号中的初始值,就会产生编译错误,除此之外,对于具有缺省构造函数的class类型的对象,初始值可以省略.第二,用 new 表达式返回的值,作为初始值的指针,必须是一个指向const 类型的指针.</p>
-<h4 id="定位new-表达式"><a href="#定位new-表达式" class="headerlink" title="定位new 表达式"></a>定位new 表达式</h4><p>new 表达式的第三种形式,可以允许程序员要求将对象创建在已经被分配好的内存中,这种形式的new 表达式被称为定位new 表达式.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;new&gt;</span><br><span class="line">new (place_address) type -specifier</span><br></pre></td></tr></table></figure>
-
-<p>不存在与定位new 表达式相匹配的delete 表达式.</p>
-<h3 id="名字空间定义"><a href="#名字空间定义" class="headerlink" title="名字空间定义"></a>名字空间定义</h3><p>名字空间允许我们更好地处理全局名字空间污染问题。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace cplusplus_primer &#123;</span><br><span class="line">    class matrix &#123; /* ... */ &#125;;</span><br><span class="line">    void inverse ( matrix &amp; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在一个名字空间内声明的实体被称为名字空间成员。名字空间成员的名字会自动地与该名字空间名复合或被其限定修饰。</p>
-<p>名字空间的定义可以非连续，这对生成一个库很有帮助，它使我们更容易将库的源代码组织成接口和实现部分。</p>
-<p>名字空间的定义可以嵌套。</p>
-<h4 id="未命名的名字空间"><a href="#未命名的名字空间" class="headerlink" title="未命名的名字空间"></a>未命名的名字空间</h4><p>用未命名的名字空间可以用来声明一个局部于某一文件的实体。未命名的名字空间以关键字namespace 开头。后面直接跟花括号。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ----- SortLib.C -----</span><br><span class="line">    namespace &#123;</span><br><span class="line">    void swap( double *d1, double *d2 ) &#123; /* ... */ &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>由于未命名名字空间的成员是程序实体，所以函数swap()可以在程序整个执行期间被调用，但是未命名名字空间成员名只在特定的文件中可见，在构成程序的其他文件中是不可见的。</p>
-<p>在引入标准C++名字空间之前，解决此类声明局部化问题的常见方案是使用从C 语言中继承来的关键字static 。</p>
-<h3 id="使用名字空间成员"><a href="#使用名字空间成员" class="headerlink" title="使用名字空间成员"></a>使用名字空间成员</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace International_Business_Machines&#123;</span><br><span class="line">	/* ... */ </span><br><span class="line">&#125;</span><br><span class="line">namespace IBM = International_Business_Machines;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//通过使名字空间成员的名字可见来在程序中用该名字的非限定修饰方式引用这个成员</span><br><span class="line">//而不用前缀namespace_name::name</span><br><span class="line">namespace cplusplus_primer &#123;</span><br><span class="line">    namespace MatrixLib &#123;</span><br><span class="line">        class matrix &#123; /* ... */ &#125;;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">using cplusplus_primer::MatrixLib::matrix;  </span><br></pre></td></tr></table></figure>
-
-<p>与其他声明一样,using 声明引入的名字有以下特性:</p>
-<p>1.它在该域中必须惟一.<br>2.由外围域中的声明引入的相同名字被其隐藏.<br>3.它被嵌套域中的相同名字的声明隐藏.</p>
-<p>using 声明使名字空间成员易于使用.</p>
-<p><strong>using指示符</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 指示符: cplusplus_primer 的所有成员都变成可见的</span><br><span class="line">using namespace cplusplus_primer;</span><br></pre></td></tr></table></figure>
-
-<p>使用多个using 指示符会引起全局名字空间污染问题，用多个选择性的using 声明来代替using 指示符会使这个问题最小化，由多个选择性的using 声明引起的二义性错误在声明点就能被检测到，因此建议使用using 声明而不是using 指示符以便更好地控制程序中的全局名字空间污染问题。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 3.3</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_3/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第九章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第九章-重载函数"><a href="#第九章-重载函数" class="headerlink" title="第九章 重载函数"></a>第九章 重载函数</h2><p>函数重载 允许多个函数共享同一个函数名但是针对不同参数类型提供共同的操作。</p>
-<p>如果两个函数的函数名相同，而参数表中参数的个数或类型不同则认为这两个函数是重载的。</p>
-<p>函数的返回类型不足以区分两个重载函数。</p>
-<p>当一个参数类型是const 或volatile 时在识别函数声明是否相同时并不考虑const 和volatile 修饰符。</p>
-<p>但是，如果把const 或volatile 应用在指针或引用参数指向的类型上，则在判断函数声明是否相同时，就要考虑const 和volatile 修饰符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 声明了不同的函数</span><br><span class="line">void f( int* );</span><br><span class="line">void f( const int* );</span><br><span class="line">// 也声明了不同的函数</span><br><span class="line">void f( int&amp; );</span><br><span class="line">void f( const int&amp; );</span><br></pre></td></tr></table></figure>
-
-<p>重载函数集合中的全部函数都应在同一个域中声明。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;string&gt;</span><br><span class="line">void print( const string &amp; );</span><br><span class="line">void print( double ); // overloads print()</span><br><span class="line">void fooBar( int ival )</span><br><span class="line">&#123;</span><br><span class="line">    // 独立的域隐藏print()的两个实例</span><br><span class="line">    extern void print( int );</span><br><span class="line">    // 错误: print( const string &amp; )在这个域中被隐藏</span><br><span class="line">    print( &quot;Value : &quot; );</span><br><span class="line">    print( ival ); // ok: print( int ) 可见</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 声明</span><br><span class="line">using libs_R_us::max;</span><br><span class="line">using libs_R_us::print( double ); // 错误</span><br><span class="line">//用户不能在using 声明中为一个函数指定参数表</span><br></pre></td></tr></table></figure>
-
-<h3 id="重载解析"><a href="#重载解析" class="headerlink" title="重载解析"></a>重载解析</h3><p>函数重载解析是把函数调用与重载函数集合中的一个函数相关联的过程，在存在多个同名函数的情况下，根据函数调用中指定的实参，选择其中一个函数。</p>
-<p>函数重载解析的步骤如下：<br>    1 确定函数调用考虑的重载函数的集合确定函数调用中实参表的属性。<br>    2 从重载函数集合中选择函数该函数可以在给出实参个数和类型的情况下用调用中指定的实参进行调用。<br>    3 选择与调用最匹配的函数。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 3.4</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_4/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第十章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十章-函数模板"><a href="#第十章-函数模板" class="headerlink" title="第十章  函数模板"></a>第十章  函数模板</h2><pre><code>     函数模板提供一种用来自动生成各种类型函数实例的算法。程序员对于函数接口参数和返回类型中的全部或者部分类型进行参数化， 而函数体保持不变。
-</code></pre>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;class T1, typename T2, int num&gt;</span><br><span class="line">//其中class、typename 是模板类型参数， int num 是非模板类型参数。</span><br></pre></td></tr></table></figure>
-
-<p>在函数模板参数表中关键字typename 和class 的意义相同，可以互换，使用它们两个都可以被用来声明同一模板参数表中的不同模板类型参数。</p>
-<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>函数模板指定了怎样根据一组或更多实际类型或值构造出独立的函数。这个构造过程被称为模板实例化，这个过程是隐式发生的，它可以被看作是函数模板调用或取函数模板的地址的副作用。</p>
-<p>用函数实参的类型来决定模板实参的类型和值的过程被称为模板实参推演。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 3.5</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_5/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第十一章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十一章-异常处理"><a href="#第十一章-异常处理" class="headerlink" title="第十一章 异常处理"></a>第十一章 异常处理</h2><p>C++程序中出现异常时检测到异常的程序段可以通过产生raise 或抛出throw 异常来通知 “异常已经发生”。</p>
-<p>通过throw 语句抛出异常对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if ( empty() )</span><br><span class="line">	throw popOnEmpty();</span><br><span class="line">//必须是对象。</span><br></pre></td></tr></table></figure>
-
-<p>try 块必须包围能够抛出异常的语句try 块，以关键字try 开始，后面是花括号括起来的语句序列，在try 块之后是一组处理代码被称为catch 子句，try 块把语句分成组，并将其与相应地处理这些语句可能抛出的异常的处理语句相关联。</p>
-<p>程序的控制流是下列几种情况之一：<br>1.如果没有异常发生则执行try 块中的代码和try 块相关联的处理代码被忽略程序main()返回0.</p>
-<p>2.如果try块中的语句发生错误。则跳到catch语句执行对应的异常操作。</p>
-<p>​      当某条语句抛出异常时，跟在该语句后面的语句将被跳过。程序执行权被转交给处理异常的catch 子句，如果没有catch 子句能够处理该异常，则程序执行权又将被转交给C++标准库中定义的函数。</p>
-<p>​    try 块可以包含任何C++语句——表达式以及声明，一个try 块引入一个局部域，在try块内声明的变量不能在try 块外被引用，包括在catch 子句中。</p>
-<p>​    C++的异常处理机制被称为是不可恢复的， 一旦异常被处理，程序的执行就不能够在异常被抛出的地方继续。</p>
-<h3 id="异常声明"><a href="#异常声明" class="headerlink" title="异常声明"></a>异常声明</h3><p>​    catch 子句的异常声明可以是一个类型声明或一个对象声明。</p>
-<p>​    当我们要获得throw 表达式的值，或者要操纵throw 表达式所创建的异常对象时，我们应该声明一个对象。当该异常被抛出时，我们把信息存储在异常对象中，如果catch 子句的异常声明声明了一个对象，则catch 子句中的语句就可以用该对象来引用由throw 表达式存储的信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 新异常类:</span><br><span class="line">// 负责保存不能被压入到栈中的值</span><br><span class="line">class pushOnFull &#123;</span><br><span class="line">public:</span><br><span class="line">    pushOnFull( int i ) : _value( i ) &#123; &#125;</span><br><span class="line">    int value() &#123; return _value; &#125;</span><br><span class="line">private:</span><br><span class="line">    int _value;</span><br><span class="line">&#125;;</span><br><span class="line">void iStack::push( int value )</span><br><span class="line">&#123;</span><br><span class="line">    if ( full() )</span><br><span class="line">    // 把value 存储在异常对象中</span><br><span class="line">    throw pushOnFull( value );</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br><span class="line">catch ( pushOnFull eObj ) &#123;</span><br><span class="line">    cerr &lt;&lt; &quot;trying to push the value &quot; &lt;&lt; eObj.value()</span><br><span class="line">    &lt;&lt; &quot; on a full stack\n&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>与函数参数的情形一样,catch 子句中的异常声明也可以被改变成引用声明,于是catch子句就可以直接引用由throw 表达式创建的异常对象,而不是创建一个局部拷贝了.为了防止不必要地拷贝大型类对象,class 类型的参数应该被声明为引用.<br>        在查找用来处理被抛出异常的catch 子句时因为异常而退出复合语句和函数定义这个过程被称作栈展开.</p>
-<h3 id="catch-all"><a href="#catch-all" class="headerlink" title="catch-all"></a>catch-all</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 对任何异常都会进人</span><br><span class="line">catch ( ... ) &#123;</span><br><span class="line">    // 这里是我们的代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="异常规范"><a href="#异常规范" class="headerlink" title="异常规范"></a>异常规范</h3><p>​        异常规范提供了一种方案，它能够随着函数声明，列出该函数可能抛出的异常，它保证该函数不会抛出任何<br>其他类型的异常。</p>
-<p>​        异常规范跟随在函数参数表之后，它用关键字throw ，来指定后面是用括号括起来的异常类型表。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class iStack &#123;</span><br><span class="line">public:</span><br><span class="line">    // ...</span><br><span class="line">void pop( int &amp;value ) throw(popOnEmpty);</span><br><span class="line">void push( int value ) throw(pushOnFull);</span><br><span class="line">private:</span><br><span class="line">    // ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 4.1</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh04_1/</url>
-    <content><![CDATA[<p> C++ Primer 第四篇第十三章学习笔记。<span id="more"></span></p>
-<h1 id="第四章-基于对象的程序设计"><a href="#第四章-基于对象的程序设计" class="headerlink" title="第四章 基于对象的程序设计"></a>第四章 基于对象的程序设计</h1><h2 id="第十三章-类"><a href="#第十三章-类" class="headerlink" title="第十三章 类"></a>第十三章 类</h2><h3 id="类定义"><a href="#类定义" class="headerlink" title="类定义"></a>类定义</h3><p>类定义包含两部分： 类头 + 类体。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Screen &#123; /* ... */ &#125;;</span><br><span class="line">class Screen &#123; /* ... */ &#125; myScreen, yourScreen;</span><br></pre></td></tr></table></figure>
-
-<p>除了静态 数据成员外，数据成员不能在类体中被显式地初始化，类的数据成员通过类的构造函数进行初始化。</p>
-<p>类成员的访问限制是通过类体内被标记为public、private 以及protected的部分来指定的。</p>
-<p>关键字public private 和protected 被称为访问限定符。</p>
-<p>在某些情况下，允许某个函数而不是整个程序可以访问类的私有成员这样做会比较方便。友元机制允许一个类授权其他的函数访问它的非公有成员。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Screen &#123;</span><br><span class="line">    friend istream&amp; operator&gt;&gt;( istream&amp;, Screen&amp; );</span><br><span class="line">    friend ostream&amp; operator&lt;&lt; ( ostream&amp;, const Screen&amp; );</span><br><span class="line">    public:</span><br><span class="line">    // ... Screen 类的其他部分</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>无论成员函数是在类体内还是外面，我们都说它在类域内。</p>
-<p>这有两个含义：</p>
-<p>1.成员函数的定义可以引用任何一个类成员，无论该成员是私有的还是公有的都不会破坏类访问限制。</p>
-<p>2.成员函数可以直接访问它所属的类的成员，而无需使用点或箭头成员访问操作符。</p>
-<p>只有被声明为const 的成员函数，才能被一个const 类对象调用。关键字const 被放在成员函数的参数表和函数体之间，对于在类体之外定义的const 成员函数，我们必须在它的定义和声明中同时指定关键字const。</p>
-<p>构造函数和析构函数是两个例外，即使构造函数和析构函数不是const 成员函数，const类对象也可以调用它。</p>
-<h3 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h3><p>每个类成员函数都含有一个指向被调用对象的指针，这个指针被称为this。</p>
-<p>为支持this 指针，必须要应用两个转变:</p>
-<pre><code>1. 改变类成员函数的定义,用额外的参数this 指针,来定义每个成员函数.
-2.  改变每个类成员函数的调用,加上一个额外的实参——被调用对象的地址.
-</code></pre>
-<h3 id="静态类成员"><a href="#静态类成员" class="headerlink" title="静态类成员"></a>静态类成员</h3><p>同全局对象相比,使用静态数据成员有两个优势:</p>
-<p>1.静态数据成员没有进入程序的全局名字空间,因此不存在与程序中其他全局名字冲突的可能性<br>2.可以实现信息隐藏,静态成员可以是private 成员,而全局对象不能.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Account &#123;</span><br><span class="line">    Account( double amount, const string &amp;owner );</span><br><span class="line">    string owner() &#123; return _owner; &#125;</span><br><span class="line">private:</span><br><span class="line">    static double _interestRate;</span><br><span class="line">    double _amount;</span><br><span class="line">    string _owner;</span><br><span class="line">&#125;;</span><br><span class="line">// 静态类成员的显式初始化</span><br><span class="line">#include &quot;account.h&quot;</span><br><span class="line">double Account::_interestRate = 0.0589;</span><br></pre></td></tr></table></figure>
-
-<p>静态数据成员的类型可以是其所属类,而非static 数据成员只能被声明为该类的对象的指针或引用.</p>
-<p>静态数据成员可以被作为类成员函数的缺省实参,而非static 成员不能。</p>
-<p>静态成员函数的声明，除了在类体中的函数声明前加上关键字static， 以及不能声明为const 或volatile 之外，与非静态成员函数相同，出现在类体外的函数定义不能指定关键字static。</p>
-<h3 id="指向类成员的指针"><a href="#指向类成员的指针" class="headerlink" title="指向类成员的指针"></a>指向类成员的指针</h3><p>指向成员函数的指针必须与向其赋值的函数类型匹配：<br>1.参数的类型和个数</p>
-<p>2.返回类型3</p>
-<p>3.它所属的类类型</p>
-<p>函数指针存储函数的地址,可以被用来直接调用那个函数.成员函数指针首先必须被绑定在一个对象或者一个指针上,才能得到被调用对象的this 指针,然后才调用指针所指的成员函数.</p>
-<p>定义一个成员函数指针需要指定函数返回类型参数表和类.</p>
-<p>静态类成员是属于该类的全局对象和函数,它们的指针是普通指针.</p>
-<h3 id="嵌套类"><a href="#嵌套类" class="headerlink" title="嵌套类"></a>嵌套类</h3><p>一个类可以在另一个类中定义，这样的类被称为嵌套类。嵌套类是其外围类的一个成员，嵌套类的定义可以出现在其外围类的公有私有或保护区中。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 03</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh04/</url>
-    <content><![CDATA[<p> C++ Primer 第四篇第十二章学习笔记。<span id="more"></span></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 3.6</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_6/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第十二章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十二章-泛型算法"><a href="#第十二章-泛型算法" class="headerlink" title="第十二章 泛型算法"></a>第十二章 泛型算法</h2><p>​        每个泛型算法的实现都独立于单独的容器类型，因为已经消除了算法的类型依赖性，所以单个的模板实例可以操作在各种容器以及内置数组类型上。</p>
-<p>泛型算法一般支持两种形式来应用操作：</p>
-<p>​    1.使用内置或可能是被重载的操作符</p>
-<p>​    2.使用函数指针或函数对象执行操作</p>
-<h3 id="函数对象"><a href="#函数对象" class="headerlink" title="函数对象"></a>函数对象</h3><p>函数对象与函数指针相比较有两个方面的优点：</p>
-<p>首先如果被重载的调用操作符是inline函数，则编译器能够执行内联编译，提供可能的性能好处。</p>
-<p>其次函数对象可以拥有任意数目的额外数据，用这些数据可以缓冲结果，也可以缓冲有助于当前操作的数据。</p>
-<h4 id="三种来源"><a href="#三种来源" class="headerlink" title="三种来源"></a>三种来源</h4><p>1.标准库预定义的一组算术关系和逻辑函数对象。</p>
-<p>预定义函数对象被分成算术关系和逻辑操作，每个对象都是一个类模板，其中操作数的类型被参数化。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;functional&gt;</span><br><span class="line">plus&lt;int&gt; intAdd;</span><br><span class="line">int sum = intAdd(10, 20);</span><br><span class="line">//== sum = 10 + 20;</span><br></pre></td></tr></table></figure>
-
-<p>主要用法是作为泛型算法的实参,通常被用来改变缺省的操作.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt; string &gt; svec;</span><br><span class="line">// ...</span><br><span class="line">sort( svec.begin(), svec.end(), greater&lt;string&gt;() );</span><br></pre></td></tr></table></figure>
-
-<p>预定义的函数对象被分成算术、关系和逻辑三大类别。</p>
-<p>标准库还提供了一组函数适配器，用来特殊化或者扩展一元和二元函数对象。适配器是一种特殊的类，它被分成下面两类：</p>
-<p>1 绑定器：binder 通过把二元函数对象的一个实参绑定到一个特殊的值上，将其转换成一元函数对象。</p>
-<p>例如为了计数一个容器中小于或等于10 的元素的个数，我们可能会向count_if()传递一个less_equal 函数对象以及一个被绑定为10 的实参。</p>
-<p>2.取反器： negator 是一个将函数对象的值翻转的函数适配器。</p>
-<p>例如为了计数一个容器中所有大于10 的元素的个数，我们可以向count_if()传递less_equal 函数对象的negator ，该函数对象有一个实参被绑定为10。</p>
 ]]></content>
       <categories>
         <category>学习</category>
