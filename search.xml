@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>cpp Primer chapter 2.1</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh02_1/</url>
+    <content><![CDATA[<p>C++ Primer 第二篇第三章学习笔记。<span id="more"></span></p>
+<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第三章-C-数字类型"><a href="#第三章-C-数字类型" class="headerlink" title="第三章 C++数字类型"></a>第三章 C++数字类型</h2><h3 id="内置数据类型"><a href="#内置数据类型" class="headerlink" title="内置数据类型"></a>内置数据类型</h3><p>其他语言常见的所有类型：</p>
+<p>int, short, long int,  long long int, double, float, char,</p>
+<p>如果一个变量是在全局域内定义的那么系统会保证给它提供初始值0.</p>
+<p>如果变量是在局部域l内定义的,或是通过new 表达式动态分配的.则系统不会向它提供初始值0 .这些对象被称为是未初始化的.</p>
+<p>每种内置数据类型都支持一种特殊的构造函数语法,可将对象初始化为0.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int ival = int();</span><br><span class="line">double dval = double();</span><br></pre></td></tr></table></figure>
+
+<h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><p>不同之处在于指针所指的对象的类型上，指针的类型可以指示编译器怎样解释特定地址上内存的内容，以及该内存区域应该跨越多少内存单元。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt; *p1, p2;</span><br><span class="line">//p1指针，p2不是。</span><br></pre></td></tr></table></figure>
+
+<p>如果我们要做的仅仅是持有地址值，那么指针的实际类型就不重要了。</p>
+<p>C++提供了一种特殊的指针类型来支持这种需求，空void* 类型指针，它可以被任何数据指针类型的地址值赋值(函数指针不能赋值给它).</p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>string 类型能够自动将C 风格的字符串转换成string 对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">string s1;</span><br><span class="line">const char *pc = &quot;a character array&quot;;</span><br><span class="line">s1 = pc; // ok</span><br></pre></td></tr></table></figure>
+
+<p>反向的转换不能自动执行，对隐式地将string 对象转换成C 风格的字符串string类型没有提供支持。</p>
+<p>为了防止字符数组被程序直接处理，c_str()返回了一个指向常量数组的指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const char *str = s1.c_str(); // ok</span><br></pre></td></tr></table></figure>
+
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>引用， 有时候又称为别名alias 。它可以用作对象的另一个名字，通过引用，我们可以间接地操纵对象，使用方式类似于指针，但是不需要指针的语法。在实际的程序中引用主要被用作函数的形式参数——通常将类对象传递给一个函数。</p>
+<p>引用类型由类型标识符和一个取地址操作符来定义，引用必须被初始化。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int ival = 1024;</span><br><span class="line">// ok: refVal 是一个指向ival 的引用</span><br><span class="line">int &amp;refVal = ival;</span><br><span class="line">// 错误引用必须被初始化为指向一个对象</span><br><span class="line">int &amp;refVal2;</span><br></pre></td></tr></table></figure>
+
+<p>一旦引用已经定义，它就不能再指向其他的对象。</p>
+<p>引用的所有操作实际上都被应用在它所指的对象身上，包括取地址操作符。</p>
+<p>指针和引用有两个主要区别：</p>
+<p>​    1.引用必须总是指向一个对象，如果用一个引用给另一个引用赋值，那么改变的是被引用的对象，而不是引用本身。</p>
+<p>​    2.引用之间的赋值是第二个不同。</p>
+<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><p>枚举不但定义了整数常量而且还把它们组成一个集合。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum open_modes&#123; input = 1, output, append &#125;;</span><br><span class="line">//input、output 和append 是枚举成员。它们代表了能用来初始化和赋值open_modes 类型变量的值的全集</span><br></pre></td></tr></table></figure>
+
+<p>枚举的限制：</p>
+<ol>
+<li> 不能打印枚举成员的实际枚举名。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//解决方案</span><br><span class="line">cout &lt;&lt; open_modes_table[ input ] &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>  不能使用枚举成员进行迭代</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 不支持</span><br><span class="line">for ( open_modes  iter = input; iter != append; ++iter )&#123;</span><br><span class="line">	// ..</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="volatile-限定修饰符"><a href="#volatile-限定修饰符" class="headerlink" title="volatile 限定修饰符"></a>volatile 限定修饰符</h3><p>当一个对象的值可能会在编译器的控制或监测之外被改变时，例如一个被系统时钟更新的变量，那么该对象应该声明成volatile， 因此编译器执行的某些例行优化行为不能应用在已指定为volatile 的对象上。</p>
+<p>volatile 修饰符的主要目的是提示编译器，该对象的值可能在编译器未监测到的情况下被改变，因此编译器不能武断地对引用这些对象的代码作优化处理。</p>
+<h3 id="pair类型"><a href="#pair类型" class="headerlink" title="pair类型"></a>pair类型</h3><p>pair 类也是标准库的一部分，它使得我们可以在单个对象内部把相同类型或不同类型的两个值关联起来。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;utility&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以用成员访问符号访问pair 中的单个元素,它们的名字为first 和second.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pair&lt; string, string &gt; author( &quot;James&quot;, &quot;Joyce&quot; );</span><br><span class="line">author.first == &quot;James&quot;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp Primer chapter 1.1</title>
     <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh01/</url>
     <content><![CDATA[<p> C++ Primer 第一篇学习笔记。<span id="more"></span></p>
@@ -87,68 +149,6 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 2.1</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh02_1/</url>
-    <content><![CDATA[<p>C++ Primer 第二篇第三章学习笔记。<span id="more"></span></p>
-<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第三章-C-数字类型"><a href="#第三章-C-数字类型" class="headerlink" title="第三章 C++数字类型"></a>第三章 C++数字类型</h2><h3 id="内置数据类型"><a href="#内置数据类型" class="headerlink" title="内置数据类型"></a>内置数据类型</h3><p>其他语言常见的所有类型：</p>
-<p>int, short, long int,  long long int, double, float, char,</p>
-<p>如果一个变量是在全局域内定义的那么系统会保证给它提供初始值0.</p>
-<p>如果变量是在局部域l内定义的,或是通过new 表达式动态分配的.则系统不会向它提供初始值0 .这些对象被称为是未初始化的.</p>
-<p>每种内置数据类型都支持一种特殊的构造函数语法,可将对象初始化为0.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int ival = int();</span><br><span class="line">double dval = double();</span><br></pre></td></tr></table></figure>
-
-<h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><p>不同之处在于指针所指的对象的类型上，指针的类型可以指示编译器怎样解释特定地址上内存的内容，以及该内存区域应该跨越多少内存单元。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt; *p1, p2;</span><br><span class="line">//p1指针，p2不是。</span><br></pre></td></tr></table></figure>
-
-<p>如果我们要做的仅仅是持有地址值，那么指针的实际类型就不重要了。</p>
-<p>C++提供了一种特殊的指针类型来支持这种需求，空void* 类型指针，它可以被任何数据指针类型的地址值赋值(函数指针不能赋值给它).</p>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>string 类型能够自动将C 风格的字符串转换成string 对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">string s1;</span><br><span class="line">const char *pc = &quot;a character array&quot;;</span><br><span class="line">s1 = pc; // ok</span><br></pre></td></tr></table></figure>
-
-<p>反向的转换不能自动执行，对隐式地将string 对象转换成C 风格的字符串string类型没有提供支持。</p>
-<p>为了防止字符数组被程序直接处理，c_str()返回了一个指向常量数组的指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const char *str = s1.c_str(); // ok</span><br></pre></td></tr></table></figure>
-
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>引用， 有时候又称为别名alias 。它可以用作对象的另一个名字，通过引用，我们可以间接地操纵对象，使用方式类似于指针，但是不需要指针的语法。在实际的程序中引用主要被用作函数的形式参数——通常将类对象传递给一个函数。</p>
-<p>引用类型由类型标识符和一个取地址操作符来定义，引用必须被初始化。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int ival = 1024;</span><br><span class="line">// ok: refVal 是一个指向ival 的引用</span><br><span class="line">int &amp;refVal = ival;</span><br><span class="line">// 错误引用必须被初始化为指向一个对象</span><br><span class="line">int &amp;refVal2;</span><br></pre></td></tr></table></figure>
-
-<p>一旦引用已经定义，它就不能再指向其他的对象。</p>
-<p>引用的所有操作实际上都被应用在它所指的对象身上，包括取地址操作符。</p>
-<p>指针和引用有两个主要区别：</p>
-<p>​    1.引用必须总是指向一个对象，如果用一个引用给另一个引用赋值，那么改变的是被引用的对象，而不是引用本身。</p>
-<p>​    2.引用之间的赋值是第二个不同。</p>
-<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><p>枚举不但定义了整数常量而且还把它们组成一个集合。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum open_modes&#123; input = 1, output, append &#125;;</span><br><span class="line">//input、output 和append 是枚举成员。它们代表了能用来初始化和赋值open_modes 类型变量的值的全集</span><br></pre></td></tr></table></figure>
-
-<p>枚举的限制：</p>
-<ol>
-<li> 不能打印枚举成员的实际枚举名。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//解决方案</span><br><span class="line">cout &lt;&lt; open_modes_table[ input ] &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>  不能使用枚举成员进行迭代</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 不支持</span><br><span class="line">for ( open_modes  iter = input; iter != append; ++iter )&#123;</span><br><span class="line">	// ..</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="volatile-限定修饰符"><a href="#volatile-限定修饰符" class="headerlink" title="volatile 限定修饰符"></a>volatile 限定修饰符</h3><p>当一个对象的值可能会在编译器的控制或监测之外被改变时，例如一个被系统时钟更新的变量，那么该对象应该声明成volatile， 因此编译器执行的某些例行优化行为不能应用在已指定为volatile 的对象上。</p>
-<p>volatile 修饰符的主要目的是提示编译器，该对象的值可能在编译器未监测到的情况下被改变，因此编译器不能武断地对引用这些对象的代码作优化处理。</p>
-<h3 id="pair类型"><a href="#pair类型" class="headerlink" title="pair类型"></a>pair类型</h3><p>pair 类也是标准库的一部分，它使得我们可以在单个对象内部把相同类型或不同类型的两个值关联起来。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;utility&gt;</span><br></pre></td></tr></table></figure>
-
-<p>我们可以用成员访问符号访问pair 中的单个元素,它们的名字为first 和second.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pair&lt; string, string &gt; author( &quot;James&quot;, &quot;Joyce&quot; );</span><br><span class="line">author.first == &quot;James&quot;;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cpp Primer chapter 2.2</title>
     <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh02_2/</url>
     <content><![CDATA[<p>C++ Primer 第二篇第四章学习笔记。<span id="more"></span></p>
@@ -180,6 +180,53 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast, reinterpret_cast, const_cast, dynamic_cast </span><br></pre></td></tr></table></figure>
 
 <p>他们本质上都是模板类。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 2.3</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh02_3/</url>
+    <content><![CDATA[<p>C++ Primer 第二篇第五章学习笔记。<span id="more"></span></p>
+<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第五章-语句"><a href="#第五章-语句" class="headerlink" title="第五章  语句"></a>第五章  语句</h2><p>与其他语言差别不大。</p>
+<h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch()&#123;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	default:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(int i=0; i&lt;n; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">for(int i=0; i&lt;k; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//C++这里的i是局部变量，</span><br></pre></td></tr></table></figure>
+
+<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>break 语句终止最近的while, do while, for 或switch 语句.</p>
+<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>continue 语句导致最近的循环语句的当前迭代结束,执行权被传递给条件计算部分.</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 3.3</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_3/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第九章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第九章-重载函数"><a href="#第九章-重载函数" class="headerlink" title="第九章 重载函数"></a>第九章 重载函数</h2><p>函数重载 允许多个函数共享同一个函数名但是针对不同参数类型提供共同的操作。</p>
+<p>如果两个函数的函数名相同，而参数表中参数的个数或类型不同则认为这两个函数是重载的。</p>
+<p>函数的返回类型不足以区分两个重载函数。</p>
+<p>当一个参数类型是const 或volatile 时在识别函数声明是否相同时并不考虑const 和volatile 修饰符。</p>
+<p>但是，如果把const 或volatile 应用在指针或引用参数指向的类型上，则在判断函数声明是否相同时，就要考虑const 和volatile 修饰符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 声明了不同的函数</span><br><span class="line">void f( int* );</span><br><span class="line">void f( const int* );</span><br><span class="line">// 也声明了不同的函数</span><br><span class="line">void f( int&amp; );</span><br><span class="line">void f( const int&amp; );</span><br></pre></td></tr></table></figure>
+
+<p>重载函数集合中的全部函数都应在同一个域中声明。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;string&gt;</span><br><span class="line">void print( const string &amp; );</span><br><span class="line">void print( double ); // overloads print()</span><br><span class="line">void fooBar( int ival )</span><br><span class="line">&#123;</span><br><span class="line">    // 独立的域隐藏print()的两个实例</span><br><span class="line">    extern void print( int );</span><br><span class="line">    // 错误: print( const string &amp; )在这个域中被隐藏</span><br><span class="line">    print( &quot;Value : &quot; );</span><br><span class="line">    print( ival ); // ok: print( int ) 可见</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 声明</span><br><span class="line">using libs_R_us::max;</span><br><span class="line">using libs_R_us::print( double ); // 错误</span><br><span class="line">//用户不能在using 声明中为一个函数指定参数表</span><br></pre></td></tr></table></figure>
+
+<h3 id="重载解析"><a href="#重载解析" class="headerlink" title="重载解析"></a>重载解析</h3><p>函数重载解析是把函数调用与重载函数集合中的一个函数相关联的过程，在存在多个同名函数的情况下，根据函数调用中指定的实参，选择其中一个函数。</p>
+<p>函数重载解析的步骤如下：<br>    1 确定函数调用考虑的重载函数的集合确定函数调用中实参表的属性。<br>    2 从重载函数集合中选择函数该函数可以在给出实参个数和类型的情况下用调用中指定的实参进行调用。<br>    3 选择与调用最匹配的函数。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -238,27 +285,6 @@
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// typedefs 使声明更易读</span><br><span class="line">typedef int (*PFV)(); // 定义函数类型指针的typedef</span><br><span class="line">PFV testCases[10];</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 2.3</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh02_3/</url>
-    <content><![CDATA[<p>C++ Primer 第二篇第五章学习笔记。<span id="more"></span></p>
-<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第五章-语句"><a href="#第五章-语句" class="headerlink" title="第五章  语句"></a>第五章  语句</h2><p>与其他语言差别不大。</p>
-<h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch()&#123;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	default:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(int i=0; i&lt;n; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">for(int i=0; i&lt;k; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//C++这里的i是局部变量，</span><br></pre></td></tr></table></figure>
-
-<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>break 语句终止最近的while, do while, for 或switch 语句.</p>
-<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>continue 语句导致最近的循环语句的当前迭代结束,执行权被传递给条件计算部分.</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -336,23 +362,75 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 3.3</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_3/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第九章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第九章-重载函数"><a href="#第九章-重载函数" class="headerlink" title="第九章 重载函数"></a>第九章 重载函数</h2><p>函数重载 允许多个函数共享同一个函数名但是针对不同参数类型提供共同的操作。</p>
-<p>如果两个函数的函数名相同，而参数表中参数的个数或类型不同则认为这两个函数是重载的。</p>
-<p>函数的返回类型不足以区分两个重载函数。</p>
-<p>当一个参数类型是const 或volatile 时在识别函数声明是否相同时并不考虑const 和volatile 修饰符。</p>
-<p>但是，如果把const 或volatile 应用在指针或引用参数指向的类型上，则在判断函数声明是否相同时，就要考虑const 和volatile 修饰符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 声明了不同的函数</span><br><span class="line">void f( int* );</span><br><span class="line">void f( const int* );</span><br><span class="line">// 也声明了不同的函数</span><br><span class="line">void f( int&amp; );</span><br><span class="line">void f( const int&amp; );</span><br></pre></td></tr></table></figure>
+    <title>cpp Primer chapter 3.6</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_6/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第十二章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十二章-泛型算法"><a href="#第十二章-泛型算法" class="headerlink" title="第十二章 泛型算法"></a>第十二章 泛型算法</h2><p>​        每个泛型算法的实现都独立于单独的容器类型，因为已经消除了算法的类型依赖性，所以单个的模板实例可以操作在各种容器以及内置数组类型上。</p>
+<p>泛型算法一般支持两种形式来应用操作：</p>
+<p>​    1.使用内置或可能是被重载的操作符</p>
+<p>​    2.使用函数指针或函数对象执行操作</p>
+<h3 id="函数对象"><a href="#函数对象" class="headerlink" title="函数对象"></a>函数对象</h3><p>函数对象与函数指针相比较有两个方面的优点：</p>
+<p>首先如果被重载的调用操作符是inline函数，则编译器能够执行内联编译，提供可能的性能好处。</p>
+<p>其次函数对象可以拥有任意数目的额外数据，用这些数据可以缓冲结果，也可以缓冲有助于当前操作的数据。</p>
+<h4 id="三种来源"><a href="#三种来源" class="headerlink" title="三种来源"></a>三种来源</h4><p>1.标准库预定义的一组算术关系和逻辑函数对象。</p>
+<p>预定义函数对象被分成算术关系和逻辑操作，每个对象都是一个类模板，其中操作数的类型被参数化。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;functional&gt;</span><br><span class="line">plus&lt;int&gt; intAdd;</span><br><span class="line">int sum = intAdd(10, 20);</span><br><span class="line">//== sum = 10 + 20;</span><br></pre></td></tr></table></figure>
 
-<p>重载函数集合中的全部函数都应在同一个域中声明。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;string&gt;</span><br><span class="line">void print( const string &amp; );</span><br><span class="line">void print( double ); // overloads print()</span><br><span class="line">void fooBar( int ival )</span><br><span class="line">&#123;</span><br><span class="line">    // 独立的域隐藏print()的两个实例</span><br><span class="line">    extern void print( int );</span><br><span class="line">    // 错误: print( const string &amp; )在这个域中被隐藏</span><br><span class="line">    print( &quot;Value : &quot; );</span><br><span class="line">    print( ival ); // ok: print( int ) 可见</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主要用法是作为泛型算法的实参,通常被用来改变缺省的操作.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt; string &gt; svec;</span><br><span class="line">// ...</span><br><span class="line">sort( svec.begin(), svec.end(), greater&lt;string&gt;() );</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 声明</span><br><span class="line">using libs_R_us::max;</span><br><span class="line">using libs_R_us::print( double ); // 错误</span><br><span class="line">//用户不能在using 声明中为一个函数指定参数表</span><br></pre></td></tr></table></figure>
+<p>预定义的函数对象被分成算术、关系和逻辑三大类别。</p>
+<p>标准库还提供了一组函数适配器，用来特殊化或者扩展一元和二元函数对象。适配器是一种特殊的类，它被分成下面两类：</p>
+<p>1 绑定器：binder 通过把二元函数对象的一个实参绑定到一个特殊的值上，将其转换成一元函数对象。</p>
+<p>例如为了计数一个容器中小于或等于10 的元素的个数，我们可能会向count_if()传递一个less_equal 函数对象以及一个被绑定为10 的实参。</p>
+<p>2.取反器： negator 是一个将函数对象的值翻转的函数适配器。</p>
+<p>例如为了计数一个容器中所有大于10 的元素的个数，我们可以向count_if()传递less_equal 函数对象的negator ，该函数对象有一个实参被绑定为10。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 4.1</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh04_1/</url>
+    <content><![CDATA[<p> C++ Primer 第四篇第十三章学习笔记。<span id="more"></span></p>
+<h1 id="第四章-基于对象的程序设计"><a href="#第四章-基于对象的程序设计" class="headerlink" title="第四章 基于对象的程序设计"></a>第四章 基于对象的程序设计</h1><h2 id="第十三章-类"><a href="#第十三章-类" class="headerlink" title="第十三章 类"></a>第十三章 类</h2><h3 id="类定义"><a href="#类定义" class="headerlink" title="类定义"></a>类定义</h3><p>类定义包含两部分： 类头 + 类体。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Screen &#123; /* ... */ &#125;;</span><br><span class="line">class Screen &#123; /* ... */ &#125; myScreen, yourScreen;</span><br></pre></td></tr></table></figure>
 
-<h3 id="重载解析"><a href="#重载解析" class="headerlink" title="重载解析"></a>重载解析</h3><p>函数重载解析是把函数调用与重载函数集合中的一个函数相关联的过程，在存在多个同名函数的情况下，根据函数调用中指定的实参，选择其中一个函数。</p>
-<p>函数重载解析的步骤如下：<br>    1 确定函数调用考虑的重载函数的集合确定函数调用中实参表的属性。<br>    2 从重载函数集合中选择函数该函数可以在给出实参个数和类型的情况下用调用中指定的实参进行调用。<br>    3 选择与调用最匹配的函数。</p>
+<p>除了静态 数据成员外，数据成员不能在类体中被显式地初始化，类的数据成员通过类的构造函数进行初始化。</p>
+<p>类成员的访问限制是通过类体内被标记为public、private 以及protected的部分来指定的。</p>
+<p>关键字public private 和protected 被称为访问限定符。</p>
+<p>在某些情况下，允许某个函数而不是整个程序可以访问类的私有成员这样做会比较方便。友元机制允许一个类授权其他的函数访问它的非公有成员。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Screen &#123;</span><br><span class="line">    friend istream&amp; operator&gt;&gt;( istream&amp;, Screen&amp; );</span><br><span class="line">    friend ostream&amp; operator&lt;&lt; ( ostream&amp;, const Screen&amp; );</span><br><span class="line">    public:</span><br><span class="line">    // ... Screen 类的其他部分</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>无论成员函数是在类体内还是外面，我们都说它在类域内。</p>
+<p>这有两个含义：</p>
+<p>1.成员函数的定义可以引用任何一个类成员，无论该成员是私有的还是公有的都不会破坏类访问限制。</p>
+<p>2.成员函数可以直接访问它所属的类的成员，而无需使用点或箭头成员访问操作符。</p>
+<p>只有被声明为const 的成员函数，才能被一个const 类对象调用。关键字const 被放在成员函数的参数表和函数体之间，对于在类体之外定义的const 成员函数，我们必须在它的定义和声明中同时指定关键字const。</p>
+<p>构造函数和析构函数是两个例外，即使构造函数和析构函数不是const 成员函数，const类对象也可以调用它。</p>
+<h3 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h3><p>每个类成员函数都含有一个指向被调用对象的指针，这个指针被称为this。</p>
+<p>为支持this 指针，必须要应用两个转变:</p>
+<pre><code>1. 改变类成员函数的定义,用额外的参数this 指针,来定义每个成员函数.
+2.  改变每个类成员函数的调用,加上一个额外的实参——被调用对象的地址.
+</code></pre>
+<h3 id="静态类成员"><a href="#静态类成员" class="headerlink" title="静态类成员"></a>静态类成员</h3><p>同全局对象相比,使用静态数据成员有两个优势:</p>
+<p>1.静态数据成员没有进入程序的全局名字空间,因此不存在与程序中其他全局名字冲突的可能性<br>2.可以实现信息隐藏,静态成员可以是private 成员,而全局对象不能.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Account &#123;</span><br><span class="line">    Account( double amount, const string &amp;owner );</span><br><span class="line">    string owner() &#123; return _owner; &#125;</span><br><span class="line">private:</span><br><span class="line">    static double _interestRate;</span><br><span class="line">    double _amount;</span><br><span class="line">    string _owner;</span><br><span class="line">&#125;;</span><br><span class="line">// 静态类成员的显式初始化</span><br><span class="line">#include &quot;account.h&quot;</span><br><span class="line">double Account::_interestRate = 0.0589;</span><br></pre></td></tr></table></figure>
+
+<p>静态数据成员的类型可以是其所属类,而非static 数据成员只能被声明为该类的对象的指针或引用.</p>
+<p>静态数据成员可以被作为类成员函数的缺省实参,而非static 成员不能。</p>
+<p>静态成员函数的声明，除了在类体中的函数声明前加上关键字static， 以及不能声明为const 或volatile 之外，与非静态成员函数相同，出现在类体外的函数定义不能指定关键字static。</p>
+<h3 id="指向类成员的指针"><a href="#指向类成员的指针" class="headerlink" title="指向类成员的指针"></a>指向类成员的指针</h3><p>指向成员函数的指针必须与向其赋值的函数类型匹配：<br>1.参数的类型和个数</p>
+<p>2.返回类型3</p>
+<p>3.它所属的类类型</p>
+<p>函数指针存储函数的地址,可以被用来直接调用那个函数.成员函数指针首先必须被绑定在一个对象或者一个指针上,才能得到被调用对象的this 指针,然后才调用指针所指的成员函数.</p>
+<p>定义一个成员函数指针需要指定函数返回类型参数表和类.</p>
+<p>静态类成员是属于该类的全局对象和函数,它们的指针是普通指针.</p>
+<h3 id="嵌套类"><a href="#嵌套类" class="headerlink" title="嵌套类"></a>嵌套类</h3><p>一个类可以在另一个类中定义，这样的类被称为嵌套类。嵌套类是其外围类的一个成员，嵌套类的定义可以出现在其外围类的公有私有或保护区中。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -414,105 +492,9 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 3.6</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh03_6/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第十二章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十二章-泛型算法"><a href="#第十二章-泛型算法" class="headerlink" title="第十二章 泛型算法"></a>第十二章 泛型算法</h2><p>​        每个泛型算法的实现都独立于单独的容器类型，因为已经消除了算法的类型依赖性，所以单个的模板实例可以操作在各种容器以及内置数组类型上。</p>
-<p>泛型算法一般支持两种形式来应用操作：</p>
-<p>​    1.使用内置或可能是被重载的操作符</p>
-<p>​    2.使用函数指针或函数对象执行操作</p>
-<h3 id="函数对象"><a href="#函数对象" class="headerlink" title="函数对象"></a>函数对象</h3><p>函数对象与函数指针相比较有两个方面的优点：</p>
-<p>首先如果被重载的调用操作符是inline函数，则编译器能够执行内联编译，提供可能的性能好处。</p>
-<p>其次函数对象可以拥有任意数目的额外数据，用这些数据可以缓冲结果，也可以缓冲有助于当前操作的数据。</p>
-<h4 id="三种来源"><a href="#三种来源" class="headerlink" title="三种来源"></a>三种来源</h4><p>1.标准库预定义的一组算术关系和逻辑函数对象。</p>
-<p>预定义函数对象被分成算术关系和逻辑操作，每个对象都是一个类模板，其中操作数的类型被参数化。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;functional&gt;</span><br><span class="line">plus&lt;int&gt; intAdd;</span><br><span class="line">int sum = intAdd(10, 20);</span><br><span class="line">//== sum = 10 + 20;</span><br></pre></td></tr></table></figure>
-
-<p>主要用法是作为泛型算法的实参,通常被用来改变缺省的操作.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt; string &gt; svec;</span><br><span class="line">// ...</span><br><span class="line">sort( svec.begin(), svec.end(), greater&lt;string&gt;() );</span><br></pre></td></tr></table></figure>
-
-<p>预定义的函数对象被分成算术、关系和逻辑三大类别。</p>
-<p>标准库还提供了一组函数适配器，用来特殊化或者扩展一元和二元函数对象。适配器是一种特殊的类，它被分成下面两类：</p>
-<p>1 绑定器：binder 通过把二元函数对象的一个实参绑定到一个特殊的值上，将其转换成一元函数对象。</p>
-<p>例如为了计数一个容器中小于或等于10 的元素的个数，我们可能会向count_if()传递一个less_equal 函数对象以及一个被绑定为10 的实参。</p>
-<p>2.取反器： negator 是一个将函数对象的值翻转的函数适配器。</p>
-<p>例如为了计数一个容器中所有大于10 的元素的个数，我们可以向count_if()传递less_equal 函数对象的negator ，该函数对象有一个实参被绑定为10。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cpp Primer chapter 03</title>
     <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh04/</url>
     <content><![CDATA[<p> C++ Primer 第四篇第十二章学习笔记。<span id="more"></span></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 4.1</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh04_1/</url>
-    <content><![CDATA[<p> C++ Primer 第四篇第十三章学习笔记。<span id="more"></span></p>
-<h1 id="第四章-基于对象的程序设计"><a href="#第四章-基于对象的程序设计" class="headerlink" title="第四章 基于对象的程序设计"></a>第四章 基于对象的程序设计</h1><h2 id="第十三章-类"><a href="#第十三章-类" class="headerlink" title="第十三章 类"></a>第十三章 类</h2><h3 id="类定义"><a href="#类定义" class="headerlink" title="类定义"></a>类定义</h3><p>类定义包含两部分： 类头 + 类体。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Screen &#123; /* ... */ &#125;;</span><br><span class="line">class Screen &#123; /* ... */ &#125; myScreen, yourScreen;</span><br></pre></td></tr></table></figure>
-
-<p>除了静态 数据成员外，数据成员不能在类体中被显式地初始化，类的数据成员通过类的构造函数进行初始化。</p>
-<p>类成员的访问限制是通过类体内被标记为public、private 以及protected的部分来指定的。</p>
-<p>关键字public private 和protected 被称为访问限定符。</p>
-<p>在某些情况下，允许某个函数而不是整个程序可以访问类的私有成员这样做会比较方便。友元机制允许一个类授权其他的函数访问它的非公有成员。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Screen &#123;</span><br><span class="line">    friend istream&amp; operator&gt;&gt;( istream&amp;, Screen&amp; );</span><br><span class="line">    friend ostream&amp; operator&lt;&lt; ( ostream&amp;, const Screen&amp; );</span><br><span class="line">    public:</span><br><span class="line">    // ... Screen 类的其他部分</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>无论成员函数是在类体内还是外面，我们都说它在类域内。</p>
-<p>这有两个含义：</p>
-<p>1.成员函数的定义可以引用任何一个类成员，无论该成员是私有的还是公有的都不会破坏类访问限制。</p>
-<p>2.成员函数可以直接访问它所属的类的成员，而无需使用点或箭头成员访问操作符。</p>
-<p>只有被声明为const 的成员函数，才能被一个const 类对象调用。关键字const 被放在成员函数的参数表和函数体之间，对于在类体之外定义的const 成员函数，我们必须在它的定义和声明中同时指定关键字const。</p>
-<p>构造函数和析构函数是两个例外，即使构造函数和析构函数不是const 成员函数，const类对象也可以调用它。</p>
-<h3 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h3><p>每个类成员函数都含有一个指向被调用对象的指针，这个指针被称为this。</p>
-<p>为支持this 指针，必须要应用两个转变:</p>
-<pre><code>1. 改变类成员函数的定义,用额外的参数this 指针,来定义每个成员函数.
-2.  改变每个类成员函数的调用,加上一个额外的实参——被调用对象的地址.
-</code></pre>
-<h3 id="静态类成员"><a href="#静态类成员" class="headerlink" title="静态类成员"></a>静态类成员</h3><p>同全局对象相比,使用静态数据成员有两个优势:</p>
-<p>1.静态数据成员没有进入程序的全局名字空间,因此不存在与程序中其他全局名字冲突的可能性<br>2.可以实现信息隐藏,静态成员可以是private 成员,而全局对象不能.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Account &#123;</span><br><span class="line">    Account( double amount, const string &amp;owner );</span><br><span class="line">    string owner() &#123; return _owner; &#125;</span><br><span class="line">private:</span><br><span class="line">    static double _interestRate;</span><br><span class="line">    double _amount;</span><br><span class="line">    string _owner;</span><br><span class="line">&#125;;</span><br><span class="line">// 静态类成员的显式初始化</span><br><span class="line">#include &quot;account.h&quot;</span><br><span class="line">double Account::_interestRate = 0.0589;</span><br></pre></td></tr></table></figure>
-
-<p>静态数据成员的类型可以是其所属类,而非static 数据成员只能被声明为该类的对象的指针或引用.</p>
-<p>静态数据成员可以被作为类成员函数的缺省实参,而非static 成员不能。</p>
-<p>静态成员函数的声明，除了在类体中的函数声明前加上关键字static， 以及不能声明为const 或volatile 之外，与非静态成员函数相同，出现在类体外的函数定义不能指定关键字static。</p>
-<h3 id="指向类成员的指针"><a href="#指向类成员的指针" class="headerlink" title="指向类成员的指针"></a>指向类成员的指针</h3><p>指向成员函数的指针必须与向其赋值的函数类型匹配：<br>1.参数的类型和个数</p>
-<p>2.返回类型3</p>
-<p>3.它所属的类类型</p>
-<p>函数指针存储函数的地址,可以被用来直接调用那个函数.成员函数指针首先必须被绑定在一个对象或者一个指针上,才能得到被调用对象的this 指针,然后才调用指针所指的成员函数.</p>
-<p>定义一个成员函数指针需要指定函数返回类型参数表和类.</p>
-<p>静态类成员是属于该类的全局对象和函数,它们的指针是普通指针.</p>
-<h3 id="嵌套类"><a href="#嵌套类" class="headerlink" title="嵌套类"></a>嵌套类</h3><p>一个类可以在另一个类中定义，这样的类被称为嵌套类。嵌套类是其外围类的一个成员，嵌套类的定义可以出现在其外围类的公有私有或保护区中。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 4.2</title>
-    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh04_2/</url>
-    <content><![CDATA[<p> C++ Primer 第四篇第十四章学习笔记。<span id="more"></span></p>
-<h1 id="第四篇-基于对象的程序设计"><a href="#第四篇-基于对象的程序设计" class="headerlink" title="第四篇  基于对象的程序设计"></a>第四篇  基于对象的程序设计</h1><h3 id="第十四章-类的初始化、赋值和析构"><a href="#第十四章-类的初始化、赋值和析构" class="headerlink" title="第十四章 类的初始化、赋值和析构"></a>第十四章 类的初始化、赋值和析构</h3><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数上惟一的语法限制是，它不能指定返回类型，甚至void 也不行。</p>
-<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>并不是每一个类都要求有析构函数，析构函数主要被用来放弃在类对象的构造函数或生命期中获得的资源，如释放互斥锁或删除由操作符new 分配的内存。</p>
-<p>一般地，析构函数可以执行“类设计者希望在最后一次使用对象之后执行的任何操作”。</p>
-<h3 id="类对象数组"><a href="#类对象数组" class="headerlink" title="类对象数组"></a>类对象数组</h3><p>类对象数组与内置类型数组的定义方式相同。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Account table[ 16 ];</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>学习</category>
@@ -595,7 +577,12 @@
 <h3 id="const修饰类成员函数"><a href="#const修饰类成员函数" class="headerlink" title="const修饰类成员函数"></a>const修饰类成员函数</h3><p>const 修饰类成员函数，其目的是防止成员函数修改被调用对象的值，如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
 <p><strong>注意：</strong>const 关键字不能与 static 关键字同时使用，因为 static 关键字修饰静态成员函数，静态成员函数不含有 this 指针，即不能实例化，const 成员函数必须具体到某一实例。</p>
 <p>如果有个成员函数想修改对象中的某一个成员可以使用 mutable 关键字修饰这个成员，被 mutable 关键字修饰的成员可以处于不断变化中.</p>
-<h3 id="int-array"><a href="#int-array" class="headerlink" title="int array[[]][][]"></a>int array[[]][][]</h3><p>如果想要将一个二维数组当作函数形参或应用， 则必须实现定义第二维的大小，相比之下，更应该使用vector&lt;vector<int> &gt;.</p>
+<h2 id="int-array"><a href="#int-array" class="headerlink" title="int array[[]][][]"></a>int array[[]][][]</h2><p>如果想要将一个二维数组当作函数形参或应用， 则必须实现定义第二维的大小，相比之下，更应该使用vector&lt;vector<int> &gt;.</p>
+<p>此外C++11有了一个新的array容器。</p>
+<h2 id="函数返回值为引用类型"><a href="#函数返回值为引用类型" class="headerlink" title="函数返回值为引用类型"></a>函数返回值为引用类型</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template &lt;typename T&gt;</span><br><span class="line">Vector&lt;T&gt;&amp; Vector&lt;T&gt;::operator=(Vector&lt;T&gt; const&amp; V)&#123;  //重载 =</span><br><span class="line">    //释放原有内容</span><br><span class="line">    if(_elem)</span><br><span class="line">        delete[] _elem;</span><br><span class="line">    //整体复制</span><br><span class="line">    copyFrom(V._elem, 0, V.size());</span><br><span class="line">    //返回当前对象的引用，以便链式复制</span><br><span class="line">    return *this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>返回类型为引用类型，需要注意返回值是全局变量、局部变量、类对象等。防止发生错误。</p>
+<p>对应很多不同的情况，值得仔细研究一下。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -645,6 +632,122 @@
       </categories>
       <tags>
         <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 4.2</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppPrimerCh04_2/</url>
+    <content><![CDATA[<p> C++ Primer 第四篇第十四章学习笔记。<span id="more"></span></p>
+<h1 id="第四篇-基于对象的程序设计"><a href="#第四篇-基于对象的程序设计" class="headerlink" title="第四篇  基于对象的程序设计"></a>第四篇  基于对象的程序设计</h1><h3 id="第十四章-类的初始化、赋值和析构"><a href="#第十四章-类的初始化、赋值和析构" class="headerlink" title="第十四章 类的初始化、赋值和析构"></a>第十四章 类的初始化、赋值和析构</h3><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数上惟一的语法限制是，它不能指定返回类型，甚至void 也不行。</p>
+<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>并不是每一个类都要求有析构函数，析构函数主要被用来放弃在类对象的构造函数或生命期中获得的资源，如释放互斥锁或删除由操作符new 分配的内存。</p>
+<p>一般地，析构函数可以执行“类设计者希望在最后一次使用对象之后执行的任何操作”。</p>
+<h3 id="类对象数组"><a href="#类对象数组" class="headerlink" title="类对象数组"></a>类对象数组</h3><p>类对象数组与内置类型数组的定义方式相同。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Account table[ 16 ];</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习过程中遇到的问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/cppProblem02/</url>
+    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊  + 1。(<em>¯ㅿ¯</em>;)</p>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git使用过程中遇到的一些问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/gitPushProblem/</url>
+    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
+<span id="more"></span>
+
+<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
+<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    接着重新上传，成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git学习笔记02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/gitNote02/</url>
+    <content><![CDATA[<p>  Git 处理分支的方式可谓是难以置信的轻量，创建新分支这一操作几乎能在瞬间完成，并且在不同分支之间的切换操作也是一样便捷。</p>
+<span id="more"></span>
+
+<h2 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h2><p>​        Git 保存的不是文件的变化或者差异，而是一系列不同时刻的快照 。在进行提交操作时，Git 会保存一个提交对象（commit object）。做些修改后再次提交，那么这次产生的提交对象会包含一个指向上次提交对象（父对象）的指针。Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git 的默认分支名字是 master。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 master 分支。 master 分支会在每次提交时自动向前移动。</p>
+<h3 id="分支创建"><a href="#分支创建" class="headerlink" title="分支创建"></a>分支创建</h3><p>创建新的分支实际就是创建一个新的指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch &lt;branchname&gt;</span><br></pre></td></tr></table></figure>
+
+<p>从而在当前所提交的对象上创建一个新的指针。</p>
+<h3 id="查看分支所指对象"><a href="#查看分支所指对象" class="headerlink" title="查看分支所指对象"></a>查看分支所指对象</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline  --decorate</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此时，HEAD指针就指向了新的分支。</p>
+<p><em><strong>分支切换会改变你工作目录中的文件</strong></em><br>在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。</p>
+<p>不同的分支提交文件后就会产生项目分叉。</p>
+<h3 id="查看分叉历史"><a href="#查看分叉历史" class="headerlink" title="查看分叉历史"></a>查看分叉历史</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline --decorate --graph --all</span><br></pre></td></tr></table></figure>
+
+<p>会输出你的提交历史、各个分支的指向以及项目的分支分叉情况。</p>
+<h3 id="创建分支的同时切换过去"><a href="#创建分支的同时切换过去" class="headerlink" title="创建分支的同时切换过去"></a>创建分支的同时切换过去</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;newbranchname&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="快进"><a href="#快进" class="headerlink" title="快进"></a>快进</h3><p>当你试图合并两个分支时， 如果顺着一个分支走下去能够到达另一个分支，那么 Git 在合并两者的时候， 只会简单的将指针向前推进（指针右移），因为这种情况下的合并操作没有需要解决的分歧——这就叫做 “快进（fast-forward）”。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#快进</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h3><p>三方分别为：第一个分支，第二个分支，两分支的分叉点。</p>
+<p>Git 将三方合并的结果做了一个新的快照并且自动创建一个新的提<br>交指向它。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#三方合并</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="合并时遇到冲突"><a href="#合并时遇到冲突" class="headerlink" title="合并时遇到冲突"></a>合并时遇到冲突</h4><p>​        如果你在两个不同的分支中，对同一个文件的同一个部分进行了不同的修改，Git 就没法干净的合并它们。</p>
+<p>​        Git 会暂停下来，等待你去解决合并产生的冲突。你可以在合并冲突后的任意时刻使用 git status 命令来查看那些因包含合并冲突而处于未合并（unmerged）状态的文件</p>
+<p>​    在手动解决文件冲突后，可以再次提交，并确认分支合并。</p>
+<h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看已有分支和当前所处分支</span><br><span class="line">git branch</span><br><span class="line">#查看已合并的分支</span><br><span class="line">git branch --merged</span><br><span class="line">#查看未合并的分支</span><br><span class="line">git branch --no-merged</span><br></pre></td></tr></table></figure>
+
+<h2 id="分支开发工作流"><a href="#分支开发工作流" class="headerlink" title="分支开发工作流"></a>分支开发工作流</h2><h3 id="长期分支"><a href="#长期分支" class="headerlink" title="长期分支"></a>长期分支</h3><p>​        因为 Git 使用简单的三方合并，所以就算在一段较长的时间内，反复把一个分支合并入另一个分支，也不是什么难事。 也就是说，在整个项目开发周期的不同阶段，你可以同时拥有多个开放的分支；你可以定期地把某些主题分支合并入其他分支中。</p>
+<h3 id="主题分支"><a href="#主题分支" class="headerlink" title="主题分支"></a>主题分支</h3><p>​        主题分支对任何规模的项目都适用。 主题分支是一种短期分支，它被用来实现单一特性或其相关工作。</p>
+<h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>远程引用是对远程仓库的引用（指针），包括分支、标签等等。 你可以通过 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git ls-remote &lt;remote&gt; </span><br></pre></td></tr></table></figure>
+
+<p>来显式地获得远程引用的完整列表， 或者通过 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote show &lt;remote&gt; </span><br></pre></td></tr></table></figure>
+
+<p>获得远程分支的更多信息。 然而，一个更常见的做法是利用远程跟踪分支。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -760,131 +863,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git学习笔记02</title>
-    <url>/%E5%AD%A6%E4%B9%A0/gitNote02/</url>
-    <content><![CDATA[<p>  Git 处理分支的方式可谓是难以置信的轻量，创建新分支这一操作几乎能在瞬间完成，并且在不同分支之间的切换操作也是一样便捷。</p>
-<span id="more"></span>
-
-<h2 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h2><p>​        Git 保存的不是文件的变化或者差异，而是一系列不同时刻的快照 。在进行提交操作时，Git 会保存一个提交对象（commit object）。做些修改后再次提交，那么这次产生的提交对象会包含一个指向上次提交对象（父对象）的指针。Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git 的默认分支名字是 master。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 master 分支。 master 分支会在每次提交时自动向前移动。</p>
-<h3 id="分支创建"><a href="#分支创建" class="headerlink" title="分支创建"></a>分支创建</h3><p>创建新的分支实际就是创建一个新的指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch &lt;branchname&gt;</span><br></pre></td></tr></table></figure>
-
-<p>从而在当前所提交的对象上创建一个新的指针。</p>
-<h3 id="查看分支所指对象"><a href="#查看分支所指对象" class="headerlink" title="查看分支所指对象"></a>查看分支所指对象</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline  --decorate</span><br></pre></td></tr></table></figure>
-
-<h3 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
-
-<p>此时，HEAD指针就指向了新的分支。</p>
-<p><em><strong>分支切换会改变你工作目录中的文件</strong></em><br>在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。</p>
-<p>不同的分支提交文件后就会产生项目分叉。</p>
-<h3 id="查看分叉历史"><a href="#查看分叉历史" class="headerlink" title="查看分叉历史"></a>查看分叉历史</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline --decorate --graph --all</span><br></pre></td></tr></table></figure>
-
-<p>会输出你的提交历史、各个分支的指向以及项目的分支分叉情况。</p>
-<h3 id="创建分支的同时切换过去"><a href="#创建分支的同时切换过去" class="headerlink" title="创建分支的同时切换过去"></a>创建分支的同时切换过去</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;newbranchname&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="快进"><a href="#快进" class="headerlink" title="快进"></a>快进</h3><p>当你试图合并两个分支时， 如果顺着一个分支走下去能够到达另一个分支，那么 Git 在合并两者的时候， 只会简单的将指针向前推进（指针右移），因为这种情况下的合并操作没有需要解决的分歧——这就叫做 “快进（fast-forward）”。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#快进</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h3><p>三方分别为：第一个分支，第二个分支，两分支的分叉点。</p>
-<p>Git 将三方合并的结果做了一个新的快照并且自动创建一个新的提<br>交指向它。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#三方合并</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="合并时遇到冲突"><a href="#合并时遇到冲突" class="headerlink" title="合并时遇到冲突"></a>合并时遇到冲突</h4><p>​        如果你在两个不同的分支中，对同一个文件的同一个部分进行了不同的修改，Git 就没法干净的合并它们。</p>
-<p>​        Git 会暂停下来，等待你去解决合并产生的冲突。你可以在合并冲突后的任意时刻使用 git status 命令来查看那些因包含合并冲突而处于未合并（unmerged）状态的文件</p>
-<p>​    在手动解决文件冲突后，可以再次提交，并确认分支合并。</p>
-<h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看已有分支和当前所处分支</span><br><span class="line">git branch</span><br><span class="line">#查看已合并的分支</span><br><span class="line">git branch --merged</span><br><span class="line">#查看未合并的分支</span><br><span class="line">git branch --no-merged</span><br></pre></td></tr></table></figure>
-
-<h2 id="分支开发工作流"><a href="#分支开发工作流" class="headerlink" title="分支开发工作流"></a>分支开发工作流</h2><h3 id="长期分支"><a href="#长期分支" class="headerlink" title="长期分支"></a>长期分支</h3><p>​        因为 Git 使用简单的三方合并，所以就算在一段较长的时间内，反复把一个分支合并入另一个分支，也不是什么难事。 也就是说，在整个项目开发周期的不同阶段，你可以同时拥有多个开放的分支；你可以定期地把某些主题分支合并入其他分支中。</p>
-<h3 id="主题分支"><a href="#主题分支" class="headerlink" title="主题分支"></a>主题分支</h3><p>​        主题分支对任何规模的项目都适用。 主题分支是一种短期分支，它被用来实现单一特性或其相关工作。</p>
-<h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>远程引用是对远程仓库的引用（指针），包括分支、标签等等。 你可以通过 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git ls-remote &lt;remote&gt; </span><br></pre></td></tr></table></figure>
-
-<p>来显式地获得远程引用的完整列表， 或者通过 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote show &lt;remote&gt; </span><br></pre></td></tr></table></figure>
-
-<p>获得远程分支的更多信息。 然而，一个更常见的做法是利用远程跟踪分支。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git使用过程中遇到的一些问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/gitPushProblem/</url>
-    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
-<span id="more"></span>
-
-<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
-<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    接着重新上传，成功。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
-
-<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
-<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
-
-<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo_init</title>
-    <url>/%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE/hexo-init/</url>
-    <content><![CDATA[<h1 id="踩坑日记："><a href="#踩坑日记：" class="headerlink" title="踩坑日记："></a>踩坑日记：</h1><p>​    该踩的坑是一个都没少踩，记录一下自己踩的一些坑吧，好多都忘了。</p>
-<p>​    <span id="more"></span></p>
-<h2 id="Git不区分大小写"><a href="#Git不区分大小写" class="headerlink" title="Git不区分大小写"></a>Git不区分大小写</h2><p>​    查看别人如何实现仅显示部分内容时，都推荐使用“&lt;！– more –&gt;”来分割文章，尝试后本地可正常工作，而部署到github后点击 阅读全文 按钮后，显示文章404。最后发现url后显示为 …/others/Introduce.html 而实际上应该是 …/Others/Introduce.html，所以找不到对应文件。出现这个问题是因为windows版的git在上传文件夹时不区分大小写，导致出错，害的我以为是hexo的锅。修改为中文后就可以正显示。</p>
-<img src="/images/hexo-init/hexo-init_01.png" >
-
-<h2 id="侧边栏头像下不显示description"><a href="#侧边栏头像下不显示description" class="headerlink" title="侧边栏头像下不显示description"></a>侧边栏头像下不显示description</h2><p>​    不管如何设置全局配置文件的description都不能显示出来，后来知道next主题配置文件中有个seo的选项配置，用来优化搜索引擎，我也用不到，就全都false。</p>
-<img src="/images/hexo-init/hexo-init_02.png" >
-
-<p>​    然后依旧无法显示，查看网页源码，  …/themes/layout/_macro/sidebar.swig文件。</p>
-<img src="/images/hexo-init/hexo-init_03.png" >
-
-<p>​    可以看出，当seo = ture时显示signature，seo = false时显示description，索性我就直接在 next的主题配置文件中新加了两行：    </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#test</span><br><span class="line"></span><br><span class="line">description: 今天不学习，明天变垃圾。</span><br><span class="line"></span><br><span class="line">signature: 今天不学习，明天变垃圾。</span><br></pre></td></tr></table></figure>
-
-
-
-<p>​    就能正常显示了。</p>
-<h2 id="侧边栏点击后显示报错"><a href="#侧边栏点击后显示报错" class="headerlink" title="侧边栏点击后显示报错"></a>侧边栏点击后显示报错</h2><p>​    next 主题官方的锅，menu下的每一项后的 ‘/‘与 ‘||’不能有空格。</p>
-<img src="/images/hexo-init/hexo-init_04.png" > 
-
-<h2 id="博客添加图片"><a href="#博客添加图片" class="headerlink" title="博客添加图片"></a>博客添加图片</h2><p>​    添加图片的坑更多了！！！</p>
-<p>​    目前已知的方法有：</p>
-<p>​        1.使用插件。（试过，但有问题，而且每个博客都会建一个文件夹来存放图片，很烦。）</p>
-<p>​        2.使用图床。（需要注册图床，然后导出图片链接，快捷方法是 Typora 与 ipic 结合使用，不过ipic仅支持mac。不过也有大佬自己写了几个插件来使用。）</p>
-<p>​        3.参考hexo官网，有以下描述。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">资源（Asset）代表 source 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 source/images 文件夹中。然后通过类似于 ![](/images/image.jpg) 的方法访问它们。</span><br></pre></td></tr></table></figure>
-
-<p>​        缺点就是本地写博客时无法浏览，其他的都很方便，我就选择的是这种方式,，在source文件中自己创建了images文件夹，在Github上浏览时发现会和已有的images文件夹相加。同时注意这里使用的是绝对路径  /images/。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​    还有好多坑都不记得了，不过最后还是依靠 百度+ 谷歌，全都解决了。</p>
-]]></content>
-      <categories>
-        <category>网站配置</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Introduce</title>
     <url>/%E5%85%B6%E4%BB%96/introduce/</url>
     <content><![CDATA[<p>无意间看到可以用GitHub来发博客，便心血来潮自己也搞了一个。</p>
@@ -901,22 +879,16 @@
       </tags>
   </entry>
   <entry>
-    <title>learing_route</title>
-    <url>/%E5%85%B6%E4%BB%96/learing-route/</url>
-    <content><![CDATA[<h1 id="学习路线"><a href="#学习路线" class="headerlink" title="学习路线"></a>学习路线</h1><p>​    本科专业是电子工程与技术，研究生报考的也是本院的实验室，未曾想研究方向居然是CV。塞翁失马，焉知非福。不管怎么说。也算是接触一个全新的领域，还有很多东西需要去学，所以也做一个小小的规划。<span id="more"></span></p>
-<h2 id="编程语言学习"><a href="#编程语言学习" class="headerlink" title="编程语言学习"></a>编程语言学习</h2><h3 id="C-：从入门到入土"><a href="#C-：从入门到入土" class="headerlink" title="C++：从入门到入土"></a>C++：从入门到入土</h3><p>​        大学时期没有了解过C++，但是OpenCV等好多底层文件都是用C++写的，那咋办嘛，学呗。</p>
-<h3 id="OpenCV-C-Python"><a href="#OpenCV-C-Python" class="headerlink" title="OpenCV: C++/Python"></a>OpenCV: C++/Python</h3><p>​        总感觉和OpenCV有种莫名的缘分(笑)，OpenCV分为C++和Python两种版本，各有优劣，应该会用到很多吧。</p>
-<h3 id="Python：-人人都会的编程语言"><a href="#Python：-人人都会的编程语言" class="headerlink" title="Python： 人人都会的编程语言"></a>Python： 人人都会的编程语言</h3><p>​        python只能说 会写但没完全会。</p>
-<h2 id="机器学习-深度学习"><a href="#机器学习-深度学习" class="headerlink" title="机器学习/深度学习"></a>机器学习/深度学习</h2><p>​        没了解之前确实觉得机器学习和深度学习都蛮神秘的，了解之后，嗯，都是我学不会的东西呢。</p>
-<h3 id="pytorch框架"><a href="#pytorch框架" class="headerlink" title="pytorch框架"></a>pytorch框架</h3><p>​        应该需要去了解一下这个框架，跟tensorflow相比好像更容易一点。</p>
-<h3 id="花书-西瓜书-鱼书"><a href="#花书-西瓜书-鱼书" class="headerlink" title="花书/西瓜书/鱼书"></a>花书/西瓜书/鱼书</h3><p>​        收藏从未停止，学习从未开始。</p>
-<h2 id="计算机基础四大件："><a href="#计算机基础四大件：" class="headerlink" title="计算机基础四大件："></a>计算机基础四大件：</h2><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><h3 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h3><h3 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h3><h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><p>​            为什么要为难我一个电子院出身的人呢。问就是北邮特色，不会真有不会编程的北邮人吧。</p>
-<h2 id="LeetCode刷题"><a href="#LeetCode刷题" class="headerlink" title="LeetCode刷题"></a>LeetCode刷题</h2><p>​            刚清空之前的刷题记录，虽然也没几道就是了(/(ㄒoㄒ)/~~)。问就是要加油啊。</p>
-<h2 id="Liunx-shell编程"><a href="#Liunx-shell编程" class="headerlink" title="Liunx/shell编程"></a>Liunx/shell编程</h2><p>​            多练练手，别忘光了就好。</p>
-<p>​    </p>
+    <title>阅读过的书</title>
+    <url>/%E5%AD%A6%E4%B9%A0/readedBooks/</url>
+    <content><![CDATA[<p>  今天正好是情人节，就打算从今天开始记录自己看过的一些书，也不仅仅是学习方面的书，也包括网络小说，轻小说等等，五花八本的书都算,但起码看了得有意义，看完了没什么意思的书就没什么好记录的了。别人过节我看书，我也没有特别羡慕人家了！<span id="more"></span></p>
+<h3 id="lt-lt-C-primer-gt-gt-2021-08-14"><a href="#lt-lt-C-primer-gt-gt-2021-08-14" class="headerlink" title="&lt;&lt;C++ primer&gt;&gt;  2021/08/14"></a>&lt;&lt;C++ primer&gt;&gt;  2021/08/14</h3><p>这本书看了得有两个月，C++入门经典书籍，虽然看完了我也还没入门就是了。不过这本书也不是一遍就能掌握的，以后还需要经常翻阅就是了。C++11的很多新特性也没涉及到，哭了。</p>
+<h3 id="《日常系的异能战斗》-2021-08-18"><a href="#《日常系的异能战斗》-2021-08-18" class="headerlink" title="《日常系的异能战斗》 2021/08/18"></a>《日常系的异能战斗》 2021/08/18</h3><p>动画是好几年前开始看的。小说看了几卷，没想到还有机会看完全本呢。结局或许直接给个后宫结局更好一点。好看！动漫也是，虽然只有一集，但给我留了很深的印象。</p>
+<img src = "/images/readedBBooks/01.png">
+
 ]]></content>
       <categories>
-        <category>其他</category>
+        <category>学习</category>
       </categories>
       <tags>
         <tag>闲聊</tag>
@@ -967,19 +939,6 @@
       </tags>
   </entry>
   <entry>
-    <title>阅读过的书</title>
-    <url>/%E5%AD%A6%E4%B9%A0/readedBooks/</url>
-    <content><![CDATA[<p>  今天正好是情人节，就打算从今天开始记录自己看过的一些书，也不仅仅是学习方面的书，也包括网络小说，轻小说等等，五花八本的书都算,但起码看了得有意义，看完了没什么意思的书就没什么好记录的了。别人过节我看书，我也没有特别羡慕人家了！<span id="more"></span></p>
-<h3 id="lt-lt-C-primer-gt-gt"><a href="#lt-lt-C-primer-gt-gt" class="headerlink" title="&lt;&lt;C++ primer&gt;&gt;"></a>&lt;&lt;C++ primer&gt;&gt;</h3><p>这本书看了得有两个月，C++入门经典书籍，虽然看完了我也还没入门就是了。不过这本书也不是一遍就能掌握的，以后肯定会经常翻阅就是了。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>闲聊</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu使用中遇到的问题</title>
     <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ubuntuUsing/</url>
     <content><![CDATA[<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。<span id="more"></span></p>
@@ -1021,6 +980,68 @@
       </categories>
       <tags>
         <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo_init</title>
+    <url>/%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE/hexo-init/</url>
+    <content><![CDATA[<h1 id="踩坑日记："><a href="#踩坑日记：" class="headerlink" title="踩坑日记："></a>踩坑日记：</h1><p>​    该踩的坑是一个都没少踩，记录一下自己踩的一些坑吧，好多都忘了。</p>
+<p>​    <span id="more"></span></p>
+<h2 id="Git不区分大小写"><a href="#Git不区分大小写" class="headerlink" title="Git不区分大小写"></a>Git不区分大小写</h2><p>​    查看别人如何实现仅显示部分内容时，都推荐使用“&lt;！– more –&gt;”来分割文章，尝试后本地可正常工作，而部署到github后点击 阅读全文 按钮后，显示文章404。最后发现url后显示为 …/others/Introduce.html 而实际上应该是 …/Others/Introduce.html，所以找不到对应文件。出现这个问题是因为windows版的git在上传文件夹时不区分大小写，导致出错，害的我以为是hexo的锅。修改为中文后就可以正显示。</p>
+<img src="/images/hexo-init/hexo-init_01.png" >
+
+<h2 id="侧边栏头像下不显示description"><a href="#侧边栏头像下不显示description" class="headerlink" title="侧边栏头像下不显示description"></a>侧边栏头像下不显示description</h2><p>​    不管如何设置全局配置文件的description都不能显示出来，后来知道next主题配置文件中有个seo的选项配置，用来优化搜索引擎，我也用不到，就全都false。</p>
+<img src="/images/hexo-init/hexo-init_02.png" >
+
+<p>​    然后依旧无法显示，查看网页源码，  …/themes/layout/_macro/sidebar.swig文件。</p>
+<img src="/images/hexo-init/hexo-init_03.png" >
+
+<p>​    可以看出，当seo = ture时显示signature，seo = false时显示description，索性我就直接在 next的主题配置文件中新加了两行：    </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#test</span><br><span class="line"></span><br><span class="line">description: 今天不学习，明天变垃圾。</span><br><span class="line"></span><br><span class="line">signature: 今天不学习，明天变垃圾。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>​    就能正常显示了。</p>
+<h2 id="侧边栏点击后显示报错"><a href="#侧边栏点击后显示报错" class="headerlink" title="侧边栏点击后显示报错"></a>侧边栏点击后显示报错</h2><p>​    next 主题官方的锅，menu下的每一项后的 ‘/‘与 ‘||’不能有空格。</p>
+<img src="/images/hexo-init/hexo-init_04.png" > 
+
+<h2 id="博客添加图片"><a href="#博客添加图片" class="headerlink" title="博客添加图片"></a>博客添加图片</h2><p>​    添加图片的坑更多了！！！</p>
+<p>​    目前已知的方法有：</p>
+<p>​        1.使用插件。（试过，但有问题，而且每个博客都会建一个文件夹来存放图片，很烦。）</p>
+<p>​        2.使用图床。（需要注册图床，然后导出图片链接，快捷方法是 Typora 与 ipic 结合使用，不过ipic仅支持mac。不过也有大佬自己写了几个插件来使用。）</p>
+<p>​        3.参考hexo官网，有以下描述。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">资源（Asset）代表 source 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 source/images 文件夹中。然后通过类似于 ![](/images/image.jpg) 的方法访问它们。</span><br></pre></td></tr></table></figure>
+
+<p>​        缺点就是本地写博客时无法浏览，其他的都很方便，我就选择的是这种方式,，在source文件中自己创建了images文件夹，在Github上浏览时发现会和已有的images文件夹相加。同时注意这里使用的是绝对路径  /images/。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​    还有好多坑都不记得了，不过最后还是依靠 百度+ 谷歌，全都解决了。</p>
+]]></content>
+      <categories>
+        <category>网站配置</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>learing_route</title>
+    <url>/%E5%85%B6%E4%BB%96/learing-route/</url>
+    <content><![CDATA[<h1 id="学习路线"><a href="#学习路线" class="headerlink" title="学习路线"></a>学习路线</h1><p>​    本科专业是电子工程与技术，研究生报考的也是本院的实验室，未曾想研究方向居然是CV。塞翁失马，焉知非福。不管怎么说。也算是接触一个全新的领域，还有很多东西需要去学，所以也做一个小小的规划。<span id="more"></span></p>
+<h2 id="编程语言学习"><a href="#编程语言学习" class="headerlink" title="编程语言学习"></a>编程语言学习</h2><h3 id="C-：从入门到入土"><a href="#C-：从入门到入土" class="headerlink" title="C++：从入门到入土"></a>C++：从入门到入土</h3><p>​        大学时期没有了解过C++，但是OpenCV等好多底层文件都是用C++写的，那咋办嘛，学呗。</p>
+<h3 id="OpenCV-C-Python"><a href="#OpenCV-C-Python" class="headerlink" title="OpenCV: C++/Python"></a>OpenCV: C++/Python</h3><p>​        总感觉和OpenCV有种莫名的缘分(笑)，OpenCV分为C++和Python两种版本，各有优劣，应该会用到很多吧。</p>
+<h3 id="Python：-人人都会的编程语言"><a href="#Python：-人人都会的编程语言" class="headerlink" title="Python： 人人都会的编程语言"></a>Python： 人人都会的编程语言</h3><p>​        python只能说 会写但没完全会。</p>
+<h2 id="机器学习-深度学习"><a href="#机器学习-深度学习" class="headerlink" title="机器学习/深度学习"></a>机器学习/深度学习</h2><p>​        没了解之前确实觉得机器学习和深度学习都蛮神秘的，了解之后，嗯，都是我学不会的东西呢。</p>
+<h3 id="pytorch框架"><a href="#pytorch框架" class="headerlink" title="pytorch框架"></a>pytorch框架</h3><p>​        应该需要去了解一下这个框架，跟tensorflow相比好像更容易一点。</p>
+<h3 id="花书-西瓜书-鱼书"><a href="#花书-西瓜书-鱼书" class="headerlink" title="花书/西瓜书/鱼书"></a>花书/西瓜书/鱼书</h3><p>​        收藏从未停止，学习从未开始。</p>
+<h2 id="计算机基础四大件："><a href="#计算机基础四大件：" class="headerlink" title="计算机基础四大件："></a>计算机基础四大件：</h2><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><h3 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h3><h3 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h3><h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><p>​            为什么要为难我一个电子院出身的人呢。问就是北邮特色，不会真有不会编程的北邮人吧。</p>
+<h2 id="LeetCode刷题"><a href="#LeetCode刷题" class="headerlink" title="LeetCode刷题"></a>LeetCode刷题</h2><p>​            刚清空之前的刷题记录，虽然也没几道就是了(/(ㄒoㄒ)/~~)。问就是要加油啊。</p>
+<h2 id="Liunx-shell编程"><a href="#Liunx-shell编程" class="headerlink" title="Liunx/shell编程"></a>Liunx/shell编程</h2><p>​            多练练手，别忘光了就好。</p>
+<p>​    </p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>闲聊</tag>
       </tags>
   </entry>
   <entry>
