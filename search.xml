@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Introduce</title>
+    <url>/%E5%85%B6%E4%BB%96/introduce/</url>
+    <content><![CDATA[<p>无意间看到可以用GitHub来发博客，便心血来潮自己也搞了一个。</p>
+<span id="more"></span>正好刚考上研究生，希望能够用来记录自己的一些学习路线或者学习心得之类的，也希望自己不要太懒惰(笑)。
+
+
+
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>闲聊</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo_init</title>
     <url>/%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE/hexo-init/</url>
     <content><![CDATA[<h1 id="踩坑日记："><a href="#踩坑日记：" class="headerlink" title="踩坑日记："></a>踩坑日记：</h1><p>​    该踩的坑是一个都没少踩，记录一下自己踩的一些坑吧，好多都忘了。</p>
@@ -41,13 +57,19 @@
       </tags>
   </entry>
   <entry>
-    <title>Introduce</title>
-    <url>/%E5%85%B6%E4%BB%96/introduce/</url>
-    <content><![CDATA[<p>无意间看到可以用GitHub来发博客，便心血来潮自己也搞了一个。</p>
-<span id="more"></span>正好刚考上研究生，希望能够用来记录自己的一些学习路线或者学习心得之类的，也希望自己不要太懒惰(笑)。
-
-
-
+    <title>learing_route</title>
+    <url>/%E5%85%B6%E4%BB%96/learing-route/</url>
+    <content><![CDATA[<h1 id="学习路线"><a href="#学习路线" class="headerlink" title="学习路线"></a>学习路线</h1><p>​    本科专业是电子工程与技术，研究生报考的也是本院的实验室，未曾想研究方向居然是CV。塞翁失马，焉知非福。不管怎么说。也算是接触一个全新的领域，还有很多东西需要去学，所以也做一个小小的规划。<span id="more"></span></p>
+<h2 id="编程语言学习"><a href="#编程语言学习" class="headerlink" title="编程语言学习"></a>编程语言学习</h2><h3 id="C-：从入门到入土"><a href="#C-：从入门到入土" class="headerlink" title="C++：从入门到入土"></a>C++：从入门到入土</h3><p>​        大学时期没有了解过C++，但是OpenCV等好多底层文件都是用C++写的，那咋办嘛，学呗。</p>
+<h3 id="OpenCV-C-Python"><a href="#OpenCV-C-Python" class="headerlink" title="OpenCV: C++/Python"></a>OpenCV: C++/Python</h3><p>​        总感觉和OpenCV有种莫名的缘分(笑)，OpenCV分为C++和Python两种版本，各有优劣，应该会用到很多吧。</p>
+<h3 id="Python：-人人都会的编程语言"><a href="#Python：-人人都会的编程语言" class="headerlink" title="Python： 人人都会的编程语言"></a>Python： 人人都会的编程语言</h3><p>​        python只能说 会写但没完全会。</p>
+<h2 id="机器学习-深度学习"><a href="#机器学习-深度学习" class="headerlink" title="机器学习/深度学习"></a>机器学习/深度学习</h2><p>​        没了解之前确实觉得机器学习和深度学习都蛮神秘的，了解之后，嗯，都是我学不会的东西呢。</p>
+<h3 id="pytorch框架"><a href="#pytorch框架" class="headerlink" title="pytorch框架"></a>pytorch框架</h3><p>​        应该需要去了解一下这个框架，跟tensorflow相比好像更容易一点。</p>
+<h3 id="花书-西瓜书-鱼书"><a href="#花书-西瓜书-鱼书" class="headerlink" title="花书/西瓜书/鱼书"></a>花书/西瓜书/鱼书</h3><p>​        收藏从未停止，学习从未开始。</p>
+<h2 id="计算机基础四大件："><a href="#计算机基础四大件：" class="headerlink" title="计算机基础四大件："></a>计算机基础四大件：</h2><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><h3 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h3><h3 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h3><h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><p>​            为什么要为难我一个电子院出身的人呢。问就是北邮特色，不会真有不会编程的北邮人吧。</p>
+<h2 id="LeetCode刷题"><a href="#LeetCode刷题" class="headerlink" title="LeetCode刷题"></a>LeetCode刷题</h2><p>​            刚清空之前的刷题记录，虽然也没几道就是了(/(ㄒoㄒ)/~~)。问就是要加油啊。</p>
+<h2 id="Liunx-shell编程"><a href="#Liunx-shell编程" class="headerlink" title="Liunx/shell编程"></a>Liunx/shell编程</h2><p>​            多练练手，别忘光了就好。</p>
+<p>​    </p>
 ]]></content>
       <categories>
         <category>其他</category>
@@ -75,30 +97,8 @@
       </tags>
   </entry>
   <entry>
-    <title>learing_route</title>
-    <url>/%E5%85%B6%E4%BB%96/learing-route/</url>
-    <content><![CDATA[<h1 id="学习路线"><a href="#学习路线" class="headerlink" title="学习路线"></a>学习路线</h1><p>​    本科专业是电子工程与技术，研究生报考的也是本院的实验室，未曾想研究方向居然是CV。塞翁失马，焉知非福。不管怎么说。也算是接触一个全新的领域，还有很多东西需要去学，所以也做一个小小的规划。<span id="more"></span></p>
-<h2 id="编程语言学习"><a href="#编程语言学习" class="headerlink" title="编程语言学习"></a>编程语言学习</h2><h3 id="C-：从入门到入土"><a href="#C-：从入门到入土" class="headerlink" title="C++：从入门到入土"></a>C++：从入门到入土</h3><p>​        大学时期没有了解过C++，但是OpenCV等好多底层文件都是用C++写的，那咋办嘛，学呗。</p>
-<h3 id="OpenCV-C-Python"><a href="#OpenCV-C-Python" class="headerlink" title="OpenCV: C++/Python"></a>OpenCV: C++/Python</h3><p>​        总感觉和OpenCV有种莫名的缘分(笑)，OpenCV分为C++和Python两种版本，各有优劣，应该会用到很多吧。</p>
-<h3 id="Python：-人人都会的编程语言"><a href="#Python：-人人都会的编程语言" class="headerlink" title="Python： 人人都会的编程语言"></a>Python： 人人都会的编程语言</h3><p>​        python只能说 会写但没完全会。</p>
-<h2 id="机器学习-深度学习"><a href="#机器学习-深度学习" class="headerlink" title="机器学习/深度学习"></a>机器学习/深度学习</h2><p>​        没了解之前确实觉得机器学习和深度学习都蛮神秘的，了解之后，嗯，都是我学不会的东西呢。</p>
-<h3 id="pytorch框架"><a href="#pytorch框架" class="headerlink" title="pytorch框架"></a>pytorch框架</h3><p>​        应该需要去了解一下这个框架，跟tensorflow相比好像更容易一点。</p>
-<h3 id="花书-西瓜书-鱼书"><a href="#花书-西瓜书-鱼书" class="headerlink" title="花书/西瓜书/鱼书"></a>花书/西瓜书/鱼书</h3><p>​        收藏从未停止，学习从未开始。</p>
-<h2 id="计算机基础四大件："><a href="#计算机基础四大件：" class="headerlink" title="计算机基础四大件："></a>计算机基础四大件：</h2><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><h3 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h3><h3 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h3><h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><p>​            为什么要为难我一个电子院出身的人呢。问就是北邮特色，不会真有不会编程的北邮人吧。</p>
-<h2 id="LeetCode刷题"><a href="#LeetCode刷题" class="headerlink" title="LeetCode刷题"></a>LeetCode刷题</h2><p>​            刚清空之前的刷题记录，虽然也没几道就是了(/(ㄒoㄒ)/~~)。问就是要加油啊。</p>
-<h2 id="Liunx-shell编程"><a href="#Liunx-shell编程" class="headerlink" title="Liunx/shell编程"></a>Liunx/shell编程</h2><p>​            多练练手，别忘光了就好。</p>
-<p>​    </p>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>闲聊</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cpp Primer chapter 1.1</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh01/</url>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh01_1/</url>
     <content><![CDATA[<p> C++ Primer 第一篇学习笔记。<span id="more"></span></p>
 <h1 id="第一篇-C-概述"><a href="#第一篇-C-概述" class="headerlink" title="第一篇 C++概述"></a>第一篇 C++概述</h1><h2 id="第一章-开始"><a href="#第一章-开始" class="headerlink" title="第一章  开始"></a>第一章  开始</h2><h3 id="C-支持多种程序设计方法："><a href="#C-支持多种程序设计方法：" class="headerlink" title="C++支持多种程序设计方法："></a>C++支持多种程序设计方法：</h3><p>​    过程化程序设计方法。　主要是函数。</p>
 <p>　对抽象数据类型程序设计方法。　主要是类。</p>
@@ -364,32 +364,6 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 3.3</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh03_3/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第九章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第九章-重载函数"><a href="#第九章-重载函数" class="headerlink" title="第九章 重载函数"></a>第九章 重载函数</h2><p>函数重载 允许多个函数共享同一个函数名但是针对不同参数类型提供共同的操作。</p>
-<p>如果两个函数的函数名相同，而参数表中参数的个数或类型不同则认为这两个函数是重载的。</p>
-<p>函数的返回类型不足以区分两个重载函数。</p>
-<p>当一个参数类型是const 或volatile 时在识别函数声明是否相同时并不考虑const 和volatile 修饰符。</p>
-<p>但是，如果把const 或volatile 应用在指针或引用参数指向的类型上，则在判断函数声明是否相同时，就要考虑const 和volatile 修饰符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 声明了不同的函数</span><br><span class="line">void f( int* );</span><br><span class="line">void f( const int* );</span><br><span class="line">// 也声明了不同的函数</span><br><span class="line">void f( int&amp; );</span><br><span class="line">void f( const int&amp; );</span><br></pre></td></tr></table></figure>
-
-<p>重载函数集合中的全部函数都应在同一个域中声明。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;string&gt;</span><br><span class="line">void print( const string &amp; );</span><br><span class="line">void print( double ); // overloads print()</span><br><span class="line">void fooBar( int ival )</span><br><span class="line">&#123;</span><br><span class="line">    // 独立的域隐藏print()的两个实例</span><br><span class="line">    extern void print( int );</span><br><span class="line">    // 错误: print( const string &amp; )在这个域中被隐藏</span><br><span class="line">    print( &quot;Value : &quot; );</span><br><span class="line">    print( ival ); // ok: print( int ) 可见</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 声明</span><br><span class="line">using libs_R_us::max;</span><br><span class="line">using libs_R_us::print( double ); // 错误</span><br><span class="line">//用户不能在using 声明中为一个函数指定参数表</span><br></pre></td></tr></table></figure>
-
-<h3 id="重载解析"><a href="#重载解析" class="headerlink" title="重载解析"></a>重载解析</h3><p>函数重载解析是把函数调用与重载函数集合中的一个函数相关联的过程，在存在多个同名函数的情况下，根据函数调用中指定的实参，选择其中一个函数。</p>
-<p>函数重载解析的步骤如下：<br>    1 确定函数调用考虑的重载函数的集合确定函数调用中实参表的属性。<br>    2 从重载函数集合中选择函数该函数可以在给出实参个数和类型的情况下用调用中指定的实参进行调用。<br>    3 选择与调用最匹配的函数。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cpp Primer chapter 3.2</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh03_2/</url>
     <content><![CDATA[<p>C++primer第三篇第八章学习笔记。<span id="more"></span></p>
@@ -449,6 +423,32 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 指示符: cplusplus_primer 的所有成员都变成可见的</span><br><span class="line">using namespace cplusplus_primer;</span><br></pre></td></tr></table></figure>
 
 <p>使用多个using 指示符会引起全局名字空间污染问题，用多个选择性的using 声明来代替using 指示符会使这个问题最小化，由多个选择性的using 声明引起的二义性错误在声明点就能被检测到，因此建议使用using 声明而不是using 指示符以便更好地控制程序中的全局名字空间污染问题。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 3.3</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh03_3/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第九章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第九章-重载函数"><a href="#第九章-重载函数" class="headerlink" title="第九章 重载函数"></a>第九章 重载函数</h2><p>函数重载 允许多个函数共享同一个函数名但是针对不同参数类型提供共同的操作。</p>
+<p>如果两个函数的函数名相同，而参数表中参数的个数或类型不同则认为这两个函数是重载的。</p>
+<p>函数的返回类型不足以区分两个重载函数。</p>
+<p>当一个参数类型是const 或volatile 时在识别函数声明是否相同时并不考虑const 和volatile 修饰符。</p>
+<p>但是，如果把const 或volatile 应用在指针或引用参数指向的类型上，则在判断函数声明是否相同时，就要考虑const 和volatile 修饰符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 声明了不同的函数</span><br><span class="line">void f( int* );</span><br><span class="line">void f( const int* );</span><br><span class="line">// 也声明了不同的函数</span><br><span class="line">void f( int&amp; );</span><br><span class="line">void f( const int&amp; );</span><br></pre></td></tr></table></figure>
+
+<p>重载函数集合中的全部函数都应在同一个域中声明。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;string&gt;</span><br><span class="line">void print( const string &amp; );</span><br><span class="line">void print( double ); // overloads print()</span><br><span class="line">void fooBar( int ival )</span><br><span class="line">&#123;</span><br><span class="line">    // 独立的域隐藏print()的两个实例</span><br><span class="line">    extern void print( int );</span><br><span class="line">    // 错误: print( const string &amp; )在这个域中被隐藏</span><br><span class="line">    print( &quot;Value : &quot; );</span><br><span class="line">    print( ival ); // ok: print( int ) 可见</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 声明</span><br><span class="line">using libs_R_us::max;</span><br><span class="line">using libs_R_us::print( double ); // 错误</span><br><span class="line">//用户不能在using 声明中为一个函数指定参数表</span><br></pre></td></tr></table></figure>
+
+<h3 id="重载解析"><a href="#重载解析" class="headerlink" title="重载解析"></a>重载解析</h3><p>函数重载解析是把函数调用与重载函数集合中的一个函数相关联的过程，在存在多个同名函数的情况下，根据函数调用中指定的实参，选择其中一个函数。</p>
+<p>函数重载解析的步骤如下：<br>    1 确定函数调用考虑的重载函数的集合确定函数调用中实参表的属性。<br>    2 从重载函数集合中选择函数该函数可以在给出实参个数和类型的情况下用调用中指定的实参进行调用。<br>    3 选择与调用最匹配的函数。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -898,39 +898,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git使用过程中遇到的一些问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Git/gitPushProblem/</url>
-    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
-<span id="more"></span>
-
-<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
-<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    接着重新上传，成功。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
-
-<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
-<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
-
-<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git学习笔记02</title>
     <url>/%E5%AD%A6%E4%B9%A0/Git/gitNote02/</url>
     <content><![CDATA[<p>  Git 处理分支的方式可谓是难以置信的轻量，创建新分支这一操作几乎能在瞬间完成，并且在不同分支之间的切换操作也是一样便捷。</p>
@@ -983,6 +950,190 @@
       </tags>
   </entry>
   <entry>
+    <title>git使用过程中遇到的一些问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Git/gitPushProblem/</url>
+    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
+<span id="more"></span>
+
+<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
+<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    接着重新上传，成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_00/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第章"><a href="#第章" class="headerlink" title="第章"></a>第章</h1>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_01/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第一章-了解SQL"><a href="#第一章-了解SQL" class="headerlink" title="第一章 了解SQL"></a>第一章 了解SQL</h1><h3 id="数据库（database）"><a href="#数据库（database）" class="headerlink" title="数据库（database）"></a>数据库（database）</h3><p>保存有组织的数据的容器（通常是一个文件或一组文件）。</p>
+<h3 id="表（table）"><a href="#表（table）" class="headerlink" title="表（table）"></a>表（table）</h3><p>某种特定类型数据的结构化清单。</p>
+<h3 id="表名（tablr-name"><a href="#表名（tablr-name" class="headerlink" title="表名（tablr name)"></a>表名（tablr name)</h3><p>使表名成为唯一的，实际上是数据库名和表名等的组合。有的数据库还使用数据库拥有者的名字作为唯一名的一部分。也就是说，虽然在相同数据库中不能两次使用相同的表名，但在不同的数据库中完全可<br>以使用相同的表名。</p>
+<h3 id="模式-model"><a href="#模式-model" class="headerlink" title="模式 (model)"></a>模式 (model)</h3><p>关于数据库和表的布局及特性的信息。</p>
+<h3 id="列（column）"><a href="#列（column）" class="headerlink" title="列（column）"></a>列（column）</h3><p>表中的一个字段。所有表都是由一个或多个列组成的。</p>
+<p>数据库中每个列都有相应的数据类型。数据类型（datatype）定义了列可以存储哪些数据种类。</p>
+<h3 id="数据类型-data-type"><a href="#数据类型-data-type" class="headerlink" title="数据类型 (data type)"></a>数据类型 (data type)</h3><p>所允许的数据的类型。每个表列都有相应的数据类型，它限制（或允许）该列中存储的数据。</p>
+<h3 id="行（row）"><a href="#行（row）" class="headerlink" title="行（row）"></a>行（row）</h3><p>表中的一个记录。</p>
+<h3 id="主键（primary-key）"><a href="#主键（primary-key）" class="headerlink" title="主键（primary key）"></a>主键（primary key）</h3><p>一列（或一组列），其值能够唯一标识表中每一行。</p>
+<p>表中的任何列都可以作为主键，只要它满足以下条件：<br>1.任意两行都不具有相同的主键值；<br>2.每一行都必须具有一个主键值（主键列不允许NULL 值）；<br>3.主键列中的值不允许修改或更新；<br>4.主键值不能重用（如果某行从表中删除，它的主键不能赋给以后的新行）。</p>
+<h3 id="子句（clause）"><a href="#子句（clause）" class="headerlink" title="子句（clause）"></a>子句（clause）</h3><p>SQL 语句由子句构成，有些子句是必需的，有些则是可选的。一个子句通常由一个关键字加上所提供的数据组成。</p>
+<h3 id="操作符（operator）"><a href="#操作符（operator）" class="headerlink" title="操作符（operator）"></a>操作符（operator）</h3><p>用来联结或改变WHERE 子句中的子句的关键字，也称为逻辑操作符（logical operator）。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_02/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第二章-检索数据"><a href="#第二章-检索数据" class="headerlink" title="第二章 检索数据"></a>第二章 检索数据</h1><p>SQL 语句不区分大小写。在处理SQL 语句时，其中所有空格都被忽略。</p>
+<p>在MySQL中一般都不区分大小写，也可以设置表明区分大小写等。</p>
+<h2 id="select"><a href="#select" class="headerlink" title="select"></a>select</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select * from table;</span><br><span class="line">#如果没有明确排序查询结果，则返回的数据没有特定的顺序。</span><br><span class="line">select column1, column2, column3 from table;</span><br><span class="line">这样检索出来的数据显示的都是数据的原始储存格式。</span><br></pre></td></tr></table></figure>
+
+<h2 id="distinct"><a href="#distinct" class="headerlink" title="distinct"></a>distinct</h2><p>检索不同的值。</p>
+<h4 id="注意：不能部分使用DISTINCT"><a href="#注意：不能部分使用DISTINCT" class="headerlink" title="注意：不能部分使用DISTINCT"></a>注意：不能部分使用DISTINCT</h4><p>DISTINCT 关键字作用于所有的列，不仅仅是跟在其后的那一列。例如，你指定</p>
+<p>SELECT DISTINCT vend_id, prod_price；</p>
+<p>除非指定的两列完全相同，否则所有的行都会被检索出来。</p>
+<h2 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h2><p>对查找到结果进行限制。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查询前5行。</span><br><span class="line">select vend_id from products limit 5;</span><br></pre></td></tr></table></figure>
+
+<h3 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h3><p>偏移量。</p>
+<p>第一个被检索的行是第0 行，而不是第1 行。因此，LIMIT 1 OFFSET1 会检索第2 行，而不是第1 行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查询从第五行开始的五行数据。</span><br><span class="line">select vend_id from products limit 5 offset 5;</span><br><span class="line">#limit 和 offset 顺序不能颠倒。</span><br><span class="line">#简写</span><br><span class="line">select vend_id from products limit 5 ,3;</span><br><span class="line">#使用这个语法，逗号之前的值对应OFFSET，逗号之后的值对应LIMIT。</span><br></pre></td></tr></table></figure>
+
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h3 id="单行注释："><a href="#单行注释：" class="headerlink" title="单行注释："></a>单行注释：</h3><p>注意： – 后面必须跟空格</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 注释1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#注释2</span><br></pre></td></tr></table></figure>
+
+<h3 id="多行注释："><a href="#多行注释：" class="headerlink" title="多行注释："></a>多行注释：</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line">	多行注释3.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*!</span><br><span class="line">	多行注释4.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 03</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_03/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第三章-排序检索数据"><a href="#第三章-排序检索数据" class="headerlink" title="第三章  排序检索数据"></a>第三章  排序检索数据</h1><h2 id="排序数据"><a href="#排序数据" class="headerlink" title="排序数据"></a>排序数据</h2><p>为了明确地排序用SELECT 语句检索出的数据，可使用ORDER BY 子句。ORDER BY 子句取一个或多个列的名字，据此对输出进行排序。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select prod_name from products order by prod_name;</span><br><span class="line">#并不一定要是最后一条语句。</span><br><span class="line">select prod_name from products order by prod_name limit 5 offset 2;</span><br><span class="line">#按多个列进行排序，只有在前一列出现重复行时，后一列的排序效果才有用。</span><br><span class="line"> SELECT </span><br><span class="line"> 	prod_id, prod_price, prod_name</span><br><span class="line"> FROM </span><br><span class="line"> 	Products</span><br><span class="line"> Order by</span><br><span class="line"> 	prod_price, prod_name;</span><br><span class="line">#按多个列进行排序，还可以使用列的相对位置。</span><br><span class="line">#prod_price 是select选定的第二列, prod_name是第三列。</span><br><span class="line"> SELECT </span><br><span class="line"> 	prod_id, prod_price, prod_name</span><br><span class="line"> FROM </span><br><span class="line"> 	Products</span><br><span class="line"> Order by</span><br><span class="line"> 	2, 3;</span><br></pre></td></tr></table></figure>
+
+<h3 id="DESC"><a href="#DESC" class="headerlink" title="DESC"></a>DESC</h3><p>降序排列，与DISTINCT不同，DESC 关键字只应用到直接位于其前面的列名，如果想在多个列上进行降序排序，必须对每一列指定DESC 关键字。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_id, prod_price, prod_name</span><br><span class="line">FROM Products</span><br><span class="line">ORDER BY prod_price DESC, prod_name DESC;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 04</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_04/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第四章-过滤数据"><a href="#第四章-过滤数据" class="headerlink" title="第四章 过滤数据"></a>第四章 过滤数据</h1><p>只检索所需数据需要指定搜索条件，搜索条件也称为过滤条件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name, prod_price</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_price = 3.49</span><br><span class="line">order by prod_id;</span><br><span class="line">#order by 必须在where之后。</span><br></pre></td></tr></table></figure>
+
+<img src = "/images/MySQL/MySQL01.png">
+
+<p>单引号用来限定字符串。如果将值与字符串类型的列进行比较，就需要限定引号。用来与数值列进行比较的值不用引号。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_id, prod_name</span><br><span class="line">FROM Products</span><br><span class="line">WHERE vend_id != &#x27;DLL01&#x27;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name, prod_price</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_price BETWEEN 5 AND 10;</span><br></pre></td></tr></table></figure>
+
+<p>通过过滤选择不包含指定值的所有行时，你可能希望返回含NULL 值的行。但是这做不到。因为未知（unknown）有特殊的含义，数据库不知道它们是否匹配，所以在进行匹配过滤或非匹配过滤时，不会返回这些结果。过滤数据时，一定要验证被过滤列中含NULL 的行确实出现在返回的数据中。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 05</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_05/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第五章-高级数据过滤"><a href="#第五章-高级数据过滤" class="headerlink" title="第五章  高级数据过滤"></a>第五章  高级数据过滤</h1><p>SQL 允许给出多个WHERE 子句。这些子句有两种使用方式，即以AND 子句或OR 子句的方式使用。</p>
+<h2 id="AND"><a href="#AND" class="headerlink" title="AND"></a>AND</h2><p>用在WHERE 子句中的关键字，用来指示检索满足所有给定条件的行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select prod_id, prod_price, prod_name</span><br><span class="line">from products</span><br><span class="line">where vend_id = &#x27;DLL01&#x27; AND prod_price &lt;= 4;</span><br></pre></td></tr></table></figure>
+
+<h2 id="OR"><a href="#OR" class="headerlink" title="OR"></a>OR</h2><p>OR 操作符与AND 操作符正好相反，它指示DBMS 检索匹配任一条件的行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select prod_id, prod_price, prod_name</span><br><span class="line">from products</span><br><span class="line">where vend_id = &#x27;DLL01&#x27; or  prod_price &lt;= 10;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<img src = "/images/MySQL/MySQL02.png">
+
+<h3 id="运算顺序"><a href="#运算顺序" class="headerlink" title="运算顺序"></a>运算顺序</h3><p>SQL（像多数语言一样）在处理OR 操作符前，优先处理AND 操作符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name, prod_price</span><br><span class="line">FROM Products</span><br><span class="line">WHERE (vend_id = &#x27;DLL01&#x27; OR vend_id = &#x27;BRS01&#x27;)</span><br><span class="line">AND prod_price &gt;= 10;</span><br></pre></td></tr></table></figure>
+
+<p>任何时候使用具有AND 和OR 操作符的WHERE 子句，都应该使用圆括=号明确地分组操作符。</p>
+<h2 id="IN操作符"><a href="#IN操作符" class="headerlink" title="IN操作符"></a>IN操作符</h2><p>WHERE 子句中用来指定要匹配值的清单的关键字，功能与OR 相当。</p>
+<p>IN 操作符用来指定条件范围，范围中的每个条件都可以进行匹配。IN 取一组由逗号分隔、括在圆括号中的合法值。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name, prod_price</span><br><span class="line">FROM Products</span><br><span class="line">WHERE vend_id IN ( &#x27;DLL01&#x27;, &#x27;BRS01&#x27; )</span><br><span class="line">ORDER BY prod_name;</span><br></pre></td></tr></table></figure>
+
+<p>为什么要使用IN 操作符？其优点如下。</p>
+<p>1.在有很多合法选项时，IN 操作符的语法更清楚，更直观。</p>
+<p>2.在与其他AND 和OR 操作符组合使用IN 时，求值顺序更容易管理。</p>
+<p>3.IN 操作符一般比一组OR 操作符执行得更快.</p>
+<p>4.IN 的最大优点是可以包含其他SELECT 语句，能够更动态地建立WHERE 子句。</p>
+<h3 id="NOT操作符"><a href="#NOT操作符" class="headerlink" title="NOT操作符"></a>NOT操作符</h3><p>WHERE 子句中用来否定其后条件的关键字。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name</span><br><span class="line">FROM Products</span><br><span class="line">WHERE NOT vend_id = &#x27;DLL01&#x27;</span><br><span class="line">ORDER BY prod_name;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenCV-Tutorials</title>
     <url>/%E5%AD%A6%E4%B9%A0/OpenCV/openCVtutorials/</url>
     <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>​    OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
@@ -1024,18 +1175,6 @@
       </categories>
       <tags>
         <tag>OpenCV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_00/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第章"><a href="#第章" class="headerlink" title="第章"></a>第章</h1>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
