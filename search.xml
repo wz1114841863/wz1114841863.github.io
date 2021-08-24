@@ -88,6 +88,10 @@
 
 <h3 id="lt-lt-我的系统总想逼我表白-gt-gt-2021-08-21"><a href="#lt-lt-我的系统总想逼我表白-gt-gt-2021-08-21" class="headerlink" title="&lt;&lt;我的系统总想逼我表白&gt;&gt;  2021/08/21"></a>&lt;&lt;我的系统总想逼我表白&gt;&gt;  2021/08/21</h3><p>硬了硬了，拳头硬了。</p>
 <p>不知道别人怎么看，不过很符合我的口味。国轻里面很不错的一本。对话幽默风趣，故事情节也很流畅，女主角的性格都很不错。就是结尾太仓促，不过番外很甜。</p>
+<h3 id="lt-lt-祈念守护人-gt-gt-2021-08-24"><a href="#lt-lt-祈念守护人-gt-gt-2021-08-24" class="headerlink" title="&lt;&lt;祈念守护人&gt;&gt;  2021/08/24"></a>&lt;&lt;祈念守护人&gt;&gt;  2021/08/24</h3><p><strong>“我要怎样活下去呢？”</strong></p>
+<p>看完感觉心里觉得很温暖。有点像解忧杂货店那样。人活着总要有个意义啊。</p>
+<img src = "/images/readedBBooks/02.jpg">
+
 ]]></content>
       <categories>
         <category>学习</category>
@@ -743,49 +747,6 @@
       </tags>
   </entry>
   <entry>
-    <title>DSA</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DSA/dsa/</url>
-    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数据结构和算法的重要性毋庸置疑啊，一方面刷题，一方面学习一下。<span id="more"></span></p>
-<p>参考书籍清华邓俊辉教授撰写的《数据结构（C++语言版）》。</p>
-<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>​    O(1):常数时间复杂度算法</p>
-<p>​    O(logn):对数时间复杂度——高效算法</p>
-<p>​    O(n):多项式时间复杂度算法.某问题若存在一个复杂度在此范围以内的算法，则称该问题是可有效求解的或易解的（tractable）</p>
-<p>​    O(x**n):指数复杂度，无法接受的算法。</p>
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>​        递归则是函数和过程调用的一种特殊形式，即允许函数和过程进行<br>自我调用。</p>
-<p>​        递归的价值在于，许多应用问题都可简洁而准确地描述为递归形式。</p>
-<p>​    递归也是一种基本而典型的算法设计模式。这一模式可以对实际问题中反复出现的结构和形式做高度概括，并从本质层面加以描述与刻画，进而导出高效的算法。</p>
-<h4 id="递归的基本模式"><a href="#递归的基本模式" class="headerlink" title="递归的基本模式"></a>递归的基本模式</h4><h5 id="线性递归"><a href="#线性递归" class="headerlink" title="线性递归"></a>线性递归</h5><p>举例：数组元素求和</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组求和：数组的前A[0,n-1)个数的和与末元素A[n-1]之和。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">arraySum</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span>&gt;n)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in"><span class="keyword">return</span></span> (<span class="built_in">arraySum</span>(A, n<span class="number">-1</span>) + A[n<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//时间复杂度：O(1)*递归深度 = O(1) * (n+1) = O(n)</span></span><br><span class="line"><span class="comment">//空间复杂度：O(n)</span></span><br></pre></td></tr></table></figure>
-
-<p>​        算法可能朝着更深一层进行自我调用，且每一递归实例对自身的调用至多一次。于是，每一层次上至多只有一个实例，且它们构成一个线性的次序关系。此类递归模式因而称作“线性递归”（linear recursion），它也是递归的最基本形式。</p>
-<p>​    线性递归往往对应于<em><strong>减而治之</strong></em>的算法策略：递归每深入一层，待求解问题的规模都缩减一个常数，直至最终蜕化为平凡的小（简单）问题。</p>
-<h5 id="递归分析"><a href="#递归分析" class="headerlink" title="递归分析"></a>递归分析</h5><p>1.递归跟踪：作为一种直观且可视的方法，递归跟踪（recursion trace）可用以分析递归算法的总体运行时间与空间。</p>
-<p>2.递推方程：通过对递归模式的数学归纳，导出复杂度定界函数的递推方程（组）及其边界条件，从而将复杂度的分析，转化为递归方程（组）的求解。</p>
-<h5 id="递归模式"><a href="#递归模式" class="headerlink" title="递归模式"></a>递归模式</h5><p>1.多递归基：为保证有穷性，递归算法都必须设置递归基，且确保总能执行到。</p>
-<p>举例：数组倒置</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>* A, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lo &lt; hi)&#123;</span><br><span class="line">		<span class="built_in">swap</span>(A[lo], A[hi]);</span><br><span class="line">		<span class="built_in">reverse</span>(A, lo+<span class="number">1</span>, hi<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">//O(hi + lo -1)</span></span><br></pre></td></tr></table></figure>
-
-<p>2.多向递归：递归算法中，不仅递归基可能有多个，递归调用也可能有多种可供选择的分支。</p>
-<p>举例：求2**n</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline __int64 sqr ( __int64 a ) &#123; return a * a; &#125;</span><br><span class="line">__int64 power2 ( int n ) &#123; //幂函数2^n算法（优化逑弻版），n &gt;= 0</span><br><span class="line"> 	if ( 0 == n ) return 1; //逑弻基；否则，规n癿奇偶分删逑弻</span><br><span class="line">    return ( n &amp; 1 ) ? sqr ( power2 ( n &gt;&gt; 1 ) ) &lt;&lt; 1 : sqr ( power2 ( n &gt;&gt; 1 ) );</span><br><span class="line">&#125; //O(logn) = O(r)，r为输入指数n癿比特位数</span><br></pre></td></tr></table></figure>
-
-<h5 id="递归消除"><a href="#递归消除" class="headerlink" title="递归消除"></a>递归消除</h5><p>空间成本:递归算法所消耗的空间量主要取决于递归深度，故较之同一算法的迭代版，递归版往往需耗费更多空间，并进而影响实际的运行速度。</p>
-<p>举例：尾递归消除</p>
-<p>在线性递归算法中，若递归调用在递归实例中恰好以最后一步操作的形式出现，则称作尾递<br>归（tail recursion）。属于尾递归形式的算法，均可以简捷地转换为等效的迭代版本。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#数组倒置</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">next:</span><br><span class="line">	if(lo &lt; hi)&#123;</span><br><span class="line">		swap(A[lo], A[hi]);</span><br><span class="line">		lo++;</span><br><span class="line">		hi--;</span><br><span class="line">		goto next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo + 1)</span><br><span class="line"></span><br><span class="line">#用while 代替 next if</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">	while( lo &lt; hi )&#123;</span><br><span class="line">		swap(A[lo++], A[hi--]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="二分递归"><a href="#二分递归" class="headerlink" title="二分递归"></a>二分递归</h5><p>分而治之：将大问题分解为若干规模更小的子问题，再通过递归机制分别求解。这种分解持续进行，直到子问题规模缩减至平凡情况。这也就是所谓的分而治之（divide-and-conquer）策略。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arraySum(int A[], int lo, int hi)&#123;</span><br><span class="line">	if( lo == hi)&#123;</span><br><span class="line">		return A[lo];</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int mi = (lo + hi) &gt;&gt; 1;</span><br><span class="line">		return sum(A, lo, mi) + sum(A, mi+1, hi);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo +1)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git学习笔记01</title>
     <url>/%E5%AD%A6%E4%B9%A0/Git/gitNote01/</url>
     <content><![CDATA[<h2 id="系统的学习一下Git和Github的使用"><a href="#系统的学习一下Git和Github的使用" class="headerlink" title="系统的学习一下Git和Github的使用"></a>系统的学习一下Git和Github的使用</h2><p>​    已经了解和使用过Git和Github，但是并没有具体的学习过。通过系统学习能进一步加深影响。<span id="more"></span></p>
@@ -986,6 +947,49 @@
       </tags>
   </entry>
   <entry>
+    <title>DSA</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/dsa/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数据结构和算法的重要性毋庸置疑啊，一方面刷题，一方面学习一下。<span id="more"></span></p>
+<p>参考书籍清华邓俊辉教授撰写的《数据结构（C++语言版）》。</p>
+<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>​    O(1):常数时间复杂度算法</p>
+<p>​    O(logn):对数时间复杂度——高效算法</p>
+<p>​    O(n):多项式时间复杂度算法.某问题若存在一个复杂度在此范围以内的算法，则称该问题是可有效求解的或易解的（tractable）</p>
+<p>​    O(x**n):指数复杂度，无法接受的算法。</p>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>​        递归则是函数和过程调用的一种特殊形式，即允许函数和过程进行<br>自我调用。</p>
+<p>​        递归的价值在于，许多应用问题都可简洁而准确地描述为递归形式。</p>
+<p>​    递归也是一种基本而典型的算法设计模式。这一模式可以对实际问题中反复出现的结构和形式做高度概括，并从本质层面加以描述与刻画，进而导出高效的算法。</p>
+<h4 id="递归的基本模式"><a href="#递归的基本模式" class="headerlink" title="递归的基本模式"></a>递归的基本模式</h4><h5 id="线性递归"><a href="#线性递归" class="headerlink" title="线性递归"></a>线性递归</h5><p>举例：数组元素求和</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组求和：数组的前A[0,n-1)个数的和与末元素A[n-1]之和。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">arraySum</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span>&gt;n)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in"><span class="keyword">return</span></span> (<span class="built_in">arraySum</span>(A, n<span class="number">-1</span>) + A[n<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//时间复杂度：O(1)*递归深度 = O(1) * (n+1) = O(n)</span></span><br><span class="line"><span class="comment">//空间复杂度：O(n)</span></span><br></pre></td></tr></table></figure>
+
+<p>​        算法可能朝着更深一层进行自我调用，且每一递归实例对自身的调用至多一次。于是，每一层次上至多只有一个实例，且它们构成一个线性的次序关系。此类递归模式因而称作“线性递归”（linear recursion），它也是递归的最基本形式。</p>
+<p>​    线性递归往往对应于<em><strong>减而治之</strong></em>的算法策略：递归每深入一层，待求解问题的规模都缩减一个常数，直至最终蜕化为平凡的小（简单）问题。</p>
+<h5 id="递归分析"><a href="#递归分析" class="headerlink" title="递归分析"></a>递归分析</h5><p>1.递归跟踪：作为一种直观且可视的方法，递归跟踪（recursion trace）可用以分析递归算法的总体运行时间与空间。</p>
+<p>2.递推方程：通过对递归模式的数学归纳，导出复杂度定界函数的递推方程（组）及其边界条件，从而将复杂度的分析，转化为递归方程（组）的求解。</p>
+<h5 id="递归模式"><a href="#递归模式" class="headerlink" title="递归模式"></a>递归模式</h5><p>1.多递归基：为保证有穷性，递归算法都必须设置递归基，且确保总能执行到。</p>
+<p>举例：数组倒置</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>* A, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lo &lt; hi)&#123;</span><br><span class="line">		<span class="built_in">swap</span>(A[lo], A[hi]);</span><br><span class="line">		<span class="built_in">reverse</span>(A, lo+<span class="number">1</span>, hi<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">//O(hi + lo -1)</span></span><br></pre></td></tr></table></figure>
+
+<p>2.多向递归：递归算法中，不仅递归基可能有多个，递归调用也可能有多种可供选择的分支。</p>
+<p>举例：求2**n</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline __int64 sqr ( __int64 a ) &#123; return a * a; &#125;</span><br><span class="line">__int64 power2 ( int n ) &#123; //幂函数2^n算法（优化逑弻版），n &gt;= 0</span><br><span class="line"> 	if ( 0 == n ) return 1; //逑弻基；否则，规n癿奇偶分删逑弻</span><br><span class="line">    return ( n &amp; 1 ) ? sqr ( power2 ( n &gt;&gt; 1 ) ) &lt;&lt; 1 : sqr ( power2 ( n &gt;&gt; 1 ) );</span><br><span class="line">&#125; //O(logn) = O(r)，r为输入指数n癿比特位数</span><br></pre></td></tr></table></figure>
+
+<h5 id="递归消除"><a href="#递归消除" class="headerlink" title="递归消除"></a>递归消除</h5><p>空间成本:递归算法所消耗的空间量主要取决于递归深度，故较之同一算法的迭代版，递归版往往需耗费更多空间，并进而影响实际的运行速度。</p>
+<p>举例：尾递归消除</p>
+<p>在线性递归算法中，若递归调用在递归实例中恰好以最后一步操作的形式出现，则称作尾递<br>归（tail recursion）。属于尾递归形式的算法，均可以简捷地转换为等效的迭代版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#数组倒置</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">next:</span><br><span class="line">	if(lo &lt; hi)&#123;</span><br><span class="line">		swap(A[lo], A[hi]);</span><br><span class="line">		lo++;</span><br><span class="line">		hi--;</span><br><span class="line">		goto next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo + 1)</span><br><span class="line"></span><br><span class="line">#用while 代替 next if</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">	while( lo &lt; hi )&#123;</span><br><span class="line">		swap(A[lo++], A[hi--]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="二分递归"><a href="#二分递归" class="headerlink" title="二分递归"></a>二分递归</h5><p>分而治之：将大问题分解为若干规模更小的子问题，再通过递归机制分别求解。这种分解持续进行，直到子问题规模缩减至平凡情况。这也就是所谓的分而治之（divide-and-conquer）策略。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arraySum(int A[], int lo, int hi)&#123;</span><br><span class="line">	if( lo == hi)&#123;</span><br><span class="line">		return A[lo];</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int mi = (lo + hi) &gt;&gt; 1;</span><br><span class="line">		return sum(A, lo, mi) + sum(A, mi+1, hi);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo +1)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SQL 必知必会</title>
     <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_00/</url>
     <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
@@ -1018,6 +1022,8 @@
 <h3 id="谓词（predicate）"><a href="#谓词（predicate）" class="headerlink" title="谓词（predicate）"></a>谓词（predicate）</h3><p>操作符何时不是操作符？答案是，它作为谓词时。从技术上说，LIKE是谓词而不是操作符。虽然最终的结果是相同的，但应该对此术语有所了解，以免在SQL 文献或手册中遇到此术语时不知所云。</p>
 <h3 id="字段（field）"><a href="#字段（field）" class="headerlink" title="字段（field）"></a>字段（field）</h3><p>基本上与列（column）的意思相同，经常互换使用，不过数据库列一般称为列，而术语字段通常与计算字段一起使用。</p>
 <h3 id="别名-（Alias）"><a href="#别名-（Alias）" class="headerlink" title="别名 （Alias）"></a>别名 （Alias）</h3><p>别名（alias）是一个字段或值的替换名。别名用AS 关键字赋予</p>
+<h3 id="查询（query）"><a href="#查询（query）" class="headerlink" title="查询（query）"></a>查询（query）</h3><p>任何SQL 语句都是查询。但此术语一般指SELECT 语句</p>
+<h3 id="可伸缩（scale）"><a href="#可伸缩（scale）" class="headerlink" title="可伸缩（scale）"></a>可伸缩（scale）</h3><p>能够适应不断增加的工作量而不失败。设计良好的数据库或应用程序称为可伸缩性好（scale well）。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1133,6 +1139,331 @@
 <h3 id="NOT操作符"><a href="#NOT操作符" class="headerlink" title="NOT操作符"></a>NOT操作符</h3><p>WHERE 子句中用来否定其后条件的关键字。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name</span><br><span class="line">FROM Products</span><br><span class="line">WHERE NOT vend_id = &#x27;DLL01&#x27;</span><br><span class="line">ORDER BY prod_name;</span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 06</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_06/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第六章-用通配符进行过滤"><a href="#第六章-用通配符进行过滤" class="headerlink" title="第六章  用通配符进行过滤"></a>第六章  用通配符进行过滤</h1><p>利用通配符，可以创建比较特定数据的搜索模式。</p>
+<p>通配符本身实际上是SQL 的WHERE 子句中有特殊含义的字符，SQL 支持几种通配符。为在搜索子句中使用通配符，必须使用LIKE 操作符。LIKE指示DBMS，后跟的搜索模式利用通配符匹配而不是简单的相等匹配进行比较。</p>
+<p>通配符搜索只能用于文本字段（字符串），非文本数据类型字段不能使用通配符搜索。</p>
+<h2 id="号通配符"><a href="#号通配符" class="headerlink" title="%号通配符"></a>%号通配符</h2><p>在搜索串中，%表示任何字符出现任意次数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_id, prod_name</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_name LIKE &#x27;Fish%&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>%代表搜索模式中给定位置的0 个、1 个或多个字符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">注意：</span><br><span class="line">包括Access 在内的许多DBMS 都用空格来填补字段的内容。例如，如果某列有50 个字符，而存储的文本为Fish bean bag toy（17 个字符），则为填满该列需要在文本后附加33 个空格。这样做一般对数据</span><br><span class="line">及其使用没有影响，但是可能对上述SQL语句有负面影响。子句WHEREprod_name LIKE &#x27;F%y&#x27;只匹配以F 开头、以y 结尾的prod_name。如果值后面跟空格，则不是以y 结尾，所以Fish bean bag toy 就</span><br><span class="line">不会检索出来。简单的解决办法是给搜索模式再增加一个%号：&#x27;F%y%&#x27;还匹配y 之后的字符（或空格）。更好的解决办法是用函数去掉空格。</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意：请注意NULL"><a href="#注意：请注意NULL" class="headerlink" title="注意：请注意NULL"></a>注意：请注意NULL</h3><p>通配符%看起来像是可以匹配任何东西，但有个例外，这就是NULL。子句WHERE prod_name LIKE ‘%’不会匹配产品名称为NULL 的行。</p>
+<h2 id="下划线（-）通配符"><a href="#下划线（-）通配符" class="headerlink" title="下划线（_）通配符"></a>下划线（_）通配符</h2><p>下划线的用途与%一样，但它只匹配单个字符，而不是多个字符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_id, prod_name</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_name LIKE &#x27;__ inch teddy bear&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="正则表达式REGEXP"><a href="#正则表达式REGEXP" class="headerlink" title="正则表达式REGEXP"></a>正则表达式REGEXP</h2><h2 id="使用通配符时的技巧"><a href="#使用通配符时的技巧" class="headerlink" title="使用通配符时的技巧"></a>使用通配符时的技巧</h2><p>1.不要过度使用通配符。如果其他操作符能达到相同的目的，应该使用其他操作符。<br>2.在确实需要使用通配符时，也尽量不要把它们用在搜索模式的开始处。把通配符置于开始处，搜索起来是最慢的。<br>3.仔细注意通配符的位置。如果放错地方，可能不会返回想要的数据。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 07</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_07/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第七章-创建计算字段"><a href="#第七章-创建计算字段" class="headerlink" title="第七章  创建计算字段"></a>第七章  创建计算字段</h1><p>我们需要直接从数据库中检索出转换、计算或格式化过的数据，而不是检索出数据，然后再在客户端应用程序中重新格式化。</p>
+<p>计算字段并不实际存在于数据库表中。计算字段是运行时在SELECT 语句内创建的。</p>
+<h2 id="拼接字段"><a href="#拼接字段" class="headerlink" title="拼接字段"></a>拼接字段</h2><p>将值联结到一起（将一个值附加到另一个值）构成单个值。</p>
+<p>MySQL使用Concat函数来实现。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT Concat(vend_name, &#x27; (&#x27;, vend_country, &#x27;)&#x27;)</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
+
+<h3 id="TRIM-函数"><a href="#TRIM-函数" class="headerlink" title="TRIM 函数"></a>TRIM 函数</h3><p>RTRIM()：去掉字符串右边的空格。</p>
+<p>LTRIM()：去掉字符串左边的空格。</p>
+<p>TRIM()：去掉字符串左右两边的空格。</p>
+<h2 id="使用别名-（Alias）"><a href="#使用别名-（Alias）" class="headerlink" title="使用别名 （Alias）"></a>使用别名 （Alias）</h2><p>别名（alias）是一个字段或值的替换名。别名用AS 关键字赋予。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select concat(vend_name, &#x27;(&#x27; , vend_country, &#x27;)&#x27; )  as line</span><br><span class="line">from vendors</span><br><span class="line">order by vend_name;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#结果</span><br><span class="line">+------------------------+</span><br><span class="line">| line                   |</span><br><span class="line">+------------------------+</span><br><span class="line">| Bear Emporium(USA)     |</span><br><span class="line">| Bears R Us(USA)        |</span><br><span class="line">| Doll House Inc.(USA)   |</span><br><span class="line">| Fun and Games(England) |</span><br><span class="line">| Furball Inc.(USA)      |</span><br><span class="line">| Jouets et ours(France) |</span><br><span class="line">+------------------------+</span><br><span class="line">6 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="执行算数运算"><a href="#执行算数运算" class="headerlink" title="执行算数运算"></a>执行算数运算</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_id,</span><br><span class="line">        quantity,</span><br><span class="line">        item_price,</span><br><span class="line">        quantity*item_price AS expanded_price</span><br><span class="line">FROM OrderItems</span><br><span class="line">WHERE order_num = 20008;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">+---------+----------+------------+----------------+</span><br><span class="line">| prod_id | quantity | item_price | expanded_price |</span><br><span class="line">+---------+----------+------------+----------------+</span><br><span class="line">| RGAN01  |        5 |       4.99 |          24.95 |</span><br><span class="line">| BR03    |        5 |      11.99 |          59.95 |</span><br><span class="line">| BNBG01  |       10 |       3.49 |          34.90 |</span><br><span class="line">| BNBG02  |       10 |       3.49 |          34.90 |</span><br><span class="line">| BNBG03  |       10 |       3.49 |          34.90 |</span><br><span class="line">+---------+----------+------------+----------------+</span><br><span class="line">5 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何测试计算"><a href="#如何测试计算" class="headerlink" title="如何测试计算"></a>如何测试计算</h3><p>SELECT 语句为测试、检验函数和计算提供了很好的方法。虽然SELECT通常用于从表中检索数据，但是省略了FROM 子句后就是简单地访问和处理表达式，例如SELECT 3 * 2;将返回6，SELECT Trim(‘ abc ‘);<br>将返回abc，SELECT Now();使用Now()函数返回当前日期和时间。可以根据需要使用SELECT 语句进行检验。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql&gt; select now();</span><br><span class="line">+---------------------+</span><br><span class="line">| now()               |</span><br><span class="line">+---------------------+</span><br><span class="line">| 2021-08-23 11:14:12 |</span><br><span class="line">+---------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 08</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_08/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第八章-函数"><a href="#第八章-函数" class="headerlink" title="第八章  函数"></a>第八章  函数</h1><p>与几乎所有DBMS 都等同地支持SQL 语句（如SELECT）不同，每一个DBMS 都有特定的函数。事实上，只有少数几个函数被所有主要的DBMS等同地支持。虽然所有类型的函数一般都可以在每个DBMS 中使用，但各个函数的名称和语法可能极其不同。</p>
+<h2 id="文本处理函数"><a href="#文本处理函数" class="headerlink" title="文本处理函数"></a>文本处理函数</h2><h3 id="Trim"><a href="#Trim" class="headerlink" title="Trim()"></a>Trim()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, TRIM(vend_name) AS vend_name_trim</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Upper"><a href="#Upper" class="headerlink" title="Upper()"></a>Upper()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, UPPER(vend_name) AS vend_name_upcase</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
+
+<img src = "/images/MySQL/MySQL03.png">
+
+<h2 id="日期和时间处理函数"><a href="#日期和时间处理函数" class="headerlink" title="日期和时间处理函数"></a>日期和时间处理函数</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num</span><br><span class="line">FROM Orders</span><br><span class="line">WHERE YEAR(order_date) = 2012;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数值处理函数"><a href="#数值处理函数" class="headerlink" title="数值处理函数"></a>数值处理函数</h2><p>数值处理函数仅处理数值数据。这些函数一般主要用于代数、三角或几何运算，因此不像字符串或日期时间处理函数使用那么频繁。</p>
+<img src = "/images/MySQL/MySQL04.png">
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 09</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_09/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第九章-汇总数据"><a href="#第九章-汇总数据" class="headerlink" title="第九章  汇总数据"></a>第九章  汇总数据</h1><h2 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h2><p>对某些行运行的函数，计算并返回一个值。</p>
+<img src = "/images/MySQL/MySQL05.png">
+
+<h3 id="AVG"><a href="#AVG" class="headerlink" title="AVG()"></a>AVG()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT AVG(prod_price) AS avg_price</span><br><span class="line">FROM Products;</span><br></pre></td></tr></table></figure>
+
+<p>AVG()函数忽略列值为NULL 的行。</p>
+<h3 id="COUNT-函数"><a href="#COUNT-函数" class="headerlink" title="COUNT()函数"></a>COUNT()函数</h3><p>COUNT()函数进行计数。可利用COUNT()确定表中行的数目或符合特定条件的行的数目。</p>
+<p>COUNT()函数有两种使用方式：<br>1.使用COUNT(column)对特定列中具有值的行进行计数，忽略NULL 值。</p>
+<p>2.使用COUNT(*)对表中行的数目进行计数，不管表列中包含的是空值（NULL）还是非空值。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(cust_email) AS num_cust</span><br><span class="line">FROM Customers;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(*) AS num_cust</span><br><span class="line">FROM Customers;</span><br></pre></td></tr></table></figure>
+
+<p>如果指定列名，则COUNT()函数会忽略指定列的值为空的行，但如果COUNT()函数中用的是星号（*），则不忽略。</p>
+<h3 id="MAX-函数"><a href="#MAX-函数" class="headerlink" title="MAX()函数"></a>MAX()函数</h3><p>MAX()返回指定列中的最大值。MAX()要求指定列名。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT MAX(prod_price) AS max_price</span><br><span class="line">FROM Products;</span><br></pre></td></tr></table></figure>
+
+<p>虽然MAX()一般用来找出最大的数值或日期值，但许多（并非所有）DBMS 允许将它用来返回任意列中的最大值，包括返回文本列中的最大值。在用于文本数据时，MAX()返回按该列排序后的最后一行。</p>
+<p>MAX()函数忽略列值为NULL 的行。</p>
+<h3 id="MIN-函数"><a href="#MIN-函数" class="headerlink" title="MIN()函数"></a>MIN()函数</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT MIN(prod_price) AS min_price</span><br><span class="line">FROM Products;</span><br></pre></td></tr></table></figure>
+
+<h3 id="SUM-函数"><a href="#SUM-函数" class="headerlink" title="SUM()函数"></a>SUM()函数</h3><p>SUM()用来返回指定列值的和（总计）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT SUM(quantity) AS items_ordered</span><br><span class="line">FROM OrderItems</span><br><span class="line">WHERE order_num = 20005;</span><br></pre></td></tr></table></figure>
+
+<h3 id="以上5-个聚集函数都可以如下使用："><a href="#以上5-个聚集函数都可以如下使用：" class="headerlink" title="以上5 个聚集函数都可以如下使用："></a>以上5 个聚集函数都可以如下使用：</h3><p>1.对所有行执行计算，指定ALL 参数或不指定参数（因为ALL 是默认行为）。</p>
+<p>2.只包含不同的值，指定DISTINCT 参数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT AVG(DISTINCT prod_price) AS avg_price</span><br><span class="line">FROM Products</span><br><span class="line">WHERE vend_id = &#x27;DLL01&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>DISTINCT 不能用于COUNT*)如果指定列名，则DISTINCT 只能用于COUNT()。DISTINCT 不能用<br>于COUNT(*)。类似地，DISTINCT 必须使用列名，不能用于计算或表达式。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(*) AS num_items,</span><br><span class="line">    MIN(prod_price) AS price_min,</span><br><span class="line">    MAX(prod_price) AS price_max,</span><br><span class="line">    AVG(prod_price) AS price_avg</span><br><span class="line">FROM Products;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 10</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_10/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第十章-分组数据"><a href="#第十章-分组数据" class="headerlink" title="第十章  分组数据"></a>第十章  分组数据</h1><p>使用分组可以将数据分为多个逻辑组，对每个组进行聚集计算。</p>
+<p>分组是使用SELECT 语句的GROUP BY 子句建立的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">GROUP BY vend_id;</span><br></pre></td></tr></table></figure>
+
+<p>GROUP BY 子句指示DBMS 分组数据，然后对每个组而不是整个结果集进行聚集。</p>
+<h2 id="GROUP-BY-子句"><a href="#GROUP-BY-子句" class="headerlink" title="GROUP BY 子句"></a>GROUP BY 子句</h2><p>1.GROUP BY 子句可以包含任意数目的列，因而可以对分组进行嵌套，更细致地进行数据分组。</p>
+<p>2.如果在GROUP BY 子句中嵌套了分组，数据将在最后指定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</p>
+<p>3.GROUP BY 子句中列出的每一列都必须是检索列或有效的表达式（但不能是聚集函数）。如果在SELECT 中使用表达式，则必须在GROUP BY子句中指定相同的表达式。不能使用别名。</p>
+<p>4.大多数SQL 实现不允许GROUP BY 列带有长度可变的数据类型（如文本或备注型字段）。</p>
+<p>5.除聚集计算语句外，SELECT 语句中的每一列都必须在GROUP BY 子句中给出。</p>
+<p>6.如果分组列中包含具有NULL 值的行，则NULL 将作为一个分组返回。如果列中有多行NULL 值，它们将分为一组。</p>
+<p>7.GROUP BY 子句必须出现在WHERE 子句之后，ORDER BY 子句之前。</p>
+<h2 id="过滤分组"><a href="#过滤分组" class="headerlink" title="过滤分组"></a>过滤分组</h2><p>除了能用GROUP BY 分组数据外，SQL 还允许过滤分组，规定包括哪些分组，排除哪些分组。</p>
+<p>目前为止所学过的所有类型的WHERE 子句都可以用HAVING 来替代。唯一的差别是，WHERE过滤行，而HAVING 过滤分组。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_id, COUNT(*) AS orders</span><br><span class="line">FROM Orders</span><br><span class="line">GROUP BY cust_id</span><br><span class="line">HAVING COUNT(*) &gt;= 2;</span><br></pre></td></tr></table></figure>
+
+<p>WHERE 在数据分组前进行过滤，HAVING 在数据分组后进行过滤。这是一个重要的区别，WHERE 排除的行不包括在分组中。这可能会改变计算值，从而影响HAVING 子句中基于这些值过滤掉的分组。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_price &gt;= 4</span><br><span class="line">GROUP BY vend_id</span><br><span class="line">HAVING COUNT(*) &gt;= 2;</span><br></pre></td></tr></table></figure>
+
+<img src = "/images/MySQL/MySQL06.png">
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;= 3;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;= 3</span><br><span class="line">ORDER BY items, order_num;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 11</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_11/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第十一章-使用子查询"><a href="#第十一章-使用子查询" class="headerlink" title="第十一章  使用子查询"></a>第十一章  使用子查询</h1><p>列出订购物品RGAN01 的所有顾客：</p>
+<p>1.检索包含物品 RGAN01的所有订单编号。</p>
+<p>2.检索具有前一步骤列出的顶单编号的顾客的ID。</p>
+<p>3.检索前一步骤返回的所有顾客的顾客信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM Customers</span><br><span class="line">WHERE cust_id IN (SELECT cust_id</span><br><span class="line">				  FROM Orders</span><br><span class="line">				  WHERE order_num IN (SELECT order_num</span><br><span class="line">									  FROM OrderItems</span><br><span class="line">							  		  WHERE prod_id = &#x27;RGAN01&#x27;));</span><br></pre></td></tr></table></figure>
+
+<p>作为子查询的SELECT 语句只能查询单个列。企图检索多个列将返回错误。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_state,</span><br><span class="line">		(SELECT COUNT(*)</span><br><span class="line">			FROM Orders</span><br><span class="line">			WHERE Orders.cust_id = Customers.cust_id) AS orders</span><br><span class="line">FROM Customers</span><br><span class="line">ORDER BY cust_name;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 12</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_12/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第十二章-联结表"><a href="#第十二章-联结表" class="headerlink" title="第十二章  联结表"></a>第十二章  联结表</h1><h2 id="关系表"><a href="#关系表" class="headerlink" title="关系表"></a>关系表</h2><p>相同的数据出现多次决不是一件好事，这是关系数据库设计的基础。关系表的设计就是要把信息分解成多个表，一类数据一个表。各表通过某些共同的值互相关联（所以才叫关系数据库）。</p>
+<p>联结是一种机制，用来在一条SELECT 语句中关联表，因此称为联结。使用特殊的语法，可以联结多个表返回一组输出，联结在运行时关联表中正确的行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price</span><br><span class="line">FROM Vendors, Products</span><br><span class="line">WHERE Vendors.vend_id = Products.vend_id;</span><br></pre></td></tr></table></figure>
+
+<p>要保证所有联结都有WHERE 子句，否则DBMS 将返回比想要的数据多得多的数据。同理，要保证WHERE 子句的正确性。不正确的过滤条件会导致DBMS 返回不正确的数据。</p>
+<h2 id="内联结"><a href="#内联结" class="headerlink" title="内联结"></a>内联结</h2><p>目前为止使用的联结称为等值联结（equijoin），它基于两个表之间的相等测试。这种联结也称为内联结（inner join）。可以对这种联结使用稍微不同的语法，明确指定联结的类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price</span><br><span class="line">FROM Vendors INNER JOIN Products</span><br><span class="line">ON Vendors.vend_id = Products.vend_id;</span><br></pre></td></tr></table></figure>
+
+<p>这里，两个表之间的关系是以INNER JOIN 指定的部分FROM 子句。在使用这种语法时，联结条件用特定的ON 子句而不是WHERE 子句给出。传递给ON 的实际条件与传递给WHERE 的相同。</p>
+<p>SQL 不限制一条SELECT 语句中可以联结的表的数目。创建联结的基本规则也相同。首先列出所有表，然后定义表之间的关系。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name, vend_name, prod_price, quantity</span><br><span class="line">FROM OrderItems, Products, Vendors</span><br><span class="line">WHERE Products.vend_id = Vendors.vend_id</span><br><span class="line">AND OrderItems.prod_id = Products.prod_id</span><br><span class="line">AND order_num = 20007;</span><br></pre></td></tr></table></figure>
+
+<p>select子语句可用联结来代替。但具体的性能需要结合数据库进行考虑。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 13</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_13/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第十三章-创建高级联结"><a href="#第十三章-创建高级联结" class="headerlink" title="第十三章  创建高级联结"></a>第十三章  创建高级联结</h1><h2 id="给表起别名"><a href="#给表起别名" class="headerlink" title="给表起别名"></a>给表起别名</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM Customers AS C, Orders AS O, OrderItems AS OI</span><br><span class="line">WHERE C.cust_id = O.cust_id</span><br><span class="line">AND OI.order_num = O.order_num</span><br><span class="line">AND prod_id = &#x27;RGAN01&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="自联结"><a href="#自联结" class="headerlink" title="自联结"></a>自联结</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT c1.cust_id, c1.cust_name, c1.cust_contact</span><br><span class="line">FROM Customers AS c1, Customers AS c2</span><br><span class="line">WHERE c1.cust_name = c2.cust_name</span><br><span class="line">AND c2.cust_contact = &#x27;Jim Jones&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>自联结的效率一般比子查询要高。</p>
+<h2 id="自然联结"><a href="#自然联结" class="headerlink" title="自然联结"></a>自然联结</h2><p>无论何时对表进行联结，应该至少有一列不止出现在一个表中（被联结的列）。标准的联结（内联结）返回所有数据，相同的列甚至多次出现。自然联结排除多次出现，使每一列只返回一次。</p>
+<p>自然联结要求你只能选择那些唯一的列，一般通过对一个表使用通配符（SELECT *），而对其他表的列使用明确的子集来完成。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT C.*, O.order_num, O.order_date,</span><br><span class="line">OI.prod_id, OI.quantity, OI.item_price</span><br><span class="line">FROM Customers AS C, Orders AS O, OrderItems AS OI</span><br><span class="line">WHERE C.cust_id = O.cust_id</span><br><span class="line">AND OI.order_num = O.order_num</span><br><span class="line">AND prod_id = &#x27;RGAN01&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="外联结"><a href="#外联结" class="headerlink" title="外联结"></a>外联结</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT Customers.cust_id, Orders.order_num</span><br><span class="line">FROM Customers LEFT OUTER JOIN Orders</span><br><span class="line">ON Customers.cust_id = Orders.cust_id;</span><br></pre></td></tr></table></figure>
+
+<p>在使用OUTERJOIN 语法时，必须使用RIGHT 或LEFT 关键字指定包括其所有行的表（RIGHT 指出的是OUTER JOIN 右边的表，而LEFT 指出的是OUTER JOIN左边的表）。</p>
+<h3 id="使用带聚集函数的联结"><a href="#使用带聚集函数的联结" class="headerlink" title="使用带聚集函数的联结"></a>使用带聚集函数的联结</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT Customers.cust_id,</span><br><span class="line">COUNT(Orders.order_num) AS num_ord</span><br><span class="line">FROM Customers INNER JOIN Orders</span><br><span class="line">ON Customers.cust_id = Orders.cust_id</span><br><span class="line">GROUP BY Customers.cust_id;</span><br></pre></td></tr></table></figure>
+
+<img src = "/images/MySQL/MySQL07.jpg">
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 14</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_14/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第十四章-组合查询"><a href="#第十四章-组合查询" class="headerlink" title="第十四章  组合查询"></a>第十四章  组合查询</h1><h2 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h2><p>SQL 允许执行多个查询（多条SELECT 语句），并将结果作为一个查询结果集返回。这些组合查询通常称为并（union）或复合查询（compound query）。</p>
+<p>主要有两种情况需要使用组合查询：</p>
+<ol>
+<li>在一个查询中从不同的表返回结构数据；</li>
+<li>对一个表执行多个查询，按一个查询返回数据。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;;</span><br><span class="line">3. 列数据类型必须兼容：类型不必完全相同，但必须是DBMS 可以隐含</span><br><span class="line">转换的类型（例如，不同的数值类型或不同的日期类型）。</span><br></pre></td></tr></table></figure>
+
+<p>1.UNION 必须由两条或两条以上的SELECT 语句组成，语句之间用关键字UNION 分隔（因此，如果组合四条SELECT 语句，将要使用三个UNION关键字）。<br>2.UNION 中的每个查询必须包含相同的列、表达式或聚集函数（不过，各个列不需要以相同的次序列出）。</p>
+<p>3.列数据类型必须兼容：类型不必完全相同，但必须是DBMS 可以隐含转换的类型（例如，不同的数值类型或不同的日期类型）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION ALL</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>使用UNION ALL，DBMS 不取消重复的行。</p>
+<p>SELECT 语句的输出用ORDER BY 子句排序。在用UNION 组合查询时，只能使用一条ORDER BY 子句，它必须位于最后一条SELECT 语句之后。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;</span><br><span class="line">ORDER BY cust_name, cust_contact;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 15</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_15/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第十五章-插入数据"><a href="#第十五章-插入数据" class="headerlink" title="第十五章 插入数据"></a>第十五章 插入数据</h1><h2 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h2><p>INSERT 用来将行插入（或添加）到数据库表。</p>
+<p>1.插入完整的行。</p>
+<p>2.插入行的一部分。</p>
+<p>3.插入某些查询到结果。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers</span><br><span class="line">VALUES(&#x27;1000000006&#x27;,</span><br><span class="line">&#x27;Toy Land&#x27;,</span><br><span class="line">&#x27;123 Any Street&#x27;,</span><br><span class="line">&#x27;New York&#x27;,</span><br><span class="line">&#x27;NY&#x27;,</span><br><span class="line">&#x27;11111&#x27;,</span><br><span class="line">&#x27;USA&#x27;,</span><br><span class="line">NULL,</span><br><span class="line">NULL);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>繁琐但更安全的方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers(cust_id,</span><br><span class="line">cust_name,</span><br><span class="line">cust_address,</span><br><span class="line">cust_city,</span><br><span class="line">cust_state,</span><br><span class="line">cust_zip,</span><br><span class="line">cust_country,</span><br><span class="line">cust_contact,</span><br><span class="line">cust_email)</span><br><span class="line">VALUES(&#x27;1000000006&#x27;,</span><br><span class="line">&#x27;Toy Land&#x27;,</span><br><span class="line">&#x27;123 Any Street&#x27;,</span><br><span class="line">&#x27;New York&#x27;,</span><br><span class="line">&#x27;NY&#x27;,</span><br><span class="line">&#x27;11111&#x27;,</span><br><span class="line">&#x27;USA&#x27;,</span><br><span class="line">NULL,</span><br><span class="line">NULL);</span><br></pre></td></tr></table></figure>
+
+<p>如果表的定义允许，则可以在INSERT 操作中省略某些列。</p>
+<p>省略的列必须满足以下某个条件。<br>1.该列定义为允许NULL 值（无值或空值）。<br>2.在表定义中给出默认值。这表示如果不给出值，将使用默认值。</p>
+<h3 id="insert-select"><a href="#insert-select" class="headerlink" title="insert  select"></a>insert  select</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers(cust_id,</span><br><span class="line">        cust_contact,</span><br><span class="line">        cust_email,</span><br><span class="line">        cust_name,</span><br><span class="line">        cust_address,</span><br><span class="line">        cust_city,</span><br><span class="line">        cust_state,</span><br><span class="line">        cust_zip,</span><br><span class="line">        cust_country)</span><br><span class="line">SELECT cust_id,</span><br><span class="line">        cust_contact,</span><br><span class="line">        cust_email,</span><br><span class="line">        cust_name,</span><br><span class="line">        cust_address,</span><br><span class="line">        cust_city,</span><br><span class="line">        cust_state,</span><br><span class="line">        cust_zip,</span><br><span class="line">        cust_country</span><br><span class="line">FROM CustNew;</span><br></pre></td></tr></table></figure>
+
+<p>INSERT SELECT 中SELECT 语句可以包含WHERE 子句，以过滤插入的数据。</p>
+<p>不管SELECT语句返回多少行，都将被INSERT 插入。</p>
+<h3 id="select-into"><a href="#select-into" class="headerlink" title="select into"></a>select into</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">INTO CustCopy</span><br><span class="line">FROM Customers;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_16/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第十六章-更新和删除数据"><a href="#第十六章-更新和删除数据" class="headerlink" title="第十六章  更新和删除数据"></a>第十六章  更新和删除数据</h1><h2 id="update"><a href="#update" class="headerlink" title="update"></a>update</h2><h4 id="有两种使用UPDATE的方式"><a href="#有两种使用UPDATE的方式" class="headerlink" title="有两种使用UPDATE的方式"></a>有两种使用UPDATE的方式</h4><ol>
+<li>  更新表中的特定行；</li>
+<li>  更新表中的所有行。</li>
+</ol>
+<h4 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h4><ol>
+<li>要更新的表；</li>
+<li>列名和它们的新值；</li>
+<li>确定要更新哪些行的过滤条件。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE Customers</span><br><span class="line">SET cust_email = &#x27;kim@thetoystore.com&#x27;</span><br><span class="line">WHERE cust_id = &#x27;1000000005&#x27;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE Customers</span><br><span class="line">SET cust_contact = &#x27;Sam Roberts&#x27;,</span><br><span class="line">	cust_email = &#x27;sam@toyland.com&#x27;</span><br><span class="line">WHERE cust_id = &#x27;1000000006&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h2><h3 id="有两种使用DELETE的方式"><a href="#有两种使用DELETE的方式" class="headerlink" title="有两种使用DELETE的方式"></a>有两种使用DELETE的方式</h3><p>1.从表中删除特定的行；</p>
+<p>2.从表中删除所有行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Customers</span><br><span class="line">WHERE cust_id = &#x27;1000000006&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>DELETE 不需要列名或通配符。DELETE 删除整行而不是删除列。要删除指定的列，请使用UPDATE 语句。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1410,159 +1741,6 @@
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 06</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_06/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第六章-用通配符进行过滤"><a href="#第六章-用通配符进行过滤" class="headerlink" title="第六章  用通配符进行过滤"></a>第六章  用通配符进行过滤</h1><p>利用通配符，可以创建比较特定数据的搜索模式。</p>
-<p>通配符本身实际上是SQL 的WHERE 子句中有特殊含义的字符，SQL 支持几种通配符。为在搜索子句中使用通配符，必须使用LIKE 操作符。LIKE指示DBMS，后跟的搜索模式利用通配符匹配而不是简单的相等匹配进行比较。</p>
-<p>通配符搜索只能用于文本字段（字符串），非文本数据类型字段不能使用通配符搜索。</p>
-<h2 id="号通配符"><a href="#号通配符" class="headerlink" title="%号通配符"></a>%号通配符</h2><p>在搜索串中，%表示任何字符出现任意次数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_id, prod_name</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_name LIKE &#x27;Fish%&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>%代表搜索模式中给定位置的0 个、1 个或多个字符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">注意：</span><br><span class="line">包括Access 在内的许多DBMS 都用空格来填补字段的内容。例如，如果某列有50 个字符，而存储的文本为Fish bean bag toy（17 个字符），则为填满该列需要在文本后附加33 个空格。这样做一般对数据</span><br><span class="line">及其使用没有影响，但是可能对上述SQL语句有负面影响。子句WHEREprod_name LIKE &#x27;F%y&#x27;只匹配以F 开头、以y 结尾的prod_name。如果值后面跟空格，则不是以y 结尾，所以Fish bean bag toy 就</span><br><span class="line">不会检索出来。简单的解决办法是给搜索模式再增加一个%号：&#x27;F%y%&#x27;还匹配y 之后的字符（或空格）。更好的解决办法是用函数去掉空格。</span><br></pre></td></tr></table></figure>
-
-<h3 id="注意：请注意NULL"><a href="#注意：请注意NULL" class="headerlink" title="注意：请注意NULL"></a>注意：请注意NULL</h3><p>通配符%看起来像是可以匹配任何东西，但有个例外，这就是NULL。子句WHERE prod_name LIKE ‘%’不会匹配产品名称为NULL 的行。</p>
-<h2 id="下划线（-）通配符"><a href="#下划线（-）通配符" class="headerlink" title="下划线（_）通配符"></a>下划线（_）通配符</h2><p>下划线的用途与%一样，但它只匹配单个字符，而不是多个字符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_id, prod_name</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_name LIKE &#x27;__ inch teddy bear&#x27;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="正则表达式REGEXP"><a href="#正则表达式REGEXP" class="headerlink" title="正则表达式REGEXP"></a>正则表达式REGEXP</h2><h2 id="使用通配符时的技巧"><a href="#使用通配符时的技巧" class="headerlink" title="使用通配符时的技巧"></a>使用通配符时的技巧</h2><p>1.不要过度使用通配符。如果其他操作符能达到相同的目的，应该使用其他操作符。<br>2.在确实需要使用通配符时，也尽量不要把它们用在搜索模式的开始处。把通配符置于开始处，搜索起来是最慢的。<br>3.仔细注意通配符的位置。如果放错地方，可能不会返回想要的数据。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 08</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_08/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第八章-函数"><a href="#第八章-函数" class="headerlink" title="第八章  函数"></a>第八章  函数</h1><p>与几乎所有DBMS 都等同地支持SQL 语句（如SELECT）不同，每一个DBMS 都有特定的函数。事实上，只有少数几个函数被所有主要的DBMS等同地支持。虽然所有类型的函数一般都可以在每个DBMS 中使用，但各个函数的名称和语法可能极其不同。</p>
-<h2 id="文本处理函数"><a href="#文本处理函数" class="headerlink" title="文本处理函数"></a>文本处理函数</h2><h3 id="Trim"><a href="#Trim" class="headerlink" title="Trim()"></a>Trim()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, TRIM(vend_name) AS vend_name_trim</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Upper"><a href="#Upper" class="headerlink" title="Upper()"></a>Upper()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, UPPER(vend_name) AS vend_name_upcase</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
-
-<img src = "/images/MySQL/MySQL03.png">
-
-<h2 id="日期和时间处理函数"><a href="#日期和时间处理函数" class="headerlink" title="日期和时间处理函数"></a>日期和时间处理函数</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num</span><br><span class="line">FROM Orders</span><br><span class="line">WHERE YEAR(order_date) = 2012;</span><br></pre></td></tr></table></figure>
-
-<h2 id="数值处理函数"><a href="#数值处理函数" class="headerlink" title="数值处理函数"></a>数值处理函数</h2><p>数值处理函数仅处理数值数据。这些函数一般主要用于代数、三角或几何运算，因此不像字符串或日期时间处理函数使用那么频繁。</p>
-<img src = "/images/MySQL/MySQL04.png">
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 07</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_07/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第七章-创建计算字段"><a href="#第七章-创建计算字段" class="headerlink" title="第七章  创建计算字段"></a>第七章  创建计算字段</h1><p>我们需要直接从数据库中检索出转换、计算或格式化过的数据，而不是检索出数据，然后再在客户端应用程序中重新格式化。</p>
-<p>计算字段并不实际存在于数据库表中。计算字段是运行时在SELECT 语句内创建的。</p>
-<h2 id="拼接字段"><a href="#拼接字段" class="headerlink" title="拼接字段"></a>拼接字段</h2><p>将值联结到一起（将一个值附加到另一个值）构成单个值。</p>
-<p>MySQL使用Concat函数来实现。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT Concat(vend_name, &#x27; (&#x27;, vend_country, &#x27;)&#x27;)</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
-
-<h3 id="TRIM-函数"><a href="#TRIM-函数" class="headerlink" title="TRIM 函数"></a>TRIM 函数</h3><p>RTRIM()：去掉字符串右边的空格。</p>
-<p>LTRIM()：去掉字符串左边的空格。</p>
-<p>TRIM()：去掉字符串左右两边的空格。</p>
-<h2 id="使用别名-（Alias）"><a href="#使用别名-（Alias）" class="headerlink" title="使用别名 （Alias）"></a>使用别名 （Alias）</h2><p>别名（alias）是一个字段或值的替换名。别名用AS 关键字赋予。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select concat(vend_name, &#x27;(&#x27; , vend_country, &#x27;)&#x27; )  as line</span><br><span class="line">from vendors</span><br><span class="line">order by vend_name;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#结果</span><br><span class="line">+------------------------+</span><br><span class="line">| line                   |</span><br><span class="line">+------------------------+</span><br><span class="line">| Bear Emporium(USA)     |</span><br><span class="line">| Bears R Us(USA)        |</span><br><span class="line">| Doll House Inc.(USA)   |</span><br><span class="line">| Fun and Games(England) |</span><br><span class="line">| Furball Inc.(USA)      |</span><br><span class="line">| Jouets et ours(France) |</span><br><span class="line">+------------------------+</span><br><span class="line">6 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-
-<h2 id="执行算数运算"><a href="#执行算数运算" class="headerlink" title="执行算数运算"></a>执行算数运算</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_id,</span><br><span class="line">        quantity,</span><br><span class="line">        item_price,</span><br><span class="line">        quantity*item_price AS expanded_price</span><br><span class="line">FROM OrderItems</span><br><span class="line">WHERE order_num = 20008;</span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">+---------+----------+------------+----------------+</span><br><span class="line">| prod_id | quantity | item_price | expanded_price |</span><br><span class="line">+---------+----------+------------+----------------+</span><br><span class="line">| RGAN01  |        5 |       4.99 |          24.95 |</span><br><span class="line">| BR03    |        5 |      11.99 |          59.95 |</span><br><span class="line">| BNBG01  |       10 |       3.49 |          34.90 |</span><br><span class="line">| BNBG02  |       10 |       3.49 |          34.90 |</span><br><span class="line">| BNBG03  |       10 |       3.49 |          34.90 |</span><br><span class="line">+---------+----------+------------+----------------+</span><br><span class="line">5 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-
-<h3 id="如何测试计算"><a href="#如何测试计算" class="headerlink" title="如何测试计算"></a>如何测试计算</h3><p>SELECT 语句为测试、检验函数和计算提供了很好的方法。虽然SELECT通常用于从表中检索数据，但是省略了FROM 子句后就是简单地访问和处理表达式，例如SELECT 3 * 2;将返回6，SELECT Trim(‘ abc ‘);<br>将返回abc，SELECT Now();使用Now()函数返回当前日期和时间。可以根据需要使用SELECT 语句进行检验。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql&gt; select now();</span><br><span class="line">+---------------------+</span><br><span class="line">| now()               |</span><br><span class="line">+---------------------+</span><br><span class="line">| 2021-08-23 11:14:12 |</span><br><span class="line">+---------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 09</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_09/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第九章-汇总数据"><a href="#第九章-汇总数据" class="headerlink" title="第九章  汇总数据"></a>第九章  汇总数据</h1><h2 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h2><p>对某些行运行的函数，计算并返回一个值。</p>
-<img src = "/images/MySQL/MySQL05.png">
-
-<h3 id="AVG"><a href="#AVG" class="headerlink" title="AVG()"></a>AVG()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT AVG(prod_price) AS avg_price</span><br><span class="line">FROM Products;</span><br></pre></td></tr></table></figure>
-
-<p>AVG()函数忽略列值为NULL 的行。</p>
-<h3 id="COUNT-函数"><a href="#COUNT-函数" class="headerlink" title="COUNT()函数"></a>COUNT()函数</h3><p>COUNT()函数进行计数。可利用COUNT()确定表中行的数目或符合特定条件的行的数目。</p>
-<p>COUNT()函数有两种使用方式：<br>1.使用COUNT(column)对特定列中具有值的行进行计数，忽略NULL 值。</p>
-<p>2.使用COUNT(*)对表中行的数目进行计数，不管表列中包含的是空值（NULL）还是非空值。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(cust_email) AS num_cust</span><br><span class="line">FROM Customers;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(*) AS num_cust</span><br><span class="line">FROM Customers;</span><br></pre></td></tr></table></figure>
-
-<p>如果指定列名，则COUNT()函数会忽略指定列的值为空的行，但如果COUNT()函数中用的是星号（*），则不忽略。</p>
-<h3 id="MAX-函数"><a href="#MAX-函数" class="headerlink" title="MAX()函数"></a>MAX()函数</h3><p>MAX()返回指定列中的最大值。MAX()要求指定列名。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT MAX(prod_price) AS max_price</span><br><span class="line">FROM Products;</span><br></pre></td></tr></table></figure>
-
-<p>虽然MAX()一般用来找出最大的数值或日期值，但许多（并非所有）DBMS 允许将它用来返回任意列中的最大值，包括返回文本列中的最大值。在用于文本数据时，MAX()返回按该列排序后的最后一行。</p>
-<p>MAX()函数忽略列值为NULL 的行。</p>
-<h3 id="MIN-函数"><a href="#MIN-函数" class="headerlink" title="MIN()函数"></a>MIN()函数</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT MIN(prod_price) AS min_price</span><br><span class="line">FROM Products;</span><br></pre></td></tr></table></figure>
-
-<h3 id="SUM-函数"><a href="#SUM-函数" class="headerlink" title="SUM()函数"></a>SUM()函数</h3><p>SUM()用来返回指定列值的和（总计）。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT SUM(quantity) AS items_ordered</span><br><span class="line">FROM OrderItems</span><br><span class="line">WHERE order_num = 20005;</span><br></pre></td></tr></table></figure>
-
-<h3 id="以上5-个聚集函数都可以如下使用："><a href="#以上5-个聚集函数都可以如下使用：" class="headerlink" title="以上5 个聚集函数都可以如下使用："></a>以上5 个聚集函数都可以如下使用：</h3><p>1.对所有行执行计算，指定ALL 参数或不指定参数（因为ALL 是默认行为）。</p>
-<p>2.只包含不同的值，指定DISTINCT 参数</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT AVG(DISTINCT prod_price) AS avg_price</span><br><span class="line">FROM Products</span><br><span class="line">WHERE vend_id = &#x27;DLL01&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>DISTINCT 不能用于COUNT*)如果指定列名，则DISTINCT 只能用于COUNT()。DISTINCT 不能用<br>于COUNT(*)。类似地，DISTINCT 必须使用列名，不能用于计算或表达式。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(*) AS num_items,</span><br><span class="line">    MIN(prod_price) AS price_min,</span><br><span class="line">    MAX(prod_price) AS price_max,</span><br><span class="line">    AVG(prod_price) AS price_avg</span><br><span class="line">FROM Products;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 10</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_10/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第十章-分组数据"><a href="#第十章-分组数据" class="headerlink" title="第十章  分组数据"></a>第十章  分组数据</h1><p>使用分组可以将数据分为多个逻辑组，对每个组进行聚集计算。</p>
-<p>分组是使用SELECT 语句的GROUP BY 子句建立的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">GROUP BY vend_id;</span><br></pre></td></tr></table></figure>
-
-<p>GROUP BY 子句指示DBMS 分组数据，然后对每个组而不是整个结果集进行聚集。</p>
-<h2 id="GROUP-BY-子句"><a href="#GROUP-BY-子句" class="headerlink" title="GROUP BY 子句"></a>GROUP BY 子句</h2><p>1.GROUP BY 子句可以包含任意数目的列，因而可以对分组进行嵌套，更细致地进行数据分组。</p>
-<p>2.如果在GROUP BY 子句中嵌套了分组，数据将在最后指定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</p>
-<p>3.GROUP BY 子句中列出的每一列都必须是检索列或有效的表达式（但不能是聚集函数）。如果在SELECT 中使用表达式，则必须在GROUP BY子句中指定相同的表达式。不能使用别名。</p>
-<p>4.大多数SQL 实现不允许GROUP BY 列带有长度可变的数据类型（如文本或备注型字段）。</p>
-<p>5.除聚集计算语句外，SELECT 语句中的每一列都必须在GROUP BY 子句中给出。</p>
-<p>6.如果分组列中包含具有NULL 值的行，则NULL 将作为一个分组返回。如果列中有多行NULL 值，它们将分为一组。</p>
-<p>7.GROUP BY 子句必须出现在WHERE 子句之后，ORDER BY 子句之前。</p>
-<h2 id="过滤分组"><a href="#过滤分组" class="headerlink" title="过滤分组"></a>过滤分组</h2><p>除了能用GROUP BY 分组数据外，SQL 还允许过滤分组，规定包括哪些分组，排除哪些分组。</p>
-<p>目前为止所学过的所有类型的WHERE 子句都可以用HAVING 来替代。唯一的差别是，WHERE<br>过滤行，而HAVING 过滤分组。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
       </tags>
   </entry>
 </search>
