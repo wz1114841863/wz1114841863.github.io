@@ -92,6 +92,11 @@
 <p>看完感觉心里觉得很温暖。有点像解忧杂货店那样。人活着总要有个意义啊。</p>
 <img src = "/images/readedBBooks/02.jpg">
 
+<h3 id="lt-lt-SQL-必知必会-第四版-gt-gt-2021-08-25"><a href="#lt-lt-SQL-必知必会-第四版-gt-gt-2021-08-25" class="headerlink" title="&lt;&lt;SQL 必知必会 第四版&gt;&gt; 2021/08/25"></a>&lt;&lt;SQL 必知必会 第四版&gt;&gt; 2021/08/25</h3><p>已经不知道学了MySQL基础的我。</p>
+<p>学了就忘，我是废物。</p>
+<p>知道如何创建，修改，添加，删除，联结，约束等操作。</p>
+<p>依旧不会编写函数，查询事件，提高效率等。</p>
+<p>难受.jpg。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -462,25 +467,6 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 3.4</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh03_4/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第十章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十章-函数模板"><a href="#第十章-函数模板" class="headerlink" title="第十章  函数模板"></a>第十章  函数模板</h2><pre><code>     函数模板提供一种用来自动生成各种类型函数实例的算法。程序员对于函数接口参数和返回类型中的全部或者部分类型进行参数化， 而函数体保持不变。
-</code></pre>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;class T1, typename T2, int num&gt;</span><br><span class="line">//其中class、typename 是模板类型参数， int num 是非模板类型参数。</span><br></pre></td></tr></table></figure>
-
-<p>在函数模板参数表中关键字typename 和class 的意义相同，可以互换，使用它们两个都可以被用来声明同一模板参数表中的不同模板类型参数。</p>
-<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>函数模板指定了怎样根据一组或更多实际类型或值构造出独立的函数。这个构造过程被称为模板实例化，这个过程是隐式发生的，它可以被看作是函数模板调用或取函数模板的地址的副作用。</p>
-<p>用函数实参的类型来决定模板实参的类型和值的过程被称为模板实参推演。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cpp Primer chapter 3.5</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh03_5/</url>
     <content><![CDATA[<p> C++ Primer 第三篇第十一章学习笔记。<span id="more"></span></p>
@@ -514,6 +500,25 @@
       </tags>
   </entry>
   <entry>
+    <title>cpp Primer chapter 3.4</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh03_4/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第十章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十章-函数模板"><a href="#第十章-函数模板" class="headerlink" title="第十章  函数模板"></a>第十章  函数模板</h2><pre><code>     函数模板提供一种用来自动生成各种类型函数实例的算法。程序员对于函数接口参数和返回类型中的全部或者部分类型进行参数化， 而函数体保持不变。
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;class T1, typename T2, int num&gt;</span><br><span class="line">//其中class、typename 是模板类型参数， int num 是非模板类型参数。</span><br></pre></td></tr></table></figure>
+
+<p>在函数模板参数表中关键字typename 和class 的意义相同，可以互换，使用它们两个都可以被用来声明同一模板参数表中的不同模板类型参数。</p>
+<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>函数模板指定了怎样根据一组或更多实际类型或值构造出独立的函数。这个构造过程被称为模板实例化，这个过程是隐式发生的，它可以被看作是函数模板调用或取函数模板的地址的副作用。</p>
+<p>用函数实参的类型来决定模板实参的类型和值的过程被称为模板实参推演。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp Primer chapter 3.6</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh03_6/</url>
     <content><![CDATA[<p> C++ Primer 第三篇第十二章学习笔记。<span id="more"></span></p>
@@ -537,18 +542,6 @@
 <p>例如为了计数一个容器中小于或等于10 的元素的个数，我们可能会向count_if()传递一个less_equal 函数对象以及一个被绑定为10 的实参。</p>
 <p>2.取反器： negator 是一个将函数对象的值翻转的函数适配器。</p>
 <p>例如为了计数一个容器中所有大于10 的元素的个数，我们可以向count_if()传递less_equal 函数对象的negator ，该函数对象有一个实参被绑定为10。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 03</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh04/</url>
-    <content><![CDATA[<p> C++ Primer 第四篇第十二章学习笔记。<span id="more"></span></p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -604,6 +597,18 @@
       </tags>
   </entry>
   <entry>
+    <title>cpp Primer chapter 03</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh04/</url>
+    <content><![CDATA[<p> C++ Primer 第四篇第十二章学习笔记。<span id="more"></span></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp Primer chapter 4.2</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh04_2/</url>
     <content><![CDATA[<p> C++ Primer 第四篇第十四章学习笔记。<span id="more"></span></p>
@@ -633,30 +638,6 @@
 <p>如果该操作符的左操作数必须是其他的类型，那么重载操作符必须是名字空间成员。</p>
 <p>C++要求：赋值= 、下标[] 、调用() 和成员访问箭头-&gt; 操作符必须被定义为类成员操作符，任何把这些操作符定义为名字空间成员的定义都会被标记为编译时刻错误。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 错误: 必须是类成员</span><br><span class="line">char&amp; operator[]( String &amp; ,int ix );</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 5.1</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh05_1/</url>
-    <content><![CDATA[<p> C++ Primer 第五篇第十七章学习笔记。<span id="more"></span></p>
-<h1 id="第五篇-面向对象的程序设计"><a href="#第五篇-面向对象的程序设计" class="headerlink" title="第五篇 面向对象的程序设计"></a>第五篇 面向对象的程序设计</h1><h2 id="第十七章-类继承和子类型"><a href="#第十七章-类继承和子类型" class="headerlink" title="第十七章 类继承和子类型"></a>第十七章 类继承和子类型</h2><p>如果基类和派生类共享相同的公有接口，则派生类被称作基类的子类型。</p>
-<p>在C++中，存在特殊的类型/子类型关系，基类指针或引用可以直接引用其任何派生子类，而无需程序员介入，这种用基类的指针或引用，操纵多个类型的能力被称为多态。</p>
-<p>子类多态性使得我们在编写应用程序的核心时，可以不用考虑将来需要维护的单个类型，我们利用基类指针和引用，对抽象的基类的公有接口进行编程。在运行时刻，真正要引用的类型被解析出来，并且调用适当的公有接口实例。</p>
-<p>在运行时刻需要解析出被调用的函数，这个解析过程被称为动态绑定，缺省情况下，函数是在编译时刻被静态解析的，在C++中通过一种被称为虚拟函数的机制来支持动态绑定。</p>
-<p>继承层次结构的主要好处是，我们可以针对抽象基类的公有接口进行编程，而不是针对组成继承层次的个别类型。通过这种方式我们的代码可以不受层次结构变化的影响</p>
-<p>在C++中多态性只存在子类继承层次中。void*型的指针可以被描述为多态，但是语言本身并没有显式地支持它们——即它们必须由程序员自己来管理，程序员可以通过显式强制类型转换以及记录实际类型的判别式来做到这一点。</p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>继承关系通过类派生表c来指定。在单继承下它的一般形式为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">: access-level base-class</span><br><span class="line">这里access-level 是public 、protected 或private 之一。</span><br></pre></td></tr></table></figure>
-
-<p>声明时不用表明继承关系。实际实现时才需要实现实际关系。</p>
-<h3 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Query &#123;</span><br><span class="line">public:</span><br><span class="line">	virtual void eval() = 0;</span><br><span class="line">&#125;;</span><br><span class="line">class NameQuery : public Query &#123;</span><br><span class="line">public:</span><br><span class="line">    // ...</span><br><span class="line">    // 改写 virtual Query::eval() 实例29</span><br><span class="line">    void eval();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -734,6 +715,30 @@
       </tags>
   </entry>
   <entry>
+    <title>cpp Primer chapter 5.1</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh05_1/</url>
+    <content><![CDATA[<p> C++ Primer 第五篇第十七章学习笔记。<span id="more"></span></p>
+<h1 id="第五篇-面向对象的程序设计"><a href="#第五篇-面向对象的程序设计" class="headerlink" title="第五篇 面向对象的程序设计"></a>第五篇 面向对象的程序设计</h1><h2 id="第十七章-类继承和子类型"><a href="#第十七章-类继承和子类型" class="headerlink" title="第十七章 类继承和子类型"></a>第十七章 类继承和子类型</h2><p>如果基类和派生类共享相同的公有接口，则派生类被称作基类的子类型。</p>
+<p>在C++中，存在特殊的类型/子类型关系，基类指针或引用可以直接引用其任何派生子类，而无需程序员介入，这种用基类的指针或引用，操纵多个类型的能力被称为多态。</p>
+<p>子类多态性使得我们在编写应用程序的核心时，可以不用考虑将来需要维护的单个类型，我们利用基类指针和引用，对抽象的基类的公有接口进行编程。在运行时刻，真正要引用的类型被解析出来，并且调用适当的公有接口实例。</p>
+<p>在运行时刻需要解析出被调用的函数，这个解析过程被称为动态绑定，缺省情况下，函数是在编译时刻被静态解析的，在C++中通过一种被称为虚拟函数的机制来支持动态绑定。</p>
+<p>继承层次结构的主要好处是，我们可以针对抽象基类的公有接口进行编程，而不是针对组成继承层次的个别类型。通过这种方式我们的代码可以不受层次结构变化的影响</p>
+<p>在C++中多态性只存在子类继承层次中。void*型的指针可以被描述为多态，但是语言本身并没有显式地支持它们——即它们必须由程序员自己来管理，程序员可以通过显式强制类型转换以及记录实际类型的判别式来做到这一点。</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>继承关系通过类派生表c来指定。在单继承下它的一般形式为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">: access-level base-class</span><br><span class="line">这里access-level 是public 、protected 或private 之一。</span><br></pre></td></tr></table></figure>
+
+<p>声明时不用表明继承关系。实际实现时才需要实现实际关系。</p>
+<h3 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Query &#123;</span><br><span class="line">public:</span><br><span class="line">	virtual void eval() = 0;</span><br><span class="line">&#125;;</span><br><span class="line">class NameQuery : public Query &#123;</span><br><span class="line">public:</span><br><span class="line">    // ...</span><br><span class="line">    // 改写 virtual Query::eval() 实例29</span><br><span class="line">    void eval();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++学习过程中遇到的问题-01</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppProblem02/</url>
     <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊  + 1。(<em>¯ㅿ¯</em>;)</p>
@@ -744,6 +749,49 @@
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DSA</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/dsa/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数据结构和算法的重要性毋庸置疑啊，一方面刷题，一方面学习一下。<span id="more"></span></p>
+<p>参考书籍清华邓俊辉教授撰写的《数据结构（C++语言版）》。</p>
+<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>​    O(1):常数时间复杂度算法</p>
+<p>​    O(logn):对数时间复杂度——高效算法</p>
+<p>​    O(n):多项式时间复杂度算法.某问题若存在一个复杂度在此范围以内的算法，则称该问题是可有效求解的或易解的（tractable）</p>
+<p>​    O(x**n):指数复杂度，无法接受的算法。</p>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>​        递归则是函数和过程调用的一种特殊形式，即允许函数和过程进行<br>自我调用。</p>
+<p>​        递归的价值在于，许多应用问题都可简洁而准确地描述为递归形式。</p>
+<p>​    递归也是一种基本而典型的算法设计模式。这一模式可以对实际问题中反复出现的结构和形式做高度概括，并从本质层面加以描述与刻画，进而导出高效的算法。</p>
+<h4 id="递归的基本模式"><a href="#递归的基本模式" class="headerlink" title="递归的基本模式"></a>递归的基本模式</h4><h5 id="线性递归"><a href="#线性递归" class="headerlink" title="线性递归"></a>线性递归</h5><p>举例：数组元素求和</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组求和：数组的前A[0,n-1)个数的和与末元素A[n-1]之和。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">arraySum</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span>&gt;n)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in"><span class="keyword">return</span></span> (<span class="built_in">arraySum</span>(A, n<span class="number">-1</span>) + A[n<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//时间复杂度：O(1)*递归深度 = O(1) * (n+1) = O(n)</span></span><br><span class="line"><span class="comment">//空间复杂度：O(n)</span></span><br></pre></td></tr></table></figure>
+
+<p>​        算法可能朝着更深一层进行自我调用，且每一递归实例对自身的调用至多一次。于是，每一层次上至多只有一个实例，且它们构成一个线性的次序关系。此类递归模式因而称作“线性递归”（linear recursion），它也是递归的最基本形式。</p>
+<p>​    线性递归往往对应于<em><strong>减而治之</strong></em>的算法策略：递归每深入一层，待求解问题的规模都缩减一个常数，直至最终蜕化为平凡的小（简单）问题。</p>
+<h5 id="递归分析"><a href="#递归分析" class="headerlink" title="递归分析"></a>递归分析</h5><p>1.递归跟踪：作为一种直观且可视的方法，递归跟踪（recursion trace）可用以分析递归算法的总体运行时间与空间。</p>
+<p>2.递推方程：通过对递归模式的数学归纳，导出复杂度定界函数的递推方程（组）及其边界条件，从而将复杂度的分析，转化为递归方程（组）的求解。</p>
+<h5 id="递归模式"><a href="#递归模式" class="headerlink" title="递归模式"></a>递归模式</h5><p>1.多递归基：为保证有穷性，递归算法都必须设置递归基，且确保总能执行到。</p>
+<p>举例：数组倒置</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>* A, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lo &lt; hi)&#123;</span><br><span class="line">		<span class="built_in">swap</span>(A[lo], A[hi]);</span><br><span class="line">		<span class="built_in">reverse</span>(A, lo+<span class="number">1</span>, hi<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">//O(hi + lo -1)</span></span><br></pre></td></tr></table></figure>
+
+<p>2.多向递归：递归算法中，不仅递归基可能有多个，递归调用也可能有多种可供选择的分支。</p>
+<p>举例：求2**n</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline __int64 sqr ( __int64 a ) &#123; return a * a; &#125;</span><br><span class="line">__int64 power2 ( int n ) &#123; //幂函数2^n算法（优化逑弻版），n &gt;= 0</span><br><span class="line"> 	if ( 0 == n ) return 1; //逑弻基；否则，规n癿奇偶分删逑弻</span><br><span class="line">    return ( n &amp; 1 ) ? sqr ( power2 ( n &gt;&gt; 1 ) ) &lt;&lt; 1 : sqr ( power2 ( n &gt;&gt; 1 ) );</span><br><span class="line">&#125; //O(logn) = O(r)，r为输入指数n癿比特位数</span><br></pre></td></tr></table></figure>
+
+<h5 id="递归消除"><a href="#递归消除" class="headerlink" title="递归消除"></a>递归消除</h5><p>空间成本:递归算法所消耗的空间量主要取决于递归深度，故较之同一算法的迭代版，递归版往往需耗费更多空间，并进而影响实际的运行速度。</p>
+<p>举例：尾递归消除</p>
+<p>在线性递归算法中，若递归调用在递归实例中恰好以最后一步操作的形式出现，则称作尾递<br>归（tail recursion）。属于尾递归形式的算法，均可以简捷地转换为等效的迭代版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#数组倒置</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">next:</span><br><span class="line">	if(lo &lt; hi)&#123;</span><br><span class="line">		swap(A[lo], A[hi]);</span><br><span class="line">		lo++;</span><br><span class="line">		hi--;</span><br><span class="line">		goto next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo + 1)</span><br><span class="line"></span><br><span class="line">#用while 代替 next if</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">	while( lo &lt; hi )&#123;</span><br><span class="line">		swap(A[lo++], A[hi--]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="二分递归"><a href="#二分递归" class="headerlink" title="二分递归"></a>二分递归</h5><p>分而治之：将大问题分解为若干规模更小的子问题，再通过递归机制分别求解。这种分解持续进行，直到子问题规模缩减至平凡情况。这也就是所谓的分而治之（divide-and-conquer）策略。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arraySum(int A[], int lo, int hi)&#123;</span><br><span class="line">	if( lo == hi)&#123;</span><br><span class="line">		return A[lo];</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int mi = (lo + hi) &gt;&gt; 1;</span><br><span class="line">		return sum(A, lo, mi) + sum(A, mi+1, hi);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo +1)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -947,52 +995,53 @@
       </tags>
   </entry>
   <entry>
-    <title>DSA</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DSA/dsa/</url>
-    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数据结构和算法的重要性毋庸置疑啊，一方面刷题，一方面学习一下。<span id="more"></span></p>
-<p>参考书籍清华邓俊辉教授撰写的《数据结构（C++语言版）》。</p>
-<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>​    O(1):常数时间复杂度算法</p>
-<p>​    O(logn):对数时间复杂度——高效算法</p>
-<p>​    O(n):多项式时间复杂度算法.某问题若存在一个复杂度在此范围以内的算法，则称该问题是可有效求解的或易解的（tractable）</p>
-<p>​    O(x**n):指数复杂度，无法接受的算法。</p>
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>​        递归则是函数和过程调用的一种特殊形式，即允许函数和过程进行<br>自我调用。</p>
-<p>​        递归的价值在于，许多应用问题都可简洁而准确地描述为递归形式。</p>
-<p>​    递归也是一种基本而典型的算法设计模式。这一模式可以对实际问题中反复出现的结构和形式做高度概括，并从本质层面加以描述与刻画，进而导出高效的算法。</p>
-<h4 id="递归的基本模式"><a href="#递归的基本模式" class="headerlink" title="递归的基本模式"></a>递归的基本模式</h4><h5 id="线性递归"><a href="#线性递归" class="headerlink" title="线性递归"></a>线性递归</h5><p>举例：数组元素求和</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组求和：数组的前A[0,n-1)个数的和与末元素A[n-1]之和。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">arraySum</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span>&gt;n)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in"><span class="keyword">return</span></span> (<span class="built_in">arraySum</span>(A, n<span class="number">-1</span>) + A[n<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//时间复杂度：O(1)*递归深度 = O(1) * (n+1) = O(n)</span></span><br><span class="line"><span class="comment">//空间复杂度：O(n)</span></span><br></pre></td></tr></table></figure>
-
-<p>​        算法可能朝着更深一层进行自我调用，且每一递归实例对自身的调用至多一次。于是，每一层次上至多只有一个实例，且它们构成一个线性的次序关系。此类递归模式因而称作“线性递归”（linear recursion），它也是递归的最基本形式。</p>
-<p>​    线性递归往往对应于<em><strong>减而治之</strong></em>的算法策略：递归每深入一层，待求解问题的规模都缩减一个常数，直至最终蜕化为平凡的小（简单）问题。</p>
-<h5 id="递归分析"><a href="#递归分析" class="headerlink" title="递归分析"></a>递归分析</h5><p>1.递归跟踪：作为一种直观且可视的方法，递归跟踪（recursion trace）可用以分析递归算法的总体运行时间与空间。</p>
-<p>2.递推方程：通过对递归模式的数学归纳，导出复杂度定界函数的递推方程（组）及其边界条件，从而将复杂度的分析，转化为递归方程（组）的求解。</p>
-<h5 id="递归模式"><a href="#递归模式" class="headerlink" title="递归模式"></a>递归模式</h5><p>1.多递归基：为保证有穷性，递归算法都必须设置递归基，且确保总能执行到。</p>
-<p>举例：数组倒置</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>* A, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lo &lt; hi)&#123;</span><br><span class="line">		<span class="built_in">swap</span>(A[lo], A[hi]);</span><br><span class="line">		<span class="built_in">reverse</span>(A, lo+<span class="number">1</span>, hi<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">//O(hi + lo -1)</span></span><br></pre></td></tr></table></figure>
-
-<p>2.多向递归：递归算法中，不仅递归基可能有多个，递归调用也可能有多种可供选择的分支。</p>
-<p>举例：求2**n</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline __int64 sqr ( __int64 a ) &#123; return a * a; &#125;</span><br><span class="line">__int64 power2 ( int n ) &#123; //幂函数2^n算法（优化逑弻版），n &gt;= 0</span><br><span class="line"> 	if ( 0 == n ) return 1; //逑弻基；否则，规n癿奇偶分删逑弻</span><br><span class="line">    return ( n &amp; 1 ) ? sqr ( power2 ( n &gt;&gt; 1 ) ) &lt;&lt; 1 : sqr ( power2 ( n &gt;&gt; 1 ) );</span><br><span class="line">&#125; //O(logn) = O(r)，r为输入指数n癿比特位数</span><br></pre></td></tr></table></figure>
-
-<h5 id="递归消除"><a href="#递归消除" class="headerlink" title="递归消除"></a>递归消除</h5><p>空间成本:递归算法所消耗的空间量主要取决于递归深度，故较之同一算法的迭代版，递归版往往需耗费更多空间，并进而影响实际的运行速度。</p>
-<p>举例：尾递归消除</p>
-<p>在线性递归算法中，若递归调用在递归实例中恰好以最后一步操作的形式出现，则称作尾递<br>归（tail recursion）。属于尾递归形式的算法，均可以简捷地转换为等效的迭代版本。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#数组倒置</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">next:</span><br><span class="line">	if(lo &lt; hi)&#123;</span><br><span class="line">		swap(A[lo], A[hi]);</span><br><span class="line">		lo++;</span><br><span class="line">		hi--;</span><br><span class="line">		goto next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo + 1)</span><br><span class="line"></span><br><span class="line">#用while 代替 next if</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">	while( lo &lt; hi )&#123;</span><br><span class="line">		swap(A[lo++], A[hi--]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="二分递归"><a href="#二分递归" class="headerlink" title="二分递归"></a>二分递归</h5><p>分而治之：将大问题分解为若干规模更小的子问题，再通过递归机制分别求解。这种分解持续进行，直到子问题规模缩减至平凡情况。这也就是所谓的分而治之（divide-and-conquer）策略。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arraySum(int A[], int lo, int hi)&#123;</span><br><span class="line">	if( lo == hi)&#123;</span><br><span class="line">		return A[lo];</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int mi = (lo + hi) &gt;&gt; 1;</span><br><span class="line">		return sum(A, lo, mi) + sum(A, mi+1, hi);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo +1)</span><br></pre></td></tr></table></figure>
-
+    <title>Ubuntu使用中遇到的问题</title>
+    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/ubuntuUsing/</url>
+    <content><![CDATA[<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。<span id="more"></span></p>
+<h2 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h2><p>   没想到语言选择第一步就难住了我，安装的是中文版到但是一直没能成功设置为中文。直到看到一个鬼才方法。具体步骤如下：</p>
+<p>​    1.找到Ubuntu中Language support软件</p>
+<p>​    2.打开软件后添加简体中文语言包</p>
+<p>​    3.现在依然显示汉语为灰色无法选中，但是可以拖动！！！将汉语那一框拖动到最上面去，然后重启就可以了。</p>
+<p>参考的博客链接为：</p>
+<p><a href="https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.base">https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base</a></p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>系统配置</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
-    <title>SQL 必知必会</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_00/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+    <title>一些有用的小技巧</title>
+    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/windowsUsing/</url>
+    <content><![CDATA[<h1 id="实用小技巧"><a href="#实用小技巧" class="headerlink" title="实用小技巧"></a>实用小技巧</h1><p>遇到的一些有用的软件或者一些比较有用的设置。<span id="more"></span></p>
+<h2 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h2><p>推荐使用Typora来编写MarkDown文档。</p>
+<h3 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h3><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>注意：修改上述的typora文件路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot; --&gt; “修改成你自己的文件路径”</span><br></pre></td></tr></table></figure>
+
+<p>2.保存后重命名，修改后缀为  .reg 文件。</p>
+<p>3.双击执行，一路点是就行。</p>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><img src = "/images/createMd/createMd01.png">
+
+<h2 id="Adobe-Acrobat-Pro-DC设置文档打开时铺满全局"><a href="#Adobe-Acrobat-Pro-DC设置文档打开时铺满全局" class="headerlink" title="Adobe Acrobat Pro DC设置文档打开时铺满全局"></a>Adobe Acrobat Pro DC设置文档打开时铺满全局</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>修改首选项里的页面设置，全局视图—&gt;适合宽度。</p>
+<h4 id="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"><a href="#缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。" class="headerlink" title="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"></a>缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。</h4><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>选中所有书签（ctrl+A）——属性——动作——添加动作选择——执行菜单项——添加——“视图&gt;缩放&gt;适合宽度”</p>
+<p>这样点击书签后，就是适合宽度了。</p>
+]]></content>
+      <categories>
+        <category>系统配置</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL 必知必会</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_00/</url>
+    <content><![CDATA[<p>&lt;&lt;MySQL 必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
 <h1 id="第章"><a href="#第章" class="headerlink" title="第章"></a>第章</h1>]]></content>
       <categories>
         <category>学习</category>
@@ -1174,6 +1223,30 @@
       </tags>
   </entry>
   <entry>
+    <title>SQL 必知必会 08</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_08/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第八章-函数"><a href="#第八章-函数" class="headerlink" title="第八章  函数"></a>第八章  函数</h1><p>与几乎所有DBMS 都等同地支持SQL 语句（如SELECT）不同，每一个DBMS 都有特定的函数。事实上，只有少数几个函数被所有主要的DBMS等同地支持。虽然所有类型的函数一般都可以在每个DBMS 中使用，但各个函数的名称和语法可能极其不同。</p>
+<h2 id="文本处理函数"><a href="#文本处理函数" class="headerlink" title="文本处理函数"></a>文本处理函数</h2><h3 id="Trim"><a href="#Trim" class="headerlink" title="Trim()"></a>Trim()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, TRIM(vend_name) AS vend_name_trim</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Upper"><a href="#Upper" class="headerlink" title="Upper()"></a>Upper()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, UPPER(vend_name) AS vend_name_upcase</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
+
+<img src = "/images/MySQL/MySQL03.png">
+
+<h2 id="日期和时间处理函数"><a href="#日期和时间处理函数" class="headerlink" title="日期和时间处理函数"></a>日期和时间处理函数</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num</span><br><span class="line">FROM Orders</span><br><span class="line">WHERE YEAR(order_date) = 2012;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数值处理函数"><a href="#数值处理函数" class="headerlink" title="数值处理函数"></a>数值处理函数</h2><p>数值处理函数仅处理数值数据。这些函数一般主要用于代数、三角或几何运算，因此不像字符串或日期时间处理函数使用那么频繁。</p>
+<img src = "/images/MySQL/MySQL04.png">
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SQL 必知必会 07</title>
     <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_07/</url>
     <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
@@ -1198,30 +1271,6 @@
 
 <h3 id="如何测试计算"><a href="#如何测试计算" class="headerlink" title="如何测试计算"></a>如何测试计算</h3><p>SELECT 语句为测试、检验函数和计算提供了很好的方法。虽然SELECT通常用于从表中检索数据，但是省略了FROM 子句后就是简单地访问和处理表达式，例如SELECT 3 * 2;将返回6，SELECT Trim(‘ abc ‘);<br>将返回abc，SELECT Now();使用Now()函数返回当前日期和时间。可以根据需要使用SELECT 语句进行检验。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql&gt; select now();</span><br><span class="line">+---------------------+</span><br><span class="line">| now()               |</span><br><span class="line">+---------------------+</span><br><span class="line">| 2021-08-23 11:14:12 |</span><br><span class="line">+---------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 08</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_08/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第八章-函数"><a href="#第八章-函数" class="headerlink" title="第八章  函数"></a>第八章  函数</h1><p>与几乎所有DBMS 都等同地支持SQL 语句（如SELECT）不同，每一个DBMS 都有特定的函数。事实上，只有少数几个函数被所有主要的DBMS等同地支持。虽然所有类型的函数一般都可以在每个DBMS 中使用，但各个函数的名称和语法可能极其不同。</p>
-<h2 id="文本处理函数"><a href="#文本处理函数" class="headerlink" title="文本处理函数"></a>文本处理函数</h2><h3 id="Trim"><a href="#Trim" class="headerlink" title="Trim()"></a>Trim()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, TRIM(vend_name) AS vend_name_trim</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Upper"><a href="#Upper" class="headerlink" title="Upper()"></a>Upper()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, UPPER(vend_name) AS vend_name_upcase</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
-
-<img src = "/images/MySQL/MySQL03.png">
-
-<h2 id="日期和时间处理函数"><a href="#日期和时间处理函数" class="headerlink" title="日期和时间处理函数"></a>日期和时间处理函数</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num</span><br><span class="line">FROM Orders</span><br><span class="line">WHERE YEAR(order_date) = 2012;</span><br></pre></td></tr></table></figure>
-
-<h2 id="数值处理函数"><a href="#数值处理函数" class="headerlink" title="数值处理函数"></a>数值处理函数</h2><p>数值处理函数仅处理数值数据。这些函数一般主要用于代数、三角或几何运算，因此不像字符串或日期时间处理函数使用那么频繁。</p>
-<img src = "/images/MySQL/MySQL04.png">
 
 ]]></content>
       <categories>
@@ -1473,6 +1522,227 @@
       </tags>
   </entry>
   <entry>
+    <title>SQL 必知必会 17</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_17/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第十七章-创建和操纵表"><a href="#第十七章-创建和操纵表" class="headerlink" title="第十七章  创建和操纵表"></a>第十七章  创建和操纵表</h1><h2 id="create"><a href="#create" class="headerlink" title="create"></a>create</h2><p>利用CREATE TABLE 创建表，必须给出下列信息：</p>
+<p>1.新表的名字，在关键字CREATE TABLE 之后给出；<br>2.表列的名字和定义，用逗号分隔；<br>3.有的DBMS 还要求指定表的位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table products(</span><br><span class="line">	prod_id  char(10) not null,</span><br><span class="line">	vend_id  char(10) not null,</span><br><span class="line">	prod_name char(254) not null,</span><br><span class="line">	prod_price decimal(8, 2) not null,</span><br><span class="line">	prod_desc  text(100) null</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h2><p>NULL 值就是没有值或缺值。允许NULL 值的列也允许在插入行时不给出该列的值。不允许NULL 值的列不接受没有列值的行，换句话说，在插入或更新行时，该列必须有值。</p>
+<p>NULL 为默认设置，如果不指定NOT NULL，就认为指定的是NULL。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Vendors</span><br><span class="line">(</span><br><span class="line">    vend_id CHAR(10) NOT NULL,</span><br><span class="line">    vend_name CHAR(50) NOT NULL,</span><br><span class="line">    vend_address CHAR(50) ,</span><br><span class="line">    vend_city CHAR(50) ,</span><br><span class="line">    vend_state CHAR(5) ,</span><br><span class="line">    vend_zip CHAR(10) ,</span><br><span class="line">    vend_country CHAR(50)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>只有不允许NULL值的列可作为主键，允许NULL 值的列不能作为唯一标识。</p>
+<p>不要把NULL 值与空字符串相混淆。NULL 值是没有值，不是空字符串。如果指定’’（两个单引号，其间没有字符），这在NOT NULL 列中是允许的。空字符串是一个有效的值，它不是无值。NULL 值用关键字NULL而不是空字符串指定。</p>
+<h2 id="default"><a href="#default" class="headerlink" title="default"></a>default</h2><p>SQL 允许指定默认值，在插入行时如果不给出值，DBMS 将自动采用默认值。默认值在CREATE TABLE 语句的列定义中用关键字DEFAULT 指定。</p>
+<h2 id="alter"><a href="#alter" class="headerlink" title="alter"></a>alter</h2><p>使用ALTER TABLE 更改表结构，必须给出下面的信息：<br>1.在ALTER TABLE 之后给出要更改的表名（该表必须存在，否则将出错）；<br>2.列出要做哪些更改。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">alter table vendors</span><br><span class="line">add vend_phone char(20);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE Vendors</span><br><span class="line">DROP COLUMN vend_phone;</span><br></pre></td></tr></table></figure>
+
+<p><strong>数据库表的更改不能撤销.</strong></p>
+<h2 id="drop"><a href="#drop" class="headerlink" title="drop"></a>drop</h2><p>删除表（删除整个表而不是其内容）非常简单，使用DROP TABLE 语句即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP TABLE CustCopy;</span><br></pre></td></tr></table></figure>
+
+<h2 id="rename"><a href="#rename" class="headerlink" title="rename"></a>rename</h2><p>重命名表。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 18</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_18/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第十八章-使用识图"><a href="#第十八章-使用识图" class="headerlink" title="第十八章  使用识图"></a>第十八章  使用识图</h1><p>视图是虚拟的表。与包含数据的表不一样，视图只包含使用时动态检索数据的查询。</p>
+<h2 id="视图的一些常见应用"><a href="#视图的一些常见应用" class="headerlink" title="视图的一些常见应用"></a>视图的一些常见应用</h2><p>1.重用SQL 语句。</p>
+<p>2.简化复杂的SQL 操作。在编写查询后，可以方便地重用它而不必知道其基本查询细节。</p>
+<p>3.使用表的一部分而不是整个表。</p>
+<p>4.保护数据。可以授予用户访问表的特定部分的权限，而不是整个表的访问权限。</p>
+<p>5.更改数据格式和表示。视图可返回与底层表的表示和格式不同的数据。</p>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>因为视图不包含数据，所以每次使用视图时，都必须处理查询执行时需要的所有检索。如果你用多个联结和过滤创建了复杂的视图或者嵌套了视图，性能可能会下降得很厉害。</p>
+<h2 id="常见的规则和限制"><a href="#常见的规则和限制" class="headerlink" title="常见的规则和限制"></a>常见的规则和限制</h2><p>1.与表一样，视图必须唯一命名。对于可以创建的视图数目没有限制。</p>
+<p>2.视图可以嵌套，即可以利用从其他视图中检索数据的查询来构造视图。所允许的嵌套层数在不同的DBMS 中有所不同（嵌套视图可能会严重降低查询的性能，因此在产品环境中使用之前，应该对其进行全面测试）。</p>
+<p>3.许多DBMS 禁止在视图查询中使用ORDER BY 子句。</p>
+<p>4.有些DBMS 要求对返回的所有列进行命名，如果列是计算字段，则需要使用别名。</p>
+<p>5.视图不能索引，也不能有关联的触发器或默认值。</p>
+<h2 id="创建-删除-视图"><a href="#创建-删除-视图" class="headerlink" title="创建/删除 视图"></a>创建/删除 视图</h2><p>创建视图 <strong>create view</strong></p>
+<p>删除视图 <strong>drop view</strong></p>
+<h3 id="创建一个视图"><a href="#创建一个视图" class="headerlink" title="创建一个视图"></a>创建一个视图</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW pro_cus AS</span><br><span class="line">SELECT cust_name, cust_contact, prod_id</span><br><span class="line">FROM Customers, Orders, OrderItems</span><br><span class="line">WHERE Customers.cust_id = Orders.cust_id</span><br><span class="line">AND OrderItems.order_num = Orders.order_num;</span><br></pre></td></tr></table></figure>
+
+<p>查看表：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql&gt; show tables;</span><br><span class="line">+--------------+</span><br><span class="line">| Tables_in_wz |</span><br><span class="line">+--------------+</span><br><span class="line">| customers    |</span><br><span class="line">| orderitems   |</span><br><span class="line">| orders       |</span><br><span class="line">| pro_cus      |</span><br><span class="line">| products     |</span><br><span class="line">| vendors      |</span><br><span class="line">+--------------+</span><br><span class="line">6 rows in set (0.03 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用视图检索数据"><a href="#利用视图检索数据" class="headerlink" title="利用视图检索数据"></a>利用视图检索数据</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM pro_cus</span><br><span class="line">WHERE prod_id = &#x27;RGAN01&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="用视图重新格式化检索出的数据"><a href="#用视图重新格式化检索出的数据" class="headerlink" title="用视图重新格式化检索出的数据"></a>用视图重新格式化检索出的数据</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW Ven_loc AS</span><br><span class="line">SELECT concat(RTRIM(vend_name),&#x27;(&#x27;, RTRIM(vend_country) ,&#x27;)&#x27;)</span><br><span class="line">as ventitle</span><br><span class="line">from vendors;</span><br><span class="line"></span><br><span class="line"> select * from ven_loc;</span><br></pre></td></tr></table></figure>
+
+<h3 id="用视图过滤不想要的数据"><a href="#用视图过滤不想要的数据" class="headerlink" title="用视图过滤不想要的数据"></a>用视图过滤不想要的数据</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW CustomerEMailList AS</span><br><span class="line">SELECT cust_id, cust_name, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_email IS NOT NULL;</span><br></pre></td></tr></table></figure>
+
+<p>从视图检索数据时如果使用了一条WHERE 子句，则两组子句（一组在视图中，另一组是传递给视图的）将自动组合。</p>
+<h3 id="使用视图与计算字段"><a href="#使用视图与计算字段" class="headerlink" title="使用视图与计算字段"></a>使用视图与计算字段</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW OrderItemsExpanded AS</span><br><span class="line">    SELECT order_num,</span><br><span class="line">    prod_id,</span><br><span class="line">    quantity,</span><br><span class="line">    item_price,</span><br><span class="line">	quantity*item_price AS expanded_price</span><br><span class="line">FROM OrderItems;</span><br></pre></td></tr></table></figure>
+
+<p>视图为虚拟的表。它们包含的不是数据而是根据需要检索数据的查询。视图提供了一种封装SELECT 语句的层次，可用来简化数据处理，重新格式化或保护基础数据。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 19</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_19/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第十九章-存储过程"><a href="#第十九章-存储过程" class="headerlink" title="第十九章  存储过程"></a>第十九章  存储过程</h1><p>存储过程就是为以后使用而保存的一条 或多条SQL 语句。可将其视为批文件，虽然它们的作用不仅限于批处理。</p>
+<h2 id="存储过程的执行"><a href="#存储过程的执行" class="headerlink" title="存储过程的执行"></a>存储过程的执行</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">EXECUTE AddNewProduct( &#x27;JTS01&#x27;,</span><br><span class="line">    &#x27;Stuffed Eiffel Tower&#x27;,</span><br><span class="line">    6.49,</span><br><span class="line">    &#x27;Plush stuffed toy with the text La</span><br><span class="line">    Tour Eiffel in red white and blue&#x27; );</span><br></pre></td></tr></table></figure>
+
+<p>对于具体的DBMS，可能包括以下的执行选择：<br>1.参数可选，具有不提供参数时的默认值；<br>2.不按次序给出参数，以“参数=值”的方式给出参数值。<br>3.输出参数，允许存储过程在正执行的应用程序中更新所用的参数。<br>4.用SELECT 语句检索数据。<br>5.返回代码，允许存储过程返回一个值到正在执行的应用程序。</p>
+<h2 id="创建存储过程"><a href="#创建存储过程" class="headerlink" title="创建存储过程"></a>创建存储过程</h2><p>Oracle ：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE PROCEDURE MailingListCount (</span><br><span class="line">	ListCount OUT INTEGER</span><br><span class="line">)</span><br><span class="line">IS</span><br><span class="line">v_rows INTEGER;</span><br><span class="line">BEGIN</span><br><span class="line">    SELECT COUNT(*) INTO v_rows</span><br><span class="line">    FROM Customers</span><br><span class="line">    WHERE NOT cust_email IS NULL;</span><br><span class="line">    ListCount := v_rows;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+
+<p>这个存储过程有一个名为ListCount 的参数。此参数从存储过程返回一个值而不是传递一个值给存储过程。关键字OUT 用来指示这种行为。Oracle 支持IN（传递值给存储过程）、OUT（从存储过程返回值，如这里）、INOUT（既传递值给存储过程也从存储过程传回值）类型的参数。存储过程的代码括在BEGIN 和END 语句中，这里执行一条简单的SELECT 语句，它检索具有邮件地址的顾客。然后用检索出的行数设置ListCount（要传递的输出参数）。</p>
+<p>调用：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var ReturnValue NUMBER</span><br><span class="line">EXEC MailingListCount(:ReturnValue);</span><br><span class="line">SELECT ReturnValue;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 20</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_20/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第二十章-管理事务"><a href="#第二十章-管理事务" class="headerlink" title="第二十章 管理事务"></a>第二十章 管理事务</h1><p>使用事务处理（transaction processing），通过确保成批的SQL 操作要么完全执行，要么完全不执行，来维护数据库的完整性。</p>
+<p>事务处理是一种机制，用来管理必须成批执行的SQL 操作，保证数据库不包含不完整的操作结果。利用事务处理，可以保证一组操作不会中途停止，它们要么完全执行，要么完全不执行（除非明确指示）。如果没有错误发生，整组语句提交给（写到）数据库表；如果发生错误，则进行回退（撤销），将数据库恢复到某个已知且安全的状态。</p>
+<h3 id="事务（transaction）"><a href="#事务（transaction）" class="headerlink" title="事务（transaction）"></a>事务（transaction）</h3><p>指一组SQL 语句；</p>
+<h3 id="回退（rollback）"><a href="#回退（rollback）" class="headerlink" title="回退（rollback）"></a>回退（rollback）</h3><p>指撤销指定SQL 语句的过程；</p>
+<h3 id="提交（commit）"><a href="#提交（commit）" class="headerlink" title="提交（commit）"></a>提交（commit）</h3><p>指将未存储的SQL 语句结果写入数据库表；</p>
+<h3 id="保留点（savepoint）"><a href="#保留点（savepoint）" class="headerlink" title="保留点（savepoint）"></a>保留点（savepoint）</h3><p>指事务处理中设置的临时占位符（placeholder），可以对它发布回退（与回退整个事务处理不同）。</p>
+<p>事务处理用来管理INSERT、UPDATE 和DELETE 语句。不能回退SELECT语句（回退SELECT 语句也没有必要），也不能回退CREATE 或DROP 操作。事务处理中可以使用这些语句，但进行回退时，这些操作也不撤销。</p>
+<p>管理事务的关键在于将SQL 语句组分解为逻辑块，并明确规定数据何时应该回退，何时不应该回退。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="RollBack"><a href="#RollBack" class="headerlink" title="RollBack"></a>RollBack</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Orders;</span><br><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Commit"><a href="#Commit" class="headerlink" title="Commit"></a>Commit</h3><p>一般的SQL 语句都是针对数据库表直接执行和编写的。这就是所谓的隐式提交（implicit commit），即提交（写或保存）操作是自动进行的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">DELETE OrderItems WHERE order_num = 12345</span><br><span class="line">DELETE Orders WHERE order_num = 12345</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用保留点"><a href="#使用保留点" class="headerlink" title="使用保留点"></a>使用保留点</h3><p>使用简单的ROLLBACK 和COMMIT 语句，就可以写入或撤销整个事务。但是，只对简单的事务才能这样做，复杂的事务可能需要部分提交或回退。</p>
+<p>要支持回退部分事务，必须在事务处理块中的合适位置放置占位符。这样，如果需要回退，可以回退到某个占位符。</p>
+<p>在SQL 中，这些占位符称为保留点。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SAVEPOINT delete1;</span><br></pre></td></tr></table></figure>
+
+<p>每个保留点都要取能够标识它的唯一名字，以便在回退时，DBMS 知道回退到何处。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ROLLBACK TO delete1;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 21</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_21/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第二十一章-使用游标"><a href="#第二十一章-使用游标" class="headerlink" title="第二十一章  使用游标"></a>第二十一章  使用游标</h1><p>SQL 检索操作返回一组称为结果集的行，这组返回的行都是与SQL 语句相匹配的行（零行或多行）。简单地使用SELECT 语句，没有办法得到第一行、下一行或前10 行。但这是关系DBMS 功能的组成部分。</p>
+<p>有时，需要在检索出来的行中前进或后退一行或多行，这就是游标的用途所在。</p>
+<p>游标（cursor）是一个存储在DBMS 服务器上的数据库查询，它不是一条SELECT 语句，而是被该语句检索出来的结果集。在存储了游标之后，应用程序可以根据需要滚动或浏览其中的数据。</p>
+<h2 id="选项和特性"><a href="#选项和特性" class="headerlink" title="选项和特性"></a>选项和特性</h2><p>1.能够标记游标为只读，使数据能读取，但不能更新和删除。<br>2.能控制可以执行的定向操作（向前、向后、第一、最后、绝对位置、相对位置等）。<br>3.能标记某些列为可编辑的，某些列为不可编辑的。<br>4.规定范围，使游标对创建它的特定请求（如存储过程）或对所有请求可访问。<br>5.指示DBMS 对检索出的数据（而不是指出表中活动数据）进行复制，使数据在游标打开和访问期间不变化。</p>
+<p>游标主要用于交互式应用，其中用户需要滚动屏幕上的数据，并对数据进行浏览或做出更改。</p>
+<h2 id="游标的使用步骤"><a href="#游标的使用步骤" class="headerlink" title="游标的使用步骤"></a>游标的使用步骤</h2><p>1.在使用游标前，必须声明（定义）它。这个过程实际上没有检索数据，它只是定义要使用的SELECT 语句和游标选项。<br>2.一旦声明，就必须打开游标以供使用。这个过程用前面定义的SELECT语句把数据实际检索出来。<br>3.对于填有数据的游标，根据需要取出（检索）各行。<br>4.在结束游标使用时，必须关闭游标，可能的话，释放游标（有赖于具体的DBMS）。</p>
+<p>5.声明游标后，可根据需要频繁地打开和关闭游标。在游标打开时，可根据需要频繁地执行取操作</p>
+<h3 id="创建游标"><a href="#创建游标" class="headerlink" title="创建游标"></a>创建游标</h3><p>DECLARE 命名游标，并定义相应的SELECT 语句，根据需要带WHERE 和其他子句。<br><strong>游标只能用在存储过程中</strong></p>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE CustCursor CURSOR</span><br><span class="line">FOR</span><br><span class="line">SELECT * FROM Customers</span><br><span class="line">WHERE cust_email IS NULL</span><br></pre></td></tr></table></figure>
+
+<h3 id="打开游标"><a href="#打开游标" class="headerlink" title="打开游标"></a>打开游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">OPEN CURSOR CustCursor</span><br></pre></td></tr></table></figure>
+
+<p>用FETCH 语句访问游标数据。FETCH 指出要检索哪些行，从何处检索它们以及将它们放于何处（如变量名）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE TYPE CustCursor IS REF CURSOR</span><br><span class="line">	RETURN Customers%ROWTYPE;</span><br><span class="line">DECLARE CustRecord Customers%ROWTYPE</span><br><span class="line">BEGIN</span><br><span class="line">OPEN CustCursor;</span><br><span class="line">FETCH CustCursor INTO CustRecord;</span><br><span class="line">CLOSE CustCursor;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+
+<h3 id="关闭游标"><a href="#关闭游标" class="headerlink" title="关闭游标"></a>关闭游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CLOSE CustCursor</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL 必知必会 22</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_22/</url>
+    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
+<h1 id="第二十二章-高级SQL特性"><a href="#第二十二章-高级SQL特性" class="headerlink" title="第二十二章 高级SQL特性"></a>第二十二章 高级SQL特性</h1><h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><h3 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h3><p>主键是一种特殊的约束，用来保证一列（或一组列）中的值是唯一的，而且永不改动。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Vendors</span><br><span class="line">(</span><br><span class="line">    vend_id CHAR(10) NOT NULL PRIMARY KEY,</span><br><span class="line">    vend_name CHAR(50) NOT NULL,</span><br><span class="line">    vend_address CHAR(50) NULL,</span><br><span class="line">    vend_city CHAR(50) NULL,</span><br><span class="line">    vend_state CHAR(5) NULL,</span><br><span class="line">    vend_zip CHAR(10) NULL,</span><br><span class="line">    vend_country CHAR(50) NULL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE Vendors</span><br><span class="line">ADD CONSTRAINT PRIMARY KEY (vend_id);</span><br></pre></td></tr></table></figure>
+
+<h3 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h3><p>外键是表中的一列，其值必须列在另一表的主键中。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Orders</span><br><span class="line">(</span><br><span class="line">order_num INTEGER NOT NULL PRIMARY KEY,</span><br><span class="line">order_date DATETIME NOT NULL,</span><br><span class="line">cust_id CHAR(10) NOT NULL REFERENCES Customers(cust_id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE Orders</span><br><span class="line">ADD CONSTRAINT</span><br><span class="line">FOREIGN KEY (cust_id) REFERENCES Customers (cust_id)</span><br></pre></td></tr></table></figure>
+
+<p>帮助保证引用完整性外，外键还有另一个重要作用。在定义外键后，DBMS 不允许删除在另一个表中具有关联行的行。例如，不能删除关联订单的顾客。删除该顾客的唯一方法是首先删除相关的订单（这表示还要删除相关的订单项）。由于需要一系列的删除，因而利用外键可以防止意外删除数据。</p>
+<h3 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h3><p>唯一约束用来保证一列（或一组列）中的数据是唯一的。它们类似于主=键，但存在以下重要区别。</p>
+<p>1.表可包含多个唯一约束，但每个表只允许一个主键。<br>2.唯一约束列可包含NULL 值。<br>3.唯一约束列可修改或更新。<br>4.唯一约束列的值可重复使用。<br>5.与主键不一样，唯一约束不能用来定义外键。</p>
+<p>唯一约束的语法类似于其他约束的语法。唯一约束既可以用UNIQUE 关键字在表定义中定义，也可以用单独的CONSTRAINT 定义。</p>
+<h3 id="检查约束"><a href="#检查约束" class="headerlink" title="检查约束"></a>检查约束</h3><p>检查约束用来保证一列（或一组列）中的数据满足一组指定的条件。</p>
+<p>检查约束的常见用途有以下几点。<br>1.检查最小或最大值。例如，防止0 个物品的订单（即使0 是合法的数）。</p>
+<p>2.指定范围。例如，保证发货日期大于等于今天的日期，但不超过今天起一年后的日期。</p>
+<p>3.只允许特定的值。例如，在性别字段中只允许M 或F。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE OrderItems</span><br><span class="line">(</span><br><span class="line">    order_num INTEGER NOT NULL,</span><br><span class="line">    order_item INTEGER NOT NULL,</span><br><span class="line">    prod_id CHAR(10) NOT NULL,</span><br><span class="line">    quantity INTEGER NOT NULL CHECK (quantity &gt; 0),</span><br><span class="line">    item_price MONEY NOT NULL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">alter table table_name</span><br><span class="line">ADD CONSTRAINT CHECK (gender LIKE &#x27;[MF]&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>有的DBMS 允许用户定义自己的数据类型。它们是定义检查约束（或其他约束）的基本简单数据类型。</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>索引用来排序数据以加快搜索和排序操作的速度。</p>
+<p>可以在一个或多个列上定义索引，使DBMS 保存其内容的一个排过序的列表。在定义了索引后，DBMS 以使用书的索引类似的方法使用它。DBMS 搜索排过序的索引，找出匹配的位置，然后检索这些行。</p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>1.索引数据可能要占用大量的存储空间。</p>
+<p>2.并非所有数据都适合做索引。取值不多的数据（如州）不如具有更多可能值的数据（如姓或名），能通过索引得到那么多的好处。</p>
+<p>3.索引改善检索操作的性能，但降低了数据插入、修改和删除的性能。在执行这些操作时，DBMS 必须动态地更新索引。</p>
+<p>4.索引用于数据过滤和数据排序。如果你经常以某种特定的顺序排序数据，则该数据可能适合做索引。</p>
+<p>5.可以在索引中定义多个列（例如，州加上城市）。这样的索引仅在以州加城市的顺序排序时有用。如果想按城市排序，则这种索引没有用处。</p>
+<h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE INDEX prod_name_ind</span><br><span class="line">ON Products (prod_name);</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看索引"><a href="#查看索引" class="headerlink" title="查看索引"></a>查看索引</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">show index from products;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP INDEX  prod_name_ind  ON products;</span><br></pre></td></tr></table></figure>
+
+<h2 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h2><p>触发器是特殊的存储过程，它在特定的数据库活动发生时自动执行。触发器可以与特定表上的INSERT、UPDATE 和DELETE 操作（或组合）相关联。</p>
+<p>触发器内的代码具有以下数据的访问权：<br>1.INSERT 操作中的所有新数据；<br>2.UPDATE 操作中的所有新数据和旧数据；<br>3.DELETE 操作中删除的数据。</p>
+<h3 id="常见用途。"><a href="#常见用途。" class="headerlink" title="常见用途。"></a>常见用途。</h3><p>1.保证数据一致。</p>
+<p>2.基于某个表的变动在其他表上执行活动。</p>
+<p>3.进行额外的验证并根据需要回退数据。</p>
+<p>4.计算计算列的值或更新时间戳。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create trigger triggerName  </span><br><span class="line">after/before insert/update/delete on 表名  </span><br><span class="line">for each row   #这句话在mysql是固定的  </span><br><span class="line">begin  </span><br><span class="line">    sql语句;  </span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+
+<p>一般来说，约束的处理比触发器快，因此在可能的时候，应该尽量使用约束。</p>
+<h2 id="数据库安全"><a href="#数据库安全" class="headerlink" title="数据库安全"></a>数据库安全</h2><p>一般说来，需要保护的操作有：<br>1.对数据库管理功能（创建表、更改或删除已存在的表等）的访问；<br>2.对特定数据库或表的访问；<br>3.访问的类型（只读、对特定列的访问等）；<br>4.仅通过视图或存储过程对表进行访问；<br>5.创建多层次的安全措施，从而允许多种基于登录的访问和控制；<br>6.限制管理用户账号的能力。</p>
+<p>安全性使用SQL 的GRANT 和REVOKE 语句来管理。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenCV-Tutorials</title>
     <url>/%E5%AD%A6%E4%B9%A0/OpenCV/openCVtutorials/</url>
     <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>​    OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
@@ -1514,50 +1784,6 @@
       </categories>
       <tags>
         <tag>OpenCV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu使用中遇到的问题</title>
-    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/ubuntuUsing/</url>
-    <content><![CDATA[<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。<span id="more"></span></p>
-<h2 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h2><p>   没想到语言选择第一步就难住了我，安装的是中文版到但是一直没能成功设置为中文。直到看到一个鬼才方法。具体步骤如下：</p>
-<p>​    1.找到Ubuntu中Language support软件</p>
-<p>​    2.打开软件后添加简体中文语言包</p>
-<p>​    3.现在依然显示汉语为灰色无法选中，但是可以拖动！！！将汉语那一框拖动到最上面去，然后重启就可以了。</p>
-<p>参考的博客链接为：</p>
-<p><a href="https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.base">https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base</a></p>
-]]></content>
-      <categories>
-        <category>系统配置</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一些有用的小技巧</title>
-    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/windowsUsing/</url>
-    <content><![CDATA[<h1 id="实用小技巧"><a href="#实用小技巧" class="headerlink" title="实用小技巧"></a>实用小技巧</h1><p>遇到的一些有用的软件或者一些比较有用的设置。<span id="more"></span></p>
-<h2 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h2><p>推荐使用Typora来编写MarkDown文档。</p>
-<h3 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h3><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
-
-<p>注意：修改上述的typora文件路径：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot; --&gt; “修改成你自己的文件路径”</span><br></pre></td></tr></table></figure>
-
-<p>2.保存后重命名，修改后缀为  .reg 文件。</p>
-<p>3.双击执行，一路点是就行。</p>
-<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><img src = "/images/createMd/createMd01.png">
-
-<h2 id="Adobe-Acrobat-Pro-DC设置文档打开时铺满全局"><a href="#Adobe-Acrobat-Pro-DC设置文档打开时铺满全局" class="headerlink" title="Adobe Acrobat Pro DC设置文档打开时铺满全局"></a>Adobe Acrobat Pro DC设置文档打开时铺满全局</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>修改首选项里的页面设置，全局视图—&gt;适合宽度。</p>
-<h4 id="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"><a href="#缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。" class="headerlink" title="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"></a>缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。</h4><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>选中所有书签（ctrl+A）——属性——动作——添加动作选择——执行菜单项——添加——“视图&gt;缩放&gt;适合宽度”</p>
-<p>这样点击书签后，就是适合宽度了。</p>
-]]></content>
-      <categories>
-        <category>系统配置</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
