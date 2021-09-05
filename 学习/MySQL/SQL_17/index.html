@@ -85,7 +85,7 @@
 <meta property="og:description" content="&lt;&lt;SQL必知必会&gt;&gt;学习笔记。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-08-25T00:23:08.000Z">
-<meta property="article:modified_time" content="2021-08-25T00:46:53.551Z">
+<meta property="article:modified_time" content="2021-09-04T02:13:31.993Z">
 <meta property="article:author" content="wangzhang">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-25T08:46:53+08:00">
-                2021-08-25
+              <time title="更新于" itemprop="dateModified" datetime="2021-09-04T10:13:31+08:00">
+                2021-09-04
               </time>
             
           </span>
@@ -399,8 +399,15 @@
 
       
         <p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第十七章-创建和操纵表"><a href="#第十七章-创建和操纵表" class="headerlink" title="第十七章  创建和操纵表"></a>第十七章  创建和操纵表</h1><h2 id="create"><a href="#create" class="headerlink" title="create"></a>create</h2><p>利用CREATE TABLE 创建表，必须给出下列信息：</p>
+<h1 id="第十七章-创建和操纵表"><a href="#第十七章-创建和操纵表" class="headerlink" title="第十七章  创建和操纵表"></a>第十七章  创建和操纵表</h1><h2 id="create"><a href="#create" class="headerlink" title="create"></a>create</h2><p>利用create 创建数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE &lt;数据库名称&gt;;</span><br><span class="line">use &lt;数据库名称&gt;;</span><br></pre></td></tr></table></figure>
+
+<p>利用CREATE TABLE 创建表，必须给出下列信息：</p>
 <p>1.新表的名字，在关键字CREATE TABLE 之后给出；<br>2.表列的名字和定义，用逗号分隔；<br>3.有的DBMS 还要求指定表的位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;</span><br><span class="line">（&lt;列名1&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">&lt;列名2&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">&lt;列名3&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">&lt;列名4&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">.. .</span><br><span class="line">&lt;该表的约束1&gt;， &lt;该表的约束2&gt;，……）；</span><br></pre></td></tr></table></figure>
+
+
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table products(</span><br><span class="line">	prod_id  char(10) not null,</span><br><span class="line">	vend_id  char(10) not null,</span><br><span class="line">	prod_name char(254) not null,</span><br><span class="line">	prod_price decimal(8, 2) not null,</span><br><span class="line">	prod_desc  text(100) null</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <h2 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h2><p>NULL 值就是没有值或缺值。允许NULL 值的列也允许在插入行时不给出该列的值。不允许NULL 值的列不接受没有列值的行，换句话说，在插入或更新行时，该列必须有值。</p>
@@ -419,7 +426,16 @@
 <h2 id="drop"><a href="#drop" class="headerlink" title="drop"></a>drop</h2><p>删除表（删除整个表而不是其内容）非常简单，使用DROP TABLE 语句即可。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE CustCopy;</span><br></pre></td></tr></table></figure>
 
+<p>标准SQL 中用来从表中删除数据的只有DELETE 语句。但是，很多数据库产品中还存在另外一种被称为TRUNCATE 的语句。这些产品主要包括Oracle、SQLServer、PostgreSQL、MySQL 和DB2。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TRUNCATE &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
+
+<p>与DELETE 不同的是，TRUNCATE 只能删除表中的全部数据，而不能通过WHERE 子句指定条件来删除部分数据。也正是因为它不能具体地控制删除对象，所以其处理速度比DELETE 要快得多。实际上，DELETE 语句在DML 语句中也属于处理时间比较长的，因此需要删除全部数据行时，使用TRUNCATE 可以缩短执行时间。</p>
 <h2 id="rename"><a href="#rename" class="headerlink" title="rename"></a>rename</h2><p>重命名表。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rename table product to products;</span><br></pre></td></tr></table></figure>
+
+<h3 id="show"><a href="#show" class="headerlink" title="show"></a>show</h3><p>查询数据库和表等其他信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//查看已有的数据库</span><br><span class="line">show database;</span><br><span class="line">//查看已有的表</span><br><span class="line">show tables;</span><br><span class="line">//查看表的具体信息，不包含数据本身</span><br><span class="line">show crearte table tablename；</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -614,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0-%E5%88%9B%E5%BB%BA%E5%92%8C%E6%93%8D%E7%BA%B5%E8%A1%A8"><span class="nav-text">第十七章  创建和操纵表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#create"><span class="nav-text">create</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NULL"><span class="nav-text">NULL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#default"><span class="nav-text">default</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alter"><span class="nav-text">alter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drop"><span class="nav-text">drop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rename"><span class="nav-text">rename</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0-%E5%88%9B%E5%BB%BA%E5%92%8C%E6%93%8D%E7%BA%B5%E8%A1%A8"><span class="nav-text">第十七章  创建和操纵表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#create"><span class="nav-text">create</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NULL"><span class="nav-text">NULL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#default"><span class="nav-text">default</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alter"><span class="nav-text">alter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drop"><span class="nav-text">drop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rename"><span class="nav-text">rename</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#show"><span class="nav-text">show</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

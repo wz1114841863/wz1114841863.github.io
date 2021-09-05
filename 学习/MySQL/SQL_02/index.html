@@ -85,7 +85,7 @@
 <meta property="og:description" content="&lt;&lt;SQL必知必会&gt;&gt;学习笔记。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-08-22T03:31:18.000Z">
-<meta property="article:modified_time" content="2021-08-22T07:03:26.569Z">
+<meta property="article:modified_time" content="2021-08-29T09:49:26.810Z">
 <meta property="article:author" content="wangzhang">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-22T15:03:26+08:00">
-                2021-08-22
+              <time title="更新于" itemprop="dateModified" datetime="2021-08-29T17:49:26+08:00">
+                2021-08-29
               </time>
             
           </span>
@@ -403,10 +403,15 @@
 <p>在MySQL中一般都不区分大小写，也可以设置表明区分大小写等。</p>
 <h2 id="select"><a href="#select" class="headerlink" title="select"></a>select</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select * from table;</span><br><span class="line">#如果没有明确排序查询结果，则返回的数据没有特定的顺序。</span><br><span class="line">select column1, column2, column3 from table;</span><br><span class="line">这样检索出来的数据显示的都是数据的原始储存格式。</span><br></pre></td></tr></table></figure>
 
+<p>SELECT 子句中不仅可以书写列名，还可以书写常数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT &#x27;商品&#x27; AS string, 38 AS number, &#x27;2009-02-24&#x27; AS date,</span><br><span class="line">product_id, product_name</span><br><span class="line">FROM Product;</span><br></pre></td></tr></table></figure>
+
 <h2 id="distinct"><a href="#distinct" class="headerlink" title="distinct"></a>distinct</h2><p>检索不同的值。</p>
 <h4 id="注意：不能部分使用DISTINCT"><a href="#注意：不能部分使用DISTINCT" class="headerlink" title="注意：不能部分使用DISTINCT"></a>注意：不能部分使用DISTINCT</h4><p>DISTINCT 关键字作用于所有的列，不仅仅是跟在其后的那一列。例如，你指定</p>
-<p>SELECT DISTINCT vend_id, prod_price；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT vend_id, prod_price；</span><br></pre></td></tr></table></figure>
+
 <p>除非指定的两列完全相同，否则所有的行都会被检索出来。</p>
+<p>在使用DISTINCT 时，NULL 也被视为一类数据。NULL 存在于多行中时，也会被合并为一条NULL 数据。</p>
 <h2 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h2><p>对查找到结果进行限制。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#查询前5行。</span><br><span class="line">select vend_id from products limit 5;</span><br></pre></td></tr></table></figure>
 

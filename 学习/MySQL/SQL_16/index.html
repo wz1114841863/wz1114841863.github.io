@@ -85,7 +85,7 @@
 <meta property="og:description" content="&lt;&lt;SQL必知必会&gt;&gt;学习笔记。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-08-24T13:11:08.000Z">
-<meta property="article:modified_time" content="2021-08-25T10:33:08.527Z">
+<meta property="article:modified_time" content="2021-09-04T02:21:02.653Z">
 <meta property="article:author" content="wangzhang">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-25T18:33:08+08:00">
-                2021-08-25
+              <time title="更新于" itemprop="dateModified" datetime="2021-09-04T10:21:02+08:00">
+                2021-09-04
               </time>
             
           </span>
@@ -411,6 +411,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE Customers</span><br><span class="line">SET cust_email = &#x27;kim@thetoystore.com&#x27;</span><br><span class="line">WHERE cust_id = &#x27;1000000005&#x27;;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UPDATE Customers</span><br><span class="line">SET cust_contact = &#x27;Sam Roberts&#x27;,</span><br><span class="line">	cust_email = &#x27;sam@toyland.com&#x27;</span><br><span class="line">WHERE cust_id = &#x27;1000000006&#x27;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 将列用()括起来的清单形式</span><br><span class="line">UPDATE Product</span><br><span class="line">SET (sale_price, purchase_price) = (sale_price * 10, purchase_price / 2)</span><br><span class="line">WHERE product_type = &#x27;厨房用具&#x27;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h2><h3 id="有两种使用DELETE的方式"><a href="#有两种使用DELETE的方式" class="headerlink" title="有两种使用DELETE的方式"></a>有两种使用DELETE的方式</h3><p>1.从表中删除特定的行；</p>
 <p>2.从表中删除所有行。</p>

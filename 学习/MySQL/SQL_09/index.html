@@ -85,7 +85,7 @@
 <meta property="og:description" content="&lt;&lt;SQL必知必会&gt;&gt;学习笔记。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-08-23T10:30:08.000Z">
-<meta property="article:modified_time" content="2021-08-25T10:35:18.848Z">
+<meta property="article:modified_time" content="2021-09-02T01:08:45.179Z">
 <meta property="article:author" content="wangzhang">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-25T18:35:18+08:00">
-                2021-08-25
+              <time title="更新于" itemprop="dateModified" datetime="2021-09-02T09:08:45+08:00">
+                2021-09-02
               </time>
             
           </span>
@@ -427,9 +427,10 @@
 <p>2.只包含不同的值，指定DISTINCT 参数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT AVG(DISTINCT prod_price) AS avg_price</span><br><span class="line">FROM Products</span><br><span class="line">WHERE vend_id = &#x27;DLL01&#x27;;</span><br></pre></td></tr></table></figure>
 
-<p>DISTINCT 不能用于COUNT*)如果指定列名，则DISTINCT 只能用于COUNT()。DISTINCT 不能用<br>于COUNT(*)。类似地，DISTINCT 必须使用列名，不能用于计算或表达式。</p>
+<p>类似地，DISTINCT 必须使用列名，不能用于计算或表达式。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(*) AS num_items,</span><br><span class="line">    MIN(prod_price) AS price_min,</span><br><span class="line">    MAX(prod_price) AS price_max,</span><br><span class="line">    AVG(prod_price) AS price_avg</span><br><span class="line">FROM Products;</span><br></pre></td></tr></table></figure>
 
+<p>3.MAX/MIN函数几乎适用于所有数据类型的列。SUM/AVG函数只适用于数值类型的列。</p>
 
       
     </div>

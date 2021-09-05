@@ -85,7 +85,7 @@
 <meta property="og:description" content="&lt;&lt;SQL必知必会&gt;&gt;学习笔记。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-08-22T01:41:08.000Z">
-<meta property="article:modified_time" content="2021-08-24T07:27:15.601Z">
+<meta property="article:modified_time" content="2021-08-29T07:58:45.842Z">
 <meta property="article:author" content="wangzhang">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-24T15:27:15+08:00">
-                2021-08-24
+              <time title="更新于" itemprop="dateModified" datetime="2021-08-29T15:58:45+08:00">
+                2021-08-29
               </time>
             
           </span>
@@ -405,8 +405,11 @@
 <h3 id="模式-model"><a href="#模式-model" class="headerlink" title="模式 (model)"></a>模式 (model)</h3><p>关于数据库和表的布局及特性的信息。</p>
 <h3 id="列（column）"><a href="#列（column）" class="headerlink" title="列（column）"></a>列（column）</h3><p>表中的一个字段。所有表都是由一个或多个列组成的。</p>
 <p>数据库中每个列都有相应的数据类型。数据类型（datatype）定义了列可以存储哪些数据种类。</p>
+<p>表的列（垂直方向）称为<strong>字段</strong>，它代表了保存在表中的数据项目。</p>
 <h3 id="数据类型-data-type"><a href="#数据类型-data-type" class="headerlink" title="数据类型 (data type)"></a>数据类型 (data type)</h3><p>所允许的数据的类型。每个表列都有相应的数据类型，它限制（或允许）该列中存储的数据。</p>
-<h3 id="行（row）"><a href="#行（row）" class="headerlink" title="行（row）"></a>行（row）</h3><p>表中的一个记录。</p>
+<h3 id="行（row）"><a href="#行（row）" class="headerlink" title="行（row）"></a>行（row）</h3><p>表的行（水平方向）称为<strong>记录</strong>，它相当于一条数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关系数据库以行为最小单位读写数据。</span><br></pre></td></tr></table></figure>
+
 <h3 id="主键（primary-key）"><a href="#主键（primary-key）" class="headerlink" title="主键（primary key）"></a>主键（primary key）</h3><p>一列（或一组列），其值能够唯一标识表中每一行。</p>
 <p>表中的任何列都可以作为主键，只要它满足以下条件：<br>1.任意两行都不具有相同的主键值；<br>2.每一行都必须具有一个主键值（主键列不允许NULL 值）；<br>3.主键列中的值不允许修改或更新；<br>4.主键值不能重用（如果某行从表中删除，它的主键不能赋给以后的新行）。</p>
 <h3 id="子句（clause）"><a href="#子句（clause）" class="headerlink" title="子句（clause）"></a>子句（clause）</h3><p>SQL 语句由子句构成，有些子句是必需的，有些则是可选的。一个子句通常由一个关键字加上所提供的数据组成。</p>

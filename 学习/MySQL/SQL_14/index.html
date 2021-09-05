@@ -85,7 +85,7 @@
 <meta property="og:description" content="&lt;&lt;SQL必知必会&gt;&gt;学习笔记。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-08-24T10:58:08.000Z">
-<meta property="article:modified_time" content="2021-08-24T10:09:43.497Z">
+<meta property="article:modified_time" content="2021-09-05T03:34:49.716Z">
 <meta property="article:author" content="wangzhang">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-24T18:09:43+08:00">
-                2021-08-24
+              <time title="更新于" itemprop="dateModified" datetime="2021-09-05T11:34:49+08:00">
+                2021-09-05
               </time>
             
           </span>
@@ -399,7 +399,7 @@
 
       
         <p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第十四章-组合查询"><a href="#第十四章-组合查询" class="headerlink" title="第十四章  组合查询"></a>第十四章  组合查询</h1><h2 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h2><p>SQL 允许执行多个查询（多条SELECT 语句），并将结果作为一个查询结果集返回。这些组合查询通常称为并（union）或复合查询（compound query）。</p>
+<h1 id="第十四章-组合查询"><a href="#第十四章-组合查询" class="headerlink" title="第十四章  组合查询"></a>第十四章  组合查询</h1><h2 id="UNION-并集"><a href="#UNION-并集" class="headerlink" title="UNION  并集"></a>UNION  并集</h2><p>SQL 允许执行多个查询（多条SELECT 语句），并将结果作为一个查询结果集返回。这些组合查询通常称为并（union）或复合查询（compound query）。</p>
 <p>主要有两种情况需要使用组合查询：</p>
 <ol>
 <li>在一个查询中从不同的表返回结构数据；</li>
@@ -414,6 +414,12 @@
 <p>使用UNION ALL，DBMS 不取消重复的行。</p>
 <p>SELECT 语句的输出用ORDER BY 子句排序。在用UNION 组合查询时，只能使用一条ORDER BY 子句，它必须位于最后一条SELECT 语句之后。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;</span><br><span class="line">ORDER BY cust_name, cust_contact;</span><br></pre></td></tr></table></figure>
+
+<h2 id="INTERSECT-交集"><a href="#INTERSECT-交集" class="headerlink" title="INTERSECT  交集"></a>INTERSECT  交集</h2><p>MySQL不支持<code>INTERSECT</code>操作符。 但是可以模拟<code>INTERSECT</code>操作符。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT product_id, product_name</span><br><span class="line">    FROM Product</span><br><span class="line">INTERSECT</span><br><span class="line">SELECT product_id, product_name</span><br><span class="line">    FROM Product2</span><br><span class="line">ORDER BY product_id;</span><br></pre></td></tr></table></figure>
+
+<h2 id="EXCEPT-减法"><a href="#EXCEPT-减法" class="headerlink" title="EXCEPT 减法"></a>EXCEPT 减法</h2><p>MYSQL不支持EXCEPT操作符。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product</span><br><span class="line">EXCEPT</span><br><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product2</span><br><span class="line">ORDER BY product_id;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -609,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E7%BB%84%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="nav-text">第十四章  组合查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UNION"><span class="nav-text">UNION</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E7%BB%84%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="nav-text">第十四章  组合查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UNION-%E5%B9%B6%E9%9B%86"><span class="nav-text">UNION  并集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INTERSECT-%E4%BA%A4%E9%9B%86"><span class="nav-text">INTERSECT  交集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EXCEPT-%E5%87%8F%E6%B3%95"><span class="nav-text">EXCEPT 减法</span></a></li></ol></li></ol></div>
             
 
           </div>
