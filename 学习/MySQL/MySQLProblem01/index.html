@@ -77,15 +77,15 @@
 
 
 
-<meta name="description" content="MySQL 学习过程中遇到的一些问题。">
+<meta name="description" content="MySQL 学习过程中遇到的一些问题和总结。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL Problem">
+<meta property="og:title" content="MySQL Problem 01">
 <meta property="og:url" content="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/MySQL/MySQLProblem01/index.html">
 <meta property="og:site_name" content="越长大越孤单">
-<meta property="og:description" content="MySQL 学习过程中遇到的一些问题。">
+<meta property="og:description" content="MySQL 学习过程中遇到的一些问题和总结。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-08-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-09-05T03:09:25.705Z">
+<meta property="article:modified_time" content="2021-09-05T08:47:26.106Z">
 <meta property="article:author" content="wangzhang">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -122,7 +122,7 @@
 
 
 
-  <title>MySQL Problem | 越长大越孤单</title>
+  <title>MySQL Problem 01 | 越长大越孤单</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MySQL Problem</h1>
+          <h1 class="post-title" itemprop="name headline">MySQL Problem 01</h1>
         
 
         <div class="post-meta">
@@ -342,7 +342,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-09-05T11:09:25+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-09-05T16:47:26+08:00">
                 2021-09-05
               </time>
             
@@ -398,7 +398,7 @@
       
 
       
-        <p>MySQL 学习过程中遇到的一些问题。<span id="more"></span></p>
+        <p>MySQL 学习过程中遇到的一些问题和总结。<span id="more"></span></p>
 <h3 id="min等聚集函数不能再where中使用"><a href="#min等聚集函数不能再where中使用" class="headerlink" title="min等聚集函数不能再where中使用"></a>min等聚集函数不能再where中使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#错误代码</span><br><span class="line">select </span><br><span class="line">	e1.name  as employee</span><br><span class="line">from</span><br><span class="line">	employee as e1, employee as e2</span><br><span class="line">where</span><br><span class="line">	e1.managerId = e2.Id</span><br><span class="line">	and</span><br><span class="line">	e1.salary &gt; min(e2.salary)</span><br><span class="line">#这里的min其实并不是必须的，但是用来之后反倒报错</span><br></pre></td></tr></table></figure>
 
 <h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>聚合函数是针对结果集进行的，但是where条件并不是在查询出结果集之后运行，所以主函数放在where语句中，会出现错误。</p>
@@ -442,6 +442,15 @@
 <h3 id="IN-、NOT-IN-中不能使用-NULL"><a href="#IN-、NOT-IN-中不能使用-NULL" class="headerlink" title="IN 、NOT IN  中不能使用 NULL"></a>IN 、NOT IN  中不能使用 NULL</h3><p><strong>结论 ： MySQL中NULL是不参与计算的，对NULL进行计算，只可以使用预设的IS NULL和IS NOT NULL来操作</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">-- 1.查询表</span><br><span class="line">mysql&gt; select product_name, purchase_price  from  product;</span><br><span class="line">+--------------+----------------+</span><br><span class="line">| product_name | purchase_price |</span><br><span class="line">+--------------+----------------+</span><br><span class="line">| T恤衫        |            500 |</span><br><span class="line">| 打孔器       |            320 |</span><br><span class="line">| 运动T恤      |           2800 |</span><br><span class="line">| 菜刀         |           2800 |</span><br><span class="line">| 高压锅       |           5000 |</span><br><span class="line">| 叉子         |           NULL |</span><br><span class="line">| 擦菜板       |            790 |</span><br><span class="line">| 圆珠笔       |           NULL |</span><br><span class="line">+--------------+----------------+</span><br><span class="line"></span><br><span class="line">-- 2. 使用not in 查询</span><br><span class="line">mysql&gt; SELECT product_name, purchase_price</span><br><span class="line">    -&gt; FROM Product</span><br><span class="line">    -&gt; WHERE purchase_price NOT IN (500, 2800, 5000);</span><br><span class="line">+--------------+----------------+</span><br><span class="line">| product_name | purchase_price |</span><br><span class="line">+--------------+----------------+</span><br><span class="line">| 打孔器       |            320 |</span><br><span class="line">| 擦菜板       |            790 |</span><br><span class="line">+--------------+----------------+</span><br><span class="line">-- 可以看到NULL查询不到</span><br><span class="line"></span><br><span class="line">-- 3. 使用 NOT　in（ＮＵＬＬ）　查询</span><br><span class="line">mysql&gt; SELECT product_name, purchase_price</span><br><span class="line">    -&gt;   FROM Product</span><br><span class="line">    -&gt;  WHERE purchase_price NOT IN (500, 2800, 5000, NULL);</span><br><span class="line">Empty set (0.00 sec)</span><br><span class="line"></span><br><span class="line">-- 为空，　因为　NULL　影响了　NOT IN　的计算，所以直接返回空。</span><br></pre></td></tr></table></figure>
 
+<h3 id="mysql-实现nulls-first"><a href="#mysql-实现nulls-first" class="headerlink" title="mysql 实现nulls first"></a>mysql 实现nulls first</h3><p>mysql中不像oracle，nulls first nulls last无效。可以使用下面的语句代替。</p>
+<p>nulls first:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> IF(ISNULL(my_field),<span class="number">0</span>,<span class="number">1</span>),my_field;  </span><br></pre></td></tr></table></figure>
+
+<p>nulls last:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> IF(ISNULL(my_field),<span class="number">1</span>,<span class="number">0</span>),my_field; </span><br></pre></td></tr></table></figure>
+
+<p>ISNULL函数当my_field字段为空是，返回1，当不为空时返回0</p>
+<p>IF函数，如果第一个表达式为真，则返回第二个参数的值，否则，返回第三个参数的值。</p>
 
       
     </div>
@@ -472,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_00/" rel="next" title="MySQL 必知必会">
-                <i class="fa fa-chevron-left"></i> MySQL 必知必会
+              <a href="/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_10/" rel="next" title="MySQL 基础知识 10">
+                <i class="fa fa-chevron-left"></i> MySQL 基础知识 10
               </a>
             
           </div>
@@ -561,7 +570,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -583,7 +592,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -632,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#min%E7%AD%89%E8%81%9A%E9%9B%86%E5%87%BD%E6%95%B0%E4%B8%8D%E8%83%BD%E5%86%8Dwhere%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="nav-text">min等聚集函数不能再where中使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-text">原因</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#limit-1-1-%E4%B8%8D%E8%83%BD%E5%86%8D%E4%BD%BF%E7%94%A8"><span class="nav-text">limit 1, -1 不能再使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#You-can%E2%80%99t-specify-target-table-for-update-in-FROM-clause"><span class="nav-text">You can’t specify target table for update in FROM clause</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UNION-%E4%B8%8E-Order-by-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">UNION 与 Order by 的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select-%E5%90%8E%E9%9D%A2%E7%9A%84%E5%88%97%E4%BA%8Eorder-by"><span class="nav-text">select 后面的列于order by</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%98%E2%80%99%E4%B8%AD%E5%86%8D%E5%87%BA%E7%8E%B0%E2%80%98%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="nav-text">‘’中再出现‘需要使用转义字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#distinct%E4%B8%8D%E8%83%BD%E5%90%8C%E6%97%B6%E7%AD%9B%E9%80%89%E4%B8%A4%E5%88%97"><span class="nav-text">distinct不能同时筛选两列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#All"><span class="nav-text">All</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-text">MySQL语句执行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IN-%E3%80%81NOT-IN-%E4%B8%AD%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8-NULL"><span class="nav-text">IN 、NOT IN  中不能使用 NULL</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#min%E7%AD%89%E8%81%9A%E9%9B%86%E5%87%BD%E6%95%B0%E4%B8%8D%E8%83%BD%E5%86%8Dwhere%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="nav-text">min等聚集函数不能再where中使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-text">原因</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#limit-1-1-%E4%B8%8D%E8%83%BD%E5%86%8D%E4%BD%BF%E7%94%A8"><span class="nav-text">limit 1, -1 不能再使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#You-can%E2%80%99t-specify-target-table-for-update-in-FROM-clause"><span class="nav-text">You can’t specify target table for update in FROM clause</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UNION-%E4%B8%8E-Order-by-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">UNION 与 Order by 的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select-%E5%90%8E%E9%9D%A2%E7%9A%84%E5%88%97%E4%BA%8Eorder-by"><span class="nav-text">select 后面的列于order by</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%98%E2%80%99%E4%B8%AD%E5%86%8D%E5%87%BA%E7%8E%B0%E2%80%98%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="nav-text">‘’中再出现‘需要使用转义字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#distinct%E4%B8%8D%E8%83%BD%E5%90%8C%E6%97%B6%E7%AD%9B%E9%80%89%E4%B8%A4%E5%88%97"><span class="nav-text">distinct不能同时筛选两列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#All"><span class="nav-text">All</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-text">MySQL语句执行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IN-%E3%80%81NOT-IN-%E4%B8%AD%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8-NULL"><span class="nav-text">IN 、NOT IN  中不能使用 NULL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-%E5%AE%9E%E7%8E%B0nulls-first"><span class="nav-text">mysql 实现nulls first</span></a></li></ol></div>
             
 
           </div>

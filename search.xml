@@ -62,7 +62,7 @@
     <content><![CDATA[<h1 id="学习路线"><a href="#学习路线" class="headerlink" title="学习路线"></a>学习路线</h1><p>​    本科专业是电子工程与技术，研究生报考的也是本院的实验室，未曾想研究方向居然是CV。塞翁失马，焉知非福。不管怎么说。也算是接触一个全新的领域，还有很多东西需要去学，所以也做一个小小的规划。<span id="more"></span></p>
 <h2 id="编程语言学习"><a href="#编程语言学习" class="headerlink" title="编程语言学习"></a>编程语言学习</h2><h3 id="C-：从入门到入土"><a href="#C-：从入门到入土" class="headerlink" title="C++：从入门到入土"></a>C++：从入门到入土</h3><p>​        大学时期没有了解过C++，但是OpenCV等好多底层文件都是用C++写的，那咋办嘛，学呗。</p>
 <h3 id="OpenCV-C-Python"><a href="#OpenCV-C-Python" class="headerlink" title="OpenCV: C++/Python"></a>OpenCV: C++/Python</h3><p>​        总感觉和OpenCV有种莫名的缘分(笑)，OpenCV分为C++和Python两种版本，各有优劣，应该会用到很多吧。</p>
-<h3 id="Python：-人人都会的编程语言"><a href="#Python：-人人都会的编程语言" class="headerlink" title="Python： 人人都会的编程语言"></a>Python： 人人都会的编程语言</h3><p>​        python只能说 会写但没完全会。</p>
+<h3 id="Python：-人人都会的编程语言"><a href="#Python：-人人都会的编程语言" class="headerlink" title="Python： 人人都会的编程语言"></a>Python： 人人都会的编程语言</h3><p>​        python只能说 会用但没完全会。</p>
 <h2 id="机器学习-深度学习"><a href="#机器学习-深度学习" class="headerlink" title="机器学习/深度学习"></a>机器学习/深度学习</h2><p>​        没了解之前确实觉得机器学习和深度学习都蛮神秘的，了解之后，嗯，都是我学不会的东西呢。</p>
 <h3 id="pytorch框架"><a href="#pytorch框架" class="headerlink" title="pytorch框架"></a>pytorch框架</h3><p>​        应该需要去了解一下这个框架，跟tensorflow相比好像更容易一点。</p>
 <h3 id="花书-西瓜书-鱼书"><a href="#花书-西瓜书-鱼书" class="headerlink" title="花书/西瓜书/鱼书"></a>花书/西瓜书/鱼书</h3><p>​        收藏从未停止，学习从未开始。</p>
@@ -92,7 +92,7 @@
 <p>看完感觉心里觉得很温暖。有点像解忧杂货店那样。人活着总要有个意义啊。</p>
 <img src = "/images/readedBBooks/02.jpg">
 
-<h3 id="lt-lt-SQL-必知必会-第四版-gt-gt-2021-08-25"><a href="#lt-lt-SQL-必知必会-第四版-gt-gt-2021-08-25" class="headerlink" title="&lt;&lt;SQL 必知必会 第四版&gt;&gt; 2021/08/25"></a>&lt;&lt;SQL 必知必会 第四版&gt;&gt; 2021/08/25</h3><p>已经不知道学了MySQL基础的我。</p>
+<h3 id="lt-lt-SQL-必知必会-第四版-gt-gt-2021-08-25"><a href="#lt-lt-SQL-必知必会-第四版-gt-gt-2021-08-25" class="headerlink" title="&lt;&lt;SQL 必知必会 第四版&gt;&gt; 2021/08/25"></a>&lt;&lt;SQL 必知必会 第四版&gt;&gt; 2021/08/25</h3><p>已经不知道学了MySQL基础几遍的我。</p>
 <p>学了就忘，我是废物。</p>
 <p>知道如何创建，修改，添加，删除，联结，约束等操作。</p>
 <p>依旧不会编写函数，查询事件，提高效率等。</p>
@@ -104,255 +104,13 @@
 <h3 id="lt-lt-信-gt-gt-2021-08-28"><a href="#lt-lt-信-gt-gt-2021-08-28" class="headerlink" title="&lt;&lt;信&gt;&gt; 2021/08/28"></a>&lt;&lt;信&gt;&gt; 2021/08/28</h3><p>比我想的内容更平淡也更真实。犯了杀人罪的哥哥会对弟弟的一生造成多大的影响。毁的并不仅是自己的一生，还有亲人的生活。</p>
 <p>“我人虽在这样的地方，可一点也没有得到改造。”</p>
 <h3 id="lt-lt-魔女的胎动-gt-gt-2021-08-30"><a href="#lt-lt-魔女的胎动-gt-gt-2021-08-30" class="headerlink" title="&lt;&lt;魔女的胎动&gt;&gt; 2021/08/30"></a>&lt;&lt;魔女的胎动&gt;&gt; 2021/08/30</h3><p>最后一章和前面的章节并不连贯，好像是系列书籍的一本。女主圆华对事件的处理方式还是很有效的。希望有机会可以读完这个系列的其他几本书。</p>
+<h3 id="lt-lt-sql-基础教程-gt-gt-2021-09-05"><a href="#lt-lt-sql-基础教程-gt-gt-2021-09-05" class="headerlink" title="&lt;&lt;sql 基础教程&gt;&gt; 2021/09/05"></a>&lt;&lt;sql 基础教程&gt;&gt; 2021/09/05</h3><p>又读完了一本sql的基础教程书，相比于《SQL 必知必会》 感觉整个逻辑上更为清楚，两本书也算是对基础的一个相互补充吧。很不错的一本书，讲解和例题都很清楚，书的版式也很整洁。</p>
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
         <tag>闲聊</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DSA</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DSA/dsa/</url>
-    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数据结构和算法的重要性毋庸置疑啊，一方面刷题，一方面学习一下。<span id="more"></span></p>
-<p>参考书籍清华邓俊辉教授撰写的《数据结构（C++语言版）》。</p>
-<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>​    O(1):常数时间复杂度算法</p>
-<p>​    O(logn):对数时间复杂度——高效算法</p>
-<p>​    O(n):多项式时间复杂度算法.某问题若存在一个复杂度在此范围以内的算法，则称该问题是可有效求解的或易解的（tractable）</p>
-<p>​    O(x**n):指数复杂度，无法接受的算法。</p>
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>​        递归则是函数和过程调用的一种特殊形式，即允许函数和过程进行<br>自我调用。</p>
-<p>​        递归的价值在于，许多应用问题都可简洁而准确地描述为递归形式。</p>
-<p>​    递归也是一种基本而典型的算法设计模式。这一模式可以对实际问题中反复出现的结构和形式做高度概括，并从本质层面加以描述与刻画，进而导出高效的算法。</p>
-<h4 id="递归的基本模式"><a href="#递归的基本模式" class="headerlink" title="递归的基本模式"></a>递归的基本模式</h4><h5 id="线性递归"><a href="#线性递归" class="headerlink" title="线性递归"></a>线性递归</h5><p>举例：数组元素求和</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组求和：数组的前A[0,n-1)个数的和与末元素A[n-1]之和。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">arraySum</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span>&gt;n)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in"><span class="keyword">return</span></span> (<span class="built_in">arraySum</span>(A, n<span class="number">-1</span>) + A[n<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//时间复杂度：O(1)*递归深度 = O(1) * (n+1) = O(n)</span></span><br><span class="line"><span class="comment">//空间复杂度：O(n)</span></span><br></pre></td></tr></table></figure>
-
-<p>​        算法可能朝着更深一层进行自我调用，且每一递归实例对自身的调用至多一次。于是，每一层次上至多只有一个实例，且它们构成一个线性的次序关系。此类递归模式因而称作“线性递归”（linear recursion），它也是递归的最基本形式。</p>
-<p>​    线性递归往往对应于<em><strong>减而治之</strong></em>的算法策略：递归每深入一层，待求解问题的规模都缩减一个常数，直至最终蜕化为平凡的小（简单）问题。</p>
-<h5 id="递归分析"><a href="#递归分析" class="headerlink" title="递归分析"></a>递归分析</h5><p>1.递归跟踪：作为一种直观且可视的方法，递归跟踪（recursion trace）可用以分析递归算法的总体运行时间与空间。</p>
-<p>2.递推方程：通过对递归模式的数学归纳，导出复杂度定界函数的递推方程（组）及其边界条件，从而将复杂度的分析，转化为递归方程（组）的求解。</p>
-<h5 id="递归模式"><a href="#递归模式" class="headerlink" title="递归模式"></a>递归模式</h5><p>1.多递归基：为保证有穷性，递归算法都必须设置递归基，且确保总能执行到。</p>
-<p>举例：数组倒置</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>* A, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lo &lt; hi)&#123;</span><br><span class="line">		<span class="built_in">swap</span>(A[lo], A[hi]);</span><br><span class="line">		<span class="built_in">reverse</span>(A, lo+<span class="number">1</span>, hi<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">//O(hi + lo -1)</span></span><br></pre></td></tr></table></figure>
-
-<p>2.多向递归：递归算法中，不仅递归基可能有多个，递归调用也可能有多种可供选择的分支。</p>
-<p>举例：求2**n</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline __int64 sqr ( __int64 a ) &#123; return a * a; &#125;</span><br><span class="line">__int64 power2 ( int n ) &#123; //幂函数2^n算法（优化逑弻版），n &gt;= 0</span><br><span class="line"> 	if ( 0 == n ) return 1; //逑弻基；否则，规n癿奇偶分删逑弻</span><br><span class="line">    return ( n &amp; 1 ) ? sqr ( power2 ( n &gt;&gt; 1 ) ) &lt;&lt; 1 : sqr ( power2 ( n &gt;&gt; 1 ) );</span><br><span class="line">&#125; //O(logn) = O(r)，r为输入指数n癿比特位数</span><br></pre></td></tr></table></figure>
-
-<h5 id="递归消除"><a href="#递归消除" class="headerlink" title="递归消除"></a>递归消除</h5><p>空间成本:递归算法所消耗的空间量主要取决于递归深度，故较之同一算法的迭代版，递归版往往需耗费更多空间，并进而影响实际的运行速度。</p>
-<p>举例：尾递归消除</p>
-<p>在线性递归算法中，若递归调用在递归实例中恰好以最后一步操作的形式出现，则称作尾递<br>归（tail recursion）。属于尾递归形式的算法，均可以简捷地转换为等效的迭代版本。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#数组倒置</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">next:</span><br><span class="line">	if(lo &lt; hi)&#123;</span><br><span class="line">		swap(A[lo], A[hi]);</span><br><span class="line">		lo++;</span><br><span class="line">		hi--;</span><br><span class="line">		goto next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo + 1)</span><br><span class="line"></span><br><span class="line">#用while 代替 next if</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">	while( lo &lt; hi )&#123;</span><br><span class="line">		swap(A[lo++], A[hi--]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="二分递归"><a href="#二分递归" class="headerlink" title="二分递归"></a>二分递归</h5><p>分而治之：将大问题分解为若干规模更小的子问题，再通过递归机制分别求解。这种分解持续进行，直到子问题规模缩减至平凡情况。这也就是所谓的分而治之（divide-and-conquer）策略。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arraySum(int A[], int lo, int hi)&#123;</span><br><span class="line">	if( lo == hi)&#123;</span><br><span class="line">		return A[lo];</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int mi = (lo + hi) &gt;&gt; 1;</span><br><span class="line">		return sum(A, lo, mi) + sum(A, mi+1, hi);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo +1)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git学习笔记01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Git/gitNote01/</url>
-    <content><![CDATA[<h2 id="系统的学习一下Git和Github的使用"><a href="#系统的学习一下Git和Github的使用" class="headerlink" title="系统的学习一下Git和Github的使用"></a>系统的学习一下Git和Github的使用</h2><p>​    已经了解和使用过Git和Github，但是并没有具体的学习过。通过系统学习能进一步加深影响。<span id="more"></span></p>
-<p>​    参考书籍《ProGit》。</p>
-<h3 id="获取Git仓库"><a href="#获取Git仓库" class="headerlink" title="获取Git仓库"></a>获取Git仓库</h3><p>​    获取方式通常有两种：</p>
-<p>​        1、使用语句 git init ，将本地文件初始化为仓库。</p>
-<p>​        2、使用给git clone <url>语句，clone一个已有的仓库下来。</p>
-<h3 id="文件状态"><a href="#文件状态" class="headerlink" title="文件状态"></a>文件状态</h3><p>​    如图所示：</p>
-<img src="/images/git/git_01.png" >
-
-<p>​    文件所处的状态一定是图中几种状态之一。</p>
-<p>​    查看当前不同文件的状态可以使用命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &#x27;origin/master&#x27;.</span><br><span class="line">nothing to commit, working directory clean</span><br></pre></td></tr></table></figure>
-
-<h3 id="跟踪新文件-暂存文件"><a href="#跟踪新文件-暂存文件" class="headerlink" title="跟踪新文件/暂存文件"></a>跟踪新文件/暂存文件</h3><p>​    使用命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-
-<p>​    可以用 git add <file>开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等。 将这个命令理解为“精确地将内容添加到下一次提交中”而不是“将一个文件添加到项目中”要更加合适.</p>
-<h3 id="状态简览"><a href="#状态简览" class="headerlink" title="状态简览"></a>状态简览</h3><p>​    使用参数查看状态简洁输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git status --short</span><br><span class="line">git status -s</span><br></pre></td></tr></table></figure>
-
-<p>  新添加的未跟踪文件前面有 ?? 标记，新添加到暂存区中的文件前面有 A 标记，修改过的文件前面有 M 标记。 输出中有两栏，左栏指明了暂存区的状态，右栏指明了工作区的状态。</p>
-<h3 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h3><p>​    通过创建   .gitignore 文件来选择忽略的文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#示例</span><br><span class="line">#以下是忽略内容，使用正则表达式来匹配、</span><br><span class="line">*.[co]</span><br><span class="line">*~</span><br><span class="line">/folderName</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>文件 .gitignore 的格式规范如下：<br>• 所有空行或者以 # 开头的行都会被 Git 忽略。<br>• 可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。<br>• 匹配模式可以以（/）开头防止递归。<br>• 匹配模式可以以（/）结尾指定目录。<br>• 要忽略指定模式以外的文件或目录，可以在模式前加上叹号（!）取反。</p>
-<h3 id="对比差异"><a href="#对比差异" class="headerlink" title="对比差异"></a>对比差异</h3><p>git status只能反映当前文件的状态，如果想查看文件修改的内容或历史差异需要使用语句git diff.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff  #比较的是工作目录中当前文件和暂存区域快照之间的差异</span><br><span class="line">git diff --staged  </span><br><span class="line">git diff --cached </span><br><span class="line">#上面两条语句作用相同，比对已暂存文件与最后一次提交的文件差异：</span><br></pre></td></tr></table></figure>
-
-<h3 id="提交文件"><a href="#提交文件" class="headerlink" title="提交文件"></a>提交文件</h3><p> 可以直接使用 git commit 来提交更新，接着会启动文本编辑器提示你输入版本更新信息。</p>
-<p>也可以直接使用：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;版本更新信息&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="跳过使用暂存区域"><a href="#跳过使用暂存区域" class="headerlink" title="跳过使用暂存区域"></a>跳过使用暂存区域</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit -a </span><br><span class="line">#Git 会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 git add 步骤</span><br></pre></td></tr></table></figure>
-
-<h3 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h3><p>情形一：</p>
-<p>  直接删除文件，使用：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git rm  &lt;filename&gt;</span><br><span class="line">#如果文件修改后未暂存</span><br><span class="line">git rm -f &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-
-<p>情形二：</p>
-<p>不删除文件而从跟踪状态下移除：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remove --cached &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="移动文件-重命名"><a href="#移动文件-重命名" class="headerlink" title="移动文件/重命名"></a>移动文件/重命名</h3><p>类似于Linux一样。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git mv file_from file_to</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h3><p>使用命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
-
-<p>也可以为 git log 附带一系列的总结性选项。 比如你想看到每次提交的简略统计信息，可以使用 –stat 选项</p>
-<h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit amend</span><br></pre></td></tr></table></figure>
-
-<p>用来修改提交信息或补充几个忘记提交的文件而不至于弄乱提交历史。</p>
-<h3 id="取消暂存文件"><a href="#取消暂存文件" class="headerlink" title="取消暂存文件"></a>取消暂存文件</h3><p>与git add filename对应：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset HEAD &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout --&lt;fiename&gt;</span><br></pre></td></tr></table></figure>
-
-<p> 请务必记得 git checkout – <file> 是一个危险的命令。 对那个文件在本地的任何修改都会消失——Git 会用最近提交的版本覆盖掉它。 除非你确实清楚不想要对那个文件的本地修改了，否则请不要使用这个命令</p>
-<h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote </span><br><span class="line">#列出指定的每一个远程服务器的简写。 如果你已经克隆了自己的仓库，那么至少应该能看到 origin ——这是 Git 给你克隆的仓库服务器的默认名字</span><br></pre></td></tr></table></figure>
-
-<h3 id="添加、移除远程仓库"><a href="#添加、移除远程仓库" class="headerlink" title="添加、移除远程仓库"></a>添加、移除远程仓库</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add &lt;shortname&gt; &lt;url&gt; </span><br><span class="line">git remote remove &lt;ahortname&gt;</span><br></pre></td></tr></table></figure>
-
-<p>添加一个新的远程 Git 仓库，同时指定一个方便使用的简写</p>
-<h3 id="从远程仓库抓取"><a href="#从远程仓库抓取" class="headerlink" title="从远程仓库抓取"></a>从远程仓库抓取</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch &lt;remote&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这个命令会访问远程仓库，从中拉取所有你还没有的数据。 执行完成后，你将会拥有那个远程仓库中所有分支的引用，可以随时合并或查看。</p>
-<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push &lt;remote&gt; &lt;branch&gt;</span><br></pre></td></tr></table></figure>
-
-<p>只有当你有所克隆服务器的写入权限，并且之前没有人推送过时，这条命令才能生效。 当你和其他人在同一时间克隆，他们先推送到上游然后你再推送到上游，你的推送就会毫无疑问地被拒绝。 你必须先抓取他们的工作并将其合并进你的工作后才能推送。</p>
-<h3 id="查看远程仓库的信息"><a href="#查看远程仓库的信息" class="headerlink" title="查看远程仓库的信息"></a>查看远程仓库的信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote show &lt;shortname&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="远程仓库重命名"><a href="#远程仓库重命名" class="headerlink" title="远程仓库重命名"></a>远程仓库重命名</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote  rename name1 name2</span><br></pre></td></tr></table></figure>
-
-<h2 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h2><p>​    像其他版本控制系统（VCS）一样，Git 可以给仓库历史中的某一个提交打上标签，以示重要。</p>
-<h3 id="列出标签"><a href="#列出标签" class="headerlink" title="列出标签"></a>列出标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git tag </span><br><span class="line">git tag -l &quot;关键词&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><p>git支持两种标签：</p>
-<p>​    1.轻量标签</p>
-<p>​        某个特定提交的引用。</p>
-<p>​    2.附注标签</p>
-<p>​     附注标签是存储在 Git 数据库中的一个完整对象， 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间， 此外还有一个标签信息，并且可以使用 GNU Privacy Guard （GPG）签名并验证。</p>
-<p>创建附注标签：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建附注标签</span><br><span class="line">git tag -a &lt;tagname&gt; -m &quot;注释信息&quot;</span><br><span class="line">#查看所有标签</span><br><span class="line">git tag </span><br><span class="line">#显示注释信息</span><br><span class="line">git show &lt;tagname&gt;</span><br></pre></td></tr></table></figure>
-
-<p>创建轻量标签：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git tag &lt;tagname&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="共享标签"><a href="#共享标签" class="headerlink" title="共享标签"></a>共享标签</h3><p>​    默认情况下，git push 命令并不会传送标签到远程仓库服务器上。 在创建完标签后你必须显式地推送标签到共享服务器上。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#推送特定标签</span><br><span class="line">git push origin &lt;tagname&gt;</span><br><span class="line">#推送所有标签 </span><br><span class="line">git push origin --tags</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git tag -d &lt;tagname&gt;</span><br><span class="line">#注意上述命令并不会从任何远程仓库中移除这个标签，你必须用 </span><br><span class="line">git push &lt;remote&gt; :refs/tags/&lt;tagname&gt; </span><br><span class="line">#来更新你的远程仓库,或者</span><br><span class="line">git push origin --delete &lt;tagname&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Git别名"><a href="#Git别名" class="headerlink" title="Git别名"></a>Git别名</h2><p>Git 并不会在你输入部分命令时自动推断出你想要的命令。 如果不想每次都输入完整的 Git 命令，可以通过 git config 文件来轻松地为每一个命令设置一个别名。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#git 别名</span><br><span class="line">git config --global alias.co checkout</span><br><span class="line">git config --global alias.br branch</span><br><span class="line">git config --global alias.ci commit</span><br><span class="line">git config --global alias.st status</span><br><span class="line">git config --global alias.unstage &#x27;reset HEAD --&#x27;</span><br><span class="line">git config --global alias.last &#x27;log -1 HEAD&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>也可以在用户的配置文件下修改：</p>
-<p>Windows下.config文件路径：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Users\username\.gitconfig</span><br></pre></td></tr></table></figure>
-
-<p>添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[alias]</span><br><span class="line">	co = checkout</span><br><span class="line">	br = branch</span><br><span class="line">	ci = commit</span><br><span class="line">	st = status</span><br><span class="line">	unstage = reset HEAD --=</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git学习笔记02</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Git/gitNote02/</url>
-    <content><![CDATA[<p>  Git 处理分支的方式可谓是难以置信的轻量，创建新分支这一操作几乎能在瞬间完成，并且在不同分支之间的切换操作也是一样便捷。</p>
-<span id="more"></span>
-
-<h2 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h2><p>​        Git 保存的不是文件的变化或者差异，而是一系列不同时刻的快照 。在进行提交操作时，Git 会保存一个提交对象（commit object）。做些修改后再次提交，那么这次产生的提交对象会包含一个指向上次提交对象（父对象）的指针。Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git 的默认分支名字是 master。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 master 分支。 master 分支会在每次提交时自动向前移动。</p>
-<h3 id="分支创建"><a href="#分支创建" class="headerlink" title="分支创建"></a>分支创建</h3><p>创建新的分支实际就是创建一个新的指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch &lt;branchname&gt;</span><br></pre></td></tr></table></figure>
-
-<p>从而在当前所提交的对象上创建一个新的指针。</p>
-<h3 id="查看分支所指对象"><a href="#查看分支所指对象" class="headerlink" title="查看分支所指对象"></a>查看分支所指对象</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline  --decorate</span><br></pre></td></tr></table></figure>
-
-<h3 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
-
-<p>此时，HEAD指针就指向了新的分支。</p>
-<p><em><strong>分支切换会改变你工作目录中的文件</strong></em><br>在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。</p>
-<p>不同的分支提交文件后就会产生项目分叉。</p>
-<h3 id="查看分叉历史"><a href="#查看分叉历史" class="headerlink" title="查看分叉历史"></a>查看分叉历史</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline --decorate --graph --all</span><br></pre></td></tr></table></figure>
-
-<p>会输出你的提交历史、各个分支的指向以及项目的分支分叉情况。</p>
-<h3 id="创建分支的同时切换过去"><a href="#创建分支的同时切换过去" class="headerlink" title="创建分支的同时切换过去"></a>创建分支的同时切换过去</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;newbranchname&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="快进"><a href="#快进" class="headerlink" title="快进"></a>快进</h3><p>当你试图合并两个分支时， 如果顺着一个分支走下去能够到达另一个分支，那么 Git 在合并两者的时候， 只会简单的将指针向前推进（指针右移），因为这种情况下的合并操作没有需要解决的分歧——这就叫做 “快进（fast-forward）”。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#快进</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h3><p>三方分别为：第一个分支，第二个分支，两分支的分叉点。</p>
-<p>Git 将三方合并的结果做了一个新的快照并且自动创建一个新的提<br>交指向它。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#三方合并</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="合并时遇到冲突"><a href="#合并时遇到冲突" class="headerlink" title="合并时遇到冲突"></a>合并时遇到冲突</h4><p>​        如果你在两个不同的分支中，对同一个文件的同一个部分进行了不同的修改，Git 就没法干净的合并它们。</p>
-<p>​        Git 会暂停下来，等待你去解决合并产生的冲突。你可以在合并冲突后的任意时刻使用 git status 命令来查看那些因包含合并冲突而处于未合并（unmerged）状态的文件</p>
-<p>​    在手动解决文件冲突后，可以再次提交，并确认分支合并。</p>
-<h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看已有分支和当前所处分支</span><br><span class="line">git branch</span><br><span class="line">#查看已合并的分支</span><br><span class="line">git branch --merged</span><br><span class="line">#查看未合并的分支</span><br><span class="line">git branch --no-merged</span><br></pre></td></tr></table></figure>
-
-<h2 id="分支开发工作流"><a href="#分支开发工作流" class="headerlink" title="分支开发工作流"></a>分支开发工作流</h2><h3 id="长期分支"><a href="#长期分支" class="headerlink" title="长期分支"></a>长期分支</h3><p>​        因为 Git 使用简单的三方合并，所以就算在一段较长的时间内，反复把一个分支合并入另一个分支，也不是什么难事。 也就是说，在整个项目开发周期的不同阶段，你可以同时拥有多个开放的分支；你可以定期地把某些主题分支合并入其他分支中。</p>
-<h3 id="主题分支"><a href="#主题分支" class="headerlink" title="主题分支"></a>主题分支</h3><p>​        主题分支对任何规模的项目都适用。 主题分支是一种短期分支，它被用来实现单一特性或其相关工作。</p>
-<h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>远程引用是对远程仓库的引用（指针），包括分支、标签等等。 你可以通过 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git ls-remote &lt;remote&gt; </span><br></pre></td></tr></table></figure>
-
-<p>来显式地获得远程引用的完整列表， 或者通过 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote show &lt;remote&gt; </span><br></pre></td></tr></table></figure>
-
-<p>获得远程分支的更多信息。 然而，一个更常见的做法是利用远程跟踪分支。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git使用过程中遇到的一些问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Git/gitPushProblem/</url>
-    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>​    使用git的过程中总会遇到一些问题。</p>
-<span id="more"></span>
-
-<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
-<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    接着重新上传，成功。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
-
-<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
-<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
-
-<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
-
-<h2 id="warning-LF-will-be-replaced-by-CRLF-in-files"><a href="#warning-LF-will-be-replaced-by-CRLF-in-files" class="headerlink" title="warning: LF will be replaced by CRLF in files"></a>warning: LF will be replaced by CRLF in files</h2><p>原因是存在符号转义问题，windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.autocrlf false=</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -442,67 +200,6 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 2.2</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh02_2/</url>
-    <content><![CDATA[<p>C++ Primer 第二篇第四章学习笔记。<span id="more"></span></p>
-<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第二章-表达式"><a href="#第二章-表达式" class="headerlink" title="第二章  表达式"></a>第二章  表达式</h2><p>基本算术运算符、逻辑运算符、赋值运算符、条件运算符与其他语言一致。</p>
-<h3 id="sizeof-操作符"><a href="#sizeof-操作符" class="headerlink" title="sizeof 操作符"></a>sizeof 操作符</h3><p>siseof 操作符的作用是返回一个对象或类型名的字节长度。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//三种用法</span><br><span class="line">sizeof (type name );</span><br><span class="line">sizeof ( object );</span><br><span class="line">sizeof object;</span><br></pre></td></tr></table></figure>
-
-<p>返回值的类型是size_t ，这是一种与机器相关的typedef 定义。</p>
-<p>应用在指针类型上的sizeof 操作符，返回的是包含该类型地址所需的内存长度。但是应用在引用类型上的sizeof 操作符。返回的是包含被引用对象所需的内存长度。</p>
-<h3 id="new-和delete-表达式"><a href="#new-和delete-表达式" class="headerlink" title="new 和delete 表达式"></a>new 和delete 表达式</h3><p>系统为每个程序都提供了一个在程序执行时可用的内存池。这个可用内存池被称为程序的空闲存储区。</p>
-<p>运行时刻的内存分配被称为动态内存分配。</p>
-<p>动态内存分配由new 表达式应用在一个类型指示符上来完成。类型指示符可以是内置类型或用户定义类型。new 表达式返回指向新分配的对象的指针。 </p>
-<p>delete 表达式应用在”<strong>指向我们用new 表达式分配的</strong>“对象指针上来做到这一点</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *pi = new int(1024);</span><br><span class="line">delete pi;</span><br><span class="line">int *pin = new int[10];</span><br><span class="line">delete [] pin;</span><br></pre></td></tr></table></figure>
-
-<h3 id="位操作符和bitset"><a href="#位操作符和bitset" class="headerlink" title="位操作符和bitset"></a>位操作符和bitset</h3><p>位操作符把操作数解释成有序的位集合，这些位可能是独立的也可能组成域，每个位可以含有0 off 或1 on 。位操作符允许程序员设置或测试独立的位或位域。如果一个对象被用作一组位或位域的离散集合那么这样的对象称为位向量 位。向量是一种用来记录一组项目或条件的是/否信息的紧缩方法</p>
-<p>标准库提供了一个bitset 类它支持位向量的类抽象。bitset 对象封装了位向量的语义。</p>
-<img src = "/images/cpp/bitset.png">
-
-<p>bitset 有三种声明方式在缺省定义中我们只需简单地指明位向量的长度。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;bitset&gt;</span><br><span class="line">bitset&lt; 32 &gt; bitvec;</span><br><span class="line">//声明了一个含有32位的bitset 对象,位的顺序从0到31,缺省情况下所有的位都被初始化为0</span><br></pre></td></tr></table></figure>
-
-<h3 id="强制类型装换"><a href="#强制类型装换" class="headerlink" title="强制类型装换"></a>强制类型装换</h3><p>强制类型转换很可能会引入一些难以发现的错误。尤其是(void *)类型的指针。</p>
-<img src = "/images/cpp/cast.png">
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//4种类型的转换的格式</span><br><span class="line">TYPE b = static_cast(TYPE)(a);</span><br></pre></td></tr></table></figure>
-
-<p>C++为了规范C中的类型转换，加强类型转换的可视性，引入了四种强制类型转换操作符：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast, reinterpret_cast, const_cast, dynamic_cast </span><br></pre></td></tr></table></figure>
-
-<p>他们本质上都是模板类。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 2.3</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh02_3/</url>
-    <content><![CDATA[<p>C++ Primer 第二篇第五章学习笔记。<span id="more"></span></p>
-<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第五章-语句"><a href="#第五章-语句" class="headerlink" title="第五章  语句"></a>第五章  语句</h2><p>与其他语言差别不大。</p>
-<h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch()&#123;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	default:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(int i=0; i&lt;n; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">for(int i=0; i&lt;k; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//C++这里的i是局部变量，</span><br></pre></td></tr></table></figure>
-
-<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>break 语句终止最近的while, do while, for 或switch 语句.</p>
-<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>continue 语句导致最近的循环语句的当前迭代结束,执行权被传递给条件计算部分.</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cpp Primer chapter 2.1</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh02_1/</url>
     <content><![CDATA[<p>C++ Primer 第二篇第三章学习笔记。<span id="more"></span></p>
@@ -556,6 +253,67 @@
 <p>我们可以用成员访问符号访问pair 中的单个元素,它们的名字为first 和second.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pair&lt; string, string &gt; author( &quot;James&quot;, &quot;Joyce&quot; );</span><br><span class="line">author.first == &quot;James&quot;;</span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 2.2</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh02_2/</url>
+    <content><![CDATA[<p>C++ Primer 第二篇第四章学习笔记。<span id="more"></span></p>
+<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第二章-表达式"><a href="#第二章-表达式" class="headerlink" title="第二章  表达式"></a>第二章  表达式</h2><p>基本算术运算符、逻辑运算符、赋值运算符、条件运算符与其他语言一致。</p>
+<h3 id="sizeof-操作符"><a href="#sizeof-操作符" class="headerlink" title="sizeof 操作符"></a>sizeof 操作符</h3><p>siseof 操作符的作用是返回一个对象或类型名的字节长度。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//三种用法</span><br><span class="line">sizeof (type name );</span><br><span class="line">sizeof ( object );</span><br><span class="line">sizeof object;</span><br></pre></td></tr></table></figure>
+
+<p>返回值的类型是size_t ，这是一种与机器相关的typedef 定义。</p>
+<p>应用在指针类型上的sizeof 操作符，返回的是包含该类型地址所需的内存长度。但是应用在引用类型上的sizeof 操作符。返回的是包含被引用对象所需的内存长度。</p>
+<h3 id="new-和delete-表达式"><a href="#new-和delete-表达式" class="headerlink" title="new 和delete 表达式"></a>new 和delete 表达式</h3><p>系统为每个程序都提供了一个在程序执行时可用的内存池。这个可用内存池被称为程序的空闲存储区。</p>
+<p>运行时刻的内存分配被称为动态内存分配。</p>
+<p>动态内存分配由new 表达式应用在一个类型指示符上来完成。类型指示符可以是内置类型或用户定义类型。new 表达式返回指向新分配的对象的指针。 </p>
+<p>delete 表达式应用在”<strong>指向我们用new 表达式分配的</strong>“对象指针上来做到这一点</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *pi = new int(1024);</span><br><span class="line">delete pi;</span><br><span class="line">int *pin = new int[10];</span><br><span class="line">delete [] pin;</span><br></pre></td></tr></table></figure>
+
+<h3 id="位操作符和bitset"><a href="#位操作符和bitset" class="headerlink" title="位操作符和bitset"></a>位操作符和bitset</h3><p>位操作符把操作数解释成有序的位集合，这些位可能是独立的也可能组成域，每个位可以含有0 off 或1 on 。位操作符允许程序员设置或测试独立的位或位域。如果一个对象被用作一组位或位域的离散集合那么这样的对象称为位向量 位。向量是一种用来记录一组项目或条件的是/否信息的紧缩方法</p>
+<p>标准库提供了一个bitset 类它支持位向量的类抽象。bitset 对象封装了位向量的语义。</p>
+<img src = "/images/cpp/bitset.png">
+
+<p>bitset 有三种声明方式在缺省定义中我们只需简单地指明位向量的长度。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;bitset&gt;</span><br><span class="line">bitset&lt; 32 &gt; bitvec;</span><br><span class="line">//声明了一个含有32位的bitset 对象,位的顺序从0到31,缺省情况下所有的位都被初始化为0</span><br></pre></td></tr></table></figure>
+
+<h3 id="强制类型装换"><a href="#强制类型装换" class="headerlink" title="强制类型装换"></a>强制类型装换</h3><p>强制类型转换很可能会引入一些难以发现的错误。尤其是(void *)类型的指针。</p>
+<img src = "/images/cpp/cast.png">
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//4种类型的转换的格式</span><br><span class="line">TYPE b = static_cast(TYPE)(a);</span><br></pre></td></tr></table></figure>
+
+<p>C++为了规范C中的类型转换，加强类型转换的可视性，引入了四种强制类型转换操作符：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast, reinterpret_cast, const_cast, dynamic_cast </span><br></pre></td></tr></table></figure>
+
+<p>他们本质上都是模板类。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 2.3</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimerCh02_3/</url>
+    <content><![CDATA[<p>C++ Primer 第二篇第五章学习笔记。<span id="more"></span></p>
+<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第五章-语句"><a href="#第五章-语句" class="headerlink" title="第五章  语句"></a>第五章  语句</h2><p>与其他语言差别不大。</p>
+<h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch()&#123;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	default:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(int i=0; i&lt;n; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">for(int i=0; i&lt;k; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//C++这里的i是局部变量，</span><br></pre></td></tr></table></figure>
+
+<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>break 语句终止最近的while, do while, for 或switch 语句.</p>
+<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>continue 语句导致最近的循环语句的当前迭代结束,执行权被传递给条件计算部分.</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1002,97 +760,251 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu使用中遇到的问题</title>
-    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/ubuntuUsing/</url>
-    <content><![CDATA[<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。<span id="more"></span></p>
-<h2 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h2><p>   没想到语言选择第一步就难住了我，安装的是中文版到但是一直没能成功设置为中文。直到看到一个鬼才方法。具体步骤如下：</p>
-<p>​    1.找到Ubuntu中Language support软件</p>
-<p>​    2.打开软件后添加简体中文语言包</p>
-<p>​    3.现在依然显示汉语为灰色无法选中，但是可以拖动！！！将汉语那一框拖动到最上面去，然后重启就可以了。</p>
-<p>参考的博客链接为：</p>
-<p><a href="https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.base">https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base</a></p>
-]]></content>
-      <categories>
-        <category>系统配置</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一些有用的小技巧</title>
-    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/windowsUsing/</url>
-    <content><![CDATA[<h1 id="实用小技巧"><a href="#实用小技巧" class="headerlink" title="实用小技巧"></a>实用小技巧</h1><p>遇到的一些有用的软件或者一些比较有用的设置。<span id="more"></span></p>
-<h2 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h2><p>推荐使用Typora来编写MarkDown文档。</p>
-<h3 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h3><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
+    <title>DSA 基础知识</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DAS_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数据结构和算法的重要性毋庸置疑啊，一方面刷题，一方面学习一下。<span id="more"></span></p>
+<h2 id="数据结构的基础知识"><a href="#数据结构的基础知识" class="headerlink" title="数据结构的基础知识"></a>数据结构的基础知识</h2><h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>​    O(1):常数时间复杂度算法</p>
+<p>​    O(logn):对数时间复杂度——高效算法</p>
+<p>​    O(n):多项式时间复杂度算法.某问题若存在一个复杂度在此范围以内的算法，则称该问题是可有效求解的或易解的（tractable）</p>
+<p>​    O(x**n):指数复杂度，无法接受的算法。</p>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>​        递归则是函数和过程调用的一种特殊形式，即允许函数和过程进行<br>自我调用。</p>
+<p>​        递归的价值在于，许多应用问题都可简洁而准确地描述为递归形式。</p>
+<p>​    递归也是一种基本而典型的算法设计模式。这一模式可以对实际问题中反复出现的结构和形式做高度概括，并从本质层面加以描述与刻画，进而导出高效的算法。</p>
+<h4 id="递归的基本模式"><a href="#递归的基本模式" class="headerlink" title="递归的基本模式"></a>递归的基本模式</h4><h5 id="线性递归"><a href="#线性递归" class="headerlink" title="线性递归"></a>线性递归</h5><p>举例：数组元素求和</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组求和：数组的前A[0,n-1)个数的和与末元素A[n-1]之和。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">arraySum</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span>&gt;n)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in"><span class="keyword">return</span></span> (<span class="built_in">arraySum</span>(A, n<span class="number">-1</span>) + A[n<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//时间复杂度：O(1)*递归深度 = O(1) * (n+1) = O(n)</span></span><br><span class="line"><span class="comment">//空间复杂度：O(n)</span></span><br></pre></td></tr></table></figure>
 
-<p>注意：修改上述的typora文件路径：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot; --&gt; “修改成你自己的文件路径”</span><br></pre></td></tr></table></figure>
+<p>​        算法可能朝着更深一层进行自我调用，且每一递归实例对自身的调用至多一次。于是，每一层次上至多只有一个实例，且它们构成一个线性的次序关系。此类递归模式因而称作“线性递归”（linear recursion），它也是递归的最基本形式。</p>
+<p>​    线性递归往往对应于<em><strong>减而治之</strong></em>的算法策略：递归每深入一层，待求解问题的规模都缩减一个常数，直至最终蜕化为平凡的小（简单）问题。</p>
+<h5 id="递归分析"><a href="#递归分析" class="headerlink" title="递归分析"></a>递归分析</h5><p>1.递归跟踪：作为一种直观且可视的方法，递归跟踪（recursion trace）可用以分析递归算法的总体运行时间与空间。</p>
+<p>2.递推方程：通过对递归模式的数学归纳，导出复杂度定界函数的递推方程（组）及其边界条件，从而将复杂度的分析，转化为递归方程（组）的求解。</p>
+<h5 id="递归模式"><a href="#递归模式" class="headerlink" title="递归模式"></a>递归模式</h5><p>1.多递归基：为保证有穷性，递归算法都必须设置递归基，且确保总能执行到。</p>
+<p>举例：数组倒置</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>* A, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lo &lt; hi)&#123;</span><br><span class="line">		<span class="built_in">swap</span>(A[lo], A[hi]);</span><br><span class="line">		<span class="built_in">reverse</span>(A, lo+<span class="number">1</span>, hi<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">//O(hi + lo -1)</span></span><br></pre></td></tr></table></figure>
 
-<p>2.保存后重命名，修改后缀为  .reg 文件。</p>
-<p>3.双击执行，一路点是就行。</p>
-<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><img src = "/images/createMd/createMd01.png">
+<p>2.多向递归：递归算法中，不仅递归基可能有多个，递归调用也可能有多种可供选择的分支。</p>
+<p>举例：求2**n</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline __int64 sqr ( __int64 a ) &#123; return a * a; &#125;</span><br><span class="line">__int64 power2 ( int n ) &#123; //幂函数2^n算法（优化逑弻版），n &gt;= 0</span><br><span class="line"> 	if ( 0 == n ) return 1; //逑弻基；否则，规n癿奇偶分删逑弻</span><br><span class="line">    return ( n &amp; 1 ) ? sqr ( power2 ( n &gt;&gt; 1 ) ) &lt;&lt; 1 : sqr ( power2 ( n &gt;&gt; 1 ) );</span><br><span class="line">&#125; //O(logn) = O(r)，r为输入指数n癿比特位数</span><br></pre></td></tr></table></figure>
 
-<h2 id="Adobe-Acrobat-Pro-DC设置文档打开时铺满全局"><a href="#Adobe-Acrobat-Pro-DC设置文档打开时铺满全局" class="headerlink" title="Adobe Acrobat Pro DC设置文档打开时铺满全局"></a>Adobe Acrobat Pro DC设置文档打开时铺满全局</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>修改首选项里的页面设置，全局视图—&gt;适合宽度。</p>
-<h4 id="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"><a href="#缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。" class="headerlink" title="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"></a>缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。</h4><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>选中所有书签（ctrl+A）——属性——动作——添加动作选择——执行菜单项——添加——“视图&gt;缩放&gt;适合宽度”</p>
-<p>这样点击书签后，就是适合宽度了。</p>
-]]></content>
-      <categories>
-        <category>系统配置</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenCV-Tutorials</title>
-    <url>/%E5%AD%A6%E4%B9%A0/OpenCV/openCVtutorials/</url>
-    <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>​    OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
-<span id="more"></span>
+<h5 id="递归消除"><a href="#递归消除" class="headerlink" title="递归消除"></a>递归消除</h5><p>空间成本:递归算法所消耗的空间量主要取决于递归深度，故较之同一算法的迭代版，递归版往往需耗费更多空间，并进而影响实际的运行速度。</p>
+<p>举例：尾递归消除</p>
+<p>在线性递归算法中，若递归调用在递归实例中恰好以最后一步操作的形式出现，则称作尾递<br>归（tail recursion）。属于尾递归形式的算法，均可以简捷地转换为等效的迭代版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#数组倒置</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">next:</span><br><span class="line">	if(lo &lt; hi)&#123;</span><br><span class="line">		swap(A[lo], A[hi]);</span><br><span class="line">		lo++;</span><br><span class="line">		hi--;</span><br><span class="line">		goto next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo + 1)</span><br><span class="line"></span><br><span class="line">#用while 代替 next if</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">	while( lo &lt; hi )&#123;</span><br><span class="line">		swap(A[lo++], A[hi--]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="CV与Matplotlib的颜色冲突"><a href="#CV与Matplotlib的颜色冲突" class="headerlink" title="CV与Matplotlib的颜色冲突"></a>CV与Matplotlib的颜色冲突</h3><p> OpenCV中读取彩图的颜色是以BGR来排序的，而Matplotlib中图片是以RGB排序的，因此如果想要使用pyplot来展示图片，就需要对图片的颜色域顺序进行处理，不过实现起来也很方便。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv.imread(<span class="string">&quot;o1.png&quot;</span>)</span><br><span class="line">img = img[:,:,::-<span class="number">1</span>]</span><br><span class="line">plt.show(<span class="string">&quot;Image&quot;</span>,img)</span><br></pre></td></tr></table></figure>
+<h5 id="二分递归"><a href="#二分递归" class="headerlink" title="二分递归"></a>二分递归</h5><p>分而治之：将大问题分解为若干规模更小的子问题，再通过递归机制分别求解。这种分解持续进行，直到子问题规模缩减至平凡情况。这也就是所谓的分而治之（divide-and-conquer）策略。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arraySum(int A[], int lo, int hi)&#123;</span><br><span class="line">	if( lo == hi)&#123;</span><br><span class="line">		return A[lo];</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int mi = (lo + hi) &gt;&gt; 1;</span><br><span class="line">		return sum(A, lo, mi) + sum(A, mi+1, hi);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo +1)</span><br></pre></td></tr></table></figure>
 
-<h3 id="使用拉普拉斯算子获取图像边缘"><a href="#使用拉普拉斯算子获取图像边缘" class="headerlink" title="使用拉普拉斯算子获取图像边缘"></a>使用拉普拉斯算子获取图像边缘</h3><p>以下是示例和我按照示例的到的结果：</p>
-<p>官方示例：</p>
-<img src="/images/OpenCV/openCV_01.png">
-
-<p>我的结果：</p>
-<img src="/images/OpenCV/openCV_02.png">
-
-<p>可以看出并没有得到示例中所展示的效果。</p>
-<p>查看函数参数说明，可以看到有一项参数为：</p>
-<p><strong>CV_<bit_depth>(S|U|F)C<number_of_channels></strong></p>
-<p>说明如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bit_depth：比特数---代表8bite,16bites,32bites,64bites...</span><br><span class="line"></span><br><span class="line">如果你现在创建了一个存储--灰度图片的Mat对象,这个图像的大小为宽100,高100,那么,现在这张灰度图片中有10000个像素点，它每一个像素点在内存空间所占的空间大小是8bite,8位--所以它对应的就是CV_8。</span><br><span class="line">-------------</span><br><span class="line"></span><br><span class="line">S|U|F:</span><br><span class="line"></span><br><span class="line">S--代表---signed int---有符号整形</span><br><span class="line"></span><br><span class="line">U--代表--unsigned int--无符号整形</span><br><span class="line"></span><br><span class="line">F--代表--float---------单精度浮点型</span><br><span class="line"></span><br><span class="line">---------</span><br><span class="line"></span><br><span class="line">C&lt;number_of_channels&gt;----代表---一张图片的通道数,比如:</span><br><span class="line"></span><br><span class="line">channels = 1：灰度图片--grayImg---是--单通道图像</span><br><span class="line"></span><br><span class="line">channels = 3：RGB彩色图像---------是--3通道图像</span><br><span class="line"></span><br><span class="line">channels = 4：带Alph通道的RGB图像--是--4通道图像</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
-
-<p>修改参数为CV_8U后，调整内核大小，得到预期结果。</p>
-<h3 id="绘制轮廓"><a href="#绘制轮廓" class="headerlink" title="绘制轮廓"></a>绘制轮廓</h3><p>看函数说明时，需要使用二值图片才能更好的识别轮廓。所以我就直接选择了使用二值图片去查找轮廓。但是再绘制轮廓时发现无法绘制轮廓，观察函数发现：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cv2.drawContours(image, contours, contourIdx, color, thickness=None, lineType=None, hierarchy=None, maxLevel=None, offset=None)</span><br></pre></td></tr></table></figure>
-
-<p>其中要求image类型为彩色图片。所以就需要使用彩色图片从BGR-&gt;GRAY,在进行阈值化处理变为二值图片识别轮廓，最后再原图上画图。</p>
-<h3 id="多对象模板匹配"><a href="#多对象模板匹配" class="headerlink" title="多对象模板匹配"></a>多对象模板匹配</h3><p>源代码见github仓库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#函数：cv.matchTemplate(), cv.minMaxLoc()</span><br><span class="line">import numpy as np</span><br><span class="line">import cv2 as cv </span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line"></span><br><span class="line">img7 = cv.imread(&quot;../Images/img7.jpg&quot;)</span><br><span class="line">img7 = cv.cvtColor(img7, cv.COLOR_BGR2GRAY)</span><br><span class="line">target = img7.copy()</span><br><span class="line">template = cv.imread(&quot;../Images/img7_1.png&quot;)</span><br><span class="line">template = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">w, h = template.shape[::-1]</span><br><span class="line">#列表中所有的6种比较方法</span><br><span class="line">methods = [&#x27;cv.TM_CCOEFF&#x27;, &#x27;cv.TM_CCOEFF_NORMED&#x27;, &#x27;cv.TM_CCORR&#x27;,</span><br><span class="line">            &#x27;cv.TM_CCORR_NORMED&#x27;, &#x27;cv.TM_SQDIFF&#x27;, &#x27;cv.TM_SQDIFF_NORMED&#x27;]</span><br><span class="line">for meth in methods:</span><br><span class="line">    img7 = target.copy()</span><br><span class="line">    method = eval(meth)</span><br><span class="line">    # 应用模板匹配</span><br><span class="line">    res = cv.matchTemplate(img7,template,method)</span><br><span class="line">    min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)</span><br><span class="line">    # 如果方法是TM_SQDIFF或TM_SQDIFF_NORMED，则取最小值</span><br><span class="line">    if method in [cv.TM_SQDIFF, cv.TM_SQDIFF_NORMED]:</span><br><span class="line">        top_left = min_loc</span><br><span class="line">    else:</span><br><span class="line">        top_left = max_loc</span><br><span class="line">    bottom_right = (top_left[0] + w, top_left[1] + h)</span><br><span class="line">    cv.rectangle(img7,top_left, bottom_right, 255, 2)</span><br><span class="line">    plt.subplot(121),plt.imshow(res,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Matching Result&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.subplot(122),plt.imshow(img7,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Detected Point&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.suptitle(meth)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">#多对象匹配</span><br><span class="line">img22 = cv.imread(&quot;../Images/img22.png&quot;)</span><br><span class="line">img22_gray = cv.cvtColor(img22, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(img22_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">template = cv.imread(&#x27;../Images/img22_1.png&#x27;)</span><br><span class="line">template_gray = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(template_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">w, h = template_gray.shape[:: -1]</span><br><span class="line">print(w,h)</span><br><span class="line">res = cv.matchTemplate(img22_gray, template_gray, cv.TM_CCOEFF_NORMED)</span><br><span class="line">threshold = 0.55</span><br><span class="line">loc = np.where( res &gt;= threshold)</span><br><span class="line">for pt in zip(*loc[::-1]):</span><br><span class="line">    cv.rectangle(img22, pt, (pt[0] + w , pt[1]+ h), (0,255,255), 2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">cv.imshow(&quot;image&quot;,img22 )</span><br><span class="line">cv.waitKey(0)</span><br><span class="line">cv.destroyAllWindows()</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">img22 = img22[:, :, :: -1]</span><br><span class="line">plt.imshow(img22)</span><br><span class="line">plt.show()</span><br><span class="line">#错误原因分析：因为匹配时采用灰度图像，所以水管被匹配到了</span><br></pre></td></tr></table></figure>
-
-<p>遇到的问题：</p>
-<p>​    刚开始绘制正方形时，整个图片全部变为黄色，后来意识到是因为阈值太低和匹配模式选择的问题。通过调整匹配模式和阈值，能大致匹配到合适位置，但由于匹配时采用的是灰度图片，所以水管口依旧被匹配到了，还需要进一步改进。</p>
-<h3 id="图片绘制形状"><a href="#图片绘制形状" class="headerlink" title="图片绘制形状"></a>图片绘制形状</h3><p>由于OpenCV读取的图片以BGR格式存储，如果想用plot绘图就需要用</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img = img[:, :, :: -1]</span><br></pre></td></tr></table></figure>
-
-<p>但是如果想要在图形上绘图就不能先转变将图片变为RGB格式，否则无法绘制矩形等形状且不报错。</p>
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>OpenCV</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
-    <title>MySQL Problem</title>
+    <title>Git学习笔记01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Git/gitNote01/</url>
+    <content><![CDATA[<h2 id="系统的学习一下Git和Github的使用"><a href="#系统的学习一下Git和Github的使用" class="headerlink" title="系统的学习一下Git和Github的使用"></a>系统的学习一下Git和Github的使用</h2><p>​    已经了解和使用过Git和Github，但是并没有具体的学习过。通过系统学习能进一步加深影响。<span id="more"></span></p>
+<p>​    参考书籍《ProGit》。</p>
+<h3 id="获取Git仓库"><a href="#获取Git仓库" class="headerlink" title="获取Git仓库"></a>获取Git仓库</h3><p>​    获取方式通常有两种：</p>
+<p>​        1、使用语句 git init ，将本地文件初始化为仓库。</p>
+<p>​        2、使用给git clone <url>语句，clone一个已有的仓库下来。</p>
+<h3 id="文件状态"><a href="#文件状态" class="headerlink" title="文件状态"></a>文件状态</h3><p>​    如图所示：</p>
+<img src="/images/git/git_01.png" >
+
+<p>​    文件所处的状态一定是图中几种状态之一。</p>
+<p>​    查看当前不同文件的状态可以使用命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &#x27;origin/master&#x27;.</span><br><span class="line">nothing to commit, working directory clean</span><br></pre></td></tr></table></figure>
+
+<h3 id="跟踪新文件-暂存文件"><a href="#跟踪新文件-暂存文件" class="headerlink" title="跟踪新文件/暂存文件"></a>跟踪新文件/暂存文件</h3><p>​    使用命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​    可以用 git add <file>开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等。 将这个命令理解为“精确地将内容添加到下一次提交中”而不是“将一个文件添加到项目中”要更加合适.</p>
+<h3 id="状态简览"><a href="#状态简览" class="headerlink" title="状态简览"></a>状态简览</h3><p>​    使用参数查看状态简洁输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git status --short</span><br><span class="line">git status -s</span><br></pre></td></tr></table></figure>
+
+<p>  新添加的未跟踪文件前面有 ?? 标记，新添加到暂存区中的文件前面有 A 标记，修改过的文件前面有 M 标记。 输出中有两栏，左栏指明了暂存区的状态，右栏指明了工作区的状态。</p>
+<h3 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h3><p>​    通过创建   .gitignore 文件来选择忽略的文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#示例</span><br><span class="line">#以下是忽略内容，使用正则表达式来匹配、</span><br><span class="line">*.[co]</span><br><span class="line">*~</span><br><span class="line">/folderName</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>文件 .gitignore 的格式规范如下：<br>• 所有空行或者以 # 开头的行都会被 Git 忽略。<br>• 可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。<br>• 匹配模式可以以（/）开头防止递归。<br>• 匹配模式可以以（/）结尾指定目录。<br>• 要忽略指定模式以外的文件或目录，可以在模式前加上叹号（!）取反。</p>
+<h3 id="对比差异"><a href="#对比差异" class="headerlink" title="对比差异"></a>对比差异</h3><p>git status只能反映当前文件的状态，如果想查看文件修改的内容或历史差异需要使用语句git diff.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff  #比较的是工作目录中当前文件和暂存区域快照之间的差异</span><br><span class="line">git diff --staged  </span><br><span class="line">git diff --cached </span><br><span class="line">#上面两条语句作用相同，比对已暂存文件与最后一次提交的文件差异：</span><br></pre></td></tr></table></figure>
+
+<h3 id="提交文件"><a href="#提交文件" class="headerlink" title="提交文件"></a>提交文件</h3><p> 可以直接使用 git commit 来提交更新，接着会启动文本编辑器提示你输入版本更新信息。</p>
+<p>也可以直接使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;版本更新信息&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="跳过使用暂存区域"><a href="#跳过使用暂存区域" class="headerlink" title="跳过使用暂存区域"></a>跳过使用暂存区域</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit -a </span><br><span class="line">#Git 会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 git add 步骤</span><br></pre></td></tr></table></figure>
+
+<h3 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h3><p>情形一：</p>
+<p>  直接删除文件，使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git rm  &lt;filename&gt;</span><br><span class="line">#如果文件修改后未暂存</span><br><span class="line">git rm -f &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<p>情形二：</p>
+<p>不删除文件而从跟踪状态下移除：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remove --cached &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="移动文件-重命名"><a href="#移动文件-重命名" class="headerlink" title="移动文件/重命名"></a>移动文件/重命名</h3><p>类似于Linux一样。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git mv file_from file_to</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h3><p>使用命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+
+<p>也可以为 git log 附带一系列的总结性选项。 比如你想看到每次提交的简略统计信息，可以使用 –stat 选项</p>
+<h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit amend</span><br></pre></td></tr></table></figure>
+
+<p>用来修改提交信息或补充几个忘记提交的文件而不至于弄乱提交历史。</p>
+<h3 id="取消暂存文件"><a href="#取消暂存文件" class="headerlink" title="取消暂存文件"></a>取消暂存文件</h3><p>与git add filename对应：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset HEAD &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout --&lt;fiename&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 请务必记得 git checkout – <file> 是一个危险的命令。 对那个文件在本地的任何修改都会消失——Git 会用最近提交的版本覆盖掉它。 除非你确实清楚不想要对那个文件的本地修改了，否则请不要使用这个命令</p>
+<h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote </span><br><span class="line">#列出指定的每一个远程服务器的简写。 如果你已经克隆了自己的仓库，那么至少应该能看到 origin ——这是 Git 给你克隆的仓库服务器的默认名字</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加、移除远程仓库"><a href="#添加、移除远程仓库" class="headerlink" title="添加、移除远程仓库"></a>添加、移除远程仓库</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add &lt;shortname&gt; &lt;url&gt; </span><br><span class="line">git remote remove &lt;ahortname&gt;</span><br></pre></td></tr></table></figure>
+
+<p>添加一个新的远程 Git 仓库，同时指定一个方便使用的简写</p>
+<h3 id="从远程仓库抓取"><a href="#从远程仓库抓取" class="headerlink" title="从远程仓库抓取"></a>从远程仓库抓取</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch &lt;remote&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个命令会访问远程仓库，从中拉取所有你还没有的数据。 执行完成后，你将会拥有那个远程仓库中所有分支的引用，可以随时合并或查看。</p>
+<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push &lt;remote&gt; &lt;branch&gt;</span><br></pre></td></tr></table></figure>
+
+<p>只有当你有所克隆服务器的写入权限，并且之前没有人推送过时，这条命令才能生效。 当你和其他人在同一时间克隆，他们先推送到上游然后你再推送到上游，你的推送就会毫无疑问地被拒绝。 你必须先抓取他们的工作并将其合并进你的工作后才能推送。</p>
+<h3 id="查看远程仓库的信息"><a href="#查看远程仓库的信息" class="headerlink" title="查看远程仓库的信息"></a>查看远程仓库的信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote show &lt;shortname&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="远程仓库重命名"><a href="#远程仓库重命名" class="headerlink" title="远程仓库重命名"></a>远程仓库重命名</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote  rename name1 name2</span><br></pre></td></tr></table></figure>
+
+<h2 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h2><p>​    像其他版本控制系统（VCS）一样，Git 可以给仓库历史中的某一个提交打上标签，以示重要。</p>
+<h3 id="列出标签"><a href="#列出标签" class="headerlink" title="列出标签"></a>列出标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git tag </span><br><span class="line">git tag -l &quot;关键词&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><p>git支持两种标签：</p>
+<p>​    1.轻量标签</p>
+<p>​        某个特定提交的引用。</p>
+<p>​    2.附注标签</p>
+<p>​     附注标签是存储在 Git 数据库中的一个完整对象， 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间， 此外还有一个标签信息，并且可以使用 GNU Privacy Guard （GPG）签名并验证。</p>
+<p>创建附注标签：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建附注标签</span><br><span class="line">git tag -a &lt;tagname&gt; -m &quot;注释信息&quot;</span><br><span class="line">#查看所有标签</span><br><span class="line">git tag </span><br><span class="line">#显示注释信息</span><br><span class="line">git show &lt;tagname&gt;</span><br></pre></td></tr></table></figure>
+
+<p>创建轻量标签：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git tag &lt;tagname&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="共享标签"><a href="#共享标签" class="headerlink" title="共享标签"></a>共享标签</h3><p>​    默认情况下，git push 命令并不会传送标签到远程仓库服务器上。 在创建完标签后你必须显式地推送标签到共享服务器上。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#推送特定标签</span><br><span class="line">git push origin &lt;tagname&gt;</span><br><span class="line">#推送所有标签 </span><br><span class="line">git push origin --tags</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git tag -d &lt;tagname&gt;</span><br><span class="line">#注意上述命令并不会从任何远程仓库中移除这个标签，你必须用 </span><br><span class="line">git push &lt;remote&gt; :refs/tags/&lt;tagname&gt; </span><br><span class="line">#来更新你的远程仓库,或者</span><br><span class="line">git push origin --delete &lt;tagname&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git别名"><a href="#Git别名" class="headerlink" title="Git别名"></a>Git别名</h2><p>Git 并不会在你输入部分命令时自动推断出你想要的命令。 如果不想每次都输入完整的 Git 命令，可以通过 git config 文件来轻松地为每一个命令设置一个别名。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#git 别名</span><br><span class="line">git config --global alias.co checkout</span><br><span class="line">git config --global alias.br branch</span><br><span class="line">git config --global alias.ci commit</span><br><span class="line">git config --global alias.st status</span><br><span class="line">git config --global alias.unstage &#x27;reset HEAD --&#x27;</span><br><span class="line">git config --global alias.last &#x27;log -1 HEAD&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>也可以在用户的配置文件下修改：</p>
+<p>Windows下.config文件路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Users\username\.gitconfig</span><br></pre></td></tr></table></figure>
+
+<p>添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[alias]</span><br><span class="line">	co = checkout</span><br><span class="line">	br = branch</span><br><span class="line">	ci = commit</span><br><span class="line">	st = status</span><br><span class="line">	unstage = reset HEAD --=</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git学习笔记02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Git/gitNote02/</url>
+    <content><![CDATA[<p>  Git 处理分支的方式可谓是难以置信的轻量，创建新分支这一操作几乎能在瞬间完成，并且在不同分支之间的切换操作也是一样便捷。</p>
+<span id="more"></span>
+
+<h2 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h2><p>​        Git 保存的不是文件的变化或者差异，而是一系列不同时刻的快照 。在进行提交操作时，Git 会保存一个提交对象（commit object）。做些修改后再次提交，那么这次产生的提交对象会包含一个指向上次提交对象（父对象）的指针。Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git 的默认分支名字是 master。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 master 分支。 master 分支会在每次提交时自动向前移动。</p>
+<h3 id="分支创建"><a href="#分支创建" class="headerlink" title="分支创建"></a>分支创建</h3><p>创建新的分支实际就是创建一个新的指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch &lt;branchname&gt;</span><br></pre></td></tr></table></figure>
+
+<p>从而在当前所提交的对象上创建一个新的指针。</p>
+<h3 id="查看分支所指对象"><a href="#查看分支所指对象" class="headerlink" title="查看分支所指对象"></a>查看分支所指对象</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline  --decorate</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此时，HEAD指针就指向了新的分支。</p>
+<p><em><strong>分支切换会改变你工作目录中的文件</strong></em><br>在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。</p>
+<p>不同的分支提交文件后就会产生项目分叉。</p>
+<h3 id="查看分叉历史"><a href="#查看分叉历史" class="headerlink" title="查看分叉历史"></a>查看分叉历史</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline --decorate --graph --all</span><br></pre></td></tr></table></figure>
+
+<p>会输出你的提交历史、各个分支的指向以及项目的分支分叉情况。</p>
+<h3 id="创建分支的同时切换过去"><a href="#创建分支的同时切换过去" class="headerlink" title="创建分支的同时切换过去"></a>创建分支的同时切换过去</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;newbranchname&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="快进"><a href="#快进" class="headerlink" title="快进"></a>快进</h3><p>当你试图合并两个分支时， 如果顺着一个分支走下去能够到达另一个分支，那么 Git 在合并两者的时候， 只会简单的将指针向前推进（指针右移），因为这种情况下的合并操作没有需要解决的分歧——这就叫做 “快进（fast-forward）”。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#快进</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h3><p>三方分别为：第一个分支，第二个分支，两分支的分叉点。</p>
+<p>Git 将三方合并的结果做了一个新的快照并且自动创建一个新的提<br>交指向它。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#三方合并</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="合并时遇到冲突"><a href="#合并时遇到冲突" class="headerlink" title="合并时遇到冲突"></a>合并时遇到冲突</h4><p>​        如果你在两个不同的分支中，对同一个文件的同一个部分进行了不同的修改，Git 就没法干净的合并它们。</p>
+<p>​        Git 会暂停下来，等待你去解决合并产生的冲突。你可以在合并冲突后的任意时刻使用 git status 命令来查看那些因包含合并冲突而处于未合并（unmerged）状态的文件</p>
+<p>​    在手动解决文件冲突后，可以再次提交，并确认分支合并。</p>
+<h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看已有分支和当前所处分支</span><br><span class="line">git branch</span><br><span class="line">#查看已合并的分支</span><br><span class="line">git branch --merged</span><br><span class="line">#查看未合并的分支</span><br><span class="line">git branch --no-merged</span><br></pre></td></tr></table></figure>
+
+<h2 id="分支开发工作流"><a href="#分支开发工作流" class="headerlink" title="分支开发工作流"></a>分支开发工作流</h2><h3 id="长期分支"><a href="#长期分支" class="headerlink" title="长期分支"></a>长期分支</h3><p>​        因为 Git 使用简单的三方合并，所以就算在一段较长的时间内，反复把一个分支合并入另一个分支，也不是什么难事。 也就是说，在整个项目开发周期的不同阶段，你可以同时拥有多个开放的分支；你可以定期地把某些主题分支合并入其他分支中。</p>
+<h3 id="主题分支"><a href="#主题分支" class="headerlink" title="主题分支"></a>主题分支</h3><p>​        主题分支对任何规模的项目都适用。 主题分支是一种短期分支，它被用来实现单一特性或其相关工作。</p>
+<h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>远程引用是对远程仓库的引用（指针），包括分支、标签等等。 你可以通过 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git ls-remote &lt;remote&gt; </span><br></pre></td></tr></table></figure>
+
+<p>来显式地获得远程引用的完整列表， 或者通过 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote show &lt;remote&gt; </span><br></pre></td></tr></table></figure>
+
+<p>获得远程分支的更多信息。 然而，一个更常见的做法是利用远程跟踪分支。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git使用过程中遇到的一些问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Git/gitPushProblem/</url>
+    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>使用git的过程中总会遇到一些问题。</p>
+<span id="more"></span>
+
+<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
+<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    接着重新上传，成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+
+<h2 id="warning-LF-will-be-replaced-by-CRLF-in-files"><a href="#warning-LF-will-be-replaced-by-CRLF-in-files" class="headerlink" title="warning: LF will be replaced by CRLF in files"></a>warning: LF will be replaced by CRLF in files</h2><p>原因是存在符号转义问题，windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.autocrlf false=</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL Problem 01</title>
     <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQLProblem01/</url>
-    <content><![CDATA[<p>MySQL 学习过程中遇到的一些问题。<span id="more"></span></p>
+    <content><![CDATA[<p>MySQL 学习过程中遇到的一些问题和总结。<span id="more"></span></p>
 <h3 id="min等聚集函数不能再where中使用"><a href="#min等聚集函数不能再where中使用" class="headerlink" title="min等聚集函数不能再where中使用"></a>min等聚集函数不能再where中使用</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#错误代码</span><br><span class="line">select </span><br><span class="line">	e1.name  as employee</span><br><span class="line">from</span><br><span class="line">	employee as e1, employee as e2</span><br><span class="line">where</span><br><span class="line">	e1.managerId = e2.Id</span><br><span class="line">	and</span><br><span class="line">	e1.salary &gt; min(e2.salary)</span><br><span class="line">#这里的min其实并不是必须的，但是用来之后反倒报错</span><br></pre></td></tr></table></figure>
 
 <h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>聚合函数是针对结果集进行的，但是where条件并不是在查询出结果集之后运行，所以主函数放在where语句中，会出现错误。</p>
@@ -1136,52 +1048,15 @@
 <h3 id="IN-、NOT-IN-中不能使用-NULL"><a href="#IN-、NOT-IN-中不能使用-NULL" class="headerlink" title="IN 、NOT IN  中不能使用 NULL"></a>IN 、NOT IN  中不能使用 NULL</h3><p><strong>结论 ： MySQL中NULL是不参与计算的，对NULL进行计算，只可以使用预设的IS NULL和IS NOT NULL来操作</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 1.查询表</span><br><span class="line">mysql&gt; select product_name, purchase_price  from  product;</span><br><span class="line">+--------------+----------------+</span><br><span class="line">| product_name | purchase_price |</span><br><span class="line">+--------------+----------------+</span><br><span class="line">| T恤衫        |            500 |</span><br><span class="line">| 打孔器       |            320 |</span><br><span class="line">| 运动T恤      |           2800 |</span><br><span class="line">| 菜刀         |           2800 |</span><br><span class="line">| 高压锅       |           5000 |</span><br><span class="line">| 叉子         |           NULL |</span><br><span class="line">| 擦菜板       |            790 |</span><br><span class="line">| 圆珠笔       |           NULL |</span><br><span class="line">+--------------+----------------+</span><br><span class="line"></span><br><span class="line">-- 2. 使用not in 查询</span><br><span class="line">mysql&gt; SELECT product_name, purchase_price</span><br><span class="line">    -&gt; FROM Product</span><br><span class="line">    -&gt; WHERE purchase_price NOT IN (500, 2800, 5000);</span><br><span class="line">+--------------+----------------+</span><br><span class="line">| product_name | purchase_price |</span><br><span class="line">+--------------+----------------+</span><br><span class="line">| 打孔器       |            320 |</span><br><span class="line">| 擦菜板       |            790 |</span><br><span class="line">+--------------+----------------+</span><br><span class="line">-- 可以看到NULL查询不到</span><br><span class="line"></span><br><span class="line">-- 3. 使用 NOT　in（ＮＵＬＬ）　查询</span><br><span class="line">mysql&gt; SELECT product_name, purchase_price</span><br><span class="line">    -&gt;   FROM Product</span><br><span class="line">    -&gt;  WHERE purchase_price NOT IN (500, 2800, 5000, NULL);</span><br><span class="line">Empty set (0.00 sec)</span><br><span class="line"></span><br><span class="line">-- 为空，　因为　NULL　影响了　NOT IN　的计算，所以直接返回空。</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL 必知必会</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_00/</url>
-    <content><![CDATA[<p>&lt;&lt;MySQL 必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第章"><a href="#第章" class="headerlink" title="第章"></a>第章</h1>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_01/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第一章-了解SQL"><a href="#第一章-了解SQL" class="headerlink" title="第一章 了解SQL"></a>第一章 了解SQL</h1><h3 id="数据库（database）"><a href="#数据库（database）" class="headerlink" title="数据库（database）"></a>数据库（database）</h3><p>保存有组织的数据的容器（通常是一个文件或一组文件）。</p>
-<h3 id="表（table）"><a href="#表（table）" class="headerlink" title="表（table）"></a>表（table）</h3><p>某种特定类型数据的结构化清单。</p>
-<h3 id="表名（tablr-name"><a href="#表名（tablr-name" class="headerlink" title="表名（tablr name)"></a>表名（tablr name)</h3><p>使表名成为唯一的，实际上是数据库名和表名等的组合。有的数据库还使用数据库拥有者的名字作为唯一名的一部分。也就是说，虽然在相同数据库中不能两次使用相同的表名，但在不同的数据库中完全可<br>以使用相同的表名。</p>
-<h3 id="模式-model"><a href="#模式-model" class="headerlink" title="模式 (model)"></a>模式 (model)</h3><p>关于数据库和表的布局及特性的信息。</p>
-<h3 id="列（column）"><a href="#列（column）" class="headerlink" title="列（column）"></a>列（column）</h3><p>表中的一个字段。所有表都是由一个或多个列组成的。</p>
-<p>数据库中每个列都有相应的数据类型。数据类型（datatype）定义了列可以存储哪些数据种类。</p>
-<p>表的列（垂直方向）称为<strong>字段</strong>，它代表了保存在表中的数据项目。</p>
-<h3 id="数据类型-data-type"><a href="#数据类型-data-type" class="headerlink" title="数据类型 (data type)"></a>数据类型 (data type)</h3><p>所允许的数据的类型。每个表列都有相应的数据类型，它限制（或允许）该列中存储的数据。</p>
-<h3 id="行（row）"><a href="#行（row）" class="headerlink" title="行（row）"></a>行（row）</h3><p>表的行（水平方向）称为<strong>记录</strong>，它相当于一条数据。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">关系数据库以行为最小单位读写数据。</span><br></pre></td></tr></table></figure>
+<h3 id="mysql-实现nulls-first"><a href="#mysql-实现nulls-first" class="headerlink" title="mysql 实现nulls first"></a>mysql 实现nulls first</h3><p>mysql中不像oracle，nulls first nulls last无效。可以使用下面的语句代替。</p>
+<p>nulls first:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> IF(ISNULL(my_field),<span class="number">0</span>,<span class="number">1</span>),my_field;  </span><br></pre></td></tr></table></figure>
 
-<h3 id="主键（primary-key）"><a href="#主键（primary-key）" class="headerlink" title="主键（primary key）"></a>主键（primary key）</h3><p>一列（或一组列），其值能够唯一标识表中每一行。</p>
-<p>表中的任何列都可以作为主键，只要它满足以下条件：<br>1.任意两行都不具有相同的主键值；<br>2.每一行都必须具有一个主键值（主键列不允许NULL 值）；<br>3.主键列中的值不允许修改或更新；<br>4.主键值不能重用（如果某行从表中删除，它的主键不能赋给以后的新行）。</p>
-<h3 id="子句（clause）"><a href="#子句（clause）" class="headerlink" title="子句（clause）"></a>子句（clause）</h3><p>SQL 语句由子句构成，有些子句是必需的，有些则是可选的。一个子句通常由一个关键字加上所提供的数据组成。</p>
-<h3 id="操作符（operator）"><a href="#操作符（operator）" class="headerlink" title="操作符（operator）"></a>操作符（operator）</h3><p>用来联结或改变WHERE 子句中的子句的关键字，也称为逻辑操作符（logical operator）。</p>
-<h3 id="通配符（wildcard）"><a href="#通配符（wildcard）" class="headerlink" title="通配符（wildcard）"></a>通配符（wildcard）</h3><p>用来匹配值的一部分的特殊字符。</p>
-<h3 id="搜索模式（search-pattern）"><a href="#搜索模式（search-pattern）" class="headerlink" title="搜索模式（search pattern）"></a>搜索模式（search pattern）</h3><p>由字面值、通配符或两者组合构成的搜索条件。</p>
-<h3 id="谓词（predicate）"><a href="#谓词（predicate）" class="headerlink" title="谓词（predicate）"></a>谓词（predicate）</h3><p>操作符何时不是操作符？答案是，它作为谓词时。从技术上说，LIKE是谓词而不是操作符。虽然最终的结果是相同的，但应该对此术语有所了解，以免在SQL 文献或手册中遇到此术语时不知所云。</p>
-<h3 id="字段（field）"><a href="#字段（field）" class="headerlink" title="字段（field）"></a>字段（field）</h3><p>基本上与列（column）的意思相同，经常互换使用，不过数据库列一般称为列，而术语字段通常与计算字段一起使用。</p>
-<h3 id="别名-（Alias）"><a href="#别名-（Alias）" class="headerlink" title="别名 （Alias）"></a>别名 （Alias）</h3><p>别名（alias）是一个字段或值的替换名。别名用AS 关键字赋予</p>
-<h3 id="查询（query）"><a href="#查询（query）" class="headerlink" title="查询（query）"></a>查询（query）</h3><p>任何SQL 语句都是查询。但此术语一般指SELECT 语句</p>
-<h3 id="可伸缩（scale）"><a href="#可伸缩（scale）" class="headerlink" title="可伸缩（scale）"></a>可伸缩（scale）</h3><p>能够适应不断增加的工作量而不失败。设计良好的数据库或应用程序称为可伸缩性好（scale well）。</p>
+<p>nulls last:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> IF(ISNULL(my_field),<span class="number">1</span>,<span class="number">0</span>),my_field; </span><br></pre></td></tr></table></figure>
+
+<p>ISNULL函数当my_field字段为空是，返回1，当不为空时返回0</p>
+<p>IF函数，如果第一个表达式为真，则返回第二个参数的值，否则，返回第三个参数的值。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1191,33 +1066,147 @@
       </tags>
   </entry>
   <entry>
-    <title>SQL 必知必会 02</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_02/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第二章-检索数据"><a href="#第二章-检索数据" class="headerlink" title="第二章 检索数据"></a>第二章 检索数据</h1><p>SQL 语句不区分大小写。在处理SQL 语句时，其中所有空格都被忽略。</p>
+    <title>MySQL 基础知识 01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_01/</url>
+    <content><![CDATA[<p>MySQL学习笔记。记录数据库、表的查看、创建、删除和更改等基础操作。</p>
+<span id="more"></span>
+
+<h1 id="数据库、表的查看、创建、修改-和-删除"><a href="#数据库、表的查看、创建、修改-和-删除" class="headerlink" title="数据库、表的查看、创建、修改 和 删除"></a>数据库、表的查看、创建、修改 和 删除</h1><h2 id="SHOW"><a href="#SHOW" class="headerlink" title="SHOW"></a>SHOW</h2><p>查询数据库和表等其他信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//查看已有的数据库</span><br><span class="line">show database;</span><br><span class="line">//查看已有的表</span><br><span class="line">show tables;</span><br><span class="line">//查看表的具体信息，不包含数据本身</span><br><span class="line">show crearte table tablename；</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="CREATE"><a href="#CREATE" class="headerlink" title="CREATE"></a>CREATE</h2><p>利用create 创建数据库， 利用use选择数据库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 创建数据库。</span><br><span class="line">CREATE DATABASE &lt;数据库名称&gt;;</span><br><span class="line">-- 使用数据库</span><br><span class="line">use &lt;数据库名称&gt;;</span><br></pre></td></tr></table></figure>
+
+<p>进入数据库后，才能对表进行操作，利用CREATE TABLE 语句创建表，必须给出下列信息：</p>
+<p>​    1.新表的名字，在关键字CREATE TABLE 之后给出；<br>​    2.表列的名字和定义，用逗号分隔；<br>​    3.有的DBMS 还要求指定表的位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;</span><br><span class="line">（  &lt;列名1&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名2&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名3&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名4&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    .. .</span><br><span class="line">    &lt;该表的约束1&gt;， &lt;该表的约束2&gt;，……）；</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 示例</span><br><span class="line">create table products(</span><br><span class="line">	prod_id  char(10) not null primary key,</span><br><span class="line">	vend_id  char(10) not null,</span><br><span class="line">	prod_name char(254) not null,</span><br><span class="line">	prod_price decimal(8, 2) not null,</span><br><span class="line">	prod_desc  text(100) null</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="NULL-值"><a href="#NULL-值" class="headerlink" title="NULL 值"></a>NULL 值</h3><p>NULL 值就是没有值或缺值，是表中非常特殊的一类值。允许NULL 值的列也允许在插入行时不给出该列的值。不允许NULL 值的列不接受没有列值的行，换句话说，在插入或更新行时，该列必须有值。</p>
+<p>NULL 为默认设置，如果不指定NOT NULL，就认为指定的是NULL。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Vendors(</span><br><span class="line">    vend_id CHAR(10) NOT NULL,</span><br><span class="line">    vend_name CHAR(50) NOT NULL,</span><br><span class="line">    vend_address CHAR(50) ,</span><br><span class="line">    vend_city CHAR(50) ,</span><br><span class="line">    vend_state CHAR(5) ,</span><br><span class="line">    vend_zip CHAR(10) ,</span><br><span class="line">    vend_country CHAR(50)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>只有不允许NULL值的列可作为主键，允许NULL 值的列不能作为唯一标识。</p>
+<p>不要把NULL 值与空字符串相混淆。NULL 值是没有值，不是空字符串。如果指定’’（两个单引号，其间没有字符），这在NOT NULL 列中是允许的。空字符串是一个有效的值，它不是无值。NULL 值用关键字NULL而不是空字符串指定。</p>
+<h3 id="DEFAULT"><a href="#DEFAULT" class="headerlink" title="DEFAULT"></a>DEFAULT</h3><p>MySQL 允许指定默认值，在插入行时如果不给出值，DBMS 将自动采用默认值。默认值在CREATE TABLE 语句的列定义中用关键字DEFAULT 指定。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table Nums(</span><br><span class="line">		num int not null default 0  </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="AUTO-INCREMENT-修饰符"><a href="#AUTO-INCREMENT-修饰符" class="headerlink" title="AUTO_INCREMENT 修饰符"></a>AUTO_INCREMENT 修饰符</h3><p>AUTO_INCREMENT 修饰符只适用于 INT 字段，表明 MySQL 应该自动为该字段生成一个数(每次在上一次生成的数值上面加 1)。对于主键，这是非常有用的。因为其允许开发者使用 MySQL 为每条记录创建唯一的标识符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE items( </span><br><span class="line">    id int( 5 ) NOT NULL AUTO_INCREMENT PRIMARY KEY , </span><br><span class="line">    label varchar( 255 ) NOT NULL</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="ALTER"><a href="#ALTER" class="headerlink" title="ALTER"></a>ALTER</h2><p>使用ALTER TABLE 更改表结构，必须给出下面的信息：<br>    1.在ALTER TABLE 之后给出要更改的表名（该表必须存在，否则将出错）；<br>    2.列出要做哪些更改。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 添加列</span><br><span class="line">alter table vendors</span><br><span class="line">	add vend_phone char(20);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 删除列</span><br><span class="line">ALTER TABLE Vendors</span><br><span class="line">	DROP COLUMN vend_phone;</span><br></pre></td></tr></table></figure>
+
+<p>**数据库表的删除、更改不能撤销!!!.**除非使用了rollback事务命令。</p>
+<h2 id="DROP"><a href="#DROP" class="headerlink" title="DROP"></a>DROP</h2><p>删除数据库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP database &lt;数据库名称&gt;；</span><br></pre></td></tr></table></figure>
+
+<p>删除表（删除整个表而不是其内容）非常简单，使用DROP TABLE 语句即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP TABLE CustCopy;</span><br></pre></td></tr></table></figure>
+
+<p>标准SQL 中用来从表中删除数据的只有DELETE 语句。但是，很多数据库产品中还存在另外一种被称为<strong>TRUNCATE</strong> 的语句。这些产品主要包括Oracle、SQLServer、PostgreSQL、MySQL 和DB2。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TRUNCATE &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
+
+<p>与DELETE 不同的是，TRUNCATE 只能删除表中的全部数据，而不能通过WHERE 子句指定条件来删除部分数据。也正是因为它不能具体地控制删除对象，所以其处理速度比DELETE 要快得多。实际上，DELETE 语句在DML 语句中也属于处理时间比较长的，因此需要删除全部数据行时，使用TRUNCATE 可以缩短执行时间。</p>
+<h2 id="RENAME"><a href="#RENAME" class="headerlink" title="RENAME"></a>RENAME</h2><p>重命名表。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rename table product to products;</span><br></pre></td></tr></table></figure>
+
+<p>重命名表很简单，但是重命名数据库很麻烦。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL 基础知识 02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_02/</url>
+    <content><![CDATA[<p>MySQL学习笔记。 向表中插入、 更新 和 删除数据。<span id="more"></span></p>
+<h1 id="数据的插入、更新-和-删除"><a href="#数据的插入、更新-和-删除" class="headerlink" title="数据的插入、更新 和 删除"></a>数据的插入、更新 和 删除</h1><h2 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h2><p>INSERT 用来将行插入（或添加）到数据库表。</p>
+<p>​    1.插入完整的行。</p>
+<p>​    2.插入行的一部分。</p>
+<p>​    3.插入某些查询到结果。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers VALUES(</span><br><span class="line">    &#x27;1000000006&#x27;,</span><br><span class="line">    &#x27;Toy Land&#x27;,</span><br><span class="line">    &#x27;123 Any Street&#x27;,</span><br><span class="line">    &#x27;New York&#x27;,</span><br><span class="line">    &#x27;NY&#x27;,</span><br><span class="line">    &#x27;11111&#x27;,</span><br><span class="line">    &#x27;USA&#x27;,</span><br><span class="line">    NULL,</span><br><span class="line">    NULL);</span><br></pre></td></tr></table></figure>
+
+<p>繁琐但更安全的方式：对应列名进行插入。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers(</span><br><span class="line">    cust_id,</span><br><span class="line">    cust_name,</span><br><span class="line">    cust_address,</span><br><span class="line">    cust_city,</span><br><span class="line">    cust_state,</span><br><span class="line">    cust_zip,</span><br><span class="line">    cust_country,</span><br><span class="line">    cust_contact,</span><br><span class="line">    cust_email)</span><br><span class="line">VALUES(</span><br><span class="line">    &#x27;1000000006&#x27;,</span><br><span class="line">    &#x27;Toy Land&#x27;,</span><br><span class="line">    &#x27;123 Any Street&#x27;,</span><br><span class="line">    &#x27;New York&#x27;,</span><br><span class="line">    &#x27;NY&#x27;,</span><br><span class="line">    &#x27;11111&#x27;,</span><br><span class="line">    &#x27;USA&#x27;,</span><br><span class="line">    NULL,</span><br><span class="line">    NULL);</span><br></pre></td></tr></table></figure>
+
+<p>如果表的定义允许，则可以在INSERT 操作中省略某些列。但是省略的列必须满足以下某个条件。<br>    1.该列定义为允许NULL 值（无值或空值）。<br>    2.在表定义中给出默认值。这表示如果不给出值，将使用默认值。</p>
+<h3 id="INSERT-SELECT"><a href="#INSERT-SELECT" class="headerlink" title="INSERT SELECT"></a>INSERT SELECT</h3><p>i除此之外还能使用 <strong>insert  select</strong> 语句。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers(cust_id,</span><br><span class="line">        cust_contact,</span><br><span class="line">        cust_email,</span><br><span class="line">        cust_name,</span><br><span class="line">        cust_address,</span><br><span class="line">        cust_city,</span><br><span class="line">        cust_state,</span><br><span class="line">        cust_zip,</span><br><span class="line">        cust_country)</span><br><span class="line">SELECT cust_id,</span><br><span class="line">        cust_contact,</span><br><span class="line">        cust_email,</span><br><span class="line">        cust_name,</span><br><span class="line">        cust_address,</span><br><span class="line">        cust_city,</span><br><span class="line">        cust_state,</span><br><span class="line">        cust_zip,</span><br><span class="line">        cust_country</span><br><span class="line">FROM CustNew;</span><br></pre></td></tr></table></figure>
+
+<p>​    1.INSERT SELECT 中SELECT 语句可以包含WHERE 子句，以过滤插入的数据。</p>
+<p>​    2.不管SELECT语句返回多少行，都将被INSERT 插入。</p>
+<p>​    3.INSERT语句的SELECT语句中，可以使用WHERE子句或者GROUP BY子句等任何SQL语法（ ORDER BY子句并不会产生任何效果）。</p>
+<h3 id="SELECT-INTO"><a href="#SELECT-INTO" class="headerlink" title="SELECT INTO"></a>SELECT INTO</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">INTO CustCopy</span><br><span class="line">FROM Customers;</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入默认值或NULL值"><a href="#插入默认值或NULL值" class="headerlink" title="插入默认值或NULL值"></a>插入默认值或NULL值</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--插入默认值</span><br><span class="line">INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES (&#x27;0007&#x27;, &#x27;擦菜板&#x27;, &#x27;厨房用具&#x27;, DEFAULT, 790, &#x27;2009-04-28&#x27;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--插入NULL</span><br><span class="line">INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES (&#x27;0006&#x27;, &#x27;叉子&#x27;, &#x27;厨房用具&#x27;, 500, NULL, &#x27;2009-09-20&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><h3 id="有两种使用UPDATE的方式"><a href="#有两种使用UPDATE的方式" class="headerlink" title="有两种使用UPDATE的方式"></a>有两种使用UPDATE的方式</h3><p>​    1.更新表中的特定行；</p>
+<p>​    2.更新表中的所有行。</p>
+<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>​    1.要更新的表；</p>
+<p>​    2.列名和它们的新值；</p>
+<p>​    3.确定要更新哪些行的过滤条件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE Customers</span><br><span class="line">SET cust_email = &#x27;kim@thetoystore.com&#x27;</span><br><span class="line">WHERE cust_id = &#x27;1000000005&#x27;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE Customers</span><br><span class="line">SET cust_contact = &#x27;Sam Roberts&#x27;,</span><br><span class="line">	cust_email = &#x27;sam@toyland.com&#x27;</span><br><span class="line">WHERE cust_id = &#x27;1000000006&#x27;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 将列用()括起来的清单形式</span><br><span class="line">UPDATE Product</span><br><span class="line">SET (sale_price, purchase_price) = (sale_price * 10, purchase_price / 2)</span><br><span class="line">WHERE product_type = &#x27;厨房用具&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><h3 id="有两种使用DELETE的方式"><a href="#有两种使用DELETE的方式" class="headerlink" title="有两种使用DELETE的方式"></a>有两种使用DELETE的方式</h3><p>​    1.从表中删除特定的行；  </p>
+<p>​    2.从表中删除所有行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Customers</span><br><span class="line">WHERE cust_id = &#x27;1000000006&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>DELETE 不需要列名或通配符。DELETE 删除整行而不是删除列。要删除指定的列，请使用UPDATE 语句。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL 基础知识 03</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_03/</url>
+    <content><![CDATA[<p>MySQL学习笔记。从表中检索数据。<span id="more"></span></p>
+<h1 id="检索表中的数据"><a href="#检索表中的数据" class="headerlink" title="检索表中的数据"></a>检索表中的数据</h1><p>SQL 语句不区分大小写。在处理SQL 语句时，其中所有空格都被忽略。</p>
 <p>在MySQL中一般都不区分大小写，也可以设置表明区分大小写等。</p>
-<h2 id="select"><a href="#select" class="headerlink" title="select"></a>select</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select * from table;</span><br><span class="line">#如果没有明确排序查询结果，则返回的数据没有特定的顺序。</span><br><span class="line">select column1, column2, column3 from table;</span><br><span class="line">这样检索出来的数据显示的都是数据的原始储存格式。</span><br></pre></td></tr></table></figure>
+<h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 如果没有明确排序查询结果，则返回的数据没有特定的顺序。</span><br><span class="line">select * from table;</span><br><span class="line"></span><br><span class="line">-- 这样检索出来的数据显示的都是数据的原始储存格式。</span><br><span class="line">select column1, column2, column3 from table;</span><br></pre></td></tr></table></figure>
 
 <p>SELECT 子句中不仅可以书写列名，还可以书写常数。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT &#x27;商品&#x27; AS string, 38 AS number, &#x27;2009-02-24&#x27; AS date,</span><br><span class="line">product_id, product_name</span><br><span class="line">FROM Product;</span><br></pre></td></tr></table></figure>
 
-<h2 id="distinct"><a href="#distinct" class="headerlink" title="distinct"></a>distinct</h2><p>检索不同的值。</p>
+<h3 id="DISTINCT"><a href="#DISTINCT" class="headerlink" title="DISTINCT"></a>DISTINCT</h3><p>检索不同的值。</p>
 <h4 id="注意：不能部分使用DISTINCT"><a href="#注意：不能部分使用DISTINCT" class="headerlink" title="注意：不能部分使用DISTINCT"></a>注意：不能部分使用DISTINCT</h4><p>DISTINCT 关键字作用于所有的列，不仅仅是跟在其后的那一列。例如，你指定</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT DISTINCT vend_id, prod_price；</span><br></pre></td></tr></table></figure>
 
 <p>除非指定的两列完全相同，否则所有的行都会被检索出来。</p>
 <p>在使用DISTINCT 时，NULL 也被视为一类数据。NULL 存在于多行中时，也会被合并为一条NULL 数据。</p>
-<h2 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h2><p>对查找到结果进行限制。</p>
+<h3 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h3><p>对查找到结果进行限制。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查询前5行。</span><br><span class="line">select vend_id from products limit 5;</span><br></pre></td></tr></table></figure>
 
-<h3 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h3><p>偏移量。</p>
-<p>第一个被检索的行是第0 行，而不是第1 行。因此，LIMIT 1 OFFSET1 会检索第2 行，而不是第1 行。</p>
+<h3 id="OFFSET"><a href="#OFFSET" class="headerlink" title="OFFSET"></a>OFFSET</h3><p>偏移量。第一个被检索的行是第0 行，而不是第1 行。因此，LIMIT 1 OFFSET1 会检索第2 行，而不是第1 行。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查询从第五行开始的五行数据。</span><br><span class="line">select vend_id from products limit 5 offset 5;</span><br><span class="line">#limit 和 offset 顺序不能颠倒。</span><br><span class="line">#简写</span><br><span class="line">select vend_id from products limit 5 ,3;</span><br><span class="line">#使用这个语法，逗号之前的值对应OFFSET，逗号之后的值对应LIMIT。</span><br></pre></td></tr></table></figure>
 
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h3 id="单行注释："><a href="#单行注释：" class="headerlink" title="单行注释："></a>单行注释：</h3><p>注意： – 后面必须跟空格</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 注释1</span><br></pre></td></tr></table></figure>
+<h2 id="ORDER-BY-排序数据"><a href="#ORDER-BY-排序数据" class="headerlink" title="ORDER BY  排序数据"></a>ORDER BY  排序数据</h2><p>为了明确地排序用SELECT 语句检索出的数据，可使用ORDER BY 子句。ORDER BY 子句取一个或多个列的名字，据此对输出进行排序。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select prod_name from products order by prod_name;</span><br><span class="line">#并不一定要是最后一条语句。</span><br><span class="line">select prod_name from products order by prod_name limit 5 offset 2;</span><br><span class="line">#按多个列进行排序，只有在前一列出现重复行时，后一列的排序效果才有用。</span><br><span class="line"> SELECT </span><br><span class="line"> 	prod_id, prod_price, prod_name</span><br><span class="line"> FROM </span><br><span class="line"> 	Products</span><br><span class="line"> Order by</span><br><span class="line"> 	prod_price, prod_name;</span><br><span class="line">#按多个列进行排序，还可以使用列的相对位置。</span><br><span class="line">#prod_price 是select选定的第二列, prod_name是第三列。</span><br><span class="line"> SELECT </span><br><span class="line"> 	prod_id, prod_price, prod_name</span><br><span class="line"> FROM </span><br><span class="line"> 	Products</span><br><span class="line"> Order by</span><br><span class="line"> 	2, 3;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#注释2</span><br></pre></td></tr></table></figure>
+<h3 id="DESC"><a href="#DESC" class="headerlink" title="DESC"></a>DESC</h3><p>降序排列，与DISTINCT不同，DESC 关键字只应用到直接位于其前面的列名，如果想在多个列上进行降序排序，必须对每一列指定DESC 关键字。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_id, prod_price, prod_name</span><br><span class="line">FROM Products</span><br><span class="line">ORDER BY prod_price DESC, prod_name DESC;</span><br></pre></td></tr></table></figure>
+
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h3 id="单行注释："><a href="#单行注释：" class="headerlink" title="单行注释："></a>单行注释：</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 注释1   注意： -- 后面必须跟空格</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 注释2</span><br></pre></td></tr></table></figure>
 
 <h3 id="多行注释："><a href="#多行注释：" class="headerlink" title="多行注释："></a>多行注释：</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line">	多行注释3.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 
@@ -1232,29 +1221,12 @@
       </tags>
   </entry>
   <entry>
-    <title>SQL 必知必会 03</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_03/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第三章-排序检索数据"><a href="#第三章-排序检索数据" class="headerlink" title="第三章  排序检索数据"></a>第三章  排序检索数据</h1><h2 id="排序数据"><a href="#排序数据" class="headerlink" title="排序数据"></a>排序数据</h2><p>为了明确地排序用SELECT 语句检索出的数据，可使用ORDER BY 子句。ORDER BY 子句取一个或多个列的名字，据此对输出进行排序。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select prod_name from products order by prod_name;</span><br><span class="line">#并不一定要是最后一条语句。</span><br><span class="line">select prod_name from products order by prod_name limit 5 offset 2;</span><br><span class="line">#按多个列进行排序，只有在前一列出现重复行时，后一列的排序效果才有用。</span><br><span class="line"> SELECT </span><br><span class="line"> 	prod_id, prod_price, prod_name</span><br><span class="line"> FROM </span><br><span class="line"> 	Products</span><br><span class="line"> Order by</span><br><span class="line"> 	prod_price, prod_name;</span><br><span class="line">#按多个列进行排序，还可以使用列的相对位置。</span><br><span class="line">#prod_price 是select选定的第二列, prod_name是第三列。</span><br><span class="line"> SELECT </span><br><span class="line"> 	prod_id, prod_price, prod_name</span><br><span class="line"> FROM </span><br><span class="line"> 	Products</span><br><span class="line"> Order by</span><br><span class="line"> 	2, 3;</span><br></pre></td></tr></table></figure>
-
-<h3 id="DESC"><a href="#DESC" class="headerlink" title="DESC"></a>DESC</h3><p>降序排列，与DISTINCT不同，DESC 关键字只应用到直接位于其前面的列名，如果想在多个列上进行降序排序，必须对每一列指定DESC 关键字。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_id, prod_price, prod_name</span><br><span class="line">FROM Products</span><br><span class="line">ORDER BY prod_price DESC, prod_name DESC;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 04</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_04/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第四章-过滤数据"><a href="#第四章-过滤数据" class="headerlink" title="第四章 过滤数据"></a>第四章 过滤数据</h1><p>只检索所需数据需要指定搜索条件，搜索条件也称为过滤条件。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name, prod_price</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_price = 3.49</span><br><span class="line">order by prod_id;</span><br><span class="line">#order by 必须在where之后。</span><br></pre></td></tr></table></figure>
+    <title>MySQL 基础知识 04</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_04/</url>
+    <content><![CDATA[<p>MySQL学习笔记。对数据进行过滤。<span id="more"></span></p>
+<h1 id="过滤数据"><a href="#过滤数据" class="headerlink" title="过滤数据"></a>过滤数据</h1><p>只检索所需数据需要指定<strong>搜索条件</strong>，搜索条件也称为过滤条件。</p>
+<h2 id="利用where进行过滤"><a href="#利用where进行过滤" class="headerlink" title="利用where进行过滤"></a>利用where进行过滤</h2><p><strong>where</strong> 用来对每行数据指定搜索条件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name, prod_price</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_price = 3.49</span><br><span class="line">order by prod_id;</span><br><span class="line">-- order by 必须在where之后。</span><br></pre></td></tr></table></figure>
 
 <img src = "/images/MySQL/MySQL01.png">
 
@@ -1264,23 +1236,11 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name, prod_price</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_price BETWEEN 5 AND 10;</span><br></pre></td></tr></table></figure>
 
 <p>通过过滤选择不包含指定值的所有行时，你可能希望返回含NULL 值的行。但是这做不到。因为未知（unknown）有特殊的含义，数据库不知道它们是否匹配，所以在进行匹配过滤或非匹配过滤时，不会返回这些结果。过滤数据时，一定要验证被过滤列中含NULL 的行确实出现在返回的数据中。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 05</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_05/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第五章-高级数据过滤"><a href="#第五章-高级数据过滤" class="headerlink" title="第五章  高级数据过滤"></a>第五章  高级数据过滤</h1><p>SQL 允许给出多个WHERE 子句。这些子句有两种使用方式，即以AND 子句或OR 子句的方式使用。</p>
-<h2 id="AND"><a href="#AND" class="headerlink" title="AND"></a>AND</h2><p>用在WHERE 子句中的关键字，用来指示检索满足所有给定条件的行。</p>
+<p><strong>SQL 允许给出多个WHERE 子句</strong>。这些子句有两种使用方式，即以AND 子句或OR 子句的方式使用。</p>
+<h2 id="利用操作符号进行过滤"><a href="#利用操作符号进行过滤" class="headerlink" title="利用操作符号进行过滤"></a>利用操作符号进行过滤</h2><h3 id="AND操作符"><a href="#AND操作符" class="headerlink" title="AND操作符"></a>AND操作符</h3><p>用在WHERE 子句中的关键字，用来指示检索满足所有给定条件的行。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select prod_id, prod_price, prod_name</span><br><span class="line">from products</span><br><span class="line">where vend_id = &#x27;DLL01&#x27; AND prod_price &lt;= 4;</span><br></pre></td></tr></table></figure>
 
-<h2 id="OR"><a href="#OR" class="headerlink" title="OR"></a>OR</h2><p>OR 操作符与AND 操作符正好相反，它指示DBMS 检索匹配任一条件的行。</p>
+<h3 id="OR操作符"><a href="#OR操作符" class="headerlink" title="OR操作符"></a>OR操作符</h3><p>OR 操作符与AND 操作符正好相反，它指示DBMS 检索匹配任一条件的行。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select prod_id, prod_price, prod_name</span><br><span class="line">from products</span><br><span class="line">where vend_id = &#x27;DLL01&#x27; or  prod_price &lt;= 10;</span><br></pre></td></tr></table></figure>
 
 <p>结果：</p>
@@ -1289,23 +1249,23 @@
 <h3 id="运算顺序"><a href="#运算顺序" class="headerlink" title="运算顺序"></a>运算顺序</h3><p>SQL（像多数语言一样）在处理OR 操作符前，优先处理AND 操作符。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name, prod_price</span><br><span class="line">FROM Products</span><br><span class="line">WHERE (vend_id = &#x27;DLL01&#x27; OR vend_id = &#x27;BRS01&#x27;)</span><br><span class="line">AND prod_price &gt;= 10;</span><br></pre></td></tr></table></figure>
 
-<p>任何时候使用具有AND 和OR 操作符的WHERE 子句，都应该使用圆括=号明确地分组操作符。</p>
-<h2 id="IN操作符"><a href="#IN操作符" class="headerlink" title="IN操作符"></a>IN操作符</h2><p>WHERE 子句中用来指定要匹配值的清单的关键字，功能与OR 相当。</p>
+<p>任何时候使用具有AND 和OR 操作符的WHERE 子句，都应该使用圆括号明确地分组操作符。</p>
+<h3 id="IN操作符"><a href="#IN操作符" class="headerlink" title="IN操作符"></a>IN操作符</h3><p>WHERE 子句中用来指定要匹配值的清单的关键字，功能与OR 相当。</p>
 <p>IN 操作符用来指定条件范围，范围中的每个条件都可以进行匹配。IN 取一组由逗号分隔、括在圆括号中的合法值。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name, prod_price</span><br><span class="line">FROM Products</span><br><span class="line">WHERE vend_id IN ( &#x27;DLL01&#x27;, &#x27;BRS01&#x27; )</span><br><span class="line">ORDER BY prod_name;</span><br></pre></td></tr></table></figure>
 
 <p>为什么要使用IN 操作符？其优点如下。</p>
-<p>1.在有很多合法选项时，IN 操作符的语法更清楚，更直观。</p>
-<p>2.在与其他AND 和OR 操作符组合使用IN 时，求值顺序更容易管理。</p>
-<p>3.IN 操作符一般比一组OR 操作符执行得更快.</p>
-<p>4.IN 的最大优点是可以包含其他SELECT 语句，能够更动态地建立WHERE 子句。</p>
+<p>​    1.在有很多合法选项时，IN 操作符的语法更清楚，更直观。</p>
+<p>​    2.在与其他AND 和OR 操作符组合使用IN 时，求值顺序更容易管理。</p>
+<p>​    3.IN 操作符一般比一组OR 操作符执行得更快.</p>
+<p>​    4.IN 的最大优点是可以包含其他SELECT 语句，能够更动态地建立WHERE 子句。</p>
 <h3 id="NOT操作符"><a href="#NOT操作符" class="headerlink" title="NOT操作符"></a>NOT操作符</h3><p>WHERE 子句中用来否定其后条件的关键字。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name</span><br><span class="line">FROM Products</span><br><span class="line">WHERE NOT vend_id = &#x27;DLL01&#x27;</span><br><span class="line">ORDER BY prod_name;</span><br></pre></td></tr></table></figure>
 
 <h3 id="EXIST-操作符"><a href="#EXIST-操作符" class="headerlink" title="EXIST 操作符"></a>EXIST 操作符</h3><p>EXIST 是只有1 个参数的谓词。EXIST 只需要在右侧书写1 个参数，该参数通常都会是一个关联子查询。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">作为EXIST参数的子查询中经常会使用SELECT *。</span><br><span class="line">关联子查询的返回值并不重要。</span><br></pre></td></tr></table></figure>
 
-<h3 id="CASE表达式"><a href="#CASE表达式" class="headerlink" title="CASE表达式"></a>CASE表达式</h3><p>CASE表达式的语法分为简单CASE表达式和搜索CASE表达式两种。<br>其中搜索CASE 表达式包含了简单CASE 表达式的全部功能。</p>
+<h2 id="利用CASE表达式"><a href="#利用CASE表达式" class="headerlink" title="利用CASE表达式"></a>利用CASE表达式</h2><p>CASE表达式的语法分为简单CASE表达式和搜索CASE表达式两种。<br>其中搜索CASE 表达式包含了简单CASE 表达式的全部功能。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CASE    WHEN &lt;求值表达式&gt; THEN &lt;表达式&gt;</span><br><span class="line">        WHEN &lt;求值表达式&gt; THEN &lt;表达式&gt;</span><br><span class="line">        WHEN &lt;求值表达式&gt; THEN &lt;表达式&gt;</span><br><span class="line">        .. .</span><br><span class="line">        ELSE &lt;表达式&gt;</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
 
 <p>WHEN 子句中的“&lt; 求值表达式&gt;”就是类似“列 = 值”这样，返回值为真值（TRUE/FALSE/UNKNOWN）的表达式。我们也可以将其看作使用=、!= 或者LIKE、BETWEEN 等谓词编写出来的表达式。</p>
@@ -1314,32 +1274,21 @@
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--实现行列转换</span><br><span class="line">select  sum(case when product_type = &#x27;衣服&#x27; THEN sale_price else 0 END) as sum_price_clothes,</span><br><span class="line">        sum(case when product_type = &#x27;厨房用具&#x27; THEN sale_price else 0 END) as sum_price_kitchen,</span><br><span class="line">        sum(case when product_type = &#x27;办公用品&#x27; THEN sale_price else 0 END) as sum_price_oddice</span><br><span class="line">from product;</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 06</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_06/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第六章-用通配符进行过滤"><a href="#第六章-用通配符进行过滤" class="headerlink" title="第六章  用通配符进行过滤"></a>第六章  用通配符进行过滤</h1><p>利用通配符，可以创建比较特定数据的搜索模式。</p>
+<h2 id="利用通配符进行过滤"><a href="#利用通配符进行过滤" class="headerlink" title="利用通配符进行过滤"></a>利用通配符进行过滤</h2><p>利用通配符，可以创建比较特定数据的搜索模式。</p>
 <p>通配符本身实际上是SQL 的WHERE 子句中有特殊含义的字符，SQL 支持几种通配符。为在搜索子句中使用通配符，必须使用LIKE 操作符。LIKE指示DBMS，后跟的搜索模式利用通配符匹配而不是简单的相等匹配进行比较。</p>
 <p>通配符搜索只能用于文本字段（字符串），非文本数据类型字段不能使用通配符搜索。</p>
-<h2 id="号通配符"><a href="#号通配符" class="headerlink" title="%号通配符"></a>%号通配符</h2><p>在搜索串中，%表示任何字符出现任意次数。</p>
+<h3 id="号通配符"><a href="#号通配符" class="headerlink" title="%号通配符"></a>%号通配符</h3><p>在搜索串中，%表示任何字符出现任意次数。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_id, prod_name</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_name LIKE &#x27;Fish%&#x27;;</span><br></pre></td></tr></table></figure>
 
 <p>%代表搜索模式中给定位置的0 个、1 个或多个字符。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">注意：</span><br><span class="line">包括Access 在内的许多DBMS 都用空格来填补字段的内容。例如，如果某列有50 个字符，而存储的文本为Fish bean bag toy（17 个字符），则为填满该列需要在文本后附加33 个空格。这样做一般对数据</span><br><span class="line">及其使用没有影响，但是可能对上述SQL语句有负面影响。子句WHEREprod_name LIKE &#x27;F%y&#x27;只匹配以F 开头、以y 结尾的prod_name。如果值后面跟空格，则不是以y 结尾，所以Fish bean bag toy 就</span><br><span class="line">不会检索出来。简单的解决办法是给搜索模式再增加一个%号：&#x27;F%y%&#x27;还匹配y 之后的字符（或空格）。更好的解决办法是用函数去掉空格。</span><br></pre></td></tr></table></figure>
 
-<h3 id="注意：请注意NULL"><a href="#注意：请注意NULL" class="headerlink" title="注意：请注意NULL"></a>注意：请注意NULL</h3><p>通配符%看起来像是可以匹配任何东西，但有个例外，这就是NULL。子句WHERE prod_name LIKE ‘%’不会匹配产品名称为NULL 的行。</p>
-<h2 id="下划线（-）通配符"><a href="#下划线（-）通配符" class="headerlink" title="下划线（_）通配符"></a>下划线（_）通配符</h2><p>下划线的用途与%一样，但它只匹配单个字符，而不是多个字符。</p>
+<h4 id="注意：请注意NULL"><a href="#注意：请注意NULL" class="headerlink" title="注意：请注意NULL"></a>注意：请注意NULL</h4><p>通配符%看起来像是可以匹配任何东西，但有个例外，这就是NULL。子句WHERE prod_name LIKE ‘%’不会匹配产品名称为NULL 的行。</p>
+<h3 id="下划线（-）通配符"><a href="#下划线（-）通配符" class="headerlink" title="下划线（_）通配符"></a>下划线（_）通配符</h3><p>下划线的用途与%一样，但它只匹配单个字符，而不是多个字符。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_id, prod_name</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_name LIKE &#x27;__ inch teddy bear&#x27;;</span><br></pre></td></tr></table></figure>
 
-<h2 id="正则表达式REGEXP"><a href="#正则表达式REGEXP" class="headerlink" title="正则表达式REGEXP"></a>正则表达式REGEXP</h2><h2 id="使用通配符时的技巧"><a href="#使用通配符时的技巧" class="headerlink" title="使用通配符时的技巧"></a>使用通配符时的技巧</h2><p>1.不要过度使用通配符。如果其他操作符能达到相同的目的，应该使用其他操作符。<br>2.在确实需要使用通配符时，也尽量不要把它们用在搜索模式的开始处。把通配符置于开始处，搜索起来是最慢的。<br>3.仔细注意通配符的位置。如果放错地方，可能不会返回想要的数据。</p>
+<h3 id="正则表达式REGEXP"><a href="#正则表达式REGEXP" class="headerlink" title="正则表达式REGEXP"></a>正则表达式REGEXP</h3><p>使用通配符时的技巧</p>
+<p> 1.不要过度使用通配符。如果其他操作符能达到相同的目的，应该使用其他操作符。<br> 2.在确实需要使用通配符时，也尽量不要把它们用在搜索模式的开始处。把通配符置于开始处，搜索起来是最慢的。<br> 3.仔细注意通配符的位置。如果放错地方，可能不会返回想要的数据。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1349,19 +1298,16 @@
       </tags>
   </entry>
   <entry>
-    <title>SQL 必知必会 07</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_07/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第七章-创建计算字段"><a href="#第七章-创建计算字段" class="headerlink" title="第七章  创建计算字段"></a>第七章  创建计算字段</h1><p>我们需要直接从数据库中检索出转换、计算或格式化过的数据，而不是检索出数据，然后再在客户端应用程序中重新格式化。</p>
+    <title>MySQL 基础知识 05</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_05/</url>
+    <content><![CDATA[<p>MySQL学习笔记。通过使用计算字段对检索到的数据进行初步处理<span id="more"></span></p>
+<h1 id="创建计算字段"><a href="#创建计算字段" class="headerlink" title="创建计算字段"></a>创建计算字段</h1><p>我们需要直接从数据库中检索出转换、计算或格式化过的数据，而不是检索出数据，然后再在客户端应用程序中重新格式化。</p>
 <p>计算字段并不实际存在于数据库表中。计算字段是运行时在SELECT 语句内创建的。</p>
-<h2 id="拼接字段"><a href="#拼接字段" class="headerlink" title="拼接字段"></a>拼接字段</h2><p>将值联结到一起（将一个值附加到另一个值）构成单个值。</p>
-<p>MySQL使用Concat函数来实现。</p>
+<h2 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h2><p>SQL 语句中进行运算时，需要特别注意含有NULL 的运算。所有包含NULL 的计算，结果肯定是NULL。</p>
+<h2 id="拼接字段"><a href="#拼接字段" class="headerlink" title="拼接字段"></a>拼接字段</h2><p>将值联结到一起（将一个值附加到另一个值）构成单个值。MySQL使用Concat（）函数来实现。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT Concat(vend_name, &#x27; (&#x27;, vend_country, &#x27;)&#x27;)</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
 
-<h3 id="TRIM-函数"><a href="#TRIM-函数" class="headerlink" title="TRIM 函数"></a>TRIM 函数</h3><p>RTRIM()：去掉字符串右边的空格。</p>
-<p>LTRIM()：去掉字符串左边的空格。</p>
-<p>TRIM()：去掉字符串左右两边的空格。</p>
-<h2 id="使用别名-（Alias）"><a href="#使用别名-（Alias）" class="headerlink" title="使用别名 （Alias）"></a>使用别名 （Alias）</h2><p>别名（alias）是一个字段或值的替换名。别名用AS 关键字赋予。</p>
+<h2 id="使用别名-（ALIAS）"><a href="#使用别名-（ALIAS）" class="headerlink" title="使用别名 （ALIAS）"></a>使用别名 （ALIAS）</h2><p>别名（alias）是一个字段或值的替换名。别名用AS 关键字赋予。可以减少代码的冗余。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select concat(vend_name, &#x27;(&#x27; , vend_country, &#x27;)&#x27; )  as line</span><br><span class="line">from vendors</span><br><span class="line">order by vend_name;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#结果</span><br><span class="line">+------------------------+</span><br><span class="line">| line                   |</span><br><span class="line">+------------------------+</span><br><span class="line">| Bear Emporium(USA)     |</span><br><span class="line">| Bears R Us(USA)        |</span><br><span class="line">| Doll House Inc.(USA)   |</span><br><span class="line">| Fun and Games(England) |</span><br><span class="line">| Furball Inc.(USA)      |</span><br><span class="line">| Jouets et ours(France) |</span><br><span class="line">+------------------------+</span><br><span class="line">6 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
@@ -1371,53 +1317,11 @@
 <p>结果：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">+---------+----------+------------+----------------+</span><br><span class="line">| prod_id | quantity | item_price | expanded_price |</span><br><span class="line">+---------+----------+------------+----------------+</span><br><span class="line">| RGAN01  |        5 |       4.99 |          24.95 |</span><br><span class="line">| BR03    |        5 |      11.99 |          59.95 |</span><br><span class="line">| BNBG01  |       10 |       3.49 |          34.90 |</span><br><span class="line">| BNBG02  |       10 |       3.49 |          34.90 |</span><br><span class="line">| BNBG03  |       10 |       3.49 |          34.90 |</span><br><span class="line">+---------+----------+------------+----------------+</span><br><span class="line">5 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
 
-<h3 id="如何测试计算"><a href="#如何测试计算" class="headerlink" title="如何测试计算"></a>如何测试计算</h3><p>SELECT 语句为测试、检验函数和计算提供了很好的方法。虽然SELECT通常用于从表中检索数据，但是省略了FROM 子句后就是简单地访问和处理表达式，例如SELECT 3 * 2;将返回6，SELECT Trim(‘ abc ‘);<br>将返回abc，SELECT Now();使用Now()函数返回当前日期和时间。可以根据需要使用SELECT 语句进行检验。</p>
+<h3 id="使用SELECT语句测试计算"><a href="#使用SELECT语句测试计算" class="headerlink" title="使用SELECT语句测试计算"></a>使用SELECT语句测试计算</h3><p>SELECT 语句为测试、检验函数和计算提供了很好的方法。虽然SELECT通常用于从表中检索数据，但是省略了FROM 子句后就是简单地访问和处理表达式，例如SELECT 3 * 2;将返回6，SELECT Trim(‘ abc ‘);将返回abc，SELECT Now();使用Now()函数返回当前日期和时间。可以根据需要使用SELECT 语句进行检验。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql&gt; select now();</span><br><span class="line">+---------------------+</span><br><span class="line">| now()               |</span><br><span class="line">+---------------------+</span><br><span class="line">| 2021-08-23 11:14:12 |</span><br><span class="line">+---------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
 
-<h3 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h3><p>SQL 语句中进行运算时，需要特别注意含有NULL 的运算。</p>
-<p>所有包含NULL 的计算，结果肯定是NULL。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 08</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_08/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第八章-函数"><a href="#第八章-函数" class="headerlink" title="第八章  函数"></a>第八章  函数</h1><p>与几乎所有DBMS 都等同地支持SQL 语句（如SELECT）不同，每一个DBMS 都有特定的函数。事实上，只有少数几个函数被所有主要的DBMS等同地支持。虽然所有类型的函数一般都可以在每个DBMS 中使用，但各个函数的名称和语法可能极其不同。</p>
-<h2 id="文本处理函数"><a href="#文本处理函数" class="headerlink" title="文本处理函数"></a>文本处理函数</h2><h3 id="Trim"><a href="#Trim" class="headerlink" title="Trim()"></a>Trim()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, TRIM(vend_name) AS vend_name_trim</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Upper"><a href="#Upper" class="headerlink" title="Upper()"></a>Upper()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, UPPER(vend_name) AS vend_name_upcase</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
-
-<img src = "/images/MySQL/MySQL03.png">
-
-<h2 id="日期和时间处理函数"><a href="#日期和时间处理函数" class="headerlink" title="日期和时间处理函数"></a>日期和时间处理函数</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num</span><br><span class="line">FROM Orders</span><br><span class="line">WHERE YEAR(order_date) = 2012;</span><br></pre></td></tr></table></figure>
-
-<h2 id="数值处理函数"><a href="#数值处理函数" class="headerlink" title="数值处理函数"></a>数值处理函数</h2><p>数值处理函数仅处理数值数据。这些函数一般主要用于代数、三角或几何运算，因此不像字符串或日期时间处理函数使用那么频繁。</p>
-<img src = "/images/MySQL/MySQL04.png">
-
-<h2 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h2><h3 id="round"><a href="#round" class="headerlink" title="round()"></a>round()</h3><p>在mysql中，round函数用于数据的四舍五入，它有两种形式：</p>
-<p>1、round(x,d)  ，x指要处理的数，d是指保留几位小数</p>
-<p>这里有个值得注意的地方是，d可以是负数，这时是指定小数点左边的d位整数位为0,同时小数位均为0；</p>
-<p>2、round(x)  ,其实就是round(x,0),也就是默认d为0</p>
-<h3 id="length"><a href="#length" class="headerlink" title="length()"></a>length()</h3><p>返回字符串的长度。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 09</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_09/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第九章-汇总数据"><a href="#第九章-汇总数据" class="headerlink" title="第九章  汇总数据"></a>第九章  汇总数据</h1><h2 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h2><p>对某些行运行的函数，计算并返回一个值。</p>
+<p>与几乎所有DBMS 都等同地支持SQL 语句（如SELECT）不同，每一个DBMS 都有特定的函数。事实上，只有少数几个函数被所有主要的DBMS等同地支持。虽然所有类型的函数一般都可以在每个DBMS 中使用，但各个函数的名称和语法可能极其不同。</p>
+<h2 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h2><p>对某些行运行的函数，计算并返回一个值。</p>
 <img src = "/images/MySQL/MySQL05.png">
 
 <h3 id="AVG"><a href="#AVG" class="headerlink" title="AVG()"></a>AVG()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT AVG(prod_price) AS avg_price</span><br><span class="line">FROM Products;</span><br></pre></td></tr></table></figure>
@@ -1441,14 +1345,32 @@
 <h3 id="SUM-函数"><a href="#SUM-函数" class="headerlink" title="SUM()函数"></a>SUM()函数</h3><p>SUM()用来返回指定列值的和（总计）。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT SUM(quantity) AS items_ordered</span><br><span class="line">FROM OrderItems</span><br><span class="line">WHERE order_num = 20005;</span><br></pre></td></tr></table></figure>
 
-<h3 id="以上5-个聚集函数都可以如下使用："><a href="#以上5-个聚集函数都可以如下使用：" class="headerlink" title="以上5 个聚集函数都可以如下使用："></a>以上5 个聚集函数都可以如下使用：</h3><p>1.对所有行执行计算，指定ALL 参数或不指定参数（因为ALL 是默认行为）。</p>
-<p>2.只包含不同的值，指定DISTINCT 参数</p>
+<h3 id="以上5-个聚集函数都可以如下使用："><a href="#以上5-个聚集函数都可以如下使用：" class="headerlink" title="以上5 个聚集函数都可以如下使用："></a>以上5 个聚集函数都可以如下使用：</h3><p>​    1.对所有行执行计算，指定ALL 参数或不指定参数（因为ALL 是默认行为）。</p>
+<p>​    2.只包含不同的值，指定DISTINCT 参数</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT AVG(DISTINCT prod_price) AS avg_price</span><br><span class="line">FROM Products</span><br><span class="line">WHERE vend_id = &#x27;DLL01&#x27;;</span><br></pre></td></tr></table></figure>
 
 <p>类似地，DISTINCT 必须使用列名，不能用于计算或表达式。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(*) AS num_items,</span><br><span class="line">    MIN(prod_price) AS price_min,</span><br><span class="line">    MAX(prod_price) AS price_max,</span><br><span class="line">    AVG(prod_price) AS price_avg</span><br><span class="line">FROM Products;</span><br></pre></td></tr></table></figure>
 
-<p>3.MAX/MIN函数几乎适用于所有数据类型的列。SUM/AVG函数只适用于数值类型的列。</p>
+<p>​    3.MAX/MIN函数几乎适用于所有数据类型的列。SUM/AVG函数只适用于数值类型的列。</p>
+<p>​    ４.where语句中不能跟聚集函数，但是having语句中可以。</p>
+<h2 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h2><h3 id="文本处理函数"><a href="#文本处理函数" class="headerlink" title="文本处理函数"></a>文本处理函数</h3><h3 id="TRIM"><a href="#TRIM" class="headerlink" title="TRIM()"></a>TRIM()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, TRIM(vend_name) AS vend_name_trim</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
+
+<h3 id="UPPER"><a href="#UPPER" class="headerlink" title="UPPER()"></a>UPPER()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, UPPER(vend_name) AS vend_name_upcase</span><br><span class="line">FROM Vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
+
+<img src = "/images/MySQL/MySQL03.png">
+
+<h3 id="日期和时间处理函数"><a href="#日期和时间处理函数" class="headerlink" title="日期和时间处理函数"></a>日期和时间处理函数</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num</span><br><span class="line">FROM Orders</span><br><span class="line">WHERE YEAR(order_date) = 2012;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数值处理函数"><a href="#数值处理函数" class="headerlink" title="数值处理函数"></a>数值处理函数</h3><p>数值处理函数仅处理数值数据。这些函数一般主要用于代数、三角或几何运算，因此不像字符串或日期时间处理函数使用那么频繁。</p>
+<img src = "/images/MySQL/MySQL04.png">
+
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h3 id="ROUND"><a href="#ROUND" class="headerlink" title="ROUND()"></a>ROUND()</h3><p>在mysql中，round函数用于数据的四舍五入，它有两种形式：</p>
+<p>1、round(x,d)  ，x指要处理的数，d是指保留几位小数</p>
+<p>这里有个值得注意的地方是，d可以是负数，这时是指定小数点左边的d位整数位为0,同时小数位均为0；</p>
+<p>2、round(x)  ,其实就是round(x,0),也就是默认d为0</p>
+<h3 id="LENGTH"><a href="#LENGTH" class="headerlink" title="LENGTH()"></a>LENGTH()</h3><p>返回字符串的长度。</p>
+<h3 id="CAST"><a href="#CAST" class="headerlink" title="CAST()"></a>CAST()</h3><p>数据格式转换函数，将字符串转为数字，日期转为数字等。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1458,23 +1380,23 @@
       </tags>
   </entry>
   <entry>
-    <title>SQL 必知必会 10</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_10/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第十章-分组数据"><a href="#第十章-分组数据" class="headerlink" title="第十章  分组数据"></a>第十章  分组数据</h1><p>使用分组可以将数据分为多个逻辑组，对每个组进行聚集计算。</p>
-<p>分组是使用SELECT 语句的GROUP BY 子句建立的。</p>
+    <title>MySQL 基础知识 06</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_06/</url>
+    <content><![CDATA[<p>MySQL学习笔记。对数据进行分组和进行查询。<span id="more"></span></p>
+<h1 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h1><p>使用分组可以将数据分为多个逻辑组，对每个组进行聚集计算。</p>
+<p>分组是使用SELECT 语句的<strong>GROUP BY</strong> 子句建立的。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">GROUP BY vend_id;</span><br></pre></td></tr></table></figure>
 
 <p>GROUP BY 子句指示DBMS 分组数据，然后对每个组而不是整个结果集进行聚集。</p>
-<h2 id="GROUP-BY-子句"><a href="#GROUP-BY-子句" class="headerlink" title="GROUP BY 子句"></a>GROUP BY 子句</h2><p>1.GROUP BY 子句可以包含任意数目的列，因而可以对分组进行嵌套，更细致地进行数据分组。</p>
-<p>2.如果在GROUP BY 子句中嵌套了分组，数据将在最后指定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</p>
-<p>3.GROUP BY 子句中列出的每一列都必须是检索列或有效的表达式（但不能是聚集函数）。如果在SELECT 中使用表达式，则必须在GROUP BY子句中指定相同的表达式。不能使用别名。</p>
-<p>4.大多数SQL 实现不允许GROUP BY 列带有长度可变的数据类型（如文本或备注型字段）。</p>
-<p>5.除聚集计算语句外，SELECT 语句中的每一列都必须在GROUP BY 子句中给出。</p>
-<p>6.如果分组列中包含具有NULL 值的行，则NULL 将作为一个分组返回。如果列中有多行NULL 值，它们将分为一组。</p>
-<p>7.GROUP BY 子句必须出现在WHERE 子句之后，ORDER BY 子句之前。</p>
+<h2 id="GROUP-BY-子句"><a href="#GROUP-BY-子句" class="headerlink" title="GROUP BY 子句"></a>GROUP BY 子句</h2><p> 1.GROUP BY 子句可以包含任意数目的列，因而可以对分组进行嵌套，更细致地进行数据分组。</p>
+<p> 2.如果在GROUP BY 子句中嵌套了分组，数据将在最后指定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</p>
+<p> 3.GROUP BY 子句中列出的每一列都必须是检索列或有效的表达式（但不能是聚集函数）。如果在SELECT 中使用表达式，则必须在GROUP BY子句中指定相同的表达式。不能使用别名。</p>
+<p> 4.大多数SQL 实现不允许GROUP BY 列带有长度可变的数据类型（如文本或备注型字段）。</p>
+<p> 5.除聚集计算语句外，SELECT 语句中的每一列都必须在GROUP BY 子句中给出。</p>
+<p> 6.如果分组列中包含具有NULL 值的行，则NULL 将作为一个分组返回。如果列中有多行NULL 值，它们将分为一组。</p>
+<p> 7.GROUP BY 子句必须出现在WHERE 子句之后，ORDER BY 子句之前。</p>
 <h2 id="过滤分组"><a href="#过滤分组" class="headerlink" title="过滤分组"></a>过滤分组</h2><p>除了能用GROUP BY 分组数据外，SQL 还允许过滤分组，规定包括哪些分组，排除哪些分组。</p>
-<p>目前为止所学过的所有类型的WHERE 子句都可以用HAVING 来替代。唯一的差别是，WHERE过滤行，而HAVING 过滤分组。</p>
+<p>目前为止所学过的所有类型的WHERE 子句都可以用<strong>HAVING</strong> 来替代。唯一的差别是，<strong>WHERE过滤行，而HAVING 过滤分组。</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_id, COUNT(*) AS orders</span><br><span class="line">FROM Orders</span><br><span class="line">GROUP BY cust_id</span><br><span class="line">HAVING COUNT(*) &gt;= 2;</span><br></pre></td></tr></table></figure>
 
 <p>WHERE 在数据分组前进行过滤，HAVING 在数据分组后进行过滤。这是一个重要的区别，WHERE 排除的行不包括在分组中。这可能会改变计算值，从而影响HAVING 子句中基于这些值过滤掉的分组。</p>
@@ -1486,98 +1408,16 @@
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;= 3</span><br><span class="line">ORDER BY items, order_num;</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 11</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_11/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第十一章-使用子查询"><a href="#第十一章-使用子查询" class="headerlink" title="第十一章  使用子查询"></a>第十一章  使用子查询</h1><p>列出订购物品RGAN01 的所有顾客：</p>
+<h1 id="进行子查询"><a href="#进行子查询" class="headerlink" title="进行子查询"></a>进行子查询</h1><p>列出订购物品RGAN01 的所有顾客：</p>
 <p>1.检索包含物品 RGAN01的所有订单编号。</p>
 <p>2.检索具有前一步骤列出的顶单编号的顾客的ID。</p>
 <p>3.检索前一步骤返回的所有顾客的顾客信息。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM Customers</span><br><span class="line">WHERE cust_id IN (SELECT cust_id</span><br><span class="line">				  FROM Orders</span><br><span class="line">				  WHERE order_num IN (SELECT order_num</span><br><span class="line">									  FROM OrderItems</span><br><span class="line">							  		  WHERE prod_id = &#x27;RGAN01&#x27;));</span><br></pre></td></tr></table></figure>
 
-<p>作为子查询的SELECT 语句只能查询单个列。企图检索多个列将返回错误。</p>
+<p><strong>作为子查询的SELECT 语句只能查询单个列。企图检索多个列将返回错误。</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_state,</span><br><span class="line">		(SELECT COUNT(*)</span><br><span class="line">			FROM Orders</span><br><span class="line">			WHERE Orders.cust_id = Customers.cust_id) AS orders</span><br><span class="line">FROM Customers</span><br><span class="line">ORDER BY cust_name;</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 12</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_12/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第十二章-联结表"><a href="#第十二章-联结表" class="headerlink" title="第十二章  联结表"></a>第十二章  联结表</h1><h2 id="关系表"><a href="#关系表" class="headerlink" title="关系表"></a>关系表</h2><p>相同的数据出现多次决不是一件好事，这是关系数据库设计的基础。关系表的设计就是要把信息分解成多个表，一类数据一个表。各表通过某些共同的值互相关联（所以才叫关系数据库）。</p>
-<p>联结是一种机制，用来在一条SELECT 语句中关联表，因此称为联结。使用特殊的语法，可以联结多个表返回一组输出，联结在运行时关联表中正确的行。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price</span><br><span class="line">FROM Vendors, Products</span><br><span class="line">WHERE Vendors.vend_id = Products.vend_id;</span><br></pre></td></tr></table></figure>
-
-<p>要保证所有联结都有WHERE 子句，否则DBMS 将返回比想要的数据多得多的数据。同理，要保证WHERE 子句的正确性。不正确的过滤条件会导致DBMS 返回不正确的数据。</p>
-<h2 id="内联结"><a href="#内联结" class="headerlink" title="内联结"></a>内联结</h2><p>目前为止使用的联结称为等值联结（equijoin），它基于两个表之间的相等测试。这种联结也称为内联结（inner join）。可以对这种联结使用稍微不同的语法，明确指定联结的类型。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price</span><br><span class="line">FROM Vendors INNER JOIN Products</span><br><span class="line">ON Vendors.vend_id = Products.vend_id;</span><br></pre></td></tr></table></figure>
-
-<p>这里，两个表之间的关系是以INNER JOIN 指定的部分FROM 子句。在使用这种语法时，联结条件用特定的ON 子句而不是WHERE 子句给出。传递给ON 的实际条件与传递给WHERE 的相同。</p>
-<p>SQL 不限制一条SELECT 语句中可以联结的表的数目。创建联结的基本规则也相同。首先列出所有表，然后定义表之间的关系。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name, vend_name, prod_price, quantity</span><br><span class="line">FROM OrderItems, Products, Vendors</span><br><span class="line">WHERE Products.vend_id = Vendors.vend_id</span><br><span class="line">AND OrderItems.prod_id = Products.prod_id</span><br><span class="line">AND order_num = 20007;</span><br></pre></td></tr></table></figure>
-
-<p>select子语句可用联结来代替。但具体的性能需要结合数据库进行考虑。</p>
-<h3 id="三个表的联结"><a href="#三个表的联结" class="headerlink" title="三个表的联结"></a>三个表的联结</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select sp.shop_id, sp.shop_name, sp.product_id, p.product_name, p.sale_price, ip.inventory_quantity</span><br><span class="line">from shopproduct as sp </span><br><span class="line">    inner join product as p on sp.product_id = p.product_id</span><br><span class="line">    inner join inventoryProduct as ip on sp.product_id = ip.product_id</span><br><span class="line">where ip.inventory_id = &#x27;P001&#x27;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="交叉联结"><a href="#交叉联结" class="headerlink" title="交叉联结"></a>交叉联结</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT SP.shop_id, SP.shop_name, SP.product_id, P.product_name</span><br><span class="line">FROM ShopProduct AS SP CROSS JOIN Product AS P;</span><br></pre></td></tr></table></figure>
-
-<p>满足笛卡尔积。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 13</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_13/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第十三章-创建高级联结"><a href="#第十三章-创建高级联结" class="headerlink" title="第十三章  创建高级联结"></a>第十三章  创建高级联结</h1><h2 id="给表起别名"><a href="#给表起别名" class="headerlink" title="给表起别名"></a>给表起别名</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM Customers AS C, Orders AS O, OrderItems AS OI</span><br><span class="line">WHERE C.cust_id = O.cust_id</span><br><span class="line">AND OI.order_num = O.order_num</span><br><span class="line">AND prod_id = &#x27;RGAN01&#x27;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="自联结"><a href="#自联结" class="headerlink" title="自联结"></a>自联结</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT c1.cust_id, c1.cust_name, c1.cust_contact</span><br><span class="line">FROM Customers AS c1, Customers AS c2</span><br><span class="line">WHERE c1.cust_name = c2.cust_name</span><br><span class="line">AND c2.cust_contact = &#x27;Jim Jones&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>自联结的效率一般比子查询要高。</p>
-<h2 id="自然联结"><a href="#自然联结" class="headerlink" title="自然联结"></a>自然联结</h2><p>无论何时对表进行联结，应该至少有一列不止出现在一个表中（被联结的列）。标准的联结（内联结）返回所有数据，相同的列甚至多次出现。自然联结排除多次出现，使每一列只返回一次。</p>
-<p>自然联结要求你只能选择那些唯一的列，一般通过对一个表使用通配符（SELECT *），而对其他表的列使用明确的子集来完成。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT C.*, O.order_num, O.order_date,</span><br><span class="line">OI.prod_id, OI.quantity, OI.item_price</span><br><span class="line">FROM Customers AS C, Orders AS O, OrderItems AS OI</span><br><span class="line">WHERE C.cust_id = O.cust_id</span><br><span class="line">AND OI.order_num = O.order_num</span><br><span class="line">AND prod_id = &#x27;RGAN01&#x27;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="外联结"><a href="#外联结" class="headerlink" title="外联结"></a>外联结</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT Customers.cust_id, Orders.order_num</span><br><span class="line">FROM Customers LEFT OUTER JOIN Orders</span><br><span class="line">ON Customers.cust_id = Orders.cust_id;</span><br></pre></td></tr></table></figure>
-
-<p>在使用OUTERJOIN 语法时，必须使用RIGHT 或LEFT 关键字指定包括其所有行的表（RIGHT 指出的是OUTER JOIN 右边的表，而LEFT 指出的是OUTER JOIN左边的表）。</p>
-<h3 id="使用带聚集函数的联结"><a href="#使用带聚集函数的联结" class="headerlink" title="使用带聚集函数的联结"></a>使用带聚集函数的联结</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT Customers.cust_id,</span><br><span class="line">COUNT(Orders.order_num) AS num_ord</span><br><span class="line">FROM Customers INNER JOIN Orders</span><br><span class="line">ON Customers.cust_id = Orders.cust_id</span><br><span class="line">GROUP BY Customers.cust_id;</span><br></pre></td></tr></table></figure>
-
-<img src = "/images/MySQL/MySQL07.jpg">
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 14</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_14/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第十四章-组合查询"><a href="#第十四章-组合查询" class="headerlink" title="第十四章  组合查询"></a>第十四章  组合查询</h1><h2 id="UNION-并集"><a href="#UNION-并集" class="headerlink" title="UNION  并集"></a>UNION  并集</h2><p>SQL 允许执行多个查询（多条SELECT 语句），并将结果作为一个查询结果集返回。这些组合查询通常称为并（union）或复合查询（compound query）。</p>
+<h1 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h1><h2 id="UNION-并集"><a href="#UNION-并集" class="headerlink" title="UNION  并集"></a>UNION  并集</h2><p>SQL 允许执行多个查询（多条SELECT 语句），并将结果作为一个查询结果集返回。这些组合查询通常称为并（union）或复合查询（compound query）。</p>
 <p>主要有两种情况需要使用组合查询：</p>
 <ol>
 <li>在一个查询中从不同的表返回结构数据；</li>
@@ -1608,32 +1448,42 @@
       </tags>
   </entry>
   <entry>
-    <title>SQL 必知必会 15</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_15/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第十五章-插入数据"><a href="#第十五章-插入数据" class="headerlink" title="第十五章 插入数据"></a>第十五章 插入数据</h1><h2 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h2><p>INSERT 用来将行插入（或添加）到数据库表。</p>
-<p>1.插入完整的行。</p>
-<p>2.插入行的一部分。</p>
-<p>3.插入某些查询到结果。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers</span><br><span class="line">VALUES(&#x27;1000000006&#x27;,</span><br><span class="line">&#x27;Toy Land&#x27;,</span><br><span class="line">&#x27;123 Any Street&#x27;,</span><br><span class="line">&#x27;New York&#x27;,</span><br><span class="line">&#x27;NY&#x27;,</span><br><span class="line">&#x27;11111&#x27;,</span><br><span class="line">&#x27;USA&#x27;,</span><br><span class="line">NULL,</span><br><span class="line">NULL);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <title>MySQL 基础知识 07</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_07/</url>
+    <content><![CDATA[<p>MySQL学习笔记。 表的联结： 内联结 + 外联结。<span id="more"></span></p>
+<h1 id="联结表"><a href="#联结表" class="headerlink" title="联结表"></a>联结表</h1><h2 id="关系表"><a href="#关系表" class="headerlink" title="关系表"></a>关系表</h2><p>相同的数据出现多次决不是一件好事，这是关系数据库设计的基础。关系表的设计就是要把信息分解成多个表，一类数据一个表。各表通过某些共同的值互相关联（所以才叫关系数据库）。</p>
+<p>联结是一种机制，用来在一条SELECT 语句中关联表，因此称为联结。使用特殊的语法，可以联结多个表返回一组输出，联结在运行时关联表中正确的行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price</span><br><span class="line">FROM Vendors, Products</span><br><span class="line">WHERE Vendors.vend_id = Products.vend_id;</span><br></pre></td></tr></table></figure>
 
-<p>繁琐但更安全的方式：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers(cust_id,</span><br><span class="line">cust_name,</span><br><span class="line">cust_address,</span><br><span class="line">cust_city,</span><br><span class="line">cust_state,</span><br><span class="line">cust_zip,</span><br><span class="line">cust_country,</span><br><span class="line">cust_contact,</span><br><span class="line">cust_email)</span><br><span class="line">VALUES(&#x27;1000000006&#x27;,</span><br><span class="line">&#x27;Toy Land&#x27;,</span><br><span class="line">&#x27;123 Any Street&#x27;,</span><br><span class="line">&#x27;New York&#x27;,</span><br><span class="line">&#x27;NY&#x27;,</span><br><span class="line">&#x27;11111&#x27;,</span><br><span class="line">&#x27;USA&#x27;,</span><br><span class="line">NULL,</span><br><span class="line">NULL);</span><br></pre></td></tr></table></figure>
+<p>要保证所有联结都有WHERE 子句，否则DBMS 将返回比想要的数据多得多的数据。同理，要保证WHERE 子句的正确性。不正确的过滤条件会导致DBMS 返回不正确的数据。</p>
+<h2 id="内联结"><a href="#内联结" class="headerlink" title="内联结"></a>内联结</h2><p>目前为止使用的联结称为等值联结（equijoin），它基于两个表之间的相等测试。这种联结也称为内联结（inner join）。可以对这种联结使用稍微不同的语法，明确指定联结的类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price</span><br><span class="line">FROM Vendors INNER JOIN Products</span><br><span class="line">ON Vendors.vend_id = Products.vend_id;</span><br></pre></td></tr></table></figure>
 
-<p>如果表的定义允许，则可以在INSERT 操作中省略某些列。</p>
-<p>省略的列必须满足以下某个条件。<br>1.该列定义为允许NULL 值（无值或空值）。<br>2.在表定义中给出默认值。这表示如果不给出值，将使用默认值。</p>
-<h3 id="insert-select"><a href="#insert-select" class="headerlink" title="insert  select"></a>insert  select</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers(cust_id,</span><br><span class="line">        cust_contact,</span><br><span class="line">        cust_email,</span><br><span class="line">        cust_name,</span><br><span class="line">        cust_address,</span><br><span class="line">        cust_city,</span><br><span class="line">        cust_state,</span><br><span class="line">        cust_zip,</span><br><span class="line">        cust_country)</span><br><span class="line">SELECT cust_id,</span><br><span class="line">        cust_contact,</span><br><span class="line">        cust_email,</span><br><span class="line">        cust_name,</span><br><span class="line">        cust_address,</span><br><span class="line">        cust_city,</span><br><span class="line">        cust_state,</span><br><span class="line">        cust_zip,</span><br><span class="line">        cust_country</span><br><span class="line">FROM CustNew;</span><br></pre></td></tr></table></figure>
+<p>这里，两个表之间的关系是以INNER JOIN 指定的部分FROM 子句。在使用这种语法时，联结条件用特定的ON 子句而不是WHERE 子句给出。传递给ON 的实际条件与传递给WHERE 的相同。</p>
+<p>SQL 不限制一条SELECT 语句中可以联结的表的数目。创建联结的基本规则也相同。首先列出所有表，然后定义表之间的关系。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT prod_name, vend_name, prod_price, quantity</span><br><span class="line">FROM OrderItems, Products, Vendors</span><br><span class="line">WHERE Products.vend_id = Vendors.vend_id</span><br><span class="line">AND OrderItems.prod_id = Products.prod_id</span><br><span class="line">AND order_num = 20007;</span><br></pre></td></tr></table></figure>
 
-<p>1.INSERT SELECT 中SELECT 语句可以包含WHERE 子句，以过滤插入的数据。</p>
-<p>2.不管SELECT语句返回多少行，都将被INSERT 插入。</p>
-<p>3.INSERT语句的SELECT语句中，可以使用WHERE子句或者GROUP BY子句等任何SQL语法（ 但使用ORDER BY子句并不会产生任何效果）。</p>
-<h3 id="select-into"><a href="#select-into" class="headerlink" title="select into"></a>select into</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">INTO CustCopy</span><br><span class="line">FROM Customers;</span><br></pre></td></tr></table></figure>
+<p>select子语句可用联结来代替。但具体的性能需要结合数据库进行考虑。</p>
+<h3 id="使用带聚集函数的联结"><a href="#使用带聚集函数的联结" class="headerlink" title="使用带聚集函数的联结"></a>使用带聚集函数的联结</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT Customers.cust_id,</span><br><span class="line">COUNT(Orders.order_num) AS num_ord</span><br><span class="line">FROM Customers INNER JOIN Orders</span><br><span class="line">ON Customers.cust_id = Orders.cust_id</span><br><span class="line">GROUP BY Customers.cust_id;</span><br></pre></td></tr></table></figure>
 
-<h3 id="插入默认值或NULL"><a href="#插入默认值或NULL" class="headerlink" title="插入默认值或NULL"></a>插入默认值或NULL</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--插入默认值</span><br><span class="line">INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES (&#x27;0007&#x27;, &#x27;擦菜板&#x27;, &#x27;厨房用具&#x27;, DEFAULT, 790, &#x27;2009-04-28&#x27;);</span><br></pre></td></tr></table></figure>
+<img src = "/images/MySQL/MySQL07.jpg">
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--插入NULL</span><br><span class="line">INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES (&#x27;0006&#x27;, &#x27;叉子&#x27;, &#x27;厨房用具&#x27;, 500, NULL, &#x27;2009-09-20&#x27;);</span><br></pre></td></tr></table></figure>
+<h2 id="交叉联结"><a href="#交叉联结" class="headerlink" title="交叉联结"></a>交叉联结</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT SP.shop_id, SP.shop_name, SP.product_id, P.product_name</span><br><span class="line">FROM ShopProduct AS SP CROSS JOIN Product AS P;</span><br></pre></td></tr></table></figure>
 
-]]></content>
+<p>满足笛卡尔积。</p>
+<h2 id="自联结"><a href="#自联结" class="headerlink" title="自联结"></a>自联结</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT c1.cust_id, c1.cust_name, c1.cust_contact</span><br><span class="line">FROM Customers AS c1, Customers AS c2</span><br><span class="line">WHERE c1.cust_name = c2.cust_name</span><br><span class="line">AND c2.cust_contact = &#x27;Jim Jones&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>自联结的效率一般比子查询要高。</p>
+<h2 id="自然联结"><a href="#自然联结" class="headerlink" title="自然联结"></a>自然联结</h2><p>无论何时对表进行联结，应该至少有一列不止出现在一个表中（被联结的列）。标准的联结（内联结）返回所有数据，相同的列甚至多次出现。自然联结排除多次出现，使每一列只返回一次。</p>
+<p>自然联结要求你只能选择那些唯一的列，一般通过对一个表使用通配符（SELECT *），而对其他表的列使用明确的子集来完成。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT C.*, O.order_num, O.order_date,</span><br><span class="line">OI.prod_id, OI.quantity, OI.item_price</span><br><span class="line">FROM Customers AS C, Orders AS O, OrderItems AS OI</span><br><span class="line">WHERE C.cust_id = O.cust_id</span><br><span class="line">AND OI.order_num = O.order_num</span><br><span class="line">AND prod_id = &#x27;RGAN01&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="外联结"><a href="#外联结" class="headerlink" title="外联结"></a>外联结</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT Customers.cust_id, Orders.order_num</span><br><span class="line">FROM Customers LEFT OUTER JOIN Orders</span><br><span class="line">ON Customers.cust_id = Orders.cust_id;</span><br></pre></td></tr></table></figure>
+
+<p>在使用OUTERJOIN 语法时，必须使用RIGHT 或LEFT 关键字指定包括其所有行的表（RIGHT 指出的是OUTER JOIN 右边的表，而LEFT 指出的是OUTER JOIN左边的表）。</p>
+<h3 id="三个表的联结"><a href="#三个表的联结" class="headerlink" title="三个表的联结"></a>三个表的联结</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select sp.shop_id, sp.shop_name, sp.product_id, p.product_name, p.sale_price, ip.inventory_quantity</span><br><span class="line">from shopproduct as sp </span><br><span class="line">    inner join product as p on sp.product_id = p.product_id</span><br><span class="line">    inner join inventoryProduct as ip on sp.product_id = ip.product_id</span><br><span class="line">where ip.inventory_id = &#x27;P001&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -1642,110 +1492,31 @@
       </tags>
   </entry>
   <entry>
-    <title>SQL 必知必会 16</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_16/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第十六章-更新和删除数据"><a href="#第十六章-更新和删除数据" class="headerlink" title="第十六章  更新和删除数据"></a>第十六章  更新和删除数据</h1><h2 id="update"><a href="#update" class="headerlink" title="update"></a>update</h2><h4 id="有两种使用UPDATE的方式"><a href="#有两种使用UPDATE的方式" class="headerlink" title="有两种使用UPDATE的方式"></a>有两种使用UPDATE的方式</h4><ol>
-<li>  更新表中的特定行；</li>
-<li>  更新表中的所有行。</li>
-</ol>
-<h4 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h4><ol>
-<li>要更新的表；</li>
-<li>列名和它们的新值；</li>
-<li>确定要更新哪些行的过滤条件。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE Customers</span><br><span class="line">SET cust_email = &#x27;kim@thetoystore.com&#x27;</span><br><span class="line">WHERE cust_id = &#x27;1000000005&#x27;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE Customers</span><br><span class="line">SET cust_contact = &#x27;Sam Roberts&#x27;,</span><br><span class="line">	cust_email = &#x27;sam@toyland.com&#x27;</span><br><span class="line">WHERE cust_id = &#x27;1000000006&#x27;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 将列用()括起来的清单形式</span><br><span class="line">UPDATE Product</span><br><span class="line">SET (sale_price, purchase_price) = (sale_price * 10, purchase_price / 2)</span><br><span class="line">WHERE product_type = &#x27;厨房用具&#x27;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h2><h3 id="有两种使用DELETE的方式"><a href="#有两种使用DELETE的方式" class="headerlink" title="有两种使用DELETE的方式"></a>有两种使用DELETE的方式</h3><p>1.从表中删除特定的行；</p>
-<p>2.从表中删除所有行。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Customers</span><br><span class="line">WHERE cust_id = &#x27;1000000006&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>DELETE 不需要列名或通配符。DELETE 删除整行而不是删除列。要删除指定的列，请使用UPDATE 语句。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 17</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_17/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第十七章-创建和操纵表"><a href="#第十七章-创建和操纵表" class="headerlink" title="第十七章  创建和操纵表"></a>第十七章  创建和操纵表</h1><h2 id="create"><a href="#create" class="headerlink" title="create"></a>create</h2><p>利用create 创建数据库</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE DATABASE &lt;数据库名称&gt;;</span><br><span class="line">use &lt;数据库名称&gt;;</span><br></pre></td></tr></table></figure>
-
-<p>利用CREATE TABLE 创建表，必须给出下列信息：</p>
-<p>1.新表的名字，在关键字CREATE TABLE 之后给出；<br>2.表列的名字和定义，用逗号分隔；<br>3.有的DBMS 还要求指定表的位置。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;</span><br><span class="line">（&lt;列名1&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">&lt;列名2&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">&lt;列名3&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">&lt;列名4&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">.. .</span><br><span class="line">&lt;该表的约束1&gt;， &lt;该表的约束2&gt;，……）；</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table products(</span><br><span class="line">	prod_id  char(10) not null,</span><br><span class="line">	vend_id  char(10) not null,</span><br><span class="line">	prod_name char(254) not null,</span><br><span class="line">	prod_price decimal(8, 2) not null,</span><br><span class="line">	prod_desc  text(100) null</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<h2 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h2><p>NULL 值就是没有值或缺值。允许NULL 值的列也允许在插入行时不给出该列的值。不允许NULL 值的列不接受没有列值的行，换句话说，在插入或更新行时，该列必须有值。</p>
-<p>NULL 为默认设置，如果不指定NOT NULL，就认为指定的是NULL。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Vendors</span><br><span class="line">(</span><br><span class="line">    vend_id CHAR(10) NOT NULL,</span><br><span class="line">    vend_name CHAR(50) NOT NULL,</span><br><span class="line">    vend_address CHAR(50) ,</span><br><span class="line">    vend_city CHAR(50) ,</span><br><span class="line">    vend_state CHAR(5) ,</span><br><span class="line">    vend_zip CHAR(10) ,</span><br><span class="line">    vend_country CHAR(50)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p>只有不允许NULL值的列可作为主键，允许NULL 值的列不能作为唯一标识。</p>
-<p>不要把NULL 值与空字符串相混淆。NULL 值是没有值，不是空字符串。如果指定’’（两个单引号，其间没有字符），这在NOT NULL 列中是允许的。空字符串是一个有效的值，它不是无值。NULL 值用关键字NULL而不是空字符串指定。</p>
-<h2 id="default"><a href="#default" class="headerlink" title="default"></a>default</h2><p>SQL 允许指定默认值，在插入行时如果不给出值，DBMS 将自动采用默认值。默认值在CREATE TABLE 语句的列定义中用关键字DEFAULT 指定。</p>
-<h2 id="alter"><a href="#alter" class="headerlink" title="alter"></a>alter</h2><p>使用ALTER TABLE 更改表结构，必须给出下面的信息：<br>1.在ALTER TABLE 之后给出要更改的表名（该表必须存在，否则将出错）；<br>2.列出要做哪些更改。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">alter table vendors</span><br><span class="line">add vend_phone char(20);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE Vendors</span><br><span class="line">DROP COLUMN vend_phone;</span><br></pre></td></tr></table></figure>
-
-<p><strong>数据库表的更改不能撤销.</strong></p>
-<h2 id="drop"><a href="#drop" class="headerlink" title="drop"></a>drop</h2><p>删除表（删除整个表而不是其内容）非常简单，使用DROP TABLE 语句即可。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP TABLE CustCopy;</span><br></pre></td></tr></table></figure>
-
-<p>标准SQL 中用来从表中删除数据的只有DELETE 语句。但是，很多数据库产品中还存在另外一种被称为TRUNCATE 的语句。这些产品主要包括Oracle、SQLServer、PostgreSQL、MySQL 和DB2。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TRUNCATE &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
-
-<p>与DELETE 不同的是，TRUNCATE 只能删除表中的全部数据，而不能通过WHERE 子句指定条件来删除部分数据。也正是因为它不能具体地控制删除对象，所以其处理速度比DELETE 要快得多。实际上，DELETE 语句在DML 语句中也属于处理时间比较长的，因此需要删除全部数据行时，使用TRUNCATE 可以缩短执行时间。</p>
-<h2 id="rename"><a href="#rename" class="headerlink" title="rename"></a>rename</h2><p>重命名表。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rename table product to products;</span><br></pre></td></tr></table></figure>
-
-<h3 id="show"><a href="#show" class="headerlink" title="show"></a>show</h3><p>查询数据库和表等其他信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//查看已有的数据库</span><br><span class="line">show database;</span><br><span class="line">//查看已有的表</span><br><span class="line">show tables;</span><br><span class="line">//查看表的具体信息，不包含数据本身</span><br><span class="line">show crearte table tablename；</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 18</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_18/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第十八章-使用识图"><a href="#第十八章-使用识图" class="headerlink" title="第十八章  使用识图"></a>第十八章  使用识图</h1><p>视图是虚拟的表。与包含数据的表不一样，视图只包含使用时动态检索数据的查询。</p>
-<h2 id="视图的一些常见应用"><a href="#视图的一些常见应用" class="headerlink" title="视图的一些常见应用"></a>视图的一些常见应用</h2><p>1.重用SQL 语句。</p>
-<p>2.简化复杂的SQL 操作。在编写查询后，可以方便地重用它而不必知道其基本查询细节。</p>
-<p>3.使用表的一部分而不是整个表。</p>
-<p>4.保护数据。可以授予用户访问表的特定部分的权限，而不是整个表的访问权限。</p>
-<p>5.更改数据格式和表示。视图可返回与底层表的表示和格式不同的数据。</p>
+    <title>MySQL 基础知识 08</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_08/</url>
+    <content><![CDATA[<p>MySQL学习笔记。使用视图可以提高检索效率，保存select语句。利用存储过程可以批量的使用一系列SQL语句。<span id="more"></span></p>
+<h1 id="使用视图"><a href="#使用视图" class="headerlink" title="使用视图"></a>使用视图</h1><p>视图是虚拟的表。与包含数据的表不一样，视图只包含使用时动态检索数据的查询。</p>
+<h2 id="视图的一些常见应用"><a href="#视图的一些常见应用" class="headerlink" title="视图的一些常见应用"></a>视图的一些常见应用</h2><p> 1.重用SQL 语句。</p>
+<p> 2.简化复杂的SQL 操作。在编写查询后，可以方便地重用它而不必知道其基本查询细节。</p>
+<p> 3.使用表的一部分而不是整个表。</p>
+<p> 4.保护数据。可以授予用户访问表的特定部分的权限，而不是整个表的访问权限。</p>
+<p> 5.更改数据格式和表示。视图可返回与底层表的表示和格式不同的数据。</p>
 <h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>因为视图不包含数据，所以每次使用视图时，都必须处理查询执行时需要的所有检索。如果你用多个联结和过滤创建了复杂的视图或者嵌套了视图，性能可能会下降得很厉害。</p>
-<h2 id="常见的规则和限制"><a href="#常见的规则和限制" class="headerlink" title="常见的规则和限制"></a>常见的规则和限制</h2><p>1.与表一样，视图必须唯一命名。对于可以创建的视图数目没有限制。</p>
-<p>2.视图可以嵌套，即可以利用从其他视图中检索数据的查询来构造视图。所允许的嵌套层数在不同的DBMS 中有所不同（嵌套视图可能会严重降低查询的性能，因此在产品环境中使用之前，应该对其进行全面测试）。</p>
-<p>3.许多DBMS 禁止在视图查询中使用ORDER BY 子句。</p>
-<p>4.有些DBMS 要求对返回的所有列进行命名，如果列是计算字段，则需要使用别名。</p>
-<p>5.视图不能索引，也不能有关联的触发器或默认值。</p>
-<h2 id="创建-删除-视图"><a href="#创建-删除-视图" class="headerlink" title="创建/删除 视图"></a>创建/删除 视图</h2><p>创建视图 <strong>create view</strong></p>
-<p>删除视图 <strong>drop view</strong></p>
+<h2 id="常见的规则和限制"><a href="#常见的规则和限制" class="headerlink" title="常见的规则和限制"></a>常见的规则和限制</h2><p> 1.与表一样，视图必须唯一命名。对于可以创建的视图数目没有限制。</p>
+<p> 2.视图可以嵌套，即可以利用从其他视图中检索数据的查询来构造视图。所允许的嵌套层数在不同的DBMS 中有所不同（嵌套视图可能会严重降低查询的性能，因此在产品环境中使用之前，应该对其进行全面测试）。</p>
+<p> 3.许多DBMS 禁止在视图查询中使用ORDER BY 子句。</p>
+<p> 4.有些DBMS 要求对返回的所有列进行命名，如果列是计算字段，则需要使用别名。</p>
+<p> 5.视图不能索引，也不能有关联的触发器或默认值。</p>
+<h2 id="创建-删除-视图"><a href="#创建-删除-视图" class="headerlink" title="创建/删除 视图"></a>创建/删除 视图</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 创建视图 </span><br><span class="line">create view viewName</span><br><span class="line">as  &lt;select 语句&gt; ;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 删除视图 </span><br><span class="line">drop view viewName;</span><br></pre></td></tr></table></figure>
+
 <h3 id="创建一个视图"><a href="#创建一个视图" class="headerlink" title="创建一个视图"></a>创建一个视图</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW pro_cus AS</span><br><span class="line">SELECT cust_name, cust_contact, prod_id</span><br><span class="line">FROM Customers, Orders, OrderItems</span><br><span class="line">WHERE Customers.cust_id = Orders.cust_id</span><br><span class="line">AND OrderItems.order_num = Orders.order_num;</span><br></pre></td></tr></table></figure>
 
 <p>查看表：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql&gt; show tables;</span><br><span class="line">+--------------+</span><br><span class="line">| Tables_in_wz |</span><br><span class="line">+--------------+</span><br><span class="line">| customers    |</span><br><span class="line">| orderitems   |</span><br><span class="line">| orders       |</span><br><span class="line">| pro_cus      |</span><br><span class="line">| products     |</span><br><span class="line">| vendors      |</span><br><span class="line">+--------------+</span><br><span class="line">6 rows in set (0.03 sec)</span><br></pre></td></tr></table></figure>
 
-<h3 id="利用视图检索数据"><a href="#利用视图检索数据" class="headerlink" title="利用视图检索数据"></a>利用视图检索数据</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM pro_cus</span><br><span class="line">WHERE prod_id = &#x27;RGAN01&#x27;;</span><br></pre></td></tr></table></figure>
+<h2 id="利用视图检索数据"><a href="#利用视图检索数据" class="headerlink" title="利用视图检索数据"></a>利用视图检索数据</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM pro_cus</span><br><span class="line">WHERE prod_id = &#x27;RGAN01&#x27;;</span><br></pre></td></tr></table></figure>
 
 <h3 id="用视图重新格式化检索出的数据"><a href="#用视图重新格式化检索出的数据" class="headerlink" title="用视图重新格式化检索出的数据"></a>用视图重新格式化检索出的数据</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW Ven_loc AS</span><br><span class="line">SELECT concat(RTRIM(vend_name),&#x27;(&#x27;, RTRIM(vend_country) ,&#x27;)&#x27;)</span><br><span class="line">as ventitle</span><br><span class="line">from vendors;</span><br><span class="line"></span><br><span class="line"> select * from ven_loc;</span><br></pre></td></tr></table></figure>
 
@@ -1759,19 +1530,7 @@
 <p>2.标准SQL 中有这样的规定：如果定义视图的SELECT 语句能够满足某些条件，那么这个视图就可以被更新。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.SELECT 子句中未使用DISTINCT</span><br><span class="line">2.FROM 子句中只有一张表</span><br><span class="line">3.未使用GROUP BY 子句</span><br><span class="line">4.未使用HAVING 子句</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 19</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_19/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第十九章-存储过程"><a href="#第十九章-存储过程" class="headerlink" title="第十九章  存储过程"></a>第十九章  存储过程</h1><p>存储过程就是为以后使用而保存的一条 或多条SQL 语句。可将其视为批文件，虽然它们的作用不仅限于批处理。</p>
+<h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><p>存储过程就是为以后使用而保存的一条 或多条SQL 语句。可将其视为批文件，虽然它们的作用不仅限于批处理。</p>
 <h2 id="存储过程的执行"><a href="#存储过程的执行" class="headerlink" title="存储过程的执行"></a>存储过程的执行</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">EXECUTE AddNewProduct( &#x27;JTS01&#x27;,</span><br><span class="line">    &#x27;Stuffed Eiffel Tower&#x27;,</span><br><span class="line">    6.49,</span><br><span class="line">    &#x27;Plush stuffed toy with the text La</span><br><span class="line">    Tour Eiffel in red white and blue&#x27; );</span><br></pre></td></tr></table></figure>
 
 <p>对于具体的DBMS，可能包括以下的执行选择：<br>1.参数可选，具有不提供参数时的默认值；<br>2.不按次序给出参数，以“参数=值”的方式给出参数值。<br>3.输出参数，允许存储过程在正执行的应用程序中更新所用的参数。<br>4.用SELECT 语句检索数据。<br>5.返回代码，允许存储过程返回一个值到正在执行的应用程序。</p>
@@ -1791,25 +1550,25 @@
       </tags>
   </entry>
   <entry>
-    <title>SQL 必知必会 20</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_20/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第二十章-管理事务"><a href="#第二十章-管理事务" class="headerlink" title="第二十章 管理事务"></a>第二十章 管理事务</h1><p>使用事务处理（transaction processing），通过确保成批的SQL 操作要么完全执行，要么完全不执行，来维护数据库的完整性。</p>
+    <title>MySQL 基础知识 09</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_09/</url>
+    <content><![CDATA[<p>MySQL学习笔记。使用事务避免仅执行了部分语句。<span id="more"></span></p>
+<h1 id="管理事务"><a href="#管理事务" class="headerlink" title="管理事务"></a>管理事务</h1><p>使用事务处理（transaction processing），通过确保成批的SQL 操作要么完全执行，要么完全不执行，来维护数据库的完整性。</p>
 <p>事务处理是一种机制，用来管理必须成批执行的SQL 操作，保证数据库不包含不完整的操作结果。利用事务处理，可以保证一组操作不会中途停止，它们要么完全执行，要么完全不执行（除非明确指示）。如果没有错误发生，整组语句提交给（写到）数据库表；如果发生错误，则进行回退（撤销），将数据库恢复到某个已知且安全的状态。</p>
-<h3 id="事务（transaction）"><a href="#事务（transaction）" class="headerlink" title="事务（transaction）"></a>事务（transaction）</h3><p>指一组SQL 语句；</p>
-<h3 id="回退（rollback）"><a href="#回退（rollback）" class="headerlink" title="回退（rollback）"></a>回退（rollback）</h3><p>指撤销指定SQL 语句的过程；</p>
-<h3 id="提交（commit）"><a href="#提交（commit）" class="headerlink" title="提交（commit）"></a>提交（commit）</h3><p>指将未存储的SQL 语句结果写入数据库表；</p>
-<h3 id="保留点（savepoint）"><a href="#保留点（savepoint）" class="headerlink" title="保留点（savepoint）"></a>保留点（savepoint）</h3><p>指事务处理中设置的临时占位符（placeholder），可以对它发布回退（与回退整个事务处理不同）。</p>
+<h2 id="事务（transaction）"><a href="#事务（transaction）" class="headerlink" title="事务（transaction）"></a>事务（transaction）</h2><p>指一组SQL 语句；</p>
+<h2 id="回退（rollback）"><a href="#回退（rollback）" class="headerlink" title="回退（rollback）"></a>回退（rollback）</h2><p>指撤销指定SQL 语句的过程；</p>
+<h2 id="提交（commit）"><a href="#提交（commit）" class="headerlink" title="提交（commit）"></a>提交（commit）</h2><p>指将未存储的SQL 语句结果写入数据库表；</p>
+<h2 id="保留点（savepoint）"><a href="#保留点（savepoint）" class="headerlink" title="保留点（savepoint）"></a>保留点（savepoint）</h2><p>指事务处理中设置的临时占位符（placeholder），可以对它发布回退（与回退整个事务处理不同）。</p>
 <p>事务处理用来管理INSERT、UPDATE 和DELETE 语句。不能回退SELECT语句（回退SELECT 语句也没有必要），也不能回退CREATE 或DROP 操作。事务处理中可以使用这些语句，但进行回退时，这些操作也不撤销。</p>
 <p>管理事务的关键在于将SQL 语句组分解为逻辑块，并明确规定数据何时应该回退，何时不应该回退。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
-<h3 id="RollBack"><a href="#RollBack" class="headerlink" title="RollBack"></a>RollBack</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Orders;</span><br><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure>
+<h2 id="ROLLBACK"><a href="#ROLLBACK" class="headerlink" title="ROLLBACK"></a>ROLLBACK</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Orders;</span><br><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Commit"><a href="#Commit" class="headerlink" title="Commit"></a>Commit</h3><p>一般的SQL 语句都是针对数据库表直接执行和编写的。这就是所谓的隐式提交（implicit commit），即提交（写或保存）操作是自动进行的。</p>
+<h3 id="COMMIT"><a href="#COMMIT" class="headerlink" title="COMMIT"></a>COMMIT</h3><p>一般的SQL 语句都是针对数据库表直接执行和编写的。这就是所谓的隐式提交（implicit commit），即提交（写或保存）操作是自动进行的。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">DELETE OrderItems WHERE order_num = 12345</span><br><span class="line">DELETE Orders WHERE order_num = 12345</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
 
-<h3 id="使用保留点"><a href="#使用保留点" class="headerlink" title="使用保留点"></a>使用保留点</h3><p>使用简单的ROLLBACK 和COMMIT 语句，就可以写入或撤销整个事务。但是，只对简单的事务才能这样做，复杂的事务可能需要部分提交或回退。</p>
+<h2 id="使用保留点"><a href="#使用保留点" class="headerlink" title="使用保留点"></a>使用保留点</h2><p>使用简单的ROLLBACK 和COMMIT 语句，就可以写入或撤销整个事务。但是，只对简单的事务才能这样做，复杂的事务可能需要部分提交或回退。</p>
 <p>要支持回退部分事务，必须在事务处理块中的合适位置放置占位符。这样，如果需要回退，可以回退到某个占位符。</p>
 <p>在SQL 中，这些占位符称为保留点。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SAVEPOINT delete1;</span><br></pre></td></tr></table></figure>
@@ -1817,19 +1576,9 @@
 <p>每个保留点都要取能够标识它的唯一名字，以便在回退时，DBMS 知道回退到何处。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ROLLBACK TO delete1;</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL 必知必会 21</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_21/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第二十一章-使用游标"><a href="#第二十一章-使用游标" class="headerlink" title="第二十一章  使用游标"></a>第二十一章  使用游标</h1><p>SQL 检索操作返回一组称为结果集的行，这组返回的行都是与SQL 语句相匹配的行（零行或多行）。简单地使用SELECT 语句，没有办法得到第一行、下一行或前10 行。但这是关系DBMS 功能的组成部分。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">start TRANSACTION</span><br><span class="line">INSERT INTO Customers(cust_id, cust_name)</span><br><span class="line">VALUES(&#x27;1000000010&#x27;, &#x27;Toys Emporium&#x27;);</span><br><span class="line">SAVE TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO Orders(order_num, order_date, cust_id)</span><br><span class="line">VALUES(20100,&#x27;2001/12/1&#x27;,&#x27;1000000010&#x27;);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 1, &#x27;BR01&#x27;, 100, 5.49);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 2, &#x27;BR03&#x27;, 100, 10.99);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用游标"><a href="#使用游标" class="headerlink" title="使用游标"></a>使用游标</h1><p>SQL 检索操作返回一组称为结果集的行，这组返回的行都是与SQL 语句相匹配的行（零行或多行）。简单地使用SELECT 语句，没有办法得到第一行、下一行或前10 行。但这是关系DBMS 功能的组成部分。</p>
 <p>有时，需要在检索出来的行中前进或后退一行或多行，这就是游标的用途所在。</p>
 <p>游标（cursor）是一个存储在DBMS 服务器上的数据库查询，它不是一条SELECT 语句，而是被该语句检索出来的结果集。在存储了游标之后，应用程序可以根据需要滚动或浏览其中的数据。</p>
 <h2 id="选项和特性"><a href="#选项和特性" class="headerlink" title="选项和特性"></a>选项和特性</h2><p>1.能够标记游标为只读，使数据能读取，但不能更新和删除。<br>2.能控制可以执行的定向操作（向前、向后、第一、最后、绝对位置、相对位置等）。<br>3.能标记某些列为可编辑的，某些列为不可编辑的。<br>4.规定范围，使游标对创建它的特定请求（如存储过程）或对所有请求可访问。<br>5.指示DBMS 对检索出的数据（而不是指出表中活动数据）进行复制，使数据在游标打开和访问期间不变化。</p>
@@ -1856,10 +1605,10 @@
       </tags>
   </entry>
   <entry>
-    <title>SQL 必知必会 22</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/SQL_22/</url>
-    <content><![CDATA[<p>&lt;&lt;SQL必知必会&gt;&gt;学习笔记。<span id="more"></span></p>
-<h1 id="第二十二章-高级SQL特性"><a href="#第二十二章-高级SQL特性" class="headerlink" title="第二十二章 高级SQL特性"></a>第二十二章 高级SQL特性</h1><h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><h3 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h3><p>主键是一种特殊的约束，用来保证一列（或一组列）中的值是唯一的，而且永不改动。</p>
+    <title>MySQL 基础知识 10</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_10/</url>
+    <content><![CDATA[<p>MySQL学习笔记。SQL的一些特性和其他功能。<span id="more"></span></p>
+<h1 id="MySQL的一些特性和高级功能"><a href="#MySQL的一些特性和高级功能" class="headerlink" title="MySQL的一些特性和高级功能"></a>MySQL的一些特性和高级功能</h1><h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><h3 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h3><p>主键是一种特殊的约束，用来保证一列（或一组列）中的值是唯一的，而且永不改动。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Vendors</span><br><span class="line">(</span><br><span class="line">    vend_id CHAR(10) NOT NULL PRIMARY KEY,</span><br><span class="line">    vend_name CHAR(50) NOT NULL,</span><br><span class="line">    vend_address CHAR(50) NULL,</span><br><span class="line">    vend_city CHAR(50) NULL,</span><br><span class="line">    vend_state CHAR(5) NULL,</span><br><span class="line">    vend_zip CHAR(10) NULL,</span><br><span class="line">    vend_country CHAR(50) NULL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE Vendors</span><br><span class="line">ADD CONSTRAINT PRIMARY KEY (vend_id);</span><br></pre></td></tr></table></figure>
@@ -1871,8 +1620,6 @@
 
 <p>帮助保证引用完整性外，外键还有另一个重要作用。在定义外键后，DBMS 不允许删除在另一个表中具有关联行的行。例如，不能删除关联订单的顾客。删除该顾客的唯一方法是首先删除相关的订单（这表示还要删除相关的订单项）。由于需要一系列的删除，因而利用外键可以防止意外删除数据。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//s</span><br><span class="line">alter table orders drop foreign key FK_Orders_Customers;</span><br></pre></td></tr></table></figure>
-
-
 
 <h3 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h3><p>唯一约束用来保证一列（或一组列）中的数据是唯一的。它们类似于主=键，但存在以下重要区别。</p>
 <p>1.表可包含多个唯一约束，但每个表只允许一个主键。<br>2.唯一约束列可包含NULL 值。<br>3.唯一约束列可修改或更新。<br>4.唯一约束列的值可重复使用。<br>5.与主键不一样，唯一约束不能用来定义外键。</p>
@@ -1910,12 +1657,125 @@
 <p>一般来说，约束的处理比触发器快，因此在可能的时候，应该尽量使用约束。</p>
 <h2 id="数据库安全"><a href="#数据库安全" class="headerlink" title="数据库安全"></a>数据库安全</h2><p>一般说来，需要保护的操作有：<br>1.对数据库管理功能（创建表、更改或删除已存在的表等）的访问；<br>2.对特定数据库或表的访问；<br>3.访问的类型（只读、对特定列的访问等）；<br>4.仅通过视图或存储过程对表进行访问；<br>5.创建多层次的安全措施，从而允许多种基于登录的访问和控制；<br>6.限制管理用户账号的能力。</p>
 <p>安全性使用SQL 的GRANT 和REVOKE 语句来管理。</p>
+<h2 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;窗口函数&gt; OVER ([PARTITION BY &lt;列清单&gt;]</span><br><span class="line">	ORDER BY &lt;排序用列清单&gt;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="窗口函数大体可以分为以下两种"><a href="#窗口函数大体可以分为以下两种" class="headerlink" title="窗口函数大体可以分为以下两种"></a>窗口函数大体可以分为以下两种</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.能够作为窗口函数的聚合函数（SUM、AVG、COUNT、MAX、MIN）</span><br><span class="line">2.RANK、DENSE_RANK、ROW_NUMBER 等专用窗口函数</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用限制"><a href="#使用限制" class="headerlink" title="使用限制"></a>使用限制</h3><p>原则上窗口函数只能在SELECT子句中使用。</p>
+<h3 id="窗口函数：RANK"><a href="#窗口函数：RANK" class="headerlink" title="窗口函数：RANK( )"></a>窗口函数：RANK( )</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT product_name, product_type, sale_price,</span><br><span class="line">    RANK () OVER (PARTITION BY product_type ORDER BY sale_price) AS ranking</span><br><span class="line">FROM Product;</span><br></pre></td></tr></table></figure>
+
+<p>PARTITION BY 在横向上对表进行分组，而ORDER BY决定了纵向排序的规则。</p>
+<h3 id="窗口函数兼具分组和排序两种功能。"><a href="#窗口函数兼具分组和排序两种功能。" class="headerlink" title="窗口函数兼具分组和排序两种功能。"></a>窗口函数兼具分组和排序两种功能。</h3><p>1.窗口函数兼具之前我们学过的GROUP BY 子句的分组功能以及ORDER BY 子句的排序功能。但是，PARTITION BY 子句并不具备GROUP BY 子句的汇总功能。因此，使用RANK 函数并不会减少原表中记录的行数，结果中仍然包含8 行数据。</p>
+<p>2.使用窗口函数时起到关键作用的是PARTITION BY 和GROUP BY。其中，PARTITION BY 并不是必需的，即使不指定也可以正常使用窗口函数。</p>
+<p>3.OVER 子句中的ORDER BY 只是用来决定窗口函数按照什么样的顺序进行计算的，对结果的排列顺序并没有影响。</p>
+<h3 id="RANK函数"><a href="#RANK函数" class="headerlink" title="RANK函数"></a>RANK函数</h3><p>计算排序时，如果存在相同位次的记录，则会跳过之后的位次。<br>例）有3 条记录排在第1 位时：1 位、1 位、1 位、4 位……</p>
+<h3 id="DENSE-RANK函数"><a href="#DENSE-RANK函数" class="headerlink" title="DENSE_RANK函数"></a>DENSE_RANK函数</h3><p>同样是计算排序，即使存在相同位次的记录，也不会跳过之后的位次。<br>例）有3 条记录排在第1 位时：1 位、1 位、1 位、2 位……</p>
+<h3 id="ROW-NUMBER函数"><a href="#ROW-NUMBER函数" class="headerlink" title="ROW_NUMBER函数"></a>ROW_NUMBER函数</h3><p>赋予唯一的连续位次。<br>例）有3 条记录排在第1 位时：1 位、2 位、3 位、4 位……</p>
+<h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><p>以“自身记录（当前记录）”作为基准进行统计，就是将聚合函数当作窗口函数使用时的最大特征。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT product_id, product_name, sale_price,</span><br><span class="line">AVG (sale_price) OVER (ORDER BY product_id) AS current_avg</span><br><span class="line">FROM Product;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Grouping-运算符"><a href="#Grouping-运算符" class="headerlink" title="Grouping 运算符"></a>Grouping 运算符</h2><h3 id="GROUPING-运算符包含以下3-种："><a href="#GROUPING-运算符包含以下3-种：" class="headerlink" title="GROUPING 运算符包含以下3 种："></a>GROUPING 运算符包含以下3 种：</h3><p>1.ROLLUP<br>2.CUBE<br>3.GROUPING SETS</p>
+<h3 id="ROLLUP"><a href="#ROLLUP" class="headerlink" title="ROLLUP"></a>ROLLUP</h3><p>作用：一次计算出不同聚合键组合的结果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT product_type, regist_date, SUM(sale_price) AS sum_price</span><br><span class="line">FROM Product</span><br><span class="line">GROUP BY product_type, regist_date with rollup;</span><br></pre></td></tr></table></figure>
+
+<p>相当于使用UNION联结下面三条语句：</p>
+<p>1.GROUP BY () – 相当于不使用group by 语句。<br>2.GROUP BY (product_type)<br>3.GROUP BY (product_type, regist_date)</p>
+<h3 id="GROUPING"><a href="#GROUPING" class="headerlink" title="GROUPING"></a>GROUPING</h3><p>作用：该函数在其参数列的值为超级分组记录所产生的NULL 时返回1，其他情况返回0。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT GROUPING(product_type) AS product_type,</span><br><span class="line">GROUPING(regist_date) AS regist_date, SUM(sale_price) AS sum_price</span><br><span class="line">FROM Product</span><br><span class="line">GROUP BY product_type,regist_date with ROLLUP;</span><br></pre></td></tr></table></figure>
+
+<p>利用grouping完善查找信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select case when grouping(product_type) = 1 THEN &#x27;商品种类 合计&#x27; else product_type end as product_type,</span><br><span class="line">       case when grouping(regist_date) = 1 THEN &#x27;登记日期 合计&#x27; else regist_date end as regist_date,</span><br><span class="line">       sum(sale_price) as sum_sale_price</span><br><span class="line">From product</span><br><span class="line">group by product_type, regist_date with ROLLUP;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="CUBE"><a href="#CUBE" class="headerlink" title="CUBE"></a>CUBE</h3><p>作用：将GROUP BY 子句中聚合键的“所有可能的组合”的汇总结果集中到一个结果中。因此，组合的个数就是2n（n 是聚合键的个数）。</p>
+<p>MYSQL 不支持。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select case when grouping(product_type) = 1 THEN &#x27;商品种类 合计&#x27; else product_type end as product_type,</span><br><span class="line">       case when grouping(regist_date) = 1 THEN &#x27;登记日期 合计&#x27; else regist_date end as regist_date,</span><br><span class="line">       sum(sale_price) as sum_sale_price</span><br><span class="line">From product</span><br><span class="line">group by product_type, regist_date with cube;</span><br></pre></td></tr></table></figure>
+
+<p>相当于执行以下一系列语句：</p>
+<p>1.GROUP BY ()<br>2.GROUP BY (product_type)<br>3.GROUP BY (regist_date)     ←添加的组合， 与ROLLUP 的区别。<br>4.GROUP BY (product_type, regist_date)</p>
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
         <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenCV-Tutorials</title>
+    <url>/%E5%AD%A6%E4%B9%A0/OpenCV/openCVtutorials/</url>
+    <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
+<span id="more"></span>
+
+<h3 id="CV与Matplotlib的颜色冲突"><a href="#CV与Matplotlib的颜色冲突" class="headerlink" title="CV与Matplotlib的颜色冲突"></a>CV与Matplotlib的颜色冲突</h3><p> OpenCV中读取彩图的颜色是以BGR来排序的，而Matplotlib中图片是以RGB排序的，因此如果想要使用pyplot来展示图片，就需要对图片的颜色域顺序进行处理，不过实现起来也很方便。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv.imread(<span class="string">&quot;o1.png&quot;</span>)</span><br><span class="line">img = img[:,:,::-<span class="number">1</span>]</span><br><span class="line">plt.show(<span class="string">&quot;Image&quot;</span>,img)</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用拉普拉斯算子获取图像边缘"><a href="#使用拉普拉斯算子获取图像边缘" class="headerlink" title="使用拉普拉斯算子获取图像边缘"></a>使用拉普拉斯算子获取图像边缘</h3><p>以下是示例和我按照示例的到的结果：</p>
+<p>官方示例：</p>
+<img src="/images/OpenCV/openCV_01.png">
+
+<p>我的结果：</p>
+<img src="/images/OpenCV/openCV_02.png">
+
+<p>可以看出并没有得到示例中所展示的效果。</p>
+<p>查看函数参数说明，可以看到有一项参数为：</p>
+<p><strong>CV_<bit_depth>(S|U|F)C<number_of_channels></strong></p>
+<p>说明如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bit_depth：比特数---代表8bite,16bites,32bites,64bites...</span><br><span class="line"></span><br><span class="line">如果你现在创建了一个存储--灰度图片的Mat对象,这个图像的大小为宽100,高100,那么,现在这张灰度图片中有10000个像素点，它每一个像素点在内存空间所占的空间大小是8bite,8位--所以它对应的就是CV_8。</span><br><span class="line">-------------</span><br><span class="line"></span><br><span class="line">S|U|F:</span><br><span class="line"></span><br><span class="line">S--代表---signed int---有符号整形</span><br><span class="line"></span><br><span class="line">U--代表--unsigned int--无符号整形</span><br><span class="line"></span><br><span class="line">F--代表--float---------单精度浮点型</span><br><span class="line"></span><br><span class="line">---------</span><br><span class="line"></span><br><span class="line">C&lt;number_of_channels&gt;----代表---一张图片的通道数,比如:</span><br><span class="line"></span><br><span class="line">channels = 1：灰度图片--grayImg---是--单通道图像</span><br><span class="line"></span><br><span class="line">channels = 3：RGB彩色图像---------是--3通道图像</span><br><span class="line"></span><br><span class="line">channels = 4：带Alph通道的RGB图像--是--4通道图像</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
+
+<p>修改参数为CV_8U后，调整内核大小，得到预期结果。</p>
+<h3 id="绘制轮廓"><a href="#绘制轮廓" class="headerlink" title="绘制轮廓"></a>绘制轮廓</h3><p>看函数说明时，需要使用二值图片才能更好的识别轮廓。所以我就直接选择了使用二值图片去查找轮廓。但是再绘制轮廓时发现无法绘制轮廓，观察函数发现：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cv2.drawContours(image, contours, contourIdx, color, thickness=None, lineType=None, hierarchy=None, maxLevel=None, offset=None)</span><br></pre></td></tr></table></figure>
+
+<p>其中要求image类型为彩色图片。所以就需要使用彩色图片从BGR-&gt;GRAY,在进行阈值化处理变为二值图片识别轮廓，最后再原图上画图。</p>
+<h3 id="多对象模板匹配"><a href="#多对象模板匹配" class="headerlink" title="多对象模板匹配"></a>多对象模板匹配</h3><p>源代码见github仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#函数：cv.matchTemplate(), cv.minMaxLoc()</span><br><span class="line">import numpy as np</span><br><span class="line">import cv2 as cv </span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line"></span><br><span class="line">img7 = cv.imread(&quot;../Images/img7.jpg&quot;)</span><br><span class="line">img7 = cv.cvtColor(img7, cv.COLOR_BGR2GRAY)</span><br><span class="line">target = img7.copy()</span><br><span class="line">template = cv.imread(&quot;../Images/img7_1.png&quot;)</span><br><span class="line">template = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">w, h = template.shape[::-1]</span><br><span class="line">#列表中所有的6种比较方法</span><br><span class="line">methods = [&#x27;cv.TM_CCOEFF&#x27;, &#x27;cv.TM_CCOEFF_NORMED&#x27;, &#x27;cv.TM_CCORR&#x27;,</span><br><span class="line">            &#x27;cv.TM_CCORR_NORMED&#x27;, &#x27;cv.TM_SQDIFF&#x27;, &#x27;cv.TM_SQDIFF_NORMED&#x27;]</span><br><span class="line">for meth in methods:</span><br><span class="line">    img7 = target.copy()</span><br><span class="line">    method = eval(meth)</span><br><span class="line">    # 应用模板匹配</span><br><span class="line">    res = cv.matchTemplate(img7,template,method)</span><br><span class="line">    min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)</span><br><span class="line">    # 如果方法是TM_SQDIFF或TM_SQDIFF_NORMED，则取最小值</span><br><span class="line">    if method in [cv.TM_SQDIFF, cv.TM_SQDIFF_NORMED]:</span><br><span class="line">        top_left = min_loc</span><br><span class="line">    else:</span><br><span class="line">        top_left = max_loc</span><br><span class="line">    bottom_right = (top_left[0] + w, top_left[1] + h)</span><br><span class="line">    cv.rectangle(img7,top_left, bottom_right, 255, 2)</span><br><span class="line">    plt.subplot(121),plt.imshow(res,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Matching Result&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.subplot(122),plt.imshow(img7,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Detected Point&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.suptitle(meth)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">#多对象匹配</span><br><span class="line">img22 = cv.imread(&quot;../Images/img22.png&quot;)</span><br><span class="line">img22_gray = cv.cvtColor(img22, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(img22_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">template = cv.imread(&#x27;../Images/img22_1.png&#x27;)</span><br><span class="line">template_gray = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(template_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">w, h = template_gray.shape[:: -1]</span><br><span class="line">print(w,h)</span><br><span class="line">res = cv.matchTemplate(img22_gray, template_gray, cv.TM_CCOEFF_NORMED)</span><br><span class="line">threshold = 0.55</span><br><span class="line">loc = np.where( res &gt;= threshold)</span><br><span class="line">for pt in zip(*loc[::-1]):</span><br><span class="line">    cv.rectangle(img22, pt, (pt[0] + w , pt[1]+ h), (0,255,255), 2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">cv.imshow(&quot;image&quot;,img22 )</span><br><span class="line">cv.waitKey(0)</span><br><span class="line">cv.destroyAllWindows()</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">img22 = img22[:, :, :: -1]</span><br><span class="line">plt.imshow(img22)</span><br><span class="line">plt.show()</span><br><span class="line">#错误原因分析：因为匹配时采用灰度图像，所以水管被匹配到了</span><br></pre></td></tr></table></figure>
+
+<p>遇到的问题：</p>
+<p>​    刚开始绘制正方形时，整个图片全部变为黄色，后来意识到是因为阈值太低和匹配模式选择的问题。通过调整匹配模式和阈值，能大致匹配到合适位置，但由于匹配时采用的是灰度图片，所以水管口依旧被匹配到了，还需要进一步改进。</p>
+<h3 id="图片绘制形状"><a href="#图片绘制形状" class="headerlink" title="图片绘制形状"></a>图片绘制形状</h3><p>由于OpenCV读取的图片以BGR格式存储，如果想用plot绘图就需要用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img = img[:, :, :: -1]</span><br></pre></td></tr></table></figure>
+
+<p>但是如果想要在图形上绘图就不能先转变将图片变为RGB格式，否则无法绘制矩形等形状且不报错。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>OpenCV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一些有用的小技巧</title>
+    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/systemUsing_01/</url>
+    <content><![CDATA[<h1 id="系统配置及软件安装"><a href="#系统配置及软件安装" class="headerlink" title="系统配置及软件安装"></a>系统配置及软件安装</h1><p>遇到的一些有用的软件或者一些比较有用的设置。<span id="more"></span></p>
+<h2 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h2><p>推荐使用Typora来编写MarkDown文档。</p>
+<h3 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h3><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>注意：修改上述的typora文件路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot; --&gt; “修改成你自己的文件路径”</span><br></pre></td></tr></table></figure>
+
+<p>2.保存后重命名，修改后缀为  .reg 文件。</p>
+<p>3.双击执行，一路点是就行。</p>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><img src = "/images/createMd/createMd01.png">
+
+<h2 id="Adobe-Acrobat-Pro-DC设置文档打开时铺满全局"><a href="#Adobe-Acrobat-Pro-DC设置文档打开时铺满全局" class="headerlink" title="Adobe Acrobat Pro DC设置文档打开时铺满全局"></a>Adobe Acrobat Pro DC设置文档打开时铺满全局</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>修改首选项里的页面设置，全局视图—&gt;适合宽度。</p>
+<h4 id="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"><a href="#缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。" class="headerlink" title="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"></a>缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。</h4><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>选中所有书签（ctrl+A）——属性——动作——添加动作选择——执行菜单项——添加——“视图&gt;缩放&gt;适合宽度”</p>
+<p>这样点击书签后，就是适合宽度了。</p>
+<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。<!--more--></p>
+<h2 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h2><p>   没想到语言选择第一步就难住了我，安装的是中文版到但是一直没能成功设置为中文。直到看到一个鬼才方法。具体步骤如下：</p>
+<p>​    1.找到Ubuntu中Language support软件</p>
+<p>​    2.打开软件后添加简体中文语言包</p>
+<p>​    3.现在依然显示汉语为灰色无法选中，但是可以拖动！！！将汉语那一框拖动到最上面去，然后重启就可以了。</p>
+<p>参考的博客链接为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>系统配置</category>
+      </categories>
+      <tags>
+        <tag>system</tag>
       </tags>
   </entry>
   <entry>
