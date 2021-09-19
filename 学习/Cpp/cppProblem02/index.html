@@ -85,7 +85,7 @@
 <meta property="og:description" content="记录C++过程中遇到的一些问题 C++好复杂啊  + 1。(¯ㅿ¯;)">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-08-15T04:58:05.000Z">
-<meta property="article:modified_time" content="2021-08-15T12:14:28.469Z">
+<meta property="article:modified_time" content="2021-09-11T02:33:52.030Z">
 <meta property="article:author" content="wangzhang">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-15T20:14:28+08:00">
-                2021-08-15
+              <time title="更新于" itemprop="dateModified" datetime="2021-09-11T10:33:52+08:00">
+                2021-09-11
               </time>
             
           </span>
@@ -400,6 +400,18 @@
       
         <h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊  + 1。(<em>¯ㅿ¯</em>;)</p>
 <span id="more"></span>
+
+<h2 id="make-pair报错"><a href="#make-pair报错" class="headerlink" title="make_pair报错"></a>make_pair报错</h2><p>使用语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nodeDepth.emplace_back(make_pair&lt;int, TreeNode*&gt;(depth, stk.top()));</span><br></pre></td></tr></table></figure>
+
+<p>会直接报错，<strong>Cannot convert parameter from ‘int’ to ‘int &amp;&amp;’</strong></p>
+<p>原因：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">template&lt; class T1, class T2 &gt;</span><br><span class="line">std::pair&lt;T1,T2&gt; make_pair( T1 t, T2 u );           (until C++11)</span><br><span class="line"></span><br><span class="line">template&lt; class T1, class T2 &gt;</span><br><span class="line">std::pair&lt;V1,V2&gt; make_pair( T1&amp;&amp; t, T2&amp;&amp; u );       (since C++11)</span><br></pre></td></tr></table></figure>
+
+<p>make_pair修改了定义，如果直接使用变量名的话，编译器会认为这是一个左值，而不能使用。</p>
+<p>解决方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.直接使用pair</span><br><span class="line">nodeDepth.emplace_back(pair&lt;int, TreeNode*&gt;(depth, stk.top()));</span><br><span class="line">2.用int(depth)将左值转为右值</span><br><span class="line">nodeDepth.emplace_back(make_pair&lt;int, TreeNode*&gt;(int(depth), stk.top()));</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -523,7 +535,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -594,7 +606,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95C-%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="nav-text">记录C++过程中遇到的一些问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95C-%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="nav-text">记录C++过程中遇到的一些问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#make-pair%E6%8A%A5%E9%94%99"><span class="nav-text">make_pair报错</span></a></li></ol></li></ol></div>
             
 
           </div>
