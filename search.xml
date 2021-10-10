@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Introduce</title>
+    <url>/%E5%85%B6%E4%BB%96/introduce/</url>
+    <content><![CDATA[<p>无意间看到可以用GitHub来发博客，便心血来潮自己也搞了一个。</p>
+<span id="more"></span>正好刚考上研究生，希望能够用来记录自己的一些学习路线或者学习心得之类的，也希望自己不要太懒惰(笑)。
+
+
+
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>闲聊</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo_init</title>
     <url>/%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE/hexo-init/</url>
     <content><![CDATA[<h1 id="踩坑日记："><a href="#踩坑日记：" class="headerlink" title="踩坑日记："></a>踩坑日记：</h1><p>​    该踩的坑是一个都没少踩，记录一下自己踩的一些坑吧，好多都忘了。</p>
@@ -38,22 +54,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Introduce</title>
-    <url>/%E5%85%B6%E4%BB%96/introduce/</url>
-    <content><![CDATA[<p>无意间看到可以用GitHub来发博客，便心血来潮自己也搞了一个。</p>
-<span id="more"></span>正好刚考上研究生，希望能够用来记录自己的一些学习路线或者学习心得之类的，也希望自己不要太懒惰(笑)。
-
-
-
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>闲聊</tag>
       </tags>
   </entry>
   <entry>
@@ -133,6 +133,98 @@
       </tags>
   </entry>
   <entry>
+    <title>C++学习过程中遇到的问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppProblem01/</url>
+    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊。(<em>¯ㅿ¯</em>;)</p>
+<span id="more"></span>
+
+<h2 id="输入cin-指令无效"><a href="#输入cin-指令无效" class="headerlink" title="输入cin 指令无效"></a>输入cin 指令无效</h2><p>​    在一个简单的交互程序中，使用 cin 来读取输入时，第一次读取输入的字符串正常读取，第二次读取输入的数字时命令被忽略，直接跳过执行。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cin &gt;&gt; number; <span class="comment">//通常情况会进行输入读取一个数值，前提是cin正常。如果cin被核定为false，则cin就不会被执行啦。</span></span><br></pre></td></tr></table></figure>
+
+<p>   上述例子中，由于输入字符串时，输入了结束符进行退出，所以 cin 已经被核定为false了，所以下边的 cin&gt;&gt;number 无法正常执行输入操作。</p>
+<p>cin 被核定为 false 的情况：</p>
+<p>​    （1）遇到结束符。</p>
+<p>​    （2）遇到非法输入。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    使用cin.clear() 和 cin.sync() 使 cin 恢复正常状态。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两者需要同时使用。</span></span><br><span class="line">    cin.<span class="built_in">sync</span>();</span><br><span class="line">    cin.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
+
+<p>   更多的具体细节可以搜索函数的定义和功能。</p>
+<h2 id="Null-与-nullptr"><a href="#Null-与-nullptr" class="headerlink" title="Null 与 nullptr"></a>Null 与 nullptr</h2><p>Null在C++中定义为0，在很多场合（尤其涉及到指针时）。因此更加提倡使用 nullptr 来代替Null。</p>
+<h2 id="using用法"><a href="#using用法" class="headerlink" title="using用法"></a>using用法</h2><p>C/C++中可以使用  typedef 来定义别名。被重定义的类型并不是一个新的类型，仅仅只是原有的类型取了一个新的名字。</p>
+<p>使用 typedef 重定义类型是很方便的，但它也有一些限制，比如，无法重定义一个模板。</p>
+<p>而using 的别名语法覆盖了 typedef 的全部功能。using 别名语法比 typedef 更加清晰。因为 typedef 的别名语法本质上类似一种解方程的思路。而 using 语法通过赋值来定义别名，和我们平时的思考方式一致。</p>
+<p>因此很多情况二者可以互换  但更多情况下最好使用using。</p>
+<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>析构函数（destructor）是成员函数的一种，它的名字与类名相同，但前面要加<code>~</code>，没有参数和返回值。一个类有且仅有一个析构函数。如果定义类时没写析构函数，则编译器生成默认析构函数。析构函数在对象消亡时即自动被调用。可以定义析构函数在对象消亡前做善后工作。例如，对象如果在生存期间用 new 运算符动态分配了内存，则在各处写 delete 语句以确保程序的每条执行路径都能释放这片内存是比较麻烦的事情。有了析构函数，只要在析构函数中调用 delete 语句，就能确保对象运行中用 new 运算符分配的空间在对象消亡时被释放。</p>
+<h2 id="const的不同用法"><a href="#const的不同用法" class="headerlink" title="const的不同用法"></a>const的不同用法</h2><p>关键问题点：const 属于修饰符 ，关键是看const 修饰的位置在那里</p>
+<p>​    在 C++ 中const是用来修饰内置类型变量，自定义对象，成员函数，返回值，函数参数。</p>
+<p>​    C++ const 允许指定一个语义约束，编译器会强制实施这个约束，允许程序员告诉编译器某值是保持不变的。如果在编程中确实有某个值保持不变，就应该明确使用const，这样可以获得编译器的帮助。</p>
+<h3 id="修饰普通类型变量"><a href="#修饰普通类型变量" class="headerlink" title="修饰普通类型变量"></a>修饰普通类型变量</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int num = 7;</span><br><span class="line">num = 8;//错误，num不可修改。</span><br></pre></td></tr></table></figure>
+
+<h3 id="修饰指针变量"><a href="#修饰指针变量" class="headerlink" title="修饰指针变量"></a>修饰指针变量</h3><p>const 修饰指针变量有以下三种情况。</p>
+<ul>
+<li>A: const 修饰指针指向的内容，则内容为不可变量。</li>
+<li>B: const 修饰指针，则指针为不可变量。</li>
+<li>C: const 修饰指针和指针指向的内容，则指针和指针指向的内容都为不可变量。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//A情形：</span><br><span class="line">const int *p = 8;</span><br><span class="line">//左定值，指针指向的内容不可改变。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//B情形:</span><br><span class="line">int a = 8;</span><br><span class="line">int* const p = &amp;a;</span><br><span class="line">*p =9; //正确</span><br><span class="line">int b = 7;</span><br><span class="line">p = &amp;b; //错误</span><br><span class="line">//对于 const 指针 p 其指向的内存地址不能够被改变，但其内容可以改变。简称，右定向。因为 const 位于 * 号的右边。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//C情形</span><br><span class="line">int a = 8;</span><br><span class="line">const int * const  p = &amp;a;</span><br><span class="line">//const p 的指向的内容和指向的内存地址都已固定，不可改变。</span><br></pre></td></tr></table></figure>
+
+<p>根据 const 位于 * 号的位置不同，可总结三句话便于记忆的话：**”左定值，右定向，const修饰不变量”**。</p>
+<p>int const *a 和 const int *a 的意义是相同的 他们两个的作用等价</p>
+<h3 id="const参数传递和函数返回值"><a href="#const参数传递和函数返回值" class="headerlink" title="const参数传递和函数返回值"></a>const参数传递和函数返回值</h3><p>对于 const 修饰函数参数可以分为三种情况。</p>
+<p>A：值传递的 const 修饰传递，一般这种情况不需要 const 修饰，因为函数会自动产生临时变量复制实参值。</p>
+<p>B：当 const 参数为指针时，可以防止指针被意外篡改。</p>
+<p>C：自定义类型的参数传递，需要临时对象复制参数，对于临时对象的构造，需要调用构造函数，比较浪费时间，因此我们采取 const 外加引用传递的方法。并且对于一般的 int、double 等内置类型，我们不采用引用的传递方式。</p>
+<p>Const 修饰返回值分三种情况。</p>
+<p>A：const 修饰内置类型的返回值，修饰与不修饰返回值作用一样。</p>
+<p>B: const 修饰自定义类型的作为返回值，此时返回的值不能作为左值使用，既不能被赋值，也不能被修改。</p>
+<p>C: const 修饰返回的指针或者引用，是否返回一个指向 const 的指针，取决于我们想让用户干什么。</p>
+<h3 id="const修饰类成员函数"><a href="#const修饰类成员函数" class="headerlink" title="const修饰类成员函数"></a>const修饰类成员函数</h3><p>const 修饰类成员函数，其目的是防止成员函数修改被调用对象的值，如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
+<p><strong>注意：</strong>const 关键字不能与 static 关键字同时使用，因为 static 关键字修饰静态成员函数，静态成员函数不含有 this 指针，即不能实例化，const 成员函数必须具体到某一实例。</p>
+<p>如果有个成员函数想修改对象中的某一个成员可以使用 mutable 关键字修饰这个成员，被 mutable 关键字修饰的成员可以处于不断变化中.</p>
+<h2 id="int-array"><a href="#int-array" class="headerlink" title="int array[[]][][]"></a>int array[[]][][]</h2><p>如果想要将一个二维数组当作函数形参或应用， 则必须实现定义第二维的大小，相比之下，更应该使用vector&lt;vector<int> &gt;.</p>
+<p>此外C++11有了一个新的array容器。</p>
+<h2 id="函数返回值为引用类型"><a href="#函数返回值为引用类型" class="headerlink" title="函数返回值为引用类型"></a>函数返回值为引用类型</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template &lt;typename T&gt;</span><br><span class="line">Vector&lt;T&gt;&amp; Vector&lt;T&gt;::operator=(Vector&lt;T&gt; const&amp; V)&#123;  //重载 =</span><br><span class="line">    //释放原有内容</span><br><span class="line">    if(_elem)</span><br><span class="line">        delete[] _elem;</span><br><span class="line">    //整体复制</span><br><span class="line">    copyFrom(V._elem, 0, V.size());</span><br><span class="line">    //返回当前对象的引用，以便链式复制</span><br><span class="line">    return *this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>返回类型为引用类型，需要注意返回值是全局变量、局部变量、类对象等。防止发生错误。</p>
+<p>对应很多不同的情况，值得仔细研究一下。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习过程中遇到的问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppProblem02/</url>
+    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊  + 1。(<em>¯ㅿ¯</em>;)</p>
+<span id="more"></span>
+
+<h2 id="make-pair报错"><a href="#make-pair报错" class="headerlink" title="make_pair报错"></a>make_pair报错</h2><p>使用语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nodeDepth.emplace_back(make_pair&lt;int, TreeNode*&gt;(depth, stk.top()));</span><br></pre></td></tr></table></figure>
+
+<p>会直接报错，<strong>Cannot convert parameter from ‘int’ to ‘int &amp;&amp;’</strong></p>
+<p>原因：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt; class T1, class T2 &gt;</span><br><span class="line">std::pair&lt;T1,T2&gt; make_pair( T1 t, T2 u );           (until C++11)</span><br><span class="line"></span><br><span class="line">template&lt; class T1, class T2 &gt;</span><br><span class="line">std::pair&lt;V1,V2&gt; make_pair( T1&amp;&amp; t, T2&amp;&amp; u );       (since C++11)</span><br></pre></td></tr></table></figure>
+
+<p>make_pair修改了定义，如果直接使用变量名的话，编译器会认为这是一个左值，而不能使用。</p>
+<p>解决方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.直接使用pair</span><br><span class="line">nodeDepth.emplace_back(pair&lt;int, TreeNode*&gt;(depth, stk.top()));</span><br><span class="line">2.用int(depth)将左值转为右值</span><br><span class="line">nodeDepth.emplace_back(make_pair&lt;int, TreeNode*&gt;(int(depth), stk.top()));</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DSA 基础知识</title>
     <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数据结构和算法的重要性毋庸置疑啊，一方面刷题，一方面学习一下。<span id="more"></span></p>
@@ -175,117 +267,28 @@
       </tags>
   </entry>
   <entry>
-    <title>git使用过程中遇到的一些问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Git/gitPushProblem/</url>
-    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>使用git的过程中总会遇到一些问题。</p>
-<span id="more"></span>
-
-<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
-<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    接着重新上传，成功。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
-
-<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
-<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
-
-<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
-
-<h2 id="warning-LF-will-be-replaced-by-CRLF-in-files"><a href="#warning-LF-will-be-replaced-by-CRLF-in-files" class="headerlink" title="warning: LF will be replaced by CRLF in files"></a>warning: LF will be replaced by CRLF in files</h2><p>原因是存在符号转义问题，windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.autocrlf false=</span><br></pre></td></tr></table></figure>
-
+    <title>Deep Learning</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL/</url>
+    <content><![CDATA[<h1 id="Deep-Learning-入门"><a href="#Deep-Learning-入门" class="headerlink" title="Deep Learning 入门"></a>Deep Learning 入门</h1><p>​    记录Deep Learning 学习过程中遇到的一些问题。</p>
+<h2 id="saturating-nonlinearity-和-non-saturating-nonlinearity"><a href="#saturating-nonlinearity-和-non-saturating-nonlinearity" class="headerlink" title="saturating nonlinearity 和 non-saturating nonlinearity"></a>saturating nonlinearity 和 non-saturating nonlinearity</h2><p>在AlexNet论文《 ImageNet Classification with Deep Convolutional Neural Networks》第3节中提到了饱和非线性（saturating nonlinearity）和非饱和非线性（non-saturating nonlinearity）的概念。</p>
+<h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>一个饱和的激活函数，会将输出结果压缩到有限的区间。</p>
+<p>如果函数是非饱和的，那么有：</p>
+<p>​    当x趋近无穷大时，f(x)也趋近于无穷大。</p>
+<p>反之，则为饱和函数。</p>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><ol>
+<li>  ReLU激活函数定义为f ( x ) = m a x ( 0 , x )，  f(x)=max(0,x)f(x)=max(0,x)，由于x-&gt;+∞时，f(x)也趋近于正无穷，因此ReLU不饱和。</li>
+<li>  sigmoid激活函数定义f(x) = 1 / (1 + exp(-x)), 由于它将实数压缩到区间[ 0 , 1 ]之间，因此sigmoid是饱和的。</li>
+<li>  tanh激活函数定义为tanh(x) = (1 - exp(-zx)) / (1 + exp(-zx)) , 由于它将实数压缩到区间[ − 1 , 1 ] 之间，因此tanh是饱和的.</li>
+</ol>
+<p>论文中提到说，饱和非线性的激活函数训练时比非饱和非线性的激活函数要慢的多。</p>
+<h2 id="Data-Augmentation"><a href="#Data-Augmentation" class="headerlink" title="Data Augmentation"></a>Data Augmentation</h2><p>在深度学习中，为了丰富图像数据的训练集，更好的提取图像特征，泛化模型（防止模型过拟合），一般都会对图像数据进行数据增强（Data Augmentation）。</p>
+<h3 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h3><p>- Color Jittering：对颜色的数据增强：图像亮度、饱和度、对比度变化；<br>- PCA Jittering：首先按照RGB三个颜色通道计算均值和标准差，再在整个训练集上计算协方差矩阵，进行特征分解，得到特征向量和特征值，用来做PCA Jittering；<br>- Random Scale：尺度变换；<br>- Random Crop：采用随机图像差值方式，对图像进行裁剪、缩放；包括Scale Jittering方法（VGG及ResNet模型使用）或者尺度和长宽比增强变换；<br>- Horizontal/Vertical Flip：水平/垂直翻转；<br>- Shift：平移变换；<br>- Rotation/Reflection：旋转/仿射变换；<br>- Noise：高斯噪声、模糊处理；<br>- Label shuffle：类别不平衡数据的增广；</p>
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenCV-Tutorials</title>
-    <url>/%E5%AD%A6%E4%B9%A0/OpenCV/openCVtutorials/</url>
-    <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
-<span id="more"></span>
-
-<h3 id="CV与Matplotlib的颜色冲突"><a href="#CV与Matplotlib的颜色冲突" class="headerlink" title="CV与Matplotlib的颜色冲突"></a>CV与Matplotlib的颜色冲突</h3><p> OpenCV中读取彩图的颜色是以BGR来排序的，而Matplotlib中图片是以RGB排序的，因此如果想要使用pyplot来展示图片，就需要对图片的颜色域顺序进行处理，不过实现起来也很方便。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv.imread(<span class="string">&quot;o1.png&quot;</span>)</span><br><span class="line">img = img[:,:,::-<span class="number">1</span>]</span><br><span class="line">plt.show(<span class="string">&quot;Image&quot;</span>,img)</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用拉普拉斯算子获取图像边缘"><a href="#使用拉普拉斯算子获取图像边缘" class="headerlink" title="使用拉普拉斯算子获取图像边缘"></a>使用拉普拉斯算子获取图像边缘</h3><p>以下是示例和我按照示例的到的结果：</p>
-<p>官方示例：</p>
-<img src="/images/OpenCV/openCV_01.png">
-
-<p>我的结果：</p>
-<img src="/images/OpenCV/openCV_02.png">
-
-<p>可以看出并没有得到示例中所展示的效果。</p>
-<p>查看函数参数说明，可以看到有一项参数为：</p>
-<p><strong>CV_<bit_depth>(S|U|F)C<number_of_channels></strong></p>
-<p>说明如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bit_depth：比特数---代表8bite,16bites,32bites,64bites...</span><br><span class="line"></span><br><span class="line">如果你现在创建了一个存储--灰度图片的Mat对象,这个图像的大小为宽100,高100,那么,现在这张灰度图片中有10000个像素点，它每一个像素点在内存空间所占的空间大小是8bite,8位--所以它对应的就是CV_8。</span><br><span class="line">-------------</span><br><span class="line"></span><br><span class="line">S|U|F:</span><br><span class="line"></span><br><span class="line">S--代表---signed int---有符号整形</span><br><span class="line"></span><br><span class="line">U--代表--unsigned int--无符号整形</span><br><span class="line"></span><br><span class="line">F--代表--float---------单精度浮点型</span><br><span class="line"></span><br><span class="line">---------</span><br><span class="line"></span><br><span class="line">C&lt;number_of_channels&gt;----代表---一张图片的通道数,比如:</span><br><span class="line"></span><br><span class="line">channels = 1：灰度图片--grayImg---是--单通道图像</span><br><span class="line"></span><br><span class="line">channels = 3：RGB彩色图像---------是--3通道图像</span><br><span class="line"></span><br><span class="line">channels = 4：带Alph通道的RGB图像--是--4通道图像</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
-
-<p>修改参数为CV_8U后，调整内核大小，得到预期结果。</p>
-<h3 id="绘制轮廓"><a href="#绘制轮廓" class="headerlink" title="绘制轮廓"></a>绘制轮廓</h3><p>看函数说明时，需要使用二值图片才能更好的识别轮廓。所以我就直接选择了使用二值图片去查找轮廓。但是再绘制轮廓时发现无法绘制轮廓，观察函数发现：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cv2.drawContours(image, contours, contourIdx, color, thickness=None, lineType=None, hierarchy=None, maxLevel=None, offset=None)</span><br></pre></td></tr></table></figure>
-
-<p>其中要求image类型为彩色图片。所以就需要使用彩色图片从BGR-&gt;GRAY,在进行阈值化处理变为二值图片识别轮廓，最后再原图上画图。</p>
-<h3 id="多对象模板匹配"><a href="#多对象模板匹配" class="headerlink" title="多对象模板匹配"></a>多对象模板匹配</h3><p>源代码见github仓库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#函数：cv.matchTemplate(), cv.minMaxLoc()</span><br><span class="line">import numpy as np</span><br><span class="line">import cv2 as cv </span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line"></span><br><span class="line">img7 = cv.imread(&quot;../Images/img7.jpg&quot;)</span><br><span class="line">img7 = cv.cvtColor(img7, cv.COLOR_BGR2GRAY)</span><br><span class="line">target = img7.copy()</span><br><span class="line">template = cv.imread(&quot;../Images/img7_1.png&quot;)</span><br><span class="line">template = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">w, h = template.shape[::-1]</span><br><span class="line">#列表中所有的6种比较方法</span><br><span class="line">methods = [&#x27;cv.TM_CCOEFF&#x27;, &#x27;cv.TM_CCOEFF_NORMED&#x27;, &#x27;cv.TM_CCORR&#x27;,</span><br><span class="line">            &#x27;cv.TM_CCORR_NORMED&#x27;, &#x27;cv.TM_SQDIFF&#x27;, &#x27;cv.TM_SQDIFF_NORMED&#x27;]</span><br><span class="line">for meth in methods:</span><br><span class="line">    img7 = target.copy()</span><br><span class="line">    method = eval(meth)</span><br><span class="line">    # 应用模板匹配</span><br><span class="line">    res = cv.matchTemplate(img7,template,method)</span><br><span class="line">    min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)</span><br><span class="line">    # 如果方法是TM_SQDIFF或TM_SQDIFF_NORMED，则取最小值</span><br><span class="line">    if method in [cv.TM_SQDIFF, cv.TM_SQDIFF_NORMED]:</span><br><span class="line">        top_left = min_loc</span><br><span class="line">    else:</span><br><span class="line">        top_left = max_loc</span><br><span class="line">    bottom_right = (top_left[0] + w, top_left[1] + h)</span><br><span class="line">    cv.rectangle(img7,top_left, bottom_right, 255, 2)</span><br><span class="line">    plt.subplot(121),plt.imshow(res,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Matching Result&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.subplot(122),plt.imshow(img7,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Detected Point&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.suptitle(meth)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">#多对象匹配</span><br><span class="line">img22 = cv.imread(&quot;../Images/img22.png&quot;)</span><br><span class="line">img22_gray = cv.cvtColor(img22, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(img22_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">template = cv.imread(&#x27;../Images/img22_1.png&#x27;)</span><br><span class="line">template_gray = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(template_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">w, h = template_gray.shape[:: -1]</span><br><span class="line">print(w,h)</span><br><span class="line">res = cv.matchTemplate(img22_gray, template_gray, cv.TM_CCOEFF_NORMED)</span><br><span class="line">threshold = 0.55</span><br><span class="line">loc = np.where( res &gt;= threshold)</span><br><span class="line">for pt in zip(*loc[::-1]):</span><br><span class="line">    cv.rectangle(img22, pt, (pt[0] + w , pt[1]+ h), (0,255,255), 2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">cv.imshow(&quot;image&quot;,img22 )</span><br><span class="line">cv.waitKey(0)</span><br><span class="line">cv.destroyAllWindows()</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">img22 = img22[:, :, :: -1]</span><br><span class="line">plt.imshow(img22)</span><br><span class="line">plt.show()</span><br><span class="line">#错误原因分析：因为匹配时采用灰度图像，所以水管被匹配到了</span><br></pre></td></tr></table></figure>
-
-<p>遇到的问题：</p>
-<p>​    刚开始绘制正方形时，整个图片全部变为黄色，后来意识到是因为阈值太低和匹配模式选择的问题。通过调整匹配模式和阈值，能大致匹配到合适位置，但由于匹配时采用的是灰度图片，所以水管口依旧被匹配到了，还需要进一步改进。</p>
-<h3 id="图片绘制形状"><a href="#图片绘制形状" class="headerlink" title="图片绘制形状"></a>图片绘制形状</h3><p>由于OpenCV读取的图片以BGR格式存储，如果想用plot绘图就需要用</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img = img[:, :, :: -1]</span><br></pre></td></tr></table></figure>
-
-<p>但是如果想要在图形上绘图就不能先转变将图片变为RGB格式，否则无法绘制矩形等形状且不报错。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>OpenCV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一些有用的小技巧</title>
-    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/systemUsing_01/</url>
-    <content><![CDATA[<h1 id="系统配置及软件安装"><a href="#系统配置及软件安装" class="headerlink" title="系统配置及软件安装"></a>系统配置及软件安装</h1><p>遇到的一些有用的软件或者一些比较有用的设置。<span id="more"></span></p>
-<h2 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h2><p>推荐使用Typora来编写MarkDown文档。</p>
-<h3 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h3><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
-
-<p>注意：修改上述的typora文件路径：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot; --&gt; “修改成你自己的文件路径”</span><br></pre></td></tr></table></figure>
-
-<p>2.保存后重命名，修改后缀为  .reg 文件。</p>
-<p>3.双击执行，一路点是就行。</p>
-<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><img src = "/images/createMd/createMd01.png">
-
-<h2 id="Adobe-Acrobat-Pro-DC设置文档打开时铺满全局"><a href="#Adobe-Acrobat-Pro-DC设置文档打开时铺满全局" class="headerlink" title="Adobe Acrobat Pro DC设置文档打开时铺满全局"></a>Adobe Acrobat Pro DC设置文档打开时铺满全局</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>修改首选项里的页面设置，全局视图—&gt;适合宽度。</p>
-<h4 id="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"><a href="#缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。" class="headerlink" title="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"></a>缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。</h4><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>选中所有书签（ctrl+A）——属性——动作——添加动作选择——执行菜单项——添加——“视图&gt;缩放&gt;适合宽度”</p>
-<p>这样点击书签后，就是适合宽度了。</p>
-<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。<!--more--></p>
-<h2 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h2><p>   没想到语言选择第一步就难住了我，安装的是中文版到但是一直没能成功设置为中文。直到看到一个鬼才方法。具体步骤如下：</p>
-<p>​    1.找到Ubuntu中Language support软件</p>
-<p>​    2.打开软件后添加简体中文语言包</p>
-<p>​    3.现在依然显示汉语为灰色无法选中，但是可以拖动！！！将汉语那一框拖动到最上面去，然后重启就可以了。</p>
-<p>参考的博客链接为：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>系统配置</category>
-      </categories>
-      <tags>
-        <tag>system</tag>
+        <tag>Deep Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -453,6 +456,120 @@
       </tags>
   </entry>
   <entry>
+    <title>git使用过程中遇到的一些问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Git/gitPushProblem/</url>
+    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>使用git的过程中总会遇到一些问题。</p>
+<span id="more"></span>
+
+<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
+<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    接着重新上传，成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+
+<h2 id="warning-LF-will-be-replaced-by-CRLF-in-files"><a href="#warning-LF-will-be-replaced-by-CRLF-in-files" class="headerlink" title="warning: LF will be replaced by CRLF in files"></a>warning: LF will be replaced by CRLF in files</h2><p>原因是存在符号转义问题，windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.autocrlf false=</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenCV-Tutorials</title>
+    <url>/%E5%AD%A6%E4%B9%A0/OpenCV/openCVtutorials/</url>
+    <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
+<span id="more"></span>
+
+<h3 id="CV与Matplotlib的颜色冲突"><a href="#CV与Matplotlib的颜色冲突" class="headerlink" title="CV与Matplotlib的颜色冲突"></a>CV与Matplotlib的颜色冲突</h3><p> OpenCV中读取彩图的颜色是以BGR来排序的，而Matplotlib中图片是以RGB排序的，因此如果想要使用pyplot来展示图片，就需要对图片的颜色域顺序进行处理，不过实现起来也很方便。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv.imread(<span class="string">&quot;o1.png&quot;</span>)</span><br><span class="line">img = img[:,:,::-<span class="number">1</span>]</span><br><span class="line">plt.show(<span class="string">&quot;Image&quot;</span>,img)</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用拉普拉斯算子获取图像边缘"><a href="#使用拉普拉斯算子获取图像边缘" class="headerlink" title="使用拉普拉斯算子获取图像边缘"></a>使用拉普拉斯算子获取图像边缘</h3><p>以下是示例和我按照示例的到的结果：</p>
+<p>官方示例：</p>
+<img src="/images/OpenCV/openCV_01.png">
+
+<p>我的结果：</p>
+<img src="/images/OpenCV/openCV_02.png">
+
+<p>可以看出并没有得到示例中所展示的效果。</p>
+<p>查看函数参数说明，可以看到有一项参数为：</p>
+<p><strong>CV_<bit_depth>(S|U|F)C<number_of_channels></strong></p>
+<p>说明如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bit_depth：比特数---代表8bite,16bites,32bites,64bites...</span><br><span class="line"></span><br><span class="line">如果你现在创建了一个存储--灰度图片的Mat对象,这个图像的大小为宽100,高100,那么,现在这张灰度图片中有10000个像素点，它每一个像素点在内存空间所占的空间大小是8bite,8位--所以它对应的就是CV_8。</span><br><span class="line">-------------</span><br><span class="line"></span><br><span class="line">S|U|F:</span><br><span class="line"></span><br><span class="line">S--代表---signed int---有符号整形</span><br><span class="line"></span><br><span class="line">U--代表--unsigned int--无符号整形</span><br><span class="line"></span><br><span class="line">F--代表--float---------单精度浮点型</span><br><span class="line"></span><br><span class="line">---------</span><br><span class="line"></span><br><span class="line">C&lt;number_of_channels&gt;----代表---一张图片的通道数,比如:</span><br><span class="line"></span><br><span class="line">channels = 1：灰度图片--grayImg---是--单通道图像</span><br><span class="line"></span><br><span class="line">channels = 3：RGB彩色图像---------是--3通道图像</span><br><span class="line"></span><br><span class="line">channels = 4：带Alph通道的RGB图像--是--4通道图像</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
+
+<p>修改参数为CV_8U后，调整内核大小，得到预期结果。</p>
+<h3 id="绘制轮廓"><a href="#绘制轮廓" class="headerlink" title="绘制轮廓"></a>绘制轮廓</h3><p>看函数说明时，需要使用二值图片才能更好的识别轮廓。所以我就直接选择了使用二值图片去查找轮廓。但是再绘制轮廓时发现无法绘制轮廓，观察函数发现：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cv2.drawContours(image, contours, contourIdx, color, thickness=None, lineType=None, hierarchy=None, maxLevel=None, offset=None)</span><br></pre></td></tr></table></figure>
+
+<p>其中要求image类型为彩色图片。所以就需要使用彩色图片从BGR-&gt;GRAY,在进行阈值化处理变为二值图片识别轮廓，最后再原图上画图。</p>
+<h3 id="多对象模板匹配"><a href="#多对象模板匹配" class="headerlink" title="多对象模板匹配"></a>多对象模板匹配</h3><p>源代码见github仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#函数：cv.matchTemplate(), cv.minMaxLoc()</span><br><span class="line">import numpy as np</span><br><span class="line">import cv2 as cv </span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line"></span><br><span class="line">img7 = cv.imread(&quot;../Images/img7.jpg&quot;)</span><br><span class="line">img7 = cv.cvtColor(img7, cv.COLOR_BGR2GRAY)</span><br><span class="line">target = img7.copy()</span><br><span class="line">template = cv.imread(&quot;../Images/img7_1.png&quot;)</span><br><span class="line">template = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">w, h = template.shape[::-1]</span><br><span class="line">#列表中所有的6种比较方法</span><br><span class="line">methods = [&#x27;cv.TM_CCOEFF&#x27;, &#x27;cv.TM_CCOEFF_NORMED&#x27;, &#x27;cv.TM_CCORR&#x27;,</span><br><span class="line">            &#x27;cv.TM_CCORR_NORMED&#x27;, &#x27;cv.TM_SQDIFF&#x27;, &#x27;cv.TM_SQDIFF_NORMED&#x27;]</span><br><span class="line">for meth in methods:</span><br><span class="line">    img7 = target.copy()</span><br><span class="line">    method = eval(meth)</span><br><span class="line">    # 应用模板匹配</span><br><span class="line">    res = cv.matchTemplate(img7,template,method)</span><br><span class="line">    min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)</span><br><span class="line">    # 如果方法是TM_SQDIFF或TM_SQDIFF_NORMED，则取最小值</span><br><span class="line">    if method in [cv.TM_SQDIFF, cv.TM_SQDIFF_NORMED]:</span><br><span class="line">        top_left = min_loc</span><br><span class="line">    else:</span><br><span class="line">        top_left = max_loc</span><br><span class="line">    bottom_right = (top_left[0] + w, top_left[1] + h)</span><br><span class="line">    cv.rectangle(img7,top_left, bottom_right, 255, 2)</span><br><span class="line">    plt.subplot(121),plt.imshow(res,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Matching Result&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.subplot(122),plt.imshow(img7,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Detected Point&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.suptitle(meth)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">#多对象匹配</span><br><span class="line">img22 = cv.imread(&quot;../Images/img22.png&quot;)</span><br><span class="line">img22_gray = cv.cvtColor(img22, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(img22_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">template = cv.imread(&#x27;../Images/img22_1.png&#x27;)</span><br><span class="line">template_gray = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(template_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">w, h = template_gray.shape[:: -1]</span><br><span class="line">print(w,h)</span><br><span class="line">res = cv.matchTemplate(img22_gray, template_gray, cv.TM_CCOEFF_NORMED)</span><br><span class="line">threshold = 0.55</span><br><span class="line">loc = np.where( res &gt;= threshold)</span><br><span class="line">for pt in zip(*loc[::-1]):</span><br><span class="line">    cv.rectangle(img22, pt, (pt[0] + w , pt[1]+ h), (0,255,255), 2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">cv.imshow(&quot;image&quot;,img22 )</span><br><span class="line">cv.waitKey(0)</span><br><span class="line">cv.destroyAllWindows()</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">img22 = img22[:, :, :: -1]</span><br><span class="line">plt.imshow(img22)</span><br><span class="line">plt.show()</span><br><span class="line">#错误原因分析：因为匹配时采用灰度图像，所以水管被匹配到了</span><br></pre></td></tr></table></figure>
+
+<p>遇到的问题：</p>
+<p>​    刚开始绘制正方形时，整个图片全部变为黄色，后来意识到是因为阈值太低和匹配模式选择的问题。通过调整匹配模式和阈值，能大致匹配到合适位置，但由于匹配时采用的是灰度图片，所以水管口依旧被匹配到了，还需要进一步改进。</p>
+<h3 id="图片绘制形状"><a href="#图片绘制形状" class="headerlink" title="图片绘制形状"></a>图片绘制形状</h3><p>由于OpenCV读取的图片以BGR格式存储，如果想用plot绘图就需要用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img = img[:, :, :: -1]</span><br></pre></td></tr></table></figure>
+
+<p>但是如果想要在图形上绘图就不能先转变将图片变为RGB格式，否则无法绘制矩形等形状且不报错。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>OpenCV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一些有用的小技巧</title>
+    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/systemUsing_01/</url>
+    <content><![CDATA[<h1 id="系统配置及软件安装"><a href="#系统配置及软件安装" class="headerlink" title="系统配置及软件安装"></a>系统配置及软件安装</h1><p>遇到的一些有用的软件或者一些比较有用的设置。<span id="more"></span></p>
+<h2 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h2><p>推荐使用Typora来编写MarkDown文档。</p>
+<h3 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h3><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>注意：修改上述的typora文件路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot; --&gt; “修改成你自己的文件路径”</span><br></pre></td></tr></table></figure>
+
+<p>2.保存后重命名，修改后缀为  .reg 文件。</p>
+<p>3.双击执行，一路点是就行。</p>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><img src = "/images/createMd/createMd01.png">
+
+<h2 id="Adobe-Acrobat-Pro-DC设置文档打开时铺满全局"><a href="#Adobe-Acrobat-Pro-DC设置文档打开时铺满全局" class="headerlink" title="Adobe Acrobat Pro DC设置文档打开时铺满全局"></a>Adobe Acrobat Pro DC设置文档打开时铺满全局</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>修改首选项里的页面设置，全局视图—&gt;适合宽度。</p>
+<h4 id="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"><a href="#缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。" class="headerlink" title="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"></a>缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。</h4><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>选中所有书签（ctrl+A）——属性——动作——添加动作选择——执行菜单项——添加——“视图&gt;缩放&gt;适合宽度”</p>
+<p>这样点击书签后，就是适合宽度了。</p>
+<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。<!--more--></p>
+<h2 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h2><p>   没想到语言选择第一步就难住了我，安装的是中文版到但是一直没能成功设置为中文。直到看到一个鬼才方法。具体步骤如下：</p>
+<p>​    1.找到Ubuntu中Language support软件</p>
+<p>​    2.打开软件后添加简体中文语言包</p>
+<p>​    3.现在依然显示汉语为灰色无法选中，但是可以拖动！！！将汉语那一框拖动到最上面去，然后重启就可以了。</p>
+<p>参考的博客链接为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>系统配置</category>
+      </categories>
+      <tags>
+        <tag>system</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL Problem 01</title>
     <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQLProblem01/</url>
     <content><![CDATA[<p>MySQL 学习过程中遇到的一些问题和总结。<span id="more"></span></p>
@@ -508,6 +625,56 @@
 
 <p>ISNULL函数当my_field字段为空是，返回1，当不为空时返回0</p>
 <p>IF函数，如果第一个表达式为真，则返回第二个参数的值，否则，返回第三个参数的值。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL 基础知识 02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_02/</url>
+    <content><![CDATA[<p>MySQL学习笔记。 向表中插入、 更新 和 删除数据。<span id="more"></span></p>
+<h1 id="数据的插入、更新-和-删除"><a href="#数据的插入、更新-和-删除" class="headerlink" title="数据的插入、更新 和 删除"></a>数据的插入、更新 和 删除</h1><h2 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h2><p>INSERT 用来将行插入（或添加）到数据库表。</p>
+<p>​    1.插入完整的行。</p>
+<p>​    2.插入行的一部分。</p>
+<p>​    3.插入某些查询到结果。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers VALUES(</span><br><span class="line">    &#x27;1000000006&#x27;,</span><br><span class="line">    &#x27;Toy Land&#x27;,</span><br><span class="line">    &#x27;123 Any Street&#x27;,</span><br><span class="line">    &#x27;New York&#x27;,</span><br><span class="line">    &#x27;NY&#x27;,</span><br><span class="line">    &#x27;11111&#x27;,</span><br><span class="line">    &#x27;USA&#x27;,</span><br><span class="line">    NULL,</span><br><span class="line">    NULL);</span><br></pre></td></tr></table></figure>
+
+<p>繁琐但更安全的方式：对应列名进行插入。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers(</span><br><span class="line">    cust_id,</span><br><span class="line">    cust_name,</span><br><span class="line">    cust_address,</span><br><span class="line">    cust_city,</span><br><span class="line">    cust_state,</span><br><span class="line">    cust_zip,</span><br><span class="line">    cust_country,</span><br><span class="line">    cust_contact,</span><br><span class="line">    cust_email)</span><br><span class="line">VALUES(</span><br><span class="line">    &#x27;1000000006&#x27;,</span><br><span class="line">    &#x27;Toy Land&#x27;,</span><br><span class="line">    &#x27;123 Any Street&#x27;,</span><br><span class="line">    &#x27;New York&#x27;,</span><br><span class="line">    &#x27;NY&#x27;,</span><br><span class="line">    &#x27;11111&#x27;,</span><br><span class="line">    &#x27;USA&#x27;,</span><br><span class="line">    NULL,</span><br><span class="line">    NULL);</span><br></pre></td></tr></table></figure>
+
+<p>如果表的定义允许，则可以在INSERT 操作中省略某些列。但是省略的列必须满足以下某个条件。<br>    1.该列定义为允许NULL 值（无值或空值）。<br>    2.在表定义中给出默认值。这表示如果不给出值，将使用默认值。</p>
+<h3 id="INSERT-SELECT"><a href="#INSERT-SELECT" class="headerlink" title="INSERT SELECT"></a>INSERT SELECT</h3><p>i除此之外还能使用 <strong>insert  select</strong> 语句。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers(cust_id,</span><br><span class="line">        cust_contact,</span><br><span class="line">        cust_email,</span><br><span class="line">        cust_name,</span><br><span class="line">        cust_address,</span><br><span class="line">        cust_city,</span><br><span class="line">        cust_state,</span><br><span class="line">        cust_zip,</span><br><span class="line">        cust_country)</span><br><span class="line">SELECT cust_id,</span><br><span class="line">        cust_contact,</span><br><span class="line">        cust_email,</span><br><span class="line">        cust_name,</span><br><span class="line">        cust_address,</span><br><span class="line">        cust_city,</span><br><span class="line">        cust_state,</span><br><span class="line">        cust_zip,</span><br><span class="line">        cust_country</span><br><span class="line">FROM CustNew;</span><br></pre></td></tr></table></figure>
+
+<p>​    1.INSERT SELECT 中SELECT 语句可以包含WHERE 子句，以过滤插入的数据。</p>
+<p>​    2.不管SELECT语句返回多少行，都将被INSERT 插入。</p>
+<p>​    3.INSERT语句的SELECT语句中，可以使用WHERE子句或者GROUP BY子句等任何SQL语法（ ORDER BY子句并不会产生任何效果）。</p>
+<h3 id="SELECT-INTO"><a href="#SELECT-INTO" class="headerlink" title="SELECT INTO"></a>SELECT INTO</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">INTO CustCopy</span><br><span class="line">FROM Customers;</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入默认值或NULL值"><a href="#插入默认值或NULL值" class="headerlink" title="插入默认值或NULL值"></a>插入默认值或NULL值</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--插入默认值</span><br><span class="line">INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES (&#x27;0007&#x27;, &#x27;擦菜板&#x27;, &#x27;厨房用具&#x27;, DEFAULT, 790, &#x27;2009-04-28&#x27;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--插入NULL</span><br><span class="line">INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES (&#x27;0006&#x27;, &#x27;叉子&#x27;, &#x27;厨房用具&#x27;, 500, NULL, &#x27;2009-09-20&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><h3 id="有两种使用UPDATE的方式"><a href="#有两种使用UPDATE的方式" class="headerlink" title="有两种使用UPDATE的方式"></a>有两种使用UPDATE的方式</h3><p>​    1.更新表中的特定行；</p>
+<p>​    2.更新表中的所有行。</p>
+<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>​    1.要更新的表；</p>
+<p>​    2.列名和它们的新值；</p>
+<p>​    3.确定要更新哪些行的过滤条件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE Customers</span><br><span class="line">SET cust_email = &#x27;kim@thetoystore.com&#x27;</span><br><span class="line">WHERE cust_id = &#x27;1000000005&#x27;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE Customers</span><br><span class="line">SET cust_contact = &#x27;Sam Roberts&#x27;,</span><br><span class="line">	cust_email = &#x27;sam@toyland.com&#x27;</span><br><span class="line">WHERE cust_id = &#x27;1000000006&#x27;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 将列用()括起来的清单形式</span><br><span class="line">UPDATE Product</span><br><span class="line">SET (sale_price, purchase_price) = (sale_price * 10, purchase_price / 2)</span><br><span class="line">WHERE product_type = &#x27;厨房用具&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><h3 id="有两种使用DELETE的方式"><a href="#有两种使用DELETE的方式" class="headerlink" title="有两种使用DELETE的方式"></a>有两种使用DELETE的方式</h3><p>​    1.从表中删除特定的行；  </p>
+<p>​    2.从表中删除所有行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Customers</span><br><span class="line">WHERE cust_id = &#x27;1000000006&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>DELETE 不需要列名或通配符。DELETE 删除整行而不是删除列。要删除指定的列，请使用UPDATE 语句。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -613,56 +780,6 @@
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*!</span><br><span class="line">	多行注释4.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL 基础知识 02</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_02/</url>
-    <content><![CDATA[<p>MySQL学习笔记。 向表中插入、 更新 和 删除数据。<span id="more"></span></p>
-<h1 id="数据的插入、更新-和-删除"><a href="#数据的插入、更新-和-删除" class="headerlink" title="数据的插入、更新 和 删除"></a>数据的插入、更新 和 删除</h1><h2 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h2><p>INSERT 用来将行插入（或添加）到数据库表。</p>
-<p>​    1.插入完整的行。</p>
-<p>​    2.插入行的一部分。</p>
-<p>​    3.插入某些查询到结果。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers VALUES(</span><br><span class="line">    &#x27;1000000006&#x27;,</span><br><span class="line">    &#x27;Toy Land&#x27;,</span><br><span class="line">    &#x27;123 Any Street&#x27;,</span><br><span class="line">    &#x27;New York&#x27;,</span><br><span class="line">    &#x27;NY&#x27;,</span><br><span class="line">    &#x27;11111&#x27;,</span><br><span class="line">    &#x27;USA&#x27;,</span><br><span class="line">    NULL,</span><br><span class="line">    NULL);</span><br></pre></td></tr></table></figure>
-
-<p>繁琐但更安全的方式：对应列名进行插入。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers(</span><br><span class="line">    cust_id,</span><br><span class="line">    cust_name,</span><br><span class="line">    cust_address,</span><br><span class="line">    cust_city,</span><br><span class="line">    cust_state,</span><br><span class="line">    cust_zip,</span><br><span class="line">    cust_country,</span><br><span class="line">    cust_contact,</span><br><span class="line">    cust_email)</span><br><span class="line">VALUES(</span><br><span class="line">    &#x27;1000000006&#x27;,</span><br><span class="line">    &#x27;Toy Land&#x27;,</span><br><span class="line">    &#x27;123 Any Street&#x27;,</span><br><span class="line">    &#x27;New York&#x27;,</span><br><span class="line">    &#x27;NY&#x27;,</span><br><span class="line">    &#x27;11111&#x27;,</span><br><span class="line">    &#x27;USA&#x27;,</span><br><span class="line">    NULL,</span><br><span class="line">    NULL);</span><br></pre></td></tr></table></figure>
-
-<p>如果表的定义允许，则可以在INSERT 操作中省略某些列。但是省略的列必须满足以下某个条件。<br>    1.该列定义为允许NULL 值（无值或空值）。<br>    2.在表定义中给出默认值。这表示如果不给出值，将使用默认值。</p>
-<h3 id="INSERT-SELECT"><a href="#INSERT-SELECT" class="headerlink" title="INSERT SELECT"></a>INSERT SELECT</h3><p>i除此之外还能使用 <strong>insert  select</strong> 语句。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO Customers(cust_id,</span><br><span class="line">        cust_contact,</span><br><span class="line">        cust_email,</span><br><span class="line">        cust_name,</span><br><span class="line">        cust_address,</span><br><span class="line">        cust_city,</span><br><span class="line">        cust_state,</span><br><span class="line">        cust_zip,</span><br><span class="line">        cust_country)</span><br><span class="line">SELECT cust_id,</span><br><span class="line">        cust_contact,</span><br><span class="line">        cust_email,</span><br><span class="line">        cust_name,</span><br><span class="line">        cust_address,</span><br><span class="line">        cust_city,</span><br><span class="line">        cust_state,</span><br><span class="line">        cust_zip,</span><br><span class="line">        cust_country</span><br><span class="line">FROM CustNew;</span><br></pre></td></tr></table></figure>
-
-<p>​    1.INSERT SELECT 中SELECT 语句可以包含WHERE 子句，以过滤插入的数据。</p>
-<p>​    2.不管SELECT语句返回多少行，都将被INSERT 插入。</p>
-<p>​    3.INSERT语句的SELECT语句中，可以使用WHERE子句或者GROUP BY子句等任何SQL语法（ ORDER BY子句并不会产生任何效果）。</p>
-<h3 id="SELECT-INTO"><a href="#SELECT-INTO" class="headerlink" title="SELECT INTO"></a>SELECT INTO</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">INTO CustCopy</span><br><span class="line">FROM Customers;</span><br></pre></td></tr></table></figure>
-
-<h3 id="插入默认值或NULL值"><a href="#插入默认值或NULL值" class="headerlink" title="插入默认值或NULL值"></a>插入默认值或NULL值</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--插入默认值</span><br><span class="line">INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES (&#x27;0007&#x27;, &#x27;擦菜板&#x27;, &#x27;厨房用具&#x27;, DEFAULT, 790, &#x27;2009-04-28&#x27;);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--插入NULL</span><br><span class="line">INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES (&#x27;0006&#x27;, &#x27;叉子&#x27;, &#x27;厨房用具&#x27;, 500, NULL, &#x27;2009-09-20&#x27;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><h3 id="有两种使用UPDATE的方式"><a href="#有两种使用UPDATE的方式" class="headerlink" title="有两种使用UPDATE的方式"></a>有两种使用UPDATE的方式</h3><p>​    1.更新表中的特定行；</p>
-<p>​    2.更新表中的所有行。</p>
-<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>​    1.要更新的表；</p>
-<p>​    2.列名和它们的新值；</p>
-<p>​    3.确定要更新哪些行的过滤条件。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE Customers</span><br><span class="line">SET cust_email = &#x27;kim@thetoystore.com&#x27;</span><br><span class="line">WHERE cust_id = &#x27;1000000005&#x27;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE Customers</span><br><span class="line">SET cust_contact = &#x27;Sam Roberts&#x27;,</span><br><span class="line">	cust_email = &#x27;sam@toyland.com&#x27;</span><br><span class="line">WHERE cust_id = &#x27;1000000006&#x27;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 将列用()括起来的清单形式</span><br><span class="line">UPDATE Product</span><br><span class="line">SET (sale_price, purchase_price) = (sale_price * 10, purchase_price / 2)</span><br><span class="line">WHERE product_type = &#x27;厨房用具&#x27;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><h3 id="有两种使用DELETE的方式"><a href="#有两种使用DELETE的方式" class="headerlink" title="有两种使用DELETE的方式"></a>有两种使用DELETE的方式</h3><p>​    1.从表中删除特定的行；  </p>
-<p>​    2.从表中删除所有行。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Customers</span><br><span class="line">WHERE cust_id = &#x27;1000000006&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>DELETE 不需要列名或通配符。DELETE 删除整行而不是删除列。要删除指定的列，请使用UPDATE 语句。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -899,6 +1016,64 @@
       </tags>
   </entry>
   <entry>
+    <title>MySQL 基础知识 08</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_08/</url>
+    <content><![CDATA[<p>MySQL学习笔记。使用视图可以提高检索效率，保存select语句。利用存储过程可以批量的使用一系列SQL语句。<span id="more"></span></p>
+<h1 id="使用视图"><a href="#使用视图" class="headerlink" title="使用视图"></a>使用视图</h1><p>视图是虚拟的表。与包含数据的表不一样，视图只包含使用时动态检索数据的查询。</p>
+<h2 id="视图的一些常见应用"><a href="#视图的一些常见应用" class="headerlink" title="视图的一些常见应用"></a>视图的一些常见应用</h2><p> 1.重用SQL 语句。</p>
+<p> 2.简化复杂的SQL 操作。在编写查询后，可以方便地重用它而不必知道其基本查询细节。</p>
+<p> 3.使用表的一部分而不是整个表。</p>
+<p> 4.保护数据。可以授予用户访问表的特定部分的权限，而不是整个表的访问权限。</p>
+<p> 5.更改数据格式和表示。视图可返回与底层表的表示和格式不同的数据。</p>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>因为视图不包含数据，所以每次使用视图时，都必须处理查询执行时需要的所有检索。如果你用多个联结和过滤创建了复杂的视图或者嵌套了视图，性能可能会下降得很厉害。</p>
+<h2 id="常见的规则和限制"><a href="#常见的规则和限制" class="headerlink" title="常见的规则和限制"></a>常见的规则和限制</h2><p> 1.与表一样，视图必须唯一命名。对于可以创建的视图数目没有限制。</p>
+<p> 2.视图可以嵌套，即可以利用从其他视图中检索数据的查询来构造视图。所允许的嵌套层数在不同的DBMS 中有所不同（嵌套视图可能会严重降低查询的性能，因此在产品环境中使用之前，应该对其进行全面测试）。</p>
+<p> 3.许多DBMS 禁止在视图查询中使用ORDER BY 子句。</p>
+<p> 4.有些DBMS 要求对返回的所有列进行命名，如果列是计算字段，则需要使用别名。</p>
+<p> 5.视图不能索引，也不能有关联的触发器或默认值。</p>
+<h2 id="创建-删除-视图"><a href="#创建-删除-视图" class="headerlink" title="创建/删除 视图"></a>创建/删除 视图</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 创建视图 </span><br><span class="line">create view viewName</span><br><span class="line">as  &lt;select 语句&gt; ;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 删除视图 </span><br><span class="line">drop view viewName;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建一个视图"><a href="#创建一个视图" class="headerlink" title="创建一个视图"></a>创建一个视图</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW pro_cus AS</span><br><span class="line">SELECT cust_name, cust_contact, prod_id</span><br><span class="line">FROM Customers, Orders, OrderItems</span><br><span class="line">WHERE Customers.cust_id = Orders.cust_id</span><br><span class="line">AND OrderItems.order_num = Orders.order_num;</span><br></pre></td></tr></table></figure>
+
+<p>查看表：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql&gt; show tables;</span><br><span class="line">+--------------+</span><br><span class="line">| Tables_in_wz |</span><br><span class="line">+--------------+</span><br><span class="line">| customers    |</span><br><span class="line">| orderitems   |</span><br><span class="line">| orders       |</span><br><span class="line">| pro_cus      |</span><br><span class="line">| products     |</span><br><span class="line">| vendors      |</span><br><span class="line">+--------------+</span><br><span class="line">6 rows in set (0.03 sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="利用视图检索数据"><a href="#利用视图检索数据" class="headerlink" title="利用视图检索数据"></a>利用视图检索数据</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM pro_cus</span><br><span class="line">WHERE prod_id = &#x27;RGAN01&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="用视图重新格式化检索出的数据"><a href="#用视图重新格式化检索出的数据" class="headerlink" title="用视图重新格式化检索出的数据"></a>用视图重新格式化检索出的数据</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW Ven_loc AS</span><br><span class="line">SELECT concat(RTRIM(vend_name),&#x27;(&#x27;, RTRIM(vend_country) ,&#x27;)&#x27;)</span><br><span class="line">as ventitle</span><br><span class="line">from vendors;</span><br><span class="line"></span><br><span class="line"> select * from ven_loc;</span><br></pre></td></tr></table></figure>
+
+<h3 id="用视图过滤不想要的数据"><a href="#用视图过滤不想要的数据" class="headerlink" title="用视图过滤不想要的数据"></a>用视图过滤不想要的数据</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW CustomerEMailList AS</span><br><span class="line">SELECT cust_id, cust_name, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_email IS NOT NULL;</span><br></pre></td></tr></table></figure>
+
+<p>从视图检索数据时如果使用了一条WHERE 子句，则两组子句（一组在视图中，另一组是传递给视图的）将自动组合。</p>
+<h3 id="使用视图与计算字段"><a href="#使用视图与计算字段" class="headerlink" title="使用视图与计算字段"></a>使用视图与计算字段</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW OrderItemsExpanded AS</span><br><span class="line">    SELECT order_num,</span><br><span class="line">    prod_id,</span><br><span class="line">    quantity,</span><br><span class="line">    item_price,</span><br><span class="line">	quantity*item_price AS expanded_price</span><br><span class="line">FROM OrderItems;</span><br></pre></td></tr></table></figure>
+
+<p>视图为虚拟的表。它们包含的不是数据而是根据需要检索数据的查询。视图提供了一种封装SELECT 语句的层次，可用来简化数据处理，重新格式化或保护基础数据。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>1.使用视图时不要使用 order by， 因为视图和表一样，数据行都是没有顺序的。</p>
+<p>2.标准SQL 中有这样的规定：如果定义视图的SELECT 语句能够满足某些条件，那么这个视图就可以被更新。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.SELECT 子句中未使用DISTINCT</span><br><span class="line">2.FROM 子句中只有一张表</span><br><span class="line">3.未使用GROUP BY 子句</span><br><span class="line">4.未使用HAVING 子句</span><br></pre></td></tr></table></figure>
+
+<h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><p>存储过程就是为以后使用而保存的一条 或多条SQL 语句。可将其视为批文件，虽然它们的作用不仅限于批处理。</p>
+<h2 id="存储过程的执行"><a href="#存储过程的执行" class="headerlink" title="存储过程的执行"></a>存储过程的执行</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">EXECUTE AddNewProduct( &#x27;JTS01&#x27;,</span><br><span class="line">    &#x27;Stuffed Eiffel Tower&#x27;,</span><br><span class="line">    6.49,</span><br><span class="line">    &#x27;Plush stuffed toy with the text La</span><br><span class="line">    Tour Eiffel in red white and blue&#x27; );</span><br></pre></td></tr></table></figure>
+
+<p>对于具体的DBMS，可能包括以下的执行选择：<br>1.参数可选，具有不提供参数时的默认值；<br>2.不按次序给出参数，以“参数=值”的方式给出参数值。<br>3.输出参数，允许存储过程在正执行的应用程序中更新所用的参数。<br>4.用SELECT 语句检索数据。<br>5.返回代码，允许存储过程返回一个值到正在执行的应用程序。</p>
+<h2 id="创建存储过程"><a href="#创建存储过程" class="headerlink" title="创建存储过程"></a>创建存储过程</h2><p>Oracle ：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE PROCEDURE MailingListCount (</span><br><span class="line">	ListCount OUT INTEGER</span><br><span class="line">)</span><br><span class="line">IS</span><br><span class="line">v_rows INTEGER;</span><br><span class="line">BEGIN</span><br><span class="line">    SELECT COUNT(*) INTO v_rows</span><br><span class="line">    FROM Customers</span><br><span class="line">    WHERE NOT cust_email IS NULL;</span><br><span class="line">    ListCount := v_rows;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+
+<p>这个存储过程有一个名为ListCount 的参数。此参数从存储过程返回一个值而不是传递一个值给存储过程。关键字OUT 用来指示这种行为。Oracle 支持IN（传递值给存储过程）、OUT（从存储过程返回值，如这里）、INOUT（既传递值给存储过程也从存储过程传回值）类型的参数。存储过程的代码括在BEGIN 和END 语句中，这里执行一条简单的SELECT 语句，它检索具有邮件地址的顾客。然后用检索出的行数设置ListCount（要传递的输出参数）。</p>
+<p>调用：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var ReturnValue NUMBER</span><br><span class="line">EXEC MailingListCount(:ReturnValue);</span><br><span class="line">SELECT ReturnValue;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL 基础知识 07</title>
     <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_07/</url>
     <content><![CDATA[<p>MySQL学习笔记。 表的联结： 内联结 + 外联结。<span id="more"></span></p>
@@ -988,64 +1163,6 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE TYPE CustCursor IS REF CURSOR</span><br><span class="line">	RETURN Customers%ROWTYPE;</span><br><span class="line">DECLARE CustRecord Customers%ROWTYPE</span><br><span class="line">BEGIN</span><br><span class="line">OPEN CustCursor;</span><br><span class="line">FETCH CustCursor INTO CustRecord;</span><br><span class="line">CLOSE CustCursor;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
 
 <h3 id="关闭游标"><a href="#关闭游标" class="headerlink" title="关闭游标"></a>关闭游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CLOSE CustCursor</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL 基础知识 08</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_08/</url>
-    <content><![CDATA[<p>MySQL学习笔记。使用视图可以提高检索效率，保存select语句。利用存储过程可以批量的使用一系列SQL语句。<span id="more"></span></p>
-<h1 id="使用视图"><a href="#使用视图" class="headerlink" title="使用视图"></a>使用视图</h1><p>视图是虚拟的表。与包含数据的表不一样，视图只包含使用时动态检索数据的查询。</p>
-<h2 id="视图的一些常见应用"><a href="#视图的一些常见应用" class="headerlink" title="视图的一些常见应用"></a>视图的一些常见应用</h2><p> 1.重用SQL 语句。</p>
-<p> 2.简化复杂的SQL 操作。在编写查询后，可以方便地重用它而不必知道其基本查询细节。</p>
-<p> 3.使用表的一部分而不是整个表。</p>
-<p> 4.保护数据。可以授予用户访问表的特定部分的权限，而不是整个表的访问权限。</p>
-<p> 5.更改数据格式和表示。视图可返回与底层表的表示和格式不同的数据。</p>
-<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>因为视图不包含数据，所以每次使用视图时，都必须处理查询执行时需要的所有检索。如果你用多个联结和过滤创建了复杂的视图或者嵌套了视图，性能可能会下降得很厉害。</p>
-<h2 id="常见的规则和限制"><a href="#常见的规则和限制" class="headerlink" title="常见的规则和限制"></a>常见的规则和限制</h2><p> 1.与表一样，视图必须唯一命名。对于可以创建的视图数目没有限制。</p>
-<p> 2.视图可以嵌套，即可以利用从其他视图中检索数据的查询来构造视图。所允许的嵌套层数在不同的DBMS 中有所不同（嵌套视图可能会严重降低查询的性能，因此在产品环境中使用之前，应该对其进行全面测试）。</p>
-<p> 3.许多DBMS 禁止在视图查询中使用ORDER BY 子句。</p>
-<p> 4.有些DBMS 要求对返回的所有列进行命名，如果列是计算字段，则需要使用别名。</p>
-<p> 5.视图不能索引，也不能有关联的触发器或默认值。</p>
-<h2 id="创建-删除-视图"><a href="#创建-删除-视图" class="headerlink" title="创建/删除 视图"></a>创建/删除 视图</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 创建视图 </span><br><span class="line">create view viewName</span><br><span class="line">as  &lt;select 语句&gt; ;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 删除视图 </span><br><span class="line">drop view viewName;</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建一个视图"><a href="#创建一个视图" class="headerlink" title="创建一个视图"></a>创建一个视图</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW pro_cus AS</span><br><span class="line">SELECT cust_name, cust_contact, prod_id</span><br><span class="line">FROM Customers, Orders, OrderItems</span><br><span class="line">WHERE Customers.cust_id = Orders.cust_id</span><br><span class="line">AND OrderItems.order_num = Orders.order_num;</span><br></pre></td></tr></table></figure>
-
-<p>查看表：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql&gt; show tables;</span><br><span class="line">+--------------+</span><br><span class="line">| Tables_in_wz |</span><br><span class="line">+--------------+</span><br><span class="line">| customers    |</span><br><span class="line">| orderitems   |</span><br><span class="line">| orders       |</span><br><span class="line">| pro_cus      |</span><br><span class="line">| products     |</span><br><span class="line">| vendors      |</span><br><span class="line">+--------------+</span><br><span class="line">6 rows in set (0.03 sec)</span><br></pre></td></tr></table></figure>
-
-<h2 id="利用视图检索数据"><a href="#利用视图检索数据" class="headerlink" title="利用视图检索数据"></a>利用视图检索数据</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM pro_cus</span><br><span class="line">WHERE prod_id = &#x27;RGAN01&#x27;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="用视图重新格式化检索出的数据"><a href="#用视图重新格式化检索出的数据" class="headerlink" title="用视图重新格式化检索出的数据"></a>用视图重新格式化检索出的数据</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW Ven_loc AS</span><br><span class="line">SELECT concat(RTRIM(vend_name),&#x27;(&#x27;, RTRIM(vend_country) ,&#x27;)&#x27;)</span><br><span class="line">as ventitle</span><br><span class="line">from vendors;</span><br><span class="line"></span><br><span class="line"> select * from ven_loc;</span><br></pre></td></tr></table></figure>
-
-<h3 id="用视图过滤不想要的数据"><a href="#用视图过滤不想要的数据" class="headerlink" title="用视图过滤不想要的数据"></a>用视图过滤不想要的数据</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW CustomerEMailList AS</span><br><span class="line">SELECT cust_id, cust_name, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_email IS NOT NULL;</span><br></pre></td></tr></table></figure>
-
-<p>从视图检索数据时如果使用了一条WHERE 子句，则两组子句（一组在视图中，另一组是传递给视图的）将自动组合。</p>
-<h3 id="使用视图与计算字段"><a href="#使用视图与计算字段" class="headerlink" title="使用视图与计算字段"></a>使用视图与计算字段</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE VIEW OrderItemsExpanded AS</span><br><span class="line">    SELECT order_num,</span><br><span class="line">    prod_id,</span><br><span class="line">    quantity,</span><br><span class="line">    item_price,</span><br><span class="line">	quantity*item_price AS expanded_price</span><br><span class="line">FROM OrderItems;</span><br></pre></td></tr></table></figure>
-
-<p>视图为虚拟的表。它们包含的不是数据而是根据需要检索数据的查询。视图提供了一种封装SELECT 语句的层次，可用来简化数据处理，重新格式化或保护基础数据。</p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>1.使用视图时不要使用 order by， 因为视图和表一样，数据行都是没有顺序的。</p>
-<p>2.标准SQL 中有这样的规定：如果定义视图的SELECT 语句能够满足某些条件，那么这个视图就可以被更新。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.SELECT 子句中未使用DISTINCT</span><br><span class="line">2.FROM 子句中只有一张表</span><br><span class="line">3.未使用GROUP BY 子句</span><br><span class="line">4.未使用HAVING 子句</span><br></pre></td></tr></table></figure>
-
-<h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><p>存储过程就是为以后使用而保存的一条 或多条SQL 语句。可将其视为批文件，虽然它们的作用不仅限于批处理。</p>
-<h2 id="存储过程的执行"><a href="#存储过程的执行" class="headerlink" title="存储过程的执行"></a>存储过程的执行</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">EXECUTE AddNewProduct( &#x27;JTS01&#x27;,</span><br><span class="line">    &#x27;Stuffed Eiffel Tower&#x27;,</span><br><span class="line">    6.49,</span><br><span class="line">    &#x27;Plush stuffed toy with the text La</span><br><span class="line">    Tour Eiffel in red white and blue&#x27; );</span><br></pre></td></tr></table></figure>
-
-<p>对于具体的DBMS，可能包括以下的执行选择：<br>1.参数可选，具有不提供参数时的默认值；<br>2.不按次序给出参数，以“参数=值”的方式给出参数值。<br>3.输出参数，允许存储过程在正执行的应用程序中更新所用的参数。<br>4.用SELECT 语句检索数据。<br>5.返回代码，允许存储过程返回一个值到正在执行的应用程序。</p>
-<h2 id="创建存储过程"><a href="#创建存储过程" class="headerlink" title="创建存储过程"></a>创建存储过程</h2><p>Oracle ：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE PROCEDURE MailingListCount (</span><br><span class="line">	ListCount OUT INTEGER</span><br><span class="line">)</span><br><span class="line">IS</span><br><span class="line">v_rows INTEGER;</span><br><span class="line">BEGIN</span><br><span class="line">    SELECT COUNT(*) INTO v_rows</span><br><span class="line">    FROM Customers</span><br><span class="line">    WHERE NOT cust_email IS NULL;</span><br><span class="line">    ListCount := v_rows;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
-
-<p>这个存储过程有一个名为ListCount 的参数。此参数从存储过程返回一个值而不是传递一个值给存储过程。关键字OUT 用来指示这种行为。Oracle 支持IN（传递值给存储过程）、OUT（从存储过程返回值，如这里）、INOUT（既传递值给存储过程也从存储过程传回值）类型的参数。存储过程的代码括在BEGIN 和END 语句中，这里执行一条简单的SELECT 语句，它检索具有邮件地址的顾客。然后用检索出的行数设置ListCount（要传递的输出参数）。</p>
-<p>调用：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var ReturnValue NUMBER</span><br><span class="line">EXEC MailingListCount(:ReturnValue);</span><br><span class="line">SELECT ReturnValue;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -1152,21 +1269,50 @@
       </tags>
   </entry>
   <entry>
-    <title>C++学习过程中遇到的问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppProblem02/</url>
-    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊  + 1。(<em>¯ㅿ¯</em>;)</p>
+    <title>Uniform Initialization</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/</url>
+    <content><![CDATA[<p>在C++11之前，初始化操作可以用很多种方法来实现，比如说小括号，大括号以及赋值符号，C++11之后，统一都可以使用花括号来初始化变量，当然，所有之前可以使用的方式依然可以使用。</p>
 <span id="more"></span>
 
-<h2 id="make-pair报错"><a href="#make-pair报错" class="headerlink" title="make_pair报错"></a>make_pair报错</h2><p>使用语句：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nodeDepth.emplace_back(make_pair&lt;int, TreeNode*&gt;(depth, stk.top()));</span><br></pre></td></tr></table></figure>
+<h2 id="Uniform-Initialization"><a href="#Uniform-Initialization" class="headerlink" title="Uniform Initialization"></a>Uniform Initialization</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>在C++11之前，初始化操作可以用很多种方法来实现，比如说小括号，大括号以及赋值符号。</p>
+<p>如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Rect r1 = &#123; 3, 7, 20, 25, &amp;area, &amp;print &#125;;</span><br><span class="line">Rect r1(3, 7, 20, 25);</span><br><span class="line">int ia[6] = &#123;1, 2, 3, 4, 5, 6&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>会直接报错，<strong>Cannot convert parameter from ‘int’ to ‘int &amp;&amp;’</strong></p>
-<p>原因：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt; class T1, class T2 &gt;</span><br><span class="line">std::pair&lt;T1,T2&gt; make_pair( T1 t, T2 u );           (until C++11)</span><br><span class="line"></span><br><span class="line">template&lt; class T1, class T2 &gt;</span><br><span class="line">std::pair&lt;V1,V2&gt; make_pair( T1&amp;&amp; t, T2&amp;&amp; u );       (since C++11)</span><br></pre></td></tr></table></figure>
+<p>为了解决初始化操作的不统一，C++11引入了uniform initialization，也就是一致性初始化的概念，对于所有初始化操作，都可以统一地使用大括号来解决。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>编译器看到{ t1, t2, t3, …, tn }便做出一个initializer_list<T>，它关联至一个array&lt;T, n&gt;。调用函数(例如构造函数)时该array内的元素可以被编译器分解逐一传给函数。但如果函数参数本来就是一个initializer_list<T>，整个initializer_list<T>就会被整个传过去。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//举例</span><br><span class="line">vector&lt;string&gt; cities&#123;&quot;Berlin&quot;, &quot;New York&quot;, &quot;London&quot; &#125;;</span><br></pre></td></tr></table></figure>
 
-<p>make_pair修改了定义，如果直接使用变量名的话，编译器会认为这是一个左值，而不能使用。</p>
-<p>解决方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.直接使用pair</span><br><span class="line">nodeDepth.emplace_back(pair&lt;int, TreeNode*&gt;(depth, stk.top()));</span><br><span class="line">2.用int(depth)将左值转为右值</span><br><span class="line">nodeDepth.emplace_back(make_pair&lt;int, TreeNode*&gt;(int(depth), stk.top()));</span><br></pre></td></tr></table></figure>
+<p>这就会形成一个initializer_list<string>，背后有个array&lt;string, 3&gt;。调用vector<string>的构造函数时编译器找到了一个构造函数接受initializer_list<string>。所有容器都有这样的构造函数.</p>
+<h3 id="initializer-list-lt-gt"><a href="#initializer-list-lt-gt" class="headerlink" title="initializer_list&lt;&gt;"></a>initializer_list&lt;&gt;</h3><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>使用{}会强制为变量初始化，即使是基本类型，如果没有赋予初值的话，那它的值也是不确定的。但是如果使用initializer_list&lt;&gt;也就是{}来初始化，初始值会赋值为0，指针会赋值为空指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int i;  // i 的值不确定</span><br><span class="line">int j&#123;&#125;; // j = 0;</span><br><span class="line">int *p; //p 的值不确定</span><br><span class="line">int *q&#123;&#125;; // q = nullptr</span><br></pre></td></tr></table></figure>
+
+<p>除此之外，{}也就是initializer_list是一种狭义的初始化，不能实现数据格式转换。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int x1(5.3); //ok x1 = 5;</span><br><span class="line">int x2 = 5.2; //ok x2 = 5;</span><br><span class="line">int x3&#123;5.3&#125;; //error narrowing.</span><br></pre></td></tr></table></figure>
+
+<p>为了支持用户自定义类型实现列表初始化，C++11提供了一种新的模板类。叫做std::initializer_list.</p>
+<p>只要输入值为一系列的值，或者数值列表都可以使用initializer_list来实现初始化。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//举例</span><br><span class="line">void print(std::initializer_list&lt;int&gt; vals)&#123;</span><br><span class="line">	for(auto p = vals.begin(); p!= vals.end(); ++p)&#123;</span><br><span class="line">		//a list of value</span><br><span class="line">		std::cout &lt;&lt; *p &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//传给 initializer_list的一定是 initializer_list 或者是 &#123;&#125;。</span><br><span class="line"></span><br><span class="line">//传递一个列表给函数。</span><br><span class="line">print(&#123;1, 2, 3, 4, 11&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p>当选择输入一串数字或输入一个列表时，输入列表时一种更好的选择。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class P</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    P(int a, int b)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; &quot;P(int, int), a=&quot; &lt;&lt; a &lt;&lt; &quot;, b=&quot; &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    P(initializer_list&lt;int&gt; initlist)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; &quot;P(initailizer_list&lt;int&gt;), values=&quot;;</span><br><span class="line">        for(auto i : initlist)</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; &#x27; &#x27;;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">P p(77, 5);      //调用P(int, int)</span><br><span class="line">P p&#123; 77, 5 &#125;;    //调用P(initializer_list&lt;int&gt;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="部分源码"><a href="#部分源码" class="headerlink" title="部分源码"></a>部分源码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template &lt;class _E&gt;</span><br><span class="line">    class initializer_list</span><br><span class="line">    &#123;</span><br><span class="line">    public:</span><br><span class="line">        typedef _E           value_type;</span><br><span class="line">        typedef const _E&amp;    reference;</span><br><span class="line">        typedef const _E&amp;    const_reference;</span><br><span class="line">        typedef size_t       size_type;</span><br><span class="line">        typedef const _E*    iterator;</span><br><span class="line">        typedef const _E*    const_iterator;</span><br><span class="line">    </span><br><span class="line">    private:</span><br><span class="line">        iterator        _M_array;</span><br><span class="line">        size_type       _M_len;</span><br><span class="line">        </span><br><span class="line">        //编译器会在看到&#123;&#125;后，创造出一个array，再调用这个私有构造函数</span><br><span class="line">        constexpr initializer_list(const_iterator __a, size_type __l)</span><br><span class="line">            :_M_array(__a), _M_len(__l) &#123; &#125;</span><br><span class="line"> </span><br><span class="line">    public:</span><br><span class="line">        constexpr initializer_list() noexcept</span><br><span class="line">        : _M_array(0), _M_len(0) &#123; &#125;</span><br><span class="line"> </span><br><span class="line">        //Number of elements</span><br><span class="line">        constexpr size_type</span><br><span class="line">        size() const noexcept &#123; return _M_len; &#125;</span><br><span class="line">        </span><br><span class="line">        //First element</span><br><span class="line">        constexpr const_iterator</span><br><span class="line">        begin() const noexcept &#123; return _M_array; &#125;</span><br><span class="line"> </span><br><span class="line">        //One past the last element</span><br><span class="line">        end() const noexcept &#123; return begin() + _M_len; &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>可以看出class initializer_list&lt;&gt;中的成员是一个迭代器和一个长度，迭代器指向array的首元素，长度就是array的长度。并且它有一个私有构造函数，我们不能调用，但是编译器会在看到{}之后，先创建出一个array&lt;&gt;，然后再创建出相应的initializer_list&lt;&gt;。下面是array的部分源码，选自TR1，现在的版本会更加复杂，但是原理都相同：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;typename _Tp, std::size_t _Nm&gt;</span><br><span class="line">    struct array</span><br><span class="line">    &#123;</span><br><span class="line">        typedef _Tp             value_type;</span><br><span class="line">        typedef _Tp*            pointer;</span><br><span class="line">        typedef value_type*     iterator;</span><br><span class="line"> </span><br><span class="line">        // Support for zero-sized arrays mandatory</span><br><span class="line">        value_type _M_instance[_Nm ? _Nm : 1];</span><br><span class="line">        </span><br><span class="line">        iterator begin()</span><br><span class="line">        &#123; return iterator(&amp;_M_instance[0]); &#125; </span><br><span class="line">        </span><br><span class="line">        iterator end()</span><br><span class="line">        &#123; return iterator(&amp;_M_instance[_Nm]); &#125;</span><br><span class="line"> </span><br><span class="line">        ...</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>class array&lt;&gt;其实就是把数组按照容器的要求重写了一下，从而使数组也拥有迭代器之类的方便处理的东西。</p>
+<h3 id="initializer-list-lt-gt-广泛应用于标准库中"><a href="#initializer-list-lt-gt-广泛应用于标准库中" class="headerlink" title="initializer_list&lt;&gt;广泛应用于标准库中"></a>initializer_list&lt;&gt;广泛应用于标准库中</h3><p>所有容器都接受指定任意数量的值用于构建或赋值或insert()或assign()；algorithm中的max()和min()也愿意接受任意参数。</p>
+<h2 id="explicit-关键字"><a href="#explicit-关键字" class="headerlink" title="explicit 关键字"></a>explicit 关键字</h2><p>C++提供了关键字explicit，可以阻止不应该允许的经过转换<strong>构造函数</strong>进行的<strong>隐式转换</strong>的发生。声明为explicit的构造函数不能在隐式转换中使用。</p>
+<p>C++中的explicit关键字只能用于修饰只有一个参数的类构造函数, 它的作用是表明该构造函数是显示的, 而非隐式的, 跟它相对应的另一个关键字是implicit, 意思是隐藏的,类构造函数默认情况下即声明为implicit(隐式).</p>
+<p> <strong>explicit关键字的作用就是防止类构造函数的隐式自动转换.</strong></p>
+<p>注意：当类的声明和定义分别在两个文件中时，explicit只能写在在声明中，不能写在定义中。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Test1&#123;</span><br><span class="line">public :</span><br><span class="line">      explicit Test(int num):n(num)&#123;&#125;</span><br><span class="line">private:</span><br><span class="line">       int n;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	Test1 x1 = 10; // error 不能提供隐式转换。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="range-based-for-statement"><a href="#range-based-for-statement" class="headerlink" title="range-based for statement"></a>range-based for statement</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for( decl : coll )&#123;</span><br><span class="line">	statement...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>个人感觉有点类似于python的in range()</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//例1</span><br><span class="line">for(int i : &#123;2, 3, 4, 5, 6&#125;)&#123;</span><br><span class="line">	cout &lt;&lt; i&lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">//例2</span><br><span class="line">vector&lt;int&gt; vec;</span><br><span class="line">...</span><br><span class="line">for( auto elem : vec )&#123;</span><br><span class="line">	cout &lt;&lt; elem  &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">for( auto&amp; elem : vec)&#123;</span><br><span class="line">	elem *= 3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -1174,84 +1320,6 @@
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++学习过程中遇到的问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppProblem01/</url>
-    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊。(<em>¯ㅿ¯</em>;)</p>
-<span id="more"></span>
-
-<h2 id="输入cin-指令无效"><a href="#输入cin-指令无效" class="headerlink" title="输入cin 指令无效"></a>输入cin 指令无效</h2><p>​    在一个简单的交互程序中，使用 cin 来读取输入时，第一次读取输入的字符串正常读取，第二次读取输入的数字时命令被忽略，直接跳过执行。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cin &gt;&gt; number; <span class="comment">//通常情况会进行输入读取一个数值，前提是cin正常。如果cin被核定为false，则cin就不会被执行啦。</span></span><br></pre></td></tr></table></figure>
-
-<p>   上述例子中，由于输入字符串时，输入了结束符进行退出，所以 cin 已经被核定为false了，所以下边的 cin&gt;&gt;number 无法正常执行输入操作。</p>
-<p>cin 被核定为 false 的情况：</p>
-<p>​    （1）遇到结束符。</p>
-<p>​    （2）遇到非法输入。</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    使用cin.clear() 和 cin.sync() 使 cin 恢复正常状态。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两者需要同时使用。</span></span><br><span class="line">    cin.<span class="built_in">sync</span>();</span><br><span class="line">    cin.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
-
-<p>   更多的具体细节可以搜索函数的定义和功能。</p>
-<h2 id="Null-与-nullptr"><a href="#Null-与-nullptr" class="headerlink" title="Null 与 nullptr"></a>Null 与 nullptr</h2><p>Null在C++中定义为0，在很多场合（尤其涉及到指针时）。因此更加提倡使用 nullptr 来代替Null。</p>
-<h2 id="using用法"><a href="#using用法" class="headerlink" title="using用法"></a>using用法</h2><p>C/C++中可以使用  typedef 来定义别名。被重定义的类型并不是一个新的类型，仅仅只是原有的类型取了一个新的名字。</p>
-<p>使用 typedef 重定义类型是很方便的，但它也有一些限制，比如，无法重定义一个模板。</p>
-<p>而using 的别名语法覆盖了 typedef 的全部功能。using 别名语法比 typedef 更加清晰。因为 typedef 的别名语法本质上类似一种解方程的思路。而 using 语法通过赋值来定义别名，和我们平时的思考方式一致。</p>
-<p>因此很多情况二者可以互换  但更多情况下最好使用using。</p>
-<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>析构函数（destructor）是成员函数的一种，它的名字与类名相同，但前面要加<code>~</code>，没有参数和返回值。一个类有且仅有一个析构函数。如果定义类时没写析构函数，则编译器生成默认析构函数。析构函数在对象消亡时即自动被调用。可以定义析构函数在对象消亡前做善后工作。例如，对象如果在生存期间用 new 运算符动态分配了内存，则在各处写 delete 语句以确保程序的每条执行路径都能释放这片内存是比较麻烦的事情。有了析构函数，只要在析构函数中调用 delete 语句，就能确保对象运行中用 new 运算符分配的空间在对象消亡时被释放。</p>
-<h2 id="const的不同用法"><a href="#const的不同用法" class="headerlink" title="const的不同用法"></a>const的不同用法</h2><p>关键问题点：const 属于修饰符 ，关键是看const 修饰的位置在那里</p>
-<p>​    在 C++ 中const是用来修饰内置类型变量，自定义对象，成员函数，返回值，函数参数。</p>
-<p>​    C++ const 允许指定一个语义约束，编译器会强制实施这个约束，允许程序员告诉编译器某值是保持不变的。如果在编程中确实有某个值保持不变，就应该明确使用const，这样可以获得编译器的帮助。</p>
-<h3 id="修饰普通类型变量"><a href="#修饰普通类型变量" class="headerlink" title="修饰普通类型变量"></a>修饰普通类型变量</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int num = 7;</span><br><span class="line">num = 8;//错误，num不可修改。</span><br></pre></td></tr></table></figure>
-
-<h3 id="修饰指针变量"><a href="#修饰指针变量" class="headerlink" title="修饰指针变量"></a>修饰指针变量</h3><p>const 修饰指针变量有以下三种情况。</p>
-<ul>
-<li>A: const 修饰指针指向的内容，则内容为不可变量。</li>
-<li>B: const 修饰指针，则指针为不可变量。</li>
-<li>C: const 修饰指针和指针指向的内容，则指针和指针指向的内容都为不可变量。</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//A情形：</span><br><span class="line">const int *p = 8;</span><br><span class="line">//左定值，指针指向的内容不可改变。</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//B情形:</span><br><span class="line">int a = 8;</span><br><span class="line">int* const p = &amp;a;</span><br><span class="line">*p =9; //正确</span><br><span class="line">int b = 7;</span><br><span class="line">p = &amp;b; //错误</span><br><span class="line">//对于 const 指针 p 其指向的内存地址不能够被改变，但其内容可以改变。简称，右定向。因为 const 位于 * 号的右边。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//C情形</span><br><span class="line">int a = 8;</span><br><span class="line">const int * const  p = &amp;a;</span><br><span class="line">//const p 的指向的内容和指向的内存地址都已固定，不可改变。</span><br></pre></td></tr></table></figure>
-
-<p>根据 const 位于 * 号的位置不同，可总结三句话便于记忆的话：**”左定值，右定向，const修饰不变量”**。</p>
-<p>int const *a 和 const int *a 的意义是相同的 他们两个的作用等价</p>
-<h3 id="const参数传递和函数返回值"><a href="#const参数传递和函数返回值" class="headerlink" title="const参数传递和函数返回值"></a>const参数传递和函数返回值</h3><p>对于 const 修饰函数参数可以分为三种情况。</p>
-<p>A：值传递的 const 修饰传递，一般这种情况不需要 const 修饰，因为函数会自动产生临时变量复制实参值。</p>
-<p>B：当 const 参数为指针时，可以防止指针被意外篡改。</p>
-<p>C：自定义类型的参数传递，需要临时对象复制参数，对于临时对象的构造，需要调用构造函数，比较浪费时间，因此我们采取 const 外加引用传递的方法。并且对于一般的 int、double 等内置类型，我们不采用引用的传递方式。</p>
-<p>Const 修饰返回值分三种情况。</p>
-<p>A：const 修饰内置类型的返回值，修饰与不修饰返回值作用一样。</p>
-<p>B: const 修饰自定义类型的作为返回值，此时返回的值不能作为左值使用，既不能被赋值，也不能被修改。</p>
-<p>C: const 修饰返回的指针或者引用，是否返回一个指向 const 的指针，取决于我们想让用户干什么。</p>
-<h3 id="const修饰类成员函数"><a href="#const修饰类成员函数" class="headerlink" title="const修饰类成员函数"></a>const修饰类成员函数</h3><p>const 修饰类成员函数，其目的是防止成员函数修改被调用对象的值，如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
-<p><strong>注意：</strong>const 关键字不能与 static 关键字同时使用，因为 static 关键字修饰静态成员函数，静态成员函数不含有 this 指针，即不能实例化，const 成员函数必须具体到某一实例。</p>
-<p>如果有个成员函数想修改对象中的某一个成员可以使用 mutable 关键字修饰这个成员，被 mutable 关键字修饰的成员可以处于不断变化中.</p>
-<h2 id="int-array"><a href="#int-array" class="headerlink" title="int array[[]][][]"></a>int array[[]][][]</h2><p>如果想要将一个二维数组当作函数形参或应用， 则必须实现定义第二维的大小，相比之下，更应该使用vector&lt;vector<int> &gt;.</p>
-<p>此外C++11有了一个新的array容器。</p>
-<h2 id="函数返回值为引用类型"><a href="#函数返回值为引用类型" class="headerlink" title="函数返回值为引用类型"></a>函数返回值为引用类型</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template &lt;typename T&gt;</span><br><span class="line">Vector&lt;T&gt;&amp; Vector&lt;T&gt;::operator=(Vector&lt;T&gt; const&amp; V)&#123;  //重载 =</span><br><span class="line">    //释放原有内容</span><br><span class="line">    if(_elem)</span><br><span class="line">        delete[] _elem;</span><br><span class="line">    //整体复制</span><br><span class="line">    copyFrom(V._elem, 0, V.size());</span><br><span class="line">    //返回当前对象的引用，以便链式复制</span><br><span class="line">    return *this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>返回类型为引用类型，需要注意返回值是全局变量、局部变量、类对象等。防止发生错误。</p>
-<p>对应很多不同的情况，值得仔细研究一下。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Deep Learning 基础知识</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/Algorithm/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h1><h2 id="K邻近算法"><a href="#K邻近算法" class="headerlink" title="K邻近算法"></a>K邻近算法</h2><h2 id="SVM-Loss-Function"><a href="#SVM-Loss-Function" class="headerlink" title="SVM Loss Function"></a>SVM Loss Function</h2>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>深度学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1345,60 +1413,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Uniform Initialization</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/</url>
-    <content><![CDATA[<p>在C++11之前，初始化操作可以用很多种方法来实现，比如说小括号，大括号以及赋值符号，C++11之后，统一都可以使用花括号来初始化变量，当然，所有之前可以使用的方式依然可以使用。</p>
-<span id="more"></span>
-
-<h2 id="Uniform-Initialization"><a href="#Uniform-Initialization" class="headerlink" title="Uniform Initialization"></a>Uniform Initialization</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>在C++11之前，初始化操作可以用很多种方法来实现，比如说小括号，大括号以及赋值符号。</p>
-<p>如下所示：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Rect r1 = &#123; 3, 7, 20, 25, &amp;area, &amp;print &#125;;</span><br><span class="line">Rect r1(3, 7, 20, 25);</span><br><span class="line">int ia[6] = &#123;1, 2, 3, 4, 5, 6&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>为了解决初始化操作的不统一，C++11引入了uniform initialization，也就是一致性初始化的概念，对于所有初始化操作，都可以统一地使用大括号来解决。</p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>编译器看到{ t1, t2, t3, …, tn }便做出一个initializer_list<T>，它关联至一个array&lt;T, n&gt;。调用函数(例如构造函数)时该array内的元素可以被编译器分解逐一传给函数。但如果函数参数本来就是一个initializer_list<T>，整个initializer_list<T>就会被整个传过去。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//举例</span><br><span class="line">vector&lt;string&gt; cities&#123;&quot;Berlin&quot;, &quot;New York&quot;, &quot;London&quot; &#125;;</span><br></pre></td></tr></table></figure>
-
-<p>这就会形成一个initializer_list<string>，背后有个array&lt;string, 3&gt;。调用vector<string>的构造函数时编译器找到了一个构造函数接受initializer_list<string>。所有容器都有这样的构造函数.</p>
-<h3 id="initializer-list-lt-gt"><a href="#initializer-list-lt-gt" class="headerlink" title="initializer_list&lt;&gt;"></a>initializer_list&lt;&gt;</h3><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>使用{}会强制为变量初始化，即使是基本类型，如果没有赋予初值的话，那它的值也是不确定的。但是如果使用initializer_list&lt;&gt;也就是{}来初始化，初始值会赋值为0，指针会赋值为空指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int i;  // i 的值不确定</span><br><span class="line">int j&#123;&#125;; // j = 0;</span><br><span class="line">int *p; //p 的值不确定</span><br><span class="line">int *q&#123;&#125;; // q = nullptr</span><br></pre></td></tr></table></figure>
-
-<p>除此之外，{}也就是initializer_list是一种狭义的初始化，不能实现数据格式转换。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int x1(5.3); //ok x1 = 5;</span><br><span class="line">int x2 = 5.2; //ok x2 = 5;</span><br><span class="line">int x3&#123;5.3&#125;; //error narrowing.</span><br></pre></td></tr></table></figure>
-
-<p>为了支持用户自定义类型实现列表初始化，C++11提供了一种新的模板类。叫做std::initializer_list.</p>
-<p>只要输入值为一系列的值，或者数值列表都可以使用initializer_list来实现初始化。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//举例</span><br><span class="line">void print(std::initializer_list&lt;int&gt; vals)&#123;</span><br><span class="line">	for(auto p = vals.begin(); p!= vals.end(); ++p)&#123;</span><br><span class="line">		//a list of value</span><br><span class="line">		std::cout &lt;&lt; *p &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//传给 initializer_list的一定是 initializer_list 或者是 &#123;&#125;。</span><br><span class="line"></span><br><span class="line">//传递一个列表给函数。</span><br><span class="line">print(&#123;1, 2, 3, 4, 11&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p>当选择输入一串数字或输入一个列表时，输入列表时一种更好的选择。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class P</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    P(int a, int b)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; &quot;P(int, int), a=&quot; &lt;&lt; a &lt;&lt; &quot;, b=&quot; &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    P(initializer_list&lt;int&gt; initlist)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; &quot;P(initailizer_list&lt;int&gt;), values=&quot;;</span><br><span class="line">        for(auto i : initlist)</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; &#x27; &#x27;;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">P p(77, 5);      //调用P(int, int)</span><br><span class="line">P p&#123; 77, 5 &#125;;    //调用P(initializer_list&lt;int&gt;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="部分源码"><a href="#部分源码" class="headerlink" title="部分源码"></a>部分源码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template &lt;class _E&gt;</span><br><span class="line">    class initializer_list</span><br><span class="line">    &#123;</span><br><span class="line">    public:</span><br><span class="line">        typedef _E           value_type;</span><br><span class="line">        typedef const _E&amp;    reference;</span><br><span class="line">        typedef const _E&amp;    const_reference;</span><br><span class="line">        typedef size_t       size_type;</span><br><span class="line">        typedef const _E*    iterator;</span><br><span class="line">        typedef const _E*    const_iterator;</span><br><span class="line">    </span><br><span class="line">    private:</span><br><span class="line">        iterator        _M_array;</span><br><span class="line">        size_type       _M_len;</span><br><span class="line">        </span><br><span class="line">        //编译器会在看到&#123;&#125;后，创造出一个array，再调用这个私有构造函数</span><br><span class="line">        constexpr initializer_list(const_iterator __a, size_type __l)</span><br><span class="line">            :_M_array(__a), _M_len(__l) &#123; &#125;</span><br><span class="line"> </span><br><span class="line">    public:</span><br><span class="line">        constexpr initializer_list() noexcept</span><br><span class="line">        : _M_array(0), _M_len(0) &#123; &#125;</span><br><span class="line"> </span><br><span class="line">        //Number of elements</span><br><span class="line">        constexpr size_type</span><br><span class="line">        size() const noexcept &#123; return _M_len; &#125;</span><br><span class="line">        </span><br><span class="line">        //First element</span><br><span class="line">        constexpr const_iterator</span><br><span class="line">        begin() const noexcept &#123; return _M_array; &#125;</span><br><span class="line"> </span><br><span class="line">        //One past the last element</span><br><span class="line">        end() const noexcept &#123; return begin() + _M_len; &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
-
-<p>可以看出class initializer_list&lt;&gt;中的成员是一个迭代器和一个长度，迭代器指向array的首元素，长度就是array的长度。并且它有一个私有构造函数，我们不能调用，但是编译器会在看到{}之后，先创建出一个array&lt;&gt;，然后再创建出相应的initializer_list&lt;&gt;。下面是array的部分源码，选自TR1，现在的版本会更加复杂，但是原理都相同：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;typename _Tp, std::size_t _Nm&gt;</span><br><span class="line">    struct array</span><br><span class="line">    &#123;</span><br><span class="line">        typedef _Tp             value_type;</span><br><span class="line">        typedef _Tp*            pointer;</span><br><span class="line">        typedef value_type*     iterator;</span><br><span class="line"> </span><br><span class="line">        // Support for zero-sized arrays mandatory</span><br><span class="line">        value_type _M_instance[_Nm ? _Nm : 1];</span><br><span class="line">        </span><br><span class="line">        iterator begin()</span><br><span class="line">        &#123; return iterator(&amp;_M_instance[0]); &#125; </span><br><span class="line">        </span><br><span class="line">        iterator end()</span><br><span class="line">        &#123; return iterator(&amp;_M_instance[_Nm]); &#125;</span><br><span class="line"> </span><br><span class="line">        ...</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
-
-<p>class array&lt;&gt;其实就是把数组按照容器的要求重写了一下，从而使数组也拥有迭代器之类的方便处理的东西。</p>
-<h3 id="initializer-list-lt-gt-广泛应用于标准库中"><a href="#initializer-list-lt-gt-广泛应用于标准库中" class="headerlink" title="initializer_list&lt;&gt;广泛应用于标准库中"></a>initializer_list&lt;&gt;广泛应用于标准库中</h3><p>所有容器都接受指定任意数量的值用于构建或赋值或insert()或assign()；algorithm中的max()和min()也愿意接受任意参数。</p>
-<h2 id="explicit-关键字"><a href="#explicit-关键字" class="headerlink" title="explicit 关键字"></a>explicit 关键字</h2><p>C++提供了关键字explicit，可以阻止不应该允许的经过转换<strong>构造函数</strong>进行的<strong>隐式转换</strong>的发生。声明为explicit的构造函数不能在隐式转换中使用。</p>
-<p>C++中的explicit关键字只能用于修饰只有一个参数的类构造函数, 它的作用是表明该构造函数是显示的, 而非隐式的, 跟它相对应的另一个关键字是implicit, 意思是隐藏的,类构造函数默认情况下即声明为implicit(隐式).</p>
-<p> <strong>explicit关键字的作用就是防止类构造函数的隐式自动转换.</strong></p>
-<p>注意：当类的声明和定义分别在两个文件中时，explicit只能写在在声明中，不能写在定义中。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Test1&#123;</span><br><span class="line">public :</span><br><span class="line">      explicit Test(int num):n(num)&#123;&#125;</span><br><span class="line">private:</span><br><span class="line">       int n;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	Test1 x1 = 10; // error 不能提供隐式转换。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="range-based-for-statement"><a href="#range-based-for-statement" class="headerlink" title="range-based for statement"></a>range-based for statement</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for( decl : coll )&#123;</span><br><span class="line">	statement...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>个人感觉有点类似于python的in range()</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//例1</span><br><span class="line">for(int i : &#123;2, 3, 4, 5, 6&#125;)&#123;</span><br><span class="line">	cout &lt;&lt; i&lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">//例2</span><br><span class="line">vector&lt;int&gt; vec;</span><br><span class="line">...</span><br><span class="line">for( auto elem : vec )&#123;</span><br><span class="line">	cout &lt;&lt; elem  &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">for( auto&amp; elem : vec)&#123;</span><br><span class="line">	elem *= 3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cpp Primer chapter 2.1</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_1/</url>
     <content><![CDATA[<p>C++ Primer 第二篇第三章学习笔记。<span id="more"></span></p>
@@ -1452,46 +1466,6 @@
 <p>我们可以用成员访问符号访问pair 中的单个元素,它们的名字为first 和second.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pair&lt; string, string &gt; author( &quot;James&quot;, &quot;Joyce&quot; );</span><br><span class="line">author.first == &quot;James&quot;;</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 2.2</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_2/</url>
-    <content><![CDATA[<p>C++ Primer 第二篇第四章学习笔记。<span id="more"></span></p>
-<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第二章-表达式"><a href="#第二章-表达式" class="headerlink" title="第二章  表达式"></a>第二章  表达式</h2><p>基本算术运算符、逻辑运算符、赋值运算符、条件运算符与其他语言一致。</p>
-<h3 id="sizeof-操作符"><a href="#sizeof-操作符" class="headerlink" title="sizeof 操作符"></a>sizeof 操作符</h3><p>siseof 操作符的作用是返回一个对象或类型名的字节长度。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//三种用法</span><br><span class="line">sizeof (type name );</span><br><span class="line">sizeof ( object );</span><br><span class="line">sizeof object;</span><br></pre></td></tr></table></figure>
-
-<p>返回值的类型是size_t ，这是一种与机器相关的typedef 定义。</p>
-<p>应用在指针类型上的sizeof 操作符，返回的是包含该类型地址所需的内存长度。但是应用在引用类型上的sizeof 操作符。返回的是包含被引用对象所需的内存长度。</p>
-<h3 id="new-和delete-表达式"><a href="#new-和delete-表达式" class="headerlink" title="new 和delete 表达式"></a>new 和delete 表达式</h3><p>系统为每个程序都提供了一个在程序执行时可用的内存池。这个可用内存池被称为程序的空闲存储区。</p>
-<p>运行时刻的内存分配被称为动态内存分配。</p>
-<p>动态内存分配由new 表达式应用在一个类型指示符上来完成。类型指示符可以是内置类型或用户定义类型。new 表达式返回指向新分配的对象的指针。 </p>
-<p>delete 表达式应用在”<strong>指向我们用new 表达式分配的</strong>“对象指针上来做到这一点</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *pi = new int(1024);</span><br><span class="line">delete pi;</span><br><span class="line">int *pin = new int[10];</span><br><span class="line">delete [] pin;</span><br></pre></td></tr></table></figure>
-
-<h3 id="位操作符和bitset"><a href="#位操作符和bitset" class="headerlink" title="位操作符和bitset"></a>位操作符和bitset</h3><p>位操作符把操作数解释成有序的位集合，这些位可能是独立的也可能组成域，每个位可以含有0 off 或1 on 。位操作符允许程序员设置或测试独立的位或位域。如果一个对象被用作一组位或位域的离散集合那么这样的对象称为位向量 位。向量是一种用来记录一组项目或条件的是/否信息的紧缩方法</p>
-<p>标准库提供了一个bitset 类它支持位向量的类抽象。bitset 对象封装了位向量的语义。</p>
-<img src = "/images/cpp/bitset.png">
-
-<p>bitset 有三种声明方式在缺省定义中我们只需简单地指明位向量的长度。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;bitset&gt;</span><br><span class="line">bitset&lt; 32 &gt; bitvec;</span><br><span class="line">//声明了一个含有32位的bitset 对象,位的顺序从0到31,缺省情况下所有的位都被初始化为0</span><br></pre></td></tr></table></figure>
-
-<h3 id="强制类型装换"><a href="#强制类型装换" class="headerlink" title="强制类型装换"></a>强制类型装换</h3><p>强制类型转换很可能会引入一些难以发现的错误。尤其是(void *)类型的指针。</p>
-<img src = "/images/cpp/cast.png">
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//4种类型的转换的格式</span><br><span class="line">TYPE b = static_cast(TYPE)(a);</span><br></pre></td></tr></table></figure>
-
-<p>C++为了规范C中的类型转换，加强类型转换的可视性，引入了四种强制类型转换操作符：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast, reinterpret_cast, const_cast, dynamic_cast </span><br></pre></td></tr></table></figure>
-
-<p>他们本质上都是模板类。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1587,65 +1561,37 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 3.2</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_2/</url>
-    <content><![CDATA[<p>C++primer第三篇第八章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第八章-域和生命期"><a href="#第八章-域和生命期" class="headerlink" title="第八章  域和生命期"></a>第八章  域和生命期</h2><h3 id="域"><a href="#域" class="headerlink" title="域"></a>域</h3><p>C++支持三种形式的域局部域、名字空间域、以及类域。</p>
-<h4 id="局部域"><a href="#局部域" class="headerlink" title="局部域"></a>局部域</h4><p>局部域是包含在函数定义或者函数块中的程序文本部分。每一个函数都有一个独立的局部域，在函数中的每个复合语句或块也有一个独立的局部域。、</p>
-<p>局部域内的名字解析：首先查找使用该名字的域，如果找到一个声明，则该名字被解析。如果没有找到，则查找包含该域的域这个过程会一直继续下去直到找到<br>一个声明或已经查找完整个全局域如果后一种情况发生 即没有找到该名字的声明则这<br>个名字的用法将被标记为错误</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int low;</span><br><span class="line">int binSearch( const vector&lt;int&gt; &amp;vec, int val )&#123;</span><br><span class="line">    // low 的局部声明</span><br><span class="line">    // 隐藏了全局域中的声明</span><br><span class="line">    int low = 0;</span><br><span class="line">    // ...</span><br><span class="line">    // low 是局部变量</span><br><span class="line">    while ( low &lt;= high )&#123; </span><br><span class="line">    	// ...</span><br><span class="line">    &#125;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>cpp Primer chapter 2.2</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_2/</url>
+    <content><![CDATA[<p>C++ Primer 第二篇第四章学习笔记。<span id="more"></span></p>
+<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第二章-表达式"><a href="#第二章-表达式" class="headerlink" title="第二章  表达式"></a>第二章  表达式</h2><p>基本算术运算符、逻辑运算符、赋值运算符、条件运算符与其他语言一致。</p>
+<h3 id="sizeof-操作符"><a href="#sizeof-操作符" class="headerlink" title="sizeof 操作符"></a>sizeof 操作符</h3><p>siseof 操作符的作用是返回一个对象或类型名的字节长度。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//三种用法</span><br><span class="line">sizeof (type name );</span><br><span class="line">sizeof ( object );</span><br><span class="line">sizeof object;</span><br></pre></td></tr></table></figure>
 
+<p>返回值的类型是size_t ，这是一种与机器相关的typedef 定义。</p>
+<p>应用在指针类型上的sizeof 操作符，返回的是包含该类型地址所需的内存长度。但是应用在引用类型上的sizeof 操作符。返回的是包含被引用对象所需的内存长度。</p>
+<h3 id="new-和delete-表达式"><a href="#new-和delete-表达式" class="headerlink" title="new 和delete 表达式"></a>new 和delete 表达式</h3><p>系统为每个程序都提供了一个在程序执行时可用的内存池。这个可用内存池被称为程序的空闲存储区。</p>
+<p>运行时刻的内存分配被称为动态内存分配。</p>
+<p>动态内存分配由new 表达式应用在一个类型指示符上来完成。类型指示符可以是内置类型或用户定义类型。new 表达式返回指向新分配的对象的指针。 </p>
+<p>delete 表达式应用在”<strong>指向我们用new 表达式分配的</strong>“对象指针上来做到这一点</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *pi = new int(1024);</span><br><span class="line">delete pi;</span><br><span class="line">int *pin = new int[10];</span><br><span class="line">delete [] pin;</span><br></pre></td></tr></table></figure>
 
+<h3 id="位操作符和bitset"><a href="#位操作符和bitset" class="headerlink" title="位操作符和bitset"></a>位操作符和bitset</h3><p>位操作符把操作数解释成有序的位集合，这些位可能是独立的也可能组成域，每个位可以含有0 off 或1 on 。位操作符允许程序员设置或测试独立的位或位域。如果一个对象被用作一组位或位域的离散集合那么这样的对象称为位向量 位。向量是一种用来记录一组项目或条件的是/否信息的紧缩方法</p>
+<p>标准库提供了一个bitset 类它支持位向量的类抽象。bitset 对象封装了位向量的语义。</p>
+<img src = "/images/cpp/bitset.png">
 
-<h4 id="名字空间域"><a href="#名字空间域" class="headerlink" title="名字空间域"></a>名字空间域</h4><p>名字空间域是不包含在函数声明、函数定义或者类定义内的程序文本部分。程序的最外层的名字空间域被称作全局域。对象、函数、类型以及模板都可以在全局域中定义，程序员也可以利用名字空间定义来定义用户声明的的名字空间。它们被嵌套在全局域内，每个用户声明的名字空间都是一个不同的域，它们都与全局域不同，与全局域相同的是，用户声明的名字空间，可以包含对象、函数、类型和模板的声明与定义，以及被嵌套其内的用户声明的名字空间。</p>
-<h4 id="类域"><a href="#类域" class="headerlink" title="类域"></a>类域</h4><p>每个类定义都引入了一个独立的类域。</p>
-<h4 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h4><p>在一个程序中，一个全局对象只能有一个定义，因为在使用文件中的对象之前必须先要声明这个对象，所以对于一个由多个文件构成的程序来说，它应该能够只声明一个对象而不定义它。</p>
-<p>关键字extern 为声明但不定义一个对象提供了一种方法，实际上它类似于函数声明，承诺了该对象会在其他地方被定义，或者在此文本文件中的其他地方，或者在程序的其他文本文件中。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">extern int i;</span><br></pre></td></tr></table></figure>
+<p>bitset 有三种声明方式在缺省定义中我们只需简单地指明位向量的长度。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;bitset&gt;</span><br><span class="line">bitset&lt; 32 &gt; bitvec;</span><br><span class="line">//声明了一个含有32位的bitset 对象,位的顺序从0到31,缺省情况下所有的位都被初始化为0</span><br></pre></td></tr></table></figure>
 
-<h4 id="局部对象"><a href="#局部对象" class="headerlink" title="局部对象"></a>局部对象</h4><p>在局部域中的变量声明引入了局部对象。有三种局部对象：自动对象、寄存器对象以及局部静态对象。<br>区分这些对象的是对象所在存储区的属性和生命期。自动对象所在存储区从声明它的函数被调用时开始一直到该函数结束为止。寄存器对象是一种自动对象，它支持对其值的快速存。取局部静态对象的存储区在该程序的整个执行期间一直存在。</p>
-<h4 id="动态分配的对象"><a href="#动态分配的对象" class="headerlink" title="动态分配的对象"></a>动态分配的对象</h4><p>动态分配的对象允许程序员完全控制它的分配与释放。动态分配的对象，被分配在程序的空闲存储区的可用内存池中。</p>
-<h5 id="单个对象的分配与释放"><a href="#单个对象的分配与释放" class="headerlink" title="单个对象的分配与释放"></a>单个对象的分配与释放</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *pi = new int;</span><br></pre></td></tr></table></figure>
+<h3 id="强制类型装换"><a href="#强制类型装换" class="headerlink" title="强制类型装换"></a>强制类型装换</h3><p>强制类型转换很可能会引入一些难以发现的错误。尤其是(void *)类型的指针。</p>
+<img src = "/images/cpp/cast.png">
 
-<p>在运行时刻，从空闲存储区中分配内存，比如通过上面的new 表达式我们称之为动态内存分配，们说pi 指向的内存是被动态分配的。</p>
-<p>下面三个常见程序错误都与动态内存分配有关：<br>1 应用delete 表达式失败，使内存无法返回空闲存储区，这被称作内存泄漏。<br>2 对同一内存区应用了两次delete 表达式，这通常发生在两个指针指向同一个动态分配对象的时候，这是一个很难踉踪的问题，若多个指针指向同一个对象，当通过某一个指针释放了该对象时，就会发生这样的情况，此时该对象的内存被返回给空闲存储区，然后又被分配给某个别的对象，接着指向旧对象的第二个指针被释放，新对象也就跟着消失了。<br>3 在对象被释放后读写该对象这常常会发生因为delete 表达式应用的指针没有被设置为0。</p>
-<h4 id="auto-ptr"><a href="#auto-ptr" class="headerlink" title="auto_ptr"></a>auto_ptr</h4><p>auto_ptr 是C++标准库提供的类模板,它可以帮助程序员自动管理用new 表达式动态分配的单个对象.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;memory&gt;</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier( ptr_allocated_by_new );</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier( auto_ptr_of_same_type );</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier;</span><br><span class="line">//type_pointed_to 代表由new 表达式创建的对象的类型</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//4种类型的转换的格式</span><br><span class="line">TYPE b = static_cast(TYPE)(a);</span><br></pre></td></tr></table></figure>
 
-<h4 id="数组的动态分配与释放"><a href="#数组的动态分配与释放" class="headerlink" title="数组的动态分配与释放"></a>数组的动态分配与释放</h4><p>new 表达式也可以在空闲存储区中分配数组，在这种情况下new 表达式中的类型指示符后面必须有一对方括号，里面的维数是数组的长度，且该组数可以是一个复杂的表达式。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//分配单个int类型对象</span><br><span class="line">int *Pi =  new int(1024)</span><br><span class="line">//分配一个含有1024个元素的数组</span><br><span class="line">int *pia = new int[1024]</span><br><span class="line">//分配一个含 4x1024 个元素的二维数组</span><br><span class="line">int (*pia2)[ 1024 ] = new int[ 4 ][ 1024 ];</span><br><span class="line">delete [] pia;</span><br></pre></td></tr></table></figure>
+<p>C++为了规范C中的类型转换，加强类型转换的可视性，引入了四种强制类型转换操作符：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast, reinterpret_cast, const_cast, dynamic_cast </span><br></pre></td></tr></table></figure>
 
-<p>动态分配数组的主要好处是：它的第一维不必是常量值，即在编译时刻不需要知道维数，就像局部域或全局域中的定义所引入的数组的维数一样。</p>
-<p>对于用new 表达式分配的数组，只有第一维可以用运行时刻计算的表达式来指定，其他维必须是在编译时刻已知的常量值。</p>
-<h4 id="常量对象的动态分配与释放"><a href="#常量对象的动态分配与释放" class="headerlink" title="常量对象的动态分配与释放"></a>常量对象的动态分配与释放</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int *pci = new const int(1024);</span><br><span class="line">delete pci;</span><br></pre></td></tr></table></figure>
-
-<p>首先const 对象必须被初始化如果省略了括号中的初始值,就会产生编译错误,除此之外,对于具有缺省构造函数的class类型的对象,初始值可以省略.第二,用 new 表达式返回的值,作为初始值的指针,必须是一个指向const 类型的指针.</p>
-<h4 id="定位new-表达式"><a href="#定位new-表达式" class="headerlink" title="定位new 表达式"></a>定位new 表达式</h4><p>new 表达式的第三种形式,可以允许程序员要求将对象创建在已经被分配好的内存中,这种形式的new 表达式被称为定位new 表达式.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;new&gt;</span><br><span class="line">new (place_address) type -specifier</span><br></pre></td></tr></table></figure>
-
-<p>不存在与定位new 表达式相匹配的delete 表达式.</p>
-<h3 id="名字空间定义"><a href="#名字空间定义" class="headerlink" title="名字空间定义"></a>名字空间定义</h3><p>名字空间允许我们更好地处理全局名字空间污染问题。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace cplusplus_primer &#123;</span><br><span class="line">    class matrix &#123; /* ... */ &#125;;</span><br><span class="line">    void inverse ( matrix &amp; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在一个名字空间内声明的实体被称为名字空间成员。名字空间成员的名字会自动地与该名字空间名复合或被其限定修饰。</p>
-<p>名字空间的定义可以非连续，这对生成一个库很有帮助，它使我们更容易将库的源代码组织成接口和实现部分。</p>
-<p>名字空间的定义可以嵌套。</p>
-<h4 id="未命名的名字空间"><a href="#未命名的名字空间" class="headerlink" title="未命名的名字空间"></a>未命名的名字空间</h4><p>用未命名的名字空间可以用来声明一个局部于某一文件的实体。未命名的名字空间以关键字namespace 开头。后面直接跟花括号。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ----- SortLib.C -----</span><br><span class="line">    namespace &#123;</span><br><span class="line">    void swap( double *d1, double *d2 ) &#123; /* ... */ &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>由于未命名名字空间的成员是程序实体，所以函数swap()可以在程序整个执行期间被调用，但是未命名名字空间成员名只在特定的文件中可见，在构成程序的其他文件中是不可见的。</p>
-<p>在引入标准C++名字空间之前，解决此类声明局部化问题的常见方案是使用从C 语言中继承来的关键字static 。</p>
-<h3 id="使用名字空间成员"><a href="#使用名字空间成员" class="headerlink" title="使用名字空间成员"></a>使用名字空间成员</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace International_Business_Machines&#123;</span><br><span class="line">	/* ... */ </span><br><span class="line">&#125;</span><br><span class="line">namespace IBM = International_Business_Machines;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//通过使名字空间成员的名字可见来在程序中用该名字的非限定修饰方式引用这个成员</span><br><span class="line">//而不用前缀namespace_name::name</span><br><span class="line">namespace cplusplus_primer &#123;</span><br><span class="line">    namespace MatrixLib &#123;</span><br><span class="line">        class matrix &#123; /* ... */ &#125;;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">using cplusplus_primer::MatrixLib::matrix;  </span><br></pre></td></tr></table></figure>
-
-<p>与其他声明一样,using 声明引入的名字有以下特性:</p>
-<p>1.它在该域中必须惟一.<br>2.由外围域中的声明引入的相同名字被其隐藏.<br>3.它被嵌套域中的相同名字的声明隐藏.</p>
-<p>using 声明使名字空间成员易于使用.</p>
-<p><strong>using指示符</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 指示符: cplusplus_primer 的所有成员都变成可见的</span><br><span class="line">using namespace cplusplus_primer;</span><br></pre></td></tr></table></figure>
-
-<p>使用多个using 指示符会引起全局名字空间污染问题，用多个选择性的using 声明来代替using 指示符会使这个问题最小化，由多个选择性的using 声明引起的二义性错误在声明点就能被检测到，因此建议使用using 声明而不是using 指示符以便更好地控制程序中的全局名字空间污染问题。</p>
+<p>他们本质上都是模板类。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1760,62 +1706,65 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 3.5</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_5/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第十一章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十一章-异常处理"><a href="#第十一章-异常处理" class="headerlink" title="第十一章 异常处理"></a>第十一章 异常处理</h2><p>C++程序中出现异常时检测到异常的程序段可以通过产生raise 或抛出throw 异常来通知 “异常已经发生”。</p>
-<p>通过throw 语句抛出异常对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if ( empty() )</span><br><span class="line">	throw popOnEmpty();</span><br><span class="line">//必须是对象。</span><br></pre></td></tr></table></figure>
+    <title>cpp Primer chapter 3.2</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_2/</url>
+    <content><![CDATA[<p>C++primer第三篇第八章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第八章-域和生命期"><a href="#第八章-域和生命期" class="headerlink" title="第八章  域和生命期"></a>第八章  域和生命期</h2><h3 id="域"><a href="#域" class="headerlink" title="域"></a>域</h3><p>C++支持三种形式的域局部域、名字空间域、以及类域。</p>
+<h4 id="局部域"><a href="#局部域" class="headerlink" title="局部域"></a>局部域</h4><p>局部域是包含在函数定义或者函数块中的程序文本部分。每一个函数都有一个独立的局部域，在函数中的每个复合语句或块也有一个独立的局部域。、</p>
+<p>局部域内的名字解析：首先查找使用该名字的域，如果找到一个声明，则该名字被解析。如果没有找到，则查找包含该域的域这个过程会一直继续下去直到找到<br>一个声明或已经查找完整个全局域如果后一种情况发生 即没有找到该名字的声明则这<br>个名字的用法将被标记为错误</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int low;</span><br><span class="line">int binSearch( const vector&lt;int&gt; &amp;vec, int val )&#123;</span><br><span class="line">    // low 的局部声明</span><br><span class="line">    // 隐藏了全局域中的声明</span><br><span class="line">    int low = 0;</span><br><span class="line">    // ...</span><br><span class="line">    // low 是局部变量</span><br><span class="line">    while ( low &lt;= high )&#123; </span><br><span class="line">    	// ...</span><br><span class="line">    &#125;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>try 块必须包围能够抛出异常的语句try 块，以关键字try 开始，后面是花括号括起来的语句序列，在try 块之后是一组处理代码被称为catch 子句，try 块把语句分成组，并将其与相应地处理这些语句可能抛出的异常的处理语句相关联。</p>
-<p>程序的控制流是下列几种情况之一：<br>1.如果没有异常发生则执行try 块中的代码和try 块相关联的处理代码被忽略程序main()返回0.</p>
-<p>2.如果try块中的语句发生错误。则跳到catch语句执行对应的异常操作。</p>
-<p>​      当某条语句抛出异常时，跟在该语句后面的语句将被跳过。程序执行权被转交给处理异常的catch 子句，如果没有catch 子句能够处理该异常，则程序执行权又将被转交给C++标准库中定义的函数。</p>
-<p>​    try 块可以包含任何C++语句——表达式以及声明，一个try 块引入一个局部域，在try块内声明的变量不能在try 块外被引用，包括在catch 子句中。</p>
-<p>​    C++的异常处理机制被称为是不可恢复的， 一旦异常被处理，程序的执行就不能够在异常被抛出的地方继续。</p>
-<h3 id="异常声明"><a href="#异常声明" class="headerlink" title="异常声明"></a>异常声明</h3><p>​    catch 子句的异常声明可以是一个类型声明或一个对象声明。</p>
-<p>​    当我们要获得throw 表达式的值，或者要操纵throw 表达式所创建的异常对象时，我们应该声明一个对象。当该异常被抛出时，我们把信息存储在异常对象中，如果catch 子句的异常声明声明了一个对象，则catch 子句中的语句就可以用该对象来引用由throw 表达式存储的信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 新异常类:</span><br><span class="line">// 负责保存不能被压入到栈中的值</span><br><span class="line">class pushOnFull &#123;</span><br><span class="line">public:</span><br><span class="line">    pushOnFull( int i ) : _value( i ) &#123; &#125;</span><br><span class="line">    int value() &#123; return _value; &#125;</span><br><span class="line">private:</span><br><span class="line">    int _value;</span><br><span class="line">&#125;;</span><br><span class="line">void iStack::push( int value )</span><br><span class="line">&#123;</span><br><span class="line">    if ( full() )</span><br><span class="line">    // 把value 存储在异常对象中</span><br><span class="line">    throw pushOnFull( value );</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br><span class="line">catch ( pushOnFull eObj ) &#123;</span><br><span class="line">    cerr &lt;&lt; &quot;trying to push the value &quot; &lt;&lt; eObj.value()</span><br><span class="line">    &lt;&lt; &quot; on a full stack\n&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>与函数参数的情形一样,catch 子句中的异常声明也可以被改变成引用声明,于是catch子句就可以直接引用由throw 表达式创建的异常对象,而不是创建一个局部拷贝了.为了防止不必要地拷贝大型类对象,class 类型的参数应该被声明为引用.<br>        在查找用来处理被抛出异常的catch 子句时因为异常而退出复合语句和函数定义这个过程被称作栈展开.</p>
-<h3 id="catch-all"><a href="#catch-all" class="headerlink" title="catch-all"></a>catch-all</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 对任何异常都会进人</span><br><span class="line">catch ( ... ) &#123;</span><br><span class="line">    // 这里是我们的代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="异常规范"><a href="#异常规范" class="headerlink" title="异常规范"></a>异常规范</h3><p>​        异常规范提供了一种方案，它能够随着函数声明，列出该函数可能抛出的异常，它保证该函数不会抛出任何<br>其他类型的异常。</p>
-<p>​        异常规范跟随在函数参数表之后，它用关键字throw ，来指定后面是用括号括起来的异常类型表。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class iStack &#123;</span><br><span class="line">public:</span><br><span class="line">    // ...</span><br><span class="line">void pop( int &amp;value ) throw(popOnEmpty);</span><br><span class="line">void push( int value ) throw(pushOnFull);</span><br><span class="line">private:</span><br><span class="line">    // ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="名字空间域"><a href="#名字空间域" class="headerlink" title="名字空间域"></a>名字空间域</h4><p>名字空间域是不包含在函数声明、函数定义或者类定义内的程序文本部分。程序的最外层的名字空间域被称作全局域。对象、函数、类型以及模板都可以在全局域中定义，程序员也可以利用名字空间定义来定义用户声明的的名字空间。它们被嵌套在全局域内，每个用户声明的名字空间都是一个不同的域，它们都与全局域不同，与全局域相同的是，用户声明的名字空间，可以包含对象、函数、类型和模板的声明与定义，以及被嵌套其内的用户声明的名字空间。</p>
+<h4 id="类域"><a href="#类域" class="headerlink" title="类域"></a>类域</h4><p>每个类定义都引入了一个独立的类域。</p>
+<h4 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h4><p>在一个程序中，一个全局对象只能有一个定义，因为在使用文件中的对象之前必须先要声明这个对象，所以对于一个由多个文件构成的程序来说，它应该能够只声明一个对象而不定义它。</p>
+<p>关键字extern 为声明但不定义一个对象提供了一种方法，实际上它类似于函数声明，承诺了该对象会在其他地方被定义，或者在此文本文件中的其他地方，或者在程序的其他文本文件中。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">extern int i;</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 3.6</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_6/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第十二章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十二章-泛型算法"><a href="#第十二章-泛型算法" class="headerlink" title="第十二章 泛型算法"></a>第十二章 泛型算法</h2><p>​        每个泛型算法的实现都独立于单独的容器类型，因为已经消除了算法的类型依赖性，所以单个的模板实例可以操作在各种容器以及内置数组类型上。</p>
-<p>泛型算法一般支持两种形式来应用操作：</p>
-<p>​    1.使用内置或可能是被重载的操作符</p>
-<p>​    2.使用函数指针或函数对象执行操作</p>
-<h3 id="函数对象"><a href="#函数对象" class="headerlink" title="函数对象"></a>函数对象</h3><p>函数对象与函数指针相比较有两个方面的优点：</p>
-<p>首先如果被重载的调用操作符是inline函数，则编译器能够执行内联编译，提供可能的性能好处。</p>
-<p>其次函数对象可以拥有任意数目的额外数据，用这些数据可以缓冲结果，也可以缓冲有助于当前操作的数据。</p>
-<h4 id="三种来源"><a href="#三种来源" class="headerlink" title="三种来源"></a>三种来源</h4><p>1.标准库预定义的一组算术关系和逻辑函数对象。</p>
-<p>预定义函数对象被分成算术关系和逻辑操作，每个对象都是一个类模板，其中操作数的类型被参数化。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;functional&gt;</span><br><span class="line">plus&lt;int&gt; intAdd;</span><br><span class="line">int sum = intAdd(10, 20);</span><br><span class="line">//== sum = 10 + 20;</span><br></pre></td></tr></table></figure>
+<h4 id="局部对象"><a href="#局部对象" class="headerlink" title="局部对象"></a>局部对象</h4><p>在局部域中的变量声明引入了局部对象。有三种局部对象：自动对象、寄存器对象以及局部静态对象。<br>区分这些对象的是对象所在存储区的属性和生命期。自动对象所在存储区从声明它的函数被调用时开始一直到该函数结束为止。寄存器对象是一种自动对象，它支持对其值的快速存。取局部静态对象的存储区在该程序的整个执行期间一直存在。</p>
+<h4 id="动态分配的对象"><a href="#动态分配的对象" class="headerlink" title="动态分配的对象"></a>动态分配的对象</h4><p>动态分配的对象允许程序员完全控制它的分配与释放。动态分配的对象，被分配在程序的空闲存储区的可用内存池中。</p>
+<h5 id="单个对象的分配与释放"><a href="#单个对象的分配与释放" class="headerlink" title="单个对象的分配与释放"></a>单个对象的分配与释放</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *pi = new int;</span><br></pre></td></tr></table></figure>
 
-<p>主要用法是作为泛型算法的实参,通常被用来改变缺省的操作.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt; string &gt; svec;</span><br><span class="line">// ...</span><br><span class="line">sort( svec.begin(), svec.end(), greater&lt;string&gt;() );</span><br></pre></td></tr></table></figure>
+<p>在运行时刻，从空闲存储区中分配内存，比如通过上面的new 表达式我们称之为动态内存分配，们说pi 指向的内存是被动态分配的。</p>
+<p>下面三个常见程序错误都与动态内存分配有关：<br>1 应用delete 表达式失败，使内存无法返回空闲存储区，这被称作内存泄漏。<br>2 对同一内存区应用了两次delete 表达式，这通常发生在两个指针指向同一个动态分配对象的时候，这是一个很难踉踪的问题，若多个指针指向同一个对象，当通过某一个指针释放了该对象时，就会发生这样的情况，此时该对象的内存被返回给空闲存储区，然后又被分配给某个别的对象，接着指向旧对象的第二个指针被释放，新对象也就跟着消失了。<br>3 在对象被释放后读写该对象这常常会发生因为delete 表达式应用的指针没有被设置为0。</p>
+<h4 id="auto-ptr"><a href="#auto-ptr" class="headerlink" title="auto_ptr"></a>auto_ptr</h4><p>auto_ptr 是C++标准库提供的类模板,它可以帮助程序员自动管理用new 表达式动态分配的单个对象.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;memory&gt;</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier( ptr_allocated_by_new );</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier( auto_ptr_of_same_type );</span><br><span class="line">auto_ptr&lt; type_pointed_to &gt; identifier;</span><br><span class="line">//type_pointed_to 代表由new 表达式创建的对象的类型</span><br></pre></td></tr></table></figure>
 
-<p>预定义的函数对象被分成算术、关系和逻辑三大类别。</p>
-<p>标准库还提供了一组函数适配器，用来特殊化或者扩展一元和二元函数对象。适配器是一种特殊的类，它被分成下面两类：</p>
-<p>1 绑定器：binder 通过把二元函数对象的一个实参绑定到一个特殊的值上，将其转换成一元函数对象。</p>
-<p>例如为了计数一个容器中小于或等于10 的元素的个数，我们可能会向count_if()传递一个less_equal 函数对象以及一个被绑定为10 的实参。</p>
-<p>2.取反器： negator 是一个将函数对象的值翻转的函数适配器。</p>
-<p>例如为了计数一个容器中所有大于10 的元素的个数，我们可以向count_if()传递less_equal 函数对象的negator ，该函数对象有一个实参被绑定为10。</p>
+<h4 id="数组的动态分配与释放"><a href="#数组的动态分配与释放" class="headerlink" title="数组的动态分配与释放"></a>数组的动态分配与释放</h4><p>new 表达式也可以在空闲存储区中分配数组，在这种情况下new 表达式中的类型指示符后面必须有一对方括号，里面的维数是数组的长度，且该组数可以是一个复杂的表达式。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//分配单个int类型对象</span><br><span class="line">int *Pi =  new int(1024)</span><br><span class="line">//分配一个含有1024个元素的数组</span><br><span class="line">int *pia = new int[1024]</span><br><span class="line">//分配一个含 4x1024 个元素的二维数组</span><br><span class="line">int (*pia2)[ 1024 ] = new int[ 4 ][ 1024 ];</span><br><span class="line">delete [] pia;</span><br></pre></td></tr></table></figure>
+
+<p>动态分配数组的主要好处是：它的第一维不必是常量值，即在编译时刻不需要知道维数，就像局部域或全局域中的定义所引入的数组的维数一样。</p>
+<p>对于用new 表达式分配的数组，只有第一维可以用运行时刻计算的表达式来指定，其他维必须是在编译时刻已知的常量值。</p>
+<h4 id="常量对象的动态分配与释放"><a href="#常量对象的动态分配与释放" class="headerlink" title="常量对象的动态分配与释放"></a>常量对象的动态分配与释放</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int *pci = new const int(1024);</span><br><span class="line">delete pci;</span><br></pre></td></tr></table></figure>
+
+<p>首先const 对象必须被初始化如果省略了括号中的初始值,就会产生编译错误,除此之外,对于具有缺省构造函数的class类型的对象,初始值可以省略.第二,用 new 表达式返回的值,作为初始值的指针,必须是一个指向const 类型的指针.</p>
+<h4 id="定位new-表达式"><a href="#定位new-表达式" class="headerlink" title="定位new 表达式"></a>定位new 表达式</h4><p>new 表达式的第三种形式,可以允许程序员要求将对象创建在已经被分配好的内存中,这种形式的new 表达式被称为定位new 表达式.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;new&gt;</span><br><span class="line">new (place_address) type -specifier</span><br></pre></td></tr></table></figure>
+
+<p>不存在与定位new 表达式相匹配的delete 表达式.</p>
+<h3 id="名字空间定义"><a href="#名字空间定义" class="headerlink" title="名字空间定义"></a>名字空间定义</h3><p>名字空间允许我们更好地处理全局名字空间污染问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace cplusplus_primer &#123;</span><br><span class="line">    class matrix &#123; /* ... */ &#125;;</span><br><span class="line">    void inverse ( matrix &amp; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在一个名字空间内声明的实体被称为名字空间成员。名字空间成员的名字会自动地与该名字空间名复合或被其限定修饰。</p>
+<p>名字空间的定义可以非连续，这对生成一个库很有帮助，它使我们更容易将库的源代码组织成接口和实现部分。</p>
+<p>名字空间的定义可以嵌套。</p>
+<h4 id="未命名的名字空间"><a href="#未命名的名字空间" class="headerlink" title="未命名的名字空间"></a>未命名的名字空间</h4><p>用未命名的名字空间可以用来声明一个局部于某一文件的实体。未命名的名字空间以关键字namespace 开头。后面直接跟花括号。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ----- SortLib.C -----</span><br><span class="line">    namespace &#123;</span><br><span class="line">    void swap( double *d1, double *d2 ) &#123; /* ... */ &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于未命名名字空间的成员是程序实体，所以函数swap()可以在程序整个执行期间被调用，但是未命名名字空间成员名只在特定的文件中可见，在构成程序的其他文件中是不可见的。</p>
+<p>在引入标准C++名字空间之前，解决此类声明局部化问题的常见方案是使用从C 语言中继承来的关键字static 。</p>
+<h3 id="使用名字空间成员"><a href="#使用名字空间成员" class="headerlink" title="使用名字空间成员"></a>使用名字空间成员</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace International_Business_Machines&#123;</span><br><span class="line">	/* ... */ </span><br><span class="line">&#125;</span><br><span class="line">namespace IBM = International_Business_Machines;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//通过使名字空间成员的名字可见来在程序中用该名字的非限定修饰方式引用这个成员</span><br><span class="line">//而不用前缀namespace_name::name</span><br><span class="line">namespace cplusplus_primer &#123;</span><br><span class="line">    namespace MatrixLib &#123;</span><br><span class="line">        class matrix &#123; /* ... */ &#125;;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">using cplusplus_primer::MatrixLib::matrix;  </span><br></pre></td></tr></table></figure>
+
+<p>与其他声明一样,using 声明引入的名字有以下特性:</p>
+<p>1.它在该域中必须惟一.<br>2.由外围域中的声明引入的相同名字被其隐藏.<br>3.它被嵌套域中的相同名字的声明隐藏.</p>
+<p>using 声明使名字空间成员易于使用.</p>
+<p><strong>using指示符</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 指示符: cplusplus_primer 的所有成员都变成可见的</span><br><span class="line">using namespace cplusplus_primer;</span><br></pre></td></tr></table></figure>
+
+<p>使用多个using 指示符会引起全局名字空间污染问题，用多个选择性的using 声明来代替using 指示符会使这个问题最小化，由多个选择性的using 声明引起的二义性错误在声明点就能被检测到，因此建议使用using 声明而不是using 指示符以便更好地控制程序中的全局名字空间污染问题。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1835,57 +1784,6 @@
 <p>在函数模板参数表中关键字typename 和class 的意义相同，可以互换，使用它们两个都可以被用来声明同一模板参数表中的不同模板类型参数。</p>
 <h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>函数模板指定了怎样根据一组或更多实际类型或值构造出独立的函数。这个构造过程被称为模板实例化，这个过程是隐式发生的，它可以被看作是函数模板调用或取函数模板的地址的副作用。</p>
 <p>用函数实参的类型来决定模板实参的类型和值的过程被称为模板实参推演。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 03</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04_3/</url>
-    <content><![CDATA[<p> C++ Primer 第四篇第十五章学习笔记。<span id="more"></span></p>
-<h1 id="第四篇-基于对象的程序设计"><a href="#第四篇-基于对象的程序设计" class="headerlink" title="第四篇 基于对象的程序设计"></a>第四篇 基于对象的程序设计</h1><h2 id="第十五章-重载操作符和用户定义的转换"><a href="#第十五章-重载操作符和用户定义的转换" class="headerlink" title="第十五章 重载操作符和用户定义的转换"></a>第十五章 重载操作符和用户定义的转换</h2><h3 id="操作符重载"><a href="#操作符重载" class="headerlink" title="操作符重载"></a>操作符重载</h3><p>操作符重载使得程序员能够为类类型的操作数定义预定义的操作符版本。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">string&amp; operator=( const String &amp; );</span><br><span class="line">string&amp; operator=( const char * );</span><br></pre></td></tr></table></figure>
-
-<p>重载的操作符在类体中被声明,声明方式同普通成员函数一样,只不过它的名字包含关键字operator ,以及紧随其后的一个预定义操作.</p>
-<p>如果一个重载操作符是类成员，那么只有当跟它一起被使用的左操作数是该类的对象时，它才会被调用。</p>
-<p>如果该操作符的左操作数必须是其他的类型，那么重载操作符必须是名字空间成员。</p>
-<p>C++要求：赋值= 、下标[] 、调用() 和成员访问箭头-&gt; 操作符必须被定义为类成员操作符，任何把这些操作符定义为名字空间成员的定义都会被标记为编译时刻错误。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 错误: 必须是类成员</span><br><span class="line">char&amp; operator[]( String &amp; ,int ix );</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 03</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04/</url>
-    <content><![CDATA[<p> C++ Primer 第四篇第十二章学习笔记。<span id="more"></span></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 4.2</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04_2/</url>
-    <content><![CDATA[<p> C++ Primer 第四篇第十四章学习笔记。<span id="more"></span></p>
-<h1 id="第四篇-基于对象的程序设计"><a href="#第四篇-基于对象的程序设计" class="headerlink" title="第四篇  基于对象的程序设计"></a>第四篇  基于对象的程序设计</h1><h3 id="第十四章-类的初始化、赋值和析构"><a href="#第十四章-类的初始化、赋值和析构" class="headerlink" title="第十四章 类的初始化、赋值和析构"></a>第十四章 类的初始化、赋值和析构</h3><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数上惟一的语法限制是，它不能指定返回类型，甚至void 也不行。</p>
-<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>并不是每一个类都要求有析构函数，析构函数主要被用来放弃在类对象的构造函数或生命期中获得的资源，如释放互斥锁或删除由操作符new 分配的内存。</p>
-<p>一般地，析构函数可以执行“类设计者希望在最后一次使用对象之后执行的任何操作”。</p>
-<h3 id="类对象数组"><a href="#类对象数组" class="headerlink" title="类对象数组"></a>类对象数组</h3><p>类对象数组与内置类型数组的定义方式相同。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Account table[ 16 ];</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1941,6 +1839,89 @@
       </tags>
   </entry>
   <entry>
+    <title>cpp Primer chapter 03</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04/</url>
+    <content><![CDATA[<p> C++ Primer 第四篇第十二章学习笔记。<span id="more"></span></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 4.2</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04_2/</url>
+    <content><![CDATA[<p> C++ Primer 第四篇第十四章学习笔记。<span id="more"></span></p>
+<h1 id="第四篇-基于对象的程序设计"><a href="#第四篇-基于对象的程序设计" class="headerlink" title="第四篇  基于对象的程序设计"></a>第四篇  基于对象的程序设计</h1><h3 id="第十四章-类的初始化、赋值和析构"><a href="#第十四章-类的初始化、赋值和析构" class="headerlink" title="第十四章 类的初始化、赋值和析构"></a>第十四章 类的初始化、赋值和析构</h3><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数上惟一的语法限制是，它不能指定返回类型，甚至void 也不行。</p>
+<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>并不是每一个类都要求有析构函数，析构函数主要被用来放弃在类对象的构造函数或生命期中获得的资源，如释放互斥锁或删除由操作符new 分配的内存。</p>
+<p>一般地，析构函数可以执行“类设计者希望在最后一次使用对象之后执行的任何操作”。</p>
+<h3 id="类对象数组"><a href="#类对象数组" class="headerlink" title="类对象数组"></a>类对象数组</h3><p>类对象数组与内置类型数组的定义方式相同。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Account table[ 16 ];</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 3.6</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_6/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第十二章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十二章-泛型算法"><a href="#第十二章-泛型算法" class="headerlink" title="第十二章 泛型算法"></a>第十二章 泛型算法</h2><p>​        每个泛型算法的实现都独立于单独的容器类型，因为已经消除了算法的类型依赖性，所以单个的模板实例可以操作在各种容器以及内置数组类型上。</p>
+<p>泛型算法一般支持两种形式来应用操作：</p>
+<p>​    1.使用内置或可能是被重载的操作符</p>
+<p>​    2.使用函数指针或函数对象执行操作</p>
+<h3 id="函数对象"><a href="#函数对象" class="headerlink" title="函数对象"></a>函数对象</h3><p>函数对象与函数指针相比较有两个方面的优点：</p>
+<p>首先如果被重载的调用操作符是inline函数，则编译器能够执行内联编译，提供可能的性能好处。</p>
+<p>其次函数对象可以拥有任意数目的额外数据，用这些数据可以缓冲结果，也可以缓冲有助于当前操作的数据。</p>
+<h4 id="三种来源"><a href="#三种来源" class="headerlink" title="三种来源"></a>三种来源</h4><p>1.标准库预定义的一组算术关系和逻辑函数对象。</p>
+<p>预定义函数对象被分成算术关系和逻辑操作，每个对象都是一个类模板，其中操作数的类型被参数化。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;functional&gt;</span><br><span class="line">plus&lt;int&gt; intAdd;</span><br><span class="line">int sum = intAdd(10, 20);</span><br><span class="line">//== sum = 10 + 20;</span><br></pre></td></tr></table></figure>
+
+<p>主要用法是作为泛型算法的实参,通常被用来改变缺省的操作.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt; string &gt; svec;</span><br><span class="line">// ...</span><br><span class="line">sort( svec.begin(), svec.end(), greater&lt;string&gt;() );</span><br></pre></td></tr></table></figure>
+
+<p>预定义的函数对象被分成算术、关系和逻辑三大类别。</p>
+<p>标准库还提供了一组函数适配器，用来特殊化或者扩展一元和二元函数对象。适配器是一种特殊的类，它被分成下面两类：</p>
+<p>1 绑定器：binder 通过把二元函数对象的一个实参绑定到一个特殊的值上，将其转换成一元函数对象。</p>
+<p>例如为了计数一个容器中小于或等于10 的元素的个数，我们可能会向count_if()传递一个less_equal 函数对象以及一个被绑定为10 的实参。</p>
+<p>2.取反器： negator 是一个将函数对象的值翻转的函数适配器。</p>
+<p>例如为了计数一个容器中所有大于10 的元素的个数，我们可以向count_if()传递less_equal 函数对象的negator ，该函数对象有一个实参被绑定为10。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 03</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04_3/</url>
+    <content><![CDATA[<p> C++ Primer 第四篇第十五章学习笔记。<span id="more"></span></p>
+<h1 id="第四篇-基于对象的程序设计"><a href="#第四篇-基于对象的程序设计" class="headerlink" title="第四篇 基于对象的程序设计"></a>第四篇 基于对象的程序设计</h1><h2 id="第十五章-重载操作符和用户定义的转换"><a href="#第十五章-重载操作符和用户定义的转换" class="headerlink" title="第十五章 重载操作符和用户定义的转换"></a>第十五章 重载操作符和用户定义的转换</h2><h3 id="操作符重载"><a href="#操作符重载" class="headerlink" title="操作符重载"></a>操作符重载</h3><p>操作符重载使得程序员能够为类类型的操作数定义预定义的操作符版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">string&amp; operator=( const String &amp; );</span><br><span class="line">string&amp; operator=( const char * );</span><br></pre></td></tr></table></figure>
+
+<p>重载的操作符在类体中被声明,声明方式同普通成员函数一样,只不过它的名字包含关键字operator ,以及紧随其后的一个预定义操作.</p>
+<p>如果一个重载操作符是类成员，那么只有当跟它一起被使用的左操作数是该类的对象时，它才会被调用。</p>
+<p>如果该操作符的左操作数必须是其他的类型，那么重载操作符必须是名字空间成员。</p>
+<p>C++要求：赋值= 、下标[] 、调用() 和成员访问箭头-&gt; 操作符必须被定义为类成员操作符，任何把这些操作符定义为名字空间成员的定义都会被标记为编译时刻错误。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 错误: 必须是类成员</span><br><span class="line">char&amp; operator[]( String &amp; ,int ix );</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp Primer chapter 5.1</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh05_1/</url>
     <content><![CDATA[<p> C++ Primer 第五篇第十七章学习笔记。<span id="more"></span></p>
@@ -1955,6 +1936,39 @@
 
 <p>声明时不用表明继承关系。实际实现时才需要实现实际关系。</p>
 <h3 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Query &#123;</span><br><span class="line">public:</span><br><span class="line">	virtual void eval() = 0;</span><br><span class="line">&#125;;</span><br><span class="line">class NameQuery : public Query &#123;</span><br><span class="line">public:</span><br><span class="line">    // ...</span><br><span class="line">    // 改写 virtual Query::eval() 实例29</span><br><span class="line">    void eval();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 3.5</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_5/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第十一章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十一章-异常处理"><a href="#第十一章-异常处理" class="headerlink" title="第十一章 异常处理"></a>第十一章 异常处理</h2><p>C++程序中出现异常时检测到异常的程序段可以通过产生raise 或抛出throw 异常来通知 “异常已经发生”。</p>
+<p>通过throw 语句抛出异常对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if ( empty() )</span><br><span class="line">	throw popOnEmpty();</span><br><span class="line">//必须是对象。</span><br></pre></td></tr></table></figure>
+
+<p>try 块必须包围能够抛出异常的语句try 块，以关键字try 开始，后面是花括号括起来的语句序列，在try 块之后是一组处理代码被称为catch 子句，try 块把语句分成组，并将其与相应地处理这些语句可能抛出的异常的处理语句相关联。</p>
+<p>程序的控制流是下列几种情况之一：<br>1.如果没有异常发生则执行try 块中的代码和try 块相关联的处理代码被忽略程序main()返回0.</p>
+<p>2.如果try块中的语句发生错误。则跳到catch语句执行对应的异常操作。</p>
+<p>​      当某条语句抛出异常时，跟在该语句后面的语句将被跳过。程序执行权被转交给处理异常的catch 子句，如果没有catch 子句能够处理该异常，则程序执行权又将被转交给C++标准库中定义的函数。</p>
+<p>​    try 块可以包含任何C++语句——表达式以及声明，一个try 块引入一个局部域，在try块内声明的变量不能在try 块外被引用，包括在catch 子句中。</p>
+<p>​    C++的异常处理机制被称为是不可恢复的， 一旦异常被处理，程序的执行就不能够在异常被抛出的地方继续。</p>
+<h3 id="异常声明"><a href="#异常声明" class="headerlink" title="异常声明"></a>异常声明</h3><p>​    catch 子句的异常声明可以是一个类型声明或一个对象声明。</p>
+<p>​    当我们要获得throw 表达式的值，或者要操纵throw 表达式所创建的异常对象时，我们应该声明一个对象。当该异常被抛出时，我们把信息存储在异常对象中，如果catch 子句的异常声明声明了一个对象，则catch 子句中的语句就可以用该对象来引用由throw 表达式存储的信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 新异常类:</span><br><span class="line">// 负责保存不能被压入到栈中的值</span><br><span class="line">class pushOnFull &#123;</span><br><span class="line">public:</span><br><span class="line">    pushOnFull( int i ) : _value( i ) &#123; &#125;</span><br><span class="line">    int value() &#123; return _value; &#125;</span><br><span class="line">private:</span><br><span class="line">    int _value;</span><br><span class="line">&#125;;</span><br><span class="line">void iStack::push( int value )</span><br><span class="line">&#123;</span><br><span class="line">    if ( full() )</span><br><span class="line">    // 把value 存储在异常对象中</span><br><span class="line">    throw pushOnFull( value );</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br><span class="line">catch ( pushOnFull eObj ) &#123;</span><br><span class="line">    cerr &lt;&lt; &quot;trying to push the value &quot; &lt;&lt; eObj.value()</span><br><span class="line">    &lt;&lt; &quot; on a full stack\n&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>与函数参数的情形一样,catch 子句中的异常声明也可以被改变成引用声明,于是catch子句就可以直接引用由throw 表达式创建的异常对象,而不是创建一个局部拷贝了.为了防止不必要地拷贝大型类对象,class 类型的参数应该被声明为引用.<br>        在查找用来处理被抛出异常的catch 子句时因为异常而退出复合语句和函数定义这个过程被称作栈展开.</p>
+<h3 id="catch-all"><a href="#catch-all" class="headerlink" title="catch-all"></a>catch-all</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 对任何异常都会进人</span><br><span class="line">catch ( ... ) &#123;</span><br><span class="line">    // 这里是我们的代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="异常规范"><a href="#异常规范" class="headerlink" title="异常规范"></a>异常规范</h3><p>​        异常规范提供了一种方案，它能够随着函数声明，列出该函数可能抛出的异常，它保证该函数不会抛出任何<br>其他类型的异常。</p>
+<p>​        异常规范跟随在函数参数表之后，它用关键字throw ，来指定后面是用括号括起来的异常类型表。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class iStack &#123;</span><br><span class="line">public:</span><br><span class="line">    // ...</span><br><span class="line">void pop( int &amp;value ) throw(popOnEmpty);</span><br><span class="line">void push( int value ) throw(pushOnFull);</span><br><span class="line">private:</span><br><span class="line">    // ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
