@@ -282,6 +282,44 @@
       </tags>
   </entry>
   <entry>
+    <title>Deep Learning</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_01/</url>
+    <content><![CDATA[<h1 id="Deep-Learning-入门"><a href="#Deep-Learning-入门" class="headerlink" title="Deep Learning 入门"></a>Deep Learning 入门</h1><p>​    记录Deep Learning 学习过程中遇到的一些问题。<span id="more"></span></p>
+<h2 id="saturating-nonlinearity-和-non-saturating-nonlinearity"><a href="#saturating-nonlinearity-和-non-saturating-nonlinearity" class="headerlink" title="saturating nonlinearity 和 non-saturating nonlinearity"></a>saturating nonlinearity 和 non-saturating nonlinearity</h2><p>在AlexNet论文《 ImageNet Classification with Deep Convolutional Neural Networks》第3节中提到了饱和非线性（saturating nonlinearity）和非饱和非线性（non-saturating nonlinearity）的概念。</p>
+<h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>一个饱和的激活函数，会将输出结果压缩到有限的区间。</p>
+<p>如果函数是非饱和的，那么有：</p>
+<p>​    当x趋近无穷大时，f(x)也趋近于无穷大。</p>
+<p>反之，则为饱和函数。</p>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><ol>
+<li>  ReLU激活函数定义为f ( x ) = m a x ( 0 , x )，  f(x)=max(0,x)f(x)=max(0,x)，由于x-&gt;+∞时，f(x)也趋近于正无穷，因此ReLU不饱和。</li>
+<li>  sigmoid激活函数定义f(x) = 1 / (1 + exp(-x)), 由于它将实数压缩到区间[ 0 , 1 ]之间，因此sigmoid是饱和的。</li>
+<li>  tanh激活函数定义为tanh(x) = (1 - exp(-zx)) / (1 + exp(-zx)) , 由于它将实数压缩到区间[ − 1 , 1 ] 之间，因此tanh是饱和的.</li>
+</ol>
+<p>论文中提到说，饱和非线性的激活函数训练时比非饱和非线性的激活函数要慢的多。</p>
+<h2 id="Data-Augmentation"><a href="#Data-Augmentation" class="headerlink" title="Data Augmentation"></a>Data Augmentation</h2><p>在深度学习中，为了丰富图像数据的训练集，更好的提取图像特征，泛化模型（防止模型过拟合），一般都会对图像数据进行数据增强（Data Augmentation）。</p>
+<h3 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h3><p>AlexNet：针对具有3通道的彩色图片的训练任务，进行减去图片均值的预处理操作。</p>
+<p>- Color Jittering：对颜色的数据增强：图像亮度、饱和度、对比度变化；<br>- PCA Jittering：首先按照RGB三个颜色通道计算均值和标准差，再在整个训练集上计算协方差矩阵，进行特征分解，得到特征向量和特征值，用来做PCA Jittering；<br>- Random Scale：尺度变换；<br>- Random Crop：采用随机图像差值方式，对图像进行裁剪、缩放；包括Scale Jittering方法（VGG及ResNet模型使用）或者尺度和长宽比增强变换；<br>- Horizontal/Vertical Flip：水平/垂直翻转；<br>- Shift：平移变换；<br>- Rotation/Reflection：旋转/仿射变换；<br>- Noise：高斯噪声、模糊处理；<br>- Label shuffle：类别不平衡数据的增广；</p>
+<p>需要注意的是，在对图片做Affine时，可能还需要对对应的标签做相应的处理，比如BBox， keypoints，以及polygons等。</p>
+<h2 id="end-to-end"><a href="#end-to-end" class="headerlink" title="end-to-end"></a>end-to-end</h2><p>与机器学习不同，卷积神经网络的输入是由原始像素值或是经过简单预处理（例如居中、缩放）的像素值组成的，不需要进行其余更加精心的设计，来达到更好的预期结果。</p>
+<h2 id="ReLU-与-Sigmoid"><a href="#ReLU-与-Sigmoid" class="headerlink" title="ReLU 与 Sigmoid"></a>ReLU 与 Sigmoid</h2><p>在AlexNet中，提出了ReLU这样一个激活函数。</p>
+<p>ReLU 对比于 SIgmoid 的优势：</p>
+<ol>
+<li>  ReLU激活函数的计算更简单，它不需要如sigmoid激活函数那般复杂的求幂运算。</li>
+<li>  当使用不同的参数初始化方法时，ReLU激活函数使训练模型更加容易。 当sigmoid激活函数的输出非常接近于0或1时，这些区域的梯度几乎为0，因此反向传播无法继续更新一些模型参数。 相反，ReLU激活函数在正区间的梯度总是1。 因此，如果模型参数没有正确初始化，sigmoid函数可能在正区间内得到几乎为0的梯度，从而使模型无法得到有效的训练。</li>
+</ol>
+<h2 id="dropout"><a href="#dropout" class="headerlink" title="dropout"></a>dropout</h2><p>以下摘选自&lt;&lt; Alexnet &gt;&gt;.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">将许多不同模型的预测结合起来是降低测试误差的一个非常成功的方法，但对于需要花费几天来训练的大型神经网络来说，这似乎太昂贵了。然而，有一个非常有效的模型结合版本，它只花费两倍的训练成本。这种最近引入的技术，叫做“dropout”，它会以0.5的概率对每个隐层神经元的输出设为0。那些“失活的”的神经元不再进行前向传播并且不参与反向传播。因此每次输入时，神经网络会采样一个不同的架构，但所有架构共享权重。这个技术减少了复杂的神经元互适应，因为一个神经元不能依赖特定的其它神经元的存在。因此，神经元被强迫学习更鲁棒的特征，它在与许多不同的其它神经元的随机子集结合时是有用的。在测试时，我们使用所有的神经元但它们的输出乘以0.5，对指数级的许多失活网络的预测分布进行几何平均，这是一种合理的近似。</span><br></pre></td></tr></table></figure>
+
+<p>dropout是一种有效的能够降低overfitting 的方法。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Deep Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git学习笔记01</title>
     <url>/%E5%AD%A6%E4%B9%A0/Git/gitNote01/</url>
     <content><![CDATA[<h2 id="系统的学习一下Git和Github的使用"><a href="#系统的学习一下Git和Github的使用" class="headerlink" title="系统的学习一下Git和Github的使用"></a>系统的学习一下Git和Github的使用</h2><p>​    已经了解和使用过Git和Github，但是并没有具体的学习过。通过系统学习能进一步加深影响。<span id="more"></span></p>
@@ -394,39 +432,52 @@
       </tags>
   </entry>
   <entry>
-    <title>git使用过程中遇到的一些问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Git/gitPushProblem/</url>
-    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>使用git的过程中总会遇到一些问题。</p>
-<span id="more"></span>
+    <title>Deep Learning 02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_AlexNet/</url>
+    <content><![CDATA[<h1 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h1><p> 深度卷积网络的开创者。将从手工对图片的的特征进行提取，进而利用机器学习的方式实现图像识别转别为由机器自己实现特征提取和图片识别。真正实现了“end-to-end”。<span id="more"></span></p>
+<h2 id="取得成功的原因"><a href="#取得成功的原因" class="headerlink" title="取得成功的原因"></a>取得成功的原因</h2><h3 id="更大更丰富的数据集"><a href="#更大更丰富的数据集" class="headerlink" title="更大更丰富的数据集"></a>更大更丰富的数据集</h3><p>包含许多特征的深度模型需要大量的有标签数据，才能显著优于基于凸优化的传统方法。越来越多的大规模的数据集给深度学习提供了数据基础。同时还包括各种各样的图像增强方法，进一步对数据集进行扩充。</p>
+<h3 id="GPU-加快神经网络的训练速度"><a href="#GPU-加快神经网络的训练速度" class="headerlink" title="GPU-加快神经网络的训练速度"></a>GPU-加快神经网络的训练速度</h3><p>GPU特殊的硬件结构使得矩阵运算更加迅速。极大的减少了网络训练的时间。GPU强大的运算能力使得CNN的是实现成为了可能。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="使用ReLU作为激活函数"><a href="#使用ReLU作为激活函数" class="headerlink" title="使用ReLU作为激活函数"></a>使用ReLU作为激活函数</h3><p>作者通过实验证明，ReLU相比于Sigmoid等其他激活函数，更容易进行训练，达到同样的识别精度所需要的时间和迭代次数更少。</p>
+<p>同时ReLU也成为最为常见的激活函数。</p>
+<h3 id="在多块GPU上同时进行计算"><a href="#在多块GPU上同时进行计算" class="headerlink" title="在多块GPU上同时进行计算"></a>在多块GPU上同时进行计算</h3><p>由于当时的GPU性能还不是太强，所以作者采用了两块GPU来实现网络的计算。如今GPU的计算能力已经得到了飞速提升，但更大型的网络依旧需要使用多个GPU并行计算。同时GPU硬件加速也是一个重要的研究方向。</p>
+<h3 id="LRN"><a href="#LRN" class="headerlink" title="LＲＮ"></a>LＲＮ</h3><p>作者提出的一种局部归一化的方法，在后来的VGGNet中证明用处不大。</p>
+<h3 id="重叠池化"><a href="#重叠池化" class="headerlink" title="重叠池化"></a>重叠池化</h3><p>之前的池化层都是池化层的大小等于步进，这里作者采用了池化层的大小大于步进，因此会产生部分重叠。作者通过实验证明，这样做有利于抑制过拟合。</p>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>AlexNet网络结构相对简单，使用了8层卷积神经网络，前5层是卷积层，剩下的3层是全连接层。中间还包括池化层和激活层。</p>
+<img src = "/images/DeepLearning/01.png">
 
-<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
-<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这里将两部分网络拼在了一起，易于理解。</p>
+<p>值得注意的一点：原图输入224 × 224，实际上进行了随机裁剪，实际大小为227 × 227。</p>
+<p>AlexNet的第一层，卷积窗口的形状是 11×11。 由于ImageNet中大多数图像的宽和高比MNIST图像的多10倍以上，因此，需要一个更大的卷积窗口来捕获目标。 第二层中的卷积窗口形状被缩减为 5×55×5，然后是 3×33×3。 此外，在第一层、第二层和第五层卷积层之后，加入窗口形状为 3×33×3、步幅为2的最大汇聚层。 而且，AlexNet的卷积通道数目是LeNet的10倍。</p>
+<p>在最后一个卷积层后有两个全连接层，分别有4096个输出。 这两个巨大的全连接层拥有将近1GB的模型参数。 </p>
+<h3 id="网络大小的计算"><a href="#网络大小的计算" class="headerlink" title="网络大小的计算"></a>网络大小的计算</h3><p>这里参考了《鱼书》。</p>
+<img src = "/images/DeepLearning/03.png">
 
-<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+<img src = "/images/DeepLearning/02.png">
 
-<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+<h2 id="抑制过拟合的方法"><a href="#抑制过拟合的方法" class="headerlink" title="抑制过拟合的方法"></a>抑制过拟合的方法</h2><h3 id="图像增广"><a href="#图像增广" class="headerlink" title="图像增广"></a>图像增广</h3><p>作者做了两种处理。</p>
+<p>１.　对２５６＊２５６的图像进行裁剪。变为大小为２２４＊２２４，同时进行翻转。</p>
+<p>这样一张照片就变为了２０４８张，但是这样的处理，图片的关联性是很大的。</p>
+<p>２.　ＰＣＡ处理：对图像进行一系列的计算处理，排除光照等其他因素引起的问题。</p>
+<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><p>下面摘抄于原文，很好的解释了dropout的使用原因和作用。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Combining the predictions of many different models is a very successful way to reduce test errors, but it appears to be too expensive for big neural networks that already take several days to train. There is, however, a very efficient version of model combination that only costs about a factor of two during training. The recently-introduced technique, called “dropout”, consists of setting to zero the output of each hidden neuron with probability 0.5. The neurons which are “dropped out” in this way do not contribute to the forward pass and do not participate in backpropagation. So every time an input is presented, the neural network samples a different architecture, but all these architectures share weights. This technique reduces complex co-adaptations of neurons, since a neuron cannot rely on the presence of particular other neurons. It is, therefore, forced to learn more robust features that are useful in conjunction with many different random subsets of the other neurons. At test time, we use all the neurons but multiply their outputs by 0.5, which is a reasonable approximation to taking the geometric mean of the predictive distributions produced by the exponentially-many dropout networks.</span><br></pre></td></tr></table></figure>
 
-<p>​    接着重新上传，成功。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
+<p>简单理解就是，Dropout将集成学习的效果（模拟地）通过一个网络实现了，所有的这些网络全都共用权重。</p>
+<h2 id="更多的细节"><a href="#更多的细节" class="headerlink" title="更多的细节"></a>更多的细节</h2><h3 id="SGD-Momentum-权重衰减"><a href="#SGD-Momentum-权重衰减" class="headerlink" title="SGD+Momentum+权重衰减"></a>SGD+Momentum+权重衰减</h3><p>作者在更新参数时使用了较为复杂的更新方式，而并不是简单拿到SGD。</p>
+<h3 id="参数初始值"><a href="#参数初始值" class="headerlink" title="参数初始值"></a>参数初始值</h3><p>权重使用了高斯分布来初始化。</p>
+<p>偏置部分层使用了 0 ，其余层使用了1。</p>
+<p>lr也就是学习率，最初设置为0.01，每次学习停止时，就将lr除于10，进一步更新参数。</p>
+<h2 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h2><img src = "/images/DeepLearning/04.jpg">
 
-<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
-<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+<h3 id="进一步分析"><a href="#进一步分析" class="headerlink" title="进一步分析"></a>进一步分析</h3><img src = "/images/DeepLearning/05.png">
 
-<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
-
-<h2 id="warning-LF-will-be-replaced-by-CRLF-in-files"><a href="#warning-LF-will-be-replaced-by-CRLF-in-files" class="headerlink" title="warning: LF will be replaced by CRLF in files"></a>warning: LF will be replaced by CRLF in files</h2><p>原因是存在符号转义问题，windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.autocrlf false=</span><br></pre></td></tr></table></figure>
-
+<p>作者了考虑由最后4096维隐藏层的图像引起的特征激活，认为如果两幅图像产生的特征激活向量具有较小的欧氏分离，我们可以说神经网络的高层认为它们是相似的。这里的特征激活向量应该是所有前面层计算出来的结果。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>作者认为：更深的网络层数 + 更丰富的数据集 + 更强大的运算/更多的训练时间 = 更好的识别效果。</p>
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>git</tag>
+        <tag>Deep Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -482,53 +533,99 @@
       </tags>
   </entry>
   <entry>
-    <title>Deep Learning</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_01/</url>
-    <content><![CDATA[<h1 id="Deep-Learning-入门"><a href="#Deep-Learning-入门" class="headerlink" title="Deep Learning 入门"></a>Deep Learning 入门</h1><p>​    记录Deep Learning 学习过程中遇到的一些问题。</p>
-<h2 id="saturating-nonlinearity-和-non-saturating-nonlinearity"><a href="#saturating-nonlinearity-和-non-saturating-nonlinearity" class="headerlink" title="saturating nonlinearity 和 non-saturating nonlinearity"></a>saturating nonlinearity 和 non-saturating nonlinearity</h2><p>在AlexNet论文《 ImageNet Classification with Deep Convolutional Neural Networks》第3节中提到了饱和非线性（saturating nonlinearity）和非饱和非线性（non-saturating nonlinearity）的概念。</p>
-<h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>一个饱和的激活函数，会将输出结果压缩到有限的区间。</p>
-<p>如果函数是非饱和的，那么有：</p>
-<p>​    当x趋近无穷大时，f(x)也趋近于无穷大。</p>
-<p>反之，则为饱和函数。</p>
-<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><ol>
-<li>  ReLU激活函数定义为f ( x ) = m a x ( 0 , x )，  f(x)=max(0,x)f(x)=max(0,x)，由于x-&gt;+∞时，f(x)也趋近于正无穷，因此ReLU不饱和。</li>
-<li>  sigmoid激活函数定义f(x) = 1 / (1 + exp(-x)), 由于它将实数压缩到区间[ 0 , 1 ]之间，因此sigmoid是饱和的。</li>
-<li>  tanh激活函数定义为tanh(x) = (1 - exp(-zx)) / (1 + exp(-zx)) , 由于它将实数压缩到区间[ − 1 , 1 ] 之间，因此tanh是饱和的.</li>
-</ol>
-<p>论文中提到说，饱和非线性的激活函数训练时比非饱和非线性的激活函数要慢的多。</p>
-<h2 id="Data-Augmentation"><a href="#Data-Augmentation" class="headerlink" title="Data Augmentation"></a>Data Augmentation</h2><p>在深度学习中，为了丰富图像数据的训练集，更好的提取图像特征，泛化模型（防止模型过拟合），一般都会对图像数据进行数据增强（Data Augmentation）。</p>
-<h3 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h3><p>AlexNet：针对具有3通道的彩色图片的训练任务，进行减去图片均值的预处理操作。</p>
-<p>- Color Jittering：对颜色的数据增强：图像亮度、饱和度、对比度变化；<br>- PCA Jittering：首先按照RGB三个颜色通道计算均值和标准差，再在整个训练集上计算协方差矩阵，进行特征分解，得到特征向量和特征值，用来做PCA Jittering；<br>- Random Scale：尺度变换；<br>- Random Crop：采用随机图像差值方式，对图像进行裁剪、缩放；包括Scale Jittering方法（VGG及ResNet模型使用）或者尺度和长宽比增强变换；<br>- Horizontal/Vertical Flip：水平/垂直翻转；<br>- Shift：平移变换；<br>- Rotation/Reflection：旋转/仿射变换；<br>- Noise：高斯噪声、模糊处理；<br>- Label shuffle：类别不平衡数据的增广；</p>
-<p>需要注意的是，在对图片做Affine时，可能还需要对对应的标签做相应的处理，比如BBox， keypoints，以及polygons等。</p>
-<h2 id="end-to-end"><a href="#end-to-end" class="headerlink" title="end-to-end"></a>end-to-end</h2><p>与机器学习不同，卷积神经网络的输入是由原始像素值或是经过简单预处理（例如居中、缩放）的像素值组成的，不需要进行其余更加精心的设计，来达到更好的预期结果。</p>
-<h2 id="ReLU-与-Sigmoid"><a href="#ReLU-与-Sigmoid" class="headerlink" title="ReLU 与 Sigmoid"></a>ReLU 与 Sigmoid</h2><p>在AlexNet中，提出了ReLU这样一个激活函数。</p>
-<p>ReLU 对比于 SIgmoid 的优势：</p>
-<ol>
-<li>  ReLU激活函数的计算更简单，它不需要如sigmoid激活函数那般复杂的求幂运算。</li>
-<li>  当使用不同的参数初始化方法时，ReLU激活函数使训练模型更加容易。 当sigmoid激活函数的输出非常接近于0或1时，这些区域的梯度几乎为0，因此反向传播无法继续更新一些模型参数。 相反，ReLU激活函数在正区间的梯度总是1。 因此，如果模型参数没有正确初始化，sigmoid函数可能在正区间内得到几乎为0的梯度，从而使模型无法得到有效的训练。</li>
-</ol>
-<h2 id="dropout"><a href="#dropout" class="headerlink" title="dropout"></a>dropout</h2><p>以下摘选自&lt;&lt; Alexnet &gt;&gt;.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">将许多不同模型的预测结合起来是降低测试误差的一个非常成功的方法，但对于需要花费几天来训练的大型神经网络来说，这似乎太昂贵了。然而，有一个非常有效的模型结合版本，它只花费两倍的训练成本。这种最近引入的技术，叫做“dropout”，它会以0.5的概率对每个隐层神经元的输出设为0。那些“失活的”的神经元不再进行前向传播并且不参与反向传播。因此每次输入时，神经网络会采样一个不同的架构，但所有架构共享权重。这个技术减少了复杂的神经元互适应，因为一个神经元不能依赖特定的其它神经元的存在。因此，神经元被强迫学习更鲁棒的特征，它在与许多不同的其它神经元的随机子集结合时是有用的。在测试时，我们使用所有的神经元但它们的输出乘以0.5，对指数级的许多失活网络的预测分布进行几何平均，这是一种合理的近似。</span><br></pre></td></tr></table></figure>
+    <title>git使用过程中遇到的一些问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Git/gitPushProblem/</url>
+    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>使用git的过程中总会遇到一些问题。</p>
+<span id="more"></span>
 
-<p>dropout是一种有效的能够降低overfitting 的方法。</p>
+<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
+<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    接着重新上传，成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+
+<h2 id="warning-LF-will-be-replaced-by-CRLF-in-files"><a href="#warning-LF-will-be-replaced-by-CRLF-in-files" class="headerlink" title="warning: LF will be replaced by CRLF in files"></a>warning: LF will be replaced by CRLF in files</h2><p>原因是存在符号转义问题，windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.autocrlf false=</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Deep Learning</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
-    <title>Deep Learning 02</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_02/</url>
-    <content><![CDATA[<h1 id="Deep-Learning-介绍"><a href="#Deep-Learning-介绍" class="headerlink" title="Deep Learning 介绍"></a>Deep Learning 介绍</h1><p>​    </p>
+    <title>MySQL 基础知识 01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_01/</url>
+    <content><![CDATA[<p>MySQL学习笔记。记录数据库、表的查看、创建、删除和更改等基础操作。</p>
+<span id="more"></span>
+
+<h1 id="数据库、表的查看、创建、修改-和-删除"><a href="#数据库、表的查看、创建、修改-和-删除" class="headerlink" title="数据库、表的查看、创建、修改 和 删除"></a>数据库、表的查看、创建、修改 和 删除</h1><h2 id="SHOW"><a href="#SHOW" class="headerlink" title="SHOW"></a>SHOW</h2><p>查询数据库和表等其他信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//查看已有的数据库</span><br><span class="line">show database;</span><br><span class="line">//查看已有的表</span><br><span class="line">show tables;</span><br><span class="line">//查看表的具体信息，不包含数据本身</span><br><span class="line">show crearte table tablename；</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="CREATE"><a href="#CREATE" class="headerlink" title="CREATE"></a>CREATE</h2><p>利用create 创建数据库， 利用use选择数据库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 创建数据库。</span><br><span class="line">CREATE DATABASE &lt;数据库名称&gt;;</span><br><span class="line">-- 使用数据库</span><br><span class="line">use &lt;数据库名称&gt;;</span><br></pre></td></tr></table></figure>
+
+<p>进入数据库后，才能对表进行操作，利用CREATE TABLE 语句创建表，必须给出下列信息：</p>
+<p>​    1.新表的名字，在关键字CREATE TABLE 之后给出；<br>​    2.表列的名字和定义，用逗号分隔；<br>​    3.有的DBMS 还要求指定表的位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;</span><br><span class="line">（  &lt;列名1&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名2&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名3&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名4&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    .. .</span><br><span class="line">    &lt;该表的约束1&gt;， &lt;该表的约束2&gt;，……）；</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 示例</span><br><span class="line">create table products(</span><br><span class="line">	prod_id  char(10) not null primary key,</span><br><span class="line">	vend_id  char(10) not null,</span><br><span class="line">	prod_name char(254) not null,</span><br><span class="line">	prod_price decimal(8, 2) not null,</span><br><span class="line">	prod_desc  text(100) null</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="NULL-值"><a href="#NULL-值" class="headerlink" title="NULL 值"></a>NULL 值</h3><p>NULL 值就是没有值或缺值，是表中非常特殊的一类值。允许NULL 值的列也允许在插入行时不给出该列的值。不允许NULL 值的列不接受没有列值的行，换句话说，在插入或更新行时，该列必须有值。</p>
+<p>NULL 为默认设置，如果不指定NOT NULL，就认为指定的是NULL。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Vendors(</span><br><span class="line">    vend_id CHAR(10) NOT NULL,</span><br><span class="line">    vend_name CHAR(50) NOT NULL,</span><br><span class="line">    vend_address CHAR(50) ,</span><br><span class="line">    vend_city CHAR(50) ,</span><br><span class="line">    vend_state CHAR(5) ,</span><br><span class="line">    vend_zip CHAR(10) ,</span><br><span class="line">    vend_country CHAR(50)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>只有不允许NULL值的列可作为主键，允许NULL 值的列不能作为唯一标识。</p>
+<p>不要把NULL 值与空字符串相混淆。NULL 值是没有值，不是空字符串。如果指定’’（两个单引号，其间没有字符），这在NOT NULL 列中是允许的。空字符串是一个有效的值，它不是无值。NULL 值用关键字NULL而不是空字符串指定。</p>
+<h3 id="DEFAULT"><a href="#DEFAULT" class="headerlink" title="DEFAULT"></a>DEFAULT</h3><p>MySQL 允许指定默认值，在插入行时如果不给出值，DBMS 将自动采用默认值。默认值在CREATE TABLE 语句的列定义中用关键字DEFAULT 指定。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table Nums(</span><br><span class="line">		num int not null default 0  </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="AUTO-INCREMENT-修饰符"><a href="#AUTO-INCREMENT-修饰符" class="headerlink" title="AUTO_INCREMENT 修饰符"></a>AUTO_INCREMENT 修饰符</h3><p>AUTO_INCREMENT 修饰符只适用于 INT 字段，表明 MySQL 应该自动为该字段生成一个数(每次在上一次生成的数值上面加 1)。对于主键，这是非常有用的。因为其允许开发者使用 MySQL 为每条记录创建唯一的标识符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE items( </span><br><span class="line">    id int( 5 ) NOT NULL AUTO_INCREMENT PRIMARY KEY , </span><br><span class="line">    label varchar( 255 ) NOT NULL</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="ALTER"><a href="#ALTER" class="headerlink" title="ALTER"></a>ALTER</h2><p>使用ALTER TABLE 更改表结构，必须给出下面的信息：<br>    1.在ALTER TABLE 之后给出要更改的表名（该表必须存在，否则将出错）；<br>    2.列出要做哪些更改。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 添加列</span><br><span class="line">alter table vendors</span><br><span class="line">	add vend_phone char(20);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 删除列</span><br><span class="line">ALTER TABLE Vendors</span><br><span class="line">	DROP COLUMN vend_phone;</span><br></pre></td></tr></table></figure>
+
+<p>**数据库表的删除、更改不能撤销!!!.**除非使用了rollback事务命令。</p>
+<h2 id="DROP"><a href="#DROP" class="headerlink" title="DROP"></a>DROP</h2><p>删除数据库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP database &lt;数据库名称&gt;；</span><br></pre></td></tr></table></figure>
+
+<p>删除表（删除整个表而不是其内容）非常简单，使用DROP TABLE 语句即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP TABLE CustCopy;</span><br></pre></td></tr></table></figure>
+
+<p>标准SQL 中用来从表中删除数据的只有DELETE 语句。但是，很多数据库产品中还存在另外一种被称为<strong>TRUNCATE</strong> 的语句。这些产品主要包括Oracle、SQLServer、PostgreSQL、MySQL 和DB2。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TRUNCATE &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
+
+<p>与DELETE 不同的是，TRUNCATE 只能删除表中的全部数据，而不能通过WHERE 子句指定条件来删除部分数据。也正是因为它不能具体地控制删除对象，所以其处理速度比DELETE 要快得多。实际上，DELETE 语句在DML 语句中也属于处理时间比较长的，因此需要删除全部数据行时，使用TRUNCATE 可以缩短执行时间。</p>
+<h2 id="RENAME"><a href="#RENAME" class="headerlink" title="RENAME"></a>RENAME</h2><p>重命名表。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rename table product to products;</span><br></pre></td></tr></table></figure>
+
+<p>重命名表很简单，但是重命名数据库很麻烦。</p>
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Deep Learning</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -587,115 +684,6 @@
 
 <p>ISNULL函数当my_field字段为空是，返回1，当不为空时返回0</p>
 <p>IF函数，如果第一个表达式为真，则返回第二个参数的值，否则，返回第三个参数的值。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Deep Learning 02</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_AlexNet/</url>
-    <content><![CDATA[<h1 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h1><p> 深度卷积网络的开创者。将从手工对图片的的特征进行提取，进而利用机器学习的方式实现图像识别转别为由机器自己实现特征提取和图片识别。真正实现了“end-to-end”。</p>
-<h2 id="取得成功的原因"><a href="#取得成功的原因" class="headerlink" title="取得成功的原因"></a>取得成功的原因</h2><h3 id="更大更丰富的数据集"><a href="#更大更丰富的数据集" class="headerlink" title="更大更丰富的数据集"></a>更大更丰富的数据集</h3><p>包含许多特征的深度模型需要大量的有标签数据，才能显著优于基于凸优化的传统方法。越来越多的大规模的数据集给深度学习提供了数据基础。同时还包括各种各样的图像增强方法，进一步对数据集进行扩充。</p>
-<h3 id="GPU-加快神经网络的训练速度"><a href="#GPU-加快神经网络的训练速度" class="headerlink" title="GPU-加快神经网络的训练速度"></a>GPU-加快神经网络的训练速度</h3><p>GPU特殊的硬件结构使得矩阵运算更加迅速。极大的减少了网络训练的时间。GPU强大的运算能力使得CNN的是实现成为了可能。</p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="使用ReLU作为激活函数"><a href="#使用ReLU作为激活函数" class="headerlink" title="使用ReLU作为激活函数"></a>使用ReLU作为激活函数</h3><p>作者通过实验证明，ReLU相比于Sigmoid等其他激活函数，更容易进行训练，达到同样的识别精度所需要的时间和迭代次数更少。</p>
-<p>同时ReLU也成为最为常见的激活函数。</p>
-<h3 id="在多块GPU上同时进行计算"><a href="#在多块GPU上同时进行计算" class="headerlink" title="在多块GPU上同时进行计算"></a>在多块GPU上同时进行计算</h3><p>由于当时的GPU性能还不是太强，所以作者采用了两块GPU来实现网络的计算。如今GPU的计算能力已经得到了飞速提升，但更大型的网络依旧需要使用多个GPU并行计算。同时GPU硬件加速也是一个重要的研究方向。</p>
-<h3 id="LRN"><a href="#LRN" class="headerlink" title="LＲＮ"></a>LＲＮ</h3><p>作者提出的一种局部归一化的方法，在后来的VGGNet中证明用处不大。</p>
-<h3 id="重叠池化"><a href="#重叠池化" class="headerlink" title="重叠池化"></a>重叠池化</h3><p>之前的池化层都是池化层的大小等于步进，这里作者采用了池化层的大小大于步进，因此会产生部分重叠。作者通过实验证明，这样做有利于抑制过拟合。</p>
-<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>AlexNet网络结构相对简单，使用了8层卷积神经网络，前5层是卷积层，剩下的3层是全连接层。中间还包括池化层和激活层。</p>
-<img src = "/images/DeepLearning/01.png">
-
-<p>这里将两部分网络拼在了一起，易于理解。</p>
-<p>值得注意的一点：原图输入224 × 224，实际上进行了随机裁剪，实际大小为227 × 227。</p>
-<p>AlexNet的第一层，卷积窗口的形状是 11×11。 由于ImageNet中大多数图像的宽和高比MNIST图像的多10倍以上，因此，需要一个更大的卷积窗口来捕获目标。 第二层中的卷积窗口形状被缩减为 5×55×5，然后是 3×33×3。 此外，在第一层、第二层和第五层卷积层之后，加入窗口形状为 3×33×3、步幅为2的最大汇聚层。 而且，AlexNet的卷积通道数目是LeNet的10倍。</p>
-<p>在最后一个卷积层后有两个全连接层，分别有4096个输出。 这两个巨大的全连接层拥有将近1GB的模型参数。 </p>
-<h3 id="网络大小的计算"><a href="#网络大小的计算" class="headerlink" title="网络大小的计算"></a>网络大小的计算</h3><p>这里参考了《鱼书》。</p>
-<img src = "/images/DeepLearning/03.png">
-
-<img src = "/images/DeepLearning/02.png">
-
-<h2 id="抑制过拟合的方法"><a href="#抑制过拟合的方法" class="headerlink" title="抑制过拟合的方法"></a>抑制过拟合的方法</h2><h3 id="图像增广"><a href="#图像增广" class="headerlink" title="图像增广"></a>图像增广</h3><p>作者做了两种处理。</p>
-<p>１.　对２５６＊２５６的图像进行裁剪。变为大小为２２４＊２２４，同时进行翻转。</p>
-<p>这样一张照片就变为了２０４８张，但是这样的处理，图片的关联性是很大的。</p>
-<p>２.　ＰＣＡ处理：对图像进行一系列的计算处理，排除光照等其他因素引起的问题。</p>
-<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><p>下面摘抄于原文，很好的解释了dropout的使用原因和作用。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Combining the predictions of many different models is a very successful way to reduce test errors, but it appears to be too expensive for big neural networks that already take several days to train. There is, however, a very efficient version of model combination that only costs about a factor of two during training. The recently-introduced technique, called “dropout”, consists of setting to zero the output of each hidden neuron with probability 0.5. The neurons which are “dropped out” in this way do not contribute to the forward pass and do not participate in backpropagation. So every time an input is presented, the neural network samples a different architecture, but all these architectures share weights. This technique reduces complex co-adaptations of neurons, since a neuron cannot rely on the presence of particular other neurons. It is, therefore, forced to learn more robust features that are useful in conjunction with many different random subsets of the other neurons. At test time, we use all the neurons but multiply their outputs by 0.5, which is a reasonable approximation to taking the geometric mean of the predictive distributions produced by the exponentially-many dropout networks.</span><br></pre></td></tr></table></figure>
-
-<p>简单理解就是，Dropout将集成学习的效果（模拟地）通过一个网络实现了，所有的这些网络全都共用权重。</p>
-<h2 id="更多的细节"><a href="#更多的细节" class="headerlink" title="更多的细节"></a>更多的细节</h2><h3 id="SGD-Momentum-权重衰减"><a href="#SGD-Momentum-权重衰减" class="headerlink" title="SGD+Momentum+权重衰减"></a>SGD+Momentum+权重衰减</h3><p>作者在更新参数时使用了较为复杂的更新方式，而并不是简单拿到SGD。</p>
-<h3 id="参数初始值"><a href="#参数初始值" class="headerlink" title="参数初始值"></a>参数初始值</h3><p>权重使用了高斯分布来初始化。</p>
-<p>偏置部分层使用了 0 ，其余层使用了1。</p>
-<p>lr也就是学习率，最初设置为0.01，每次学习停止时，就将lr除于10，进一步更新参数。</p>
-<h2 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h2><img src = "/images/DeepLearning/04.jpg">
-
-<h3 id="进一步分析"><a href="#进一步分析" class="headerlink" title="进一步分析"></a>进一步分析</h3><img src = "/images/DeepLearning/05.png">
-
-<p>作者了考虑由最后4096维隐藏层的图像引起的特征激活，认为如果两幅图像产生的特征激活向量具有较小的欧氏分离，我们可以说神经网络的高层认为它们是相似的。这里的特征激活向量应该是所有前面层计算出来的结果。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>作者认为：更深的网络层数 + 更丰富的数据集 + 更强大的运算/更多的训练时间 = 更好的识别效果。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>Deep Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL 基础知识 01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_01/</url>
-    <content><![CDATA[<p>MySQL学习笔记。记录数据库、表的查看、创建、删除和更改等基础操作。</p>
-<span id="more"></span>
-
-<h1 id="数据库、表的查看、创建、修改-和-删除"><a href="#数据库、表的查看、创建、修改-和-删除" class="headerlink" title="数据库、表的查看、创建、修改 和 删除"></a>数据库、表的查看、创建、修改 和 删除</h1><h2 id="SHOW"><a href="#SHOW" class="headerlink" title="SHOW"></a>SHOW</h2><p>查询数据库和表等其他信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//查看已有的数据库</span><br><span class="line">show database;</span><br><span class="line">//查看已有的表</span><br><span class="line">show tables;</span><br><span class="line">//查看表的具体信息，不包含数据本身</span><br><span class="line">show crearte table tablename；</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="CREATE"><a href="#CREATE" class="headerlink" title="CREATE"></a>CREATE</h2><p>利用create 创建数据库， 利用use选择数据库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 创建数据库。</span><br><span class="line">CREATE DATABASE &lt;数据库名称&gt;;</span><br><span class="line">-- 使用数据库</span><br><span class="line">use &lt;数据库名称&gt;;</span><br></pre></td></tr></table></figure>
-
-<p>进入数据库后，才能对表进行操作，利用CREATE TABLE 语句创建表，必须给出下列信息：</p>
-<p>​    1.新表的名字，在关键字CREATE TABLE 之后给出；<br>​    2.表列的名字和定义，用逗号分隔；<br>​    3.有的DBMS 还要求指定表的位置。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;</span><br><span class="line">（  &lt;列名1&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名2&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名3&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名4&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    .. .</span><br><span class="line">    &lt;该表的约束1&gt;， &lt;该表的约束2&gt;，……）；</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 示例</span><br><span class="line">create table products(</span><br><span class="line">	prod_id  char(10) not null primary key,</span><br><span class="line">	vend_id  char(10) not null,</span><br><span class="line">	prod_name char(254) not null,</span><br><span class="line">	prod_price decimal(8, 2) not null,</span><br><span class="line">	prod_desc  text(100) null</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<h3 id="NULL-值"><a href="#NULL-值" class="headerlink" title="NULL 值"></a>NULL 值</h3><p>NULL 值就是没有值或缺值，是表中非常特殊的一类值。允许NULL 值的列也允许在插入行时不给出该列的值。不允许NULL 值的列不接受没有列值的行，换句话说，在插入或更新行时，该列必须有值。</p>
-<p>NULL 为默认设置，如果不指定NOT NULL，就认为指定的是NULL。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Vendors(</span><br><span class="line">    vend_id CHAR(10) NOT NULL,</span><br><span class="line">    vend_name CHAR(50) NOT NULL,</span><br><span class="line">    vend_address CHAR(50) ,</span><br><span class="line">    vend_city CHAR(50) ,</span><br><span class="line">    vend_state CHAR(5) ,</span><br><span class="line">    vend_zip CHAR(10) ,</span><br><span class="line">    vend_country CHAR(50)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p>只有不允许NULL值的列可作为主键，允许NULL 值的列不能作为唯一标识。</p>
-<p>不要把NULL 值与空字符串相混淆。NULL 值是没有值，不是空字符串。如果指定’’（两个单引号，其间没有字符），这在NOT NULL 列中是允许的。空字符串是一个有效的值，它不是无值。NULL 值用关键字NULL而不是空字符串指定。</p>
-<h3 id="DEFAULT"><a href="#DEFAULT" class="headerlink" title="DEFAULT"></a>DEFAULT</h3><p>MySQL 允许指定默认值，在插入行时如果不给出值，DBMS 将自动采用默认值。默认值在CREATE TABLE 语句的列定义中用关键字DEFAULT 指定。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table Nums(</span><br><span class="line">		num int not null default 0  </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<h3 id="AUTO-INCREMENT-修饰符"><a href="#AUTO-INCREMENT-修饰符" class="headerlink" title="AUTO_INCREMENT 修饰符"></a>AUTO_INCREMENT 修饰符</h3><p>AUTO_INCREMENT 修饰符只适用于 INT 字段，表明 MySQL 应该自动为该字段生成一个数(每次在上一次生成的数值上面加 1)。对于主键，这是非常有用的。因为其允许开发者使用 MySQL 为每条记录创建唯一的标识符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE items( </span><br><span class="line">    id int( 5 ) NOT NULL AUTO_INCREMENT PRIMARY KEY , </span><br><span class="line">    label varchar( 255 ) NOT NULL</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h2 id="ALTER"><a href="#ALTER" class="headerlink" title="ALTER"></a>ALTER</h2><p>使用ALTER TABLE 更改表结构，必须给出下面的信息：<br>    1.在ALTER TABLE 之后给出要更改的表名（该表必须存在，否则将出错）；<br>    2.列出要做哪些更改。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 添加列</span><br><span class="line">alter table vendors</span><br><span class="line">	add vend_phone char(20);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 删除列</span><br><span class="line">ALTER TABLE Vendors</span><br><span class="line">	DROP COLUMN vend_phone;</span><br></pre></td></tr></table></figure>
-
-<p>**数据库表的删除、更改不能撤销!!!.**除非使用了rollback事务命令。</p>
-<h2 id="DROP"><a href="#DROP" class="headerlink" title="DROP"></a>DROP</h2><p>删除数据库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP database &lt;数据库名称&gt;；</span><br></pre></td></tr></table></figure>
-
-<p>删除表（删除整个表而不是其内容）非常简单，使用DROP TABLE 语句即可。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP TABLE CustCopy;</span><br></pre></td></tr></table></figure>
-
-<p>标准SQL 中用来从表中删除数据的只有DELETE 语句。但是，很多数据库产品中还存在另外一种被称为<strong>TRUNCATE</strong> 的语句。这些产品主要包括Oracle、SQLServer、PostgreSQL、MySQL 和DB2。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TRUNCATE &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
-
-<p>与DELETE 不同的是，TRUNCATE 只能删除表中的全部数据，而不能通过WHERE 子句指定条件来删除部分数据。也正是因为它不能具体地控制删除对象，所以其处理速度比DELETE 要快得多。实际上，DELETE 语句在DML 语句中也属于处理时间比较长的，因此需要删除全部数据行时，使用TRUNCATE 可以缩短执行时间。</p>
-<h2 id="RENAME"><a href="#RENAME" class="headerlink" title="RENAME"></a>RENAME</h2><p>重命名表。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rename table product to products;</span><br></pre></td></tr></table></figure>
-
-<p>重命名表很简单，但是重命名数据库很麻烦。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1184,6 +1172,50 @@
       </tags>
   </entry>
   <entry>
+    <title>OpenCV-Tutorials</title>
+    <url>/%E5%AD%A6%E4%B9%A0/OpenCV/openCVtutorials/</url>
+    <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
+<span id="more"></span>
+
+<h3 id="CV与Matplotlib的颜色冲突"><a href="#CV与Matplotlib的颜色冲突" class="headerlink" title="CV与Matplotlib的颜色冲突"></a>CV与Matplotlib的颜色冲突</h3><p> OpenCV中读取彩图的颜色是以BGR来排序的，而Matplotlib中图片是以RGB排序的，因此如果想要使用pyplot来展示图片，就需要对图片的颜色域顺序进行处理，不过实现起来也很方便。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv.imread(<span class="string">&quot;o1.png&quot;</span>)</span><br><span class="line">img = img[:,:,::-<span class="number">1</span>]</span><br><span class="line">plt.show(<span class="string">&quot;Image&quot;</span>,img)</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用拉普拉斯算子获取图像边缘"><a href="#使用拉普拉斯算子获取图像边缘" class="headerlink" title="使用拉普拉斯算子获取图像边缘"></a>使用拉普拉斯算子获取图像边缘</h3><p>以下是示例和我按照示例的到的结果：</p>
+<p>官方示例：</p>
+<img src="/images/OpenCV/openCV_01.png">
+
+<p>我的结果：</p>
+<img src="/images/OpenCV/openCV_02.png">
+
+<p>可以看出并没有得到示例中所展示的效果。</p>
+<p>查看函数参数说明，可以看到有一项参数为：</p>
+<p><strong>CV_<bit_depth>(S|U|F)C<number_of_channels></strong></p>
+<p>说明如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bit_depth：比特数---代表8bite,16bites,32bites,64bites...</span><br><span class="line"></span><br><span class="line">如果你现在创建了一个存储--灰度图片的Mat对象,这个图像的大小为宽100,高100,那么,现在这张灰度图片中有10000个像素点，它每一个像素点在内存空间所占的空间大小是8bite,8位--所以它对应的就是CV_8。</span><br><span class="line">-------------</span><br><span class="line"></span><br><span class="line">S|U|F:</span><br><span class="line"></span><br><span class="line">S--代表---signed int---有符号整形</span><br><span class="line"></span><br><span class="line">U--代表--unsigned int--无符号整形</span><br><span class="line"></span><br><span class="line">F--代表--float---------单精度浮点型</span><br><span class="line"></span><br><span class="line">---------</span><br><span class="line"></span><br><span class="line">C&lt;number_of_channels&gt;----代表---一张图片的通道数,比如:</span><br><span class="line"></span><br><span class="line">channels = 1：灰度图片--grayImg---是--单通道图像</span><br><span class="line"></span><br><span class="line">channels = 3：RGB彩色图像---------是--3通道图像</span><br><span class="line"></span><br><span class="line">channels = 4：带Alph通道的RGB图像--是--4通道图像</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
+
+<p>修改参数为CV_8U后，调整内核大小，得到预期结果。</p>
+<h3 id="绘制轮廓"><a href="#绘制轮廓" class="headerlink" title="绘制轮廓"></a>绘制轮廓</h3><p>看函数说明时，需要使用二值图片才能更好的识别轮廓。所以我就直接选择了使用二值图片去查找轮廓。但是再绘制轮廓时发现无法绘制轮廓，观察函数发现：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cv2.drawContours(image, contours, contourIdx, color, thickness=None, lineType=None, hierarchy=None, maxLevel=None, offset=None)</span><br></pre></td></tr></table></figure>
+
+<p>其中要求image类型为彩色图片。所以就需要使用彩色图片从BGR-&gt;GRAY,在进行阈值化处理变为二值图片识别轮廓，最后再原图上画图。</p>
+<h3 id="多对象模板匹配"><a href="#多对象模板匹配" class="headerlink" title="多对象模板匹配"></a>多对象模板匹配</h3><p>源代码见github仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#函数：cv.matchTemplate(), cv.minMaxLoc()</span><br><span class="line">import numpy as np</span><br><span class="line">import cv2 as cv </span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line"></span><br><span class="line">img7 = cv.imread(&quot;../Images/img7.jpg&quot;)</span><br><span class="line">img7 = cv.cvtColor(img7, cv.COLOR_BGR2GRAY)</span><br><span class="line">target = img7.copy()</span><br><span class="line">template = cv.imread(&quot;../Images/img7_1.png&quot;)</span><br><span class="line">template = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">w, h = template.shape[::-1]</span><br><span class="line">#列表中所有的6种比较方法</span><br><span class="line">methods = [&#x27;cv.TM_CCOEFF&#x27;, &#x27;cv.TM_CCOEFF_NORMED&#x27;, &#x27;cv.TM_CCORR&#x27;,</span><br><span class="line">            &#x27;cv.TM_CCORR_NORMED&#x27;, &#x27;cv.TM_SQDIFF&#x27;, &#x27;cv.TM_SQDIFF_NORMED&#x27;]</span><br><span class="line">for meth in methods:</span><br><span class="line">    img7 = target.copy()</span><br><span class="line">    method = eval(meth)</span><br><span class="line">    # 应用模板匹配</span><br><span class="line">    res = cv.matchTemplate(img7,template,method)</span><br><span class="line">    min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)</span><br><span class="line">    # 如果方法是TM_SQDIFF或TM_SQDIFF_NORMED，则取最小值</span><br><span class="line">    if method in [cv.TM_SQDIFF, cv.TM_SQDIFF_NORMED]:</span><br><span class="line">        top_left = min_loc</span><br><span class="line">    else:</span><br><span class="line">        top_left = max_loc</span><br><span class="line">    bottom_right = (top_left[0] + w, top_left[1] + h)</span><br><span class="line">    cv.rectangle(img7,top_left, bottom_right, 255, 2)</span><br><span class="line">    plt.subplot(121),plt.imshow(res,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Matching Result&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.subplot(122),plt.imshow(img7,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Detected Point&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.suptitle(meth)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">#多对象匹配</span><br><span class="line">img22 = cv.imread(&quot;../Images/img22.png&quot;)</span><br><span class="line">img22_gray = cv.cvtColor(img22, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(img22_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">template = cv.imread(&#x27;../Images/img22_1.png&#x27;)</span><br><span class="line">template_gray = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(template_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">w, h = template_gray.shape[:: -1]</span><br><span class="line">print(w,h)</span><br><span class="line">res = cv.matchTemplate(img22_gray, template_gray, cv.TM_CCOEFF_NORMED)</span><br><span class="line">threshold = 0.55</span><br><span class="line">loc = np.where( res &gt;= threshold)</span><br><span class="line">for pt in zip(*loc[::-1]):</span><br><span class="line">    cv.rectangle(img22, pt, (pt[0] + w , pt[1]+ h), (0,255,255), 2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">cv.imshow(&quot;image&quot;,img22 )</span><br><span class="line">cv.waitKey(0)</span><br><span class="line">cv.destroyAllWindows()</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">img22 = img22[:, :, :: -1]</span><br><span class="line">plt.imshow(img22)</span><br><span class="line">plt.show()</span><br><span class="line">#错误原因分析：因为匹配时采用灰度图像，所以水管被匹配到了</span><br></pre></td></tr></table></figure>
+
+<p>遇到的问题：</p>
+<p>​    刚开始绘制正方形时，整个图片全部变为黄色，后来意识到是因为阈值太低和匹配模式选择的问题。通过调整匹配模式和阈值，能大致匹配到合适位置，但由于匹配时采用的是灰度图片，所以水管口依旧被匹配到了，还需要进一步改进。</p>
+<h3 id="图片绘制形状"><a href="#图片绘制形状" class="headerlink" title="图片绘制形状"></a>图片绘制形状</h3><p>由于OpenCV读取的图片以BGR格式存储，如果想用plot绘图就需要用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img = img[:, :, :: -1]</span><br></pre></td></tr></table></figure>
+
+<p>但是如果想要在图形上绘图就不能先转变将图片变为RGB格式，否则无法绘制矩形等形状且不报错。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>OpenCV</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL 基础知识 10</title>
     <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_10/</url>
     <content><![CDATA[<p>MySQL学习笔记。SQL的一些特性和其他功能。<span id="more"></span></p>
@@ -1277,50 +1309,6 @@
       </categories>
       <tags>
         <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenCV-Tutorials</title>
-    <url>/%E5%AD%A6%E4%B9%A0/OpenCV/openCVtutorials/</url>
-    <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
-<span id="more"></span>
-
-<h3 id="CV与Matplotlib的颜色冲突"><a href="#CV与Matplotlib的颜色冲突" class="headerlink" title="CV与Matplotlib的颜色冲突"></a>CV与Matplotlib的颜色冲突</h3><p> OpenCV中读取彩图的颜色是以BGR来排序的，而Matplotlib中图片是以RGB排序的，因此如果想要使用pyplot来展示图片，就需要对图片的颜色域顺序进行处理，不过实现起来也很方便。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv.imread(<span class="string">&quot;o1.png&quot;</span>)</span><br><span class="line">img = img[:,:,::-<span class="number">1</span>]</span><br><span class="line">plt.show(<span class="string">&quot;Image&quot;</span>,img)</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用拉普拉斯算子获取图像边缘"><a href="#使用拉普拉斯算子获取图像边缘" class="headerlink" title="使用拉普拉斯算子获取图像边缘"></a>使用拉普拉斯算子获取图像边缘</h3><p>以下是示例和我按照示例的到的结果：</p>
-<p>官方示例：</p>
-<img src="/images/OpenCV/openCV_01.png">
-
-<p>我的结果：</p>
-<img src="/images/OpenCV/openCV_02.png">
-
-<p>可以看出并没有得到示例中所展示的效果。</p>
-<p>查看函数参数说明，可以看到有一项参数为：</p>
-<p><strong>CV_<bit_depth>(S|U|F)C<number_of_channels></strong></p>
-<p>说明如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bit_depth：比特数---代表8bite,16bites,32bites,64bites...</span><br><span class="line"></span><br><span class="line">如果你现在创建了一个存储--灰度图片的Mat对象,这个图像的大小为宽100,高100,那么,现在这张灰度图片中有10000个像素点，它每一个像素点在内存空间所占的空间大小是8bite,8位--所以它对应的就是CV_8。</span><br><span class="line">-------------</span><br><span class="line"></span><br><span class="line">S|U|F:</span><br><span class="line"></span><br><span class="line">S--代表---signed int---有符号整形</span><br><span class="line"></span><br><span class="line">U--代表--unsigned int--无符号整形</span><br><span class="line"></span><br><span class="line">F--代表--float---------单精度浮点型</span><br><span class="line"></span><br><span class="line">---------</span><br><span class="line"></span><br><span class="line">C&lt;number_of_channels&gt;----代表---一张图片的通道数,比如:</span><br><span class="line"></span><br><span class="line">channels = 1：灰度图片--grayImg---是--单通道图像</span><br><span class="line"></span><br><span class="line">channels = 3：RGB彩色图像---------是--3通道图像</span><br><span class="line"></span><br><span class="line">channels = 4：带Alph通道的RGB图像--是--4通道图像</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
-
-<p>修改参数为CV_8U后，调整内核大小，得到预期结果。</p>
-<h3 id="绘制轮廓"><a href="#绘制轮廓" class="headerlink" title="绘制轮廓"></a>绘制轮廓</h3><p>看函数说明时，需要使用二值图片才能更好的识别轮廓。所以我就直接选择了使用二值图片去查找轮廓。但是再绘制轮廓时发现无法绘制轮廓，观察函数发现：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cv2.drawContours(image, contours, contourIdx, color, thickness=None, lineType=None, hierarchy=None, maxLevel=None, offset=None)</span><br></pre></td></tr></table></figure>
-
-<p>其中要求image类型为彩色图片。所以就需要使用彩色图片从BGR-&gt;GRAY,在进行阈值化处理变为二值图片识别轮廓，最后再原图上画图。</p>
-<h3 id="多对象模板匹配"><a href="#多对象模板匹配" class="headerlink" title="多对象模板匹配"></a>多对象模板匹配</h3><p>源代码见github仓库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#函数：cv.matchTemplate(), cv.minMaxLoc()</span><br><span class="line">import numpy as np</span><br><span class="line">import cv2 as cv </span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line"></span><br><span class="line">img7 = cv.imread(&quot;../Images/img7.jpg&quot;)</span><br><span class="line">img7 = cv.cvtColor(img7, cv.COLOR_BGR2GRAY)</span><br><span class="line">target = img7.copy()</span><br><span class="line">template = cv.imread(&quot;../Images/img7_1.png&quot;)</span><br><span class="line">template = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">w, h = template.shape[::-1]</span><br><span class="line">#列表中所有的6种比较方法</span><br><span class="line">methods = [&#x27;cv.TM_CCOEFF&#x27;, &#x27;cv.TM_CCOEFF_NORMED&#x27;, &#x27;cv.TM_CCORR&#x27;,</span><br><span class="line">            &#x27;cv.TM_CCORR_NORMED&#x27;, &#x27;cv.TM_SQDIFF&#x27;, &#x27;cv.TM_SQDIFF_NORMED&#x27;]</span><br><span class="line">for meth in methods:</span><br><span class="line">    img7 = target.copy()</span><br><span class="line">    method = eval(meth)</span><br><span class="line">    # 应用模板匹配</span><br><span class="line">    res = cv.matchTemplate(img7,template,method)</span><br><span class="line">    min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)</span><br><span class="line">    # 如果方法是TM_SQDIFF或TM_SQDIFF_NORMED，则取最小值</span><br><span class="line">    if method in [cv.TM_SQDIFF, cv.TM_SQDIFF_NORMED]:</span><br><span class="line">        top_left = min_loc</span><br><span class="line">    else:</span><br><span class="line">        top_left = max_loc</span><br><span class="line">    bottom_right = (top_left[0] + w, top_left[1] + h)</span><br><span class="line">    cv.rectangle(img7,top_left, bottom_right, 255, 2)</span><br><span class="line">    plt.subplot(121),plt.imshow(res,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Matching Result&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.subplot(122),plt.imshow(img7,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Detected Point&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.suptitle(meth)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">#多对象匹配</span><br><span class="line">img22 = cv.imread(&quot;../Images/img22.png&quot;)</span><br><span class="line">img22_gray = cv.cvtColor(img22, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(img22_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">template = cv.imread(&#x27;../Images/img22_1.png&#x27;)</span><br><span class="line">template_gray = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(template_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">w, h = template_gray.shape[:: -1]</span><br><span class="line">print(w,h)</span><br><span class="line">res = cv.matchTemplate(img22_gray, template_gray, cv.TM_CCOEFF_NORMED)</span><br><span class="line">threshold = 0.55</span><br><span class="line">loc = np.where( res &gt;= threshold)</span><br><span class="line">for pt in zip(*loc[::-1]):</span><br><span class="line">    cv.rectangle(img22, pt, (pt[0] + w , pt[1]+ h), (0,255,255), 2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">cv.imshow(&quot;image&quot;,img22 )</span><br><span class="line">cv.waitKey(0)</span><br><span class="line">cv.destroyAllWindows()</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">img22 = img22[:, :, :: -1]</span><br><span class="line">plt.imshow(img22)</span><br><span class="line">plt.show()</span><br><span class="line">#错误原因分析：因为匹配时采用灰度图像，所以水管被匹配到了</span><br></pre></td></tr></table></figure>
-
-<p>遇到的问题：</p>
-<p>​    刚开始绘制正方形时，整个图片全部变为黄色，后来意识到是因为阈值太低和匹配模式选择的问题。通过调整匹配模式和阈值，能大致匹配到合适位置，但由于匹配时采用的是灰度图片，所以水管口依旧被匹配到了，还需要进一步改进。</p>
-<h3 id="图片绘制形状"><a href="#图片绘制形状" class="headerlink" title="图片绘制形状"></a>图片绘制形状</h3><p>由于OpenCV读取的图片以BGR格式存储，如果想用plot绘图就需要用</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img = img[:, :, :: -1]</span><br></pre></td></tr></table></figure>
-
-<p>但是如果想要在图形上绘图就不能先转变将图片变为RGB格式，否则无法绘制矩形等形状且不报错。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>OpenCV</tag>
       </tags>
   </entry>
   <entry>
@@ -1502,6 +1490,67 @@
       </tags>
   </entry>
   <entry>
+    <title>cpp Primer chapter 2.2</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_2/</url>
+    <content><![CDATA[<p>C++ Primer 第二篇第四章学习笔记。<span id="more"></span></p>
+<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第二章-表达式"><a href="#第二章-表达式" class="headerlink" title="第二章  表达式"></a>第二章  表达式</h2><p>基本算术运算符、逻辑运算符、赋值运算符、条件运算符与其他语言一致。</p>
+<h3 id="sizeof-操作符"><a href="#sizeof-操作符" class="headerlink" title="sizeof 操作符"></a>sizeof 操作符</h3><p>siseof 操作符的作用是返回一个对象或类型名的字节长度。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//三种用法</span><br><span class="line">sizeof (type name );</span><br><span class="line">sizeof ( object );</span><br><span class="line">sizeof object;</span><br></pre></td></tr></table></figure>
+
+<p>返回值的类型是size_t ，这是一种与机器相关的typedef 定义。</p>
+<p>应用在指针类型上的sizeof 操作符，返回的是包含该类型地址所需的内存长度。但是应用在引用类型上的sizeof 操作符。返回的是包含被引用对象所需的内存长度。</p>
+<h3 id="new-和delete-表达式"><a href="#new-和delete-表达式" class="headerlink" title="new 和delete 表达式"></a>new 和delete 表达式</h3><p>系统为每个程序都提供了一个在程序执行时可用的内存池。这个可用内存池被称为程序的空闲存储区。</p>
+<p>运行时刻的内存分配被称为动态内存分配。</p>
+<p>动态内存分配由new 表达式应用在一个类型指示符上来完成。类型指示符可以是内置类型或用户定义类型。new 表达式返回指向新分配的对象的指针。 </p>
+<p>delete 表达式应用在”<strong>指向我们用new 表达式分配的</strong>“对象指针上来做到这一点</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *pi = new int(1024);</span><br><span class="line">delete pi;</span><br><span class="line">int *pin = new int[10];</span><br><span class="line">delete [] pin;</span><br></pre></td></tr></table></figure>
+
+<h3 id="位操作符和bitset"><a href="#位操作符和bitset" class="headerlink" title="位操作符和bitset"></a>位操作符和bitset</h3><p>位操作符把操作数解释成有序的位集合，这些位可能是独立的也可能组成域，每个位可以含有0 off 或1 on 。位操作符允许程序员设置或测试独立的位或位域。如果一个对象被用作一组位或位域的离散集合那么这样的对象称为位向量 位。向量是一种用来记录一组项目或条件的是/否信息的紧缩方法</p>
+<p>标准库提供了一个bitset 类它支持位向量的类抽象。bitset 对象封装了位向量的语义。</p>
+<img src = "/images/cpp/bitset.png">
+
+<p>bitset 有三种声明方式在缺省定义中我们只需简单地指明位向量的长度。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;bitset&gt;</span><br><span class="line">bitset&lt; 32 &gt; bitvec;</span><br><span class="line">//声明了一个含有32位的bitset 对象,位的顺序从0到31,缺省情况下所有的位都被初始化为0</span><br></pre></td></tr></table></figure>
+
+<h3 id="强制类型装换"><a href="#强制类型装换" class="headerlink" title="强制类型装换"></a>强制类型装换</h3><p>强制类型转换很可能会引入一些难以发现的错误。尤其是(void *)类型的指针。</p>
+<img src = "/images/cpp/cast.png">
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//4种类型的转换的格式</span><br><span class="line">TYPE b = static_cast(TYPE)(a);</span><br></pre></td></tr></table></figure>
+
+<p>C++为了规范C中的类型转换，加强类型转换的可视性，引入了四种强制类型转换操作符：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast, reinterpret_cast, const_cast, dynamic_cast </span><br></pre></td></tr></table></figure>
+
+<p>他们本质上都是模板类。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 2.3</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_3/</url>
+    <content><![CDATA[<p>C++ Primer 第二篇第五章学习笔记。<span id="more"></span></p>
+<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第五章-语句"><a href="#第五章-语句" class="headerlink" title="第五章  语句"></a>第五章  语句</h2><p>与其他语言差别不大。</p>
+<h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch()&#123;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	default:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(int i=0; i&lt;n; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">for(int i=0; i&lt;k; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//C++这里的i是局部变量，</span><br></pre></td></tr></table></figure>
+
+<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>break 语句终止最近的while, do while, for 或switch 语句.</p>
+<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>continue 语句导致最近的循环语句的当前迭代结束,执行权被传递给条件计算部分.</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp Primer chapter 1.1</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh01_1/</url>
     <content><![CDATA[<p> C++ Primer 第一篇学习笔记。<span id="more"></span></p>
@@ -1641,67 +1690,6 @@
 <p>我们可以用成员访问符号访问pair 中的单个元素,它们的名字为first 和second.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pair&lt; string, string &gt; author( &quot;James&quot;, &quot;Joyce&quot; );</span><br><span class="line">author.first == &quot;James&quot;;</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 2.2</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_2/</url>
-    <content><![CDATA[<p>C++ Primer 第二篇第四章学习笔记。<span id="more"></span></p>
-<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第二章-表达式"><a href="#第二章-表达式" class="headerlink" title="第二章  表达式"></a>第二章  表达式</h2><p>基本算术运算符、逻辑运算符、赋值运算符、条件运算符与其他语言一致。</p>
-<h3 id="sizeof-操作符"><a href="#sizeof-操作符" class="headerlink" title="sizeof 操作符"></a>sizeof 操作符</h3><p>siseof 操作符的作用是返回一个对象或类型名的字节长度。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//三种用法</span><br><span class="line">sizeof (type name );</span><br><span class="line">sizeof ( object );</span><br><span class="line">sizeof object;</span><br></pre></td></tr></table></figure>
-
-<p>返回值的类型是size_t ，这是一种与机器相关的typedef 定义。</p>
-<p>应用在指针类型上的sizeof 操作符，返回的是包含该类型地址所需的内存长度。但是应用在引用类型上的sizeof 操作符。返回的是包含被引用对象所需的内存长度。</p>
-<h3 id="new-和delete-表达式"><a href="#new-和delete-表达式" class="headerlink" title="new 和delete 表达式"></a>new 和delete 表达式</h3><p>系统为每个程序都提供了一个在程序执行时可用的内存池。这个可用内存池被称为程序的空闲存储区。</p>
-<p>运行时刻的内存分配被称为动态内存分配。</p>
-<p>动态内存分配由new 表达式应用在一个类型指示符上来完成。类型指示符可以是内置类型或用户定义类型。new 表达式返回指向新分配的对象的指针。 </p>
-<p>delete 表达式应用在”<strong>指向我们用new 表达式分配的</strong>“对象指针上来做到这一点</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *pi = new int(1024);</span><br><span class="line">delete pi;</span><br><span class="line">int *pin = new int[10];</span><br><span class="line">delete [] pin;</span><br></pre></td></tr></table></figure>
-
-<h3 id="位操作符和bitset"><a href="#位操作符和bitset" class="headerlink" title="位操作符和bitset"></a>位操作符和bitset</h3><p>位操作符把操作数解释成有序的位集合，这些位可能是独立的也可能组成域，每个位可以含有0 off 或1 on 。位操作符允许程序员设置或测试独立的位或位域。如果一个对象被用作一组位或位域的离散集合那么这样的对象称为位向量 位。向量是一种用来记录一组项目或条件的是/否信息的紧缩方法</p>
-<p>标准库提供了一个bitset 类它支持位向量的类抽象。bitset 对象封装了位向量的语义。</p>
-<img src = "/images/cpp/bitset.png">
-
-<p>bitset 有三种声明方式在缺省定义中我们只需简单地指明位向量的长度。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;bitset&gt;</span><br><span class="line">bitset&lt; 32 &gt; bitvec;</span><br><span class="line">//声明了一个含有32位的bitset 对象,位的顺序从0到31,缺省情况下所有的位都被初始化为0</span><br></pre></td></tr></table></figure>
-
-<h3 id="强制类型装换"><a href="#强制类型装换" class="headerlink" title="强制类型装换"></a>强制类型装换</h3><p>强制类型转换很可能会引入一些难以发现的错误。尤其是(void *)类型的指针。</p>
-<img src = "/images/cpp/cast.png">
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//4种类型的转换的格式</span><br><span class="line">TYPE b = static_cast(TYPE)(a);</span><br></pre></td></tr></table></figure>
-
-<p>C++为了规范C中的类型转换，加强类型转换的可视性，引入了四种强制类型转换操作符：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast, reinterpret_cast, const_cast, dynamic_cast </span><br></pre></td></tr></table></figure>
-
-<p>他们本质上都是模板类。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 2.3</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_3/</url>
-    <content><![CDATA[<p>C++ Primer 第二篇第五章学习笔记。<span id="more"></span></p>
-<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第五章-语句"><a href="#第五章-语句" class="headerlink" title="第五章  语句"></a>第五章  语句</h2><p>与其他语言差别不大。</p>
-<h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch()&#123;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	default:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(int i=0; i&lt;n; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">for(int i=0; i&lt;k; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//C++这里的i是局部变量，</span><br></pre></td></tr></table></figure>
-
-<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>break 语句终止最近的while, do while, for 或switch 语句.</p>
-<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>continue 语句导致最近的循环语句的当前迭代结束,执行权被传递给条件计算部分.</p>
 ]]></content>
       <categories>
         <category>学习</category>
