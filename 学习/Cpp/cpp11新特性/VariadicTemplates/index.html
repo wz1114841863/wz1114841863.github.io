@@ -77,15 +77,15 @@
 
 
 
-<meta name="description" content="如果你自信定义了一个ctor，那么编译器就不会再给你一个 default ctor。 如果你强制加上一个 &#x3D;default，就可以重新获得并使用default ctor。">
+<meta name="description" content="C++ 11引入了的一个新特性为 Variadic Templates， 即可变参数模板。同时还有一些小的改动，如可以去掉模板表达式的空格、引入空指针nullptr和自动判断当前数据类型的AUTO等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#x3D;default &#x3D;delete">
-<meta property="og:url" content="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/deafult/index.html">
+<meta property="og:title" content="Variadic Templates">
+<meta property="og:url" content="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/VariadicTemplates/index.html">
 <meta property="og:site_name" content="越长大越孤单">
-<meta property="og:description" content="如果你自信定义了一个ctor，那么编译器就不会再给你一个 default ctor。 如果你强制加上一个 &#x3D;default，就可以重新获得并使用default ctor。">
+<meta property="og:description" content="C++ 11引入了的一个新特性为 Variadic Templates， 即可变参数模板。同时还有一些小的改动，如可以去掉模板表达式的空格、引入空指针nullptr和自动判断当前数据类型的AUTO等。">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-09-09T06:23:05.000Z">
-<meta property="article:modified_time" content="2021-09-09T07:28:06.737Z">
+<meta property="article:published_time" content="2021-09-06T08:55:05.000Z">
+<meta property="article:modified_time" content="2021-09-06T12:36:24.433Z">
 <meta property="article:author" content="wangzhang">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -122,7 +122,7 @@
 
 
 
-  <title>=default =delete | 越长大越孤单</title>
+  <title>Variadic Templates | 越长大越孤单</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/deafult/">
+    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/VariadicTemplates/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">=default =delete</h1>
+          <h1 class="post-title" itemprop="name headline">Variadic Templates</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-09T14:23:05+08:00">
-                2021-09-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-06T16:55:05+08:00">
+                2021-09-06
               </time>
             
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-09-09T15:28:06+08:00">
-                2021-09-09
+              <time title="更新于" itemprop="dateModified" datetime="2021-09-06T20:36:24+08:00">
+                2021-09-06
               </time>
             
           </span>
@@ -398,38 +398,40 @@
       
 
       
-        <p> 如果你自信定义了一个ctor，那么编译器就不会再给你一个 default ctor。 如果你强制加上一个 =default，就可以重新获得并使用default ctor。</p>
+        <p>C++ 11引入了的一个新特性为 Variadic Templates， 即可变参数模板。同时还有一些小的改动，如可以去掉模板表达式的空格、引入空指针nullptr和自动判断当前数据类型的AUTO等。</p>
 <span id="more"></span>
 
-<h3 id="default"><a href="#default" class="headerlink" title="=default"></a>=default</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Zoo&#123;</span><br><span class="line">public:</span><br><span class="line">	Zoo(int i1, int i2):d1(i1),da(i2)&#123;&#125;</span><br><span class="line">	Zoo(const Zoo&amp;) =delete;</span><br><span class="line">	Zoo(Zoo&amp;&amp;) =default;</span><br><span class="line">	Zoo&amp; operator=(coonst Zoo&amp;) =default;</span><br><span class="line">	Zoo&amp; operator=(coonst Zoo&amp;&amp;) =delete;</span><br><span class="line">	</span><br><span class="line">	virtual ~Zoo()&#123;&#125;</span><br><span class="line">private:</span><br><span class="line">	int d1,d2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Variadic-Templates"><a href="#Variadic-Templates" class="headerlink" title="Variadic Templates"></a>Variadic Templates</h1><p>C++ 11支持任意参数类型和任意参数个数实现。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用可变参数模板一定会有一个空调用来结束递归调用。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//可变参数模板</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Types&gt; <span class="comment">//这里的 ... 是关键字的一部分， 即typename...。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> T&amp; firstArg, <span class="keyword">const</span> Types&amp;... args)</span></span>&#123;	<span class="comment">//这里的...要写在自定义类型Types后面</span></span><br><span class="line">    cout &lt;&lt; firstArg &lt;&lt; endl;		</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(args...);									<span class="comment">//这里的...要写在args后面。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>但是default使用的范围有限，只能适用于big-five.</p>
-<h3 id="delete"><a href="#delete" class="headerlink" title="=delete"></a>=delete</h3><p>禁止使用默认编译器生成的默认函数。</p>
-<p>delete 关键字可用于任何函数，不仅仅局限于类的成员函数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Foo&#123;</span><br><span class="line">public:</span><br><span class="line">	//构造函数</span><br><span class="line">	Foo(int i):_i(i)&#123;&#125;</span><br><span class="line">	Foo() =default;</span><br><span class="line">	</span><br><span class="line">	//拷贝构造</span><br><span class="line">	Foo(const Foo&amp;):_i(x._i)&#123;&#125;</span><br><span class="line">	//Foo(const Foo&amp;)=default; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//Foo(const Foo&amp;)=delete; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	</span><br><span class="line">	//拷贝赋值</span><br><span class="line">	Foo&amp; operator=(const Foo&amp; x)&#123;_i = x._i; return *this&#125;</span><br><span class="line">	//Foo&amp; operator=(const Foo&amp; x)=default; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//Foo&amp; operator=(const Foo&amp; x)=delete;  //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//普通函数</span><br><span class="line">	//void func1()=default; //error Foo(const Foo&amp;) cannot be defaulted;</span><br><span class="line">	void func2()=delete;</span><br><span class="line">	</span><br><span class="line">	//析构函数</span><br><span class="line">	//~Foo()=delete;</span><br><span class="line">	~foo()=default;</span><br><span class="line">private:</span><br><span class="line">	int _i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1.注意三种不同的…的应用环境，这些都是语法规则，所以记住即可。</p>
+<p>…  就是所谓的一个包。</p>
+<p>2.还要注意的是，在可变模板参数内部可以使用**sizeof…(args)**得到实参的个数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sizeof...(args) 是C++ 11的新特性。</span><br></pre></td></tr></table></figure>
 
-<p>(1)拷贝构造和拷贝赋值只能有一个定义。(猜想Big-Five是否都是这样的？)</p>
-<p>(2)=default只能用于Big_five，用在普通函数上会报错</p>
-<p>(3)如果析构函数定义为删除的，语法上是可以的，但是在使用对象时肯定会报错，因为一个对象的生命周期总会结束的。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Empty&#123;&#125;;</span><br><span class="line">//编译器处理完之后</span><br><span class="line">class Empty&#123;</span><br><span class="line">public:</span><br><span class="line">	Empty()&#123; ... &#125;</span><br><span class="line">	Empty(const Empty&amp; e1)&#123; ... &#125;</span><br><span class="line">	~Empty()&#123;...&#125;</span><br><span class="line">	</span><br><span class="line">	Empty&amp; operator=(const Empty&amp; e1)&#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.如果同时定义了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tempalte &lt;typename... Types&gt;</span><br><span class="line">void print(Types&amp;... args)&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>建立一个空类，C++编译器处理完之后会为它声明一个ctor、copy ctor、copy assignment operator、dtor.所有这些函数都是 public 以及 inline的。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//示例： No-Copy：将拷贝构造函数和拷贝赋值运算符定义为删除的</span><br><span class="line">struct NoCopy</span><br><span class="line">&#123;</span><br><span class="line">    NoCopy() = default;</span><br><span class="line">    NoCopy(const NoCopy&amp;) = delete;</span><br><span class="line">    NoCopy &amp;operator=(const NoCopy&amp;) = delete;</span><br><span class="line">    ~NoCopy() = default;</span><br><span class="line">    //other members</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>编译时不会报错，如果泛化和特化的同时定义，优先调用特化。所以这个定义永远不会被调用。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>1.<strong>实现函数的递归调用</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;functional&gt;</span><br><span class="line"></span><br><span class="line">class CustomerHash&#123;</span><br><span class="line">public:</span><br><span class="line">	std::size_t operator() (const Customer&amp; c) const &#123;</span><br><span class="line">		//这里的返回类型是std::size_t，所以会调用返回类型相同的hash_val函数定义。</span><br><span class="line">		return hash_val(c.fname, c.lname, c.no);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//首先调用下面这个函数，再递归调用其他函数。</span><br><span class="line">template &lt;typename... Types&gt;</span><br><span class="line">inline size_t hash_val( const Types&amp;... args)&#123;</span><br><span class="line">	size_t seed = 0;</span><br><span class="line">	hash_val(seed, args...);</span><br><span class="line">	return seed;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//可以接受任意个参数的hash_val 函数。</span><br><span class="line">template&lt;typename T, typename... Types&gt;</span><br><span class="line">inline void hash_val(size_t&amp; seed, const T&amp; val, const Type&amp;... args)&#123;</span><br><span class="line">	hash_combine(seed, val);</span><br><span class="line">	//递归调用</span><br><span class="line">	hash_val(seed, args...);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//仅支持一个参数的hash_val函数，更加特化。</span><br><span class="line">template&lt;typename T&gt;</span><br><span class="line">inline void hash_val(size_t&amp; seed, const T&amp; val)&#123;</span><br><span class="line">	hash_combine(seed, val);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//hash_combine函数</span><br><span class="line">template&lt;typename T&gt;</span><br><span class="line">inline void hash_combine&lt;size_t&amp; seed, const T&amp; val)&#123;</span><br><span class="line">	seed ^= std::hash&lt;T&gt;()(val) + 0x9e3779b9 + (seed &lt;&lt;6) + (seed&gt;&gt;2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//示例：NoDtor：将析构函数定义为删除的</span><br><span class="line">struct NoDtor</span><br><span class="line">&#123;</span><br><span class="line">    NoDtor() = default;</span><br><span class="line">    ~NoDtor() = delete; </span><br><span class="line">&#125;；</span><br><span class="line"></span><br><span class="line">NoDtor nd;                   //error</span><br><span class="line">NoDtor *p = new NoDtor();    //OK</span><br><span class="line">delete p;                    //error</span><br></pre></td></tr></table></figure>
+<p>2.<strong>容器tuple实现</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">template &lt;typename... Values&gt; class tuple;</span><br><span class="line">template&lt;&gt; class tuple&lt;&gt;&#123;&#125;;</span><br><span class="line"></span><br><span class="line">template &lt;typename Head, typename... Tail&gt;</span><br><span class="line">class tuple&lt;Head, Tail...&gt; </span><br><span class="line">	:private tuple&lt;Tail...&gt;&#123; // 注意这里的私有继承</span><br><span class="line">	typedef tuple&lt;Tail...&gt; inherited;</span><br><span class="line">public:</span><br><span class="line">	tuple()&#123;&#125;</span><br><span class="line">	tuple(Head v, Tail... vtail):m_head(v),inherited(vtail...)&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	Head head()&#123;return m_head&#125;</span><br><span class="line">	inherited&amp; tail()&#123;return *this;&#125;</span><br><span class="line"></span><br><span class="line">protected:</span><br><span class="line">	Head m_head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>为什么new可以，定义变量不可以？</p>
-<p>原因：因为nd是定义在栈上的变量，在作用域结束以后会自动调用析构函数，调用析构函数是由操作系统自动完成的，当编译器发现无法调用析构函数时就会报错。而new出来的对象是在堆上的，操作系统不会自动调用析构函数，需要我们手动销毁，只要我们不销毁就不会调用析构函数，也就不会出错。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//示例：Private-Copy：将拷贝构造函数和拷贝构造运算符定义为私有的</span><br><span class="line">class PrivateCopy</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    PrivateCopy(const PrivateCopy&amp;);</span><br><span class="line">    PrivateCopy operator=(const PrivateCopy&amp;);</span><br><span class="line">public:</span><br><span class="line">    PrivateCopy() = default;</span><br><span class="line">    ~PrivateCopy();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="Spaces-in-template-Expressions"><a href="#Spaces-in-template-Expressions" class="headerlink" title="Spaces in template Expressions"></a>Spaces in template Expressions</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;&lt;list&gt; &gt; vec; // ok in each C++ version.</span><br><span class="line">vector&lt;&lt;list&gt;&gt; ves; //ok since C++ 11</span><br></pre></td></tr></table></figure>
 
-<p>这个class不能被ordinary user code拷贝，但是可以被friends和members拷贝。</p>
-<h3 id="boost-noncopyable"><a href="#boost-noncopyable" class="headerlink" title="boost::noncopyable"></a>boost::noncopyable</h3><p>noncopyable为实现不可拷贝的类提供了简单清晰的解决办法。</p>
-<p>使用boost::noncopyable禁用（delete）了拷贝构造，无法调用拷贝构造函数。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class do_not_copy:boost:：noncopyable//注意这里，使用默认的私有继承是允许的</span><br><span class="line">&#123;...&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="Nullptr"><a href="#Nullptr" class="headerlink" title="Nullptr"></a>Nullptr</h1><p>Ｃ++中的NULL＝０，所以使用NULL有时会发生歧义，因此，引进了一种新的基本数据类型</p>
+<p>std::nullptr_t, 定义于＜cstddef&gt;中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// \inlude\stddef.h</span><br><span class="line">#if defined(__cplusplus) &amp;&amp; __cplusplus &gt;= 201103L</span><br><span class="line">#ifndef _GXX_NULLPTR_T</span><br><span class="line">#define _GXX_NULLPTR_T</span><br><span class="line">	typedef decltype(nullptr) nullptr_t;</span><br></pre></td></tr></table></figure>
 
-<p>我们也可以显式写出private或者public修饰词，但效果是相同的。因此直接这样写少输入了一些代码，也更清晰，并且表明了HAS-A关系（而不是IS-A）。</p>
-<p>如果有其他人误写了代码，企图拷贝构造或者赋值这个对象，那么将不能通过编译器的审查：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">do_not_copy d1；//一个不可拷贝对象</span><br><span class="line"></span><br><span class="line">do_notcopy d2（d1）；//企图拷贝构造，编译出错！</span><br><span class="line"></span><br><span class="line">do_not_copy d3；//另一个不可拷贝对象</span><br><span class="line"></span><br><span class="line">d3=d1；//企图拷贝赋值，编译出错！</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun(nullptr);        //calls f(void*)</span><br></pre></td></tr></table></figure>
+
+<h1 id="AUTO"><a href="#AUTO" class="headerlink" title="AUTO"></a>AUTO</h1><p>在C++11中，你可以通过使用auto来声明一个对象或者变量而不用具体指出其数据类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auto i = 42; // i has type int</span><br><span class="line">double f();</span><br><span class="line">auto d = f(); // d has type double</span><br></pre></td></tr></table></figure>
+
+<p>使用auto能够避免一些非常长或者非常复杂的表达式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;string&gt; vec;</span><br><span class="line">auto pos = v.begin();  // vector&lt;string&gt;::iterator</span><br><span class="line">auto l = [](intx)-&gt;bool&#123;  //l has the type of a lamba</span><br><span class="line">	...            // taking an int and returning a bool.</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -461,8 +463,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/" rel="next" title="Uniform Initialization">
-                <i class="fa fa-chevron-left"></i> Uniform Initialization
+              <a href="/%E5%AD%A6%E4%B9%A0/MySQL/MySQLProblem01/" rel="next" title="MySQL Problem 01">
+                <i class="fa fa-chevron-left"></i> MySQL Problem 01
               </a>
             
           </div>
@@ -471,8 +473,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/%E5%85%B6%E4%BB%96/%E9%97%B2%E8%81%8A/" rel="prev" title="关于未来">
-                关于未来 <i class="fa fa-chevron-right"></i>
+              <a href="/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/" rel="prev" title="Uniform Initialization">
+                Uniform Initialization <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -554,7 +556,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -625,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#default"><span class="nav-text">&#x3D;default</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete"><span class="nav-text">&#x3D;delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#boost-noncopyable"><span class="nav-text">boost::noncopyable</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Variadic-Templates"><span class="nav-text">Variadic Templates</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spaces-in-template-Expressions"><span class="nav-text">Spaces in template Expressions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nullptr"><span class="nav-text">Nullptr</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AUTO"><span class="nav-text">AUTO</span></a></li></ol></div>
             
 
           </div>

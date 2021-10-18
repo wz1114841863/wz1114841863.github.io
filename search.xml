@@ -282,132 +282,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Deep Learning</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_01/</url>
-    <content><![CDATA[<h1 id="Deep-Learning-入门"><a href="#Deep-Learning-入门" class="headerlink" title="Deep Learning 入门"></a>Deep Learning 入门</h1><p>​    记录Deep Learning 学习过程中遇到的一些问题。</p>
-<h2 id="saturating-nonlinearity-和-non-saturating-nonlinearity"><a href="#saturating-nonlinearity-和-non-saturating-nonlinearity" class="headerlink" title="saturating nonlinearity 和 non-saturating nonlinearity"></a>saturating nonlinearity 和 non-saturating nonlinearity</h2><p>在AlexNet论文《 ImageNet Classification with Deep Convolutional Neural Networks》第3节中提到了饱和非线性（saturating nonlinearity）和非饱和非线性（non-saturating nonlinearity）的概念。</p>
-<h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>一个饱和的激活函数，会将输出结果压缩到有限的区间。</p>
-<p>如果函数是非饱和的，那么有：</p>
-<p>​    当x趋近无穷大时，f(x)也趋近于无穷大。</p>
-<p>反之，则为饱和函数。</p>
-<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><ol>
-<li>  ReLU激活函数定义为f ( x ) = m a x ( 0 , x )，  f(x)=max(0,x)f(x)=max(0,x)，由于x-&gt;+∞时，f(x)也趋近于正无穷，因此ReLU不饱和。</li>
-<li>  sigmoid激活函数定义f(x) = 1 / (1 + exp(-x)), 由于它将实数压缩到区间[ 0 , 1 ]之间，因此sigmoid是饱和的。</li>
-<li>  tanh激活函数定义为tanh(x) = (1 - exp(-zx)) / (1 + exp(-zx)) , 由于它将实数压缩到区间[ − 1 , 1 ] 之间，因此tanh是饱和的.</li>
-</ol>
-<p>论文中提到说，饱和非线性的激活函数训练时比非饱和非线性的激活函数要慢的多。</p>
-<h2 id="Data-Augmentation"><a href="#Data-Augmentation" class="headerlink" title="Data Augmentation"></a>Data Augmentation</h2><p>在深度学习中，为了丰富图像数据的训练集，更好的提取图像特征，泛化模型（防止模型过拟合），一般都会对图像数据进行数据增强（Data Augmentation）。</p>
-<h3 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h3><p>AlexNet：针对具有3通道的彩色图片的训练任务，进行减去图片均值的预处理操作。</p>
-<p>- Color Jittering：对颜色的数据增强：图像亮度、饱和度、对比度变化；<br>- PCA Jittering：首先按照RGB三个颜色通道计算均值和标准差，再在整个训练集上计算协方差矩阵，进行特征分解，得到特征向量和特征值，用来做PCA Jittering；<br>- Random Scale：尺度变换；<br>- Random Crop：采用随机图像差值方式，对图像进行裁剪、缩放；包括Scale Jittering方法（VGG及ResNet模型使用）或者尺度和长宽比增强变换；<br>- Horizontal/Vertical Flip：水平/垂直翻转；<br>- Shift：平移变换；<br>- Rotation/Reflection：旋转/仿射变换；<br>- Noise：高斯噪声、模糊处理；<br>- Label shuffle：类别不平衡数据的增广；</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>Deep Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Deep Learning 02</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_02/</url>
-    <content><![CDATA[<h1 id="Deep-Learning-介绍"><a href="#Deep-Learning-介绍" class="headerlink" title="Deep Learning 介绍"></a>Deep Learning 介绍</h1><p>​    </p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>Deep Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git学习笔记02</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Git/gitNote02/</url>
-    <content><![CDATA[<p>  Git 处理分支的方式可谓是难以置信的轻量，创建新分支这一操作几乎能在瞬间完成，并且在不同分支之间的切换操作也是一样便捷。</p>
-<span id="more"></span>
-
-<h2 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h2><p>​        Git 保存的不是文件的变化或者差异，而是一系列不同时刻的快照 。在进行提交操作时，Git 会保存一个提交对象（commit object）。做些修改后再次提交，那么这次产生的提交对象会包含一个指向上次提交对象（父对象）的指针。Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git 的默认分支名字是 master。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 master 分支。 master 分支会在每次提交时自动向前移动。</p>
-<h3 id="分支创建"><a href="#分支创建" class="headerlink" title="分支创建"></a>分支创建</h3><p>创建新的分支实际就是创建一个新的指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch &lt;branchname&gt;</span><br></pre></td></tr></table></figure>
-
-<p>从而在当前所提交的对象上创建一个新的指针。</p>
-<h3 id="查看分支所指对象"><a href="#查看分支所指对象" class="headerlink" title="查看分支所指对象"></a>查看分支所指对象</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline  --decorate</span><br></pre></td></tr></table></figure>
-
-<h3 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
-
-<p>此时，HEAD指针就指向了新的分支。</p>
-<p><em><strong>分支切换会改变你工作目录中的文件</strong></em><br>在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。</p>
-<p>不同的分支提交文件后就会产生项目分叉。</p>
-<h3 id="查看分叉历史"><a href="#查看分叉历史" class="headerlink" title="查看分叉历史"></a>查看分叉历史</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline --decorate --graph --all</span><br></pre></td></tr></table></figure>
-
-<p>会输出你的提交历史、各个分支的指向以及项目的分支分叉情况。</p>
-<h3 id="创建分支的同时切换过去"><a href="#创建分支的同时切换过去" class="headerlink" title="创建分支的同时切换过去"></a>创建分支的同时切换过去</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;newbranchname&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="快进"><a href="#快进" class="headerlink" title="快进"></a>快进</h3><p>当你试图合并两个分支时， 如果顺着一个分支走下去能够到达另一个分支，那么 Git 在合并两者的时候， 只会简单的将指针向前推进（指针右移），因为这种情况下的合并操作没有需要解决的分歧——这就叫做 “快进（fast-forward）”。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#快进</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h3><p>三方分别为：第一个分支，第二个分支，两分支的分叉点。</p>
-<p>Git 将三方合并的结果做了一个新的快照并且自动创建一个新的提<br>交指向它。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#三方合并</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="合并时遇到冲突"><a href="#合并时遇到冲突" class="headerlink" title="合并时遇到冲突"></a>合并时遇到冲突</h4><p>​        如果你在两个不同的分支中，对同一个文件的同一个部分进行了不同的修改，Git 就没法干净的合并它们。</p>
-<p>​        Git 会暂停下来，等待你去解决合并产生的冲突。你可以在合并冲突后的任意时刻使用 git status 命令来查看那些因包含合并冲突而处于未合并（unmerged）状态的文件</p>
-<p>​    在手动解决文件冲突后，可以再次提交，并确认分支合并。</p>
-<h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看已有分支和当前所处分支</span><br><span class="line">git branch</span><br><span class="line">#查看已合并的分支</span><br><span class="line">git branch --merged</span><br><span class="line">#查看未合并的分支</span><br><span class="line">git branch --no-merged</span><br></pre></td></tr></table></figure>
-
-<h2 id="分支开发工作流"><a href="#分支开发工作流" class="headerlink" title="分支开发工作流"></a>分支开发工作流</h2><h3 id="长期分支"><a href="#长期分支" class="headerlink" title="长期分支"></a>长期分支</h3><p>​        因为 Git 使用简单的三方合并，所以就算在一段较长的时间内，反复把一个分支合并入另一个分支，也不是什么难事。 也就是说，在整个项目开发周期的不同阶段，你可以同时拥有多个开放的分支；你可以定期地把某些主题分支合并入其他分支中。</p>
-<h3 id="主题分支"><a href="#主题分支" class="headerlink" title="主题分支"></a>主题分支</h3><p>​        主题分支对任何规模的项目都适用。 主题分支是一种短期分支，它被用来实现单一特性或其相关工作。</p>
-<h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>远程引用是对远程仓库的引用（指针），包括分支、标签等等。 你可以通过 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git ls-remote &lt;remote&gt; </span><br></pre></td></tr></table></figure>
-
-<p>来显式地获得远程引用的完整列表， 或者通过 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote show &lt;remote&gt; </span><br></pre></td></tr></table></figure>
-
-<p>获得远程分支的更多信息。 然而，一个更常见的做法是利用远程跟踪分支。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git使用过程中遇到的一些问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Git/gitPushProblem/</url>
-    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>使用git的过程中总会遇到一些问题。</p>
-<span id="more"></span>
-
-<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
-<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
-
-<p>​    接着重新上传，成功。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
-
-<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
-<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
-
-<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
-
-<h2 id="warning-LF-will-be-replaced-by-CRLF-in-files"><a href="#warning-LF-will-be-replaced-by-CRLF-in-files" class="headerlink" title="warning: LF will be replaced by CRLF in files"></a>warning: LF will be replaced by CRLF in files</h2><p>原因是存在符号转义问题，windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.autocrlf false=</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git学习笔记01</title>
     <url>/%E5%AD%A6%E4%B9%A0/Git/gitNote01/</url>
     <content><![CDATA[<h2 id="系统的学习一下Git和Github的使用"><a href="#系统的学习一下Git和Github的使用" class="headerlink" title="系统的学习一下Git和Github的使用"></a>系统的学习一下Git和Github的使用</h2><p>​    已经了解和使用过Git和Github，但是并没有具体的学习过。通过系统学习能进一步加深影响。<span id="more"></span></p>
@@ -520,6 +394,144 @@
       </tags>
   </entry>
   <entry>
+    <title>git使用过程中遇到的一些问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Git/gitPushProblem/</url>
+    <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>使用git的过程中总会遇到一些问题。</p>
+<span id="more"></span>
+
+<h2 id="用户绑定"><a href="#用户绑定" class="headerlink" title="用户绑定"></a>用户绑定</h2><p>​    用户使用前必须通过SSL密匙连接欸到GitHub账号。这样才能正常使用上传和下拉功能。</p>
+<h2 id="push时使用-git-git"><a href="#push时使用-git-git" class="headerlink" title="push时使用 git@git"></a>push时使用 git@git</h2><p>​    向Github仓库push代码时显示;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wz1114841863/OpenCV-SampleCode.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="出错原因"><a href="#出错原因" class="headerlink" title="出错原因"></a>出错原因</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    这里使用了 https传输协议，其他的解决方法并未尝试，这里直接换成了git@github</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    解除绑定，换成git@github：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:wz1114841863/OpenCV-SampleCode.git</span><br></pre></td></tr></table></figure>
+
+<p>​    接着重新上传，成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Enumerating objects: 11, done.</span><br><span class="line">Counting objects: 100% (11/11), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (9/9), done.</span><br><span class="line">Writing objects: 100% (11/11), 16.79 MiB | 1.62 MiB/s, done.</span><br><span class="line">Total 11 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">To github.com:wz1114841863/OpenCV-SampleCode.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;origin&#x27;.</span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略文件夹名大小写"><a href="#忽略文件夹名大小写" class="headerlink" title="忽略文件夹名大小写"></a>忽略文件夹名大小写</h2><p>git默认在提交时会忽略文件夹名的大小写，从而导致出现问题。</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看本地仓库git忽略大小写是否打开</span><br><span class="line">$ git config --get core.ignorecase</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>true 表示忽略文件名大小写，可以将其设置为false。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+
+<h2 id="warning-LF-will-be-replaced-by-CRLF-in-files"><a href="#warning-LF-will-be-replaced-by-CRLF-in-files" class="headerlink" title="warning: LF will be replaced by CRLF in files"></a>warning: LF will be replaced by CRLF in files</h2><p>原因是存在符号转义问题，windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.autocrlf false=</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git学习笔记02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Git/gitNote02/</url>
+    <content><![CDATA[<p>  Git 处理分支的方式可谓是难以置信的轻量，创建新分支这一操作几乎能在瞬间完成，并且在不同分支之间的切换操作也是一样便捷。</p>
+<span id="more"></span>
+
+<h2 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h2><p>​        Git 保存的不是文件的变化或者差异，而是一系列不同时刻的快照 。在进行提交操作时，Git 会保存一个提交对象（commit object）。做些修改后再次提交，那么这次产生的提交对象会包含一个指向上次提交对象（父对象）的指针。Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git 的默认分支名字是 master。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 master 分支。 master 分支会在每次提交时自动向前移动。</p>
+<h3 id="分支创建"><a href="#分支创建" class="headerlink" title="分支创建"></a>分支创建</h3><p>创建新的分支实际就是创建一个新的指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch &lt;branchname&gt;</span><br></pre></td></tr></table></figure>
+
+<p>从而在当前所提交的对象上创建一个新的指针。</p>
+<h3 id="查看分支所指对象"><a href="#查看分支所指对象" class="headerlink" title="查看分支所指对象"></a>查看分支所指对象</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline  --decorate</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此时，HEAD指针就指向了新的分支。</p>
+<p><em><strong>分支切换会改变你工作目录中的文件</strong></em><br>在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。</p>
+<p>不同的分支提交文件后就会产生项目分叉。</p>
+<h3 id="查看分叉历史"><a href="#查看分叉历史" class="headerlink" title="查看分叉历史"></a>查看分叉历史</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline --decorate --graph --all</span><br></pre></td></tr></table></figure>
+
+<p>会输出你的提交历史、各个分支的指向以及项目的分支分叉情况。</p>
+<h3 id="创建分支的同时切换过去"><a href="#创建分支的同时切换过去" class="headerlink" title="创建分支的同时切换过去"></a>创建分支的同时切换过去</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;newbranchname&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="快进"><a href="#快进" class="headerlink" title="快进"></a>快进</h3><p>当你试图合并两个分支时， 如果顺着一个分支走下去能够到达另一个分支，那么 Git 在合并两者的时候， 只会简单的将指针向前推进（指针右移），因为这种情况下的合并操作没有需要解决的分歧——这就叫做 “快进（fast-forward）”。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#快进</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h3><p>三方分别为：第一个分支，第二个分支，两分支的分叉点。</p>
+<p>Git 将三方合并的结果做了一个新的快照并且自动创建一个新的提<br>交指向它。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#三方合并</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="合并时遇到冲突"><a href="#合并时遇到冲突" class="headerlink" title="合并时遇到冲突"></a>合并时遇到冲突</h4><p>​        如果你在两个不同的分支中，对同一个文件的同一个部分进行了不同的修改，Git 就没法干净的合并它们。</p>
+<p>​        Git 会暂停下来，等待你去解决合并产生的冲突。你可以在合并冲突后的任意时刻使用 git status 命令来查看那些因包含合并冲突而处于未合并（unmerged）状态的文件</p>
+<p>​    在手动解决文件冲突后，可以再次提交，并确认分支合并。</p>
+<h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看已有分支和当前所处分支</span><br><span class="line">git branch</span><br><span class="line">#查看已合并的分支</span><br><span class="line">git branch --merged</span><br><span class="line">#查看未合并的分支</span><br><span class="line">git branch --no-merged</span><br></pre></td></tr></table></figure>
+
+<h2 id="分支开发工作流"><a href="#分支开发工作流" class="headerlink" title="分支开发工作流"></a>分支开发工作流</h2><h3 id="长期分支"><a href="#长期分支" class="headerlink" title="长期分支"></a>长期分支</h3><p>​        因为 Git 使用简单的三方合并，所以就算在一段较长的时间内，反复把一个分支合并入另一个分支，也不是什么难事。 也就是说，在整个项目开发周期的不同阶段，你可以同时拥有多个开放的分支；你可以定期地把某些主题分支合并入其他分支中。</p>
+<h3 id="主题分支"><a href="#主题分支" class="headerlink" title="主题分支"></a>主题分支</h3><p>​        主题分支对任何规模的项目都适用。 主题分支是一种短期分支，它被用来实现单一特性或其相关工作。</p>
+<h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>远程引用是对远程仓库的引用（指针），包括分支、标签等等。 你可以通过 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git ls-remote &lt;remote&gt; </span><br></pre></td></tr></table></figure>
+
+<p>来显式地获得远程引用的完整列表， 或者通过 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote show &lt;remote&gt; </span><br></pre></td></tr></table></figure>
+
+<p>获得远程分支的更多信息。 然而，一个更常见的做法是利用远程跟踪分支。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Deep Learning</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_01/</url>
+    <content><![CDATA[<h1 id="Deep-Learning-入门"><a href="#Deep-Learning-入门" class="headerlink" title="Deep Learning 入门"></a>Deep Learning 入门</h1><p>​    记录Deep Learning 学习过程中遇到的一些问题。</p>
+<h2 id="saturating-nonlinearity-和-non-saturating-nonlinearity"><a href="#saturating-nonlinearity-和-non-saturating-nonlinearity" class="headerlink" title="saturating nonlinearity 和 non-saturating nonlinearity"></a>saturating nonlinearity 和 non-saturating nonlinearity</h2><p>在AlexNet论文《 ImageNet Classification with Deep Convolutional Neural Networks》第3节中提到了饱和非线性（saturating nonlinearity）和非饱和非线性（non-saturating nonlinearity）的概念。</p>
+<h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>一个饱和的激活函数，会将输出结果压缩到有限的区间。</p>
+<p>如果函数是非饱和的，那么有：</p>
+<p>​    当x趋近无穷大时，f(x)也趋近于无穷大。</p>
+<p>反之，则为饱和函数。</p>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><ol>
+<li>  ReLU激活函数定义为f ( x ) = m a x ( 0 , x )，  f(x)=max(0,x)f(x)=max(0,x)，由于x-&gt;+∞时，f(x)也趋近于正无穷，因此ReLU不饱和。</li>
+<li>  sigmoid激活函数定义f(x) = 1 / (1 + exp(-x)), 由于它将实数压缩到区间[ 0 , 1 ]之间，因此sigmoid是饱和的。</li>
+<li>  tanh激活函数定义为tanh(x) = (1 - exp(-zx)) / (1 + exp(-zx)) , 由于它将实数压缩到区间[ − 1 , 1 ] 之间，因此tanh是饱和的.</li>
+</ol>
+<p>论文中提到说，饱和非线性的激活函数训练时比非饱和非线性的激活函数要慢的多。</p>
+<h2 id="Data-Augmentation"><a href="#Data-Augmentation" class="headerlink" title="Data Augmentation"></a>Data Augmentation</h2><p>在深度学习中，为了丰富图像数据的训练集，更好的提取图像特征，泛化模型（防止模型过拟合），一般都会对图像数据进行数据增强（Data Augmentation）。</p>
+<h3 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h3><p>AlexNet：针对具有3通道的彩色图片的训练任务，进行减去图片均值的预处理操作。</p>
+<p>- Color Jittering：对颜色的数据增强：图像亮度、饱和度、对比度变化；<br>- PCA Jittering：首先按照RGB三个颜色通道计算均值和标准差，再在整个训练集上计算协方差矩阵，进行特征分解，得到特征向量和特征值，用来做PCA Jittering；<br>- Random Scale：尺度变换；<br>- Random Crop：采用随机图像差值方式，对图像进行裁剪、缩放；包括Scale Jittering方法（VGG及ResNet模型使用）或者尺度和长宽比增强变换；<br>- Horizontal/Vertical Flip：水平/垂直翻转；<br>- Shift：平移变换；<br>- Rotation/Reflection：旋转/仿射变换；<br>- Noise：高斯噪声、模糊处理；<br>- Label shuffle：类别不平衡数据的增广；</p>
+<p>需要注意的是，在对图片做Affine时，可能还需要对对应的标签做相应的处理，比如BBox， keypoints，以及polygons等。</p>
+<h2 id="end-to-end"><a href="#end-to-end" class="headerlink" title="end-to-end"></a>end-to-end</h2><p>与机器学习不同，卷积神经网络的输入是由原始像素值或是经过简单预处理（例如居中、缩放）的像素值组成的，不需要进行其余更加精心的设计，来达到更好的预期结果。</p>
+<h2 id="ReLU-与-Sigmoid"><a href="#ReLU-与-Sigmoid" class="headerlink" title="ReLU 与 Sigmoid"></a>ReLU 与 Sigmoid</h2><p>在AlexNet中，提出了ReLU这样一个激活函数。</p>
+<p>ReLU 对比于 SIgmoid 的优势：</p>
+<ol>
+<li>  ReLU激活函数的计算更简单，它不需要如sigmoid激活函数那般复杂的求幂运算。</li>
+<li>  当使用不同的参数初始化方法时，ReLU激活函数使训练模型更加容易。 当sigmoid激活函数的输出非常接近于0或1时，这些区域的梯度几乎为0，因此反向传播无法继续更新一些模型参数。 相反，ReLU激活函数在正区间的梯度总是1。 因此，如果模型参数没有正确初始化，sigmoid函数可能在正区间内得到几乎为0的梯度，从而使模型无法得到有效的训练。</li>
+</ol>
+<h2 id="dropout"><a href="#dropout" class="headerlink" title="dropout"></a>dropout</h2><p>以下摘选自&lt;&lt; Alexnet &gt;&gt;.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">将许多不同模型的预测结合起来是降低测试误差的一个非常成功的方法，但对于需要花费几天来训练的大型神经网络来说，这似乎太昂贵了。然而，有一个非常有效的模型结合版本，它只花费两倍的训练成本。这种最近引入的技术，叫做“dropout”，它会以0.5的概率对每个隐层神经元的输出设为0。那些“失活的”的神经元不再进行前向传播并且不参与反向传播。因此每次输入时，神经网络会采样一个不同的架构，但所有架构共享权重。这个技术减少了复杂的神经元互适应，因为一个神经元不能依赖特定的其它神经元的存在。因此，神经元被强迫学习更鲁棒的特征，它在与许多不同的其它神经元的随机子集结合时是有用的。在测试时，我们使用所有的神经元但它们的输出乘以0.5，对指数级的许多失活网络的预测分布进行几何平均，这是一种合理的近似。</span><br></pre></td></tr></table></figure>
+
+<p>dropout是一种有效的能够降低overfitting 的方法。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Deep Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Deep Learning 02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_02/</url>
+    <content><![CDATA[<h1 id="Deep-Learning-介绍"><a href="#Deep-Learning-介绍" class="headerlink" title="Deep Learning 介绍"></a>Deep Learning 介绍</h1><p>​    </p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Deep Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL Problem 01</title>
     <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQLProblem01/</url>
     <content><![CDATA[<p>MySQL 学习过程中遇到的一些问题和总结。<span id="more"></span></p>
@@ -581,6 +593,55 @@
       </categories>
       <tags>
         <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Deep Learning 02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_AlexNet/</url>
+    <content><![CDATA[<h1 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h1><p> 深度卷积网络的开创者。将从手工对图片的的特征进行提取，进而利用机器学习的方式实现图像识别转别为由机器自己实现特征提取和图片识别。真正实现了“end-to-end”。</p>
+<h2 id="取得成功的原因"><a href="#取得成功的原因" class="headerlink" title="取得成功的原因"></a>取得成功的原因</h2><h3 id="更大更丰富的数据集"><a href="#更大更丰富的数据集" class="headerlink" title="更大更丰富的数据集"></a>更大更丰富的数据集</h3><p>包含许多特征的深度模型需要大量的有标签数据，才能显著优于基于凸优化的传统方法。越来越多的大规模的数据集给深度学习提供了数据基础。同时还包括各种各样的图像增强方法，进一步对数据集进行扩充。</p>
+<h3 id="GPU-加快神经网络的训练速度"><a href="#GPU-加快神经网络的训练速度" class="headerlink" title="GPU-加快神经网络的训练速度"></a>GPU-加快神经网络的训练速度</h3><p>GPU特殊的硬件结构使得矩阵运算更加迅速。极大的减少了网络训练的时间。GPU强大的运算能力使得CNN的是实现成为了可能。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="使用ReLU作为激活函数"><a href="#使用ReLU作为激活函数" class="headerlink" title="使用ReLU作为激活函数"></a>使用ReLU作为激活函数</h3><p>作者通过实验证明，ReLU相比于Sigmoid等其他激活函数，更容易进行训练，达到同样的识别精度所需要的时间和迭代次数更少。</p>
+<p>同时ReLU也成为最为常见的激活函数。</p>
+<h3 id="在多块GPU上同时进行计算"><a href="#在多块GPU上同时进行计算" class="headerlink" title="在多块GPU上同时进行计算"></a>在多块GPU上同时进行计算</h3><p>由于当时的GPU性能还不是太强，所以作者采用了两块GPU来实现网络的计算。如今GPU的计算能力已经得到了飞速提升，但更大型的网络依旧需要使用多个GPU并行计算。同时GPU硬件加速也是一个重要的研究方向。</p>
+<h3 id="LRN"><a href="#LRN" class="headerlink" title="LＲＮ"></a>LＲＮ</h3><p>作者提出的一种局部归一化的方法，在后来的VGGNet中证明用处不大。</p>
+<h3 id="重叠池化"><a href="#重叠池化" class="headerlink" title="重叠池化"></a>重叠池化</h3><p>之前的池化层都是池化层的大小等于步进，这里作者采用了池化层的大小大于步进，因此会产生部分重叠。作者通过实验证明，这样做有利于抑制过拟合。</p>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>AlexNet网络结构相对简单，使用了8层卷积神经网络，前5层是卷积层，剩下的3层是全连接层。中间还包括池化层和激活层。</p>
+<img src = "/images/DeepLearning/01.png">
+
+<p>这里将两部分网络拼在了一起，易于理解。</p>
+<p>值得注意的一点：原图输入224 × 224，实际上进行了随机裁剪，实际大小为227 × 227。</p>
+<p>AlexNet的第一层，卷积窗口的形状是 11×11。 由于ImageNet中大多数图像的宽和高比MNIST图像的多10倍以上，因此，需要一个更大的卷积窗口来捕获目标。 第二层中的卷积窗口形状被缩减为 5×55×5，然后是 3×33×3。 此外，在第一层、第二层和第五层卷积层之后，加入窗口形状为 3×33×3、步幅为2的最大汇聚层。 而且，AlexNet的卷积通道数目是LeNet的10倍。</p>
+<p>在最后一个卷积层后有两个全连接层，分别有4096个输出。 这两个巨大的全连接层拥有将近1GB的模型参数。 </p>
+<h3 id="网络大小的计算"><a href="#网络大小的计算" class="headerlink" title="网络大小的计算"></a>网络大小的计算</h3><p>这里参考了《鱼书》。</p>
+<img src = "/images/DeepLearning/03.png">
+
+<img src = "/images/DeepLearning/02.png">
+
+<h2 id="抑制过拟合的方法"><a href="#抑制过拟合的方法" class="headerlink" title="抑制过拟合的方法"></a>抑制过拟合的方法</h2><h3 id="图像增广"><a href="#图像增广" class="headerlink" title="图像增广"></a>图像增广</h3><p>作者做了两种处理。</p>
+<p>１.　对２５６＊２５６的图像进行裁剪。变为大小为２２４＊２２４，同时进行翻转。</p>
+<p>这样一张照片就变为了２０４８张，但是这样的处理，图片的关联性是很大的。</p>
+<p>２.　ＰＣＡ处理：对图像进行一系列的计算处理，排除光照等其他因素引起的问题。</p>
+<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><p>下面摘抄于原文，很好的解释了dropout的使用原因和作用。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Combining the predictions of many different models is a very successful way to reduce test errors, but it appears to be too expensive for big neural networks that already take several days to train. There is, however, a very efficient version of model combination that only costs about a factor of two during training. The recently-introduced technique, called “dropout”, consists of setting to zero the output of each hidden neuron with probability 0.5. The neurons which are “dropped out” in this way do not contribute to the forward pass and do not participate in backpropagation. So every time an input is presented, the neural network samples a different architecture, but all these architectures share weights. This technique reduces complex co-adaptations of neurons, since a neuron cannot rely on the presence of particular other neurons. It is, therefore, forced to learn more robust features that are useful in conjunction with many different random subsets of the other neurons. At test time, we use all the neurons but multiply their outputs by 0.5, which is a reasonable approximation to taking the geometric mean of the predictive distributions produced by the exponentially-many dropout networks.</span><br></pre></td></tr></table></figure>
+
+<p>简单理解就是，Dropout将集成学习的效果（模拟地）通过一个网络实现了，所有的这些网络全都共用权重。</p>
+<h2 id="更多的细节"><a href="#更多的细节" class="headerlink" title="更多的细节"></a>更多的细节</h2><h3 id="SGD-Momentum-权重衰减"><a href="#SGD-Momentum-权重衰减" class="headerlink" title="SGD+Momentum+权重衰减"></a>SGD+Momentum+权重衰减</h3><p>作者在更新参数时使用了较为复杂的更新方式，而并不是简单拿到SGD。</p>
+<h3 id="参数初始值"><a href="#参数初始值" class="headerlink" title="参数初始值"></a>参数初始值</h3><p>权重使用了高斯分布来初始化。</p>
+<p>偏置部分层使用了 0 ，其余层使用了1。</p>
+<p>lr也就是学习率，最初设置为0.01，每次学习停止时，就将lr除于10，进一步更新参数。</p>
+<h2 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h2><img src = "/images/DeepLearning/04.jpg">
+
+<h3 id="进一步分析"><a href="#进一步分析" class="headerlink" title="进一步分析"></a>进一步分析</h3><img src = "/images/DeepLearning/05.png">
+
+<p>作者了考虑由最后4096维隐藏层的图像引起的特征激活，认为如果两幅图像产生的特征激活向量具有较小的欧氏分离，我们可以说神经网络的高层认为它们是相似的。这里的特征激活向量应该是所有前面层计算出来的结果。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>作者认为：更深的网络层数 + 更丰富的数据集 + 更强大的运算/更多的训练时间 = 更好的识别效果。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Deep Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -816,74 +877,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MySQL 基础知识 06</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_06/</url>
-    <content><![CDATA[<p>MySQL学习笔记。对数据进行分组和进行查询。<span id="more"></span></p>
-<h1 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h1><p>使用分组可以将数据分为多个逻辑组，对每个组进行聚集计算。</p>
-<p>分组是使用SELECT 语句的<strong>GROUP BY</strong> 子句建立的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">GROUP BY vend_id;</span><br></pre></td></tr></table></figure>
-
-<p>GROUP BY 子句指示DBMS 分组数据，然后对每个组而不是整个结果集进行聚集。</p>
-<h2 id="GROUP-BY-子句"><a href="#GROUP-BY-子句" class="headerlink" title="GROUP BY 子句"></a>GROUP BY 子句</h2><p> 1.GROUP BY 子句可以包含任意数目的列，因而可以对分组进行嵌套，更细致地进行数据分组。</p>
-<p> 2.如果在GROUP BY 子句中嵌套了分组，数据将在最后指定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</p>
-<p> 3.GROUP BY 子句中列出的每一列都必须是检索列或有效的表达式（但不能是聚集函数）。如果在SELECT 中使用表达式，则必须在GROUP BY子句中指定相同的表达式。不能使用别名。</p>
-<p> 4.大多数SQL 实现不允许GROUP BY 列带有长度可变的数据类型（如文本或备注型字段）。</p>
-<p> 5.除聚集计算语句外，SELECT 语句中的每一列都必须在GROUP BY 子句中给出。</p>
-<p> 6.如果分组列中包含具有NULL 值的行，则NULL 将作为一个分组返回。如果列中有多行NULL 值，它们将分为一组。</p>
-<p> 7.GROUP BY 子句必须出现在WHERE 子句之后，ORDER BY 子句之前。</p>
-<h2 id="过滤分组"><a href="#过滤分组" class="headerlink" title="过滤分组"></a>过滤分组</h2><p>除了能用GROUP BY 分组数据外，SQL 还允许过滤分组，规定包括哪些分组，排除哪些分组。</p>
-<p>目前为止所学过的所有类型的WHERE 子句都可以用<strong>HAVING</strong> 来替代。唯一的差别是，<strong>WHERE过滤行，而HAVING 过滤分组。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_id, COUNT(*) AS orders</span><br><span class="line">FROM Orders</span><br><span class="line">GROUP BY cust_id</span><br><span class="line">HAVING COUNT(*) &gt;= 2;</span><br></pre></td></tr></table></figure>
-
-<p>WHERE 在数据分组前进行过滤，HAVING 在数据分组后进行过滤。这是一个重要的区别，WHERE 排除的行不包括在分组中。这可能会改变计算值，从而影响HAVING 子句中基于这些值过滤掉的分组。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_price &gt;= 4</span><br><span class="line">GROUP BY vend_id</span><br><span class="line">HAVING COUNT(*) &gt;= 2;</span><br></pre></td></tr></table></figure>
-
-<img src = "/images/MySQL/MySQL06.png">
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;= 3;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;= 3</span><br><span class="line">ORDER BY items, order_num;</span><br></pre></td></tr></table></figure>
-
-<h1 id="进行子查询"><a href="#进行子查询" class="headerlink" title="进行子查询"></a>进行子查询</h1><p>列出订购物品RGAN01 的所有顾客：</p>
-<p>1.检索包含物品 RGAN01的所有订单编号。</p>
-<p>2.检索具有前一步骤列出的顶单编号的顾客的ID。</p>
-<p>3.检索前一步骤返回的所有顾客的顾客信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM Customers</span><br><span class="line">WHERE cust_id IN (SELECT cust_id</span><br><span class="line">				  FROM Orders</span><br><span class="line">				  WHERE order_num IN (SELECT order_num</span><br><span class="line">									  FROM OrderItems</span><br><span class="line">							  		  WHERE prod_id = &#x27;RGAN01&#x27;));</span><br></pre></td></tr></table></figure>
-
-<p><strong>作为子查询的SELECT 语句只能查询单个列。企图检索多个列将返回错误。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_state,</span><br><span class="line">		(SELECT COUNT(*)</span><br><span class="line">			FROM Orders</span><br><span class="line">			WHERE Orders.cust_id = Customers.cust_id) AS orders</span><br><span class="line">FROM Customers</span><br><span class="line">ORDER BY cust_name;</span><br></pre></td></tr></table></figure>
-
-<h1 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h1><h2 id="UNION-并集"><a href="#UNION-并集" class="headerlink" title="UNION  并集"></a>UNION  并集</h2><p>SQL 允许执行多个查询（多条SELECT 语句），并将结果作为一个查询结果集返回。这些组合查询通常称为并（union）或复合查询（compound query）。</p>
-<p>主要有两种情况需要使用组合查询：</p>
-<ol>
-<li>在一个查询中从不同的表返回结构数据；</li>
-<li>对一个表执行多个查询，按一个查询返回数据。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;;</span><br><span class="line">3. 列数据类型必须兼容：类型不必完全相同，但必须是DBMS 可以隐含</span><br><span class="line">转换的类型（例如，不同的数值类型或不同的日期类型）。</span><br></pre></td></tr></table></figure>
-
-<p>1.UNION 必须由两条或两条以上的SELECT 语句组成，语句之间用关键字UNION 分隔（因此，如果组合四条SELECT 语句，将要使用三个UNION关键字）。<br>2.UNION 中的每个查询必须包含相同的列、表达式或聚集函数（不过，各个列不需要以相同的次序列出）。</p>
-<p>3.列数据类型必须兼容：类型不必完全相同，但必须是DBMS 可以隐含转换的类型（例如，不同的数值类型或不同的日期类型）。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION ALL</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>使用UNION ALL，DBMS 不取消重复的行。</p>
-<p>SELECT 语句的输出用ORDER BY 子句排序。在用UNION 组合查询时，只能使用一条ORDER BY 子句，它必须位于最后一条SELECT 语句之后。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;</span><br><span class="line">ORDER BY cust_name, cust_contact;</span><br></pre></td></tr></table></figure>
-
-<h2 id="INTERSECT-交集"><a href="#INTERSECT-交集" class="headerlink" title="INTERSECT  交集"></a>INTERSECT  交集</h2><p>MySQL不支持<code>INTERSECT</code>操作符。 但是可以模拟<code>INTERSECT</code>操作符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT product_id, product_name</span><br><span class="line">    FROM Product</span><br><span class="line">INTERSECT</span><br><span class="line">SELECT product_id, product_name</span><br><span class="line">    FROM Product2</span><br><span class="line">ORDER BY product_id;</span><br></pre></td></tr></table></figure>
-
-<h2 id="EXCEPT-减法"><a href="#EXCEPT-减法" class="headerlink" title="EXCEPT 减法"></a>EXCEPT 减法</h2><p>MYSQL不支持EXCEPT操作符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product</span><br><span class="line">EXCEPT</span><br><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product2</span><br><span class="line">ORDER BY product_id;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MySQL 基础知识 05</title>
     <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_05/</url>
     <content><![CDATA[<p>MySQL学习笔记。通过使用计算字段对检索到的数据进行初步处理<span id="more"></span></p>
@@ -957,6 +950,74 @@
 <p>2、round(x)  ,其实就是round(x,0),也就是默认d为0</p>
 <h3 id="LENGTH"><a href="#LENGTH" class="headerlink" title="LENGTH()"></a>LENGTH()</h3><p>返回字符串的长度。</p>
 <h3 id="CAST"><a href="#CAST" class="headerlink" title="CAST()"></a>CAST()</h3><p>数据格式转换函数，将字符串转为数字，日期转为数字等。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL 基础知识 06</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_06/</url>
+    <content><![CDATA[<p>MySQL学习笔记。对数据进行分组和进行查询。<span id="more"></span></p>
+<h1 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h1><p>使用分组可以将数据分为多个逻辑组，对每个组进行聚集计算。</p>
+<p>分组是使用SELECT 语句的<strong>GROUP BY</strong> 子句建立的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">GROUP BY vend_id;</span><br></pre></td></tr></table></figure>
+
+<p>GROUP BY 子句指示DBMS 分组数据，然后对每个组而不是整个结果集进行聚集。</p>
+<h2 id="GROUP-BY-子句"><a href="#GROUP-BY-子句" class="headerlink" title="GROUP BY 子句"></a>GROUP BY 子句</h2><p> 1.GROUP BY 子句可以包含任意数目的列，因而可以对分组进行嵌套，更细致地进行数据分组。</p>
+<p> 2.如果在GROUP BY 子句中嵌套了分组，数据将在最后指定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</p>
+<p> 3.GROUP BY 子句中列出的每一列都必须是检索列或有效的表达式（但不能是聚集函数）。如果在SELECT 中使用表达式，则必须在GROUP BY子句中指定相同的表达式。不能使用别名。</p>
+<p> 4.大多数SQL 实现不允许GROUP BY 列带有长度可变的数据类型（如文本或备注型字段）。</p>
+<p> 5.除聚集计算语句外，SELECT 语句中的每一列都必须在GROUP BY 子句中给出。</p>
+<p> 6.如果分组列中包含具有NULL 值的行，则NULL 将作为一个分组返回。如果列中有多行NULL 值，它们将分为一组。</p>
+<p> 7.GROUP BY 子句必须出现在WHERE 子句之后，ORDER BY 子句之前。</p>
+<h2 id="过滤分组"><a href="#过滤分组" class="headerlink" title="过滤分组"></a>过滤分组</h2><p>除了能用GROUP BY 分组数据外，SQL 还允许过滤分组，规定包括哪些分组，排除哪些分组。</p>
+<p>目前为止所学过的所有类型的WHERE 子句都可以用<strong>HAVING</strong> 来替代。唯一的差别是，<strong>WHERE过滤行，而HAVING 过滤分组。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_id, COUNT(*) AS orders</span><br><span class="line">FROM Orders</span><br><span class="line">GROUP BY cust_id</span><br><span class="line">HAVING COUNT(*) &gt;= 2;</span><br></pre></td></tr></table></figure>
+
+<p>WHERE 在数据分组前进行过滤，HAVING 在数据分组后进行过滤。这是一个重要的区别，WHERE 排除的行不包括在分组中。这可能会改变计算值，从而影响HAVING 子句中基于这些值过滤掉的分组。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_price &gt;= 4</span><br><span class="line">GROUP BY vend_id</span><br><span class="line">HAVING COUNT(*) &gt;= 2;</span><br></pre></td></tr></table></figure>
+
+<img src = "/images/MySQL/MySQL06.png">
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;= 3;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;= 3</span><br><span class="line">ORDER BY items, order_num;</span><br></pre></td></tr></table></figure>
+
+<h1 id="进行子查询"><a href="#进行子查询" class="headerlink" title="进行子查询"></a>进行子查询</h1><p>列出订购物品RGAN01 的所有顾客：</p>
+<p>1.检索包含物品 RGAN01的所有订单编号。</p>
+<p>2.检索具有前一步骤列出的顶单编号的顾客的ID。</p>
+<p>3.检索前一步骤返回的所有顾客的顾客信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM Customers</span><br><span class="line">WHERE cust_id IN (SELECT cust_id</span><br><span class="line">				  FROM Orders</span><br><span class="line">				  WHERE order_num IN (SELECT order_num</span><br><span class="line">									  FROM OrderItems</span><br><span class="line">							  		  WHERE prod_id = &#x27;RGAN01&#x27;));</span><br></pre></td></tr></table></figure>
+
+<p><strong>作为子查询的SELECT 语句只能查询单个列。企图检索多个列将返回错误。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_state,</span><br><span class="line">		(SELECT COUNT(*)</span><br><span class="line">			FROM Orders</span><br><span class="line">			WHERE Orders.cust_id = Customers.cust_id) AS orders</span><br><span class="line">FROM Customers</span><br><span class="line">ORDER BY cust_name;</span><br></pre></td></tr></table></figure>
+
+<h1 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h1><h2 id="UNION-并集"><a href="#UNION-并集" class="headerlink" title="UNION  并集"></a>UNION  并集</h2><p>SQL 允许执行多个查询（多条SELECT 语句），并将结果作为一个查询结果集返回。这些组合查询通常称为并（union）或复合查询（compound query）。</p>
+<p>主要有两种情况需要使用组合查询：</p>
+<ol>
+<li>在一个查询中从不同的表返回结构数据；</li>
+<li>对一个表执行多个查询，按一个查询返回数据。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;;</span><br><span class="line">3. 列数据类型必须兼容：类型不必完全相同，但必须是DBMS 可以隐含</span><br><span class="line">转换的类型（例如，不同的数值类型或不同的日期类型）。</span><br></pre></td></tr></table></figure>
+
+<p>1.UNION 必须由两条或两条以上的SELECT 语句组成，语句之间用关键字UNION 分隔（因此，如果组合四条SELECT 语句，将要使用三个UNION关键字）。<br>2.UNION 中的每个查询必须包含相同的列、表达式或聚集函数（不过，各个列不需要以相同的次序列出）。</p>
+<p>3.列数据类型必须兼容：类型不必完全相同，但必须是DBMS 可以隐含转换的类型（例如，不同的数值类型或不同的日期类型）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION ALL</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>使用UNION ALL，DBMS 不取消重复的行。</p>
+<p>SELECT 语句的输出用ORDER BY 子句排序。在用UNION 组合查询时，只能使用一条ORDER BY 子句，它必须位于最后一条SELECT 语句之后。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;</span><br><span class="line">ORDER BY cust_name, cust_contact;</span><br></pre></td></tr></table></figure>
+
+<h2 id="INTERSECT-交集"><a href="#INTERSECT-交集" class="headerlink" title="INTERSECT  交集"></a>INTERSECT  交集</h2><p>MySQL不支持<code>INTERSECT</code>操作符。 但是可以模拟<code>INTERSECT</code>操作符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT product_id, product_name</span><br><span class="line">    FROM Product</span><br><span class="line">INTERSECT</span><br><span class="line">SELECT product_id, product_name</span><br><span class="line">    FROM Product2</span><br><span class="line">ORDER BY product_id;</span><br></pre></td></tr></table></figure>
+
+<h2 id="EXCEPT-减法"><a href="#EXCEPT-减法" class="headerlink" title="EXCEPT 减法"></a>EXCEPT 减法</h2><p>MYSQL不支持EXCEPT操作符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product</span><br><span class="line">EXCEPT</span><br><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product2</span><br><span class="line">ORDER BY product_id;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1294,6 +1355,150 @@
       </categories>
       <tags>
         <tag>system</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Uniform Initialization</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/</url>
+    <content><![CDATA[<p>在C++11之前，初始化操作可以用很多种方法来实现，比如说小括号，大括号以及赋值符号，C++11之后，统一都可以使用花括号来初始化变量，当然，所有之前可以使用的方式依然可以使用。</p>
+<span id="more"></span>
+
+<h2 id="Uniform-Initialization"><a href="#Uniform-Initialization" class="headerlink" title="Uniform Initialization"></a>Uniform Initialization</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>在C++11之前，初始化操作可以用很多种方法来实现，比如说小括号，大括号以及赋值符号。</p>
+<p>如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Rect r1 = &#123; 3, 7, 20, 25, &amp;area, &amp;print &#125;;</span><br><span class="line">Rect r1(3, 7, 20, 25);</span><br><span class="line">int ia[6] = &#123;1, 2, 3, 4, 5, 6&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>为了解决初始化操作的不统一，C++11引入了uniform initialization，也就是一致性初始化的概念，对于所有初始化操作，都可以统一地使用大括号来解决。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>编译器看到{ t1, t2, t3, …, tn }便做出一个initializer_list<T>，它关联至一个array&lt;T, n&gt;。调用函数(例如构造函数)时该array内的元素可以被编译器分解逐一传给函数。但如果函数参数本来就是一个initializer_list<T>，整个initializer_list<T>就会被整个传过去。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//举例</span><br><span class="line">vector&lt;string&gt; cities&#123;&quot;Berlin&quot;, &quot;New York&quot;, &quot;London&quot; &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这就会形成一个initializer_list<string>，背后有个array&lt;string, 3&gt;。调用vector<string>的构造函数时编译器找到了一个构造函数接受initializer_list<string>。所有容器都有这样的构造函数.</p>
+<h3 id="initializer-list-lt-gt"><a href="#initializer-list-lt-gt" class="headerlink" title="initializer_list&lt;&gt;"></a>initializer_list&lt;&gt;</h3><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>使用{}会强制为变量初始化，即使是基本类型，如果没有赋予初值的话，那它的值也是不确定的。但是如果使用initializer_list&lt;&gt;也就是{}来初始化，初始值会赋值为0，指针会赋值为空指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int i;  // i 的值不确定</span><br><span class="line">int j&#123;&#125;; // j = 0;</span><br><span class="line">int *p; //p 的值不确定</span><br><span class="line">int *q&#123;&#125;; // q = nullptr</span><br></pre></td></tr></table></figure>
+
+<p>除此之外，{}也就是initializer_list是一种狭义的初始化，不能实现数据格式转换。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int x1(5.3); //ok x1 = 5;</span><br><span class="line">int x2 = 5.2; //ok x2 = 5;</span><br><span class="line">int x3&#123;5.3&#125;; //error narrowing.</span><br></pre></td></tr></table></figure>
+
+<p>为了支持用户自定义类型实现列表初始化，C++11提供了一种新的模板类。叫做std::initializer_list.</p>
+<p>只要输入值为一系列的值，或者数值列表都可以使用initializer_list来实现初始化。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//举例</span><br><span class="line">void print(std::initializer_list&lt;int&gt; vals)&#123;</span><br><span class="line">	for(auto p = vals.begin(); p!= vals.end(); ++p)&#123;</span><br><span class="line">		//a list of value</span><br><span class="line">		std::cout &lt;&lt; *p &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//传给 initializer_list的一定是 initializer_list 或者是 &#123;&#125;。</span><br><span class="line"></span><br><span class="line">//传递一个列表给函数。</span><br><span class="line">print(&#123;1, 2, 3, 4, 11&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p>当选择输入一串数字或输入一个列表时，输入列表时一种更好的选择。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class P</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    P(int a, int b)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; &quot;P(int, int), a=&quot; &lt;&lt; a &lt;&lt; &quot;, b=&quot; &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    P(initializer_list&lt;int&gt; initlist)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; &quot;P(initailizer_list&lt;int&gt;), values=&quot;;</span><br><span class="line">        for(auto i : initlist)</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; &#x27; &#x27;;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">P p(77, 5);      //调用P(int, int)</span><br><span class="line">P p&#123; 77, 5 &#125;;    //调用P(initializer_list&lt;int&gt;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="部分源码"><a href="#部分源码" class="headerlink" title="部分源码"></a>部分源码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template &lt;class _E&gt;</span><br><span class="line">    class initializer_list</span><br><span class="line">    &#123;</span><br><span class="line">    public:</span><br><span class="line">        typedef _E           value_type;</span><br><span class="line">        typedef const _E&amp;    reference;</span><br><span class="line">        typedef const _E&amp;    const_reference;</span><br><span class="line">        typedef size_t       size_type;</span><br><span class="line">        typedef const _E*    iterator;</span><br><span class="line">        typedef const _E*    const_iterator;</span><br><span class="line">    </span><br><span class="line">    private:</span><br><span class="line">        iterator        _M_array;</span><br><span class="line">        size_type       _M_len;</span><br><span class="line">        </span><br><span class="line">        //编译器会在看到&#123;&#125;后，创造出一个array，再调用这个私有构造函数</span><br><span class="line">        constexpr initializer_list(const_iterator __a, size_type __l)</span><br><span class="line">            :_M_array(__a), _M_len(__l) &#123; &#125;</span><br><span class="line"> </span><br><span class="line">    public:</span><br><span class="line">        constexpr initializer_list() noexcept</span><br><span class="line">        : _M_array(0), _M_len(0) &#123; &#125;</span><br><span class="line"> </span><br><span class="line">        //Number of elements</span><br><span class="line">        constexpr size_type</span><br><span class="line">        size() const noexcept &#123; return _M_len; &#125;</span><br><span class="line">        </span><br><span class="line">        //First element</span><br><span class="line">        constexpr const_iterator</span><br><span class="line">        begin() const noexcept &#123; return _M_array; &#125;</span><br><span class="line"> </span><br><span class="line">        //One past the last element</span><br><span class="line">        end() const noexcept &#123; return begin() + _M_len; &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>可以看出class initializer_list&lt;&gt;中的成员是一个迭代器和一个长度，迭代器指向array的首元素，长度就是array的长度。并且它有一个私有构造函数，我们不能调用，但是编译器会在看到{}之后，先创建出一个array&lt;&gt;，然后再创建出相应的initializer_list&lt;&gt;。下面是array的部分源码，选自TR1，现在的版本会更加复杂，但是原理都相同：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;typename _Tp, std::size_t _Nm&gt;</span><br><span class="line">    struct array</span><br><span class="line">    &#123;</span><br><span class="line">        typedef _Tp             value_type;</span><br><span class="line">        typedef _Tp*            pointer;</span><br><span class="line">        typedef value_type*     iterator;</span><br><span class="line"> </span><br><span class="line">        // Support for zero-sized arrays mandatory</span><br><span class="line">        value_type _M_instance[_Nm ? _Nm : 1];</span><br><span class="line">        </span><br><span class="line">        iterator begin()</span><br><span class="line">        &#123; return iterator(&amp;_M_instance[0]); &#125; </span><br><span class="line">        </span><br><span class="line">        iterator end()</span><br><span class="line">        &#123; return iterator(&amp;_M_instance[_Nm]); &#125;</span><br><span class="line"> </span><br><span class="line">        ...</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>class array&lt;&gt;其实就是把数组按照容器的要求重写了一下，从而使数组也拥有迭代器之类的方便处理的东西。</p>
+<h3 id="initializer-list-lt-gt-广泛应用于标准库中"><a href="#initializer-list-lt-gt-广泛应用于标准库中" class="headerlink" title="initializer_list&lt;&gt;广泛应用于标准库中"></a>initializer_list&lt;&gt;广泛应用于标准库中</h3><p>所有容器都接受指定任意数量的值用于构建或赋值或insert()或assign()；algorithm中的max()和min()也愿意接受任意参数。</p>
+<h2 id="explicit-关键字"><a href="#explicit-关键字" class="headerlink" title="explicit 关键字"></a>explicit 关键字</h2><p>C++提供了关键字explicit，可以阻止不应该允许的经过转换<strong>构造函数</strong>进行的<strong>隐式转换</strong>的发生。声明为explicit的构造函数不能在隐式转换中使用。</p>
+<p>C++中的explicit关键字只能用于修饰只有一个参数的类构造函数, 它的作用是表明该构造函数是显示的, 而非隐式的, 跟它相对应的另一个关键字是implicit, 意思是隐藏的,类构造函数默认情况下即声明为implicit(隐式).</p>
+<p> <strong>explicit关键字的作用就是防止类构造函数的隐式自动转换.</strong></p>
+<p>注意：当类的声明和定义分别在两个文件中时，explicit只能写在在声明中，不能写在定义中。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Test1&#123;</span><br><span class="line">public :</span><br><span class="line">      explicit Test(int num):n(num)&#123;&#125;</span><br><span class="line">private:</span><br><span class="line">       int n;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	Test1 x1 = 10; // error 不能提供隐式转换。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="range-based-for-statement"><a href="#range-based-for-statement" class="headerlink" title="range-based for statement"></a>range-based for statement</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for( decl : coll )&#123;</span><br><span class="line">	statement...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>个人感觉有点类似于python的in range()</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//例1</span><br><span class="line">for(int i : &#123;2, 3, 4, 5, 6&#125;)&#123;</span><br><span class="line">	cout &lt;&lt; i&lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">//例2</span><br><span class="line">vector&lt;int&gt; vec;</span><br><span class="line">...</span><br><span class="line">for( auto elem : vec )&#123;</span><br><span class="line">	cout &lt;&lt; elem  &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">for( auto&amp; elem : vec)&#123;</span><br><span class="line">	elem *= 3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Variadic Templates</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/VariadicTemplates/</url>
+    <content><![CDATA[<p>C++ 11引入了的一个新特性为 Variadic Templates， 即可变参数模板。同时还有一些小的改动，如可以去掉模板表达式的空格、引入空指针nullptr和自动判断当前数据类型的AUTO等。</p>
+<span id="more"></span>
+
+<h1 id="Variadic-Templates"><a href="#Variadic-Templates" class="headerlink" title="Variadic Templates"></a>Variadic Templates</h1><p>C++ 11支持任意参数类型和任意参数个数实现。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//使用可变参数模板一定会有一个空调用来结束递归调用。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//可变参数模板</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Types&gt; <span class="comment">//这里的 ... 是关键字的一部分， 即typename...。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> T&amp; firstArg, <span class="keyword">const</span> Types&amp;... args)</span></span>&#123;	<span class="comment">//这里的...要写在自定义类型Types后面</span></span><br><span class="line">    cout &lt;&lt; firstArg &lt;&lt; endl;		</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(args...);									<span class="comment">//这里的...要写在args后面。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.注意三种不同的…的应用环境，这些都是语法规则，所以记住即可。</p>
+<p>…  就是所谓的一个包。</p>
+<p>2.还要注意的是，在可变模板参数内部可以使用**sizeof…(args)**得到实参的个数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sizeof...(args) 是C++ 11的新特性。</span><br></pre></td></tr></table></figure>
+
+<p>3.如果同时定义了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempalte &lt;typename... Types&gt;</span><br><span class="line">void print(Types&amp;... args)&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译时不会报错，如果泛化和特化的同时定义，优先调用特化。所以这个定义永远不会被调用。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>1.<strong>实现函数的递归调用</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;functional&gt;</span><br><span class="line"></span><br><span class="line">class CustomerHash&#123;</span><br><span class="line">public:</span><br><span class="line">	std::size_t operator() (const Customer&amp; c) const &#123;</span><br><span class="line">		//这里的返回类型是std::size_t，所以会调用返回类型相同的hash_val函数定义。</span><br><span class="line">		return hash_val(c.fname, c.lname, c.no);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//首先调用下面这个函数，再递归调用其他函数。</span><br><span class="line">template &lt;typename... Types&gt;</span><br><span class="line">inline size_t hash_val( const Types&amp;... args)&#123;</span><br><span class="line">	size_t seed = 0;</span><br><span class="line">	hash_val(seed, args...);</span><br><span class="line">	return seed;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//可以接受任意个参数的hash_val 函数。</span><br><span class="line">template&lt;typename T, typename... Types&gt;</span><br><span class="line">inline void hash_val(size_t&amp; seed, const T&amp; val, const Type&amp;... args)&#123;</span><br><span class="line">	hash_combine(seed, val);</span><br><span class="line">	//递归调用</span><br><span class="line">	hash_val(seed, args...);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//仅支持一个参数的hash_val函数，更加特化。</span><br><span class="line">template&lt;typename T&gt;</span><br><span class="line">inline void hash_val(size_t&amp; seed, const T&amp; val)&#123;</span><br><span class="line">	hash_combine(seed, val);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//hash_combine函数</span><br><span class="line">template&lt;typename T&gt;</span><br><span class="line">inline void hash_combine&lt;size_t&amp; seed, const T&amp; val)&#123;</span><br><span class="line">	seed ^= std::hash&lt;T&gt;()(val) + 0x9e3779b9 + (seed &lt;&lt;6) + (seed&gt;&gt;2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.<strong>容器tuple实现</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template &lt;typename... Values&gt; class tuple;</span><br><span class="line">template&lt;&gt; class tuple&lt;&gt;&#123;&#125;;</span><br><span class="line"></span><br><span class="line">template &lt;typename Head, typename... Tail&gt;</span><br><span class="line">class tuple&lt;Head, Tail...&gt; </span><br><span class="line">	:private tuple&lt;Tail...&gt;&#123; // 注意这里的私有继承</span><br><span class="line">	typedef tuple&lt;Tail...&gt; inherited;</span><br><span class="line">public:</span><br><span class="line">	tuple()&#123;&#125;</span><br><span class="line">	tuple(Head v, Tail... vtail):m_head(v),inherited(vtail...)&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	Head head()&#123;return m_head&#125;</span><br><span class="line">	inherited&amp; tail()&#123;return *this;&#125;</span><br><span class="line"></span><br><span class="line">protected:</span><br><span class="line">	Head m_head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Spaces-in-template-Expressions"><a href="#Spaces-in-template-Expressions" class="headerlink" title="Spaces in template Expressions"></a>Spaces in template Expressions</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;&lt;list&gt; &gt; vec; // ok in each C++ version.</span><br><span class="line">vector&lt;&lt;list&gt;&gt; ves; //ok since C++ 11</span><br></pre></td></tr></table></figure>
+
+<h1 id="Nullptr"><a href="#Nullptr" class="headerlink" title="Nullptr"></a>Nullptr</h1><p>Ｃ++中的NULL＝０，所以使用NULL有时会发生歧义，因此，引进了一种新的基本数据类型</p>
+<p>std::nullptr_t, 定义于＜cstddef&gt;中。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// \inlude\stddef.h</span><br><span class="line">#if defined(__cplusplus) &amp;&amp; __cplusplus &gt;= 201103L</span><br><span class="line">#ifndef _GXX_NULLPTR_T</span><br><span class="line">#define _GXX_NULLPTR_T</span><br><span class="line">	typedef decltype(nullptr) nullptr_t;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fun(nullptr);        //calls f(void*)</span><br></pre></td></tr></table></figure>
+
+<h1 id="AUTO"><a href="#AUTO" class="headerlink" title="AUTO"></a>AUTO</h1><p>在C++11中，你可以通过使用auto来声明一个对象或者变量而不用具体指出其数据类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">auto i = 42; // i has type int</span><br><span class="line">double f();</span><br><span class="line">auto d = f(); // d has type double</span><br></pre></td></tr></table></figure>
+
+<p>使用auto能够避免一些非常长或者非常复杂的表达式。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;string&gt; vec;</span><br><span class="line">auto pos = v.begin();  // vector&lt;string&gt;::iterator</span><br><span class="line">auto l = [](intx)-&gt;bool&#123;  //l has the type of a lamba</span><br><span class="line">	...            // taking an int and returning a bool.</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>=default =delete</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/deafult/</url>
+    <content><![CDATA[<p> 如果你自信定义了一个ctor，那么编译器就不会再给你一个 default ctor。 如果你强制加上一个 =default，就可以重新获得并使用default ctor。</p>
+<span id="more"></span>
+
+<h3 id="default"><a href="#default" class="headerlink" title="=default"></a>=default</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Zoo&#123;</span><br><span class="line">public:</span><br><span class="line">	Zoo(int i1, int i2):d1(i1),da(i2)&#123;&#125;</span><br><span class="line">	Zoo(const Zoo&amp;) =delete;</span><br><span class="line">	Zoo(Zoo&amp;&amp;) =default;</span><br><span class="line">	Zoo&amp; operator=(coonst Zoo&amp;) =default;</span><br><span class="line">	Zoo&amp; operator=(coonst Zoo&amp;&amp;) =delete;</span><br><span class="line">	</span><br><span class="line">	virtual ~Zoo()&#123;&#125;</span><br><span class="line">private:</span><br><span class="line">	int d1,d2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是default使用的范围有限，只能适用于big-five.</p>
+<h3 id="delete"><a href="#delete" class="headerlink" title="=delete"></a>=delete</h3><p>禁止使用默认编译器生成的默认函数。</p>
+<p>delete 关键字可用于任何函数，不仅仅局限于类的成员函数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Foo&#123;</span><br><span class="line">public:</span><br><span class="line">	//构造函数</span><br><span class="line">	Foo(int i):_i(i)&#123;&#125;</span><br><span class="line">	Foo() =default;</span><br><span class="line">	</span><br><span class="line">	//拷贝构造</span><br><span class="line">	Foo(const Foo&amp;):_i(x._i)&#123;&#125;</span><br><span class="line">	//Foo(const Foo&amp;)=default; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//Foo(const Foo&amp;)=delete; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	</span><br><span class="line">	//拷贝赋值</span><br><span class="line">	Foo&amp; operator=(const Foo&amp; x)&#123;_i = x._i; return *this&#125;</span><br><span class="line">	//Foo&amp; operator=(const Foo&amp; x)=default; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//Foo&amp; operator=(const Foo&amp; x)=delete;  //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//普通函数</span><br><span class="line">	//void func1()=default; //error Foo(const Foo&amp;) cannot be defaulted;</span><br><span class="line">	void func2()=delete;</span><br><span class="line">	</span><br><span class="line">	//析构函数</span><br><span class="line">	//~Foo()=delete;</span><br><span class="line">	~foo()=default;</span><br><span class="line">private:</span><br><span class="line">	int _i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(1)拷贝构造和拷贝赋值只能有一个定义。(猜想Big-Five是否都是这样的？)</p>
+<p>(2)=default只能用于Big_five，用在普通函数上会报错</p>
+<p>(3)如果析构函数定义为删除的，语法上是可以的，但是在使用对象时肯定会报错，因为一个对象的生命周期总会结束的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Empty&#123;&#125;;</span><br><span class="line">//编译器处理完之后</span><br><span class="line">class Empty&#123;</span><br><span class="line">public:</span><br><span class="line">	Empty()&#123; ... &#125;</span><br><span class="line">	Empty(const Empty&amp; e1)&#123; ... &#125;</span><br><span class="line">	~Empty()&#123;...&#125;</span><br><span class="line">	</span><br><span class="line">	Empty&amp; operator=(const Empty&amp; e1)&#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>建立一个空类，C++编译器处理完之后会为它声明一个ctor、copy ctor、copy assignment operator、dtor.所有这些函数都是 public 以及 inline的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例： No-Copy：将拷贝构造函数和拷贝赋值运算符定义为删除的</span><br><span class="line">struct NoCopy</span><br><span class="line">&#123;</span><br><span class="line">    NoCopy() = default;</span><br><span class="line">    NoCopy(const NoCopy&amp;) = delete;</span><br><span class="line">    NoCopy &amp;operator=(const NoCopy&amp;) = delete;</span><br><span class="line">    ~NoCopy() = default;</span><br><span class="line">    //other members</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例：NoDtor：将析构函数定义为删除的</span><br><span class="line">struct NoDtor</span><br><span class="line">&#123;</span><br><span class="line">    NoDtor() = default;</span><br><span class="line">    ~NoDtor() = delete; </span><br><span class="line">&#125;；</span><br><span class="line"></span><br><span class="line">NoDtor nd;                   //error</span><br><span class="line">NoDtor *p = new NoDtor();    //OK</span><br><span class="line">delete p;                    //error</span><br></pre></td></tr></table></figure>
+
+<p>为什么new可以，定义变量不可以？</p>
+<p>原因：因为nd是定义在栈上的变量，在作用域结束以后会自动调用析构函数，调用析构函数是由操作系统自动完成的，当编译器发现无法调用析构函数时就会报错。而new出来的对象是在堆上的，操作系统不会自动调用析构函数，需要我们手动销毁，只要我们不销毁就不会调用析构函数，也就不会出错。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例：Private-Copy：将拷贝构造函数和拷贝构造运算符定义为私有的</span><br><span class="line">class PrivateCopy</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    PrivateCopy(const PrivateCopy&amp;);</span><br><span class="line">    PrivateCopy operator=(const PrivateCopy&amp;);</span><br><span class="line">public:</span><br><span class="line">    PrivateCopy() = default;</span><br><span class="line">    ~PrivateCopy();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这个class不能被ordinary user code拷贝，但是可以被friends和members拷贝。</p>
+<h3 id="boost-noncopyable"><a href="#boost-noncopyable" class="headerlink" title="boost::noncopyable"></a>boost::noncopyable</h3><p>noncopyable为实现不可拷贝的类提供了简单清晰的解决办法。</p>
+<p>使用boost::noncopyable禁用（delete）了拷贝构造，无法调用拷贝构造函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class do_not_copy:boost:：noncopyable//注意这里，使用默认的私有继承是允许的</span><br><span class="line">&#123;...&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>我们也可以显式写出private或者public修饰词，但效果是相同的。因此直接这样写少输入了一些代码，也更清晰，并且表明了HAS-A关系（而不是IS-A）。</p>
+<p>如果有其他人误写了代码，企图拷贝构造或者赋值这个对象，那么将不能通过编译器的审查：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do_not_copy d1；//一个不可拷贝对象</span><br><span class="line"></span><br><span class="line">do_notcopy d2（d1）；//企图拷贝构造，编译出错！</span><br><span class="line"></span><br><span class="line">do_not_copy d3；//另一个不可拷贝对象</span><br><span class="line"></span><br><span class="line">d3=d1；//企图拷贝赋值，编译出错！</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -1815,6 +2020,25 @@
       </tags>
   </entry>
   <entry>
+    <title>cpp Primer chapter 3.4</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_4/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第十章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十章-函数模板"><a href="#第十章-函数模板" class="headerlink" title="第十章  函数模板"></a>第十章  函数模板</h2><pre><code>     函数模板提供一种用来自动生成各种类型函数实例的算法。程序员对于函数接口参数和返回类型中的全部或者部分类型进行参数化， 而函数体保持不变。
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;class T1, typename T2, int num&gt;</span><br><span class="line">//其中class、typename 是模板类型参数， int num 是非模板类型参数。</span><br></pre></td></tr></table></figure>
+
+<p>在函数模板参数表中关键字typename 和class 的意义相同，可以互换，使用它们两个都可以被用来声明同一模板参数表中的不同模板类型参数。</p>
+<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>函数模板指定了怎样根据一组或更多实际类型或值构造出独立的函数。这个构造过程被称为模板实例化，这个过程是隐式发生的，它可以被看作是函数模板调用或取函数模板的地址的副作用。</p>
+<p>用函数实参的类型来决定模板实参的类型和值的过程被称为模板实参推演。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp Primer chapter 3.3</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_3/</url>
     <content><![CDATA[<p> C++ Primer 第三篇第九章学习笔记。<span id="more"></span></p>
@@ -1832,25 +2056,6 @@
 
 <h3 id="重载解析"><a href="#重载解析" class="headerlink" title="重载解析"></a>重载解析</h3><p>函数重载解析是把函数调用与重载函数集合中的一个函数相关联的过程，在存在多个同名函数的情况下，根据函数调用中指定的实参，选择其中一个函数。</p>
 <p>函数重载解析的步骤如下：<br>    1 确定函数调用考虑的重载函数的集合确定函数调用中实参表的属性。<br>    2 从重载函数集合中选择函数该函数可以在给出实参个数和类型的情况下用调用中指定的实参进行调用。<br>    3 选择与调用最匹配的函数。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 3.4</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_4/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第十章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十章-函数模板"><a href="#第十章-函数模板" class="headerlink" title="第十章  函数模板"></a>第十章  函数模板</h2><pre><code>     函数模板提供一种用来自动生成各种类型函数实例的算法。程序员对于函数接口参数和返回类型中的全部或者部分类型进行参数化， 而函数体保持不变。
-</code></pre>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;class T1, typename T2, int num&gt;</span><br><span class="line">//其中class、typename 是模板类型参数， int num 是非模板类型参数。</span><br></pre></td></tr></table></figure>
-
-<p>在函数模板参数表中关键字typename 和class 的意义相同，可以互换，使用它们两个都可以被用来声明同一模板参数表中的不同模板类型参数。</p>
-<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>函数模板指定了怎样根据一组或更多实际类型或值构造出独立的函数。这个构造过程被称为模板实例化，这个过程是隐式发生的，它可以被看作是函数模板调用或取函数模板的地址的副作用。</p>
-<p>用函数实参的类型来决定模板实参的类型和值的过程被称为模板实参推演。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -2036,150 +2241,6 @@
 
 <p>声明时不用表明继承关系。实际实现时才需要实现实际关系。</p>
 <h3 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Query &#123;</span><br><span class="line">public:</span><br><span class="line">	virtual void eval() = 0;</span><br><span class="line">&#125;;</span><br><span class="line">class NameQuery : public Query &#123;</span><br><span class="line">public:</span><br><span class="line">    // ...</span><br><span class="line">    // 改写 virtual Query::eval() 实例29</span><br><span class="line">    void eval();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Uniform Initialization</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/</url>
-    <content><![CDATA[<p>在C++11之前，初始化操作可以用很多种方法来实现，比如说小括号，大括号以及赋值符号，C++11之后，统一都可以使用花括号来初始化变量，当然，所有之前可以使用的方式依然可以使用。</p>
-<span id="more"></span>
-
-<h2 id="Uniform-Initialization"><a href="#Uniform-Initialization" class="headerlink" title="Uniform Initialization"></a>Uniform Initialization</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>在C++11之前，初始化操作可以用很多种方法来实现，比如说小括号，大括号以及赋值符号。</p>
-<p>如下所示：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Rect r1 = &#123; 3, 7, 20, 25, &amp;area, &amp;print &#125;;</span><br><span class="line">Rect r1(3, 7, 20, 25);</span><br><span class="line">int ia[6] = &#123;1, 2, 3, 4, 5, 6&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>为了解决初始化操作的不统一，C++11引入了uniform initialization，也就是一致性初始化的概念，对于所有初始化操作，都可以统一地使用大括号来解决。</p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>编译器看到{ t1, t2, t3, …, tn }便做出一个initializer_list<T>，它关联至一个array&lt;T, n&gt;。调用函数(例如构造函数)时该array内的元素可以被编译器分解逐一传给函数。但如果函数参数本来就是一个initializer_list<T>，整个initializer_list<T>就会被整个传过去。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//举例</span><br><span class="line">vector&lt;string&gt; cities&#123;&quot;Berlin&quot;, &quot;New York&quot;, &quot;London&quot; &#125;;</span><br></pre></td></tr></table></figure>
-
-<p>这就会形成一个initializer_list<string>，背后有个array&lt;string, 3&gt;。调用vector<string>的构造函数时编译器找到了一个构造函数接受initializer_list<string>。所有容器都有这样的构造函数.</p>
-<h3 id="initializer-list-lt-gt"><a href="#initializer-list-lt-gt" class="headerlink" title="initializer_list&lt;&gt;"></a>initializer_list&lt;&gt;</h3><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>使用{}会强制为变量初始化，即使是基本类型，如果没有赋予初值的话，那它的值也是不确定的。但是如果使用initializer_list&lt;&gt;也就是{}来初始化，初始值会赋值为0，指针会赋值为空指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int i;  // i 的值不确定</span><br><span class="line">int j&#123;&#125;; // j = 0;</span><br><span class="line">int *p; //p 的值不确定</span><br><span class="line">int *q&#123;&#125;; // q = nullptr</span><br></pre></td></tr></table></figure>
-
-<p>除此之外，{}也就是initializer_list是一种狭义的初始化，不能实现数据格式转换。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int x1(5.3); //ok x1 = 5;</span><br><span class="line">int x2 = 5.2; //ok x2 = 5;</span><br><span class="line">int x3&#123;5.3&#125;; //error narrowing.</span><br></pre></td></tr></table></figure>
-
-<p>为了支持用户自定义类型实现列表初始化，C++11提供了一种新的模板类。叫做std::initializer_list.</p>
-<p>只要输入值为一系列的值，或者数值列表都可以使用initializer_list来实现初始化。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//举例</span><br><span class="line">void print(std::initializer_list&lt;int&gt; vals)&#123;</span><br><span class="line">	for(auto p = vals.begin(); p!= vals.end(); ++p)&#123;</span><br><span class="line">		//a list of value</span><br><span class="line">		std::cout &lt;&lt; *p &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//传给 initializer_list的一定是 initializer_list 或者是 &#123;&#125;。</span><br><span class="line"></span><br><span class="line">//传递一个列表给函数。</span><br><span class="line">print(&#123;1, 2, 3, 4, 11&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p>当选择输入一串数字或输入一个列表时，输入列表时一种更好的选择。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class P</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    P(int a, int b)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; &quot;P(int, int), a=&quot; &lt;&lt; a &lt;&lt; &quot;, b=&quot; &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    P(initializer_list&lt;int&gt; initlist)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; &quot;P(initailizer_list&lt;int&gt;), values=&quot;;</span><br><span class="line">        for(auto i : initlist)</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; &#x27; &#x27;;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">P p(77, 5);      //调用P(int, int)</span><br><span class="line">P p&#123; 77, 5 &#125;;    //调用P(initializer_list&lt;int&gt;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="部分源码"><a href="#部分源码" class="headerlink" title="部分源码"></a>部分源码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template &lt;class _E&gt;</span><br><span class="line">    class initializer_list</span><br><span class="line">    &#123;</span><br><span class="line">    public:</span><br><span class="line">        typedef _E           value_type;</span><br><span class="line">        typedef const _E&amp;    reference;</span><br><span class="line">        typedef const _E&amp;    const_reference;</span><br><span class="line">        typedef size_t       size_type;</span><br><span class="line">        typedef const _E*    iterator;</span><br><span class="line">        typedef const _E*    const_iterator;</span><br><span class="line">    </span><br><span class="line">    private:</span><br><span class="line">        iterator        _M_array;</span><br><span class="line">        size_type       _M_len;</span><br><span class="line">        </span><br><span class="line">        //编译器会在看到&#123;&#125;后，创造出一个array，再调用这个私有构造函数</span><br><span class="line">        constexpr initializer_list(const_iterator __a, size_type __l)</span><br><span class="line">            :_M_array(__a), _M_len(__l) &#123; &#125;</span><br><span class="line"> </span><br><span class="line">    public:</span><br><span class="line">        constexpr initializer_list() noexcept</span><br><span class="line">        : _M_array(0), _M_len(0) &#123; &#125;</span><br><span class="line"> </span><br><span class="line">        //Number of elements</span><br><span class="line">        constexpr size_type</span><br><span class="line">        size() const noexcept &#123; return _M_len; &#125;</span><br><span class="line">        </span><br><span class="line">        //First element</span><br><span class="line">        constexpr const_iterator</span><br><span class="line">        begin() const noexcept &#123; return _M_array; &#125;</span><br><span class="line"> </span><br><span class="line">        //One past the last element</span><br><span class="line">        end() const noexcept &#123; return begin() + _M_len; &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
-
-<p>可以看出class initializer_list&lt;&gt;中的成员是一个迭代器和一个长度，迭代器指向array的首元素，长度就是array的长度。并且它有一个私有构造函数，我们不能调用，但是编译器会在看到{}之后，先创建出一个array&lt;&gt;，然后再创建出相应的initializer_list&lt;&gt;。下面是array的部分源码，选自TR1，现在的版本会更加复杂，但是原理都相同：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;typename _Tp, std::size_t _Nm&gt;</span><br><span class="line">    struct array</span><br><span class="line">    &#123;</span><br><span class="line">        typedef _Tp             value_type;</span><br><span class="line">        typedef _Tp*            pointer;</span><br><span class="line">        typedef value_type*     iterator;</span><br><span class="line"> </span><br><span class="line">        // Support for zero-sized arrays mandatory</span><br><span class="line">        value_type _M_instance[_Nm ? _Nm : 1];</span><br><span class="line">        </span><br><span class="line">        iterator begin()</span><br><span class="line">        &#123; return iterator(&amp;_M_instance[0]); &#125; </span><br><span class="line">        </span><br><span class="line">        iterator end()</span><br><span class="line">        &#123; return iterator(&amp;_M_instance[_Nm]); &#125;</span><br><span class="line"> </span><br><span class="line">        ...</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
-
-<p>class array&lt;&gt;其实就是把数组按照容器的要求重写了一下，从而使数组也拥有迭代器之类的方便处理的东西。</p>
-<h3 id="initializer-list-lt-gt-广泛应用于标准库中"><a href="#initializer-list-lt-gt-广泛应用于标准库中" class="headerlink" title="initializer_list&lt;&gt;广泛应用于标准库中"></a>initializer_list&lt;&gt;广泛应用于标准库中</h3><p>所有容器都接受指定任意数量的值用于构建或赋值或insert()或assign()；algorithm中的max()和min()也愿意接受任意参数。</p>
-<h2 id="explicit-关键字"><a href="#explicit-关键字" class="headerlink" title="explicit 关键字"></a>explicit 关键字</h2><p>C++提供了关键字explicit，可以阻止不应该允许的经过转换<strong>构造函数</strong>进行的<strong>隐式转换</strong>的发生。声明为explicit的构造函数不能在隐式转换中使用。</p>
-<p>C++中的explicit关键字只能用于修饰只有一个参数的类构造函数, 它的作用是表明该构造函数是显示的, 而非隐式的, 跟它相对应的另一个关键字是implicit, 意思是隐藏的,类构造函数默认情况下即声明为implicit(隐式).</p>
-<p> <strong>explicit关键字的作用就是防止类构造函数的隐式自动转换.</strong></p>
-<p>注意：当类的声明和定义分别在两个文件中时，explicit只能写在在声明中，不能写在定义中。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Test1&#123;</span><br><span class="line">public :</span><br><span class="line">      explicit Test(int num):n(num)&#123;&#125;</span><br><span class="line">private:</span><br><span class="line">       int n;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	Test1 x1 = 10; // error 不能提供隐式转换。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="range-based-for-statement"><a href="#range-based-for-statement" class="headerlink" title="range-based for statement"></a>range-based for statement</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for( decl : coll )&#123;</span><br><span class="line">	statement...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>个人感觉有点类似于python的in range()</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//例1</span><br><span class="line">for(int i : &#123;2, 3, 4, 5, 6&#125;)&#123;</span><br><span class="line">	cout &lt;&lt; i&lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">//例2</span><br><span class="line">vector&lt;int&gt; vec;</span><br><span class="line">...</span><br><span class="line">for( auto elem : vec )&#123;</span><br><span class="line">	cout &lt;&lt; elem  &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">for( auto&amp; elem : vec)&#123;</span><br><span class="line">	elem *= 3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Variadic Templates</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/VariadicTemplates/</url>
-    <content><![CDATA[<p>C++ 11引入了的一个新特性为 Variadic Templates， 即可变参数模板。同时还有一些小的改动，如可以去掉模板表达式的空格、引入空指针nullptr和自动判断当前数据类型的AUTO等。</p>
-<span id="more"></span>
-
-<h1 id="Variadic-Templates"><a href="#Variadic-Templates" class="headerlink" title="Variadic Templates"></a>Variadic Templates</h1><p>C++ 11支持任意参数类型和任意参数个数实现。</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//使用可变参数模板一定会有一个空调用来结束递归调用。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//可变参数模板</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Types&gt; <span class="comment">//这里的 ... 是关键字的一部分， 即typename...。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> T&amp; firstArg, <span class="keyword">const</span> Types&amp;... args)</span></span>&#123;	<span class="comment">//这里的...要写在自定义类型Types后面</span></span><br><span class="line">    cout &lt;&lt; firstArg &lt;&lt; endl;		</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(args...);									<span class="comment">//这里的...要写在args后面。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>1.注意三种不同的…的应用环境，这些都是语法规则，所以记住即可。</p>
-<p>…  就是所谓的一个包。</p>
-<p>2.还要注意的是，在可变模板参数内部可以使用**sizeof…(args)**得到实参的个数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sizeof...(args) 是C++ 11的新特性。</span><br></pre></td></tr></table></figure>
-
-<p>3.如果同时定义了：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempalte &lt;typename... Types&gt;</span><br><span class="line">void print(Types&amp;... args)&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>编译时不会报错，如果泛化和特化的同时定义，优先调用特化。所以这个定义永远不会被调用。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>1.<strong>实现函数的递归调用</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;functional&gt;</span><br><span class="line"></span><br><span class="line">class CustomerHash&#123;</span><br><span class="line">public:</span><br><span class="line">	std::size_t operator() (const Customer&amp; c) const &#123;</span><br><span class="line">		//这里的返回类型是std::size_t，所以会调用返回类型相同的hash_val函数定义。</span><br><span class="line">		return hash_val(c.fname, c.lname, c.no);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//首先调用下面这个函数，再递归调用其他函数。</span><br><span class="line">template &lt;typename... Types&gt;</span><br><span class="line">inline size_t hash_val( const Types&amp;... args)&#123;</span><br><span class="line">	size_t seed = 0;</span><br><span class="line">	hash_val(seed, args...);</span><br><span class="line">	return seed;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//可以接受任意个参数的hash_val 函数。</span><br><span class="line">template&lt;typename T, typename... Types&gt;</span><br><span class="line">inline void hash_val(size_t&amp; seed, const T&amp; val, const Type&amp;... args)&#123;</span><br><span class="line">	hash_combine(seed, val);</span><br><span class="line">	//递归调用</span><br><span class="line">	hash_val(seed, args...);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//仅支持一个参数的hash_val函数，更加特化。</span><br><span class="line">template&lt;typename T&gt;</span><br><span class="line">inline void hash_val(size_t&amp; seed, const T&amp; val)&#123;</span><br><span class="line">	hash_combine(seed, val);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//hash_combine函数</span><br><span class="line">template&lt;typename T&gt;</span><br><span class="line">inline void hash_combine&lt;size_t&amp; seed, const T&amp; val)&#123;</span><br><span class="line">	seed ^= std::hash&lt;T&gt;()(val) + 0x9e3779b9 + (seed &lt;&lt;6) + (seed&gt;&gt;2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2.<strong>容器tuple实现</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template &lt;typename... Values&gt; class tuple;</span><br><span class="line">template&lt;&gt; class tuple&lt;&gt;&#123;&#125;;</span><br><span class="line"></span><br><span class="line">template &lt;typename Head, typename... Tail&gt;</span><br><span class="line">class tuple&lt;Head, Tail...&gt; </span><br><span class="line">	:private tuple&lt;Tail...&gt;&#123; // 注意这里的私有继承</span><br><span class="line">	typedef tuple&lt;Tail...&gt; inherited;</span><br><span class="line">public:</span><br><span class="line">	tuple()&#123;&#125;</span><br><span class="line">	tuple(Head v, Tail... vtail):m_head(v),inherited(vtail...)&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	Head head()&#123;return m_head&#125;</span><br><span class="line">	inherited&amp; tail()&#123;return *this;&#125;</span><br><span class="line"></span><br><span class="line">protected:</span><br><span class="line">	Head m_head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="Spaces-in-template-Expressions"><a href="#Spaces-in-template-Expressions" class="headerlink" title="Spaces in template Expressions"></a>Spaces in template Expressions</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;&lt;list&gt; &gt; vec; // ok in each C++ version.</span><br><span class="line">vector&lt;&lt;list&gt;&gt; ves; //ok since C++ 11</span><br></pre></td></tr></table></figure>
-
-<h1 id="Nullptr"><a href="#Nullptr" class="headerlink" title="Nullptr"></a>Nullptr</h1><p>Ｃ++中的NULL＝０，所以使用NULL有时会发生歧义，因此，引进了一种新的基本数据类型</p>
-<p>std::nullptr_t, 定义于＜cstddef&gt;中。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// \inlude\stddef.h</span><br><span class="line">#if defined(__cplusplus) &amp;&amp; __cplusplus &gt;= 201103L</span><br><span class="line">#ifndef _GXX_NULLPTR_T</span><br><span class="line">#define _GXX_NULLPTR_T</span><br><span class="line">	typedef decltype(nullptr) nullptr_t;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fun(nullptr);        //calls f(void*)</span><br></pre></td></tr></table></figure>
-
-<h1 id="AUTO"><a href="#AUTO" class="headerlink" title="AUTO"></a>AUTO</h1><p>在C++11中，你可以通过使用auto来声明一个对象或者变量而不用具体指出其数据类型。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">auto i = 42; // i has type int</span><br><span class="line">double f();</span><br><span class="line">auto d = f(); // d has type double</span><br></pre></td></tr></table></figure>
-
-<p>使用auto能够避免一些非常长或者非常复杂的表达式。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;string&gt; vec;</span><br><span class="line">auto pos = v.begin();  // vector&lt;string&gt;::iterator</span><br><span class="line">auto l = [](intx)-&gt;bool&#123;  //l has the type of a lamba</span><br><span class="line">	...            // taking an int and returning a bool.</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>=default =delete</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/deafult/</url>
-    <content><![CDATA[<p> 如果你自信定义了一个ctor，那么编译器就不会再给你一个 default ctor。 如果你强制加上一个 =default，就可以重新获得并使用default ctor。</p>
-<span id="more"></span>
-
-<h3 id="default"><a href="#default" class="headerlink" title="=default"></a>=default</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Zoo&#123;</span><br><span class="line">public:</span><br><span class="line">	Zoo(int i1, int i2):d1(i1),da(i2)&#123;&#125;</span><br><span class="line">	Zoo(const Zoo&amp;) =delete;</span><br><span class="line">	Zoo(Zoo&amp;&amp;) =default;</span><br><span class="line">	Zoo&amp; operator=(coonst Zoo&amp;) =default;</span><br><span class="line">	Zoo&amp; operator=(coonst Zoo&amp;&amp;) =delete;</span><br><span class="line">	</span><br><span class="line">	virtual ~Zoo()&#123;&#125;</span><br><span class="line">private:</span><br><span class="line">	int d1,d2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是default使用的范围有限，只能适用于big-five.</p>
-<h3 id="delete"><a href="#delete" class="headerlink" title="=delete"></a>=delete</h3><p>禁止使用默认编译器生成的默认函数。</p>
-<p>delete 关键字可用于任何函数，不仅仅局限于类的成员函数</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Foo&#123;</span><br><span class="line">public:</span><br><span class="line">	//构造函数</span><br><span class="line">	Foo(int i):_i(i)&#123;&#125;</span><br><span class="line">	Foo() =default;</span><br><span class="line">	</span><br><span class="line">	//拷贝构造</span><br><span class="line">	Foo(const Foo&amp;):_i(x._i)&#123;&#125;</span><br><span class="line">	//Foo(const Foo&amp;)=default; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//Foo(const Foo&amp;)=delete; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	</span><br><span class="line">	//拷贝赋值</span><br><span class="line">	Foo&amp; operator=(const Foo&amp; x)&#123;_i = x._i; return *this&#125;</span><br><span class="line">	//Foo&amp; operator=(const Foo&amp; x)=default; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//Foo&amp; operator=(const Foo&amp; x)=delete;  //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//普通函数</span><br><span class="line">	//void func1()=default; //error Foo(const Foo&amp;) cannot be defaulted;</span><br><span class="line">	void func2()=delete;</span><br><span class="line">	</span><br><span class="line">	//析构函数</span><br><span class="line">	//~Foo()=delete;</span><br><span class="line">	~foo()=default;</span><br><span class="line">private:</span><br><span class="line">	int _i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>(1)拷贝构造和拷贝赋值只能有一个定义。(猜想Big-Five是否都是这样的？)</p>
-<p>(2)=default只能用于Big_five，用在普通函数上会报错</p>
-<p>(3)如果析构函数定义为删除的，语法上是可以的，但是在使用对象时肯定会报错，因为一个对象的生命周期总会结束的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Empty&#123;&#125;;</span><br><span class="line">//编译器处理完之后</span><br><span class="line">class Empty&#123;</span><br><span class="line">public:</span><br><span class="line">	Empty()&#123; ... &#125;</span><br><span class="line">	Empty(const Empty&amp; e1)&#123; ... &#125;</span><br><span class="line">	~Empty()&#123;...&#125;</span><br><span class="line">	</span><br><span class="line">	Empty&amp; operator=(const Empty&amp; e1)&#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>建立一个空类，C++编译器处理完之后会为它声明一个ctor、copy ctor、copy assignment operator、dtor.所有这些函数都是 public 以及 inline的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例： No-Copy：将拷贝构造函数和拷贝赋值运算符定义为删除的</span><br><span class="line">struct NoCopy</span><br><span class="line">&#123;</span><br><span class="line">    NoCopy() = default;</span><br><span class="line">    NoCopy(const NoCopy&amp;) = delete;</span><br><span class="line">    NoCopy &amp;operator=(const NoCopy&amp;) = delete;</span><br><span class="line">    ~NoCopy() = default;</span><br><span class="line">    //other members</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例：NoDtor：将析构函数定义为删除的</span><br><span class="line">struct NoDtor</span><br><span class="line">&#123;</span><br><span class="line">    NoDtor() = default;</span><br><span class="line">    ~NoDtor() = delete; </span><br><span class="line">&#125;；</span><br><span class="line"></span><br><span class="line">NoDtor nd;                   //error</span><br><span class="line">NoDtor *p = new NoDtor();    //OK</span><br><span class="line">delete p;                    //error</span><br></pre></td></tr></table></figure>
-
-<p>为什么new可以，定义变量不可以？</p>
-<p>原因：因为nd是定义在栈上的变量，在作用域结束以后会自动调用析构函数，调用析构函数是由操作系统自动完成的，当编译器发现无法调用析构函数时就会报错。而new出来的对象是在堆上的，操作系统不会自动调用析构函数，需要我们手动销毁，只要我们不销毁就不会调用析构函数，也就不会出错。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例：Private-Copy：将拷贝构造函数和拷贝构造运算符定义为私有的</span><br><span class="line">class PrivateCopy</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    PrivateCopy(const PrivateCopy&amp;);</span><br><span class="line">    PrivateCopy operator=(const PrivateCopy&amp;);</span><br><span class="line">public:</span><br><span class="line">    PrivateCopy() = default;</span><br><span class="line">    ~PrivateCopy();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>这个class不能被ordinary user code拷贝，但是可以被friends和members拷贝。</p>
-<h3 id="boost-noncopyable"><a href="#boost-noncopyable" class="headerlink" title="boost::noncopyable"></a>boost::noncopyable</h3><p>noncopyable为实现不可拷贝的类提供了简单清晰的解决办法。</p>
-<p>使用boost::noncopyable禁用（delete）了拷贝构造，无法调用拷贝构造函数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class do_not_copy:boost:：noncopyable//注意这里，使用默认的私有继承是允许的</span><br><span class="line">&#123;...&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>我们也可以显式写出private或者public修饰词，但效果是相同的。因此直接这样写少输入了一些代码，也更清晰，并且表明了HAS-A关系（而不是IS-A）。</p>
-<p>如果有其他人误写了代码，企图拷贝构造或者赋值这个对象，那么将不能通过编译器的审查：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do_not_copy d1；//一个不可拷贝对象</span><br><span class="line"></span><br><span class="line">do_notcopy d2（d1）；//企图拷贝构造，编译出错！</span><br><span class="line"></span><br><span class="line">do_not_copy d3；//另一个不可拷贝对象</span><br><span class="line"></span><br><span class="line">d3=d1；//企图拷贝赋值，编译出错！</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>

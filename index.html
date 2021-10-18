@@ -295,6 +295,197 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_AlexNet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="今天不学习，明天变垃圾">
+      <meta itemprop="image" content="/images/header.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="越长大越孤单">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_AlexNet/" itemprop="url">Deep Learning 02</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-10-18T08:17:08+08:00">
+                2021-10-18
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-10-18T21:04:43+08:00">
+                2021-10-18
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h1><p> 深度卷积网络的开创者。将从手工对图片的的特征进行提取，进而利用机器学习的方式实现图像识别转别为由机器自己实现特征提取和图片识别。真正实现了“end-to-end”。</p>
+<h2 id="取得成功的原因"><a href="#取得成功的原因" class="headerlink" title="取得成功的原因"></a>取得成功的原因</h2><h3 id="更大更丰富的数据集"><a href="#更大更丰富的数据集" class="headerlink" title="更大更丰富的数据集"></a>更大更丰富的数据集</h3><p>包含许多特征的深度模型需要大量的有标签数据，才能显著优于基于凸优化的传统方法。越来越多的大规模的数据集给深度学习提供了数据基础。同时还包括各种各样的图像增强方法，进一步对数据集进行扩充。</p>
+<h3 id="GPU-加快神经网络的训练速度"><a href="#GPU-加快神经网络的训练速度" class="headerlink" title="GPU-加快神经网络的训练速度"></a>GPU-加快神经网络的训练速度</h3><p>GPU特殊的硬件结构使得矩阵运算更加迅速。极大的减少了网络训练的时间。GPU强大的运算能力使得CNN的是实现成为了可能。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="使用ReLU作为激活函数"><a href="#使用ReLU作为激活函数" class="headerlink" title="使用ReLU作为激活函数"></a>使用ReLU作为激活函数</h3><p>作者通过实验证明，ReLU相比于Sigmoid等其他激活函数，更容易进行训练，达到同样的识别精度所需要的时间和迭代次数更少。</p>
+<p>同时ReLU也成为最为常见的激活函数。</p>
+<h3 id="在多块GPU上同时进行计算"><a href="#在多块GPU上同时进行计算" class="headerlink" title="在多块GPU上同时进行计算"></a>在多块GPU上同时进行计算</h3><p>由于当时的GPU性能还不是太强，所以作者采用了两块GPU来实现网络的计算。如今GPU的计算能力已经得到了飞速提升，但更大型的网络依旧需要使用多个GPU并行计算。同时GPU硬件加速也是一个重要的研究方向。</p>
+<h3 id="LRN"><a href="#LRN" class="headerlink" title="LＲＮ"></a>LＲＮ</h3><p>作者提出的一种局部归一化的方法，在后来的VGGNet中证明用处不大。</p>
+<h3 id="重叠池化"><a href="#重叠池化" class="headerlink" title="重叠池化"></a>重叠池化</h3><p>之前的池化层都是池化层的大小等于步进，这里作者采用了池化层的大小大于步进，因此会产生部分重叠。作者通过实验证明，这样做有利于抑制过拟合。</p>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>AlexNet网络结构相对简单，使用了8层卷积神经网络，前5层是卷积层，剩下的3层是全连接层。中间还包括池化层和激活层。</p>
+<img src = "/images/DeepLearning/01.png">
+
+<p>这里将两部分网络拼在了一起，易于理解。</p>
+<p>值得注意的一点：原图输入224 × 224，实际上进行了随机裁剪，实际大小为227 × 227。</p>
+<p>AlexNet的第一层，卷积窗口的形状是 11×11。 由于ImageNet中大多数图像的宽和高比MNIST图像的多10倍以上，因此，需要一个更大的卷积窗口来捕获目标。 第二层中的卷积窗口形状被缩减为 5×55×5，然后是 3×33×3。 此外，在第一层、第二层和第五层卷积层之后，加入窗口形状为 3×33×3、步幅为2的最大汇聚层。 而且，AlexNet的卷积通道数目是LeNet的10倍。</p>
+<p>在最后一个卷积层后有两个全连接层，分别有4096个输出。 这两个巨大的全连接层拥有将近1GB的模型参数。 </p>
+<h3 id="网络大小的计算"><a href="#网络大小的计算" class="headerlink" title="网络大小的计算"></a>网络大小的计算</h3><p>这里参考了《鱼书》。</p>
+<img src = "/images/DeepLearning/03.png">
+
+<img src = "/images/DeepLearning/02.png">
+
+<h2 id="抑制过拟合的方法"><a href="#抑制过拟合的方法" class="headerlink" title="抑制过拟合的方法"></a>抑制过拟合的方法</h2><h3 id="图像增广"><a href="#图像增广" class="headerlink" title="图像增广"></a>图像增广</h3><p>作者做了两种处理。</p>
+<p>１.　对２５６＊２５６的图像进行裁剪。变为大小为２２４＊２２４，同时进行翻转。</p>
+<p>这样一张照片就变为了２０４８张，但是这样的处理，图片的关联性是很大的。</p>
+<p>２.　ＰＣＡ处理：对图像进行一系列的计算处理，排除光照等其他因素引起的问题。</p>
+<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><p>下面摘抄于原文，很好的解释了dropout的使用原因和作用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Combining the predictions of many different models is a very successful way to reduce test errors, but it appears to be too expensive for big neural networks that already take several days to train. There is, however, a very efficient version of model combination that only costs about a factor of two during training. The recently-introduced technique, called “dropout”, consists of setting to zero the output of each hidden neuron with probability 0.5. The neurons which are “dropped out” in this way do not contribute to the forward pass and do not participate in backpropagation. So every time an input is presented, the neural network samples a different architecture, but all these architectures share weights. This technique reduces complex co-adaptations of neurons, since a neuron cannot rely on the presence of particular other neurons. It is, therefore, forced to learn more robust features that are useful in conjunction with many different random subsets of the other neurons. At test time, we use all the neurons but multiply their outputs by 0.5, which is a reasonable approximation to taking the geometric mean of the predictive distributions produced by the exponentially-many dropout networks.</span><br></pre></td></tr></table></figure>
+
+<p>简单理解就是，Dropout将集成学习的效果（模拟地）通过一个网络实现了，所有的这些网络全都共用权重。</p>
+<h2 id="更多的细节"><a href="#更多的细节" class="headerlink" title="更多的细节"></a>更多的细节</h2><h3 id="SGD-Momentum-权重衰减"><a href="#SGD-Momentum-权重衰减" class="headerlink" title="SGD+Momentum+权重衰减"></a>SGD+Momentum+权重衰减</h3><p>作者在更新参数时使用了较为复杂的更新方式，而并不是简单拿到SGD。</p>
+<h3 id="参数初始值"><a href="#参数初始值" class="headerlink" title="参数初始值"></a>参数初始值</h3><p>权重使用了高斯分布来初始化。</p>
+<p>偏置部分层使用了 0 ，其余层使用了1。</p>
+<p>lr也就是学习率，最初设置为0.01，每次学习停止时，就将lr除于10，进一步更新参数。</p>
+<h2 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h2><img src = "/images/DeepLearning/04.jpg">
+
+<h3 id="进一步分析"><a href="#进一步分析" class="headerlink" title="进一步分析"></a>进一步分析</h3><img src = "/images/DeepLearning/05.png">
+
+<p>作者了考虑由最后4096维隐藏层的图像引起的特征激活，认为如果两幅图像产生的特征激活向量具有较小的欧氏分离，我们可以说神经网络的高层认为它们是相似的。这里的特征激活向量应该是所有前面层计算出来的结果。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>作者认为：更深的网络层数 + 更丰富的数据集 + 更强大的运算/更多的训练时间 = 更好的识别效果。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -496,8 +687,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-10-11T21:53:03+08:00">
-                2021-10-11
+              <time title="更新于" itemprop="dateModified" datetime="2021-10-16T20:44:06+08:00">
+                2021-10-16
               </time>
             
           </span>
@@ -569,6 +760,18 @@
 <h2 id="Data-Augmentation"><a href="#Data-Augmentation" class="headerlink" title="Data Augmentation"></a>Data Augmentation</h2><p>在深度学习中，为了丰富图像数据的训练集，更好的提取图像特征，泛化模型（防止模型过拟合），一般都会对图像数据进行数据增强（Data Augmentation）。</p>
 <h3 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h3><p>AlexNet：针对具有3通道的彩色图片的训练任务，进行减去图片均值的预处理操作。</p>
 <p>- Color Jittering：对颜色的数据增强：图像亮度、饱和度、对比度变化；<br>- PCA Jittering：首先按照RGB三个颜色通道计算均值和标准差，再在整个训练集上计算协方差矩阵，进行特征分解，得到特征向量和特征值，用来做PCA Jittering；<br>- Random Scale：尺度变换；<br>- Random Crop：采用随机图像差值方式，对图像进行裁剪、缩放；包括Scale Jittering方法（VGG及ResNet模型使用）或者尺度和长宽比增强变换；<br>- Horizontal/Vertical Flip：水平/垂直翻转；<br>- Shift：平移变换；<br>- Rotation/Reflection：旋转/仿射变换；<br>- Noise：高斯噪声、模糊处理；<br>- Label shuffle：类别不平衡数据的增广；</p>
+<p>需要注意的是，在对图片做Affine时，可能还需要对对应的标签做相应的处理，比如BBox， keypoints，以及polygons等。</p>
+<h2 id="end-to-end"><a href="#end-to-end" class="headerlink" title="end-to-end"></a>end-to-end</h2><p>与机器学习不同，卷积神经网络的输入是由原始像素值或是经过简单预处理（例如居中、缩放）的像素值组成的，不需要进行其余更加精心的设计，来达到更好的预期结果。</p>
+<h2 id="ReLU-与-Sigmoid"><a href="#ReLU-与-Sigmoid" class="headerlink" title="ReLU 与 Sigmoid"></a>ReLU 与 Sigmoid</h2><p>在AlexNet中，提出了ReLU这样一个激活函数。</p>
+<p>ReLU 对比于 SIgmoid 的优势：</p>
+<ol>
+<li>  ReLU激活函数的计算更简单，它不需要如sigmoid激活函数那般复杂的求幂运算。</li>
+<li>  当使用不同的参数初始化方法时，ReLU激活函数使训练模型更加容易。 当sigmoid激活函数的输出非常接近于0或1时，这些区域的梯度几乎为0，因此反向传播无法继续更新一些模型参数。 相反，ReLU激活函数在正区间的梯度总是1。 因此，如果模型参数没有正确初始化，sigmoid函数可能在正区间内得到几乎为0的梯度，从而使模型无法得到有效的训练。</li>
+</ol>
+<h2 id="dropout"><a href="#dropout" class="headerlink" title="dropout"></a>dropout</h2><p>以下摘选自&lt;&lt; Alexnet &gt;&gt;.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将许多不同模型的预测结合起来是降低测试误差的一个非常成功的方法，但对于需要花费几天来训练的大型神经网络来说，这似乎太昂贵了。然而，有一个非常有效的模型结合版本，它只花费两倍的训练成本。这种最近引入的技术，叫做“dropout”，它会以0.5的概率对每个隐层神经元的输出设为0。那些“失活的”的神经元不再进行前向传播并且不参与反向传播。因此每次输入时，神经网络会采样一个不同的架构，但所有架构共享权重。这个技术减少了复杂的神经元互适应，因为一个神经元不能依赖特定的其它神经元的存在。因此，神经元被强迫学习更鲁棒的特征，它在与许多不同的其它神经元的随机子集结合时是有用的。在测试时，我们使用所有的神经元但它们的输出乘以0.5，对指数级的许多失活网络的预测分布进行几何平均，这是一种合理的近似。</span><br></pre></td></tr></table></figure>
+
+<p>dropout是一种有效的能够降低overfitting 的方法。</p>
 
           
         
@@ -775,7 +978,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/deafult/">
+    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/deafult/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -794,7 +997,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/deafult/" itemprop="url">=default =delete</a></h1>
+                <a class="post-title-link" href="/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/deafult/" itemprop="url">=default =delete</a></h1>
         
 
         <div class="post-meta">
@@ -882,7 +1085,7 @@
           <p> 如果你自信定义了一个ctor，那么编译器就不会再给你一个 default ctor。 如果你强制加上一个 =default，就可以重新获得并使用default ctor。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/deafult/#more" rel="contents">
+            <a class="btn" href="/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/deafult/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -933,7 +1136,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/">
+    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -952,7 +1155,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/" itemprop="url">Uniform Initialization</a></h1>
+                <a class="post-title-link" href="/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/" itemprop="url">Uniform Initialization</a></h1>
         
 
         <div class="post-meta">
@@ -1040,7 +1243,7 @@
           <p>在C++11之前，初始化操作可以用很多种方法来实现，比如说小括号，大括号以及赋值符号，C++11之后，统一都可以使用花括号来初始化变量，当然，所有之前可以使用的方式依然可以使用。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/#more" rel="contents">
+            <a class="btn" href="/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1091,7 +1294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/VariadicTemplates/">
+    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/VariadicTemplates/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1110,7 +1313,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/VariadicTemplates/" itemprop="url">Variadic Templates</a></h1>
+                <a class="post-title-link" href="/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/VariadicTemplates/" itemprop="url">Variadic Templates</a></h1>
         
 
         <div class="post-meta">
@@ -1198,7 +1401,7 @@
           <p>C++ 11引入了的一个新特性为 Variadic Templates， 即可变参数模板。同时还有一些小的改动，如可以去掉模板表达式的空格、引入空指针nullptr和自动判断当前数据类型的AUTO等。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/%E5%AD%A6%E4%B9%A0/Cpp/%E4%BE%AF%E6%8D%B7cpp11%E6%96%B0%E7%89%B9%E6%80%A7/VariadicTemplates/#more" rel="contents">
+            <a class="btn" href="/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/VariadicTemplates/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1710,164 +1913,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_08/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="今天不学习，明天变垃圾">
-      <meta itemprop="image" content="/images/header.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="越长大越孤单">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_08/" itemprop="url">MySQL 基础知识 08</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-16T08:50:08+08:00">
-                2021-08-16
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2021-09-05T19:19:30+08:00">
-                2021-09-05
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>MySQL学习笔记。使用视图可以提高检索效率，保存select语句。利用存储过程可以批量的使用一系列SQL语句。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_08/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1922,7 +1967,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
