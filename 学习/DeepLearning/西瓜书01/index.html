@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="MySQL," />
+  <meta name="keywords" content="Machine Learning," />
 
 
 
@@ -77,17 +77,17 @@
 
 
 
-<meta name="description" content="MySQL学习笔记。使用事务避免仅执行了部分语句。">
+<meta name="description" content="西瓜书阅读笔记​    记录西瓜书学习过程中的理解的一些知识点。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL 基础知识 09">
-<meta property="og:url" content="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_09/index.html">
+<meta property="og:title" content="Machine learning">
+<meta property="og:url" content="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/DeepLearning/%E8%A5%BF%E7%93%9C%E4%B9%A601/index.html">
 <meta property="og:site_name" content="越长大越孤单">
-<meta property="og:description" content="MySQL学习笔记。使用事务避免仅执行了部分语句。">
+<meta property="og:description" content="西瓜书阅读笔记​    记录西瓜书学习过程中的理解的一些知识点。">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-08-17T07:39:08.000Z">
-<meta property="article:modified_time" content="2021-09-05T11:27:06.794Z">
+<meta property="article:published_time" content="2021-10-29T13:32:08.000Z">
+<meta property="article:modified_time" content="2021-10-29T14:49:57.959Z">
 <meta property="article:author" content="wangzhang">
-<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
 
 
@@ -122,7 +122,7 @@
 
 
 
-  <title>MySQL 基础知识 09 | 越长大越孤单</title>
+  <title>Machine learning | 越长大越孤单</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_09/">
+    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/DeepLearning/%E8%A5%BF%E7%93%9C%E4%B9%A601/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MySQL 基础知识 09</h1>
+          <h1 class="post-title" itemprop="name headline">Machine learning</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-17T15:39:08+08:00">
-                2021-08-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-10-29T21:32:08+08:00">
+                2021-10-29
               </time>
             
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-09-05T19:27:06+08:00">
-                2021-09-05
+              <time title="更新于" itemprop="dateModified" datetime="2021-10-29T22:49:57+08:00">
+                2021-10-29
               </time>
             
           </span>
@@ -398,50 +398,29 @@
       
 
       
-        <p>MySQL学习笔记。使用事务避免仅执行了部分语句。<span id="more"></span></p>
-<h1 id="管理事务"><a href="#管理事务" class="headerlink" title="管理事务"></a>管理事务</h1><p>使用事务处理（transaction processing），通过确保成批的SQL 操作要么完全执行，要么完全不执行，来维护数据库的完整性。</p>
-<p>事务处理是一种机制，用来管理必须成批执行的SQL 操作，保证数据库不包含不完整的操作结果。利用事务处理，可以保证一组操作不会中途停止，它们要么完全执行，要么完全不执行（除非明确指示）。如果没有错误发生，整组语句提交给（写到）数据库表；如果发生错误，则进行回退（撤销），将数据库恢复到某个已知且安全的状态。</p>
-<h2 id="事务（transaction）"><a href="#事务（transaction）" class="headerlink" title="事务（transaction）"></a>事务（transaction）</h2><p>指一组SQL 语句；</p>
-<h2 id="回退（rollback）"><a href="#回退（rollback）" class="headerlink" title="回退（rollback）"></a>回退（rollback）</h2><p>指撤销指定SQL 语句的过程；</p>
-<h2 id="提交（commit）"><a href="#提交（commit）" class="headerlink" title="提交（commit）"></a>提交（commit）</h2><p>指将未存储的SQL 语句结果写入数据库表；</p>
-<h2 id="保留点（savepoint）"><a href="#保留点（savepoint）" class="headerlink" title="保留点（savepoint）"></a>保留点（savepoint）</h2><p>指事务处理中设置的临时占位符（placeholder），可以对它发布回退（与回退整个事务处理不同）。</p>
-<p>事务处理用来管理INSERT、UPDATE 和DELETE 语句。不能回退SELECT语句（回退SELECT 语句也没有必要），也不能回退CREATE 或DROP 操作。事务处理中可以使用这些语句，但进行回退时，这些操作也不撤销。</p>
-<p>管理事务的关键在于将SQL 语句组分解为逻辑块，并明确规定数据何时应该回退，何时不应该回退。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+        <h1 id="西瓜书阅读笔记"><a href="#西瓜书阅读笔记" class="headerlink" title="西瓜书阅读笔记"></a>西瓜书阅读笔记</h1><p>​    记录西瓜书学习过程中的理解的一些知识点。<span id="more"></span></p>
+<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>​        将物理或抽象对象的集合分成由类似的对象组成的多个类的过程被称为聚类。由聚类所生成的簇是一组数据对象的集合，这些对象与同一个簇中的对象彼此相似，与其他簇中的对象相异。</p>
+<p>​        聚类是一种机器学习技术，它涉及到数据点的分组。给定一组数据点，我们可以使用聚类算法将每个数据点划分为一个特定的组。理论上，同一组中的数据点应该具有相似的属性和/或特征，而不同组中的数据点应该具有高度不同的属性和/或特征。聚类是一种无监督学习的方法，是许多领域中常用的统计数据分析技术。</p>
+<h2 id="假设空间-与-版本空间"><a href="#假设空间-与-版本空间" class="headerlink" title="假设空间 与 版本空间"></a>假设空间 与 版本空间</h2><p><strong>假设空间</strong>：属性所有可能取值组成的可能的样本</p>
+<p><strong>版本空间</strong>：与已知数据集一致的所有假设的子集集合。</p>
+<img src = "/images/DeepLearning/06.png">
 
-<h2 id="ROLLBACK"><a href="#ROLLBACK" class="headerlink" title="ROLLBACK"></a>ROLLBACK</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM Orders;</span><br><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure>
-
-<h3 id="COMMIT"><a href="#COMMIT" class="headerlink" title="COMMIT"></a>COMMIT</h3><p>一般的SQL 语句都是针对数据库表直接执行和编写的。这就是所谓的隐式提交（implicit commit），即提交（写或保存）操作是自动进行的。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">DELETE OrderItems WHERE order_num = 12345</span><br><span class="line">DELETE Orders WHERE order_num = 12345</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用保留点"><a href="#使用保留点" class="headerlink" title="使用保留点"></a>使用保留点</h2><p>使用简单的ROLLBACK 和COMMIT 语句，就可以写入或撤销整个事务。但是，只对简单的事务才能这样做，复杂的事务可能需要部分提交或回退。</p>
-<p>要支持回退部分事务，必须在事务处理块中的合适位置放置占位符。这样，如果需要回退，可以回退到某个占位符。</p>
-<p>在SQL 中，这些占位符称为保留点。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SAVEPOINT delete1;</span><br></pre></td></tr></table></figure>
-
-<p>每个保留点都要取能够标识它的唯一名字，以便在回退时，DBMS 知道回退到何处。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ROLLBACK TO delete1;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">start TRANSACTION</span><br><span class="line">INSERT INTO Customers(cust_id, cust_name)</span><br><span class="line">VALUES(&#x27;1000000010&#x27;, &#x27;Toys Emporium&#x27;);</span><br><span class="line">SAVE TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO Orders(order_num, order_date, cust_id)</span><br><span class="line">VALUES(20100,&#x27;2001/12/1&#x27;,&#x27;1000000010&#x27;);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 1, &#x27;BR01&#x27;, 100, 5.49);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 2, &#x27;BR03&#x27;, 100, 10.99);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
-
-<h1 id="使用游标"><a href="#使用游标" class="headerlink" title="使用游标"></a>使用游标</h1><p>SQL 检索操作返回一组称为结果集的行，这组返回的行都是与SQL 语句相匹配的行（零行或多行）。简单地使用SELECT 语句，没有办法得到第一行、下一行或前10 行。但这是关系DBMS 功能的组成部分。</p>
-<p>有时，需要在检索出来的行中前进或后退一行或多行，这就是游标的用途所在。</p>
-<p>游标（cursor）是一个存储在DBMS 服务器上的数据库查询，它不是一条SELECT 语句，而是被该语句检索出来的结果集。在存储了游标之后，应用程序可以根据需要滚动或浏览其中的数据。</p>
-<h2 id="选项和特性"><a href="#选项和特性" class="headerlink" title="选项和特性"></a>选项和特性</h2><p>1.能够标记游标为只读，使数据能读取，但不能更新和删除。<br>2.能控制可以执行的定向操作（向前、向后、第一、最后、绝对位置、相对位置等）。<br>3.能标记某些列为可编辑的，某些列为不可编辑的。<br>4.规定范围，使游标对创建它的特定请求（如存储过程）或对所有请求可访问。<br>5.指示DBMS 对检索出的数据（而不是指出表中活动数据）进行复制，使数据在游标打开和访问期间不变化。</p>
-<p>游标主要用于交互式应用，其中用户需要滚动屏幕上的数据，并对数据进行浏览或做出更改。</p>
-<h2 id="游标的使用步骤"><a href="#游标的使用步骤" class="headerlink" title="游标的使用步骤"></a>游标的使用步骤</h2><p>1.在使用游标前，必须声明（定义）它。这个过程实际上没有检索数据，它只是定义要使用的SELECT 语句和游标选项。<br>2.一旦声明，就必须打开游标以供使用。这个过程用前面定义的SELECT语句把数据实际检索出来。<br>3.对于填有数据的游标，根据需要取出（检索）各行。<br>4.在结束游标使用时，必须关闭游标，可能的话，释放游标（有赖于具体的DBMS）。</p>
-<p>5.声明游标后，可根据需要频繁地打开和关闭游标。在游标打开时，可根据需要频繁地执行取操作</p>
-<h3 id="创建游标"><a href="#创建游标" class="headerlink" title="创建游标"></a>创建游标</h3><p>DECLARE 命名游标，并定义相应的SELECT 语句，根据需要带WHERE 和其他子句。<br><strong>游标只能用在存储过程中</strong></p>
-<hr>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DECLARE CustCursor CURSOR</span><br><span class="line">FOR</span><br><span class="line">SELECT * FROM Customers</span><br><span class="line">WHERE cust_email IS NULL</span><br></pre></td></tr></table></figure>
-
-<h3 id="打开游标"><a href="#打开游标" class="headerlink" title="打开游标"></a>打开游标</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OPEN CURSOR CustCursor</span><br></pre></td></tr></table></figure>
-
-<p>用FETCH 语句访问游标数据。FETCH 指出要检索哪些行，从何处检索它们以及将它们放于何处（如变量名）。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DECLARE TYPE CustCursor IS REF CURSOR</span><br><span class="line">	RETURN Customers%ROWTYPE;</span><br><span class="line">DECLARE CustRecord Customers%ROWTYPE</span><br><span class="line">BEGIN</span><br><span class="line">OPEN CustCursor;</span><br><span class="line">FETCH CustCursor INTO CustRecord;</span><br><span class="line">CLOSE CustCursor;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
-
-<h3 id="关闭游标"><a href="#关闭游标" class="headerlink" title="关闭游标"></a>关闭游标</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CLOSE CustCursor</span><br></pre></td></tr></table></figure>
-
+<p>（绿色加号代表正类样本，红色小圈代表负类样本）</p>
+<p>GB 是最大泛化正假设边界(maximally General positive hypothesis Boundary),；</p>
+<p>SB 是最大精确正假设边界(maximally Specific positive hypothesis Boundary)</p>
+<p>GB与SB之间所围成的区域就是版本空间。</p>
+<p>在西瓜问题中，如何根据训练集求所对应的版本空间？</p>
+<p>①写出假设空间：先列出所有可能的样本点（即特征向量）（即每个属性都取到所有的属性值）</p>
+<p>②对应着给出的已知数据集，将与正样本不一致的、与负样本一致的假设删除。</p>
+<p>即可得出与训练集一致的假设集合，也就是版本空间了</p>
+<h3 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h3><p><strong>归纳偏好：</strong>机器学习算法在学习过程中对某种类型假设的偏好，称为“归纳偏好”或简称为“偏好”。</p>
+<p><strong>偏好的原则：</strong>奥卡姆剃刀：若有多个假设与观察一致，则选择最简单的那个。</p>
+<p><strong>没有免费的午餐定理：</strong> 无论学习算法La多好、学习算法Lb多坏，它们的期望性能是相同的。</p>
+<p>NFL定理的前提：所有问题出现的机会相同或所有问题同等重要，但实际情况不是这样，我们只需要关注自己想要解决的问题。</p>
+<p>脱离具体问题，空泛地谈“什么学习算法更好”毫无意义。</p>
+<h3 id="数据集处理"><a href="#数据集处理" class="headerlink" title="数据集处理"></a>数据集处理</h3><p>1.留出法</p>
+<p>​    单次使用留出法得到的估计结果往往不够稳定可靠，在使用留出法时，一般采用若干随机划分，重复进行试验评估后取平均值作为留出法的评估结果。</p>
+<p>2.</p>
 
       
     </div>
@@ -459,7 +438,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
+            <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
           
         </div>
       
@@ -472,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_08/" rel="next" title="MySQL 基础知识 08">
-                <i class="fa fa-chevron-left"></i> MySQL 基础知识 08
+              <a href="/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_01/" rel="next" title="DSA 基础知识 01">
+                <i class="fa fa-chevron-left"></i> DSA 基础知识 01
               </a>
             
           </div>
@@ -482,8 +461,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_10/" rel="prev" title="MySQL 基础知识 10">
-                MySQL 基础知识 10 <i class="fa fa-chevron-right"></i>
+              <a href="/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_02/" rel="prev" title="DSA 基础知识 02">
+                DSA 基础知识 02 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -636,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E4%BA%8B%E5%8A%A1"><span class="nav-text">管理事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%EF%BC%88transaction%EF%BC%89"><span class="nav-text">事务（transaction）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E9%80%80%EF%BC%88rollback%EF%BC%89"><span class="nav-text">回退（rollback）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%EF%BC%88commit%EF%BC%89"><span class="nav-text">提交（commit）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E7%95%99%E7%82%B9%EF%BC%88savepoint%EF%BC%89"><span class="nav-text">保留点（savepoint）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ROLLBACK"><span class="nav-text">ROLLBACK</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#COMMIT"><span class="nav-text">COMMIT</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BF%9D%E7%95%99%E7%82%B9"><span class="nav-text">使用保留点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%B8%B8%E6%A0%87"><span class="nav-text">使用游标</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E9%A1%B9%E5%92%8C%E7%89%B9%E6%80%A7"><span class="nav-text">选项和特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B8%E6%A0%87%E7%9A%84%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="nav-text">游标的使用步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%B8%B8%E6%A0%87"><span class="nav-text">创建游标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E6%B8%B8%E6%A0%87"><span class="nav-text">打开游标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E6%B8%B8%E6%A0%87"><span class="nav-text">关闭游标</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A5%BF%E7%93%9C%E4%B9%A6%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0"><span class="nav-text">西瓜书阅读笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%9A%E7%B1%BB"><span class="nav-text">聚类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4-%E4%B8%8E-%E7%89%88%E6%9C%AC%E7%A9%BA%E9%97%B4"><span class="nav-text">假设空间 与 版本空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E7%BA%B3%E5%81%8F%E5%A5%BD"><span class="nav-text">归纳偏好</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E5%A4%84%E7%90%86"><span class="nav-text">数据集处理</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

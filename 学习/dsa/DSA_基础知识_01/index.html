@@ -77,15 +77,15 @@
 
 
 
-<meta name="description" content="数据结构和算法数据结构和算法的重要性毋庸置疑啊，一方面刷题，一方面学习一下。">
+<meta name="description" content="数据结构和算法数据结构和算法的重要性毋庸置疑，一方面刷题，一方面学习一下。 复杂度和递归的介绍">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DSA 基础知识">
-<meta property="og:url" content="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:title" content="DSA 基础知识 01">
+<meta property="og:url" content="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_01/index.html">
 <meta property="og:site_name" content="越长大越孤单">
-<meta property="og:description" content="数据结构和算法数据结构和算法的重要性毋庸置疑啊，一方面刷题，一方面学习一下。">
+<meta property="og:description" content="数据结构和算法数据结构和算法的重要性毋庸置疑，一方面刷题，一方面学习一下。 复杂度和递归的介绍">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-07-01T16:24:51.000Z">
-<meta property="article:modified_time" content="2021-09-05T08:45:41.528Z">
+<meta property="article:published_time" content="2021-10-27T16:24:51.000Z">
+<meta property="article:modified_time" content="2021-10-30T09:15:11.610Z">
 <meta property="article:author" content="wangzhang">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -122,7 +122,7 @@
 
 
 
-  <title>DSA 基础知识 | 越长大越孤单</title>
+  <title>DSA 基础知识 01 | 越长大越孤单</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">DSA 基础知识</h1>
+          <h1 class="post-title" itemprop="name headline">DSA 基础知识 01</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-02T00:24:51+08:00">
-                2021-07-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-10-28T00:24:51+08:00">
+                2021-10-28
               </time>
             
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-09-05T16:45:41+08:00">
-                2021-09-05
+              <time title="更新于" itemprop="dateModified" datetime="2021-10-30T17:15:11+08:00">
+                2021-10-30
               </time>
             
           </span>
@@ -398,22 +398,52 @@
       
 
       
-        <h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数据结构和算法的重要性毋庸置疑啊，一方面刷题，一方面学习一下。<span id="more"></span></p>
-<h2 id="数据结构的基础知识"><a href="#数据结构的基础知识" class="headerlink" title="数据结构的基础知识"></a>数据结构的基础知识</h2><h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>​    O(1):常数时间复杂度算法</p>
-<p>​    O(logn):对数时间复杂度——高效算法</p>
-<p>​    O(n):多项式时间复杂度算法.某问题若存在一个复杂度在此范围以内的算法，则称该问题是可有效求解的或易解的（tractable）</p>
-<p>​    O(x**n):指数复杂度，无法接受的算法。</p>
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>​        递归则是函数和过程调用的一种特殊形式，即允许函数和过程进行<br>自我调用。</p>
-<p>​        递归的价值在于，许多应用问题都可简洁而准确地描述为递归形式。</p>
-<p>​    递归也是一种基本而典型的算法设计模式。这一模式可以对实际问题中反复出现的结构和形式做高度概括，并从本质层面加以描述与刻画，进而导出高效的算法。</p>
-<h4 id="递归的基本模式"><a href="#递归的基本模式" class="headerlink" title="递归的基本模式"></a>递归的基本模式</h4><h5 id="线性递归"><a href="#线性递归" class="headerlink" title="线性递归"></a>线性递归</h5><p>举例：数组元素求和</p>
+        <h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数据结构和算法的重要性毋庸置疑，一方面刷题，一方面学习一下。</p>
+<p>复杂度和递归的介绍<span id="more"></span></p>
+<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><h3 id="时间复杂度："><a href="#时间复杂度：" class="headerlink" title="时间复杂度："></a>时间复杂度：</h3><h4 id="原则："><a href="#原则：" class="headerlink" title="原则："></a>原则：</h4><ol>
+<li><p>  只关注循环次数最多的一段代码。</p>
+</li>
+<li><p>  加法原则：总复杂度等于量级最大的那段代码的时间复杂度。</p>
+</li>
+<li><p>  乘法原则：嵌套代码的复杂度等于嵌套内外代码复杂度的乘积。</p>
+</li>
+</ol>
+<h4 id="常见的复杂度量级："><a href="#常见的复杂度量级：" class="headerlink" title="常见的复杂度量级："></a>常见的复杂度量级：</h4><p>O(1): 常数时间复杂度算法</p>
+<p>​        只要代码的执行时间不随 n 的增大而增长，这样代码的时间复杂度我们都记作 O(1)。或者说，<strong>一般情况下，只要算法中不存在循环语句、递归语句，即使有成千上万行的代码，其时间复杂度也是Ο(1)。</strong></p>
+<p>O(logn): 对数时间复杂度</p>
+<p>​        高效算法。</p>
+<p>O(n): 多项式时间复杂度算法.</p>
+<p>​        某问题若存在一个复杂度在此范围以内的算法，则称该问题是可有效求解的或易解的（tractable）</p>
+<p>O(x**n): 指数复杂度</p>
+<p>​        无法接受的算法。</p>
+<p>时间复杂度为非多项式量级的算法问题叫作 NP（Non-Deterministic Polynomial，非确定多项式）问题。包括指数阶和阶乘阶。</p>
+<h4 id="最好、最坏、平均情况时间复杂度："><a href="#最好、最坏、平均情况时间复杂度：" class="headerlink" title="最好、最坏、平均情况时间复杂度："></a>最好、最坏、平均情况时间复杂度：</h4><p><strong>最好情况时间复杂度：</strong> 在最理想的情况下，执行这段代码的时间复杂度。</p>
+<p><strong>最坏情况时间复杂度：</strong> 在最糟糕的情况下，执行这段代码的时间复杂度。</p>
+<p><strong>平均情况时间复杂度：</strong> 最好情况时间复杂度和最坏情况时间复杂度对应的都是极端情况下的代码复杂度，发生的概率其实并不大。为了更好地表示平均情况下的复杂度，引入平均情况时间复杂度。平均时间复杂度的全称应该叫<strong>加权平均时间复杂度</strong>或者<strong>期望时间复杂度</strong>。</p>
+<p><strong>均摊时间复杂度:</strong> 通过摊还分析法得到的时间复杂度。对一个数据结构进行一组连续操作中，大部分情况下时间复杂度都很低，只有个别情况下时间复杂度比较高，而且这些操作之间存在前后连贯的时序关系，这个时候，我们就可以将这一组操作放在一块儿分析，看是否能将较高时间复杂度那次操作的耗时，平摊到其他那些时间复杂度比较低的操作上。而且，在能够应用均摊时间复杂度分析的场合，一般均摊时间复杂度就等于最好情况时间复杂度。</p>
+<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>递归则是函数和过程调用的一种特殊形式，即允许函数和过程进行自我调用。</p>
+<p>递归的价值在于，许多应用问题都可简洁而准确地描述为递归形式。</p>
+<h3 id="递归需要满足的三个条件"><a href="#递归需要满足的三个条件" class="headerlink" title="递归需要满足的三个条件"></a>递归需要满足的三个条件</h3><ol>
+<li><p>一个问题的解可以分解为几个子问题的解</p>
+</li>
+<li><p>  这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样</p>
+</li>
+<li><p>  存在递归终止条件</p>
+</li>
+</ol>
+<h4 id="求解方法："><a href="#求解方法：" class="headerlink" title="求解方法："></a>求解方法：</h4><p>​        <strong>写递归代码的关键就是找到如何将大问题分解为小问题的规律，并且基于此写出递推公式，然后再推敲终止条件，最后将递推公式和终止条件翻译成代码</strong></p>
+<h4 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h4><ol>
+<li>  堆栈溢出。</li>
+<li>  重复计算。</li>
+</ol>
+<h3 id="递归的基本模式"><a href="#递归的基本模式" class="headerlink" title="递归的基本模式"></a>递归的基本模式</h3><h4 id="线性递归"><a href="#线性递归" class="headerlink" title="线性递归"></a>线性递归</h4><p>举例：数组元素求和</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组求和：数组的前A[0,n-1)个数的和与末元素A[n-1]之和。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">arraySum</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span>&gt;n)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in"><span class="keyword">return</span></span> (<span class="built_in">arraySum</span>(A, n<span class="number">-1</span>) + A[n<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//时间复杂度：O(1)*递归深度 = O(1) * (n+1) = O(n)</span></span><br><span class="line"><span class="comment">//空间复杂度：O(n)</span></span><br></pre></td></tr></table></figure>
 
 <p>​        算法可能朝着更深一层进行自我调用，且每一递归实例对自身的调用至多一次。于是，每一层次上至多只有一个实例，且它们构成一个线性的次序关系。此类递归模式因而称作“线性递归”（linear recursion），它也是递归的最基本形式。</p>
 <p>​    线性递归往往对应于<em><strong>减而治之</strong></em>的算法策略：递归每深入一层，待求解问题的规模都缩减一个常数，直至最终蜕化为平凡的小（简单）问题。</p>
-<h5 id="递归分析"><a href="#递归分析" class="headerlink" title="递归分析"></a>递归分析</h5><p>1.递归跟踪：作为一种直观且可视的方法，递归跟踪（recursion trace）可用以分析递归算法的总体运行时间与空间。</p>
+<h3 id="递归分析"><a href="#递归分析" class="headerlink" title="递归分析"></a>递归分析</h3><p>1.递归跟踪：作为一种直观且可视的方法，递归跟踪（recursion trace）可用以分析递归算法的总体运行时间与空间。</p>
 <p>2.递推方程：通过对递归模式的数学归纳，导出复杂度定界函数的递推方程（组）及其边界条件，从而将复杂度的分析，转化为递归方程（组）的求解。</p>
-<h5 id="递归模式"><a href="#递归模式" class="headerlink" title="递归模式"></a>递归模式</h5><p>1.多递归基：为保证有穷性，递归算法都必须设置递归基，且确保总能执行到。</p>
+<h3 id="递归模式"><a href="#递归模式" class="headerlink" title="递归模式"></a>递归模式</h3><p>1.多递归基：为保证有穷性，递归算法都必须设置递归基，且确保总能执行到。</p>
 <p>举例：数组倒置</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>* A, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lo &lt; hi)&#123;</span><br><span class="line">		<span class="built_in">swap</span>(A[lo], A[hi]);</span><br><span class="line">		<span class="built_in">reverse</span>(A, lo+<span class="number">1</span>, hi<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">//O(hi + lo -1)</span></span><br></pre></td></tr></table></figure>
 
@@ -421,12 +451,12 @@
 <p>举例：求2**n</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inline __int64 sqr ( __int64 a ) &#123; return a * a; &#125;</span><br><span class="line">__int64 power2 ( int n ) &#123; //幂函数2^n算法（优化逑弻版），n &gt;= 0</span><br><span class="line"> 	if ( 0 == n ) return 1; //逑弻基；否则，规n癿奇偶分删逑弻</span><br><span class="line">    return ( n &amp; 1 ) ? sqr ( power2 ( n &gt;&gt; 1 ) ) &lt;&lt; 1 : sqr ( power2 ( n &gt;&gt; 1 ) );</span><br><span class="line">&#125; //O(logn) = O(r)，r为输入指数n癿比特位数</span><br></pre></td></tr></table></figure>
 
-<h5 id="递归消除"><a href="#递归消除" class="headerlink" title="递归消除"></a>递归消除</h5><p>空间成本:递归算法所消耗的空间量主要取决于递归深度，故较之同一算法的迭代版，递归版往往需耗费更多空间，并进而影响实际的运行速度。</p>
+<h3 id="递归消除"><a href="#递归消除" class="headerlink" title="递归消除"></a>递归消除</h3><p>空间成本:递归算法所消耗的空间量主要取决于递归深度，故较之同一算法的迭代版，递归版往往需耗费更多空间，并进而影响实际的运行速度。</p>
 <p>举例：尾递归消除</p>
 <p>在线性递归算法中，若递归调用在递归实例中恰好以最后一步操作的形式出现，则称作尾递<br>归（tail recursion）。属于尾递归形式的算法，均可以简捷地转换为等效的迭代版本。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#数组倒置</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">next:</span><br><span class="line">	if(lo &lt; hi)&#123;</span><br><span class="line">		swap(A[lo], A[hi]);</span><br><span class="line">		lo++;</span><br><span class="line">		hi--;</span><br><span class="line">		goto next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo + 1)</span><br><span class="line"></span><br><span class="line">#用while 代替 next if</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">	while( lo &lt; hi )&#123;</span><br><span class="line">		swap(A[lo++], A[hi--]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="二分递归"><a href="#二分递归" class="headerlink" title="二分递归"></a>二分递归</h5><p>分而治之：将大问题分解为若干规模更小的子问题，再通过递归机制分别求解。这种分解持续进行，直到子问题规模缩减至平凡情况。这也就是所谓的分而治之（divide-and-conquer）策略。</p>
+<h3 id="二分递归"><a href="#二分递归" class="headerlink" title="二分递归"></a>二分递归</h3><p>分而治之：将大问题分解为若干规模更小的子问题，再通过递归机制分别求解。这种分解持续进行，直到子问题规模缩减至平凡情况。这也就是所谓的分而治之（divide-and-conquer）策略。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int arraySum(int A[], int lo, int hi)&#123;</span><br><span class="line">	if( lo == hi)&#123;</span><br><span class="line">		return A[lo];</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int mi = (lo + hi) &gt;&gt; 1;</span><br><span class="line">		return sum(A, lo, mi) + sum(A, mi+1, hi);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo +1)</span><br></pre></td></tr></table></figure>
 
 
@@ -459,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/%E5%AD%A6%E4%B9%A0/Git/gitNote01/" rel="next" title="Git学习笔记01">
-                <i class="fa fa-chevron-left"></i> Git学习笔记01
+              <a href="/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_AlexNet/" rel="next" title="Deep Learning 02">
+                <i class="fa fa-chevron-left"></i> Deep Learning 02
               </a>
             
           </div>
@@ -469,8 +499,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/%E5%AD%A6%E4%B9%A0/Git/gitNote02/" rel="prev" title="Git学习笔记02">
-                Git学习笔记02 <i class="fa fa-chevron-right"></i>
+              <a href="/%E5%AD%A6%E4%B9%A0/DeepLearning/%E8%A5%BF%E7%93%9C%E4%B9%A601/" rel="prev" title="Machine learning">
+                Machine learning <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -552,7 +582,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -574,7 +604,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -623,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95"><span class="nav-text">数据结构和算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-text">数据结构的基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-text">复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92"><span class="nav-text">递归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A8%A1%E5%BC%8F"><span class="nav-text">递归的基本模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E9%80%92%E5%BD%92"><span class="nav-text">线性递归</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E5%88%86%E6%9E%90"><span class="nav-text">递归分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E6%A8%A1%E5%BC%8F"><span class="nav-text">递归模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E6%B6%88%E9%99%A4"><span class="nav-text">递归消除</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E9%80%92%E5%BD%92"><span class="nav-text">二分递归</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95"><span class="nav-text">数据结构和算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-text">复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%9A"><span class="nav-text">时间复杂度：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%88%99%EF%BC%9A"><span class="nav-text">原则：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E9%87%8F%E7%BA%A7%EF%BC%9A"><span class="nav-text">常见的复杂度量级：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E5%A5%BD%E3%80%81%E6%9C%80%E5%9D%8F%E3%80%81%E5%B9%B3%E5%9D%87%E6%83%85%E5%86%B5%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%9A"><span class="nav-text">最好、最坏、平均情况时间复杂度：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92"><span class="nav-text">递归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E9%9C%80%E8%A6%81%E6%BB%A1%E8%B6%B3%E7%9A%84%E4%B8%89%E4%B8%AA%E6%9D%A1%E4%BB%B6"><span class="nav-text">递归需要满足的三个条件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%82%E8%A7%A3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-text">求解方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9%EF%BC%9A"><span class="nav-text">注意点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A8%A1%E5%BC%8F"><span class="nav-text">递归的基本模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E9%80%92%E5%BD%92"><span class="nav-text">线性递归</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E5%88%86%E6%9E%90"><span class="nav-text">递归分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E6%A8%A1%E5%BC%8F"><span class="nav-text">递归模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E6%B6%88%E9%99%A4"><span class="nav-text">递归消除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E9%80%92%E5%BD%92"><span class="nav-text">二分递归</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
