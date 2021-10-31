@@ -85,7 +85,7 @@
 <meta property="og:description" content="西瓜书阅读笔记​    记录西瓜书学习过程中的理解的一些知识点。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-10-29T13:32:08.000Z">
-<meta property="article:modified_time" content="2021-10-29T14:49:57.959Z">
+<meta property="article:modified_time" content="2021-10-30T11:24:44.897Z">
 <meta property="article:author" content="wangzhang">
 <meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-10-29T22:49:57+08:00">
-                2021-10-29
+              <time title="更新于" itemprop="dateModified" datetime="2021-10-30T19:24:44+08:00">
+                2021-10-30
               </time>
             
           </span>
@@ -420,7 +420,10 @@
 <p>脱离具体问题，空泛地谈“什么学习算法更好”毫无意义。</p>
 <h3 id="数据集处理"><a href="#数据集处理" class="headerlink" title="数据集处理"></a>数据集处理</h3><p>1.留出法</p>
 <p>​    单次使用留出法得到的估计结果往往不够稳定可靠，在使用留出法时，一般采用若干随机划分，重复进行试验评估后取平均值作为留出法的评估结果。</p>
-<p>2.</p>
+<p>2.k折交叉验证</p>
+<p>​    将数据集划分为k个大小相同的互斥子集，每个子集都尽可能奥驰数据分布的一一致性。选用k-1个子集作为训练集，余下的子集作为测试集。总共可进行K次测试，最终返回k此测试的平均值。k长取10.</p>
+<p>3.自助法</p>
+<p>适用于数据集较小的情形。原数据的总体并不大，每次抽样能反应总体的特性，并且多次抽样后能覆盖原总体，且抽样组成的新总体比原总体大。抽样方式采用有放回重抽样。自助法的核心点也是有放回的重复抽样。</p>
 
       
     </div>
@@ -544,7 +547,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
