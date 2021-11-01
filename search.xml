@@ -149,6 +149,334 @@
       </tags>
   </entry>
   <entry>
+    <title>DSA 基础知识 01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_01/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数据结构和算法的重要性毋庸置疑，一方面刷题，一方面学习一下。</p>
+<p>复杂度和递归的介绍<span id="more"></span></p>
+<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><h3 id="时间复杂度："><a href="#时间复杂度：" class="headerlink" title="时间复杂度："></a>时间复杂度：</h3><h4 id="原则："><a href="#原则：" class="headerlink" title="原则："></a>原则：</h4><ol>
+<li><p>  只关注循环次数最多的一段代码。</p>
+</li>
+<li><p>  加法原则：总复杂度等于量级最大的那段代码的时间复杂度。</p>
+</li>
+<li><p>  乘法原则：嵌套代码的复杂度等于嵌套内外代码复杂度的乘积。</p>
+</li>
+</ol>
+<h4 id="常见的复杂度量级："><a href="#常见的复杂度量级：" class="headerlink" title="常见的复杂度量级："></a>常见的复杂度量级：</h4><p>O(1): 常数时间复杂度算法</p>
+<p>​        只要代码的执行时间不随 n 的增大而增长，这样代码的时间复杂度我们都记作 O(1)。或者说，<strong>一般情况下，只要算法中不存在循环语句、递归语句，即使有成千上万行的代码，其时间复杂度也是Ο(1)。</strong></p>
+<p>O(logn): 对数时间复杂度</p>
+<p>​        高效算法。</p>
+<p>O(n): 多项式时间复杂度算法.</p>
+<p>​        某问题若存在一个复杂度在此范围以内的算法，则称该问题是可有效求解的或易解的（tractable）</p>
+<p>O(x**n): 指数复杂度</p>
+<p>​        无法接受的算法。</p>
+<p>时间复杂度为非多项式量级的算法问题叫作 NP（Non-Deterministic Polynomial，非确定多项式）问题。包括指数阶和阶乘阶。</p>
+<h4 id="最好、最坏、平均情况时间复杂度："><a href="#最好、最坏、平均情况时间复杂度：" class="headerlink" title="最好、最坏、平均情况时间复杂度："></a>最好、最坏、平均情况时间复杂度：</h4><p><strong>最好情况时间复杂度：</strong> 在最理想的情况下，执行这段代码的时间复杂度。</p>
+<p><strong>最坏情况时间复杂度：</strong> 在最糟糕的情况下，执行这段代码的时间复杂度。</p>
+<p><strong>平均情况时间复杂度：</strong> 最好情况时间复杂度和最坏情况时间复杂度对应的都是极端情况下的代码复杂度，发生的概率其实并不大。为了更好地表示平均情况下的复杂度，引入平均情况时间复杂度。平均时间复杂度的全称应该叫<strong>加权平均时间复杂度</strong>或者<strong>期望时间复杂度</strong>。</p>
+<p><strong>均摊时间复杂度:</strong> 通过摊还分析法得到的时间复杂度。对一个数据结构进行一组连续操作中，大部分情况下时间复杂度都很低，只有个别情况下时间复杂度比较高，而且这些操作之间存在前后连贯的时序关系，这个时候，我们就可以将这一组操作放在一块儿分析，看是否能将较高时间复杂度那次操作的耗时，平摊到其他那些时间复杂度比较低的操作上。而且，在能够应用均摊时间复杂度分析的场合，一般均摊时间复杂度就等于最好情况时间复杂度。</p>
+<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>递归则是函数和过程调用的一种特殊形式，即允许函数和过程进行自我调用。</p>
+<p>递归的价值在于，许多应用问题都可简洁而准确地描述为递归形式。</p>
+<h3 id="递归需要满足的三个条件"><a href="#递归需要满足的三个条件" class="headerlink" title="递归需要满足的三个条件"></a>递归需要满足的三个条件</h3><ol>
+<li><p>一个问题的解可以分解为几个子问题的解</p>
+</li>
+<li><p>  这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样</p>
+</li>
+<li><p>  存在递归终止条件</p>
+</li>
+</ol>
+<h4 id="求解方法："><a href="#求解方法：" class="headerlink" title="求解方法："></a>求解方法：</h4><p>​        <strong>写递归代码的关键就是找到如何将大问题分解为小问题的规律，并且基于此写出递推公式，然后再推敲终止条件，最后将递推公式和终止条件翻译成代码</strong></p>
+<h4 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h4><ol>
+<li>  堆栈溢出。</li>
+<li>  重复计算。</li>
+</ol>
+<h3 id="递归的基本模式"><a href="#递归的基本模式" class="headerlink" title="递归的基本模式"></a>递归的基本模式</h3><h4 id="线性递归"><a href="#线性递归" class="headerlink" title="线性递归"></a>线性递归</h4><p>举例：数组元素求和</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组求和：数组的前A[0,n-1)个数的和与末元素A[n-1]之和。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">arraySum</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span>&gt;n)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in"><span class="keyword">return</span></span> (<span class="built_in">arraySum</span>(A, n<span class="number">-1</span>) + A[n<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//时间复杂度：O(1)*递归深度 = O(1) * (n+1) = O(n)</span></span><br><span class="line"><span class="comment">//空间复杂度：O(n)</span></span><br></pre></td></tr></table></figure>
+
+<p>​        算法可能朝着更深一层进行自我调用，且每一递归实例对自身的调用至多一次。于是，每一层次上至多只有一个实例，且它们构成一个线性的次序关系。此类递归模式因而称作“线性递归”（linear recursion），它也是递归的最基本形式。</p>
+<p>​    线性递归往往对应于<em><strong>减而治之</strong></em>的算法策略：递归每深入一层，待求解问题的规模都缩减一个常数，直至最终蜕化为平凡的小（简单）问题。</p>
+<h3 id="递归分析"><a href="#递归分析" class="headerlink" title="递归分析"></a>递归分析</h3><p>1.递归跟踪：作为一种直观且可视的方法，递归跟踪（recursion trace）可用以分析递归算法的总体运行时间与空间。</p>
+<p>2.递推方程：通过对递归模式的数学归纳，导出复杂度定界函数的递推方程（组）及其边界条件，从而将复杂度的分析，转化为递归方程（组）的求解。</p>
+<h3 id="递归模式"><a href="#递归模式" class="headerlink" title="递归模式"></a>递归模式</h3><p>1.多递归基：为保证有穷性，递归算法都必须设置递归基，且确保总能执行到。</p>
+<p>举例：数组倒置</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>* A, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lo &lt; hi)&#123;</span><br><span class="line">		<span class="built_in">swap</span>(A[lo], A[hi]);</span><br><span class="line">		<span class="built_in">reverse</span>(A, lo+<span class="number">1</span>, hi<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">//O(hi + lo -1)</span></span><br></pre></td></tr></table></figure>
+
+<p>2.多向递归：递归算法中，不仅递归基可能有多个，递归调用也可能有多种可供选择的分支。</p>
+<p>举例：求2**n</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline __int64 sqr ( __int64 a ) &#123; return a * a; &#125;</span><br><span class="line">__int64 power2 ( int n ) &#123; //幂函数2^n算法（优化逑弻版），n &gt;= 0</span><br><span class="line"> 	if ( 0 == n ) return 1; //逑弻基；否则，规n癿奇偶分删逑弻</span><br><span class="line">    return ( n &amp; 1 ) ? sqr ( power2 ( n &gt;&gt; 1 ) ) &lt;&lt; 1 : sqr ( power2 ( n &gt;&gt; 1 ) );</span><br><span class="line">&#125; //O(logn) = O(r)，r为输入指数n癿比特位数</span><br></pre></td></tr></table></figure>
+
+<h3 id="递归消除"><a href="#递归消除" class="headerlink" title="递归消除"></a>递归消除</h3><p>空间成本:递归算法所消耗的空间量主要取决于递归深度，故较之同一算法的迭代版，递归版往往需耗费更多空间，并进而影响实际的运行速度。</p>
+<p>举例：尾递归消除</p>
+<p>在线性递归算法中，若递归调用在递归实例中恰好以最后一步操作的形式出现，则称作尾递<br>归（tail recursion）。属于尾递归形式的算法，均可以简捷地转换为等效的迭代版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#数组倒置</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">next:</span><br><span class="line">	if(lo &lt; hi)&#123;</span><br><span class="line">		swap(A[lo], A[hi]);</span><br><span class="line">		lo++;</span><br><span class="line">		hi--;</span><br><span class="line">		goto next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo + 1)</span><br><span class="line"></span><br><span class="line">#用while 代替 next if</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">	while( lo &lt; hi )&#123;</span><br><span class="line">		swap(A[lo++], A[hi--]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二分递归"><a href="#二分递归" class="headerlink" title="二分递归"></a>二分递归</h3><p>分而治之：将大问题分解为若干规模更小的子问题，再通过递归机制分别求解。这种分解持续进行，直到子问题规模缩减至平凡情况。这也就是所谓的分而治之（divide-and-conquer）策略。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arraySum(int A[], int lo, int hi)&#123;</span><br><span class="line">	if( lo == hi)&#123;</span><br><span class="line">		return A[lo];</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int mi = (lo + hi) &gt;&gt; 1;</span><br><span class="line">		return sum(A, lo, mi) + sum(A, mi+1, hi);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo +1)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DSA 基础知识 02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_02/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数组和链表都是线性表，存储方式和操作方式的区别已经理解的比较清楚。</p>
+<p>栈和队列同样也是线性表，主要的区别还是在于队列是先进先出，而栈是先进后出，所以适用于不同的场景。</p>
+<span id="more"></span>
+
+<h2 id="如何轻松写出正确的链表代码"><a href="#如何轻松写出正确的链表代码" class="headerlink" title="如何轻松写出正确的链表代码"></a>如何轻松写出正确的链表代码</h2><ol>
+<li><p>理解指针或引用的含义</p>
+<p>  将某个变量赋值给指针，实际上就是将这个变量的地址赋值给指针，或者反过来说，指针中存储了这个变量的内存地址，指向了这个变量，通过指针就能找到这个变量。</p>
+</li>
+<li><p>   警惕指针丢失和内存泄漏</p>
+</li>
+</ol>
+<pre><code> 插入结点时，一定要注意操作的顺序，删除链表结点时，也一定要记得手动释放内存空间。
+</code></pre>
+<ol start="3">
+<li><p>利用哨兵简化实现难度</p>
+<p>  针对链表的插入、删除操作，需要对插入第一个结点和删除最后一个结点的情况进行特殊处理。</p>
+</li>
+<li><p>  重点留意边界条件处理</p>
+</li>
+</ol>
+<ul>
+<li>  如果链表为空时，代码是否能正常工作？</li>
+<li>  如果链表只包含一个结点时，代码是否能正常工作？</li>
+<li>  如果链表只包含两个结点时，代码是否能正常工作？</li>
+<li>  代码逻辑在处理头结点和尾结点的时候，是否能正常工作？</li>
+</ul>
+<ol start="5">
+<li><p>举例画图，辅助思考</p>
+<p>  通过举例和画图来帮助理解。</p>
+</li>
+<li><p>  多写多练，没有捷径</p>
+</li>
+</ol>
+<h2 id="栈-和-队列"><a href="#栈-和-队列" class="headerlink" title="栈 和 队列"></a>栈 和 队列</h2><p>​        特定的数据结构是对特定场景的抽象，数组或链表暴露了太多的操作接口，操作上的确灵活自由，但使用时就比较不可控，自然也就更容易出错。</p>
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>​        栈既可以用数组来实现，也可以用链表来实现。用数组实现的栈，我们叫作<strong>顺序栈</strong>，用链表实现的栈，我们叫作<strong>链式栈</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//基于数组实现的顺序栈</span><br><span class="line">public class ArrayStack&#123;</span><br><span class="line">	private String[] items; //数组</span><br><span class="line">	private int count; //栈中元素个数</span><br><span class="line">	private int n; //栈的大小</span><br><span class="line">	</span><br><span class="line">	//初始化数组，申请一个大小为n的空间</span><br><span class="line">	public ArrayStack(int n)&#123;</span><br><span class="line">		this.items = new Stirng[n];</span><br><span class="line">		this.n = n;</span><br><span class="line">		this.count = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//入栈操作</span><br><span class="line">	public boolean push(String item)&#123;</span><br><span class="line">		//数组空间不够了，直接返回 false， 入栈失败。</span><br><span class="line">		if(count == n)</span><br><span class="line">			return false;</span><br><span class="line">		//将item入栈，count++</span><br><span class="line">		items[count] = item;</span><br><span class="line">		++count;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//出栈操作</span><br><span class="line">	public String pop()&#123;</span><br><span class="line">		//栈为空， 则直接返回 null</span><br><span class="line">		if(count == 0)</span><br><span class="line">			return null;</span><br><span class="line">		//返回下标为count-1的元素， 并且栈中元素个数count-1</span><br><span class="line">		String tmp = items[count-1];</span><br><span class="line">		--count;</span><br><span class="line">		</span><br><span class="line">		return tmp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 用数组实现的队列</span><br><span class="line">public class ArrayQueue &#123;</span><br><span class="line">  // 数组：items，数组大小：n</span><br><span class="line">  private String[] items;</span><br><span class="line">  private int n = 0;</span><br><span class="line">  // head 表示队头下标，tail 表示队尾下标</span><br><span class="line">  private int head = 0;</span><br><span class="line">  private int tail = 0;</span><br><span class="line"> </span><br><span class="line">  // 申请一个大小为 capacity 的数组</span><br><span class="line">  public ArrayQueue(int capacity) &#123;</span><br><span class="line">    items = new String[capacity];</span><br><span class="line">    n = capacity;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 入队</span><br><span class="line">  public boolean enqueue(String item) &#123;</span><br><span class="line">    // 如果 tail == n 表示队列已经满了</span><br><span class="line">    if (tail == n) return false;</span><br><span class="line">    items[tail] = item;</span><br><span class="line">    ++tail;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 出队</span><br><span class="line">  public String dequeue() &#123;</span><br><span class="line">    // 如果 head == tail 表示队列为空</span><br><span class="line">    if (head == tail) return null;</span><br><span class="line">    // 为了让其他语言的同学看的更加明确，把 -- 操作放到单独一行来写了</span><br><span class="line">    String ret = items[head];</span><br><span class="line">    ++head;</span><br><span class="line">    return ret;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用数组来实现队列的时候，在 tail==n 时，会有数据搬移操作，这样入队操作性能就会受到影响。可以考虑使用<strong>循环队列</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//循环队列</span><br><span class="line">public class CircularQueue &#123;</span><br><span class="line">  // 数组：items，数组大小：n</span><br><span class="line">  private String[] items;</span><br><span class="line">  private int n = 0;</span><br><span class="line">  // head 表示队头下标，tail 表示队尾下标</span><br><span class="line">  private int head = 0;</span><br><span class="line">  private int tail = 0;</span><br><span class="line"> </span><br><span class="line">  // 申请一个大小为 capacity 的数组</span><br><span class="line">  public CircularQueue(int capacity) &#123;</span><br><span class="line">    items = new String[capacity];</span><br><span class="line">    n = capacity;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 入队</span><br><span class="line">  public boolean enqueue(String item) &#123;</span><br><span class="line">    // 队列满了</span><br><span class="line">    if ((tail + 1) % n == head) return false;</span><br><span class="line">    items[tail] = item;</span><br><span class="line">    tail = (tail + 1) % n;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 出队</span><br><span class="line">  public String dequeue() &#123;</span><br><span class="line">    // 如果 head == tail 表示队列为空</span><br><span class="line">    if (head == tail) return null;</span><br><span class="line">    String ret = items[head];</span><br><span class="line">    head = (head + 1) % n;</span><br><span class="line">    return ret;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>阻塞队列：</strong>阻塞队列其实就是在队列基础上增加了阻塞操作。简单来说，就是在队列为空的时候，从队头取数据会被阻塞。因为此时还没有数据可取，直到队列中有了数据才能返回；如果队列已经满了，那么插入数据的操作就会被阻塞，直到队列中有空闲位置后再插入数据，然后再返回。</p>
+<p><strong>并发队列：</strong>线程安全的队列我们叫作并发队列。最简单直接的实现方式是直接在 enqueue()、dequeue() 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DSA 基础知识 03</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_03/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>逃不掉的经典排序算法。<span id="more"></span></p>
+<h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><h3 id="排序算法的执行效率"><a href="#排序算法的执行效率" class="headerlink" title="排序算法的执行效率"></a>排序算法的执行效率</h3><ol>
+<li>  最好情况、最坏情况、平均情况时间复杂度</li>
+<li>  时间复杂度的系数、常数 、低阶</li>
+<li>  比较次数和交换（或移动）次数</li>
+</ol>
+<h3 id="排序算法的内存消耗"><a href="#排序算法的内存消耗" class="headerlink" title="排序算法的内存消耗"></a>排序算法的内存消耗</h3><p>算法的内存消耗可以通过空间复杂度来衡量，排序算法也不例外。不过，针对排序算法的空间复杂度，还引入了一个新的概念，<strong>原地排序</strong>（Sorted in place）。原地排序算法，就是特指空间复杂度是 O(1) 的排序算法。</p>
+<h3 id="排序算法的稳定性"><a href="#排序算法的稳定性" class="headerlink" title="排序算法的稳定性"></a>排序算法的稳定性</h3><p>稳定性是指，如果待排序的序列中存在值相等的元素，经过排序之后，相等元素之间原有的先后顺序不变。</p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>相邻的两个元素进行比较，不满足大小关系则互换位置，重复 n 次，就完成了 n 个数据的排序工作。</p>
+<p>通过优化，如果某次遍历已经有序，则终止排序，减少遍历次数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 冒泡排序，a 表示数组，n 表示数组大小</span><br><span class="line">public void bubbleSort(int[] a, int n) &#123;</span><br><span class="line">  if (n &lt;= 1) return;</span><br><span class="line"> </span><br><span class="line"> for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">    // 提前退出冒泡循环的标志位</span><br><span class="line">    boolean flag = false;</span><br><span class="line">    for (int j = 0; j &lt; n - i - 1; ++j) &#123;</span><br><span class="line">      if (a[j] &gt; a[j+1]) &#123; // 交换</span><br><span class="line">        int tmp = a[j];</span><br><span class="line">        a[j] = a[j+1];</span><br><span class="line">        a[j+1] = tmp;</span><br><span class="line">        flag = true;  // 表示有数据交换      </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (!flag) break;  // 没有数据交换，提前退出</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="是原地排序算法吗？"><a href="#是原地排序算法吗？" class="headerlink" title="是原地排序算法吗？"></a>是原地排序算法吗？</h4><p>冒泡的过程只涉及相邻数据的交换操作，只需要常量级的临时空间，所以它的空间复杂度为 O(1)，是一个原地排序算法。</p>
+<h4 id="是稳定的排序算法吗？"><a href="#是稳定的排序算法吗？" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h4><p>相同大小的数据在排序前后不会改变顺序，所以冒泡排序是稳定的排序算法。</p>
+<h4 id="时间复杂度是多少？"><a href="#时间复杂度是多少？" class="headerlink" title="时间复杂度是多少？"></a>时间复杂度是多少？</h4><p>最好的时间复杂度是有序情况下为O(n)，仅遍历一次即可。</p>
+<p>最坏的时间复杂度是倒序情况下为O(n²)，需要遍历n次。</p>
+<p>平均情况复杂度:</p>
+<p>这里提出<strong>有序度</strong>的概念，有序度是数组中具有有序关系的元素对的个数。有序元素对用数学表达式表示就是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">有序元素对：a[i] &lt;= a[j], 如果 i &lt; j。</span><br></pre></td></tr></table></figure>
+
+<p>冒泡排序包含两个操作原子，比较和交换。每交换一次，有序度就加 1。不管算法怎么改进，交换次数总是确定的，即为<strong>逆序度</strong>，也就是<strong>n(n-1)/2 – 初始有序度</strong>。</p>
+<p>平均情况下，需要 n*(n-1)/4 次交换操作，比较操作肯定要比交换操作多，而复杂度的上限是 O(n²)，所以平均情况下的时间复杂度就是 **O(n²)**。</p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>将数组中的数据分为两个区间，<strong>已排序区间</strong>和<strong>未排序区间</strong>。初始已排序区间只有一个元素，就是数组的第一个元素。插入算法的核心思想是取未排序区间中的元素，在已排序区间中找到合适的插入位置将其插入，并保证已排序区间数据一直有序。重复这个过程，直到未排序区间中元素为空，算法结束。</p>
+<p>插入排序也包含两种操作，一种是<strong>元素的比较</strong>，一种是<strong>元素的移动</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 插入排序，a 表示数组，n 表示数组大小</span><br><span class="line">public void insertionSort(int[] a, int n) &#123;</span><br><span class="line">  if (n &lt;= 1) return;</span><br><span class="line"> </span><br><span class="line">  for (int i = 1; i &lt; n; ++i) &#123;</span><br><span class="line">    int value = a[i];</span><br><span class="line">    int j = i - 1;</span><br><span class="line">    // 查找插入的位置</span><br><span class="line">    for (; j &gt;= 0; --j) &#123;</span><br><span class="line">      if (a[j] &gt; value) &#123;</span><br><span class="line">        a[j+1] = a[j];  // 数据移动</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        break;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    a[j+1] = value; // 插入数据</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="是原地排序算法吗？-1"><a href="#是原地排序算法吗？-1" class="headerlink" title="是原地排序算法吗？"></a>是原地排序算法吗？</h4><p>插入排序算法的运行并不需要额外的存储空间，所以空间复杂度是 O(1)，也就是说，这是一个原地排序算法。</p>
+<h4 id="是稳定的排序算法吗？-1"><a href="#是稳定的排序算法吗？-1" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h4><p>在插入排序中，对于值相同的元素，我们可以选择将后面出现的元素，插入到前面出现元素的后面，这样就可以保持原有的前后顺序不变，所以插入排序是稳定的排序算法。</p>
+<h4 id="时间复杂度是多少？-1"><a href="#时间复杂度是多少？-1" class="headerlink" title="时间复杂度是多少？"></a>时间复杂度是多少？</h4><p>最好的时间复杂度是有序情况下为O(n)，仅<strong>从尾到头</strong>遍历一次即可。</p>
+<p>最坏的时间复杂度是倒序情况下为O(n²)，需要遍历n次。</p>
+<p>平均情况复杂度:</p>
+<p>在数组中插入一个数据的平均时间复杂度是 O(n)，所以，对于插入排序来说，每次插入操作都相当于在数组中插入一个数据，循环执行 n 次插入操作，所以平均时间复杂度为  **O(n²)**。</p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>选择排序算法的实现思路有点类似插入排序，也分已排序区间和未排序区间。但是选择排序每次会从未排序区间中找到最小的元素，将其放到已排序区间的末尾。</p>
+<h4 id="是原地排序算法吗？-2"><a href="#是原地排序算法吗？-2" class="headerlink" title="是原地排序算法吗？"></a>是原地排序算法吗？</h4><p>选择排序算法的运行并不需要额外的存储空间，所以空间复杂度是 O(1)，也就是说，这是一个原地排序算法。</p>
+<h4 id="是稳定的排序算法吗？-2"><a href="#是稳定的排序算法吗？-2" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h4><p>选择排序是一种<strong>不稳定</strong>的排序算法。比如 5，8，5，2，9 这样一组数据，使用选择排序算法来排序的话，第一次找到最小元素 2，与第一个 5 交换位置，那第一个 5 和中间的 5 顺序就变了，所以就不稳定了。</p>
+<h4 id="时间复杂度是多少？-2"><a href="#时间复杂度是多少？-2" class="headerlink" title="时间复杂度是多少？"></a>时间复杂度是多少？</h4><p>最好的时间复杂度是有序情况下为O(n²)，需要遍历n次。</p>
+<p>最坏的时间复杂度是倒序情况下为O(n²)，需要遍历n次。</p>
+<p>平均情况复杂度:选择排序的最好和最坏的时间复杂度相同，所以平均时间复杂度就为  **O(n²)**。</p>
+<h3 id="算法比较"><a href="#算法比较" class="headerlink" title="算法比较"></a>算法比较</h3><p>冒泡排序不管怎么优化，元素交换的次数是一个固定值，是原始数据的逆序度。插入排序是同样的，不管怎么优化，元素移动的次数也等于原始数据的逆序度。但是，从代码实现上来看，冒泡排序的数据交换要比插入排序的数据移动要复杂，冒泡排序需要 3 个赋值操作，而插入排序只需要 1 个。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">冒泡排序中数据的交换操作：</span><br><span class="line">if (a[j] &gt; a[j+1]) &#123; // 交换</span><br><span class="line">   int tmp = a[j];</span><br><span class="line">   a[j] = a[j+1];</span><br><span class="line">   a[j+1] = tmp;</span><br><span class="line">   flag = true;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">插入排序中数据的移动操作：</span><br><span class="line">if (a[j] &gt; value) &#123;</span><br><span class="line">  a[j+1] = a[j];  // 数据移动</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>插入排序的算法思路也有很大的优化空间，进一步优化的算法比如<strong>希尔排序</strong>。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DSA 基础知识 04</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_04/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>归并排序 + 快速排序。<span id="more"></span></p>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>如果要排序一个数组，先把数组从中间分成前后两部分，然后对前后两部分分别排序，再将排好序的两部分合并在一起，这样整个数组就都有序了。</p>
+<p>归并排序使用的就是<strong>分治思想</strong>。分治，顾名思义，就是分而治之，将一个大问题分解成小的子问题来解决。小的子问题解决了，大问题也就解决了。<strong>分治是一种解决问题的处理思想，递归是一种编程技巧。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//递推公式</span><br><span class="line">merge_sort(p...r) = merge(merge_sort(p...q), merge_sort(q+1...r))</span><br><span class="line">q = p + (r-p) / 2</span><br><span class="line">//终止条件</span><br><span class="line">p &gt;= r</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//伪代码:A是数组， n表示数组大小</span><br><span class="line">merge_sort(A, n)&#123;</span><br><span class="line">	merge_sort_c(A, 0, n-1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//merge_sort_c(A, p, r)&#123;</span><br><span class="line">	//递归终止条件</span><br><span class="line">	if p &gt;= r</span><br><span class="line">		return ;</span><br><span class="line">	//取中间位置q</span><br><span class="line">	q = p + (r - p) / 2</span><br><span class="line">	//分治递归</span><br><span class="line">	merge_sort_c(A, p, q);</span><br><span class="line">	merge_sort_c(A, q+1， r);</span><br><span class="line">	//将A[p...q] 和 A[q+1...r] 合并为 A[p...r]</span><br><span class="line">	merge(A[p...r], A[p...q], A[q+1...r]);</span><br><span class="line">&#125;</span><br><span class="line">//</span><br><span class="line">merge(A[p...r], A[p...q], A[q+1...r]) &#123;</span><br><span class="line">  var i := p，j := q+1，k := 0 // 初始化变量 i, j, k</span><br><span class="line">  var tmp := new array[0...r-p] // 申请一个大小跟 A[p...r] 一样的临时数组</span><br><span class="line">  while i&lt;=q AND j&lt;=r do &#123;</span><br><span class="line">    if A[i] &lt;= A[j] &#123;</span><br><span class="line">      tmp[k++] = A[i++] // i++ 等于 i:=i+1</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      tmp[k++] = A[j++]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  // 判断哪个子数组中有剩余的数据</span><br><span class="line">  var start := i，end := q</span><br><span class="line">  if j&lt;=r then start := j, end:=r</span><br><span class="line">  </span><br><span class="line">  // 将剩余的数据拷贝到临时数组 tmp</span><br><span class="line">  while start &lt;= end do &#123;</span><br><span class="line">    tmp[k++] = A[start++]</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  // 将 tmp 中的数组拷贝回 A[p...r]</span><br><span class="line">  for i:=0 to r-p do &#123;</span><br><span class="line">    A[p+i] = tmp[i]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="是稳定的排序算法吗？"><a href="#是稳定的排序算法吗？" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h3><p>归并排序稳不稳定关键要看 merge() 函数，也就是两个有序子数组合并成一个有序数组的那部分代码。在合并的过程中，如果 A[p…q] 和 A[q+1…r] 之间有值相同的元素，可以先把 A[p…q] 中的元素放入 tmp 数组。这样就保证了值相同的元素，在合并前后的先后顺序不变。所以，归并排序是一个稳定的排序算法。</p>
+<h3 id="时间复杂度计算"><a href="#时间复杂度计算" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h3><p>如果我们定义求解问题 a 的时间是 T(a)，求解问题 b、c 的时间分别是 T(b) 和 T( c)，那我们就可以得到这样的递推关系式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">T(a) = T(b) + T(c) + K</span><br></pre></td></tr></table></figure>
+
+<p>其中 K 等于将两个子问题 b、c 的结果合并成问题 a 的结果所消耗的时间。<strong>不仅递归求解的问题可以写成递推公式，递归代码的时间复杂度也可以写成递推公式。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">T(1) = C；   n=1 时，只需要常量级的执行时间，所以表示为 C。</span><br><span class="line">T(n) = 2*T(n/2) + n； n&gt;1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">T(n) = 2*T(n/2) + n</span><br><span class="line">     = 2*(2*T(n/4) + n/2) + n = 4*T(n/4) + 2*n</span><br><span class="line">     = 4*(2*T(n/8) + n/4) + 2*n = 8*T(n/8) + 3*n</span><br><span class="line">     = 8*(2*T(n/16) + n/8) + 3*n = 16*T(n/16) + 4*n</span><br><span class="line">     ......</span><br><span class="line">     = 2^k * T(n/2^k) + k * n</span><br><span class="line">     ......</span><br><span class="line">     </span><br><span class="line">当 n/2^k = 1时，k=logn。代入</span><br><span class="line">T(n) = Cn+nlog2n </span><br></pre></td></tr></table></figure>
+
+<p>归并排序的时间复杂度任何情况下都是  O(nlogn)。</p>
+<h3 id="空间复杂度计算"><a href="#空间复杂度计算" class="headerlink" title="空间复杂度计算"></a>空间复杂度计算</h3><p><strong>归并排序不是原地排序算法。</strong>归并排序的合并函数，在合并两个有序数组为一个有序数组时，需要借助额外的存储空间。</p>
+<p><strong>递归代码的空间复杂度并不能像时间复杂度那样累加。</strong>尽管每次合并操作都需要申请额外的内存空间，但在合并完成之后，临时开辟的内存空间就被释放掉了。在任意时刻，CPU 只会有一个函数在执行，也就只会有一个临时的内存空间在使用。临时内存空间最大也不会超过 n 个数据的大小，所以空间复杂度是 O(n)。</p>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>快排利用的也是<strong>分治思想</strong>。如果要排序数组中下标从 p 到 r 之间的一组数据，我们选择 p 到 r 之间的任意一个数据作为 pivot（分区点）。</p>
+<p>遍历 p 到 r 之间的数据，将小于 pivot 的放到左边，将大于 pivot 的放到右边，将 pivot 放到中间。经过这一步骤之后，数组 p 到 r 之间的数据就被分成了三个部分，前面 p 到 q-1 之间都是小于 pivot 的，中间是 pivot，后面的 q+1 到 r 之间是大于 pivot 的用递归排序下标从 p 到 q-1 之间的数据和下标从 q+1 到 r 之间的数据，直到区间缩小为 1，就说明所有的数据都有序了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">递推公式：</span><br><span class="line">quick_sort(p…r) = quick_sort(p…q-1) + quick_sort(q+1, r)</span><br><span class="line"> </span><br><span class="line">终止条件：</span><br><span class="line">p &gt;= r</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 快速排序，A 是数组，n 表示数组的大小</span><br><span class="line">quick_sort(A, n) &#123;</span><br><span class="line">  quick_sort_c(A, 0, n-1)</span><br><span class="line">&#125;</span><br><span class="line">// 快速排序递归函数，p,r 为下标</span><br><span class="line">quick_sort_c(A, p, r) &#123;</span><br><span class="line">  if p &gt;= r then return</span><br><span class="line">  </span><br><span class="line">  q = partition(A, p, r) // 获取分区点</span><br><span class="line">  quick_sort_c(A, p, q-1)</span><br><span class="line">  quick_sort_c(A, q+1, r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">partition(A, p, r) &#123;</span><br><span class="line">  pivot := A[r]</span><br><span class="line">  i := p</span><br><span class="line">  for j := p to r-1 do &#123;</span><br><span class="line">    if A[j] &lt; pivot &#123;</span><br><span class="line">      swap A[i] with A[j]</span><br><span class="line">      i := i+1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  swap A[i] with A[r]</span><br><span class="line">  return i</span><br></pre></td></tr></table></figure>
+
+<h3 id="是稳定的排序算法吗？-1"><a href="#是稳定的排序算法吗？-1" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h3><p>因为分区的过程涉及交换操作，如果数组中有两个相同的元素，比如序列 6，8，7，6，3，5，9，4，在经过第一次分区操作之后，两个 6 的相对先后顺序就会改变。所以，快速排序<strong>并不是一个稳定的排序算法</strong>。</p>
+<h3 id="是原地算法嘛？"><a href="#是原地算法嘛？" class="headerlink" title="是原地算法嘛？"></a>是原地算法嘛？</h3><p>快速排序是原地算法，并不涉及申请额外的空间，所以空间复杂度为O(1)。</p>
+<h3 id="时间复杂度计算-1"><a href="#时间复杂度计算-1" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h3><p>快排也是用递归来实现的。如果每次分区操作，都能<strong>正好把数组分成大小接近相等的两个小区间</strong>，那快排的时间复杂度递推求解公式跟归并是相同的，既 O(nlogn)。但实际上正好能将大区间对等地一分为二的这种情况是很难实现的。所以快速排序的<strong>最好时间复杂度才是 O(nlogn)。</strong></p>
+<p>比较极端的情况下，如果数组中的数据原来已经是有序的了，比如 1，3，5，6，8。如果我们每次选择最后一个元素作为 pivot，那每次分区得到的两个区间都是不均等的。我们需要进行大约 n 次分区操作，才能完成快排的整个过程。每次分区我们平均要扫描大约 n/2 个元素，这种情况下，快排的时间复杂度就从 O(nlogn) 退化成了 <strong>O(n²)<strong>，也就是</strong>最坏的时间复杂度</strong>。</p>
+<p><strong>结论：T(n) 在大部分情况下的时间复杂度都可以做到 O(nlogn)，只有在极端情况下，才会退化到O(n²)。</strong></p>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>归并排序的处理过程是<strong>由下到上</strong>的，先处理子问题，然后再合并。而快排正好相反，它的处理过程是<strong>由上到下</strong>的，先分区，然后再处理子问题。归并排序虽然是<strong>稳定的</strong>、时间复杂度为 O(nlogn) 的排序算法，但是它是非原地排序算法。归并之所以是非原地排序算法，主要原因是合并函数无法在原地执行。快速排序通过设计巧妙的原地分区函数，可以实现原地排序，解决了归并排序占用太多内存的问题，但是快速排序<strong>并不是一个稳定的排序算法</strong>。</p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>O(n²)时间复杂度出现的主要原因还是因为分区点选的不够合理。</p>
+<p>最理想的分区点是：<strong>被分区点分开的两个分区中，数据的数量差不多</strong>。</p>
+<h3 id="1-三数取中法"><a href="#1-三数取中法" class="headerlink" title="1. 三数取中法"></a>1. 三数取中法</h3><p>从区间的首、尾、中间，分别取出一个数，然后对比大小，取这 3 个数的中间值作为分区点。这样每间隔某个固定的长度，取数据出来比较，将中间值作为分区点的分区算法，肯定要比单纯取某一个数据更好。但是，如果要排序的数组比较大，那“三数取中”可能就不够了，可能要“五数取中”或者“十数取中”。</p>
+<h3 id="2-随机法"><a href="#2-随机法" class="headerlink" title="2. 随机法"></a>2. 随机法</h3><p>随机法就是每次从要排序的区间中，随机选择一个元素作为分区点。这种方法并不能保证每次分区点都选的比较好，但是从概率的角度来看，也不大可能会出现每次分区点都选的很差的情况，所以平均情况下，这样选的分区点是比较好的。时间复杂度退化为最糟糕的 O(n²)的情况，出现的可能性不大。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DSA 基础知识 05</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_05/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>线性排序：桶排序、计数排序、基数排序。<span id="more"></span></p>
+<h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><p>核心思想是将要排序的数据分到几个有序的桶里，每个桶里的数据再单独进行归并排序，保证稳定性。桶内排完序之后，再把每个桶里的数据按照顺序依次取出，组成的序列就是有序的了。</p>
+<h3 id="时间复杂度分析"><a href="#时间复杂度分析" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h3><p>如果要排序的数据有 n 个，我们把它们均匀地划分到 m 个桶内，每个桶里就有 k=n/m 个元素。每个桶内部使用快速排序，时间复杂度为 O(k * logk)。m 个桶排序的时间复杂度就是 O(m * k * logk)，因为 k=n/m，所以整个桶排序的时间复杂度就是 O(n*log(n/m))。当桶的个数 m 接近数据个数 n 时，log(n/m) 就是一个非常小的常量，这个时候桶排序的时间复杂度接近 O(n)。</p>
+<h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>1.要排序的数据需要很容易就能划分成 m 个桶</p>
+<p>2.桶与桶之间有着天然的大小顺序。这样每个桶内的数据都排序完之后，桶与桶之间的数据不需要再进行排序。</p>
+<p>3.数据在各个桶之间的分布是比较均匀的。</p>
+<h3 id="适用条件"><a href="#适用条件" class="headerlink" title="适用条件"></a>适用条件</h3><p><strong>桶排序比较适合用在外部排序中</strong>。所谓的外部排序就是数据存储在外部磁盘中，数据量比较大，内存有限，无法将数据全部加载到内存中。</p>
+<h2 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h2><p><strong>计数排序其实是桶排序的一种特殊情况</strong>。当要排序的 n 个数据，所处的范围并不大的时候，比如最大值是 k，我们就可以把数据划分成 k 个桶。每个桶内的数据值都是相同的，省掉了桶内排序的时间。</p>
+<p>计数排序的算法思想跟桶排序非常类似，只是桶的大小粒度不一样。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 计数排序，a 是数组，n 是数组大小。假设数组中存储的都是非负整数。</span><br><span class="line">public void countingSort(int[] a, int n) &#123;</span><br><span class="line">  if (n &lt;= 1) return;</span><br><span class="line"> </span><br><span class="line">  // 查找数组中数据的范围</span><br><span class="line">  int max = a[0];</span><br><span class="line">  for (int i = 1; i &lt; n; ++i) &#123;</span><br><span class="line">    if (max &lt; a[i]) &#123;</span><br><span class="line">      max = a[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  int[] c = new int[max + 1]; // 申请一个计数数组 c，下标大小 [0,max]</span><br><span class="line">  for (int i = 0; i &lt;= max; ++i) &#123;</span><br><span class="line">    c[i] = 0;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 计算每个元素的个数，放入 c 中</span><br><span class="line">  for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">    c[a[i]]++;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 依次累加</span><br><span class="line">  for (int i = 1; i &lt;= max; ++i) &#123;</span><br><span class="line">    c[i] = c[i-1] + c[i];</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 临时数组 r，存储排序之后的结果</span><br><span class="line">  int[] r = new int[n];</span><br><span class="line">  // 计算排序的关键步骤，有点难理解</span><br><span class="line">  //倒序，保证稳定性。</span><br><span class="line">  for (int i = n - 1; i &gt;= 0; --i) &#123;</span><br><span class="line">    int index = c[a[i]]-1;</span><br><span class="line">    r[index] = a[i];</span><br><span class="line">    c[a[i]]--;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 将结果拷贝给 a 数组</span><br><span class="line">  for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">    a[i] = r[i];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>计数排序只能用在<strong>数据范围不大</strong>的场景中，如果数据范围 k 比要排序的数据 n 大很多，就不适合用计数排序了。而且，计数排序<strong>只能给非负整数排序</strong>，如果要排序的数据是其他类型的，要将其在不改变相对大小的情况下，<strong>转化为非负整数</strong>。</p>
+<h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><p>基数排序对要排序的数据是有要求的，需要可以<strong>分割出独立的“位”来比较</strong>，而且位之间<strong>有递进的关系</strong>，如果 a 数据的高位比 b 数据大，那剩下的低位就不用比较了。除此之外，每一位的数据范围不能太大，要可以用线性排序算法来排序，否则，基数排序的时间复杂度就无法做到 O(n) 了</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><img src = "/images/DSA/01.jpg">
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DSA 基础知识 06</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_06/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>逃不过的经典查找算法——二分查找。<span id="more"></span></p>
+<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p>二分查找针对的是一个有序的数据集合，查找思想有点类似分治思想。每次都通过跟区间的中间元素对比，将待查找的区间缩小为之前的一半，直到找到要查找的元素，或者区间被缩小为 0。</p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>二分查找是一种非常高效的查找算法，时间复杂度为O(logn)。</p>
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public int bsearch(int[] a, int n, int value) &#123;</span><br><span class="line">  int low = 0;</span><br><span class="line">  int high = n - 1;</span><br><span class="line"> </span><br><span class="line">  while (low &lt;= high) &#123;</span><br><span class="line">    int mid = low+((high-low)&gt;&gt;1);</span><br><span class="line">    if (a[mid] == value) &#123;</span><br><span class="line">      return mid;</span><br><span class="line">    &#125; else if (a[mid] &lt; value) &#123;</span><br><span class="line">      low = mid + 1;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      high = mid - 1;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 二分查找的递归实现</span><br><span class="line">public int bsearch(int[] a, int n, int val) &#123;</span><br><span class="line">  return bsearchInternally(a, 0, n - 1, val);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private int bsearchInternally(int[] a, int low, int high, int value) &#123;</span><br><span class="line">  if (low &gt; high) return -1;</span><br><span class="line"></span><br><span class="line">  int mid =  low + ((high - low) &gt;&gt; 1);</span><br><span class="line">  if (a[mid] == value) &#123;</span><br><span class="line">    return mid;</span><br><span class="line">  &#125; else if (a[mid] &lt; value) &#123;</span><br><span class="line">    return bsearchInternally(a, mid+1, high, value);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return bsearchInternally(a, low, mid-1, value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意点：<strong>终止条件、区间上下界更新方法、返回值选择</strong></p>
+<p>1.循环退出条件</p>
+<p>注意是 low&lt;=high，而不是 low&lt;high。</p>
+<p>2.mid 的取值</p>
+<p>实际上，mid=(low+high)/2 这种写法是有问题的。因为如果 low 和 high 比较大的话，两者之和就有可能会溢出。改进的方法是将 mid 的计算方式写成 low+(high-low)/2。更进一步，如果要将性能优化到极致的话，我们可以将这里的除以 2 操作转化成位运算 low+((high-low)&gt;&gt;1)。因为相比除法运算来说，计算机处理位运算要快得多。</p>
+<p>3.low 和 high 的更新</p>
+<p>low=mid+1，high=mid-1。注意这里的 +1 和 -1，如果直接写成 low=mid 或者 high=mid，就可能会发生死循环。比如，当 high=3，low=3 时，如果 a[3] 不等于 value，就会导致一直循环不退出。</p>
+<h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h3><p>1.二分查找依赖的是<strong>顺序表结构</strong>，简单点说就是<strong>数组</strong>。需要通过数组下标随机访问元素。</p>
+<p>2.二分查找针对的是<strong>有序数据</strong>。</p>
+<p>3.数据量太小不适合二分查找。</p>
+<p>4.数据量太大也不适合二分查找。太大的数据用数组存储就比较吃力了，也就不能用二分查找了。</p>
+<h3 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h3><p>前提：数据默认按<strong>从小到大</strong>排列的。</p>
+<p>1.查找第一个值等于给定值的元素。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int bsearch(int[] a, int n, int value)&#123;</span><br><span class="line">	int low = 0;</span><br><span class="line">	int high = n-1;</span><br><span class="line">	while(low &lt;= high)&#123;</span><br><span class="line">		int middle = low + ((high - low) &gt;&gt; 1);</span><br><span class="line">		if(a[midde] &gt; value)&#123;</span><br><span class="line">			high = middle - 1;</span><br><span class="line">		&#125;else if(a[middle] &lt; value)&#123;</span><br><span class="line">			low = mid + 1;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			//判断是否是第一个满足值。</span><br><span class="line">			if((middle == 0) || (a[middle - 1] != value))</span><br><span class="line">				return middle;</span><br><span class="line">			else</span><br><span class="line">				high = middle - 1;</span><br><span class="line">		&#125;		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.查找最后一个值等于给定值的元素</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int bsearch(int[] a, int n, int value)&#123;</span><br><span class="line">	int low = 0;</span><br><span class="line">	int high = n-1;</span><br><span class="line">	while(low &lt;= high)&#123;</span><br><span class="line">		int middle = low + ((high - low) &gt;&gt; 1);</span><br><span class="line">		if(a[midde] &gt; value)&#123;</span><br><span class="line">			high = middle - 1;</span><br><span class="line">		&#125;else if(a[middle] &lt; value)&#123;</span><br><span class="line">			low = mid + 1;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			//判断是否是最后一个满足值。</span><br><span class="line">			if((middle == n - 1) || (a[middle + 1] != value))</span><br><span class="line">				return middle;</span><br><span class="line">			else</span><br><span class="line">				low = middle + 1;</span><br><span class="line">		&#125;		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.查找第一个大于等于给定值的元素</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int bsearch(int[] a, int n, int value)&#123;</span><br><span class="line">	int low = 0;</span><br><span class="line">	int high = n - 1;</span><br><span class="line">	while(low &lt;= high)&#123;</span><br><span class="line">		int mid = low + ((high - low) &gt;&gt; 1);</span><br><span class="line">		if(a[mid] &gt;= value)&#123;</span><br><span class="line">			if((mid == 0) || a[mid - 1] &lt; value) </span><br><span class="line">				return mid;</span><br><span class="line">			else</span><br><span class="line">				high = mid + 1;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			low = mid + 1;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.查找最后一个小于等于给定值的元素</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int bsearch(int[] a, int n, int value)&#123;</span><br><span class="line">	int low = 0;</span><br><span class="line">	int high = n - 1;</span><br><span class="line">	while(low &lt;= high)&#123;</span><br><span class="line">		int mid = low + ((high - low) &gt;&gt; 1);</span><br><span class="line">		if(a[mid] &gt; value)&#123;</span><br><span class="line">			high = mid + 1;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			if((mid == n-1) || a[mid + 1] &gt; value) </span><br><span class="line">				return mid;</span><br><span class="line">			else</span><br><span class="line">				low = mid + 1;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h3><p>凡是用二分查找能解决的，绝大部分我们更倾向于用散列表或者二叉查找树。即便是二分查找在内存使用上更节省，二分查找更适合用在“近似”查找问题，在这类问题上，二分查找的优势更加明显。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DSA 基础知识 07</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_07/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>动态数据结构——跳表。<span id="more"></span></p>
+<h2 id="跳表"><a href="#跳表" class="headerlink" title="跳表"></a>跳表</h2><p>只需要对链表稍加改造，就可以支持类似“二分”的查找算法。改造之后的数据结构叫作<strong>跳表</strong>（Skip list）。</p>
+<p>对于一个单链表来讲，即便链表中存储的数据是有序的，如果要想在其中查找某个数据，也只能从头到尾遍历链表。这样查找效率就会很低，时间复杂度会很高，是 O(n)。</p>
+<p>可以通过添加索引来提升对链表节点的访问速度。加一层索引之后，查找一个结点需要遍历的结点个数减少了，也就是说查找效率提高了。<strong>链表 + 多级索引，就是跳表。</strong>其中，索引仅存储指针，而不存储节点的值，所以占据内存较小。</p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>每两个结点会抽出一个结点作为上一级索引的结点，那第一级索引的结点个数大约就是 n/2，第二级索引的结点个数大约就是 n/4，第三级索引的结点个数大约就是 n/8，依次类推，也就是说，<strong>第 k 级索引的结点个数是第 k-1 级索引的结点个数的 1/2，那第 k级索引结点的个数就是 n/(2^k)。</strong></p>
+<p>假设索引有 h 级，最高级的索引有 2 个结点。通过上面的公式，可以得到 n/(2^h)=2，从而求得 h=logn - 1。如果包含原始链表这一层，整个跳表的高度就是 log n。我们在跳表中查询某个数据的时候，如果每一层都要遍历 m 个结点，那在跳表中查询一个数据的时间复杂度就是 O(m*logn)。</p>
+<p>按照前面这种索引结构，我们每一级索引都最多只需要遍历 3 个结点，也就是说 m=3。</p>
+<p>假设我们要查找的数据是 x，在第 k 级索引中，我们遍历到 y 结点之后，发现 x 大于 y，小于后面的结点 z，所以我们通过 y 的 down 指针，从第 k 级索引下降到第 k-1 级索引。在第 k-1 级索引中，y 和 z 之间只有 3 个结点（包含 y 和 z），所以，我们在 K-1 级索引中最多只需要遍历 3 个结点，依次类推，每一级索引都最多只需要遍历 3 个结点。</p>
+<p>所以在跳表中查询任意数据的时间复杂度就是 O(logn)。</p>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>查询效率的提升，前提是建立了很多级索引，也就是利用空间换时间的设计思路。</p>
+<p>设原始链表大小为 n，那第一级索引大约有 n/2 个结点，第二级索引大约有 n/4 个结点，以此类推，每上升一级就减少一半，直到剩下 2 个结点。如果把每层索引的结点数写出来，就是一个等比数列。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">n/2+n/4+n/8…+8+4+2=n-2。</span><br></pre></td></tr></table></figure>
+
+<p>所以，跳表的空间复杂度是 O(n)。</p>
+<h3 id="高效的动态插入和删除"><a href="#高效的动态插入和删除" class="headerlink" title="高效的动态插入和删除"></a>高效的动态插入和删除</h3><p>实际上，跳表这个动态数据结构，不仅支持查找操作，还支持动态的插入、删除操作，而且插入、删除操作的时间复杂度也是 O(logn)。但是同时<strong>也要考虑索引的更新</strong>。</p>
+<h3 id="跳表索引动态更新"><a href="#跳表索引动态更新" class="headerlink" title="跳表索引动态更新"></a>跳表索引动态更新</h3><p>作为一种动态数据结构，需要通过某种手段来维护索引与原始链表大小之间的平衡，也就是说，如果链表中结点多了，索引结点就相应地增加一些，避免复杂度退化，以及查找、插入、删除操作性能下降。</p>
+<p>跳表是通过<strong>随机函数</strong>来维护前面提到的“平衡性”。</p>
+<p>当往跳表中插入数据的时候，可以选择同时将这个数据插入到部分索引层中。通过一个随机函数，来决定将这个结点插入到哪几级索引中，比如随机函数生成了值 K，那就可以将这个结点添加到第一级到第 K 级这 K 级索引中。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>跳表使用空间换时间的设计思路，通过构建多级索引来提高查询的效率，实现了基于链表的“二分查找”。跳表是一种动态数据结构，支持快速的插入、删除、查找操作，时间复杂度都是 O(logn)。</p>
+<p>跳表的空间复杂度是 O(n)。不过，跳表的实现非常灵活，可以通过改变索引构建策略，有效平衡执行效率和内存消耗。虽然跳表的代码实现并不简单，但是作为一种动态数据结构，比起红黑树来说，实现要简单多了。所以很多时候，我们为了代码的简单、易读，比起红黑树，我们更倾向用跳表。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++学习过程中遇到的问题-01</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppProblem01/</url>
     <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊。(<em>¯ㅿ¯</em>;)</p>
@@ -385,6 +713,58 @@
       </tags>
   </entry>
   <entry>
+    <title>Git学习笔记02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Git/gitNote02/</url>
+    <content><![CDATA[<p>  Git 处理分支的方式可谓是难以置信的轻量，创建新分支这一操作几乎能在瞬间完成，并且在不同分支之间的切换操作也是一样便捷。</p>
+<span id="more"></span>
+
+<h2 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h2><p>​        Git 保存的不是文件的变化或者差异，而是一系列不同时刻的快照 。在进行提交操作时，Git 会保存一个提交对象（commit object）。做些修改后再次提交，那么这次产生的提交对象会包含一个指向上次提交对象（父对象）的指针。Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git 的默认分支名字是 master。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 master 分支。 master 分支会在每次提交时自动向前移动。</p>
+<h3 id="分支创建"><a href="#分支创建" class="headerlink" title="分支创建"></a>分支创建</h3><p>创建新的分支实际就是创建一个新的指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch &lt;branchname&gt;</span><br></pre></td></tr></table></figure>
+
+<p>从而在当前所提交的对象上创建一个新的指针。</p>
+<h3 id="查看分支所指对象"><a href="#查看分支所指对象" class="headerlink" title="查看分支所指对象"></a>查看分支所指对象</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline  --decorate</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此时，HEAD指针就指向了新的分支。</p>
+<p><em><strong>分支切换会改变你工作目录中的文件</strong></em><br>在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。</p>
+<p>不同的分支提交文件后就会产生项目分叉。</p>
+<h3 id="查看分叉历史"><a href="#查看分叉历史" class="headerlink" title="查看分叉历史"></a>查看分叉历史</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline --decorate --graph --all</span><br></pre></td></tr></table></figure>
+
+<p>会输出你的提交历史、各个分支的指向以及项目的分支分叉情况。</p>
+<h3 id="创建分支的同时切换过去"><a href="#创建分支的同时切换过去" class="headerlink" title="创建分支的同时切换过去"></a>创建分支的同时切换过去</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;newbranchname&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="快进"><a href="#快进" class="headerlink" title="快进"></a>快进</h3><p>当你试图合并两个分支时， 如果顺着一个分支走下去能够到达另一个分支，那么 Git 在合并两者的时候， 只会简单的将指针向前推进（指针右移），因为这种情况下的合并操作没有需要解决的分歧——这就叫做 “快进（fast-forward）”。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#快进</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h3><p>三方分别为：第一个分支，第二个分支，两分支的分叉点。</p>
+<p>Git 将三方合并的结果做了一个新的快照并且自动创建一个新的提<br>交指向它。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#三方合并</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="合并时遇到冲突"><a href="#合并时遇到冲突" class="headerlink" title="合并时遇到冲突"></a>合并时遇到冲突</h4><p>​        如果你在两个不同的分支中，对同一个文件的同一个部分进行了不同的修改，Git 就没法干净的合并它们。</p>
+<p>​        Git 会暂停下来，等待你去解决合并产生的冲突。你可以在合并冲突后的任意时刻使用 git status 命令来查看那些因包含合并冲突而处于未合并（unmerged）状态的文件</p>
+<p>​    在手动解决文件冲突后，可以再次提交，并确认分支合并。</p>
+<h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看已有分支和当前所处分支</span><br><span class="line">git branch</span><br><span class="line">#查看已合并的分支</span><br><span class="line">git branch --merged</span><br><span class="line">#查看未合并的分支</span><br><span class="line">git branch --no-merged</span><br></pre></td></tr></table></figure>
+
+<h2 id="分支开发工作流"><a href="#分支开发工作流" class="headerlink" title="分支开发工作流"></a>分支开发工作流</h2><h3 id="长期分支"><a href="#长期分支" class="headerlink" title="长期分支"></a>长期分支</h3><p>​        因为 Git 使用简单的三方合并，所以就算在一段较长的时间内，反复把一个分支合并入另一个分支，也不是什么难事。 也就是说，在整个项目开发周期的不同阶段，你可以同时拥有多个开放的分支；你可以定期地把某些主题分支合并入其他分支中。</p>
+<h3 id="主题分支"><a href="#主题分支" class="headerlink" title="主题分支"></a>主题分支</h3><p>​        主题分支对任何规模的项目都适用。 主题分支是一种短期分支，它被用来实现单一特性或其相关工作。</p>
+<h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>远程引用是对远程仓库的引用（指针），包括分支、标签等等。 你可以通过 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git ls-remote &lt;remote&gt; </span><br></pre></td></tr></table></figure>
+
+<p>来显式地获得远程引用的完整列表， 或者通过 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote show &lt;remote&gt; </span><br></pre></td></tr></table></figure>
+
+<p>获得远程分支的更多信息。 然而，一个更常见的做法是利用远程跟踪分支。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git学习笔记01</title>
     <url>/%E5%AD%A6%E4%B9%A0/Git/gitNote01/</url>
     <content><![CDATA[<h2 id="系统的学习一下Git和Github的使用"><a href="#系统的学习一下Git和Github的使用" class="headerlink" title="系统的学习一下Git和Github的使用"></a>系统的学习一下Git和Github的使用</h2><p>​    已经了解和使用过Git和Github，但是并没有具体的学习过。通过系统学习能进一步加深影响。<span id="more"></span></p>
@@ -497,58 +877,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git学习笔记02</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Git/gitNote02/</url>
-    <content><![CDATA[<p>  Git 处理分支的方式可谓是难以置信的轻量，创建新分支这一操作几乎能在瞬间完成，并且在不同分支之间的切换操作也是一样便捷。</p>
-<span id="more"></span>
-
-<h2 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h2><p>​        Git 保存的不是文件的变化或者差异，而是一系列不同时刻的快照 。在进行提交操作时，Git 会保存一个提交对象（commit object）。做些修改后再次提交，那么这次产生的提交对象会包含一个指向上次提交对象（父对象）的指针。Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git 的默认分支名字是 master。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 master 分支。 master 分支会在每次提交时自动向前移动。</p>
-<h3 id="分支创建"><a href="#分支创建" class="headerlink" title="分支创建"></a>分支创建</h3><p>创建新的分支实际就是创建一个新的指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch &lt;branchname&gt;</span><br></pre></td></tr></table></figure>
-
-<p>从而在当前所提交的对象上创建一个新的指针。</p>
-<h3 id="查看分支所指对象"><a href="#查看分支所指对象" class="headerlink" title="查看分支所指对象"></a>查看分支所指对象</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline  --decorate</span><br></pre></td></tr></table></figure>
-
-<h3 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
-
-<p>此时，HEAD指针就指向了新的分支。</p>
-<p><em><strong>分支切换会改变你工作目录中的文件</strong></em><br>在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。</p>
-<p>不同的分支提交文件后就会产生项目分叉。</p>
-<h3 id="查看分叉历史"><a href="#查看分叉历史" class="headerlink" title="查看分叉历史"></a>查看分叉历史</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline --decorate --graph --all</span><br></pre></td></tr></table></figure>
-
-<p>会输出你的提交历史、各个分支的指向以及项目的分支分叉情况。</p>
-<h3 id="创建分支的同时切换过去"><a href="#创建分支的同时切换过去" class="headerlink" title="创建分支的同时切换过去"></a>创建分支的同时切换过去</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;newbranchname&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="快进"><a href="#快进" class="headerlink" title="快进"></a>快进</h3><p>当你试图合并两个分支时， 如果顺着一个分支走下去能够到达另一个分支，那么 Git 在合并两者的时候， 只会简单的将指针向前推进（指针右移），因为这种情况下的合并操作没有需要解决的分歧——这就叫做 “快进（fast-forward）”。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#快进</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h3><p>三方分别为：第一个分支，第二个分支，两分支的分叉点。</p>
-<p>Git 将三方合并的结果做了一个新的快照并且自动创建一个新的提<br>交指向它。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先切换到你要保留的分支</span><br><span class="line">git checkout master</span><br><span class="line">#三方合并</span><br><span class="line">git merge &lt;branchName&gt;</span><br><span class="line">#删除已经合并的分支</span><br><span class="line">git branch -d &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="合并时遇到冲突"><a href="#合并时遇到冲突" class="headerlink" title="合并时遇到冲突"></a>合并时遇到冲突</h4><p>​        如果你在两个不同的分支中，对同一个文件的同一个部分进行了不同的修改，Git 就没法干净的合并它们。</p>
-<p>​        Git 会暂停下来，等待你去解决合并产生的冲突。你可以在合并冲突后的任意时刻使用 git status 命令来查看那些因包含合并冲突而处于未合并（unmerged）状态的文件</p>
-<p>​    在手动解决文件冲突后，可以再次提交，并确认分支合并。</p>
-<h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看已有分支和当前所处分支</span><br><span class="line">git branch</span><br><span class="line">#查看已合并的分支</span><br><span class="line">git branch --merged</span><br><span class="line">#查看未合并的分支</span><br><span class="line">git branch --no-merged</span><br></pre></td></tr></table></figure>
-
-<h2 id="分支开发工作流"><a href="#分支开发工作流" class="headerlink" title="分支开发工作流"></a>分支开发工作流</h2><h3 id="长期分支"><a href="#长期分支" class="headerlink" title="长期分支"></a>长期分支</h3><p>​        因为 Git 使用简单的三方合并，所以就算在一段较长的时间内，反复把一个分支合并入另一个分支，也不是什么难事。 也就是说，在整个项目开发周期的不同阶段，你可以同时拥有多个开放的分支；你可以定期地把某些主题分支合并入其他分支中。</p>
-<h3 id="主题分支"><a href="#主题分支" class="headerlink" title="主题分支"></a>主题分支</h3><p>​        主题分支对任何规模的项目都适用。 主题分支是一种短期分支，它被用来实现单一特性或其相关工作。</p>
-<h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>远程引用是对远程仓库的引用（指针），包括分支、标签等等。 你可以通过 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git ls-remote &lt;remote&gt; </span><br></pre></td></tr></table></figure>
-
-<p>来显式地获得远程引用的完整列表， 或者通过 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote show &lt;remote&gt; </span><br></pre></td></tr></table></figure>
-
-<p>获得远程分支的更多信息。 然而，一个更常见的做法是利用远程跟踪分支。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git使用过程中遇到的一些问题-01</title>
     <url>/%E5%AD%A6%E4%B9%A0/Git/gitPushProblem/</url>
     <content><![CDATA[<h1 id="记录Git使用过程中存在的一些问题"><a href="#记录Git使用过程中存在的一些问题" class="headerlink" title="记录Git使用过程中存在的一些问题"></a>记录Git使用过程中存在的一些问题</h1><p>使用git的过程中总会遇到一些问题。</p>
@@ -582,6 +910,144 @@
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenCV-Tutorials</title>
+    <url>/%E5%AD%A6%E4%B9%A0/OpenCV/openCVtutorials/</url>
+    <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
+<span id="more"></span>
+
+<h3 id="CV与Matplotlib的颜色冲突"><a href="#CV与Matplotlib的颜色冲突" class="headerlink" title="CV与Matplotlib的颜色冲突"></a>CV与Matplotlib的颜色冲突</h3><p> OpenCV中读取彩图的颜色是以BGR来排序的，而Matplotlib中图片是以RGB排序的，因此如果想要使用pyplot来展示图片，就需要对图片的颜色域顺序进行处理，不过实现起来也很方便。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv.imread(<span class="string">&quot;o1.png&quot;</span>)</span><br><span class="line">img = img[:,:,::-<span class="number">1</span>]</span><br><span class="line">plt.show(<span class="string">&quot;Image&quot;</span>,img)</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用拉普拉斯算子获取图像边缘"><a href="#使用拉普拉斯算子获取图像边缘" class="headerlink" title="使用拉普拉斯算子获取图像边缘"></a>使用拉普拉斯算子获取图像边缘</h3><p>以下是示例和我按照示例的到的结果：</p>
+<p>官方示例：</p>
+<img src="/images/OpenCV/openCV_01.png">
+
+<p>我的结果：</p>
+<img src="/images/OpenCV/openCV_02.png">
+
+<p>可以看出并没有得到示例中所展示的效果。</p>
+<p>查看函数参数说明，可以看到有一项参数为：</p>
+<p><strong>CV_<bit_depth>(S|U|F)C<number_of_channels></strong></p>
+<p>说明如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bit_depth：比特数---代表8bite,16bites,32bites,64bites...</span><br><span class="line"></span><br><span class="line">如果你现在创建了一个存储--灰度图片的Mat对象,这个图像的大小为宽100,高100,那么,现在这张灰度图片中有10000个像素点，它每一个像素点在内存空间所占的空间大小是8bite,8位--所以它对应的就是CV_8。</span><br><span class="line">-------------</span><br><span class="line"></span><br><span class="line">S|U|F:</span><br><span class="line"></span><br><span class="line">S--代表---signed int---有符号整形</span><br><span class="line"></span><br><span class="line">U--代表--unsigned int--无符号整形</span><br><span class="line"></span><br><span class="line">F--代表--float---------单精度浮点型</span><br><span class="line"></span><br><span class="line">---------</span><br><span class="line"></span><br><span class="line">C&lt;number_of_channels&gt;----代表---一张图片的通道数,比如:</span><br><span class="line"></span><br><span class="line">channels = 1：灰度图片--grayImg---是--单通道图像</span><br><span class="line"></span><br><span class="line">channels = 3：RGB彩色图像---------是--3通道图像</span><br><span class="line"></span><br><span class="line">channels = 4：带Alph通道的RGB图像--是--4通道图像</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
+
+<p>修改参数为CV_8U后，调整内核大小，得到预期结果。</p>
+<h3 id="绘制轮廓"><a href="#绘制轮廓" class="headerlink" title="绘制轮廓"></a>绘制轮廓</h3><p>看函数说明时，需要使用二值图片才能更好的识别轮廓。所以我就直接选择了使用二值图片去查找轮廓。但是再绘制轮廓时发现无法绘制轮廓，观察函数发现：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cv2.drawContours(image, contours, contourIdx, color, thickness=None, lineType=None, hierarchy=None, maxLevel=None, offset=None)</span><br></pre></td></tr></table></figure>
+
+<p>其中要求image类型为彩色图片。所以就需要使用彩色图片从BGR-&gt;GRAY,在进行阈值化处理变为二值图片识别轮廓，最后再原图上画图。</p>
+<h3 id="多对象模板匹配"><a href="#多对象模板匹配" class="headerlink" title="多对象模板匹配"></a>多对象模板匹配</h3><p>源代码见github仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#函数：cv.matchTemplate(), cv.minMaxLoc()</span><br><span class="line">import numpy as np</span><br><span class="line">import cv2 as cv </span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line"></span><br><span class="line">img7 = cv.imread(&quot;../Images/img7.jpg&quot;)</span><br><span class="line">img7 = cv.cvtColor(img7, cv.COLOR_BGR2GRAY)</span><br><span class="line">target = img7.copy()</span><br><span class="line">template = cv.imread(&quot;../Images/img7_1.png&quot;)</span><br><span class="line">template = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">w, h = template.shape[::-1]</span><br><span class="line">#列表中所有的6种比较方法</span><br><span class="line">methods = [&#x27;cv.TM_CCOEFF&#x27;, &#x27;cv.TM_CCOEFF_NORMED&#x27;, &#x27;cv.TM_CCORR&#x27;,</span><br><span class="line">            &#x27;cv.TM_CCORR_NORMED&#x27;, &#x27;cv.TM_SQDIFF&#x27;, &#x27;cv.TM_SQDIFF_NORMED&#x27;]</span><br><span class="line">for meth in methods:</span><br><span class="line">    img7 = target.copy()</span><br><span class="line">    method = eval(meth)</span><br><span class="line">    # 应用模板匹配</span><br><span class="line">    res = cv.matchTemplate(img7,template,method)</span><br><span class="line">    min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)</span><br><span class="line">    # 如果方法是TM_SQDIFF或TM_SQDIFF_NORMED，则取最小值</span><br><span class="line">    if method in [cv.TM_SQDIFF, cv.TM_SQDIFF_NORMED]:</span><br><span class="line">        top_left = min_loc</span><br><span class="line">    else:</span><br><span class="line">        top_left = max_loc</span><br><span class="line">    bottom_right = (top_left[0] + w, top_left[1] + h)</span><br><span class="line">    cv.rectangle(img7,top_left, bottom_right, 255, 2)</span><br><span class="line">    plt.subplot(121),plt.imshow(res,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Matching Result&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.subplot(122),plt.imshow(img7,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Detected Point&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.suptitle(meth)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">#多对象匹配</span><br><span class="line">img22 = cv.imread(&quot;../Images/img22.png&quot;)</span><br><span class="line">img22_gray = cv.cvtColor(img22, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(img22_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">template = cv.imread(&#x27;../Images/img22_1.png&#x27;)</span><br><span class="line">template_gray = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(template_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">w, h = template_gray.shape[:: -1]</span><br><span class="line">print(w,h)</span><br><span class="line">res = cv.matchTemplate(img22_gray, template_gray, cv.TM_CCOEFF_NORMED)</span><br><span class="line">threshold = 0.55</span><br><span class="line">loc = np.where( res &gt;= threshold)</span><br><span class="line">for pt in zip(*loc[::-1]):</span><br><span class="line">    cv.rectangle(img22, pt, (pt[0] + w , pt[1]+ h), (0,255,255), 2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">cv.imshow(&quot;image&quot;,img22 )</span><br><span class="line">cv.waitKey(0)</span><br><span class="line">cv.destroyAllWindows()</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">img22 = img22[:, :, :: -1]</span><br><span class="line">plt.imshow(img22)</span><br><span class="line">plt.show()</span><br><span class="line">#错误原因分析：因为匹配时采用灰度图像，所以水管被匹配到了</span><br></pre></td></tr></table></figure>
+
+<p>遇到的问题：</p>
+<p>​    刚开始绘制正方形时，整个图片全部变为黄色，后来意识到是因为阈值太低和匹配模式选择的问题。通过调整匹配模式和阈值，能大致匹配到合适位置，但由于匹配时采用的是灰度图片，所以水管口依旧被匹配到了，还需要进一步改进。</p>
+<h3 id="图片绘制形状"><a href="#图片绘制形状" class="headerlink" title="图片绘制形状"></a>图片绘制形状</h3><p>由于OpenCV读取的图片以BGR格式存储，如果想用plot绘图就需要用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img = img[:, :, :: -1]</span><br></pre></td></tr></table></figure>
+
+<p>但是如果想要在图形上绘图就不能先转变将图片变为RGB格式，否则无法绘制矩形等形状且不报错。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>OpenCV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一些有用的小技巧</title>
+    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/systemUsing_01/</url>
+    <content><![CDATA[<h1 id="系统配置及软件安装"><a href="#系统配置及软件安装" class="headerlink" title="系统配置及软件安装"></a>系统配置及软件安装</h1><p>遇到的一些有用的软件或者一些比较有用的设置。<span id="more"></span></p>
+<h2 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h2><p>推荐使用Typora来编写MarkDown文档。</p>
+<h3 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h3><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>注意：修改上述的typora文件路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot; --&gt; “修改成你自己的文件路径”</span><br></pre></td></tr></table></figure>
+
+<p>2.保存后重命名，修改后缀为  .reg 文件。</p>
+<p>3.双击执行，一路点是就行。</p>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><img src = "/images/createMd/createMd01.png">
+
+<h2 id="Adobe-Acrobat-Pro-DC设置文档打开时铺满全局"><a href="#Adobe-Acrobat-Pro-DC设置文档打开时铺满全局" class="headerlink" title="Adobe Acrobat Pro DC设置文档打开时铺满全局"></a>Adobe Acrobat Pro DC设置文档打开时铺满全局</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>修改首选项里的页面设置，全局视图—&gt;适合宽度。</p>
+<h4 id="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"><a href="#缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。" class="headerlink" title="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"></a>缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。</h4><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>选中所有书签（ctrl+A）——属性——动作——添加动作选择——执行菜单项——添加——“视图&gt;缩放&gt;适合宽度”</p>
+<p>这样点击书签后，就是适合宽度了。</p>
+<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。<!--more--></p>
+<h2 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h2><p>   没想到语言选择第一步就难住了我，安装的是中文版到但是一直没能成功设置为中文。直到看到一个鬼才方法。具体步骤如下：</p>
+<p>​    1.找到Ubuntu中Language support软件</p>
+<p>​    2.打开软件后添加简体中文语言包</p>
+<p>​    3.现在依然显示汉语为灰色无法选中，但是可以拖动！！！将汉语那一框拖动到最上面去，然后重启就可以了。</p>
+<p>参考的博客链接为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>系统配置</category>
+      </categories>
+      <tags>
+        <tag>system</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL 基础知识 01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_01/</url>
+    <content><![CDATA[<p>MySQL学习笔记。记录数据库、表的查看、创建、删除和更改等基础操作。</p>
+<span id="more"></span>
+
+<h1 id="数据库、表的查看、创建、修改-和-删除"><a href="#数据库、表的查看、创建、修改-和-删除" class="headerlink" title="数据库、表的查看、创建、修改 和 删除"></a>数据库、表的查看、创建、修改 和 删除</h1><h2 id="SHOW"><a href="#SHOW" class="headerlink" title="SHOW"></a>SHOW</h2><p>查询数据库和表等其他信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//查看已有的数据库</span><br><span class="line">show database;</span><br><span class="line">//查看已有的表</span><br><span class="line">show tables;</span><br><span class="line">//查看表的具体信息，不包含数据本身</span><br><span class="line">show crearte table tablename；</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="CREATE"><a href="#CREATE" class="headerlink" title="CREATE"></a>CREATE</h2><p>利用create 创建数据库， 利用use选择数据库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 创建数据库。</span><br><span class="line">CREATE DATABASE &lt;数据库名称&gt;;</span><br><span class="line">-- 使用数据库</span><br><span class="line">use &lt;数据库名称&gt;;</span><br></pre></td></tr></table></figure>
+
+<p>进入数据库后，才能对表进行操作，利用CREATE TABLE 语句创建表，必须给出下列信息：</p>
+<p>​    1.新表的名字，在关键字CREATE TABLE 之后给出；<br>​    2.表列的名字和定义，用逗号分隔；<br>​    3.有的DBMS 还要求指定表的位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;</span><br><span class="line">（  &lt;列名1&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名2&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名3&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名4&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    .. .</span><br><span class="line">    &lt;该表的约束1&gt;， &lt;该表的约束2&gt;，……）；</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 示例</span><br><span class="line">create table products(</span><br><span class="line">	prod_id  char(10) not null primary key,</span><br><span class="line">	vend_id  char(10) not null,</span><br><span class="line">	prod_name char(254) not null,</span><br><span class="line">	prod_price decimal(8, 2) not null,</span><br><span class="line">	prod_desc  text(100) null</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="NULL-值"><a href="#NULL-值" class="headerlink" title="NULL 值"></a>NULL 值</h3><p>NULL 值就是没有值或缺值，是表中非常特殊的一类值。允许NULL 值的列也允许在插入行时不给出该列的值。不允许NULL 值的列不接受没有列值的行，换句话说，在插入或更新行时，该列必须有值。</p>
+<p>NULL 为默认设置，如果不指定NOT NULL，就认为指定的是NULL。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Vendors(</span><br><span class="line">    vend_id CHAR(10) NOT NULL,</span><br><span class="line">    vend_name CHAR(50) NOT NULL,</span><br><span class="line">    vend_address CHAR(50) ,</span><br><span class="line">    vend_city CHAR(50) ,</span><br><span class="line">    vend_state CHAR(5) ,</span><br><span class="line">    vend_zip CHAR(10) ,</span><br><span class="line">    vend_country CHAR(50)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>只有不允许NULL值的列可作为主键，允许NULL 值的列不能作为唯一标识。</p>
+<p>不要把NULL 值与空字符串相混淆。NULL 值是没有值，不是空字符串。如果指定’’（两个单引号，其间没有字符），这在NOT NULL 列中是允许的。空字符串是一个有效的值，它不是无值。NULL 值用关键字NULL而不是空字符串指定。</p>
+<h3 id="DEFAULT"><a href="#DEFAULT" class="headerlink" title="DEFAULT"></a>DEFAULT</h3><p>MySQL 允许指定默认值，在插入行时如果不给出值，DBMS 将自动采用默认值。默认值在CREATE TABLE 语句的列定义中用关键字DEFAULT 指定。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table Nums(</span><br><span class="line">		num int not null default 0  </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="AUTO-INCREMENT-修饰符"><a href="#AUTO-INCREMENT-修饰符" class="headerlink" title="AUTO_INCREMENT 修饰符"></a>AUTO_INCREMENT 修饰符</h3><p>AUTO_INCREMENT 修饰符只适用于 INT 字段，表明 MySQL 应该自动为该字段生成一个数(每次在上一次生成的数值上面加 1)。对于主键，这是非常有用的。因为其允许开发者使用 MySQL 为每条记录创建唯一的标识符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE items( </span><br><span class="line">    id int( 5 ) NOT NULL AUTO_INCREMENT PRIMARY KEY , </span><br><span class="line">    label varchar( 255 ) NOT NULL</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="ALTER"><a href="#ALTER" class="headerlink" title="ALTER"></a>ALTER</h2><p>使用ALTER TABLE 更改表结构，必须给出下面的信息：<br>    1.在ALTER TABLE 之后给出要更改的表名（该表必须存在，否则将出错）；<br>    2.列出要做哪些更改。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 添加列</span><br><span class="line">alter table vendors</span><br><span class="line">	add vend_phone char(20);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 删除列</span><br><span class="line">ALTER TABLE Vendors</span><br><span class="line">	DROP COLUMN vend_phone;</span><br></pre></td></tr></table></figure>
+
+<p>**数据库表的删除、更改不能撤销!!!.**除非使用了rollback事务命令。</p>
+<h2 id="DROP"><a href="#DROP" class="headerlink" title="DROP"></a>DROP</h2><p>删除数据库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP database &lt;数据库名称&gt;；</span><br></pre></td></tr></table></figure>
+
+<p>删除表（删除整个表而不是其内容）非常简单，使用DROP TABLE 语句即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP TABLE CustCopy;</span><br></pre></td></tr></table></figure>
+
+<p>标准SQL 中用来从表中删除数据的只有DELETE 语句。但是，很多数据库产品中还存在另外一种被称为<strong>TRUNCATE</strong> 的语句。这些产品主要包括Oracle、SQLServer、PostgreSQL、MySQL 和DB2。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TRUNCATE &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
+
+<p>与DELETE 不同的是，TRUNCATE 只能删除表中的全部数据，而不能通过WHERE 子句指定条件来删除部分数据。也正是因为它不能具体地控制删除对象，所以其处理速度比DELETE 要快得多。实际上，DELETE 语句在DML 语句中也属于处理时间比较长的，因此需要删除全部数据行时，使用TRUNCATE 可以缩短执行时间。</p>
+<h2 id="RENAME"><a href="#RENAME" class="headerlink" title="RENAME"></a>RENAME</h2><p>重命名表。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rename table product to products;</span><br></pre></td></tr></table></figure>
+
+<p>重命名表很简单，但是重命名数据库很麻烦。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -690,66 +1156,6 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Customers</span><br><span class="line">WHERE cust_id = &#x27;1000000006&#x27;;</span><br></pre></td></tr></table></figure>
 
 <p>DELETE 不需要列名或通配符。DELETE 删除整行而不是删除列。要删除指定的列，请使用UPDATE 语句。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL 基础知识 01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_01/</url>
-    <content><![CDATA[<p>MySQL学习笔记。记录数据库、表的查看、创建、删除和更改等基础操作。</p>
-<span id="more"></span>
-
-<h1 id="数据库、表的查看、创建、修改-和-删除"><a href="#数据库、表的查看、创建、修改-和-删除" class="headerlink" title="数据库、表的查看、创建、修改 和 删除"></a>数据库、表的查看、创建、修改 和 删除</h1><h2 id="SHOW"><a href="#SHOW" class="headerlink" title="SHOW"></a>SHOW</h2><p>查询数据库和表等其他信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//查看已有的数据库</span><br><span class="line">show database;</span><br><span class="line">//查看已有的表</span><br><span class="line">show tables;</span><br><span class="line">//查看表的具体信息，不包含数据本身</span><br><span class="line">show crearte table tablename；</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="CREATE"><a href="#CREATE" class="headerlink" title="CREATE"></a>CREATE</h2><p>利用create 创建数据库， 利用use选择数据库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 创建数据库。</span><br><span class="line">CREATE DATABASE &lt;数据库名称&gt;;</span><br><span class="line">-- 使用数据库</span><br><span class="line">use &lt;数据库名称&gt;;</span><br></pre></td></tr></table></figure>
-
-<p>进入数据库后，才能对表进行操作，利用CREATE TABLE 语句创建表，必须给出下列信息：</p>
-<p>​    1.新表的名字，在关键字CREATE TABLE 之后给出；<br>​    2.表列的名字和定义，用逗号分隔；<br>​    3.有的DBMS 还要求指定表的位置。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;</span><br><span class="line">（  &lt;列名1&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名2&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名3&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名4&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    .. .</span><br><span class="line">    &lt;该表的约束1&gt;， &lt;该表的约束2&gt;，……）；</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 示例</span><br><span class="line">create table products(</span><br><span class="line">	prod_id  char(10) not null primary key,</span><br><span class="line">	vend_id  char(10) not null,</span><br><span class="line">	prod_name char(254) not null,</span><br><span class="line">	prod_price decimal(8, 2) not null,</span><br><span class="line">	prod_desc  text(100) null</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<h3 id="NULL-值"><a href="#NULL-值" class="headerlink" title="NULL 值"></a>NULL 值</h3><p>NULL 值就是没有值或缺值，是表中非常特殊的一类值。允许NULL 值的列也允许在插入行时不给出该列的值。不允许NULL 值的列不接受没有列值的行，换句话说，在插入或更新行时，该列必须有值。</p>
-<p>NULL 为默认设置，如果不指定NOT NULL，就认为指定的是NULL。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Vendors(</span><br><span class="line">    vend_id CHAR(10) NOT NULL,</span><br><span class="line">    vend_name CHAR(50) NOT NULL,</span><br><span class="line">    vend_address CHAR(50) ,</span><br><span class="line">    vend_city CHAR(50) ,</span><br><span class="line">    vend_state CHAR(5) ,</span><br><span class="line">    vend_zip CHAR(10) ,</span><br><span class="line">    vend_country CHAR(50)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p>只有不允许NULL值的列可作为主键，允许NULL 值的列不能作为唯一标识。</p>
-<p>不要把NULL 值与空字符串相混淆。NULL 值是没有值，不是空字符串。如果指定’’（两个单引号，其间没有字符），这在NOT NULL 列中是允许的。空字符串是一个有效的值，它不是无值。NULL 值用关键字NULL而不是空字符串指定。</p>
-<h3 id="DEFAULT"><a href="#DEFAULT" class="headerlink" title="DEFAULT"></a>DEFAULT</h3><p>MySQL 允许指定默认值，在插入行时如果不给出值，DBMS 将自动采用默认值。默认值在CREATE TABLE 语句的列定义中用关键字DEFAULT 指定。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table Nums(</span><br><span class="line">		num int not null default 0  </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<h3 id="AUTO-INCREMENT-修饰符"><a href="#AUTO-INCREMENT-修饰符" class="headerlink" title="AUTO_INCREMENT 修饰符"></a>AUTO_INCREMENT 修饰符</h3><p>AUTO_INCREMENT 修饰符只适用于 INT 字段，表明 MySQL 应该自动为该字段生成一个数(每次在上一次生成的数值上面加 1)。对于主键，这是非常有用的。因为其允许开发者使用 MySQL 为每条记录创建唯一的标识符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE items( </span><br><span class="line">    id int( 5 ) NOT NULL AUTO_INCREMENT PRIMARY KEY , </span><br><span class="line">    label varchar( 255 ) NOT NULL</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h2 id="ALTER"><a href="#ALTER" class="headerlink" title="ALTER"></a>ALTER</h2><p>使用ALTER TABLE 更改表结构，必须给出下面的信息：<br>    1.在ALTER TABLE 之后给出要更改的表名（该表必须存在，否则将出错）；<br>    2.列出要做哪些更改。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 添加列</span><br><span class="line">alter table vendors</span><br><span class="line">	add vend_phone char(20);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 删除列</span><br><span class="line">ALTER TABLE Vendors</span><br><span class="line">	DROP COLUMN vend_phone;</span><br></pre></td></tr></table></figure>
-
-<p>**数据库表的删除、更改不能撤销!!!.**除非使用了rollback事务命令。</p>
-<h2 id="DROP"><a href="#DROP" class="headerlink" title="DROP"></a>DROP</h2><p>删除数据库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP database &lt;数据库名称&gt;；</span><br></pre></td></tr></table></figure>
-
-<p>删除表（删除整个表而不是其内容）非常简单，使用DROP TABLE 语句即可。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP TABLE CustCopy;</span><br></pre></td></tr></table></figure>
-
-<p>标准SQL 中用来从表中删除数据的只有DELETE 语句。但是，很多数据库产品中还存在另外一种被称为<strong>TRUNCATE</strong> 的语句。这些产品主要包括Oracle、SQLServer、PostgreSQL、MySQL 和DB2。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TRUNCATE &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
-
-<p>与DELETE 不同的是，TRUNCATE 只能删除表中的全部数据，而不能通过WHERE 子句指定条件来删除部分数据。也正是因为它不能具体地控制删除对象，所以其处理速度比DELETE 要快得多。实际上，DELETE 语句在DML 语句中也属于处理时间比较长的，因此需要删除全部数据行时，使用TRUNCATE 可以缩短执行时间。</p>
-<h2 id="RENAME"><a href="#RENAME" class="headerlink" title="RENAME"></a>RENAME</h2><p>重命名表。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rename table product to products;</span><br></pre></td></tr></table></figure>
-
-<p>重命名表很简单，但是重命名数据库很麻烦。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1075,6 +1481,61 @@
       </tags>
   </entry>
   <entry>
+    <title>MySQL 基础知识 09</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_09/</url>
+    <content><![CDATA[<p>MySQL学习笔记。使用事务避免仅执行了部分语句。<span id="more"></span></p>
+<h1 id="管理事务"><a href="#管理事务" class="headerlink" title="管理事务"></a>管理事务</h1><p>使用事务处理（transaction processing），通过确保成批的SQL 操作要么完全执行，要么完全不执行，来维护数据库的完整性。</p>
+<p>事务处理是一种机制，用来管理必须成批执行的SQL 操作，保证数据库不包含不完整的操作结果。利用事务处理，可以保证一组操作不会中途停止，它们要么完全执行，要么完全不执行（除非明确指示）。如果没有错误发生，整组语句提交给（写到）数据库表；如果发生错误，则进行回退（撤销），将数据库恢复到某个已知且安全的状态。</p>
+<h2 id="事务（transaction）"><a href="#事务（transaction）" class="headerlink" title="事务（transaction）"></a>事务（transaction）</h2><p>指一组SQL 语句；</p>
+<h2 id="回退（rollback）"><a href="#回退（rollback）" class="headerlink" title="回退（rollback）"></a>回退（rollback）</h2><p>指撤销指定SQL 语句的过程；</p>
+<h2 id="提交（commit）"><a href="#提交（commit）" class="headerlink" title="提交（commit）"></a>提交（commit）</h2><p>指将未存储的SQL 语句结果写入数据库表；</p>
+<h2 id="保留点（savepoint）"><a href="#保留点（savepoint）" class="headerlink" title="保留点（savepoint）"></a>保留点（savepoint）</h2><p>指事务处理中设置的临时占位符（placeholder），可以对它发布回退（与回退整个事务处理不同）。</p>
+<p>事务处理用来管理INSERT、UPDATE 和DELETE 语句。不能回退SELECT语句（回退SELECT 语句也没有必要），也不能回退CREATE 或DROP 操作。事务处理中可以使用这些语句，但进行回退时，这些操作也不撤销。</p>
+<p>管理事务的关键在于将SQL 语句组分解为逻辑块，并明确规定数据何时应该回退，何时不应该回退。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="ROLLBACK"><a href="#ROLLBACK" class="headerlink" title="ROLLBACK"></a>ROLLBACK</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Orders;</span><br><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure>
+
+<h3 id="COMMIT"><a href="#COMMIT" class="headerlink" title="COMMIT"></a>COMMIT</h3><p>一般的SQL 语句都是针对数据库表直接执行和编写的。这就是所谓的隐式提交（implicit commit），即提交（写或保存）操作是自动进行的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">DELETE OrderItems WHERE order_num = 12345</span><br><span class="line">DELETE Orders WHERE order_num = 12345</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用保留点"><a href="#使用保留点" class="headerlink" title="使用保留点"></a>使用保留点</h2><p>使用简单的ROLLBACK 和COMMIT 语句，就可以写入或撤销整个事务。但是，只对简单的事务才能这样做，复杂的事务可能需要部分提交或回退。</p>
+<p>要支持回退部分事务，必须在事务处理块中的合适位置放置占位符。这样，如果需要回退，可以回退到某个占位符。</p>
+<p>在SQL 中，这些占位符称为保留点。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SAVEPOINT delete1;</span><br></pre></td></tr></table></figure>
+
+<p>每个保留点都要取能够标识它的唯一名字，以便在回退时，DBMS 知道回退到何处。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ROLLBACK TO delete1;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">start TRANSACTION</span><br><span class="line">INSERT INTO Customers(cust_id, cust_name)</span><br><span class="line">VALUES(&#x27;1000000010&#x27;, &#x27;Toys Emporium&#x27;);</span><br><span class="line">SAVE TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO Orders(order_num, order_date, cust_id)</span><br><span class="line">VALUES(20100,&#x27;2001/12/1&#x27;,&#x27;1000000010&#x27;);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 1, &#x27;BR01&#x27;, 100, 5.49);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 2, &#x27;BR03&#x27;, 100, 10.99);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用游标"><a href="#使用游标" class="headerlink" title="使用游标"></a>使用游标</h1><p>SQL 检索操作返回一组称为结果集的行，这组返回的行都是与SQL 语句相匹配的行（零行或多行）。简单地使用SELECT 语句，没有办法得到第一行、下一行或前10 行。但这是关系DBMS 功能的组成部分。</p>
+<p>有时，需要在检索出来的行中前进或后退一行或多行，这就是游标的用途所在。</p>
+<p>游标（cursor）是一个存储在DBMS 服务器上的数据库查询，它不是一条SELECT 语句，而是被该语句检索出来的结果集。在存储了游标之后，应用程序可以根据需要滚动或浏览其中的数据。</p>
+<h2 id="选项和特性"><a href="#选项和特性" class="headerlink" title="选项和特性"></a>选项和特性</h2><p>1.能够标记游标为只读，使数据能读取，但不能更新和删除。<br>2.能控制可以执行的定向操作（向前、向后、第一、最后、绝对位置、相对位置等）。<br>3.能标记某些列为可编辑的，某些列为不可编辑的。<br>4.规定范围，使游标对创建它的特定请求（如存储过程）或对所有请求可访问。<br>5.指示DBMS 对检索出的数据（而不是指出表中活动数据）进行复制，使数据在游标打开和访问期间不变化。</p>
+<p>游标主要用于交互式应用，其中用户需要滚动屏幕上的数据，并对数据进行浏览或做出更改。</p>
+<h2 id="游标的使用步骤"><a href="#游标的使用步骤" class="headerlink" title="游标的使用步骤"></a>游标的使用步骤</h2><p>1.在使用游标前，必须声明（定义）它。这个过程实际上没有检索数据，它只是定义要使用的SELECT 语句和游标选项。<br>2.一旦声明，就必须打开游标以供使用。这个过程用前面定义的SELECT语句把数据实际检索出来。<br>3.对于填有数据的游标，根据需要取出（检索）各行。<br>4.在结束游标使用时，必须关闭游标，可能的话，释放游标（有赖于具体的DBMS）。</p>
+<p>5.声明游标后，可根据需要频繁地打开和关闭游标。在游标打开时，可根据需要频繁地执行取操作</p>
+<h3 id="创建游标"><a href="#创建游标" class="headerlink" title="创建游标"></a>创建游标</h3><p>DECLARE 命名游标，并定义相应的SELECT 语句，根据需要带WHERE 和其他子句。<br><strong>游标只能用在存储过程中</strong></p>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE CustCursor CURSOR</span><br><span class="line">FOR</span><br><span class="line">SELECT * FROM Customers</span><br><span class="line">WHERE cust_email IS NULL</span><br></pre></td></tr></table></figure>
+
+<h3 id="打开游标"><a href="#打开游标" class="headerlink" title="打开游标"></a>打开游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">OPEN CURSOR CustCursor</span><br></pre></td></tr></table></figure>
+
+<p>用FETCH 语句访问游标数据。FETCH 指出要检索哪些行，从何处检索它们以及将它们放于何处（如变量名）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE TYPE CustCursor IS REF CURSOR</span><br><span class="line">	RETURN Customers%ROWTYPE;</span><br><span class="line">DECLARE CustRecord Customers%ROWTYPE</span><br><span class="line">BEGIN</span><br><span class="line">OPEN CustCursor;</span><br><span class="line">FETCH CustCursor INTO CustRecord;</span><br><span class="line">CLOSE CustCursor;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+
+<h3 id="关闭游标"><a href="#关闭游标" class="headerlink" title="关闭游标"></a>关闭游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CLOSE CustCursor</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL 基础知识 08</title>
     <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_08/</url>
     <content><![CDATA[<p>MySQL学习笔记。使用视图可以提高检索效率，保存select语句。利用存储过程可以批量的使用一系列SQL语句。<span id="more"></span></p>
@@ -1123,61 +1584,6 @@
 <p>这个存储过程有一个名为ListCount 的参数。此参数从存储过程返回一个值而不是传递一个值给存储过程。关键字OUT 用来指示这种行为。Oracle 支持IN（传递值给存储过程）、OUT（从存储过程返回值，如这里）、INOUT（既传递值给存储过程也从存储过程传回值）类型的参数。存储过程的代码括在BEGIN 和END 语句中，这里执行一条简单的SELECT 语句，它检索具有邮件地址的顾客。然后用检索出的行数设置ListCount（要传递的输出参数）。</p>
 <p>调用：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var ReturnValue NUMBER</span><br><span class="line">EXEC MailingListCount(:ReturnValue);</span><br><span class="line">SELECT ReturnValue;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL 基础知识 09</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_09/</url>
-    <content><![CDATA[<p>MySQL学习笔记。使用事务避免仅执行了部分语句。<span id="more"></span></p>
-<h1 id="管理事务"><a href="#管理事务" class="headerlink" title="管理事务"></a>管理事务</h1><p>使用事务处理（transaction processing），通过确保成批的SQL 操作要么完全执行，要么完全不执行，来维护数据库的完整性。</p>
-<p>事务处理是一种机制，用来管理必须成批执行的SQL 操作，保证数据库不包含不完整的操作结果。利用事务处理，可以保证一组操作不会中途停止，它们要么完全执行，要么完全不执行（除非明确指示）。如果没有错误发生，整组语句提交给（写到）数据库表；如果发生错误，则进行回退（撤销），将数据库恢复到某个已知且安全的状态。</p>
-<h2 id="事务（transaction）"><a href="#事务（transaction）" class="headerlink" title="事务（transaction）"></a>事务（transaction）</h2><p>指一组SQL 语句；</p>
-<h2 id="回退（rollback）"><a href="#回退（rollback）" class="headerlink" title="回退（rollback）"></a>回退（rollback）</h2><p>指撤销指定SQL 语句的过程；</p>
-<h2 id="提交（commit）"><a href="#提交（commit）" class="headerlink" title="提交（commit）"></a>提交（commit）</h2><p>指将未存储的SQL 语句结果写入数据库表；</p>
-<h2 id="保留点（savepoint）"><a href="#保留点（savepoint）" class="headerlink" title="保留点（savepoint）"></a>保留点（savepoint）</h2><p>指事务处理中设置的临时占位符（placeholder），可以对它发布回退（与回退整个事务处理不同）。</p>
-<p>事务处理用来管理INSERT、UPDATE 和DELETE 语句。不能回退SELECT语句（回退SELECT 语句也没有必要），也不能回退CREATE 或DROP 操作。事务处理中可以使用这些语句，但进行回退时，这些操作也不撤销。</p>
-<p>管理事务的关键在于将SQL 语句组分解为逻辑块，并明确规定数据何时应该回退，何时不应该回退。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h2 id="ROLLBACK"><a href="#ROLLBACK" class="headerlink" title="ROLLBACK"></a>ROLLBACK</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Orders;</span><br><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure>
-
-<h3 id="COMMIT"><a href="#COMMIT" class="headerlink" title="COMMIT"></a>COMMIT</h3><p>一般的SQL 语句都是针对数据库表直接执行和编写的。这就是所谓的隐式提交（implicit commit），即提交（写或保存）操作是自动进行的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">DELETE OrderItems WHERE order_num = 12345</span><br><span class="line">DELETE Orders WHERE order_num = 12345</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用保留点"><a href="#使用保留点" class="headerlink" title="使用保留点"></a>使用保留点</h2><p>使用简单的ROLLBACK 和COMMIT 语句，就可以写入或撤销整个事务。但是，只对简单的事务才能这样做，复杂的事务可能需要部分提交或回退。</p>
-<p>要支持回退部分事务，必须在事务处理块中的合适位置放置占位符。这样，如果需要回退，可以回退到某个占位符。</p>
-<p>在SQL 中，这些占位符称为保留点。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SAVEPOINT delete1;</span><br></pre></td></tr></table></figure>
-
-<p>每个保留点都要取能够标识它的唯一名字，以便在回退时，DBMS 知道回退到何处。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ROLLBACK TO delete1;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">start TRANSACTION</span><br><span class="line">INSERT INTO Customers(cust_id, cust_name)</span><br><span class="line">VALUES(&#x27;1000000010&#x27;, &#x27;Toys Emporium&#x27;);</span><br><span class="line">SAVE TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO Orders(order_num, order_date, cust_id)</span><br><span class="line">VALUES(20100,&#x27;2001/12/1&#x27;,&#x27;1000000010&#x27;);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 1, &#x27;BR01&#x27;, 100, 5.49);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 2, &#x27;BR03&#x27;, 100, 10.99);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
-
-<h1 id="使用游标"><a href="#使用游标" class="headerlink" title="使用游标"></a>使用游标</h1><p>SQL 检索操作返回一组称为结果集的行，这组返回的行都是与SQL 语句相匹配的行（零行或多行）。简单地使用SELECT 语句，没有办法得到第一行、下一行或前10 行。但这是关系DBMS 功能的组成部分。</p>
-<p>有时，需要在检索出来的行中前进或后退一行或多行，这就是游标的用途所在。</p>
-<p>游标（cursor）是一个存储在DBMS 服务器上的数据库查询，它不是一条SELECT 语句，而是被该语句检索出来的结果集。在存储了游标之后，应用程序可以根据需要滚动或浏览其中的数据。</p>
-<h2 id="选项和特性"><a href="#选项和特性" class="headerlink" title="选项和特性"></a>选项和特性</h2><p>1.能够标记游标为只读，使数据能读取，但不能更新和删除。<br>2.能控制可以执行的定向操作（向前、向后、第一、最后、绝对位置、相对位置等）。<br>3.能标记某些列为可编辑的，某些列为不可编辑的。<br>4.规定范围，使游标对创建它的特定请求（如存储过程）或对所有请求可访问。<br>5.指示DBMS 对检索出的数据（而不是指出表中活动数据）进行复制，使数据在游标打开和访问期间不变化。</p>
-<p>游标主要用于交互式应用，其中用户需要滚动屏幕上的数据，并对数据进行浏览或做出更改。</p>
-<h2 id="游标的使用步骤"><a href="#游标的使用步骤" class="headerlink" title="游标的使用步骤"></a>游标的使用步骤</h2><p>1.在使用游标前，必须声明（定义）它。这个过程实际上没有检索数据，它只是定义要使用的SELECT 语句和游标选项。<br>2.一旦声明，就必须打开游标以供使用。这个过程用前面定义的SELECT语句把数据实际检索出来。<br>3.对于填有数据的游标，根据需要取出（检索）各行。<br>4.在结束游标使用时，必须关闭游标，可能的话，释放游标（有赖于具体的DBMS）。</p>
-<p>5.声明游标后，可根据需要频繁地打开和关闭游标。在游标打开时，可根据需要频繁地执行取操作</p>
-<h3 id="创建游标"><a href="#创建游标" class="headerlink" title="创建游标"></a>创建游标</h3><p>DECLARE 命名游标，并定义相应的SELECT 语句，根据需要带WHERE 和其他子句。<br><strong>游标只能用在存储过程中</strong></p>
-<hr>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE CustCursor CURSOR</span><br><span class="line">FOR</span><br><span class="line">SELECT * FROM Customers</span><br><span class="line">WHERE cust_email IS NULL</span><br></pre></td></tr></table></figure>
-
-<h3 id="打开游标"><a href="#打开游标" class="headerlink" title="打开游标"></a>打开游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">OPEN CURSOR CustCursor</span><br></pre></td></tr></table></figure>
-
-<p>用FETCH 语句访问游标数据。FETCH 指出要检索哪些行，从何处检索它们以及将它们放于何处（如变量名）。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE TYPE CustCursor IS REF CURSOR</span><br><span class="line">	RETURN Customers%ROWTYPE;</span><br><span class="line">DECLARE CustRecord Customers%ROWTYPE</span><br><span class="line">BEGIN</span><br><span class="line">OPEN CustCursor;</span><br><span class="line">FETCH CustCursor INTO CustRecord;</span><br><span class="line">CLOSE CustCursor;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
-
-<h3 id="关闭游标"><a href="#关闭游标" class="headerlink" title="关闭游标"></a>关闭游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CLOSE CustCursor</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -1284,338 +1690,6 @@
       </tags>
   </entry>
   <entry>
-    <title>DSA 基础知识 01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_01/</url>
-    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数据结构和算法的重要性毋庸置疑，一方面刷题，一方面学习一下。</p>
-<p>复杂度和递归的介绍<span id="more"></span></p>
-<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><h3 id="时间复杂度："><a href="#时间复杂度：" class="headerlink" title="时间复杂度："></a>时间复杂度：</h3><h4 id="原则："><a href="#原则：" class="headerlink" title="原则："></a>原则：</h4><ol>
-<li><p>  只关注循环次数最多的一段代码。</p>
-</li>
-<li><p>  加法原则：总复杂度等于量级最大的那段代码的时间复杂度。</p>
-</li>
-<li><p>  乘法原则：嵌套代码的复杂度等于嵌套内外代码复杂度的乘积。</p>
-</li>
-</ol>
-<h4 id="常见的复杂度量级："><a href="#常见的复杂度量级：" class="headerlink" title="常见的复杂度量级："></a>常见的复杂度量级：</h4><p>O(1): 常数时间复杂度算法</p>
-<p>​        只要代码的执行时间不随 n 的增大而增长，这样代码的时间复杂度我们都记作 O(1)。或者说，<strong>一般情况下，只要算法中不存在循环语句、递归语句，即使有成千上万行的代码，其时间复杂度也是Ο(1)。</strong></p>
-<p>O(logn): 对数时间复杂度</p>
-<p>​        高效算法。</p>
-<p>O(n): 多项式时间复杂度算法.</p>
-<p>​        某问题若存在一个复杂度在此范围以内的算法，则称该问题是可有效求解的或易解的（tractable）</p>
-<p>O(x**n): 指数复杂度</p>
-<p>​        无法接受的算法。</p>
-<p>时间复杂度为非多项式量级的算法问题叫作 NP（Non-Deterministic Polynomial，非确定多项式）问题。包括指数阶和阶乘阶。</p>
-<h4 id="最好、最坏、平均情况时间复杂度："><a href="#最好、最坏、平均情况时间复杂度：" class="headerlink" title="最好、最坏、平均情况时间复杂度："></a>最好、最坏、平均情况时间复杂度：</h4><p><strong>最好情况时间复杂度：</strong> 在最理想的情况下，执行这段代码的时间复杂度。</p>
-<p><strong>最坏情况时间复杂度：</strong> 在最糟糕的情况下，执行这段代码的时间复杂度。</p>
-<p><strong>平均情况时间复杂度：</strong> 最好情况时间复杂度和最坏情况时间复杂度对应的都是极端情况下的代码复杂度，发生的概率其实并不大。为了更好地表示平均情况下的复杂度，引入平均情况时间复杂度。平均时间复杂度的全称应该叫<strong>加权平均时间复杂度</strong>或者<strong>期望时间复杂度</strong>。</p>
-<p><strong>均摊时间复杂度:</strong> 通过摊还分析法得到的时间复杂度。对一个数据结构进行一组连续操作中，大部分情况下时间复杂度都很低，只有个别情况下时间复杂度比较高，而且这些操作之间存在前后连贯的时序关系，这个时候，我们就可以将这一组操作放在一块儿分析，看是否能将较高时间复杂度那次操作的耗时，平摊到其他那些时间复杂度比较低的操作上。而且，在能够应用均摊时间复杂度分析的场合，一般均摊时间复杂度就等于最好情况时间复杂度。</p>
-<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>递归则是函数和过程调用的一种特殊形式，即允许函数和过程进行自我调用。</p>
-<p>递归的价值在于，许多应用问题都可简洁而准确地描述为递归形式。</p>
-<h3 id="递归需要满足的三个条件"><a href="#递归需要满足的三个条件" class="headerlink" title="递归需要满足的三个条件"></a>递归需要满足的三个条件</h3><ol>
-<li><p>一个问题的解可以分解为几个子问题的解</p>
-</li>
-<li><p>  这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样</p>
-</li>
-<li><p>  存在递归终止条件</p>
-</li>
-</ol>
-<h4 id="求解方法："><a href="#求解方法：" class="headerlink" title="求解方法："></a>求解方法：</h4><p>​        <strong>写递归代码的关键就是找到如何将大问题分解为小问题的规律，并且基于此写出递推公式，然后再推敲终止条件，最后将递推公式和终止条件翻译成代码</strong></p>
-<h4 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h4><ol>
-<li>  堆栈溢出。</li>
-<li>  重复计算。</li>
-</ol>
-<h3 id="递归的基本模式"><a href="#递归的基本模式" class="headerlink" title="递归的基本模式"></a>递归的基本模式</h3><h4 id="线性递归"><a href="#线性递归" class="headerlink" title="线性递归"></a>线性递归</h4><p>举例：数组元素求和</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组求和：数组的前A[0,n-1)个数的和与末元素A[n-1]之和。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">arraySum</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span>&gt;n)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in"><span class="keyword">return</span></span> (<span class="built_in">arraySum</span>(A, n<span class="number">-1</span>) + A[n<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//时间复杂度：O(1)*递归深度 = O(1) * (n+1) = O(n)</span></span><br><span class="line"><span class="comment">//空间复杂度：O(n)</span></span><br></pre></td></tr></table></figure>
-
-<p>​        算法可能朝着更深一层进行自我调用，且每一递归实例对自身的调用至多一次。于是，每一层次上至多只有一个实例，且它们构成一个线性的次序关系。此类递归模式因而称作“线性递归”（linear recursion），它也是递归的最基本形式。</p>
-<p>​    线性递归往往对应于<em><strong>减而治之</strong></em>的算法策略：递归每深入一层，待求解问题的规模都缩减一个常数，直至最终蜕化为平凡的小（简单）问题。</p>
-<h3 id="递归分析"><a href="#递归分析" class="headerlink" title="递归分析"></a>递归分析</h3><p>1.递归跟踪：作为一种直观且可视的方法，递归跟踪（recursion trace）可用以分析递归算法的总体运行时间与空间。</p>
-<p>2.递推方程：通过对递归模式的数学归纳，导出复杂度定界函数的递推方程（组）及其边界条件，从而将复杂度的分析，转化为递归方程（组）的求解。</p>
-<h3 id="递归模式"><a href="#递归模式" class="headerlink" title="递归模式"></a>递归模式</h3><p>1.多递归基：为保证有穷性，递归算法都必须设置递归基，且确保总能执行到。</p>
-<p>举例：数组倒置</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>* A, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lo &lt; hi)&#123;</span><br><span class="line">		<span class="built_in">swap</span>(A[lo], A[hi]);</span><br><span class="line">		<span class="built_in">reverse</span>(A, lo+<span class="number">1</span>, hi<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">//O(hi + lo -1)</span></span><br></pre></td></tr></table></figure>
-
-<p>2.多向递归：递归算法中，不仅递归基可能有多个，递归调用也可能有多种可供选择的分支。</p>
-<p>举例：求2**n</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inline __int64 sqr ( __int64 a ) &#123; return a * a; &#125;</span><br><span class="line">__int64 power2 ( int n ) &#123; //幂函数2^n算法（优化逑弻版），n &gt;= 0</span><br><span class="line"> 	if ( 0 == n ) return 1; //逑弻基；否则，规n癿奇偶分删逑弻</span><br><span class="line">    return ( n &amp; 1 ) ? sqr ( power2 ( n &gt;&gt; 1 ) ) &lt;&lt; 1 : sqr ( power2 ( n &gt;&gt; 1 ) );</span><br><span class="line">&#125; //O(logn) = O(r)，r为输入指数n癿比特位数</span><br></pre></td></tr></table></figure>
-
-<h3 id="递归消除"><a href="#递归消除" class="headerlink" title="递归消除"></a>递归消除</h3><p>空间成本:递归算法所消耗的空间量主要取决于递归深度，故较之同一算法的迭代版，递归版往往需耗费更多空间，并进而影响实际的运行速度。</p>
-<p>举例：尾递归消除</p>
-<p>在线性递归算法中，若递归调用在递归实例中恰好以最后一步操作的形式出现，则称作尾递<br>归（tail recursion）。属于尾递归形式的算法，均可以简捷地转换为等效的迭代版本。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#数组倒置</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">next:</span><br><span class="line">	if(lo &lt; hi)&#123;</span><br><span class="line">		swap(A[lo], A[hi]);</span><br><span class="line">		lo++;</span><br><span class="line">		hi--;</span><br><span class="line">		goto next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo + 1)</span><br><span class="line"></span><br><span class="line">#用while 代替 next if</span><br><span class="line">void reverse(int* A, int lo, int hi)&#123;</span><br><span class="line">	while( lo &lt; hi )&#123;</span><br><span class="line">		swap(A[lo++], A[hi--]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="二分递归"><a href="#二分递归" class="headerlink" title="二分递归"></a>二分递归</h3><p>分而治之：将大问题分解为若干规模更小的子问题，再通过递归机制分别求解。这种分解持续进行，直到子问题规模缩减至平凡情况。这也就是所谓的分而治之（divide-and-conquer）策略。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arraySum(int A[], int lo, int hi)&#123;</span><br><span class="line">	if( lo == hi)&#123;</span><br><span class="line">		return A[lo];</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int mi = (lo + hi) &gt;&gt; 1;</span><br><span class="line">		return sum(A, lo, mi) + sum(A, mi+1, hi);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo +1)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DSA 基础知识 02</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_02/</url>
-    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数组和链表都是线性表，存储方式和操作方式的区别已经理解的比较清楚。</p>
-<p>栈和队列同样也是线性表，主要的区别还是在于队列是先进先出，而栈是先进后出，所以适用于不同的场景。</p>
-<span id="more"></span>
-
-<h2 id="如何轻松写出正确的链表代码"><a href="#如何轻松写出正确的链表代码" class="headerlink" title="如何轻松写出正确的链表代码"></a>如何轻松写出正确的链表代码</h2><ol>
-<li><p>理解指针或引用的含义</p>
-<p>  将某个变量赋值给指针，实际上就是将这个变量的地址赋值给指针，或者反过来说，指针中存储了这个变量的内存地址，指向了这个变量，通过指针就能找到这个变量。</p>
-</li>
-<li><p>   警惕指针丢失和内存泄漏</p>
-</li>
-</ol>
-<pre><code> 插入结点时，一定要注意操作的顺序，删除链表结点时，也一定要记得手动释放内存空间。
-</code></pre>
-<ol start="3">
-<li><p>利用哨兵简化实现难度</p>
-<p>  针对链表的插入、删除操作，需要对插入第一个结点和删除最后一个结点的情况进行特殊处理。</p>
-</li>
-<li><p>  重点留意边界条件处理</p>
-</li>
-</ol>
-<ul>
-<li>  如果链表为空时，代码是否能正常工作？</li>
-<li>  如果链表只包含一个结点时，代码是否能正常工作？</li>
-<li>  如果链表只包含两个结点时，代码是否能正常工作？</li>
-<li>  代码逻辑在处理头结点和尾结点的时候，是否能正常工作？</li>
-</ul>
-<ol start="5">
-<li><p>举例画图，辅助思考</p>
-<p>  通过举例和画图来帮助理解。</p>
-</li>
-<li><p>  多写多练，没有捷径</p>
-</li>
-</ol>
-<h2 id="栈-和-队列"><a href="#栈-和-队列" class="headerlink" title="栈 和 队列"></a>栈 和 队列</h2><p>​        特定的数据结构是对特定场景的抽象，数组或链表暴露了太多的操作接口，操作上的确灵活自由，但使用时就比较不可控，自然也就更容易出错。</p>
-<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>​        栈既可以用数组来实现，也可以用链表来实现。用数组实现的栈，我们叫作<strong>顺序栈</strong>，用链表实现的栈，我们叫作<strong>链式栈</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//基于数组实现的顺序栈</span><br><span class="line">public class ArrayStack&#123;</span><br><span class="line">	private String[] items; //数组</span><br><span class="line">	private int count; //栈中元素个数</span><br><span class="line">	private int n; //栈的大小</span><br><span class="line">	</span><br><span class="line">	//初始化数组，申请一个大小为n的空间</span><br><span class="line">	public ArrayStack(int n)&#123;</span><br><span class="line">		this.items = new Stirng[n];</span><br><span class="line">		this.n = n;</span><br><span class="line">		this.count = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//入栈操作</span><br><span class="line">	public boolean push(String item)&#123;</span><br><span class="line">		//数组空间不够了，直接返回 false， 入栈失败。</span><br><span class="line">		if(count == n)</span><br><span class="line">			return false;</span><br><span class="line">		//将item入栈，count++</span><br><span class="line">		items[count] = item;</span><br><span class="line">		++count;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//出栈操作</span><br><span class="line">	public String pop()&#123;</span><br><span class="line">		//栈为空， 则直接返回 null</span><br><span class="line">		if(count == 0)</span><br><span class="line">			return null;</span><br><span class="line">		//返回下标为count-1的元素， 并且栈中元素个数count-1</span><br><span class="line">		String tmp = items[count-1];</span><br><span class="line">		--count;</span><br><span class="line">		</span><br><span class="line">		return tmp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​    </p>
-<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 用数组实现的队列</span><br><span class="line">public class ArrayQueue &#123;</span><br><span class="line">  // 数组：items，数组大小：n</span><br><span class="line">  private String[] items;</span><br><span class="line">  private int n = 0;</span><br><span class="line">  // head 表示队头下标，tail 表示队尾下标</span><br><span class="line">  private int head = 0;</span><br><span class="line">  private int tail = 0;</span><br><span class="line"> </span><br><span class="line">  // 申请一个大小为 capacity 的数组</span><br><span class="line">  public ArrayQueue(int capacity) &#123;</span><br><span class="line">    items = new String[capacity];</span><br><span class="line">    n = capacity;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 入队</span><br><span class="line">  public boolean enqueue(String item) &#123;</span><br><span class="line">    // 如果 tail == n 表示队列已经满了</span><br><span class="line">    if (tail == n) return false;</span><br><span class="line">    items[tail] = item;</span><br><span class="line">    ++tail;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 出队</span><br><span class="line">  public String dequeue() &#123;</span><br><span class="line">    // 如果 head == tail 表示队列为空</span><br><span class="line">    if (head == tail) return null;</span><br><span class="line">    // 为了让其他语言的同学看的更加明确，把 -- 操作放到单独一行来写了</span><br><span class="line">    String ret = items[head];</span><br><span class="line">    ++head;</span><br><span class="line">    return ret;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>用数组来实现队列的时候，在 tail==n 时，会有数据搬移操作，这样入队操作性能就会受到影响。可以考虑使用<strong>循环队列</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//循环队列</span><br><span class="line">public class CircularQueue &#123;</span><br><span class="line">  // 数组：items，数组大小：n</span><br><span class="line">  private String[] items;</span><br><span class="line">  private int n = 0;</span><br><span class="line">  // head 表示队头下标，tail 表示队尾下标</span><br><span class="line">  private int head = 0;</span><br><span class="line">  private int tail = 0;</span><br><span class="line"> </span><br><span class="line">  // 申请一个大小为 capacity 的数组</span><br><span class="line">  public CircularQueue(int capacity) &#123;</span><br><span class="line">    items = new String[capacity];</span><br><span class="line">    n = capacity;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 入队</span><br><span class="line">  public boolean enqueue(String item) &#123;</span><br><span class="line">    // 队列满了</span><br><span class="line">    if ((tail + 1) % n == head) return false;</span><br><span class="line">    items[tail] = item;</span><br><span class="line">    tail = (tail + 1) % n;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 出队</span><br><span class="line">  public String dequeue() &#123;</span><br><span class="line">    // 如果 head == tail 表示队列为空</span><br><span class="line">    if (head == tail) return null;</span><br><span class="line">    String ret = items[head];</span><br><span class="line">    head = (head + 1) % n;</span><br><span class="line">    return ret;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>阻塞队列：</strong>阻塞队列其实就是在队列基础上增加了阻塞操作。简单来说，就是在队列为空的时候，从队头取数据会被阻塞。因为此时还没有数据可取，直到队列中有了数据才能返回；如果队列已经满了，那么插入数据的操作就会被阻塞，直到队列中有空闲位置后再插入数据，然后再返回。</p>
-<p><strong>并发队列：</strong>线程安全的队列我们叫作并发队列。最简单直接的实现方式是直接在 enqueue()、dequeue() 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DSA 基础知识 03</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_03/</url>
-    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>逃不掉的经典排序算法。<span id="more"></span></p>
-<h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><h3 id="排序算法的执行效率"><a href="#排序算法的执行效率" class="headerlink" title="排序算法的执行效率"></a>排序算法的执行效率</h3><ol>
-<li>  最好情况、最坏情况、平均情况时间复杂度</li>
-<li>  时间复杂度的系数、常数 、低阶</li>
-<li>  比较次数和交换（或移动）次数</li>
-</ol>
-<h3 id="排序算法的内存消耗"><a href="#排序算法的内存消耗" class="headerlink" title="排序算法的内存消耗"></a>排序算法的内存消耗</h3><p>算法的内存消耗可以通过空间复杂度来衡量，排序算法也不例外。不过，针对排序算法的空间复杂度，还引入了一个新的概念，<strong>原地排序</strong>（Sorted in place）。原地排序算法，就是特指空间复杂度是 O(1) 的排序算法。</p>
-<h3 id="排序算法的稳定性"><a href="#排序算法的稳定性" class="headerlink" title="排序算法的稳定性"></a>排序算法的稳定性</h3><p>稳定性是指，如果待排序的序列中存在值相等的元素，经过排序之后，相等元素之间原有的先后顺序不变。</p>
-<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>相邻的两个元素进行比较，不满足大小关系则互换位置，重复 n 次，就完成了 n 个数据的排序工作。</p>
-<p>通过优化，如果某次遍历已经有序，则终止排序，减少遍历次数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 冒泡排序，a 表示数组，n 表示数组大小</span><br><span class="line">public void bubbleSort(int[] a, int n) &#123;</span><br><span class="line">  if (n &lt;= 1) return;</span><br><span class="line"> </span><br><span class="line"> for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">    // 提前退出冒泡循环的标志位</span><br><span class="line">    boolean flag = false;</span><br><span class="line">    for (int j = 0; j &lt; n - i - 1; ++j) &#123;</span><br><span class="line">      if (a[j] &gt; a[j+1]) &#123; // 交换</span><br><span class="line">        int tmp = a[j];</span><br><span class="line">        a[j] = a[j+1];</span><br><span class="line">        a[j+1] = tmp;</span><br><span class="line">        flag = true;  // 表示有数据交换      </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (!flag) break;  // 没有数据交换，提前退出</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="是原地排序算法吗？"><a href="#是原地排序算法吗？" class="headerlink" title="是原地排序算法吗？"></a>是原地排序算法吗？</h4><p>冒泡的过程只涉及相邻数据的交换操作，只需要常量级的临时空间，所以它的空间复杂度为 O(1)，是一个原地排序算法。</p>
-<h4 id="是稳定的排序算法吗？"><a href="#是稳定的排序算法吗？" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h4><p>相同大小的数据在排序前后不会改变顺序，所以冒泡排序是稳定的排序算法。</p>
-<h4 id="时间复杂度是多少？"><a href="#时间复杂度是多少？" class="headerlink" title="时间复杂度是多少？"></a>时间复杂度是多少？</h4><p>最好的时间复杂度是有序情况下为O(n)，仅遍历一次即可。</p>
-<p>最坏的时间复杂度是倒序情况下为O(n²)，需要遍历n次。</p>
-<p>平均情况复杂度:</p>
-<p>这里提出<strong>有序度</strong>的概念，有序度是数组中具有有序关系的元素对的个数。有序元素对用数学表达式表示就是这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">有序元素对：a[i] &lt;= a[j], 如果 i &lt; j。</span><br></pre></td></tr></table></figure>
-
-<p>冒泡排序包含两个操作原子，比较和交换。每交换一次，有序度就加 1。不管算法怎么改进，交换次数总是确定的，即为<strong>逆序度</strong>，也就是<strong>n(n-1)/2 – 初始有序度</strong>。</p>
-<p>平均情况下，需要 n*(n-1)/4 次交换操作，比较操作肯定要比交换操作多，而复杂度的上限是 O(n²)，所以平均情况下的时间复杂度就是 **O(n²)**。</p>
-<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>将数组中的数据分为两个区间，<strong>已排序区间</strong>和<strong>未排序区间</strong>。初始已排序区间只有一个元素，就是数组的第一个元素。插入算法的核心思想是取未排序区间中的元素，在已排序区间中找到合适的插入位置将其插入，并保证已排序区间数据一直有序。重复这个过程，直到未排序区间中元素为空，算法结束。</p>
-<p>插入排序也包含两种操作，一种是<strong>元素的比较</strong>，一种是<strong>元素的移动</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 插入排序，a 表示数组，n 表示数组大小</span><br><span class="line">public void insertionSort(int[] a, int n) &#123;</span><br><span class="line">  if (n &lt;= 1) return;</span><br><span class="line"> </span><br><span class="line">  for (int i = 1; i &lt; n; ++i) &#123;</span><br><span class="line">    int value = a[i];</span><br><span class="line">    int j = i - 1;</span><br><span class="line">    // 查找插入的位置</span><br><span class="line">    for (; j &gt;= 0; --j) &#123;</span><br><span class="line">      if (a[j] &gt; value) &#123;</span><br><span class="line">        a[j+1] = a[j];  // 数据移动</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        break;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    a[j+1] = value; // 插入数据</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="是原地排序算法吗？-1"><a href="#是原地排序算法吗？-1" class="headerlink" title="是原地排序算法吗？"></a>是原地排序算法吗？</h4><p>插入排序算法的运行并不需要额外的存储空间，所以空间复杂度是 O(1)，也就是说，这是一个原地排序算法。</p>
-<h4 id="是稳定的排序算法吗？-1"><a href="#是稳定的排序算法吗？-1" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h4><p>在插入排序中，对于值相同的元素，我们可以选择将后面出现的元素，插入到前面出现元素的后面，这样就可以保持原有的前后顺序不变，所以插入排序是稳定的排序算法。</p>
-<h4 id="时间复杂度是多少？-1"><a href="#时间复杂度是多少？-1" class="headerlink" title="时间复杂度是多少？"></a>时间复杂度是多少？</h4><p>最好的时间复杂度是有序情况下为O(n)，仅<strong>从尾到头</strong>遍历一次即可。</p>
-<p>最坏的时间复杂度是倒序情况下为O(n²)，需要遍历n次。</p>
-<p>平均情况复杂度:</p>
-<p>在数组中插入一个数据的平均时间复杂度是 O(n)，所以，对于插入排序来说，每次插入操作都相当于在数组中插入一个数据，循环执行 n 次插入操作，所以平均时间复杂度为  **O(n²)**。</p>
-<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>选择排序算法的实现思路有点类似插入排序，也分已排序区间和未排序区间。但是选择排序每次会从未排序区间中找到最小的元素，将其放到已排序区间的末尾。</p>
-<h4 id="是原地排序算法吗？-2"><a href="#是原地排序算法吗？-2" class="headerlink" title="是原地排序算法吗？"></a>是原地排序算法吗？</h4><p>选择排序算法的运行并不需要额外的存储空间，所以空间复杂度是 O(1)，也就是说，这是一个原地排序算法。</p>
-<h4 id="是稳定的排序算法吗？-2"><a href="#是稳定的排序算法吗？-2" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h4><p>选择排序是一种<strong>不稳定</strong>的排序算法。比如 5，8，5，2，9 这样一组数据，使用选择排序算法来排序的话，第一次找到最小元素 2，与第一个 5 交换位置，那第一个 5 和中间的 5 顺序就变了，所以就不稳定了。</p>
-<h4 id="时间复杂度是多少？-2"><a href="#时间复杂度是多少？-2" class="headerlink" title="时间复杂度是多少？"></a>时间复杂度是多少？</h4><p>最好的时间复杂度是有序情况下为O(n²)，需要遍历n次。</p>
-<p>最坏的时间复杂度是倒序情况下为O(n²)，需要遍历n次。</p>
-<p>平均情况复杂度:选择排序的最好和最坏的时间复杂度相同，所以平均时间复杂度就为  **O(n²)**。</p>
-<h3 id="算法比较"><a href="#算法比较" class="headerlink" title="算法比较"></a>算法比较</h3><p>冒泡排序不管怎么优化，元素交换的次数是一个固定值，是原始数据的逆序度。插入排序是同样的，不管怎么优化，元素移动的次数也等于原始数据的逆序度。但是，从代码实现上来看，冒泡排序的数据交换要比插入排序的数据移动要复杂，冒泡排序需要 3 个赋值操作，而插入排序只需要 1 个。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">冒泡排序中数据的交换操作：</span><br><span class="line">if (a[j] &gt; a[j+1]) &#123; // 交换</span><br><span class="line">   int tmp = a[j];</span><br><span class="line">   a[j] = a[j+1];</span><br><span class="line">   a[j+1] = tmp;</span><br><span class="line">   flag = true;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">插入排序中数据的移动操作：</span><br><span class="line">if (a[j] &gt; value) &#123;</span><br><span class="line">  a[j+1] = a[j];  // 数据移动</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>插入排序的算法思路也有很大的优化空间，进一步优化的算法比如<strong>希尔排序</strong>。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DSA 基础知识 04</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_04/</url>
-    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>归并排序 + 快速排序。<span id="more"></span></p>
-<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>如果要排序一个数组，先把数组从中间分成前后两部分，然后对前后两部分分别排序，再将排好序的两部分合并在一起，这样整个数组就都有序了。</p>
-<p>归并排序使用的就是<strong>分治思想</strong>。分治，顾名思义，就是分而治之，将一个大问题分解成小的子问题来解决。小的子问题解决了，大问题也就解决了。<strong>分治是一种解决问题的处理思想，递归是一种编程技巧。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//递推公式</span><br><span class="line">merge_sort(p...r) = merge(merge_sort(p...q), merge_sort(q+1...r))</span><br><span class="line">q = p + (r-p) / 2</span><br><span class="line">//终止条件</span><br><span class="line">p &gt;= r</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//伪代码:A是数组， n表示数组大小</span><br><span class="line">merge_sort(A, n)&#123;</span><br><span class="line">	merge_sort_c(A, 0, n-1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//merge_sort_c(A, p, r)&#123;</span><br><span class="line">	//递归终止条件</span><br><span class="line">	if p &gt;= r</span><br><span class="line">		return ;</span><br><span class="line">	//取中间位置q</span><br><span class="line">	q = p + (r - p) / 2</span><br><span class="line">	//分治递归</span><br><span class="line">	merge_sort_c(A, p, q);</span><br><span class="line">	merge_sort_c(A, q+1， r);</span><br><span class="line">	//将A[p...q] 和 A[q+1...r] 合并为 A[p...r]</span><br><span class="line">	merge(A[p...r], A[p...q], A[q+1...r]);</span><br><span class="line">&#125;</span><br><span class="line">//</span><br><span class="line">merge(A[p...r], A[p...q], A[q+1...r]) &#123;</span><br><span class="line">  var i := p，j := q+1，k := 0 // 初始化变量 i, j, k</span><br><span class="line">  var tmp := new array[0...r-p] // 申请一个大小跟 A[p...r] 一样的临时数组</span><br><span class="line">  while i&lt;=q AND j&lt;=r do &#123;</span><br><span class="line">    if A[i] &lt;= A[j] &#123;</span><br><span class="line">      tmp[k++] = A[i++] // i++ 等于 i:=i+1</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      tmp[k++] = A[j++]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  // 判断哪个子数组中有剩余的数据</span><br><span class="line">  var start := i，end := q</span><br><span class="line">  if j&lt;=r then start := j, end:=r</span><br><span class="line">  </span><br><span class="line">  // 将剩余的数据拷贝到临时数组 tmp</span><br><span class="line">  while start &lt;= end do &#123;</span><br><span class="line">    tmp[k++] = A[start++]</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  // 将 tmp 中的数组拷贝回 A[p...r]</span><br><span class="line">  for i:=0 to r-p do &#123;</span><br><span class="line">    A[p+i] = tmp[i]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="是稳定的排序算法吗？"><a href="#是稳定的排序算法吗？" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h3><p>归并排序稳不稳定关键要看 merge() 函数，也就是两个有序子数组合并成一个有序数组的那部分代码。在合并的过程中，如果 A[p…q] 和 A[q+1…r] 之间有值相同的元素，可以先把 A[p…q] 中的元素放入 tmp 数组。这样就保证了值相同的元素，在合并前后的先后顺序不变。所以，归并排序是一个稳定的排序算法。</p>
-<h3 id="时间复杂度计算"><a href="#时间复杂度计算" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h3><p>如果我们定义求解问题 a 的时间是 T(a)，求解问题 b、c 的时间分别是 T(b) 和 T( c)，那我们就可以得到这样的递推关系式：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">T(a) = T(b) + T(c) + K</span><br></pre></td></tr></table></figure>
-
-<p>其中 K 等于将两个子问题 b、c 的结果合并成问题 a 的结果所消耗的时间。<strong>不仅递归求解的问题可以写成递推公式，递归代码的时间复杂度也可以写成递推公式。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">T(1) = C；   n=1 时，只需要常量级的执行时间，所以表示为 C。</span><br><span class="line">T(n) = 2*T(n/2) + n； n&gt;1</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">T(n) = 2*T(n/2) + n</span><br><span class="line">     = 2*(2*T(n/4) + n/2) + n = 4*T(n/4) + 2*n</span><br><span class="line">     = 4*(2*T(n/8) + n/4) + 2*n = 8*T(n/8) + 3*n</span><br><span class="line">     = 8*(2*T(n/16) + n/8) + 3*n = 16*T(n/16) + 4*n</span><br><span class="line">     ......</span><br><span class="line">     = 2^k * T(n/2^k) + k * n</span><br><span class="line">     ......</span><br><span class="line">     </span><br><span class="line">当 n/2^k = 1时，k=logn。代入</span><br><span class="line">T(n) = Cn+nlog2n </span><br></pre></td></tr></table></figure>
-
-<p>归并排序的时间复杂度任何情况下都是  O(nlogn)。</p>
-<h3 id="空间复杂度计算"><a href="#空间复杂度计算" class="headerlink" title="空间复杂度计算"></a>空间复杂度计算</h3><p><strong>归并排序不是原地排序算法。</strong>归并排序的合并函数，在合并两个有序数组为一个有序数组时，需要借助额外的存储空间。</p>
-<p><strong>递归代码的空间复杂度并不能像时间复杂度那样累加。</strong>尽管每次合并操作都需要申请额外的内存空间，但在合并完成之后，临时开辟的内存空间就被释放掉了。在任意时刻，CPU 只会有一个函数在执行，也就只会有一个临时的内存空间在使用。临时内存空间最大也不会超过 n 个数据的大小，所以空间复杂度是 O(n)。</p>
-<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>快排利用的也是<strong>分治思想</strong>。如果要排序数组中下标从 p 到 r 之间的一组数据，我们选择 p 到 r 之间的任意一个数据作为 pivot（分区点）。</p>
-<p>遍历 p 到 r 之间的数据，将小于 pivot 的放到左边，将大于 pivot 的放到右边，将 pivot 放到中间。经过这一步骤之后，数组 p 到 r 之间的数据就被分成了三个部分，前面 p 到 q-1 之间都是小于 pivot 的，中间是 pivot，后面的 q+1 到 r 之间是大于 pivot 的用递归排序下标从 p 到 q-1 之间的数据和下标从 q+1 到 r 之间的数据，直到区间缩小为 1，就说明所有的数据都有序了。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">递推公式：</span><br><span class="line">quick_sort(p…r) = quick_sort(p…q-1) + quick_sort(q+1, r)</span><br><span class="line"> </span><br><span class="line">终止条件：</span><br><span class="line">p &gt;= r</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 快速排序，A 是数组，n 表示数组的大小</span><br><span class="line">quick_sort(A, n) &#123;</span><br><span class="line">  quick_sort_c(A, 0, n-1)</span><br><span class="line">&#125;</span><br><span class="line">// 快速排序递归函数，p,r 为下标</span><br><span class="line">quick_sort_c(A, p, r) &#123;</span><br><span class="line">  if p &gt;= r then return</span><br><span class="line">  </span><br><span class="line">  q = partition(A, p, r) // 获取分区点</span><br><span class="line">  quick_sort_c(A, p, q-1)</span><br><span class="line">  quick_sort_c(A, q+1, r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">partition(A, p, r) &#123;</span><br><span class="line">  pivot := A[r]</span><br><span class="line">  i := p</span><br><span class="line">  for j := p to r-1 do &#123;</span><br><span class="line">    if A[j] &lt; pivot &#123;</span><br><span class="line">      swap A[i] with A[j]</span><br><span class="line">      i := i+1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  swap A[i] with A[r]</span><br><span class="line">  return i</span><br></pre></td></tr></table></figure>
-
-<h3 id="是稳定的排序算法吗？-1"><a href="#是稳定的排序算法吗？-1" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h3><p>因为分区的过程涉及交换操作，如果数组中有两个相同的元素，比如序列 6，8，7，6，3，5，9，4，在经过第一次分区操作之后，两个 6 的相对先后顺序就会改变。所以，快速排序<strong>并不是一个稳定的排序算法</strong>。</p>
-<h3 id="是原地算法嘛？"><a href="#是原地算法嘛？" class="headerlink" title="是原地算法嘛？"></a>是原地算法嘛？</h3><p>快速排序是原地算法，并不涉及申请额外的空间，所以空间复杂度为O(1)。</p>
-<h3 id="时间复杂度计算-1"><a href="#时间复杂度计算-1" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h3><p>快排也是用递归来实现的。如果每次分区操作，都能<strong>正好把数组分成大小接近相等的两个小区间</strong>，那快排的时间复杂度递推求解公式跟归并是相同的，既 O(nlogn)。但实际上正好能将大区间对等地一分为二的这种情况是很难实现的。所以快速排序的<strong>最好时间复杂度才是 O(nlogn)。</strong></p>
-<p>比较极端的情况下，如果数组中的数据原来已经是有序的了，比如 1，3，5，6，8。如果我们每次选择最后一个元素作为 pivot，那每次分区得到的两个区间都是不均等的。我们需要进行大约 n 次分区操作，才能完成快排的整个过程。每次分区我们平均要扫描大约 n/2 个元素，这种情况下，快排的时间复杂度就从 O(nlogn) 退化成了 <strong>O(n²)<strong>，也就是</strong>最坏的时间复杂度</strong>。</p>
-<p><strong>结论：T(n) 在大部分情况下的时间复杂度都可以做到 O(nlogn)，只有在极端情况下，才会退化到O(n²)。</strong></p>
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>归并排序的处理过程是<strong>由下到上</strong>的，先处理子问题，然后再合并。而快排正好相反，它的处理过程是<strong>由上到下</strong>的，先分区，然后再处理子问题。归并排序虽然是<strong>稳定的</strong>、时间复杂度为 O(nlogn) 的排序算法，但是它是非原地排序算法。归并之所以是非原地排序算法，主要原因是合并函数无法在原地执行。快速排序通过设计巧妙的原地分区函数，可以实现原地排序，解决了归并排序占用太多内存的问题，但是快速排序<strong>并不是一个稳定的排序算法</strong>。</p>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>O(n²)时间复杂度出现的主要原因还是因为分区点选的不够合理。</p>
-<p>最理想的分区点是：<strong>被分区点分开的两个分区中，数据的数量差不多</strong>。</p>
-<h3 id="1-三数取中法"><a href="#1-三数取中法" class="headerlink" title="1. 三数取中法"></a>1. 三数取中法</h3><p>从区间的首、尾、中间，分别取出一个数，然后对比大小，取这 3 个数的中间值作为分区点。这样每间隔某个固定的长度，取数据出来比较，将中间值作为分区点的分区算法，肯定要比单纯取某一个数据更好。但是，如果要排序的数组比较大，那“三数取中”可能就不够了，可能要“五数取中”或者“十数取中”。</p>
-<h3 id="2-随机法"><a href="#2-随机法" class="headerlink" title="2. 随机法"></a>2. 随机法</h3><p>随机法就是每次从要排序的区间中，随机选择一个元素作为分区点。这种方法并不能保证每次分区点都选的比较好，但是从概率的角度来看，也不大可能会出现每次分区点都选的很差的情况，所以平均情况下，这样选的分区点是比较好的。时间复杂度退化为最糟糕的 O(n²)的情况，出现的可能性不大。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DSA 基础知识 05</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_05/</url>
-    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>线性排序：桶排序、计数排序、基数排序。<span id="more"></span></p>
-<h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><p>核心思想是将要排序的数据分到几个有序的桶里，每个桶里的数据再单独进行归并排序，保证稳定性。桶内排完序之后，再把每个桶里的数据按照顺序依次取出，组成的序列就是有序的了。</p>
-<h3 id="时间复杂度分析"><a href="#时间复杂度分析" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h3><p>如果要排序的数据有 n 个，我们把它们均匀地划分到 m 个桶内，每个桶里就有 k=n/m 个元素。每个桶内部使用快速排序，时间复杂度为 O(k * logk)。m 个桶排序的时间复杂度就是 O(m * k * logk)，因为 k=n/m，所以整个桶排序的时间复杂度就是 O(n*log(n/m))。当桶的个数 m 接近数据个数 n 时，log(n/m) 就是一个非常小的常量，这个时候桶排序的时间复杂度接近 O(n)。</p>
-<h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>1.要排序的数据需要很容易就能划分成 m 个桶</p>
-<p>2.桶与桶之间有着天然的大小顺序。这样每个桶内的数据都排序完之后，桶与桶之间的数据不需要再进行排序。</p>
-<p>3.数据在各个桶之间的分布是比较均匀的。</p>
-<h3 id="适用条件"><a href="#适用条件" class="headerlink" title="适用条件"></a>适用条件</h3><p><strong>桶排序比较适合用在外部排序中</strong>。所谓的外部排序就是数据存储在外部磁盘中，数据量比较大，内存有限，无法将数据全部加载到内存中。</p>
-<h2 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h2><p><strong>计数排序其实是桶排序的一种特殊情况</strong>。当要排序的 n 个数据，所处的范围并不大的时候，比如最大值是 k，我们就可以把数据划分成 k 个桶。每个桶内的数据值都是相同的，省掉了桶内排序的时间。</p>
-<p>计数排序的算法思想跟桶排序非常类似，只是桶的大小粒度不一样。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 计数排序，a 是数组，n 是数组大小。假设数组中存储的都是非负整数。</span><br><span class="line">public void countingSort(int[] a, int n) &#123;</span><br><span class="line">  if (n &lt;= 1) return;</span><br><span class="line"> </span><br><span class="line">  // 查找数组中数据的范围</span><br><span class="line">  int max = a[0];</span><br><span class="line">  for (int i = 1; i &lt; n; ++i) &#123;</span><br><span class="line">    if (max &lt; a[i]) &#123;</span><br><span class="line">      max = a[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  int[] c = new int[max + 1]; // 申请一个计数数组 c，下标大小 [0,max]</span><br><span class="line">  for (int i = 0; i &lt;= max; ++i) &#123;</span><br><span class="line">    c[i] = 0;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 计算每个元素的个数，放入 c 中</span><br><span class="line">  for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">    c[a[i]]++;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 依次累加</span><br><span class="line">  for (int i = 1; i &lt;= max; ++i) &#123;</span><br><span class="line">    c[i] = c[i-1] + c[i];</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 临时数组 r，存储排序之后的结果</span><br><span class="line">  int[] r = new int[n];</span><br><span class="line">  // 计算排序的关键步骤，有点难理解</span><br><span class="line">  //倒序，保证稳定性。</span><br><span class="line">  for (int i = n - 1; i &gt;= 0; --i) &#123;</span><br><span class="line">    int index = c[a[i]]-1;</span><br><span class="line">    r[index] = a[i];</span><br><span class="line">    c[a[i]]--;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 将结果拷贝给 a 数组</span><br><span class="line">  for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">    a[i] = r[i];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>计数排序只能用在<strong>数据范围不大</strong>的场景中，如果数据范围 k 比要排序的数据 n 大很多，就不适合用计数排序了。而且，计数排序<strong>只能给非负整数排序</strong>，如果要排序的数据是其他类型的，要将其在不改变相对大小的情况下，<strong>转化为非负整数</strong>。</p>
-<h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><p>基数排序对要排序的数据是有要求的，需要可以<strong>分割出独立的“位”来比较</strong>，而且位之间<strong>有递进的关系</strong>，如果 a 数据的高位比 b 数据大，那剩下的低位就不用比较了。除此之外，每一位的数据范围不能太大，要可以用线性排序算法来排序，否则，基数排序的时间复杂度就无法做到 O(n) 了</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><img src = "/images/DSA/01.jpg">
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenCV-Tutorials</title>
-    <url>/%E5%AD%A6%E4%B9%A0/OpenCV/openCVtutorials/</url>
-    <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
-<span id="more"></span>
-
-<h3 id="CV与Matplotlib的颜色冲突"><a href="#CV与Matplotlib的颜色冲突" class="headerlink" title="CV与Matplotlib的颜色冲突"></a>CV与Matplotlib的颜色冲突</h3><p> OpenCV中读取彩图的颜色是以BGR来排序的，而Matplotlib中图片是以RGB排序的，因此如果想要使用pyplot来展示图片，就需要对图片的颜色域顺序进行处理，不过实现起来也很方便。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv.imread(<span class="string">&quot;o1.png&quot;</span>)</span><br><span class="line">img = img[:,:,::-<span class="number">1</span>]</span><br><span class="line">plt.show(<span class="string">&quot;Image&quot;</span>,img)</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用拉普拉斯算子获取图像边缘"><a href="#使用拉普拉斯算子获取图像边缘" class="headerlink" title="使用拉普拉斯算子获取图像边缘"></a>使用拉普拉斯算子获取图像边缘</h3><p>以下是示例和我按照示例的到的结果：</p>
-<p>官方示例：</p>
-<img src="/images/OpenCV/openCV_01.png">
-
-<p>我的结果：</p>
-<img src="/images/OpenCV/openCV_02.png">
-
-<p>可以看出并没有得到示例中所展示的效果。</p>
-<p>查看函数参数说明，可以看到有一项参数为：</p>
-<p><strong>CV_<bit_depth>(S|U|F)C<number_of_channels></strong></p>
-<p>说明如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bit_depth：比特数---代表8bite,16bites,32bites,64bites...</span><br><span class="line"></span><br><span class="line">如果你现在创建了一个存储--灰度图片的Mat对象,这个图像的大小为宽100,高100,那么,现在这张灰度图片中有10000个像素点，它每一个像素点在内存空间所占的空间大小是8bite,8位--所以它对应的就是CV_8。</span><br><span class="line">-------------</span><br><span class="line"></span><br><span class="line">S|U|F:</span><br><span class="line"></span><br><span class="line">S--代表---signed int---有符号整形</span><br><span class="line"></span><br><span class="line">U--代表--unsigned int--无符号整形</span><br><span class="line"></span><br><span class="line">F--代表--float---------单精度浮点型</span><br><span class="line"></span><br><span class="line">---------</span><br><span class="line"></span><br><span class="line">C&lt;number_of_channels&gt;----代表---一张图片的通道数,比如:</span><br><span class="line"></span><br><span class="line">channels = 1：灰度图片--grayImg---是--单通道图像</span><br><span class="line"></span><br><span class="line">channels = 3：RGB彩色图像---------是--3通道图像</span><br><span class="line"></span><br><span class="line">channels = 4：带Alph通道的RGB图像--是--4通道图像</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
-
-<p>修改参数为CV_8U后，调整内核大小，得到预期结果。</p>
-<h3 id="绘制轮廓"><a href="#绘制轮廓" class="headerlink" title="绘制轮廓"></a>绘制轮廓</h3><p>看函数说明时，需要使用二值图片才能更好的识别轮廓。所以我就直接选择了使用二值图片去查找轮廓。但是再绘制轮廓时发现无法绘制轮廓，观察函数发现：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cv2.drawContours(image, contours, contourIdx, color, thickness=None, lineType=None, hierarchy=None, maxLevel=None, offset=None)</span><br></pre></td></tr></table></figure>
-
-<p>其中要求image类型为彩色图片。所以就需要使用彩色图片从BGR-&gt;GRAY,在进行阈值化处理变为二值图片识别轮廓，最后再原图上画图。</p>
-<h3 id="多对象模板匹配"><a href="#多对象模板匹配" class="headerlink" title="多对象模板匹配"></a>多对象模板匹配</h3><p>源代码见github仓库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#函数：cv.matchTemplate(), cv.minMaxLoc()</span><br><span class="line">import numpy as np</span><br><span class="line">import cv2 as cv </span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line"></span><br><span class="line">img7 = cv.imread(&quot;../Images/img7.jpg&quot;)</span><br><span class="line">img7 = cv.cvtColor(img7, cv.COLOR_BGR2GRAY)</span><br><span class="line">target = img7.copy()</span><br><span class="line">template = cv.imread(&quot;../Images/img7_1.png&quot;)</span><br><span class="line">template = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">w, h = template.shape[::-1]</span><br><span class="line">#列表中所有的6种比较方法</span><br><span class="line">methods = [&#x27;cv.TM_CCOEFF&#x27;, &#x27;cv.TM_CCOEFF_NORMED&#x27;, &#x27;cv.TM_CCORR&#x27;,</span><br><span class="line">            &#x27;cv.TM_CCORR_NORMED&#x27;, &#x27;cv.TM_SQDIFF&#x27;, &#x27;cv.TM_SQDIFF_NORMED&#x27;]</span><br><span class="line">for meth in methods:</span><br><span class="line">    img7 = target.copy()</span><br><span class="line">    method = eval(meth)</span><br><span class="line">    # 应用模板匹配</span><br><span class="line">    res = cv.matchTemplate(img7,template,method)</span><br><span class="line">    min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)</span><br><span class="line">    # 如果方法是TM_SQDIFF或TM_SQDIFF_NORMED，则取最小值</span><br><span class="line">    if method in [cv.TM_SQDIFF, cv.TM_SQDIFF_NORMED]:</span><br><span class="line">        top_left = min_loc</span><br><span class="line">    else:</span><br><span class="line">        top_left = max_loc</span><br><span class="line">    bottom_right = (top_left[0] + w, top_left[1] + h)</span><br><span class="line">    cv.rectangle(img7,top_left, bottom_right, 255, 2)</span><br><span class="line">    plt.subplot(121),plt.imshow(res,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Matching Result&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.subplot(122),plt.imshow(img7,cmap = &#x27;gray&#x27;)</span><br><span class="line">    plt.title(&#x27;Detected Point&#x27;), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.suptitle(meth)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">#多对象匹配</span><br><span class="line">img22 = cv.imread(&quot;../Images/img22.png&quot;)</span><br><span class="line">img22_gray = cv.cvtColor(img22, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(img22_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">template = cv.imread(&#x27;../Images/img22_1.png&#x27;)</span><br><span class="line">template_gray = cv.cvtColor(template, cv.COLOR_BGR2GRAY)</span><br><span class="line">#plt.imshow(template_gray,&#x27;gray&#x27;)</span><br><span class="line">#plt.show()</span><br><span class="line">w, h = template_gray.shape[:: -1]</span><br><span class="line">print(w,h)</span><br><span class="line">res = cv.matchTemplate(img22_gray, template_gray, cv.TM_CCOEFF_NORMED)</span><br><span class="line">threshold = 0.55</span><br><span class="line">loc = np.where( res &gt;= threshold)</span><br><span class="line">for pt in zip(*loc[::-1]):</span><br><span class="line">    cv.rectangle(img22, pt, (pt[0] + w , pt[1]+ h), (0,255,255), 2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">cv.imshow(&quot;image&quot;,img22 )</span><br><span class="line">cv.waitKey(0)</span><br><span class="line">cv.destroyAllWindows()</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">img22 = img22[:, :, :: -1]</span><br><span class="line">plt.imshow(img22)</span><br><span class="line">plt.show()</span><br><span class="line">#错误原因分析：因为匹配时采用灰度图像，所以水管被匹配到了</span><br></pre></td></tr></table></figure>
-
-<p>遇到的问题：</p>
-<p>​    刚开始绘制正方形时，整个图片全部变为黄色，后来意识到是因为阈值太低和匹配模式选择的问题。通过调整匹配模式和阈值，能大致匹配到合适位置，但由于匹配时采用的是灰度图片，所以水管口依旧被匹配到了，还需要进一步改进。</p>
-<h3 id="图片绘制形状"><a href="#图片绘制形状" class="headerlink" title="图片绘制形状"></a>图片绘制形状</h3><p>由于OpenCV读取的图片以BGR格式存储，如果想用plot绘图就需要用</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img = img[:, :, :: -1]</span><br></pre></td></tr></table></figure>
-
-<p>但是如果想要在图形上绘图就不能先转变将图片变为RGB格式，否则无法绘制矩形等形状且不报错。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>OpenCV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一些有用的小技巧</title>
-    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/systemUsing_01/</url>
-    <content><![CDATA[<h1 id="系统配置及软件安装"><a href="#系统配置及软件安装" class="headerlink" title="系统配置及软件安装"></a>系统配置及软件安装</h1><p>遇到的一些有用的软件或者一些比较有用的设置。<span id="more"></span></p>
-<h2 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h2><p>推荐使用Typora来编写MarkDown文档。</p>
-<h3 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h3><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
-
-<p>注意：修改上述的typora文件路径：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot; --&gt; “修改成你自己的文件路径”</span><br></pre></td></tr></table></figure>
-
-<p>2.保存后重命名，修改后缀为  .reg 文件。</p>
-<p>3.双击执行，一路点是就行。</p>
-<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><img src = "/images/createMd/createMd01.png">
-
-<h2 id="Adobe-Acrobat-Pro-DC设置文档打开时铺满全局"><a href="#Adobe-Acrobat-Pro-DC设置文档打开时铺满全局" class="headerlink" title="Adobe Acrobat Pro DC设置文档打开时铺满全局"></a>Adobe Acrobat Pro DC设置文档打开时铺满全局</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>修改首选项里的页面设置，全局视图—&gt;适合宽度。</p>
-<h4 id="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"><a href="#缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。" class="headerlink" title="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"></a>缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。</h4><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>选中所有书签（ctrl+A）——属性——动作——添加动作选择——执行菜单项——添加——“视图&gt;缩放&gt;适合宽度”</p>
-<p>这样点击书签后，就是适合宽度了。</p>
-<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。<!--more--></p>
-<h2 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h2><p>   没想到语言选择第一步就难住了我，安装的是中文版到但是一直没能成功设置为中文。直到看到一个鬼才方法。具体步骤如下：</p>
-<p>​    1.找到Ubuntu中Language support软件</p>
-<p>​    2.打开软件后添加简体中文语言包</p>
-<p>​    3.现在依然显示汉语为灰色无法选中，但是可以拖动！！！将汉语那一框拖动到最上面去，然后重启就可以了。</p>
-<p>参考的博客链接为：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>系统配置</category>
-      </categories>
-      <tags>
-        <tag>system</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Uniform Initialization</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/</url>
     <content><![CDATA[<p>在C++11之前，初始化操作可以用很多种方法来实现，比如说小括号，大括号以及赋值符号，C++11之后，统一都可以使用花括号来初始化变量，当然，所有之前可以使用的方式依然可以使用。</p>
@@ -1670,6 +1744,50 @@
       </tags>
   </entry>
   <entry>
+    <title>=default =delete</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/deafult/</url>
+    <content><![CDATA[<p> 如果你自信定义了一个ctor，那么编译器就不会再给你一个 default ctor。 如果你强制加上一个 =default，就可以重新获得并使用default ctor。</p>
+<span id="more"></span>
+
+<h3 id="default"><a href="#default" class="headerlink" title="=default"></a>=default</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Zoo&#123;</span><br><span class="line">public:</span><br><span class="line">	Zoo(int i1, int i2):d1(i1),da(i2)&#123;&#125;</span><br><span class="line">	Zoo(const Zoo&amp;) =delete;</span><br><span class="line">	Zoo(Zoo&amp;&amp;) =default;</span><br><span class="line">	Zoo&amp; operator=(coonst Zoo&amp;) =default;</span><br><span class="line">	Zoo&amp; operator=(coonst Zoo&amp;&amp;) =delete;</span><br><span class="line">	</span><br><span class="line">	virtual ~Zoo()&#123;&#125;</span><br><span class="line">private:</span><br><span class="line">	int d1,d2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是default使用的范围有限，只能适用于big-five.</p>
+<h3 id="delete"><a href="#delete" class="headerlink" title="=delete"></a>=delete</h3><p>禁止使用默认编译器生成的默认函数。</p>
+<p>delete 关键字可用于任何函数，不仅仅局限于类的成员函数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Foo&#123;</span><br><span class="line">public:</span><br><span class="line">	//构造函数</span><br><span class="line">	Foo(int i):_i(i)&#123;&#125;</span><br><span class="line">	Foo() =default;</span><br><span class="line">	</span><br><span class="line">	//拷贝构造</span><br><span class="line">	Foo(const Foo&amp;):_i(x._i)&#123;&#125;</span><br><span class="line">	//Foo(const Foo&amp;)=default; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//Foo(const Foo&amp;)=delete; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	</span><br><span class="line">	//拷贝赋值</span><br><span class="line">	Foo&amp; operator=(const Foo&amp; x)&#123;_i = x._i; return *this&#125;</span><br><span class="line">	//Foo&amp; operator=(const Foo&amp; x)=default; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//Foo&amp; operator=(const Foo&amp; x)=delete;  //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//普通函数</span><br><span class="line">	//void func1()=default; //error Foo(const Foo&amp;) cannot be defaulted;</span><br><span class="line">	void func2()=delete;</span><br><span class="line">	</span><br><span class="line">	//析构函数</span><br><span class="line">	//~Foo()=delete;</span><br><span class="line">	~foo()=default;</span><br><span class="line">private:</span><br><span class="line">	int _i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(1)拷贝构造和拷贝赋值只能有一个定义。(猜想Big-Five是否都是这样的？)</p>
+<p>(2)=default只能用于Big_five，用在普通函数上会报错</p>
+<p>(3)如果析构函数定义为删除的，语法上是可以的，但是在使用对象时肯定会报错，因为一个对象的生命周期总会结束的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Empty&#123;&#125;;</span><br><span class="line">//编译器处理完之后</span><br><span class="line">class Empty&#123;</span><br><span class="line">public:</span><br><span class="line">	Empty()&#123; ... &#125;</span><br><span class="line">	Empty(const Empty&amp; e1)&#123; ... &#125;</span><br><span class="line">	~Empty()&#123;...&#125;</span><br><span class="line">	</span><br><span class="line">	Empty&amp; operator=(const Empty&amp; e1)&#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>建立一个空类，C++编译器处理完之后会为它声明一个ctor、copy ctor、copy assignment operator、dtor.所有这些函数都是 public 以及 inline的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例： No-Copy：将拷贝构造函数和拷贝赋值运算符定义为删除的</span><br><span class="line">struct NoCopy</span><br><span class="line">&#123;</span><br><span class="line">    NoCopy() = default;</span><br><span class="line">    NoCopy(const NoCopy&amp;) = delete;</span><br><span class="line">    NoCopy &amp;operator=(const NoCopy&amp;) = delete;</span><br><span class="line">    ~NoCopy() = default;</span><br><span class="line">    //other members</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例：NoDtor：将析构函数定义为删除的</span><br><span class="line">struct NoDtor</span><br><span class="line">&#123;</span><br><span class="line">    NoDtor() = default;</span><br><span class="line">    ~NoDtor() = delete; </span><br><span class="line">&#125;；</span><br><span class="line"></span><br><span class="line">NoDtor nd;                   //error</span><br><span class="line">NoDtor *p = new NoDtor();    //OK</span><br><span class="line">delete p;                    //error</span><br></pre></td></tr></table></figure>
+
+<p>为什么new可以，定义变量不可以？</p>
+<p>原因：因为nd是定义在栈上的变量，在作用域结束以后会自动调用析构函数，调用析构函数是由操作系统自动完成的，当编译器发现无法调用析构函数时就会报错。而new出来的对象是在堆上的，操作系统不会自动调用析构函数，需要我们手动销毁，只要我们不销毁就不会调用析构函数，也就不会出错。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例：Private-Copy：将拷贝构造函数和拷贝构造运算符定义为私有的</span><br><span class="line">class PrivateCopy</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    PrivateCopy(const PrivateCopy&amp;);</span><br><span class="line">    PrivateCopy operator=(const PrivateCopy&amp;);</span><br><span class="line">public:</span><br><span class="line">    PrivateCopy() = default;</span><br><span class="line">    ~PrivateCopy();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这个class不能被ordinary user code拷贝，但是可以被friends和members拷贝。</p>
+<h3 id="boost-noncopyable"><a href="#boost-noncopyable" class="headerlink" title="boost::noncopyable"></a>boost::noncopyable</h3><p>noncopyable为实现不可拷贝的类提供了简单清晰的解决办法。</p>
+<p>使用boost::noncopyable禁用（delete）了拷贝构造，无法调用拷贝构造函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class do_not_copy:boost:：noncopyable//注意这里，使用默认的私有继承是允许的</span><br><span class="line">&#123;...&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>我们也可以显式写出private或者public修饰词，但效果是相同的。因此直接这样写少输入了一些代码，也更清晰，并且表明了HAS-A关系（而不是IS-A）。</p>
+<p>如果有其他人误写了代码，企图拷贝构造或者赋值这个对象，那么将不能通过编译器的审查：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do_not_copy d1；//一个不可拷贝对象</span><br><span class="line"></span><br><span class="line">do_notcopy d2（d1）；//企图拷贝构造，编译出错！</span><br><span class="line"></span><br><span class="line">do_not_copy d3；//另一个不可拷贝对象</span><br><span class="line"></span><br><span class="line">d3=d1；//企图拷贝赋值，编译出错！</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Variadic Templates</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/VariadicTemplates/</url>
     <content><![CDATA[<p>C++ 11引入了的一个新特性为 Variadic Templates， 即可变参数模板。同时还有一些小的改动，如可以去掉模板表达式的空格、引入空指针nullptr和自动判断当前数据类型的AUTO等。</p>
@@ -1706,50 +1824,6 @@
 
 <p>使用auto能够避免一些非常长或者非常复杂的表达式。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;string&gt; vec;</span><br><span class="line">auto pos = v.begin();  // vector&lt;string&gt;::iterator</span><br><span class="line">auto l = [](intx)-&gt;bool&#123;  //l has the type of a lamba</span><br><span class="line">	...            // taking an int and returning a bool.</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>=default =delete</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/deafult/</url>
-    <content><![CDATA[<p> 如果你自信定义了一个ctor，那么编译器就不会再给你一个 default ctor。 如果你强制加上一个 =default，就可以重新获得并使用default ctor。</p>
-<span id="more"></span>
-
-<h3 id="default"><a href="#default" class="headerlink" title="=default"></a>=default</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Zoo&#123;</span><br><span class="line">public:</span><br><span class="line">	Zoo(int i1, int i2):d1(i1),da(i2)&#123;&#125;</span><br><span class="line">	Zoo(const Zoo&amp;) =delete;</span><br><span class="line">	Zoo(Zoo&amp;&amp;) =default;</span><br><span class="line">	Zoo&amp; operator=(coonst Zoo&amp;) =default;</span><br><span class="line">	Zoo&amp; operator=(coonst Zoo&amp;&amp;) =delete;</span><br><span class="line">	</span><br><span class="line">	virtual ~Zoo()&#123;&#125;</span><br><span class="line">private:</span><br><span class="line">	int d1,d2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是default使用的范围有限，只能适用于big-five.</p>
-<h3 id="delete"><a href="#delete" class="headerlink" title="=delete"></a>=delete</h3><p>禁止使用默认编译器生成的默认函数。</p>
-<p>delete 关键字可用于任何函数，不仅仅局限于类的成员函数</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Foo&#123;</span><br><span class="line">public:</span><br><span class="line">	//构造函数</span><br><span class="line">	Foo(int i):_i(i)&#123;&#125;</span><br><span class="line">	Foo() =default;</span><br><span class="line">	</span><br><span class="line">	//拷贝构造</span><br><span class="line">	Foo(const Foo&amp;):_i(x._i)&#123;&#125;</span><br><span class="line">	//Foo(const Foo&amp;)=default; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//Foo(const Foo&amp;)=delete; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	</span><br><span class="line">	//拷贝赋值</span><br><span class="line">	Foo&amp; operator=(const Foo&amp; x)&#123;_i = x._i; return *this&#125;</span><br><span class="line">	//Foo&amp; operator=(const Foo&amp; x)=default; //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//Foo&amp; operator=(const Foo&amp; x)=delete;  //error Foo(const Foo&amp;) cannot be ovewrloaded</span><br><span class="line">	//普通函数</span><br><span class="line">	//void func1()=default; //error Foo(const Foo&amp;) cannot be defaulted;</span><br><span class="line">	void func2()=delete;</span><br><span class="line">	</span><br><span class="line">	//析构函数</span><br><span class="line">	//~Foo()=delete;</span><br><span class="line">	~foo()=default;</span><br><span class="line">private:</span><br><span class="line">	int _i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>(1)拷贝构造和拷贝赋值只能有一个定义。(猜想Big-Five是否都是这样的？)</p>
-<p>(2)=default只能用于Big_five，用在普通函数上会报错</p>
-<p>(3)如果析构函数定义为删除的，语法上是可以的，但是在使用对象时肯定会报错，因为一个对象的生命周期总会结束的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Empty&#123;&#125;;</span><br><span class="line">//编译器处理完之后</span><br><span class="line">class Empty&#123;</span><br><span class="line">public:</span><br><span class="line">	Empty()&#123; ... &#125;</span><br><span class="line">	Empty(const Empty&amp; e1)&#123; ... &#125;</span><br><span class="line">	~Empty()&#123;...&#125;</span><br><span class="line">	</span><br><span class="line">	Empty&amp; operator=(const Empty&amp; e1)&#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>建立一个空类，C++编译器处理完之后会为它声明一个ctor、copy ctor、copy assignment operator、dtor.所有这些函数都是 public 以及 inline的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例： No-Copy：将拷贝构造函数和拷贝赋值运算符定义为删除的</span><br><span class="line">struct NoCopy</span><br><span class="line">&#123;</span><br><span class="line">    NoCopy() = default;</span><br><span class="line">    NoCopy(const NoCopy&amp;) = delete;</span><br><span class="line">    NoCopy &amp;operator=(const NoCopy&amp;) = delete;</span><br><span class="line">    ~NoCopy() = default;</span><br><span class="line">    //other members</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例：NoDtor：将析构函数定义为删除的</span><br><span class="line">struct NoDtor</span><br><span class="line">&#123;</span><br><span class="line">    NoDtor() = default;</span><br><span class="line">    ~NoDtor() = delete; </span><br><span class="line">&#125;；</span><br><span class="line"></span><br><span class="line">NoDtor nd;                   //error</span><br><span class="line">NoDtor *p = new NoDtor();    //OK</span><br><span class="line">delete p;                    //error</span><br></pre></td></tr></table></figure>
-
-<p>为什么new可以，定义变量不可以？</p>
-<p>原因：因为nd是定义在栈上的变量，在作用域结束以后会自动调用析构函数，调用析构函数是由操作系统自动完成的，当编译器发现无法调用析构函数时就会报错。而new出来的对象是在堆上的，操作系统不会自动调用析构函数，需要我们手动销毁，只要我们不销毁就不会调用析构函数，也就不会出错。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例：Private-Copy：将拷贝构造函数和拷贝构造运算符定义为私有的</span><br><span class="line">class PrivateCopy</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    PrivateCopy(const PrivateCopy&amp;);</span><br><span class="line">    PrivateCopy operator=(const PrivateCopy&amp;);</span><br><span class="line">public:</span><br><span class="line">    PrivateCopy() = default;</span><br><span class="line">    ~PrivateCopy();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>这个class不能被ordinary user code拷贝，但是可以被friends和members拷贝。</p>
-<h3 id="boost-noncopyable"><a href="#boost-noncopyable" class="headerlink" title="boost::noncopyable"></a>boost::noncopyable</h3><p>noncopyable为实现不可拷贝的类提供了简单清晰的解决办法。</p>
-<p>使用boost::noncopyable禁用（delete）了拷贝构造，无法调用拷贝构造函数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class do_not_copy:boost:：noncopyable//注意这里，使用默认的私有继承是允许的</span><br><span class="line">&#123;...&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>我们也可以显式写出private或者public修饰词，但效果是相同的。因此直接这样写少输入了一些代码，也更清晰，并且表明了HAS-A关系（而不是IS-A）。</p>
-<p>如果有其他人误写了代码，企图拷贝构造或者赋值这个对象，那么将不能通过编译器的审查：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do_not_copy d1；//一个不可拷贝对象</span><br><span class="line"></span><br><span class="line">do_notcopy d2（d1）；//企图拷贝构造，编译出错！</span><br><span class="line"></span><br><span class="line">do_not_copy d3；//另一个不可拷贝对象</span><br><span class="line"></span><br><span class="line">d3=d1；//企图拷贝赋值，编译出错！</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -1813,6 +1887,46 @@
 <p>我们可以用成员访问符号访问pair 中的单个元素,它们的名字为first 和second.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pair&lt; string, string &gt; author( &quot;James&quot;, &quot;Joyce&quot; );</span><br><span class="line">author.first == &quot;James&quot;;</span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 2.2</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_2/</url>
+    <content><![CDATA[<p>C++ Primer 第二篇第四章学习笔记。<span id="more"></span></p>
+<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第二章-表达式"><a href="#第二章-表达式" class="headerlink" title="第二章  表达式"></a>第二章  表达式</h2><p>基本算术运算符、逻辑运算符、赋值运算符、条件运算符与其他语言一致。</p>
+<h3 id="sizeof-操作符"><a href="#sizeof-操作符" class="headerlink" title="sizeof 操作符"></a>sizeof 操作符</h3><p>siseof 操作符的作用是返回一个对象或类型名的字节长度。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//三种用法</span><br><span class="line">sizeof (type name );</span><br><span class="line">sizeof ( object );</span><br><span class="line">sizeof object;</span><br></pre></td></tr></table></figure>
+
+<p>返回值的类型是size_t ，这是一种与机器相关的typedef 定义。</p>
+<p>应用在指针类型上的sizeof 操作符，返回的是包含该类型地址所需的内存长度。但是应用在引用类型上的sizeof 操作符。返回的是包含被引用对象所需的内存长度。</p>
+<h3 id="new-和delete-表达式"><a href="#new-和delete-表达式" class="headerlink" title="new 和delete 表达式"></a>new 和delete 表达式</h3><p>系统为每个程序都提供了一个在程序执行时可用的内存池。这个可用内存池被称为程序的空闲存储区。</p>
+<p>运行时刻的内存分配被称为动态内存分配。</p>
+<p>动态内存分配由new 表达式应用在一个类型指示符上来完成。类型指示符可以是内置类型或用户定义类型。new 表达式返回指向新分配的对象的指针。 </p>
+<p>delete 表达式应用在”<strong>指向我们用new 表达式分配的</strong>“对象指针上来做到这一点</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *pi = new int(1024);</span><br><span class="line">delete pi;</span><br><span class="line">int *pin = new int[10];</span><br><span class="line">delete [] pin;</span><br></pre></td></tr></table></figure>
+
+<h3 id="位操作符和bitset"><a href="#位操作符和bitset" class="headerlink" title="位操作符和bitset"></a>位操作符和bitset</h3><p>位操作符把操作数解释成有序的位集合，这些位可能是独立的也可能组成域，每个位可以含有0 off 或1 on 。位操作符允许程序员设置或测试独立的位或位域。如果一个对象被用作一组位或位域的离散集合那么这样的对象称为位向量 位。向量是一种用来记录一组项目或条件的是/否信息的紧缩方法</p>
+<p>标准库提供了一个bitset 类它支持位向量的类抽象。bitset 对象封装了位向量的语义。</p>
+<img src = "/images/cpp/bitset.png">
+
+<p>bitset 有三种声明方式在缺省定义中我们只需简单地指明位向量的长度。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;bitset&gt;</span><br><span class="line">bitset&lt; 32 &gt; bitvec;</span><br><span class="line">//声明了一个含有32位的bitset 对象,位的顺序从0到31,缺省情况下所有的位都被初始化为0</span><br></pre></td></tr></table></figure>
+
+<h3 id="强制类型装换"><a href="#强制类型装换" class="headerlink" title="强制类型装换"></a>强制类型装换</h3><p>强制类型转换很可能会引入一些难以发现的错误。尤其是(void *)类型的指针。</p>
+<img src = "/images/cpp/cast.png">
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//4种类型的转换的格式</span><br><span class="line">TYPE b = static_cast(TYPE)(a);</span><br></pre></td></tr></table></figure>
+
+<p>C++为了规范C中的类型转换，加强类型转换的可视性，引入了四种强制类型转换操作符：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast, reinterpret_cast, const_cast, dynamic_cast </span><br></pre></td></tr></table></figure>
+
+<p>他们本质上都是模板类。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1899,46 +2013,6 @@
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">using std::string;</span><br><span class="line">std::string;</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 2.2</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_2/</url>
-    <content><![CDATA[<p>C++ Primer 第二篇第四章学习笔记。<span id="more"></span></p>
-<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第二章-表达式"><a href="#第二章-表达式" class="headerlink" title="第二章  表达式"></a>第二章  表达式</h2><p>基本算术运算符、逻辑运算符、赋值运算符、条件运算符与其他语言一致。</p>
-<h3 id="sizeof-操作符"><a href="#sizeof-操作符" class="headerlink" title="sizeof 操作符"></a>sizeof 操作符</h3><p>siseof 操作符的作用是返回一个对象或类型名的字节长度。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//三种用法</span><br><span class="line">sizeof (type name );</span><br><span class="line">sizeof ( object );</span><br><span class="line">sizeof object;</span><br></pre></td></tr></table></figure>
-
-<p>返回值的类型是size_t ，这是一种与机器相关的typedef 定义。</p>
-<p>应用在指针类型上的sizeof 操作符，返回的是包含该类型地址所需的内存长度。但是应用在引用类型上的sizeof 操作符。返回的是包含被引用对象所需的内存长度。</p>
-<h3 id="new-和delete-表达式"><a href="#new-和delete-表达式" class="headerlink" title="new 和delete 表达式"></a>new 和delete 表达式</h3><p>系统为每个程序都提供了一个在程序执行时可用的内存池。这个可用内存池被称为程序的空闲存储区。</p>
-<p>运行时刻的内存分配被称为动态内存分配。</p>
-<p>动态内存分配由new 表达式应用在一个类型指示符上来完成。类型指示符可以是内置类型或用户定义类型。new 表达式返回指向新分配的对象的指针。 </p>
-<p>delete 表达式应用在”<strong>指向我们用new 表达式分配的</strong>“对象指针上来做到这一点</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *pi = new int(1024);</span><br><span class="line">delete pi;</span><br><span class="line">int *pin = new int[10];</span><br><span class="line">delete [] pin;</span><br></pre></td></tr></table></figure>
-
-<h3 id="位操作符和bitset"><a href="#位操作符和bitset" class="headerlink" title="位操作符和bitset"></a>位操作符和bitset</h3><p>位操作符把操作数解释成有序的位集合，这些位可能是独立的也可能组成域，每个位可以含有0 off 或1 on 。位操作符允许程序员设置或测试独立的位或位域。如果一个对象被用作一组位或位域的离散集合那么这样的对象称为位向量 位。向量是一种用来记录一组项目或条件的是/否信息的紧缩方法</p>
-<p>标准库提供了一个bitset 类它支持位向量的类抽象。bitset 对象封装了位向量的语义。</p>
-<img src = "/images/cpp/bitset.png">
-
-<p>bitset 有三种声明方式在缺省定义中我们只需简单地指明位向量的长度。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;bitset&gt;</span><br><span class="line">bitset&lt; 32 &gt; bitvec;</span><br><span class="line">//声明了一个含有32位的bitset 对象,位的顺序从0到31,缺省情况下所有的位都被初始化为0</span><br></pre></td></tr></table></figure>
-
-<h3 id="强制类型装换"><a href="#强制类型装换" class="headerlink" title="强制类型装换"></a>强制类型装换</h3><p>强制类型转换很可能会引入一些难以发现的错误。尤其是(void *)类型的指针。</p>
-<img src = "/images/cpp/cast.png">
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//4种类型的转换的格式</span><br><span class="line">TYPE b = static_cast(TYPE)(a);</span><br></pre></td></tr></table></figure>
-
-<p>C++为了规范C中的类型转换，加强类型转换的可视性，引入了四种强制类型转换操作符：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast, reinterpret_cast, const_cast, dynamic_cast </span><br></pre></td></tr></table></figure>
-
-<p>他们本质上都是模板类。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -2210,6 +2284,32 @@
       </tags>
   </entry>
   <entry>
+    <title>cpp Primer chapter 3.3</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_3/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第九章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第九章-重载函数"><a href="#第九章-重载函数" class="headerlink" title="第九章 重载函数"></a>第九章 重载函数</h2><p>函数重载 允许多个函数共享同一个函数名但是针对不同参数类型提供共同的操作。</p>
+<p>如果两个函数的函数名相同，而参数表中参数的个数或类型不同则认为这两个函数是重载的。</p>
+<p>函数的返回类型不足以区分两个重载函数。</p>
+<p>当一个参数类型是const 或volatile 时在识别函数声明是否相同时并不考虑const 和volatile 修饰符。</p>
+<p>但是，如果把const 或volatile 应用在指针或引用参数指向的类型上，则在判断函数声明是否相同时，就要考虑const 和volatile 修饰符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 声明了不同的函数</span><br><span class="line">void f( int* );</span><br><span class="line">void f( const int* );</span><br><span class="line">// 也声明了不同的函数</span><br><span class="line">void f( int&amp; );</span><br><span class="line">void f( const int&amp; );</span><br></pre></td></tr></table></figure>
+
+<p>重载函数集合中的全部函数都应在同一个域中声明。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;string&gt;</span><br><span class="line">void print( const string &amp; );</span><br><span class="line">void print( double ); // overloads print()</span><br><span class="line">void fooBar( int ival )</span><br><span class="line">&#123;</span><br><span class="line">    // 独立的域隐藏print()的两个实例</span><br><span class="line">    extern void print( int );</span><br><span class="line">    // 错误: print( const string &amp; )在这个域中被隐藏</span><br><span class="line">    print( &quot;Value : &quot; );</span><br><span class="line">    print( ival ); // ok: print( int ) 可见</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 声明</span><br><span class="line">using libs_R_us::max;</span><br><span class="line">using libs_R_us::print( double ); // 错误</span><br><span class="line">//用户不能在using 声明中为一个函数指定参数表</span><br></pre></td></tr></table></figure>
+
+<h3 id="重载解析"><a href="#重载解析" class="headerlink" title="重载解析"></a>重载解析</h3><p>函数重载解析是把函数调用与重载函数集合中的一个函数相关联的过程，在存在多个同名函数的情况下，根据函数调用中指定的实参，选择其中一个函数。</p>
+<p>函数重载解析的步骤如下：<br>    1 确定函数调用考虑的重载函数的集合确定函数调用中实参表的属性。<br>    2 从重载函数集合中选择函数该函数可以在给出实参个数和类型的情况下用调用中指定的实参进行调用。<br>    3 选择与调用最匹配的函数。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp Primer chapter 3.2</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_2/</url>
     <content><![CDATA[<p>C++primer第三篇第八章学习笔记。<span id="more"></span></p>
@@ -2288,32 +2388,6 @@
 <p>在函数模板参数表中关键字typename 和class 的意义相同，可以互换，使用它们两个都可以被用来声明同一模板参数表中的不同模板类型参数。</p>
 <h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>函数模板指定了怎样根据一组或更多实际类型或值构造出独立的函数。这个构造过程被称为模板实例化，这个过程是隐式发生的，它可以被看作是函数模板调用或取函数模板的地址的副作用。</p>
 <p>用函数实参的类型来决定模板实参的类型和值的过程被称为模板实参推演。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 3.3</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_3/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第九章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第九章-重载函数"><a href="#第九章-重载函数" class="headerlink" title="第九章 重载函数"></a>第九章 重载函数</h2><p>函数重载 允许多个函数共享同一个函数名但是针对不同参数类型提供共同的操作。</p>
-<p>如果两个函数的函数名相同，而参数表中参数的个数或类型不同则认为这两个函数是重载的。</p>
-<p>函数的返回类型不足以区分两个重载函数。</p>
-<p>当一个参数类型是const 或volatile 时在识别函数声明是否相同时并不考虑const 和volatile 修饰符。</p>
-<p>但是，如果把const 或volatile 应用在指针或引用参数指向的类型上，则在判断函数声明是否相同时，就要考虑const 和volatile 修饰符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 声明了不同的函数</span><br><span class="line">void f( int* );</span><br><span class="line">void f( const int* );</span><br><span class="line">// 也声明了不同的函数</span><br><span class="line">void f( int&amp; );</span><br><span class="line">void f( const int&amp; );</span><br></pre></td></tr></table></figure>
-
-<p>重载函数集合中的全部函数都应在同一个域中声明。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;string&gt;</span><br><span class="line">void print( const string &amp; );</span><br><span class="line">void print( double ); // overloads print()</span><br><span class="line">void fooBar( int ival )</span><br><span class="line">&#123;</span><br><span class="line">    // 独立的域隐藏print()的两个实例</span><br><span class="line">    extern void print( int );</span><br><span class="line">    // 错误: print( const string &amp; )在这个域中被隐藏</span><br><span class="line">    print( &quot;Value : &quot; );</span><br><span class="line">    print( ival ); // ok: print( int ) 可见</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// using 声明</span><br><span class="line">using libs_R_us::max;</span><br><span class="line">using libs_R_us::print( double ); // 错误</span><br><span class="line">//用户不能在using 声明中为一个函数指定参数表</span><br></pre></td></tr></table></figure>
-
-<h3 id="重载解析"><a href="#重载解析" class="headerlink" title="重载解析"></a>重载解析</h3><p>函数重载解析是把函数调用与重载函数集合中的一个函数相关联的过程，在存在多个同名函数的情况下，根据函数调用中指定的实参，选择其中一个函数。</p>
-<p>函数重载解析的步骤如下：<br>    1 确定函数调用考虑的重载函数的集合确定函数调用中实参表的属性。<br>    2 从重载函数集合中选择函数该函数可以在给出实参个数和类型的情况下用调用中指定的实参进行调用。<br>    3 选择与调用最匹配的函数。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -2446,24 +2520,6 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 4.2</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04_2/</url>
-    <content><![CDATA[<p> C++ Primer 第四篇第十四章学习笔记。<span id="more"></span></p>
-<h1 id="第四篇-基于对象的程序设计"><a href="#第四篇-基于对象的程序设计" class="headerlink" title="第四篇  基于对象的程序设计"></a>第四篇  基于对象的程序设计</h1><h3 id="第十四章-类的初始化、赋值和析构"><a href="#第十四章-类的初始化、赋值和析构" class="headerlink" title="第十四章 类的初始化、赋值和析构"></a>第十四章 类的初始化、赋值和析构</h3><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数上惟一的语法限制是，它不能指定返回类型，甚至void 也不行。</p>
-<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>并不是每一个类都要求有析构函数，析构函数主要被用来放弃在类对象的构造函数或生命期中获得的资源，如释放互斥锁或删除由操作符new 分配的内存。</p>
-<p>一般地，析构函数可以执行“类设计者希望在最后一次使用对象之后执行的任何操作”。</p>
-<h3 id="类对象数组"><a href="#类对象数组" class="headerlink" title="类对象数组"></a>类对象数组</h3><p>类对象数组与内置类型数组的定义方式相同。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Account table[ 16 ];</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cpp Primer chapter 03</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04_3/</url>
     <content><![CDATA[<p> C++ Primer 第四篇第十五章学习笔记。<span id="more"></span></p>
@@ -2475,6 +2531,24 @@
 <p>如果该操作符的左操作数必须是其他的类型，那么重载操作符必须是名字空间成员。</p>
 <p>C++要求：赋值= 、下标[] 、调用() 和成员访问箭头-&gt; 操作符必须被定义为类成员操作符，任何把这些操作符定义为名字空间成员的定义都会被标记为编译时刻错误。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 错误: 必须是类成员</span><br><span class="line">char&amp; operator[]( String &amp; ,int ix );</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 4.2</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04_2/</url>
+    <content><![CDATA[<p> C++ Primer 第四篇第十四章学习笔记。<span id="more"></span></p>
+<h1 id="第四篇-基于对象的程序设计"><a href="#第四篇-基于对象的程序设计" class="headerlink" title="第四篇  基于对象的程序设计"></a>第四篇  基于对象的程序设计</h1><h3 id="第十四章-类的初始化、赋值和析构"><a href="#第十四章-类的初始化、赋值和析构" class="headerlink" title="第十四章 类的初始化、赋值和析构"></a>第十四章 类的初始化、赋值和析构</h3><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数上惟一的语法限制是，它不能指定返回类型，甚至void 也不行。</p>
+<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>并不是每一个类都要求有析构函数，析构函数主要被用来放弃在类对象的构造函数或生命期中获得的资源，如释放互斥锁或删除由操作符new 分配的内存。</p>
+<p>一般地，析构函数可以执行“类设计者希望在最后一次使用对象之后执行的任何操作”。</p>
+<h3 id="类对象数组"><a href="#类对象数组" class="headerlink" title="类对象数组"></a>类对象数组</h3><p>类对象数组与内置类型数组的定义方式相同。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Account table[ 16 ];</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
