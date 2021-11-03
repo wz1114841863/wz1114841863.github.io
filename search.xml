@@ -221,6 +221,59 @@
       </tags>
   </entry>
   <entry>
+    <title>DSA 基础知识 03</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_03/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>逃不掉的经典排序算法。<span id="more"></span></p>
+<h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><h3 id="排序算法的执行效率"><a href="#排序算法的执行效率" class="headerlink" title="排序算法的执行效率"></a>排序算法的执行效率</h3><ol>
+<li>  最好情况、最坏情况、平均情况时间复杂度</li>
+<li>  时间复杂度的系数、常数 、低阶</li>
+<li>  比较次数和交换（或移动）次数</li>
+</ol>
+<h3 id="排序算法的内存消耗"><a href="#排序算法的内存消耗" class="headerlink" title="排序算法的内存消耗"></a>排序算法的内存消耗</h3><p>算法的内存消耗可以通过空间复杂度来衡量，排序算法也不例外。不过，针对排序算法的空间复杂度，还引入了一个新的概念，<strong>原地排序</strong>（Sorted in place）。原地排序算法，就是特指空间复杂度是 O(1) 的排序算法。</p>
+<h3 id="排序算法的稳定性"><a href="#排序算法的稳定性" class="headerlink" title="排序算法的稳定性"></a>排序算法的稳定性</h3><p>稳定性是指，如果待排序的序列中存在值相等的元素，经过排序之后，相等元素之间原有的先后顺序不变。</p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>相邻的两个元素进行比较，不满足大小关系则互换位置，重复 n 次，就完成了 n 个数据的排序工作。</p>
+<p>通过优化，如果某次遍历已经有序，则终止排序，减少遍历次数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 冒泡排序，a 表示数组，n 表示数组大小</span><br><span class="line">public void bubbleSort(int[] a, int n) &#123;</span><br><span class="line">  if (n &lt;= 1) return;</span><br><span class="line"> </span><br><span class="line"> for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">    // 提前退出冒泡循环的标志位</span><br><span class="line">    boolean flag = false;</span><br><span class="line">    for (int j = 0; j &lt; n - i - 1; ++j) &#123;</span><br><span class="line">      if (a[j] &gt; a[j+1]) &#123; // 交换</span><br><span class="line">        int tmp = a[j];</span><br><span class="line">        a[j] = a[j+1];</span><br><span class="line">        a[j+1] = tmp;</span><br><span class="line">        flag = true;  // 表示有数据交换      </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (!flag) break;  // 没有数据交换，提前退出</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="是原地排序算法吗？"><a href="#是原地排序算法吗？" class="headerlink" title="是原地排序算法吗？"></a>是原地排序算法吗？</h4><p>冒泡的过程只涉及相邻数据的交换操作，只需要常量级的临时空间，所以它的空间复杂度为 O(1)，是一个原地排序算法。</p>
+<h4 id="是稳定的排序算法吗？"><a href="#是稳定的排序算法吗？" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h4><p>相同大小的数据在排序前后不会改变顺序，所以冒泡排序是稳定的排序算法。</p>
+<h4 id="时间复杂度是多少？"><a href="#时间复杂度是多少？" class="headerlink" title="时间复杂度是多少？"></a>时间复杂度是多少？</h4><p>最好的时间复杂度是有序情况下为O(n)，仅遍历一次即可。</p>
+<p>最坏的时间复杂度是倒序情况下为O(n²)，需要遍历n次。</p>
+<p>平均情况复杂度:</p>
+<p>这里提出<strong>有序度</strong>的概念，有序度是数组中具有有序关系的元素对的个数。有序元素对用数学表达式表示就是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">有序元素对：a[i] &lt;= a[j], 如果 i &lt; j。</span><br></pre></td></tr></table></figure>
+
+<p>冒泡排序包含两个操作原子，比较和交换。每交换一次，有序度就加 1。不管算法怎么改进，交换次数总是确定的，即为<strong>逆序度</strong>，也就是<strong>n(n-1)/2 – 初始有序度</strong>。</p>
+<p>平均情况下，需要 n*(n-1)/4 次交换操作，比较操作肯定要比交换操作多，而复杂度的上限是 O(n²)，所以平均情况下的时间复杂度就是 **O(n²)**。</p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>将数组中的数据分为两个区间，<strong>已排序区间</strong>和<strong>未排序区间</strong>。初始已排序区间只有一个元素，就是数组的第一个元素。插入算法的核心思想是取未排序区间中的元素，在已排序区间中找到合适的插入位置将其插入，并保证已排序区间数据一直有序。重复这个过程，直到未排序区间中元素为空，算法结束。</p>
+<p>插入排序也包含两种操作，一种是<strong>元素的比较</strong>，一种是<strong>元素的移动</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 插入排序，a 表示数组，n 表示数组大小</span><br><span class="line">public void insertionSort(int[] a, int n) &#123;</span><br><span class="line">  if (n &lt;= 1) return;</span><br><span class="line"> </span><br><span class="line">  for (int i = 1; i &lt; n; ++i) &#123;</span><br><span class="line">    int value = a[i];</span><br><span class="line">    int j = i - 1;</span><br><span class="line">    // 查找插入的位置</span><br><span class="line">    for (; j &gt;= 0; --j) &#123;</span><br><span class="line">      if (a[j] &gt; value) &#123;</span><br><span class="line">        a[j+1] = a[j];  // 数据移动</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        break;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    a[j+1] = value; // 插入数据</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="是原地排序算法吗？-1"><a href="#是原地排序算法吗？-1" class="headerlink" title="是原地排序算法吗？"></a>是原地排序算法吗？</h4><p>插入排序算法的运行并不需要额外的存储空间，所以空间复杂度是 O(1)，也就是说，这是一个原地排序算法。</p>
+<h4 id="是稳定的排序算法吗？-1"><a href="#是稳定的排序算法吗？-1" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h4><p>在插入排序中，对于值相同的元素，我们可以选择将后面出现的元素，插入到前面出现元素的后面，这样就可以保持原有的前后顺序不变，所以插入排序是稳定的排序算法。</p>
+<h4 id="时间复杂度是多少？-1"><a href="#时间复杂度是多少？-1" class="headerlink" title="时间复杂度是多少？"></a>时间复杂度是多少？</h4><p>最好的时间复杂度是有序情况下为O(n)，仅<strong>从尾到头</strong>遍历一次即可。</p>
+<p>最坏的时间复杂度是倒序情况下为O(n²)，需要遍历n次。</p>
+<p>平均情况复杂度:</p>
+<p>在数组中插入一个数据的平均时间复杂度是 O(n)，所以，对于插入排序来说，每次插入操作都相当于在数组中插入一个数据，循环执行 n 次插入操作，所以平均时间复杂度为  **O(n²)**。</p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>选择排序算法的实现思路有点类似插入排序，也分已排序区间和未排序区间。但是选择排序每次会从未排序区间中找到最小的元素，将其放到已排序区间的末尾。</p>
+<h4 id="是原地排序算法吗？-2"><a href="#是原地排序算法吗？-2" class="headerlink" title="是原地排序算法吗？"></a>是原地排序算法吗？</h4><p>选择排序算法的运行并不需要额外的存储空间，所以空间复杂度是 O(1)，也就是说，这是一个原地排序算法。</p>
+<h4 id="是稳定的排序算法吗？-2"><a href="#是稳定的排序算法吗？-2" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h4><p>选择排序是一种<strong>不稳定</strong>的排序算法。比如 5，8，5，2，9 这样一组数据，使用选择排序算法来排序的话，第一次找到最小元素 2，与第一个 5 交换位置，那第一个 5 和中间的 5 顺序就变了，所以就不稳定了。</p>
+<h4 id="时间复杂度是多少？-2"><a href="#时间复杂度是多少？-2" class="headerlink" title="时间复杂度是多少？"></a>时间复杂度是多少？</h4><p>最好的时间复杂度是有序情况下为O(n²)，需要遍历n次。</p>
+<p>最坏的时间复杂度是倒序情况下为O(n²)，需要遍历n次。</p>
+<p>平均情况复杂度:选择排序的最好和最坏的时间复杂度相同，所以平均时间复杂度就为  **O(n²)**。</p>
+<h3 id="算法比较"><a href="#算法比较" class="headerlink" title="算法比较"></a>算法比较</h3><p>冒泡排序不管怎么优化，元素交换的次数是一个固定值，是原始数据的逆序度。插入排序是同样的，不管怎么优化，元素移动的次数也等于原始数据的逆序度。但是，从代码实现上来看，冒泡排序的数据交换要比插入排序的数据移动要复杂，冒泡排序需要 3 个赋值操作，而插入排序只需要 1 个。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">冒泡排序中数据的交换操作：</span><br><span class="line">if (a[j] &gt; a[j+1]) &#123; // 交换</span><br><span class="line">   int tmp = a[j];</span><br><span class="line">   a[j] = a[j+1];</span><br><span class="line">   a[j+1] = tmp;</span><br><span class="line">   flag = true;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">插入排序中数据的移动操作：</span><br><span class="line">if (a[j] &gt; value) &#123;</span><br><span class="line">  a[j+1] = a[j];  // 数据移动</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>插入排序的算法思路也有很大的优化空间，进一步优化的算法比如<strong>希尔排序</strong>。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DSA 基础知识 02</title>
     <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_02/</url>
     <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数组和链表都是线性表，存储方式和操作方式的区别已经理解的比较清楚。</p>
@@ -268,59 +321,6 @@
 
 <p><strong>阻塞队列：</strong>阻塞队列其实就是在队列基础上增加了阻塞操作。简单来说，就是在队列为空的时候，从队头取数据会被阻塞。因为此时还没有数据可取，直到队列中有了数据才能返回；如果队列已经满了，那么插入数据的操作就会被阻塞，直到队列中有空闲位置后再插入数据，然后再返回。</p>
 <p><strong>并发队列：</strong>线程安全的队列我们叫作并发队列。最简单直接的实现方式是直接在 enqueue()、dequeue() 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DSA 基础知识 03</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_03/</url>
-    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>逃不掉的经典排序算法。<span id="more"></span></p>
-<h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><h3 id="排序算法的执行效率"><a href="#排序算法的执行效率" class="headerlink" title="排序算法的执行效率"></a>排序算法的执行效率</h3><ol>
-<li>  最好情况、最坏情况、平均情况时间复杂度</li>
-<li>  时间复杂度的系数、常数 、低阶</li>
-<li>  比较次数和交换（或移动）次数</li>
-</ol>
-<h3 id="排序算法的内存消耗"><a href="#排序算法的内存消耗" class="headerlink" title="排序算法的内存消耗"></a>排序算法的内存消耗</h3><p>算法的内存消耗可以通过空间复杂度来衡量，排序算法也不例外。不过，针对排序算法的空间复杂度，还引入了一个新的概念，<strong>原地排序</strong>（Sorted in place）。原地排序算法，就是特指空间复杂度是 O(1) 的排序算法。</p>
-<h3 id="排序算法的稳定性"><a href="#排序算法的稳定性" class="headerlink" title="排序算法的稳定性"></a>排序算法的稳定性</h3><p>稳定性是指，如果待排序的序列中存在值相等的元素，经过排序之后，相等元素之间原有的先后顺序不变。</p>
-<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>相邻的两个元素进行比较，不满足大小关系则互换位置，重复 n 次，就完成了 n 个数据的排序工作。</p>
-<p>通过优化，如果某次遍历已经有序，则终止排序，减少遍历次数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 冒泡排序，a 表示数组，n 表示数组大小</span><br><span class="line">public void bubbleSort(int[] a, int n) &#123;</span><br><span class="line">  if (n &lt;= 1) return;</span><br><span class="line"> </span><br><span class="line"> for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">    // 提前退出冒泡循环的标志位</span><br><span class="line">    boolean flag = false;</span><br><span class="line">    for (int j = 0; j &lt; n - i - 1; ++j) &#123;</span><br><span class="line">      if (a[j] &gt; a[j+1]) &#123; // 交换</span><br><span class="line">        int tmp = a[j];</span><br><span class="line">        a[j] = a[j+1];</span><br><span class="line">        a[j+1] = tmp;</span><br><span class="line">        flag = true;  // 表示有数据交换      </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (!flag) break;  // 没有数据交换，提前退出</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="是原地排序算法吗？"><a href="#是原地排序算法吗？" class="headerlink" title="是原地排序算法吗？"></a>是原地排序算法吗？</h4><p>冒泡的过程只涉及相邻数据的交换操作，只需要常量级的临时空间，所以它的空间复杂度为 O(1)，是一个原地排序算法。</p>
-<h4 id="是稳定的排序算法吗？"><a href="#是稳定的排序算法吗？" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h4><p>相同大小的数据在排序前后不会改变顺序，所以冒泡排序是稳定的排序算法。</p>
-<h4 id="时间复杂度是多少？"><a href="#时间复杂度是多少？" class="headerlink" title="时间复杂度是多少？"></a>时间复杂度是多少？</h4><p>最好的时间复杂度是有序情况下为O(n)，仅遍历一次即可。</p>
-<p>最坏的时间复杂度是倒序情况下为O(n²)，需要遍历n次。</p>
-<p>平均情况复杂度:</p>
-<p>这里提出<strong>有序度</strong>的概念，有序度是数组中具有有序关系的元素对的个数。有序元素对用数学表达式表示就是这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">有序元素对：a[i] &lt;= a[j], 如果 i &lt; j。</span><br></pre></td></tr></table></figure>
-
-<p>冒泡排序包含两个操作原子，比较和交换。每交换一次，有序度就加 1。不管算法怎么改进，交换次数总是确定的，即为<strong>逆序度</strong>，也就是<strong>n(n-1)/2 – 初始有序度</strong>。</p>
-<p>平均情况下，需要 n*(n-1)/4 次交换操作，比较操作肯定要比交换操作多，而复杂度的上限是 O(n²)，所以平均情况下的时间复杂度就是 **O(n²)**。</p>
-<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>将数组中的数据分为两个区间，<strong>已排序区间</strong>和<strong>未排序区间</strong>。初始已排序区间只有一个元素，就是数组的第一个元素。插入算法的核心思想是取未排序区间中的元素，在已排序区间中找到合适的插入位置将其插入，并保证已排序区间数据一直有序。重复这个过程，直到未排序区间中元素为空，算法结束。</p>
-<p>插入排序也包含两种操作，一种是<strong>元素的比较</strong>，一种是<strong>元素的移动</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 插入排序，a 表示数组，n 表示数组大小</span><br><span class="line">public void insertionSort(int[] a, int n) &#123;</span><br><span class="line">  if (n &lt;= 1) return;</span><br><span class="line"> </span><br><span class="line">  for (int i = 1; i &lt; n; ++i) &#123;</span><br><span class="line">    int value = a[i];</span><br><span class="line">    int j = i - 1;</span><br><span class="line">    // 查找插入的位置</span><br><span class="line">    for (; j &gt;= 0; --j) &#123;</span><br><span class="line">      if (a[j] &gt; value) &#123;</span><br><span class="line">        a[j+1] = a[j];  // 数据移动</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        break;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    a[j+1] = value; // 插入数据</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="是原地排序算法吗？-1"><a href="#是原地排序算法吗？-1" class="headerlink" title="是原地排序算法吗？"></a>是原地排序算法吗？</h4><p>插入排序算法的运行并不需要额外的存储空间，所以空间复杂度是 O(1)，也就是说，这是一个原地排序算法。</p>
-<h4 id="是稳定的排序算法吗？-1"><a href="#是稳定的排序算法吗？-1" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h4><p>在插入排序中，对于值相同的元素，我们可以选择将后面出现的元素，插入到前面出现元素的后面，这样就可以保持原有的前后顺序不变，所以插入排序是稳定的排序算法。</p>
-<h4 id="时间复杂度是多少？-1"><a href="#时间复杂度是多少？-1" class="headerlink" title="时间复杂度是多少？"></a>时间复杂度是多少？</h4><p>最好的时间复杂度是有序情况下为O(n)，仅<strong>从尾到头</strong>遍历一次即可。</p>
-<p>最坏的时间复杂度是倒序情况下为O(n²)，需要遍历n次。</p>
-<p>平均情况复杂度:</p>
-<p>在数组中插入一个数据的平均时间复杂度是 O(n)，所以，对于插入排序来说，每次插入操作都相当于在数组中插入一个数据，循环执行 n 次插入操作，所以平均时间复杂度为  **O(n²)**。</p>
-<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>选择排序算法的实现思路有点类似插入排序，也分已排序区间和未排序区间。但是选择排序每次会从未排序区间中找到最小的元素，将其放到已排序区间的末尾。</p>
-<h4 id="是原地排序算法吗？-2"><a href="#是原地排序算法吗？-2" class="headerlink" title="是原地排序算法吗？"></a>是原地排序算法吗？</h4><p>选择排序算法的运行并不需要额外的存储空间，所以空间复杂度是 O(1)，也就是说，这是一个原地排序算法。</p>
-<h4 id="是稳定的排序算法吗？-2"><a href="#是稳定的排序算法吗？-2" class="headerlink" title="是稳定的排序算法吗？"></a>是稳定的排序算法吗？</h4><p>选择排序是一种<strong>不稳定</strong>的排序算法。比如 5，8，5，2，9 这样一组数据，使用选择排序算法来排序的话，第一次找到最小元素 2，与第一个 5 交换位置，那第一个 5 和中间的 5 顺序就变了，所以就不稳定了。</p>
-<h4 id="时间复杂度是多少？-2"><a href="#时间复杂度是多少？-2" class="headerlink" title="时间复杂度是多少？"></a>时间复杂度是多少？</h4><p>最好的时间复杂度是有序情况下为O(n²)，需要遍历n次。</p>
-<p>最坏的时间复杂度是倒序情况下为O(n²)，需要遍历n次。</p>
-<p>平均情况复杂度:选择排序的最好和最坏的时间复杂度相同，所以平均时间复杂度就为  **O(n²)**。</p>
-<h3 id="算法比较"><a href="#算法比较" class="headerlink" title="算法比较"></a>算法比较</h3><p>冒泡排序不管怎么优化，元素交换的次数是一个固定值，是原始数据的逆序度。插入排序是同样的，不管怎么优化，元素移动的次数也等于原始数据的逆序度。但是，从代码实现上来看，冒泡排序的数据交换要比插入排序的数据移动要复杂，冒泡排序需要 3 个赋值操作，而插入排序只需要 1 个。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">冒泡排序中数据的交换操作：</span><br><span class="line">if (a[j] &gt; a[j+1]) &#123; // 交换</span><br><span class="line">   int tmp = a[j];</span><br><span class="line">   a[j] = a[j+1];</span><br><span class="line">   a[j+1] = tmp;</span><br><span class="line">   flag = true;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">插入排序中数据的移动操作：</span><br><span class="line">if (a[j] &gt; value) &#123;</span><br><span class="line">  a[j+1] = a[j];  // 数据移动</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>插入排序的算法思路也有很大的优化空间，进一步优化的算法比如<strong>希尔排序</strong>。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -477,6 +477,114 @@
       </tags>
   </entry>
   <entry>
+    <title>DSA 基础知识 08</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_08/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>Hash Table。<span id="more"></span></p>
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><p>散列表用的是数组支持按照下标随机访问数据的特性，所以散列表其实就是数组的一种扩展，由数组演化而来。可以说，如果没有数组，就没有散列表。</p>
+<p>散列表用的就是数组支持按照下标随机访问的时候，时间复杂度是 O(1) 的特性。我们通过散列函数把元素的键值映射为下标，然后将数据存储在数组中对应下标的位置。当我们按照键值查询元素时，我们用同样的散列函数，将键值转化数组下标，从对应的数组下标的位置取数据。</p>
+<p>散列表两个核心问题是<strong>散列函数设计</strong>和<strong>散列冲突解决</strong>。</p>
+<h3 id="散列函数"><a href="#散列函数" class="headerlink" title="散列函数"></a>散列函数</h3><p>散列函数设计的<strong>基本要求</strong>：</p>
+<ol>
+<li> 散列函数计算得到的散列值是一个非负整数；</li>
+<li> 如果 key1 = key2，那 hash(key1) == hash(key2)；</li>
+<li> 如果 key1 ≠ key2，那 hash(key1) ≠ hash(key2)。</li>
+</ol>
+<h3 id="散列冲突"><a href="#散列冲突" class="headerlink" title="散列冲突"></a>散列冲突</h3><p>在真实的情况下，要想找到一个不同的 key 对应的散列值都不一样的散列函数，几乎是不可能的。即便像业界著名的<a href="https://zh.wikipedia.org/wiki/MD5">MD5</a>、<a href="https://zh.wikipedia.org/wiki/SHA%E5%AE%B6%E6%97%8F">SHA</a>、<a href="https://zh.wikipedia.org/wiki/%E5%BE%AA%E7%92%B0%E5%86%97%E9%A4%98%E6%A0%A1%E9%A9%97">CRC</a>等哈希算法，也无法完全避免这种<strong>散列冲突</strong>。而且，因为数组的存储空间有限，也会加大散列冲突的概率。常用的散列冲突解决方法有两类，开放寻址法（open addressing）和链表法（chaining）。</p>
+<h4 id="1-开放寻址法"><a href="#1-开放寻址法" class="headerlink" title="1.开放寻址法"></a><strong>1.开放寻址法</strong></h4><p>开放寻址法的核心思想是，如果出现了散列冲突，就重新探测一个空闲位置，将其插入。</p>
+<p>如何重新探测新的位置:</p>
+<p>​    1)线性探测</p>
+<p>​    2)二次探测</p>
+<p>​    3)双重散列</p>
+<p>不管采用哪种探测方法，当散列表中空闲位置不多的时候，散列冲突的概率就会大大提高。为了尽可能保证散列表的操作效率，一般情况下，需要尽可能保证散列表中有一定比例的空闲槽位，我们用<strong>装载因子</strong>（load factor）来表示空位的多少。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">散列表的装载因子 = 填入表中的元素个数 / 散列表的长度</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-链表法"><a href="#2-链表法" class="headerlink" title="2.链表法"></a><strong>2.链表法</strong></h4><p>链表法是一种更加常用的散列冲突解决办法，在散列表中，每个“桶（bucket）”或者“槽（slot）”会对应一条链表，所有散列值相同的元素都会放到相同槽位对应的链表中。</p>
+<h3 id="查询效率"><a href="#查询效率" class="headerlink" title="查询效率"></a>查询效率</h3><p>散列表的查询效率并不能笼统地说成是 O(1)。它跟散列函数、装载因子、散列冲突等都有关系。如果散列函数设计得不好，或者装载因子过高，都可能导致散列冲突发生的概率升高，查询效率下降。</p>
+<h4 id="如何设计散列函数"><a href="#如何设计散列函数" class="headerlink" title="如何设计散列函数"></a>如何设计散列函数</h4><p><strong>指标：</strong></p>
+<p>1.散列函数不能太复杂</p>
+<p>2.散列函数生成的值要尽可能的随机并且均匀分布</p>
+<h4 id="装载因子过大怎么处理"><a href="#装载因子过大怎么处理" class="headerlink" title="装载因子过大怎么处理"></a>装载因子过大怎么处理</h4><p>针对散列表，当装载因子过大时，我们也可以进行动态扩容，重新申请一个更大的散列表，将数据搬移到这个新散列表中。假设每次扩容我们都申请一个原来散列表大小两倍的空间。如果原来散列表的装载因子是 0.8，那经过扩容之后，新散列表的装载因子就下降为原来的一半，变成了 0.4。</p>
+<p>装载因子阈值的设置要权衡时间、空间复杂度。如果内存空间不紧张，对执行效率要求很高，可以降低负载因子的阈值；相反，如果内存空间紧张，对执行效率要求又不高，可以增加负载因子的值，甚至可以大于 1。</p>
+<p><strong>避免低效扩容</strong>，将扩容操作分摊至多个插入操作之中去。</p>
+<h4 id="选择合适的冲突解决方法"><a href="#选择合适的冲突解决方法" class="headerlink" title="选择合适的冲突解决方法"></a>选择合适的冲突解决方法</h4><p><strong>开放寻址法：</strong></p>
+<p>优点：散列表中的数据都存储在数组中，可以有效地<strong>利用 CPU 缓存加快查询速度</strong>。而且，这种方法实现的散列表，序列化起来比较<strong>简单</strong>。</p>
+<p>缺点：用开放寻址法解决冲突的散列表，删除数据的时候比较麻烦，需要特殊标记已经删除掉的数据。而且，在开放寻址法中，所有的数据都存储在一个数组中，比起链表法来说，冲突的代价更高。所以，使用开放寻址法解决冲突的散列表，装载因子的上限不能太大。这也导致这种方法比链表法更浪费内存空间。</p>
+<p><strong>当数据量比较小、装载因子小的时候，适合采用开放寻址法。</strong></p>
+<p><strong>链表法：</strong></p>
+<p>优点：链表法对<strong>内存的利用率比开放寻址法要高</strong>。因为链表结点可以在需要的时候再创建，并不需要像开放寻址法那样事先申请好。链表法比起开放寻址法，对<strong>大装载因子的容忍度更高</strong>。开放寻址法只能适用装载因子小于 1 的情况。接近 1 时，就可能会有大量的散列冲突，导致大量的探测、再散列等，性能会下降很多。但是对于链表法来说，只要散列函数的值随机均匀，即便装载因子变成 10，也就是链表的长度变长了而已，虽然查找效率有所下降，但是比起顺序查找还是快很多。</p>
+<p>缺点：因为链表中的结点是零散分布在内存中的，不是连续的，所以对 CPU 缓存是不友好的，这方面对于执行效率也有一定的影响。</p>
+<p>实际上，我们对链表法稍加改造，可以实现一个更加高效的散列表。那就是，我们将链表法中的链表<strong>改造为其他高效的动态数据结构</strong>，比如跳表、红黑树。这样，即便出现散列冲突，极端情况下，所有的数据都散列到同一个桶内，那最终退化成的散列表的查找时间也只不过是 O(logn)。这样也就有效避免了前面讲到的散列碰撞攻击。</p>
+<p><strong>基于链表的散列冲突处理方法比较适合存储大对象、大数据量的散列表，而且，比起开放寻址法，它更加灵活，支持更多的优化策略，比如用红黑树代替链表</strong>。</p>
+<h3 id="散列表与哈希函数结合"><a href="#散列表与哈希函数结合" class="headerlink" title="散列表与哈希函数结合"></a>散列表与哈希函数结合</h3><p>散列表这种数据结构虽然支持非常高效的数据插入、删除、查找操作，但是散列表中的数据都是通过散列函数打乱之后无规律存储的。也就说，它无法支持按照某种顺序快速地遍历数据。如果希望按照顺序遍历散列表中的数据，那我们需要将散列表中的数据拷贝到数组中，然后排序，再遍历。</p>
+<p>因为散列表是动态数据结构，不停地有数据的插入、删除，所以每当我们希望按顺序遍历散列表中的数据的时候，都需要先排序，那效率势必会很低。为了解决这个问题，我们将散列表和链表（或者跳表）结合在一起使用。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DSA 基础知识 09</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_09/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>哈希算法。<span id="more"></span></p>
+<h2 id="哈希算法"><a href="#哈希算法" class="headerlink" title="哈希算法"></a>哈希算法</h2><p>将任意长度的二进制值串映射为固定长度的二进制值串，这个映射的规则就是<strong>哈希算法</strong>，而通过原始数据映射之后得到的二进制值串就是<strong>哈希值</strong>。但是，要想设计一个优秀的哈希算法并不容易，一个优秀的哈希算法需要满足的几点<strong>要求</strong>：</p>
+<p>1.从哈希值不能反向推导出原始数据（所以哈希算法也叫单向哈希算法）；</p>
+<p>2.对输入数据非常敏感，哪怕原始数据只修改了一个 Bit，最后得到的哈希值也大不相同；</p>
+<p>3.散列冲突的概率要很小，对于不同的原始数据，哈希值相同的概率非常小；</p>
+<p>4.哈希算法的执行效率要尽量高效，针对较长的文本，也能快速地计算出哈希值。</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>1.安全加密</p>
+<p>最常用于加密的哈希算法是<strong>MD5</strong>（MD5 Message-Digest Algorithm，MD5 消息摘要算法）和<strong>SHA</strong>（Secure Hash Algorithm，安全散列算法）。对用于加密的哈希算法来说，有两点格外重要。第一点是很难根据哈希值反向推导出原始数据，第二点是散列冲突的概率要很小。</p>
+<p>2.唯一标识</p>
+<p>通过对文件内容、目录等信息进行哈希算法处理后的值进行比对，判断是否相同来进一步判断两个文件是否为统一文件。</p>
+<p>3.数据校验</p>
+<p>通过相同的哈希算法，对下载好的文件块逐一求哈希值，然后跟种子文件中保存的哈希值比对。如果不同，说明这个文件块不完整或者被篡改了，需要再重新从其他宿主机器上下载这个文件块。</p>
+<p>4.散列函数</p>
+<p>散列函数也是哈希算法的一种应用。</p>
+<p>散列函数对于散列算法计算得到的值，是否能反向解密也并不关心。散列函数中用到的散列算法，更加关注散列后的值是否能平均分布，也就是，一组数据是否能均匀地散列在各个槽中。除此之外，散列函数执行的快慢，也会影响散列表的性能，所以，散列函数用的散列算法一般都比较简单，比较追求效率。</p>
+<p>5.负载均衡</p>
+<p>负载均衡算法有很多，比如轮询、随机、加权轮询等。那如何才能实现一个会话粘滞（session sticky）的负载均衡算法呢？也就是说，我们需要在同一个客户端上，在一次会话中的所有请求都路由到同一个服务器上。</p>
+<p>如果借助哈希算法，这些问题都可以非常完美地解决。<strong>我们可以通过哈希算法，对客户端 IP 地址或者会话 ID 计算哈希值，将取得的哈希值与服务器列表的大小进行取模运算，最终得到的值就是应该被路由到的服务器编号。</strong> 这样，我们就可以把同一个 IP 过来的所有请求，都路由到同一个后端服务器上。</p>
+<p>6.数据分片</p>
+<p>针对这种海量数据的处理问题，我们可以采用多机分布式处理。借助这种分片的思路，可以突破单机内存、CPU 等资源的限制。</p>
+<p>7.分布式存储</p>
+<p>现在互联网面对的都是海量的数据、海量的用户。我们为了提高数据的读取、写入能力，一般都采用分布式的方式来存储数据，比如分布式缓存。我们有海量的数据需要缓存，所以一个缓存机器肯定是不够的。于是，我们就需要将数据分布在多台机器上。</p>
+<p>我们可以借用前面数据分片的思想，即通过哈希算法对数据取哈希值，然后对机器个数取模，这个最终值就是应该存储的缓存机器编号。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习过程中遇到的问题-01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppProblem02/</url>
+    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊  + 1。(<em>¯ㅿ¯</em>;)</p>
+<span id="more"></span>
+
+<h2 id="make-pair报错"><a href="#make-pair报错" class="headerlink" title="make_pair报错"></a>make_pair报错</h2><p>使用语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nodeDepth.emplace_back(make_pair&lt;int, TreeNode*&gt;(depth, stk.top()));</span><br></pre></td></tr></table></figure>
+
+<p>会直接报错，<strong>Cannot convert parameter from ‘int’ to ‘int &amp;&amp;’</strong></p>
+<p>原因：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt; class T1, class T2 &gt;</span><br><span class="line">std::pair&lt;T1,T2&gt; make_pair( T1 t, T2 u );           (until C++11)</span><br><span class="line"></span><br><span class="line">template&lt; class T1, class T2 &gt;</span><br><span class="line">std::pair&lt;V1,V2&gt; make_pair( T1&amp;&amp; t, T2&amp;&amp; u );       (since C++11)</span><br></pre></td></tr></table></figure>
+
+<p>make_pair修改了定义，如果直接使用变量名的话，编译器会认为这是一个左值，而不能使用。</p>
+<p>解决方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.直接使用pair</span><br><span class="line">nodeDepth.emplace_back(pair&lt;int, TreeNode*&gt;(depth, stk.top()));</span><br><span class="line">2.用int(depth)将左值转为右值</span><br><span class="line">nodeDepth.emplace_back(make_pair&lt;int, TreeNode*&gt;(int(depth), stk.top()));</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++学习过程中遇到的问题-01</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppProblem01/</url>
     <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊。(<em>¯ㅿ¯</em>;)</p>
@@ -541,175 +649,6 @@
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++学习过程中遇到的问题-01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppProblem02/</url>
-    <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊  + 1。(<em>¯ㅿ¯</em>;)</p>
-<span id="more"></span>
-
-<h2 id="make-pair报错"><a href="#make-pair报错" class="headerlink" title="make_pair报错"></a>make_pair报错</h2><p>使用语句：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nodeDepth.emplace_back(make_pair&lt;int, TreeNode*&gt;(depth, stk.top()));</span><br></pre></td></tr></table></figure>
-
-<p>会直接报错，<strong>Cannot convert parameter from ‘int’ to ‘int &amp;&amp;’</strong></p>
-<p>原因：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt; class T1, class T2 &gt;</span><br><span class="line">std::pair&lt;T1,T2&gt; make_pair( T1 t, T2 u );           (until C++11)</span><br><span class="line"></span><br><span class="line">template&lt; class T1, class T2 &gt;</span><br><span class="line">std::pair&lt;V1,V2&gt; make_pair( T1&amp;&amp; t, T2&amp;&amp; u );       (since C++11)</span><br></pre></td></tr></table></figure>
-
-<p>make_pair修改了定义，如果直接使用变量名的话，编译器会认为这是一个左值，而不能使用。</p>
-<p>解决方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.直接使用pair</span><br><span class="line">nodeDepth.emplace_back(pair&lt;int, TreeNode*&gt;(depth, stk.top()));</span><br><span class="line">2.用int(depth)将左值转为右值</span><br><span class="line">nodeDepth.emplace_back(make_pair&lt;int, TreeNode*&gt;(int(depth), stk.top()));</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Deep Learning</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_01/</url>
-    <content><![CDATA[<h1 id="Deep-Learning-入门"><a href="#Deep-Learning-入门" class="headerlink" title="Deep Learning 入门"></a>Deep Learning 入门</h1><p>​    记录Deep Learning 学习过程中遇到的一些问题。<span id="more"></span></p>
-<h2 id="saturating-nonlinearity-和-non-saturating-nonlinearity"><a href="#saturating-nonlinearity-和-non-saturating-nonlinearity" class="headerlink" title="saturating nonlinearity 和 non-saturating nonlinearity"></a>saturating nonlinearity 和 non-saturating nonlinearity</h2><p>在AlexNet论文《 ImageNet Classification with Deep Convolutional Neural Networks》第3节中提到了饱和非线性（saturating nonlinearity）和非饱和非线性（non-saturating nonlinearity）的概念。</p>
-<h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>一个饱和的激活函数，会将输出结果压缩到有限的区间。</p>
-<p>如果函数是非饱和的，那么有：</p>
-<p>​    当x趋近无穷大时，f(x)也趋近于无穷大。</p>
-<p>反之，则为饱和函数。</p>
-<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><ol>
-<li>  ReLU激活函数定义为f ( x ) = m a x ( 0 , x )，  f(x)=max(0,x)f(x)=max(0,x)，由于x-&gt;+∞时，f(x)也趋近于正无穷，因此ReLU不饱和。</li>
-<li>  sigmoid激活函数定义f(x) = 1 / (1 + exp(-x)), 由于它将实数压缩到区间[ 0 , 1 ]之间，因此sigmoid是饱和的。</li>
-<li>  tanh激活函数定义为tanh(x) = (1 - exp(-zx)) / (1 + exp(-zx)) , 由于它将实数压缩到区间[ − 1 , 1 ] 之间，因此tanh是饱和的.</li>
-</ol>
-<p>论文中提到说，饱和非线性的激活函数训练时比非饱和非线性的激活函数要慢的多。</p>
-<h2 id="Data-Augmentation"><a href="#Data-Augmentation" class="headerlink" title="Data Augmentation"></a>Data Augmentation</h2><p>大型数据集是成功应用深度学习网络的先决条件。在深度学习中，为了丰富图像数据的训练集，更好的提取图像特征，泛化模型（防止模型过拟合），一般都会对图像数据进行数据增强（Data Augmentation）。</p>
-<h3 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h3><p>AlexNet：针对具有3通道的彩色图片的训练任务，进行减去图片均值的预处理操作。</p>
-<p>- Color Jittering：对颜色的数据增强：图像亮度、饱和度、对比度变化；<br>- PCA Jittering：首先按照RGB三个颜色通道计算均值和标准差，再在整个训练集上计算协方差矩阵，进行特征分解，得到特征向量和特征值，用来做PCA Jittering；<br>- Random Scale：尺度变换；<br>- Random Crop：采用随机图像差值方式，对图像进行裁剪、缩放；包括Scale Jittering方法（VGG及ResNet模型使用）或者尺度和长宽比增强变换；<br>- Horizontal/Vertical Flip：水平/垂直翻转；<br>- Shift：平移变换；<br>- Rotation/Reflection：旋转/仿射变换；<br>- Noise：高斯噪声、模糊处理；<br>- Label shuffle：类别不平衡数据的增广；</p>
-<p>需要注意的是，在对图片做Affine时，可能还需要对对应的标签做相应的处理，比如BBox， keypoints，以及polygons等。</p>
-<h2 id="End-to-end"><a href="#End-to-end" class="headerlink" title="End-to-end"></a>End-to-end</h2><p>与机器学习不同，卷积神经网络的输入是由原始像素值或是经过简单预处理（例如居中、缩放）的像素值组成的，不需要进行其余更加精心的设计，来达到更好的预期结果。</p>
-<h2 id="ReLU-与-Sigmoid"><a href="#ReLU-与-Sigmoid" class="headerlink" title="ReLU 与 Sigmoid"></a>ReLU 与 Sigmoid</h2><p>在AlexNet中，提出了ReLU这样一个激活函数。</p>
-<p>ReLU 对比于 SIgmoid 的优势：</p>
-<ol>
-<li>  ReLU激活函数的计算更简单，它不需要如sigmoid激活函数那般复杂的求幂运算。</li>
-<li>  当使用不同的参数初始化方法时，ReLU激活函数使训练模型更加容易。 当sigmoid激活函数的输出非常接近于0或1时，这些区域的梯度几乎为0，因此反向传播无法继续更新一些模型参数。 相反，ReLU激活函数在正区间的梯度总是1。 因此，如果模型参数没有正确初始化，sigmoid函数可能在正区间内得到几乎为0的梯度，从而使模型无法得到有效的训练。</li>
-</ol>
-<h2 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h2><p>以下摘选自&lt;&lt; Alexnet &gt;&gt;.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">将许多不同模型的预测结合起来是降低测试误差的一个非常成功的方法，但对于需要花费几天来训练的大型神经网络来说，这似乎太昂贵了。然而，有一个非常有效的模型结合版本，它只花费两倍的训练成本。这种最近引入的技术，叫做“dropout”，它会以0.5的概率对每个隐层神经元的输出设为0。那些“失活的”的神经元不再进行前向传播并且不参与反向传播。因此每次输入时，神经网络会采样一个不同的架构，但所有架构共享权重。这个技术减少了复杂的神经元互适应，因为一个神经元不能依赖特定的其它神经元的存在。因此，神经元被强迫学习更鲁棒的特征，它在与许多不同的其它神经元的随机子集结合时是有用的。在测试时，我们使用所有的神经元但它们的输出乘以0.5，对指数级的许多失活网络的预测分布进行几何平均，这是一种合理的近似。</span><br></pre></td></tr></table></figure>
-
-<p>dropout是一种有效的能够降低overfitting 的方法。</p>
-<h2 id="1-1的卷积核"><a href="#1-1的卷积核" class="headerlink" title="1*1的卷积核"></a>1*1的卷积核</h2><p>主要作用：</p>
-<ol>
-<li><p>降维(减少参数)。</p>
-<p>  在3 * 3、5 * 5的网络前面添加1 * 1的卷积层，能够减少网络参数的个数。</p>
-<p>  同时在并行pooling层后面加入1×1卷积层后也可以降低输出的feature map数量<strong>（feature map尺寸指W、H是共享权值的sliding window，feature map 的数量就是channels）</strong></p>
-<p>  GoogLeNet利用1×1的卷积降维后，得到了更为紧凑的网络结构，虽然总共有22层，但是参数数量却只是8层的AlexNet的十二分之一（当然也有很大一部分原因是去掉了全连接层）。</p>
-</li>
-<li><p>升维（用最少的参数拓宽网络channal）</p>
-<p>  假设上一层输出为 3 * 3 * 64， 使用 1 * 1 * 256，这样一个卷积核，只用64*256个参数就能把网络channel从64拓宽四倍到256。</p>
-</li>
-<li><p>   跨通道信息交互（channal 的变换）</p>
-</li>
-</ol>
-<pre><code> 使用1 * 1卷积核，实现降维和升维的操作其实就是channel间信息的线性组合变化，3 * 3，64 channels的卷积核后面添加一个1 * 1，28channels的卷积核，就变成了3 * 3，28channels的卷积核，原来的64个channels就可以理解为跨通道线性组合变成了28channels，这就是通道间的信息交互。
-</code></pre>
-<ol start="4">
-<li><p>增加了非线性</p>
-<p>  1 * 1卷积核本身实现的是线性操作，增加非线性实际是因为1 * 1卷积核后面所跟的ReLU激活函数。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>Deep Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Deep Learning 02</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_AlexNet/</url>
-    <content><![CDATA[<h1 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h1><p> 深度卷积网络的开创者。将从手工对图片的的特征进行提取，进而利用机器学习的方式实现图像识别转别为由机器自己实现特征提取和图片识别。真正实现了“end-to-end”。<span id="more"></span></p>
-<h2 id="取得成功的原因"><a href="#取得成功的原因" class="headerlink" title="取得成功的原因"></a>取得成功的原因</h2><h3 id="更大更丰富的数据集"><a href="#更大更丰富的数据集" class="headerlink" title="更大更丰富的数据集"></a>更大更丰富的数据集</h3><p>包含许多特征的深度模型需要大量的有标签数据，才能显著优于基于凸优化的传统方法。越来越多的大规模的数据集给深度学习提供了数据基础。同时还包括各种各样的图像增强方法，进一步对数据集进行扩充。</p>
-<h3 id="GPU-加快神经网络的训练速度"><a href="#GPU-加快神经网络的训练速度" class="headerlink" title="GPU-加快神经网络的训练速度"></a>GPU-加快神经网络的训练速度</h3><p>GPU特殊的硬件结构使得矩阵运算更加迅速。极大的减少了网络训练的时间。GPU强大的运算能力使得CNN的是实现成为了可能。</p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="使用ReLU作为激活函数"><a href="#使用ReLU作为激活函数" class="headerlink" title="使用ReLU作为激活函数"></a>使用ReLU作为激活函数</h3><p>作者通过实验证明，ReLU相比于Sigmoid等其他激活函数，更容易进行训练，达到同样的识别精度所需要的时间和迭代次数更少。</p>
-<p>同时ReLU也成为最为常见的激活函数。</p>
-<h3 id="在多块GPU上同时进行计算"><a href="#在多块GPU上同时进行计算" class="headerlink" title="在多块GPU上同时进行计算"></a>在多块GPU上同时进行计算</h3><p>由于当时的GPU性能还不是太强，所以作者采用了两块GPU来实现网络的计算。如今GPU的计算能力已经得到了飞速提升，但更大型的网络依旧需要使用多个GPU并行计算。同时GPU硬件加速也是一个重要的研究方向。</p>
-<h3 id="LRN"><a href="#LRN" class="headerlink" title="LＲＮ"></a>LＲＮ</h3><p>作者提出的一种局部归一化的方法，在后来的VGGNet中证明用处不大。</p>
-<h3 id="重叠池化"><a href="#重叠池化" class="headerlink" title="重叠池化"></a>重叠池化</h3><p>之前的池化层都是池化层的大小等于步进，这里作者采用了池化层的大小大于步进，因此会产生部分重叠。作者通过实验证明，这样做有利于抑制过拟合。</p>
-<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>AlexNet网络结构相对简单，使用了8层卷积神经网络，前5层是卷积层，剩下的3层是全连接层。中间还包括池化层和激活层。</p>
-<img src = "/images/DeepLearning/01.png">
-
-<p>这里将两部分网络拼在了一起，易于理解。</p>
-<p>值得注意的一点：原图输入224 × 224，实际上进行了随机裁剪，实际大小为227 × 227。</p>
-<p>AlexNet的第一层，卷积窗口的形状是 11×11。 由于ImageNet中大多数图像的宽和高比MNIST图像的多10倍以上，因此，需要一个更大的卷积窗口来捕获目标。 第二层中的卷积窗口形状被缩减为 5×55×5，然后是 3×33×3。 此外，在第一层、第二层和第五层卷积层之后，加入窗口形状为 3×33×3、步幅为2的最大汇聚层。 而且，AlexNet的卷积通道数目是LeNet的10倍。</p>
-<p>在最后一个卷积层后有两个全连接层，分别有4096个输出。 这两个巨大的全连接层拥有将近1GB的模型参数。 </p>
-<h3 id="网络大小的计算"><a href="#网络大小的计算" class="headerlink" title="网络大小的计算"></a>网络大小的计算</h3><p>这里参考了《鱼书》。</p>
-<img src = "/images/DeepLearning/03.png">
-
-<img src = "/images/DeepLearning/02.png">
-
-<h2 id="抑制过拟合的方法"><a href="#抑制过拟合的方法" class="headerlink" title="抑制过拟合的方法"></a>抑制过拟合的方法</h2><h3 id="图像增广"><a href="#图像增广" class="headerlink" title="图像增广"></a>图像增广</h3><p>作者做了两种处理。</p>
-<p>１.　对２５６＊２５６的图像进行裁剪。变为大小为２２４＊２２４，同时进行翻转。</p>
-<p>这样一张照片就变为了２０４８张，但是这样的处理，图片的关联性是很大的。</p>
-<p>２.　ＰＣＡ处理：对图像进行一系列的计算处理，排除光照等其他因素引起的问题。</p>
-<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><p>下面摘抄于原文，很好的解释了dropout的使用原因和作用。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Combining the predictions of many different models is a very successful way to reduce test errors, but it appears to be too expensive for big neural networks that already take several days to train. There is, however, a very efficient version of model combination that only costs about a factor of two during training. The recently-introduced technique, called “dropout”, consists of setting to zero the output of each hidden neuron with probability 0.5. The neurons which are “dropped out” in this way do not contribute to the forward pass and do not participate in backpropagation. So every time an input is presented, the neural network samples a different architecture, but all these architectures share weights. This technique reduces complex co-adaptations of neurons, since a neuron cannot rely on the presence of particular other neurons. It is, therefore, forced to learn more robust features that are useful in conjunction with many different random subsets of the other neurons. At test time, we use all the neurons but multiply their outputs by 0.5, which is a reasonable approximation to taking the geometric mean of the predictive distributions produced by the exponentially-many dropout networks.</span><br></pre></td></tr></table></figure>
-
-<p>简单理解就是，Dropout将集成学习的效果（模拟地）通过一个网络实现了，所有的这些网络全都共用权重。</p>
-<h2 id="更多的细节"><a href="#更多的细节" class="headerlink" title="更多的细节"></a>更多的细节</h2><h3 id="SGD-Momentum-权重衰减"><a href="#SGD-Momentum-权重衰减" class="headerlink" title="SGD+Momentum+权重衰减"></a>SGD+Momentum+权重衰减</h3><p>作者在更新参数时使用了较为复杂的更新方式，而并不是简单拿到SGD。</p>
-<h3 id="参数初始值"><a href="#参数初始值" class="headerlink" title="参数初始值"></a>参数初始值</h3><p>权重使用了高斯分布来初始化。</p>
-<p>偏置部分层使用了 0 ，其余层使用了1。</p>
-<p>lr也就是学习率，最初设置为0.01，每次学习停止时，就将lr除于10，进一步更新参数。</p>
-<h2 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h2><img src = "/images/DeepLearning/04.jpg">
-
-<h3 id="进一步分析"><a href="#进一步分析" class="headerlink" title="进一步分析"></a>进一步分析</h3><img src = "/images/DeepLearning/05.png">
-
-<p>作者了考虑由最后4096维隐藏层的图像引起的特征激活，认为如果两幅图像产生的特征激活向量具有较小的欧氏分离，我们可以说神经网络的高层认为它们是相似的。这里的特征激活向量应该是所有前面层计算出来的结果。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>作者认为：更深的网络层数 + 更丰富的数据集 + 更强大的运算/更多的训练时间 = 更好的识别效果。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>Deep Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine learning</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/%E8%A5%BF%E7%93%9C%E4%B9%A601/</url>
-    <content><![CDATA[<h1 id="西瓜书阅读笔记"><a href="#西瓜书阅读笔记" class="headerlink" title="西瓜书阅读笔记"></a>西瓜书阅读笔记</h1><p>​    记录西瓜书学习过程中的理解的一些知识点。<span id="more"></span></p>
-<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>​        将物理或抽象对象的集合分成由类似的对象组成的多个类的过程被称为聚类。由聚类所生成的簇是一组数据对象的集合，这些对象与同一个簇中的对象彼此相似，与其他簇中的对象相异。</p>
-<p>​        聚类是一种机器学习技术，它涉及到数据点的分组。给定一组数据点，我们可以使用聚类算法将每个数据点划分为一个特定的组。理论上，同一组中的数据点应该具有相似的属性和/或特征，而不同组中的数据点应该具有高度不同的属性和/或特征。聚类是一种无监督学习的方法，是许多领域中常用的统计数据分析技术。</p>
-<h2 id="假设空间-与-版本空间"><a href="#假设空间-与-版本空间" class="headerlink" title="假设空间 与 版本空间"></a>假设空间 与 版本空间</h2><p><strong>假设空间</strong>：属性所有可能取值组成的可能的样本</p>
-<p><strong>版本空间</strong>：与已知数据集一致的所有假设的子集集合。</p>
-<img src = "/images/DeepLearning/06.png">
-
-<p>（绿色加号代表正类样本，红色小圈代表负类样本）</p>
-<p>GB 是最大泛化正假设边界(maximally General positive hypothesis Boundary),；</p>
-<p>SB 是最大精确正假设边界(maximally Specific positive hypothesis Boundary)</p>
-<p>GB与SB之间所围成的区域就是版本空间。</p>
-<p>在西瓜问题中，如何根据训练集求所对应的版本空间？</p>
-<p>①写出假设空间：先列出所有可能的样本点（即特征向量）（即每个属性都取到所有的属性值）</p>
-<p>②对应着给出的已知数据集，将与正样本不一致的、与负样本一致的假设删除。</p>
-<p>即可得出与训练集一致的假设集合，也就是版本空间了</p>
-<h3 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h3><p><strong>归纳偏好：</strong>机器学习算法在学习过程中对某种类型假设的偏好，称为“归纳偏好”或简称为“偏好”。</p>
-<p><strong>偏好的原则：</strong>奥卡姆剃刀：若有多个假设与观察一致，则选择最简单的那个。</p>
-<p><strong>没有免费的午餐定理：</strong> 无论学习算法La多好、学习算法Lb多坏，它们的期望性能是相同的。</p>
-<p>NFL定理的前提：所有问题出现的机会相同或所有问题同等重要，但实际情况不是这样，我们只需要关注自己想要解决的问题。</p>
-<p>脱离具体问题，空泛地谈“什么学习算法更好”毫无意义。</p>
-<h3 id="数据集处理"><a href="#数据集处理" class="headerlink" title="数据集处理"></a>数据集处理</h3><p>1.留出法</p>
-<p>​    单次使用留出法得到的估计结果往往不够稳定可靠，在使用留出法时，一般采用若干随机划分，重复进行试验评估后取平均值作为留出法的评估结果。</p>
-<p>2.k折交叉验证</p>
-<p>​    将数据集划分为k个大小相同的互斥子集，每个子集都尽可能奥驰数据分布的一一致性。选用k-1个子集作为训练集，余下的子集作为测试集。总共可进行K次测试，最终返回k此测试的平均值。k长取10.</p>
-<p>3.自助法</p>
-<p>适用于数据集较小的情形。原数据的总体并不大，每次抽样能反应总体的特性，并且多次抽样后能覆盖原总体，且抽样组成的新总体比原总体大。抽样方式采用有放回重抽样。自助法的核心点也是有放回的重复抽样。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -913,6 +852,64 @@
       </tags>
   </entry>
   <entry>
+    <title>Deep Learning</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_01/</url>
+    <content><![CDATA[<h1 id="Deep-Learning-入门"><a href="#Deep-Learning-入门" class="headerlink" title="Deep Learning 入门"></a>Deep Learning 入门</h1><p>​    记录Deep Learning 学习过程中遇到的一些问题。<span id="more"></span></p>
+<h2 id="saturating-nonlinearity-和-non-saturating-nonlinearity"><a href="#saturating-nonlinearity-和-non-saturating-nonlinearity" class="headerlink" title="saturating nonlinearity 和 non-saturating nonlinearity"></a>saturating nonlinearity 和 non-saturating nonlinearity</h2><p>在AlexNet论文《 ImageNet Classification with Deep Convolutional Neural Networks》第3节中提到了饱和非线性（saturating nonlinearity）和非饱和非线性（non-saturating nonlinearity）的概念。</p>
+<h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>一个饱和的激活函数，会将输出结果压缩到有限的区间。</p>
+<p>如果函数是非饱和的，那么有：</p>
+<p>​    当x趋近无穷大时，f(x)也趋近于无穷大。</p>
+<p>反之，则为饱和函数。</p>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><ol>
+<li>  ReLU激活函数定义为f ( x ) = m a x ( 0 , x )，  f(x)=max(0,x)f(x)=max(0,x)，由于x-&gt;+∞时，f(x)也趋近于正无穷，因此ReLU不饱和。</li>
+<li>  sigmoid激活函数定义f(x) = 1 / (1 + exp(-x)), 由于它将实数压缩到区间[ 0 , 1 ]之间，因此sigmoid是饱和的。</li>
+<li>  tanh激活函数定义为tanh(x) = (1 - exp(-zx)) / (1 + exp(-zx)) , 由于它将实数压缩到区间[ − 1 , 1 ] 之间，因此tanh是饱和的.</li>
+</ol>
+<p>论文中提到说，饱和非线性的激活函数训练时比非饱和非线性的激活函数要慢的多。</p>
+<h2 id="Data-Augmentation"><a href="#Data-Augmentation" class="headerlink" title="Data Augmentation"></a>Data Augmentation</h2><p>大型数据集是成功应用深度学习网络的先决条件。在深度学习中，为了丰富图像数据的训练集，更好的提取图像特征，泛化模型（防止模型过拟合），一般都会对图像数据进行数据增强（Data Augmentation）。</p>
+<h3 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h3><p>AlexNet：针对具有3通道的彩色图片的训练任务，进行减去图片均值的预处理操作。</p>
+<p>- Color Jittering：对颜色的数据增强：图像亮度、饱和度、对比度变化；<br>- PCA Jittering：首先按照RGB三个颜色通道计算均值和标准差，再在整个训练集上计算协方差矩阵，进行特征分解，得到特征向量和特征值，用来做PCA Jittering；<br>- Random Scale：尺度变换；<br>- Random Crop：采用随机图像差值方式，对图像进行裁剪、缩放；包括Scale Jittering方法（VGG及ResNet模型使用）或者尺度和长宽比增强变换；<br>- Horizontal/Vertical Flip：水平/垂直翻转；<br>- Shift：平移变换；<br>- Rotation/Reflection：旋转/仿射变换；<br>- Noise：高斯噪声、模糊处理；<br>- Label shuffle：类别不平衡数据的增广；</p>
+<p>需要注意的是，在对图片做Affine时，可能还需要对对应的标签做相应的处理，比如BBox， keypoints，以及polygons等。</p>
+<h2 id="End-to-end"><a href="#End-to-end" class="headerlink" title="End-to-end"></a>End-to-end</h2><p>与机器学习不同，卷积神经网络的输入是由原始像素值或是经过简单预处理（例如居中、缩放）的像素值组成的，不需要进行其余更加精心的设计，来达到更好的预期结果。</p>
+<h2 id="ReLU-与-Sigmoid"><a href="#ReLU-与-Sigmoid" class="headerlink" title="ReLU 与 Sigmoid"></a>ReLU 与 Sigmoid</h2><p>在AlexNet中，提出了ReLU这样一个激活函数。</p>
+<p>ReLU 对比于 SIgmoid 的优势：</p>
+<ol>
+<li>  ReLU激活函数的计算更简单，它不需要如sigmoid激活函数那般复杂的求幂运算。</li>
+<li>  当使用不同的参数初始化方法时，ReLU激活函数使训练模型更加容易。 当sigmoid激活函数的输出非常接近于0或1时，这些区域的梯度几乎为0，因此反向传播无法继续更新一些模型参数。 相反，ReLU激活函数在正区间的梯度总是1。 因此，如果模型参数没有正确初始化，sigmoid函数可能在正区间内得到几乎为0的梯度，从而使模型无法得到有效的训练。</li>
+</ol>
+<h2 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h2><p>以下摘选自&lt;&lt; Alexnet &gt;&gt;.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">将许多不同模型的预测结合起来是降低测试误差的一个非常成功的方法，但对于需要花费几天来训练的大型神经网络来说，这似乎太昂贵了。然而，有一个非常有效的模型结合版本，它只花费两倍的训练成本。这种最近引入的技术，叫做“dropout”，它会以0.5的概率对每个隐层神经元的输出设为0。那些“失活的”的神经元不再进行前向传播并且不参与反向传播。因此每次输入时，神经网络会采样一个不同的架构，但所有架构共享权重。这个技术减少了复杂的神经元互适应，因为一个神经元不能依赖特定的其它神经元的存在。因此，神经元被强迫学习更鲁棒的特征，它在与许多不同的其它神经元的随机子集结合时是有用的。在测试时，我们使用所有的神经元但它们的输出乘以0.5，对指数级的许多失活网络的预测分布进行几何平均，这是一种合理的近似。</span><br></pre></td></tr></table></figure>
+
+<p>dropout是一种有效的能够降低overfitting 的方法。</p>
+<h2 id="1-1的卷积核"><a href="#1-1的卷积核" class="headerlink" title="1*1的卷积核"></a>1*1的卷积核</h2><p>主要作用：</p>
+<ol>
+<li><p>降维(减少参数)。</p>
+<p>  在3 * 3、5 * 5的网络前面添加1 * 1的卷积层，能够减少网络参数的个数。</p>
+<p>  同时在并行pooling层后面加入1×1卷积层后也可以降低输出的feature map数量<strong>（feature map尺寸指W、H是共享权值的sliding window，feature map 的数量就是channels）</strong></p>
+<p>  GoogLeNet利用1×1的卷积降维后，得到了更为紧凑的网络结构，虽然总共有22层，但是参数数量却只是8层的AlexNet的十二分之一（当然也有很大一部分原因是去掉了全连接层）。</p>
+</li>
+<li><p>升维（用最少的参数拓宽网络channal）</p>
+<p>  假设上一层输出为 3 * 3 * 64， 使用 1 * 1 * 256，这样一个卷积核，只用64*256个参数就能把网络channel从64拓宽四倍到256。</p>
+</li>
+<li><p>   跨通道信息交互（channal 的变换）</p>
+</li>
+</ol>
+<pre><code> 使用1 * 1卷积核，实现降维和升维的操作其实就是channel间信息的线性组合变化，3 * 3，64 channels的卷积核后面添加一个1 * 1，28channels的卷积核，就变成了3 * 3，28channels的卷积核，原来的64个channels就可以理解为跨通道线性组合变成了28channels，这就是通道间的信息交互。
+</code></pre>
+<ol start="4">
+<li><p>增加了非线性</p>
+<p>  1 * 1卷积核本身实现的是线性操作，增加非线性实际是因为1 * 1卷积核后面所跟的ReLU激活函数。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Deep Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenCV-Tutorials</title>
     <url>/%E5%AD%A6%E4%B9%A0/OpenCV/openCVtutorials/</url>
     <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
@@ -957,6 +954,92 @@
       </tags>
   </entry>
   <entry>
+    <title>Deep Learning 02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_AlexNet/</url>
+    <content><![CDATA[<h1 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h1><p> 深度卷积网络的开创者。将从手工对图片的的特征进行提取，进而利用机器学习的方式实现图像识别转别为由机器自己实现特征提取和图片识别。真正实现了“end-to-end”。<span id="more"></span></p>
+<h2 id="取得成功的原因"><a href="#取得成功的原因" class="headerlink" title="取得成功的原因"></a>取得成功的原因</h2><h3 id="更大更丰富的数据集"><a href="#更大更丰富的数据集" class="headerlink" title="更大更丰富的数据集"></a>更大更丰富的数据集</h3><p>包含许多特征的深度模型需要大量的有标签数据，才能显著优于基于凸优化的传统方法。越来越多的大规模的数据集给深度学习提供了数据基础。同时还包括各种各样的图像增强方法，进一步对数据集进行扩充。</p>
+<h3 id="GPU-加快神经网络的训练速度"><a href="#GPU-加快神经网络的训练速度" class="headerlink" title="GPU-加快神经网络的训练速度"></a>GPU-加快神经网络的训练速度</h3><p>GPU特殊的硬件结构使得矩阵运算更加迅速。极大的减少了网络训练的时间。GPU强大的运算能力使得CNN的是实现成为了可能。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="使用ReLU作为激活函数"><a href="#使用ReLU作为激活函数" class="headerlink" title="使用ReLU作为激活函数"></a>使用ReLU作为激活函数</h3><p>作者通过实验证明，ReLU相比于Sigmoid等其他激活函数，更容易进行训练，达到同样的识别精度所需要的时间和迭代次数更少。</p>
+<p>同时ReLU也成为最为常见的激活函数。</p>
+<h3 id="在多块GPU上同时进行计算"><a href="#在多块GPU上同时进行计算" class="headerlink" title="在多块GPU上同时进行计算"></a>在多块GPU上同时进行计算</h3><p>由于当时的GPU性能还不是太强，所以作者采用了两块GPU来实现网络的计算。如今GPU的计算能力已经得到了飞速提升，但更大型的网络依旧需要使用多个GPU并行计算。同时GPU硬件加速也是一个重要的研究方向。</p>
+<h3 id="LRN"><a href="#LRN" class="headerlink" title="LＲＮ"></a>LＲＮ</h3><p>作者提出的一种局部归一化的方法，在后来的VGGNet中证明用处不大。</p>
+<h3 id="重叠池化"><a href="#重叠池化" class="headerlink" title="重叠池化"></a>重叠池化</h3><p>之前的池化层都是池化层的大小等于步进，这里作者采用了池化层的大小大于步进，因此会产生部分重叠。作者通过实验证明，这样做有利于抑制过拟合。</p>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>AlexNet网络结构相对简单，使用了8层卷积神经网络，前5层是卷积层，剩下的3层是全连接层。中间还包括池化层和激活层。</p>
+<img src = "/images/DeepLearning/01.png">
+
+<p>这里将两部分网络拼在了一起，易于理解。</p>
+<p>值得注意的一点：原图输入224 × 224，实际上进行了随机裁剪，实际大小为227 × 227。</p>
+<p>AlexNet的第一层，卷积窗口的形状是 11×11。 由于ImageNet中大多数图像的宽和高比MNIST图像的多10倍以上，因此，需要一个更大的卷积窗口来捕获目标。 第二层中的卷积窗口形状被缩减为 5×55×5，然后是 3×33×3。 此外，在第一层、第二层和第五层卷积层之后，加入窗口形状为 3×33×3、步幅为2的最大汇聚层。 而且，AlexNet的卷积通道数目是LeNet的10倍。</p>
+<p>在最后一个卷积层后有两个全连接层，分别有4096个输出。 这两个巨大的全连接层拥有将近1GB的模型参数。 </p>
+<h3 id="网络大小的计算"><a href="#网络大小的计算" class="headerlink" title="网络大小的计算"></a>网络大小的计算</h3><p>这里参考了《鱼书》。</p>
+<img src = "/images/DeepLearning/03.png">
+
+<img src = "/images/DeepLearning/02.png">
+
+<h2 id="抑制过拟合的方法"><a href="#抑制过拟合的方法" class="headerlink" title="抑制过拟合的方法"></a>抑制过拟合的方法</h2><h3 id="图像增广"><a href="#图像增广" class="headerlink" title="图像增广"></a>图像增广</h3><p>作者做了两种处理。</p>
+<p>１.　对２５６＊２５６的图像进行裁剪。变为大小为２２４＊２２４，同时进行翻转。</p>
+<p>这样一张照片就变为了２０４８张，但是这样的处理，图片的关联性是很大的。</p>
+<p>２.　ＰＣＡ处理：对图像进行一系列的计算处理，排除光照等其他因素引起的问题。</p>
+<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><p>下面摘抄于原文，很好的解释了dropout的使用原因和作用。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Combining the predictions of many different models is a very successful way to reduce test errors, but it appears to be too expensive for big neural networks that already take several days to train. There is, however, a very efficient version of model combination that only costs about a factor of two during training. The recently-introduced technique, called “dropout”, consists of setting to zero the output of each hidden neuron with probability 0.5. The neurons which are “dropped out” in this way do not contribute to the forward pass and do not participate in backpropagation. So every time an input is presented, the neural network samples a different architecture, but all these architectures share weights. This technique reduces complex co-adaptations of neurons, since a neuron cannot rely on the presence of particular other neurons. It is, therefore, forced to learn more robust features that are useful in conjunction with many different random subsets of the other neurons. At test time, we use all the neurons but multiply their outputs by 0.5, which is a reasonable approximation to taking the geometric mean of the predictive distributions produced by the exponentially-many dropout networks.</span><br></pre></td></tr></table></figure>
+
+<p>简单理解就是，Dropout将集成学习的效果（模拟地）通过一个网络实现了，所有的这些网络全都共用权重。</p>
+<h2 id="更多的细节"><a href="#更多的细节" class="headerlink" title="更多的细节"></a>更多的细节</h2><h3 id="SGD-Momentum-权重衰减"><a href="#SGD-Momentum-权重衰减" class="headerlink" title="SGD+Momentum+权重衰减"></a>SGD+Momentum+权重衰减</h3><p>作者在更新参数时使用了较为复杂的更新方式，而并不是简单拿到SGD。</p>
+<h3 id="参数初始值"><a href="#参数初始值" class="headerlink" title="参数初始值"></a>参数初始值</h3><p>权重使用了高斯分布来初始化。</p>
+<p>偏置部分层使用了 0 ，其余层使用了1。</p>
+<p>lr也就是学习率，最初设置为0.01，每次学习停止时，就将lr除于10，进一步更新参数。</p>
+<h2 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h2><img src = "/images/DeepLearning/04.jpg">
+
+<h3 id="进一步分析"><a href="#进一步分析" class="headerlink" title="进一步分析"></a>进一步分析</h3><img src = "/images/DeepLearning/05.png">
+
+<p>作者了考虑由最后4096维隐藏层的图像引起的特征激活，认为如果两幅图像产生的特征激活向量具有较小的欧氏分离，我们可以说神经网络的高层认为它们是相似的。这里的特征激活向量应该是所有前面层计算出来的结果。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>作者认为：更深的网络层数 + 更丰富的数据集 + 更强大的运算/更多的训练时间 = 更好的识别效果。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Deep Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine learning</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/%E8%A5%BF%E7%93%9C%E4%B9%A601/</url>
+    <content><![CDATA[<h1 id="西瓜书阅读笔记"><a href="#西瓜书阅读笔记" class="headerlink" title="西瓜书阅读笔记"></a>西瓜书阅读笔记</h1><p>​    记录西瓜书学习过程中的理解的一些知识点。<span id="more"></span></p>
+<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>​        将物理或抽象对象的集合分成由类似的对象组成的多个类的过程被称为聚类。由聚类所生成的簇是一组数据对象的集合，这些对象与同一个簇中的对象彼此相似，与其他簇中的对象相异。</p>
+<p>​        聚类是一种机器学习技术，它涉及到数据点的分组。给定一组数据点，我们可以使用聚类算法将每个数据点划分为一个特定的组。理论上，同一组中的数据点应该具有相似的属性和/或特征，而不同组中的数据点应该具有高度不同的属性和/或特征。聚类是一种无监督学习的方法，是许多领域中常用的统计数据分析技术。</p>
+<h2 id="假设空间-与-版本空间"><a href="#假设空间-与-版本空间" class="headerlink" title="假设空间 与 版本空间"></a>假设空间 与 版本空间</h2><p><strong>假设空间</strong>：属性所有可能取值组成的可能的样本</p>
+<p><strong>版本空间</strong>：与已知数据集一致的所有假设的子集集合。</p>
+<img src = "/images/DeepLearning/06.png">
+
+<p>（绿色加号代表正类样本，红色小圈代表负类样本）</p>
+<p>GB 是最大泛化正假设边界(maximally General positive hypothesis Boundary),；</p>
+<p>SB 是最大精确正假设边界(maximally Specific positive hypothesis Boundary)</p>
+<p>GB与SB之间所围成的区域就是版本空间。</p>
+<p>在西瓜问题中，如何根据训练集求所对应的版本空间？</p>
+<p>①写出假设空间：先列出所有可能的样本点（即特征向量）（即每个属性都取到所有的属性值）</p>
+<p>②对应着给出的已知数据集，将与正样本不一致的、与负样本一致的假设删除。</p>
+<p>即可得出与训练集一致的假设集合，也就是版本空间了</p>
+<h3 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h3><p><strong>归纳偏好：</strong>机器学习算法在学习过程中对某种类型假设的偏好，称为“归纳偏好”或简称为“偏好”。</p>
+<p><strong>偏好的原则：</strong>奥卡姆剃刀：若有多个假设与观察一致，则选择最简单的那个。</p>
+<p><strong>没有免费的午餐定理：</strong> 无论学习算法La多好、学习算法Lb多坏，它们的期望性能是相同的。</p>
+<p>NFL定理的前提：所有问题出现的机会相同或所有问题同等重要，但实际情况不是这样，我们只需要关注自己想要解决的问题。</p>
+<p>脱离具体问题，空泛地谈“什么学习算法更好”毫无意义。</p>
+<h3 id="数据集处理"><a href="#数据集处理" class="headerlink" title="数据集处理"></a>数据集处理</h3><p>1.留出法</p>
+<p>​    单次使用留出法得到的估计结果往往不够稳定可靠，在使用留出法时，一般采用若干随机划分，重复进行试验评估后取平均值作为留出法的评估结果。</p>
+<p>2.k折交叉验证</p>
+<p>​    将数据集划分为k个大小相同的互斥子集，每个子集都尽可能奥驰数据分布的一一致性。选用k-1个子集作为训练集，余下的子集作为测试集。总共可进行K次测试，最终返回k此测试的平均值。k长取10.</p>
+<p>3.自助法</p>
+<p>适用于数据集较小的情形。原数据的总体并不大，每次抽样能反应总体的特性，并且多次抽样后能覆盖原总体，且抽样组成的新总体比原总体大。抽样方式采用有放回重抽样。自助法的核心点也是有放回的重复抽样。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一些有用的小技巧</title>
     <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/systemUsing_01/</url>
     <content><![CDATA[<h1 id="系统配置及软件安装"><a href="#系统配置及软件安装" class="headerlink" title="系统配置及软件安装"></a>系统配置及软件安装</h1><p>遇到的一些有用的软件或者一些比较有用的设置。<span id="more"></span></p>
@@ -988,66 +1071,6 @@
       </categories>
       <tags>
         <tag>system</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL 基础知识 01</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_01/</url>
-    <content><![CDATA[<p>MySQL学习笔记。记录数据库、表的查看、创建、删除和更改等基础操作。</p>
-<span id="more"></span>
-
-<h1 id="数据库、表的查看、创建、修改-和-删除"><a href="#数据库、表的查看、创建、修改-和-删除" class="headerlink" title="数据库、表的查看、创建、修改 和 删除"></a>数据库、表的查看、创建、修改 和 删除</h1><h2 id="SHOW"><a href="#SHOW" class="headerlink" title="SHOW"></a>SHOW</h2><p>查询数据库和表等其他信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//查看已有的数据库</span><br><span class="line">show database;</span><br><span class="line">//查看已有的表</span><br><span class="line">show tables;</span><br><span class="line">//查看表的具体信息，不包含数据本身</span><br><span class="line">show crearte table tablename；</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="CREATE"><a href="#CREATE" class="headerlink" title="CREATE"></a>CREATE</h2><p>利用create 创建数据库， 利用use选择数据库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 创建数据库。</span><br><span class="line">CREATE DATABASE &lt;数据库名称&gt;;</span><br><span class="line">-- 使用数据库</span><br><span class="line">use &lt;数据库名称&gt;;</span><br></pre></td></tr></table></figure>
-
-<p>进入数据库后，才能对表进行操作，利用CREATE TABLE 语句创建表，必须给出下列信息：</p>
-<p>​    1.新表的名字，在关键字CREATE TABLE 之后给出；<br>​    2.表列的名字和定义，用逗号分隔；<br>​    3.有的DBMS 还要求指定表的位置。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;</span><br><span class="line">（  &lt;列名1&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名2&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名3&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名4&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    .. .</span><br><span class="line">    &lt;该表的约束1&gt;， &lt;该表的约束2&gt;，……）；</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 示例</span><br><span class="line">create table products(</span><br><span class="line">	prod_id  char(10) not null primary key,</span><br><span class="line">	vend_id  char(10) not null,</span><br><span class="line">	prod_name char(254) not null,</span><br><span class="line">	prod_price decimal(8, 2) not null,</span><br><span class="line">	prod_desc  text(100) null</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<h3 id="NULL-值"><a href="#NULL-值" class="headerlink" title="NULL 值"></a>NULL 值</h3><p>NULL 值就是没有值或缺值，是表中非常特殊的一类值。允许NULL 值的列也允许在插入行时不给出该列的值。不允许NULL 值的列不接受没有列值的行，换句话说，在插入或更新行时，该列必须有值。</p>
-<p>NULL 为默认设置，如果不指定NOT NULL，就认为指定的是NULL。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Vendors(</span><br><span class="line">    vend_id CHAR(10) NOT NULL,</span><br><span class="line">    vend_name CHAR(50) NOT NULL,</span><br><span class="line">    vend_address CHAR(50) ,</span><br><span class="line">    vend_city CHAR(50) ,</span><br><span class="line">    vend_state CHAR(5) ,</span><br><span class="line">    vend_zip CHAR(10) ,</span><br><span class="line">    vend_country CHAR(50)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p>只有不允许NULL值的列可作为主键，允许NULL 值的列不能作为唯一标识。</p>
-<p>不要把NULL 值与空字符串相混淆。NULL 值是没有值，不是空字符串。如果指定’’（两个单引号，其间没有字符），这在NOT NULL 列中是允许的。空字符串是一个有效的值，它不是无值。NULL 值用关键字NULL而不是空字符串指定。</p>
-<h3 id="DEFAULT"><a href="#DEFAULT" class="headerlink" title="DEFAULT"></a>DEFAULT</h3><p>MySQL 允许指定默认值，在插入行时如果不给出值，DBMS 将自动采用默认值。默认值在CREATE TABLE 语句的列定义中用关键字DEFAULT 指定。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table Nums(</span><br><span class="line">		num int not null default 0  </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<h3 id="AUTO-INCREMENT-修饰符"><a href="#AUTO-INCREMENT-修饰符" class="headerlink" title="AUTO_INCREMENT 修饰符"></a>AUTO_INCREMENT 修饰符</h3><p>AUTO_INCREMENT 修饰符只适用于 INT 字段，表明 MySQL 应该自动为该字段生成一个数(每次在上一次生成的数值上面加 1)。对于主键，这是非常有用的。因为其允许开发者使用 MySQL 为每条记录创建唯一的标识符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE items( </span><br><span class="line">    id int( 5 ) NOT NULL AUTO_INCREMENT PRIMARY KEY , </span><br><span class="line">    label varchar( 255 ) NOT NULL</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h2 id="ALTER"><a href="#ALTER" class="headerlink" title="ALTER"></a>ALTER</h2><p>使用ALTER TABLE 更改表结构，必须给出下面的信息：<br>    1.在ALTER TABLE 之后给出要更改的表名（该表必须存在，否则将出错）；<br>    2.列出要做哪些更改。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 添加列</span><br><span class="line">alter table vendors</span><br><span class="line">	add vend_phone char(20);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 删除列</span><br><span class="line">ALTER TABLE Vendors</span><br><span class="line">	DROP COLUMN vend_phone;</span><br></pre></td></tr></table></figure>
-
-<p>**数据库表的删除、更改不能撤销!!!.**除非使用了rollback事务命令。</p>
-<h2 id="DROP"><a href="#DROP" class="headerlink" title="DROP"></a>DROP</h2><p>删除数据库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP database &lt;数据库名称&gt;；</span><br></pre></td></tr></table></figure>
-
-<p>删除表（删除整个表而不是其内容）非常简单，使用DROP TABLE 语句即可。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP TABLE CustCopy;</span><br></pre></td></tr></table></figure>
-
-<p>标准SQL 中用来从表中删除数据的只有DELETE 语句。但是，很多数据库产品中还存在另外一种被称为<strong>TRUNCATE</strong> 的语句。这些产品主要包括Oracle、SQLServer、PostgreSQL、MySQL 和DB2。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TRUNCATE &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
-
-<p>与DELETE 不同的是，TRUNCATE 只能删除表中的全部数据，而不能通过WHERE 子句指定条件来删除部分数据。也正是因为它不能具体地控制删除对象，所以其处理速度比DELETE 要快得多。实际上，DELETE 语句在DML 语句中也属于处理时间比较长的，因此需要删除全部数据行时，使用TRUNCATE 可以缩短执行时间。</p>
-<h2 id="RENAME"><a href="#RENAME" class="headerlink" title="RENAME"></a>RENAME</h2><p>重命名表。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rename table product to products;</span><br></pre></td></tr></table></figure>
-
-<p>重命名表很简单，但是重命名数据库很麻烦。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -1106,6 +1129,66 @@
 
 <p>ISNULL函数当my_field字段为空是，返回1，当不为空时返回0</p>
 <p>IF函数，如果第一个表达式为真，则返回第二个参数的值，否则，返回第三个参数的值。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL 基础知识 01</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_01/</url>
+    <content><![CDATA[<p>MySQL学习笔记。记录数据库、表的查看、创建、删除和更改等基础操作。</p>
+<span id="more"></span>
+
+<h1 id="数据库、表的查看、创建、修改-和-删除"><a href="#数据库、表的查看、创建、修改-和-删除" class="headerlink" title="数据库、表的查看、创建、修改 和 删除"></a>数据库、表的查看、创建、修改 和 删除</h1><h2 id="SHOW"><a href="#SHOW" class="headerlink" title="SHOW"></a>SHOW</h2><p>查询数据库和表等其他信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//查看已有的数据库</span><br><span class="line">show database;</span><br><span class="line">//查看已有的表</span><br><span class="line">show tables;</span><br><span class="line">//查看表的具体信息，不包含数据本身</span><br><span class="line">show crearte table tablename；</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="CREATE"><a href="#CREATE" class="headerlink" title="CREATE"></a>CREATE</h2><p>利用create 创建数据库， 利用use选择数据库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 创建数据库。</span><br><span class="line">CREATE DATABASE &lt;数据库名称&gt;;</span><br><span class="line">-- 使用数据库</span><br><span class="line">use &lt;数据库名称&gt;;</span><br></pre></td></tr></table></figure>
+
+<p>进入数据库后，才能对表进行操作，利用CREATE TABLE 语句创建表，必须给出下列信息：</p>
+<p>​    1.新表的名字，在关键字CREATE TABLE 之后给出；<br>​    2.表列的名字和定义，用逗号分隔；<br>​    3.有的DBMS 还要求指定表的位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;</span><br><span class="line">（  &lt;列名1&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名2&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名3&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    &lt;列名4&gt; &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">    .. .</span><br><span class="line">    &lt;该表的约束1&gt;， &lt;该表的约束2&gt;，……）；</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 示例</span><br><span class="line">create table products(</span><br><span class="line">	prod_id  char(10) not null primary key,</span><br><span class="line">	vend_id  char(10) not null,</span><br><span class="line">	prod_name char(254) not null,</span><br><span class="line">	prod_price decimal(8, 2) not null,</span><br><span class="line">	prod_desc  text(100) null</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="NULL-值"><a href="#NULL-值" class="headerlink" title="NULL 值"></a>NULL 值</h3><p>NULL 值就是没有值或缺值，是表中非常特殊的一类值。允许NULL 值的列也允许在插入行时不给出该列的值。不允许NULL 值的列不接受没有列值的行，换句话说，在插入或更新行时，该列必须有值。</p>
+<p>NULL 为默认设置，如果不指定NOT NULL，就认为指定的是NULL。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Vendors(</span><br><span class="line">    vend_id CHAR(10) NOT NULL,</span><br><span class="line">    vend_name CHAR(50) NOT NULL,</span><br><span class="line">    vend_address CHAR(50) ,</span><br><span class="line">    vend_city CHAR(50) ,</span><br><span class="line">    vend_state CHAR(5) ,</span><br><span class="line">    vend_zip CHAR(10) ,</span><br><span class="line">    vend_country CHAR(50)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>只有不允许NULL值的列可作为主键，允许NULL 值的列不能作为唯一标识。</p>
+<p>不要把NULL 值与空字符串相混淆。NULL 值是没有值，不是空字符串。如果指定’’（两个单引号，其间没有字符），这在NOT NULL 列中是允许的。空字符串是一个有效的值，它不是无值。NULL 值用关键字NULL而不是空字符串指定。</p>
+<h3 id="DEFAULT"><a href="#DEFAULT" class="headerlink" title="DEFAULT"></a>DEFAULT</h3><p>MySQL 允许指定默认值，在插入行时如果不给出值，DBMS 将自动采用默认值。默认值在CREATE TABLE 语句的列定义中用关键字DEFAULT 指定。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table Nums(</span><br><span class="line">		num int not null default 0  </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="AUTO-INCREMENT-修饰符"><a href="#AUTO-INCREMENT-修饰符" class="headerlink" title="AUTO_INCREMENT 修饰符"></a>AUTO_INCREMENT 修饰符</h3><p>AUTO_INCREMENT 修饰符只适用于 INT 字段，表明 MySQL 应该自动为该字段生成一个数(每次在上一次生成的数值上面加 1)。对于主键，这是非常有用的。因为其允许开发者使用 MySQL 为每条记录创建唯一的标识符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE items( </span><br><span class="line">    id int( 5 ) NOT NULL AUTO_INCREMENT PRIMARY KEY , </span><br><span class="line">    label varchar( 255 ) NOT NULL</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="ALTER"><a href="#ALTER" class="headerlink" title="ALTER"></a>ALTER</h2><p>使用ALTER TABLE 更改表结构，必须给出下面的信息：<br>    1.在ALTER TABLE 之后给出要更改的表名（该表必须存在，否则将出错）；<br>    2.列出要做哪些更改。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 添加列</span><br><span class="line">alter table vendors</span><br><span class="line">	add vend_phone char(20);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 删除列</span><br><span class="line">ALTER TABLE Vendors</span><br><span class="line">	DROP COLUMN vend_phone;</span><br></pre></td></tr></table></figure>
+
+<p>**数据库表的删除、更改不能撤销!!!.**除非使用了rollback事务命令。</p>
+<h2 id="DROP"><a href="#DROP" class="headerlink" title="DROP"></a>DROP</h2><p>删除数据库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP database &lt;数据库名称&gt;；</span><br></pre></td></tr></table></figure>
+
+<p>删除表（删除整个表而不是其内容）非常简单，使用DROP TABLE 语句即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP TABLE CustCopy;</span><br></pre></td></tr></table></figure>
+
+<p>标准SQL 中用来从表中删除数据的只有DELETE 语句。但是，很多数据库产品中还存在另外一种被称为<strong>TRUNCATE</strong> 的语句。这些产品主要包括Oracle、SQLServer、PostgreSQL、MySQL 和DB2。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TRUNCATE &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
+
+<p>与DELETE 不同的是，TRUNCATE 只能删除表中的全部数据，而不能通过WHERE 子句指定条件来删除部分数据。也正是因为它不能具体地控制删除对象，所以其处理速度比DELETE 要快得多。实际上，DELETE 语句在DML 语句中也属于处理时间比较长的，因此需要删除全部数据行时，使用TRUNCATE 可以缩短执行时间。</p>
+<h2 id="RENAME"><a href="#RENAME" class="headerlink" title="RENAME"></a>RENAME</h2><p>重命名表。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rename table product to products;</span><br></pre></td></tr></table></figure>
+
+<p>重命名表很简单，但是重命名数据库很麻烦。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1287,6 +1370,74 @@
       </tags>
   </entry>
   <entry>
+    <title>MySQL 基础知识 06</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_06/</url>
+    <content><![CDATA[<p>MySQL学习笔记。对数据进行分组和进行查询。<span id="more"></span></p>
+<h1 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h1><p>使用分组可以将数据分为多个逻辑组，对每个组进行聚集计算。</p>
+<p>分组是使用SELECT 语句的<strong>GROUP BY</strong> 子句建立的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">GROUP BY vend_id;</span><br></pre></td></tr></table></figure>
+
+<p>GROUP BY 子句指示DBMS 分组数据，然后对每个组而不是整个结果集进行聚集。</p>
+<h2 id="GROUP-BY-子句"><a href="#GROUP-BY-子句" class="headerlink" title="GROUP BY 子句"></a>GROUP BY 子句</h2><p> 1.GROUP BY 子句可以包含任意数目的列，因而可以对分组进行嵌套，更细致地进行数据分组。</p>
+<p> 2.如果在GROUP BY 子句中嵌套了分组，数据将在最后指定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</p>
+<p> 3.GROUP BY 子句中列出的每一列都必须是检索列或有效的表达式（但不能是聚集函数）。如果在SELECT 中使用表达式，则必须在GROUP BY子句中指定相同的表达式。不能使用别名。</p>
+<p> 4.大多数SQL 实现不允许GROUP BY 列带有长度可变的数据类型（如文本或备注型字段）。</p>
+<p> 5.除聚集计算语句外，SELECT 语句中的每一列都必须在GROUP BY 子句中给出。</p>
+<p> 6.如果分组列中包含具有NULL 值的行，则NULL 将作为一个分组返回。如果列中有多行NULL 值，它们将分为一组。</p>
+<p> 7.GROUP BY 子句必须出现在WHERE 子句之后，ORDER BY 子句之前。</p>
+<h2 id="过滤分组"><a href="#过滤分组" class="headerlink" title="过滤分组"></a>过滤分组</h2><p>除了能用GROUP BY 分组数据外，SQL 还允许过滤分组，规定包括哪些分组，排除哪些分组。</p>
+<p>目前为止所学过的所有类型的WHERE 子句都可以用<strong>HAVING</strong> 来替代。唯一的差别是，<strong>WHERE过滤行，而HAVING 过滤分组。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_id, COUNT(*) AS orders</span><br><span class="line">FROM Orders</span><br><span class="line">GROUP BY cust_id</span><br><span class="line">HAVING COUNT(*) &gt;= 2;</span><br></pre></td></tr></table></figure>
+
+<p>WHERE 在数据分组前进行过滤，HAVING 在数据分组后进行过滤。这是一个重要的区别，WHERE 排除的行不包括在分组中。这可能会改变计算值，从而影响HAVING 子句中基于这些值过滤掉的分组。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_price &gt;= 4</span><br><span class="line">GROUP BY vend_id</span><br><span class="line">HAVING COUNT(*) &gt;= 2;</span><br></pre></td></tr></table></figure>
+
+<img src = "/images/MySQL/MySQL06.png">
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;= 3;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;= 3</span><br><span class="line">ORDER BY items, order_num;</span><br></pre></td></tr></table></figure>
+
+<h1 id="进行子查询"><a href="#进行子查询" class="headerlink" title="进行子查询"></a>进行子查询</h1><p>列出订购物品RGAN01 的所有顾客：</p>
+<p>1.检索包含物品 RGAN01的所有订单编号。</p>
+<p>2.检索具有前一步骤列出的顶单编号的顾客的ID。</p>
+<p>3.检索前一步骤返回的所有顾客的顾客信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM Customers</span><br><span class="line">WHERE cust_id IN (SELECT cust_id</span><br><span class="line">				  FROM Orders</span><br><span class="line">				  WHERE order_num IN (SELECT order_num</span><br><span class="line">									  FROM OrderItems</span><br><span class="line">							  		  WHERE prod_id = &#x27;RGAN01&#x27;));</span><br></pre></td></tr></table></figure>
+
+<p><strong>作为子查询的SELECT 语句只能查询单个列。企图检索多个列将返回错误。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_state,</span><br><span class="line">		(SELECT COUNT(*)</span><br><span class="line">			FROM Orders</span><br><span class="line">			WHERE Orders.cust_id = Customers.cust_id) AS orders</span><br><span class="line">FROM Customers</span><br><span class="line">ORDER BY cust_name;</span><br></pre></td></tr></table></figure>
+
+<h1 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h1><h2 id="UNION-并集"><a href="#UNION-并集" class="headerlink" title="UNION  并集"></a>UNION  并集</h2><p>SQL 允许执行多个查询（多条SELECT 语句），并将结果作为一个查询结果集返回。这些组合查询通常称为并（union）或复合查询（compound query）。</p>
+<p>主要有两种情况需要使用组合查询：</p>
+<ol>
+<li>在一个查询中从不同的表返回结构数据；</li>
+<li>对一个表执行多个查询，按一个查询返回数据。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;;</span><br><span class="line">3. 列数据类型必须兼容：类型不必完全相同，但必须是DBMS 可以隐含</span><br><span class="line">转换的类型（例如，不同的数值类型或不同的日期类型）。</span><br></pre></td></tr></table></figure>
+
+<p>1.UNION 必须由两条或两条以上的SELECT 语句组成，语句之间用关键字UNION 分隔（因此，如果组合四条SELECT 语句，将要使用三个UNION关键字）。<br>2.UNION 中的每个查询必须包含相同的列、表达式或聚集函数（不过，各个列不需要以相同的次序列出）。</p>
+<p>3.列数据类型必须兼容：类型不必完全相同，但必须是DBMS 可以隐含转换的类型（例如，不同的数值类型或不同的日期类型）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION ALL</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>使用UNION ALL，DBMS 不取消重复的行。</p>
+<p>SELECT 语句的输出用ORDER BY 子句排序。在用UNION 组合查询时，只能使用一条ORDER BY 子句，它必须位于最后一条SELECT 语句之后。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;</span><br><span class="line">ORDER BY cust_name, cust_contact;</span><br></pre></td></tr></table></figure>
+
+<h2 id="INTERSECT-交集"><a href="#INTERSECT-交集" class="headerlink" title="INTERSECT  交集"></a>INTERSECT  交集</h2><p>MySQL不支持<code>INTERSECT</code>操作符。 但是可以模拟<code>INTERSECT</code>操作符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT product_id, product_name</span><br><span class="line">    FROM Product</span><br><span class="line">INTERSECT</span><br><span class="line">SELECT product_id, product_name</span><br><span class="line">    FROM Product2</span><br><span class="line">ORDER BY product_id;</span><br></pre></td></tr></table></figure>
+
+<h2 id="EXCEPT-减法"><a href="#EXCEPT-减法" class="headerlink" title="EXCEPT 减法"></a>EXCEPT 减法</h2><p>MYSQL不支持EXCEPT操作符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product</span><br><span class="line">EXCEPT</span><br><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product2</span><br><span class="line">ORDER BY product_id;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL 基础知识 05</title>
     <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_05/</url>
     <content><![CDATA[<p>MySQL学习笔记。通过使用计算字段对检索到的数据进行初步处理<span id="more"></span></p>
@@ -1369,74 +1520,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MySQL 基础知识 06</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_06/</url>
-    <content><![CDATA[<p>MySQL学习笔记。对数据进行分组和进行查询。<span id="more"></span></p>
-<h1 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h1><p>使用分组可以将数据分为多个逻辑组，对每个组进行聚集计算。</p>
-<p>分组是使用SELECT 语句的<strong>GROUP BY</strong> 子句建立的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">GROUP BY vend_id;</span><br></pre></td></tr></table></figure>
-
-<p>GROUP BY 子句指示DBMS 分组数据，然后对每个组而不是整个结果集进行聚集。</p>
-<h2 id="GROUP-BY-子句"><a href="#GROUP-BY-子句" class="headerlink" title="GROUP BY 子句"></a>GROUP BY 子句</h2><p> 1.GROUP BY 子句可以包含任意数目的列，因而可以对分组进行嵌套，更细致地进行数据分组。</p>
-<p> 2.如果在GROUP BY 子句中嵌套了分组，数据将在最后指定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</p>
-<p> 3.GROUP BY 子句中列出的每一列都必须是检索列或有效的表达式（但不能是聚集函数）。如果在SELECT 中使用表达式，则必须在GROUP BY子句中指定相同的表达式。不能使用别名。</p>
-<p> 4.大多数SQL 实现不允许GROUP BY 列带有长度可变的数据类型（如文本或备注型字段）。</p>
-<p> 5.除聚集计算语句外，SELECT 语句中的每一列都必须在GROUP BY 子句中给出。</p>
-<p> 6.如果分组列中包含具有NULL 值的行，则NULL 将作为一个分组返回。如果列中有多行NULL 值，它们将分为一组。</p>
-<p> 7.GROUP BY 子句必须出现在WHERE 子句之后，ORDER BY 子句之前。</p>
-<h2 id="过滤分组"><a href="#过滤分组" class="headerlink" title="过滤分组"></a>过滤分组</h2><p>除了能用GROUP BY 分组数据外，SQL 还允许过滤分组，规定包括哪些分组，排除哪些分组。</p>
-<p>目前为止所学过的所有类型的WHERE 子句都可以用<strong>HAVING</strong> 来替代。唯一的差别是，<strong>WHERE过滤行，而HAVING 过滤分组。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_id, COUNT(*) AS orders</span><br><span class="line">FROM Orders</span><br><span class="line">GROUP BY cust_id</span><br><span class="line">HAVING COUNT(*) &gt;= 2;</span><br></pre></td></tr></table></figure>
-
-<p>WHERE 在数据分组前进行过滤，HAVING 在数据分组后进行过滤。这是一个重要的区别，WHERE 排除的行不包括在分组中。这可能会改变计算值，从而影响HAVING 子句中基于这些值过滤掉的分组。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_price &gt;= 4</span><br><span class="line">GROUP BY vend_id</span><br><span class="line">HAVING COUNT(*) &gt;= 2;</span><br></pre></td></tr></table></figure>
-
-<img src = "/images/MySQL/MySQL06.png">
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;= 3;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;= 3</span><br><span class="line">ORDER BY items, order_num;</span><br></pre></td></tr></table></figure>
-
-<h1 id="进行子查询"><a href="#进行子查询" class="headerlink" title="进行子查询"></a>进行子查询</h1><p>列出订购物品RGAN01 的所有顾客：</p>
-<p>1.检索包含物品 RGAN01的所有订单编号。</p>
-<p>2.检索具有前一步骤列出的顶单编号的顾客的ID。</p>
-<p>3.检索前一步骤返回的所有顾客的顾客信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM Customers</span><br><span class="line">WHERE cust_id IN (SELECT cust_id</span><br><span class="line">				  FROM Orders</span><br><span class="line">				  WHERE order_num IN (SELECT order_num</span><br><span class="line">									  FROM OrderItems</span><br><span class="line">							  		  WHERE prod_id = &#x27;RGAN01&#x27;));</span><br></pre></td></tr></table></figure>
-
-<p><strong>作为子查询的SELECT 语句只能查询单个列。企图检索多个列将返回错误。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_state,</span><br><span class="line">		(SELECT COUNT(*)</span><br><span class="line">			FROM Orders</span><br><span class="line">			WHERE Orders.cust_id = Customers.cust_id) AS orders</span><br><span class="line">FROM Customers</span><br><span class="line">ORDER BY cust_name;</span><br></pre></td></tr></table></figure>
-
-<h1 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h1><h2 id="UNION-并集"><a href="#UNION-并集" class="headerlink" title="UNION  并集"></a>UNION  并集</h2><p>SQL 允许执行多个查询（多条SELECT 语句），并将结果作为一个查询结果集返回。这些组合查询通常称为并（union）或复合查询（compound query）。</p>
-<p>主要有两种情况需要使用组合查询：</p>
-<ol>
-<li>在一个查询中从不同的表返回结构数据；</li>
-<li>对一个表执行多个查询，按一个查询返回数据。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;;</span><br><span class="line">3. 列数据类型必须兼容：类型不必完全相同，但必须是DBMS 可以隐含</span><br><span class="line">转换的类型（例如，不同的数值类型或不同的日期类型）。</span><br></pre></td></tr></table></figure>
-
-<p>1.UNION 必须由两条或两条以上的SELECT 语句组成，语句之间用关键字UNION 分隔（因此，如果组合四条SELECT 语句，将要使用三个UNION关键字）。<br>2.UNION 中的每个查询必须包含相同的列、表达式或聚集函数（不过，各个列不需要以相同的次序列出）。</p>
-<p>3.列数据类型必须兼容：类型不必完全相同，但必须是DBMS 可以隐含转换的类型（例如，不同的数值类型或不同的日期类型）。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION ALL</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>使用UNION ALL，DBMS 不取消重复的行。</p>
-<p>SELECT 语句的输出用ORDER BY 子句排序。在用UNION 组合查询时，只能使用一条ORDER BY 子句，它必须位于最后一条SELECT 语句之后。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;</span><br><span class="line">ORDER BY cust_name, cust_contact;</span><br></pre></td></tr></table></figure>
-
-<h2 id="INTERSECT-交集"><a href="#INTERSECT-交集" class="headerlink" title="INTERSECT  交集"></a>INTERSECT  交集</h2><p>MySQL不支持<code>INTERSECT</code>操作符。 但是可以模拟<code>INTERSECT</code>操作符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT product_id, product_name</span><br><span class="line">    FROM Product</span><br><span class="line">INTERSECT</span><br><span class="line">SELECT product_id, product_name</span><br><span class="line">    FROM Product2</span><br><span class="line">ORDER BY product_id;</span><br></pre></td></tr></table></figure>
-
-<h2 id="EXCEPT-减法"><a href="#EXCEPT-减法" class="headerlink" title="EXCEPT 减法"></a>EXCEPT 减法</h2><p>MYSQL不支持EXCEPT操作符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product</span><br><span class="line">EXCEPT</span><br><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product2</span><br><span class="line">ORDER BY product_id;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MySQL 基础知识 07</title>
     <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_07/</url>
     <content><![CDATA[<p>MySQL学习笔记。 表的联结： 内联结 + 外联结。<span id="more"></span></p>
@@ -1473,61 +1556,6 @@
 <h3 id="三个表的联结"><a href="#三个表的联结" class="headerlink" title="三个表的联结"></a>三个表的联结</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select sp.shop_id, sp.shop_name, sp.product_id, p.product_name, p.sale_price, ip.inventory_quantity</span><br><span class="line">from shopproduct as sp </span><br><span class="line">    inner join product as p on sp.product_id = p.product_id</span><br><span class="line">    inner join inventoryProduct as ip on sp.product_id = ip.product_id</span><br><span class="line">where ip.inventory_id = &#x27;P001&#x27;;</span><br></pre></td></tr></table></figure>
 
 <h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL 基础知识 09</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_09/</url>
-    <content><![CDATA[<p>MySQL学习笔记。使用事务避免仅执行了部分语句。<span id="more"></span></p>
-<h1 id="管理事务"><a href="#管理事务" class="headerlink" title="管理事务"></a>管理事务</h1><p>使用事务处理（transaction processing），通过确保成批的SQL 操作要么完全执行，要么完全不执行，来维护数据库的完整性。</p>
-<p>事务处理是一种机制，用来管理必须成批执行的SQL 操作，保证数据库不包含不完整的操作结果。利用事务处理，可以保证一组操作不会中途停止，它们要么完全执行，要么完全不执行（除非明确指示）。如果没有错误发生，整组语句提交给（写到）数据库表；如果发生错误，则进行回退（撤销），将数据库恢复到某个已知且安全的状态。</p>
-<h2 id="事务（transaction）"><a href="#事务（transaction）" class="headerlink" title="事务（transaction）"></a>事务（transaction）</h2><p>指一组SQL 语句；</p>
-<h2 id="回退（rollback）"><a href="#回退（rollback）" class="headerlink" title="回退（rollback）"></a>回退（rollback）</h2><p>指撤销指定SQL 语句的过程；</p>
-<h2 id="提交（commit）"><a href="#提交（commit）" class="headerlink" title="提交（commit）"></a>提交（commit）</h2><p>指将未存储的SQL 语句结果写入数据库表；</p>
-<h2 id="保留点（savepoint）"><a href="#保留点（savepoint）" class="headerlink" title="保留点（savepoint）"></a>保留点（savepoint）</h2><p>指事务处理中设置的临时占位符（placeholder），可以对它发布回退（与回退整个事务处理不同）。</p>
-<p>事务处理用来管理INSERT、UPDATE 和DELETE 语句。不能回退SELECT语句（回退SELECT 语句也没有必要），也不能回退CREATE 或DROP 操作。事务处理中可以使用这些语句，但进行回退时，这些操作也不撤销。</p>
-<p>管理事务的关键在于将SQL 语句组分解为逻辑块，并明确规定数据何时应该回退，何时不应该回退。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h2 id="ROLLBACK"><a href="#ROLLBACK" class="headerlink" title="ROLLBACK"></a>ROLLBACK</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Orders;</span><br><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure>
-
-<h3 id="COMMIT"><a href="#COMMIT" class="headerlink" title="COMMIT"></a>COMMIT</h3><p>一般的SQL 语句都是针对数据库表直接执行和编写的。这就是所谓的隐式提交（implicit commit），即提交（写或保存）操作是自动进行的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">DELETE OrderItems WHERE order_num = 12345</span><br><span class="line">DELETE Orders WHERE order_num = 12345</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用保留点"><a href="#使用保留点" class="headerlink" title="使用保留点"></a>使用保留点</h2><p>使用简单的ROLLBACK 和COMMIT 语句，就可以写入或撤销整个事务。但是，只对简单的事务才能这样做，复杂的事务可能需要部分提交或回退。</p>
-<p>要支持回退部分事务，必须在事务处理块中的合适位置放置占位符。这样，如果需要回退，可以回退到某个占位符。</p>
-<p>在SQL 中，这些占位符称为保留点。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SAVEPOINT delete1;</span><br></pre></td></tr></table></figure>
-
-<p>每个保留点都要取能够标识它的唯一名字，以便在回退时，DBMS 知道回退到何处。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ROLLBACK TO delete1;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">start TRANSACTION</span><br><span class="line">INSERT INTO Customers(cust_id, cust_name)</span><br><span class="line">VALUES(&#x27;1000000010&#x27;, &#x27;Toys Emporium&#x27;);</span><br><span class="line">SAVE TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO Orders(order_num, order_date, cust_id)</span><br><span class="line">VALUES(20100,&#x27;2001/12/1&#x27;,&#x27;1000000010&#x27;);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 1, &#x27;BR01&#x27;, 100, 5.49);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 2, &#x27;BR03&#x27;, 100, 10.99);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
-
-<h1 id="使用游标"><a href="#使用游标" class="headerlink" title="使用游标"></a>使用游标</h1><p>SQL 检索操作返回一组称为结果集的行，这组返回的行都是与SQL 语句相匹配的行（零行或多行）。简单地使用SELECT 语句，没有办法得到第一行、下一行或前10 行。但这是关系DBMS 功能的组成部分。</p>
-<p>有时，需要在检索出来的行中前进或后退一行或多行，这就是游标的用途所在。</p>
-<p>游标（cursor）是一个存储在DBMS 服务器上的数据库查询，它不是一条SELECT 语句，而是被该语句检索出来的结果集。在存储了游标之后，应用程序可以根据需要滚动或浏览其中的数据。</p>
-<h2 id="选项和特性"><a href="#选项和特性" class="headerlink" title="选项和特性"></a>选项和特性</h2><p>1.能够标记游标为只读，使数据能读取，但不能更新和删除。<br>2.能控制可以执行的定向操作（向前、向后、第一、最后、绝对位置、相对位置等）。<br>3.能标记某些列为可编辑的，某些列为不可编辑的。<br>4.规定范围，使游标对创建它的特定请求（如存储过程）或对所有请求可访问。<br>5.指示DBMS 对检索出的数据（而不是指出表中活动数据）进行复制，使数据在游标打开和访问期间不变化。</p>
-<p>游标主要用于交互式应用，其中用户需要滚动屏幕上的数据，并对数据进行浏览或做出更改。</p>
-<h2 id="游标的使用步骤"><a href="#游标的使用步骤" class="headerlink" title="游标的使用步骤"></a>游标的使用步骤</h2><p>1.在使用游标前，必须声明（定义）它。这个过程实际上没有检索数据，它只是定义要使用的SELECT 语句和游标选项。<br>2.一旦声明，就必须打开游标以供使用。这个过程用前面定义的SELECT语句把数据实际检索出来。<br>3.对于填有数据的游标，根据需要取出（检索）各行。<br>4.在结束游标使用时，必须关闭游标，可能的话，释放游标（有赖于具体的DBMS）。</p>
-<p>5.声明游标后，可根据需要频繁地打开和关闭游标。在游标打开时，可根据需要频繁地执行取操作</p>
-<h3 id="创建游标"><a href="#创建游标" class="headerlink" title="创建游标"></a>创建游标</h3><p>DECLARE 命名游标，并定义相应的SELECT 语句，根据需要带WHERE 和其他子句。<br><strong>游标只能用在存储过程中</strong></p>
-<hr>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE CustCursor CURSOR</span><br><span class="line">FOR</span><br><span class="line">SELECT * FROM Customers</span><br><span class="line">WHERE cust_email IS NULL</span><br></pre></td></tr></table></figure>
-
-<h3 id="打开游标"><a href="#打开游标" class="headerlink" title="打开游标"></a>打开游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">OPEN CURSOR CustCursor</span><br></pre></td></tr></table></figure>
-
-<p>用FETCH 语句访问游标数据。FETCH 指出要检索哪些行，从何处检索它们以及将它们放于何处（如变量名）。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE TYPE CustCursor IS REF CURSOR</span><br><span class="line">	RETURN Customers%ROWTYPE;</span><br><span class="line">DECLARE CustRecord Customers%ROWTYPE</span><br><span class="line">BEGIN</span><br><span class="line">OPEN CustCursor;</span><br><span class="line">FETCH CustCursor INTO CustRecord;</span><br><span class="line">CLOSE CustCursor;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
-
-<h3 id="关闭游标"><a href="#关闭游标" class="headerlink" title="关闭游标"></a>关闭游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CLOSE CustCursor</span><br></pre></td></tr></table></figure>
-
-]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -1690,6 +1718,61 @@
       </tags>
   </entry>
   <entry>
+    <title>MySQL 基础知识 09</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_09/</url>
+    <content><![CDATA[<p>MySQL学习笔记。使用事务避免仅执行了部分语句。<span id="more"></span></p>
+<h1 id="管理事务"><a href="#管理事务" class="headerlink" title="管理事务"></a>管理事务</h1><p>使用事务处理（transaction processing），通过确保成批的SQL 操作要么完全执行，要么完全不执行，来维护数据库的完整性。</p>
+<p>事务处理是一种机制，用来管理必须成批执行的SQL 操作，保证数据库不包含不完整的操作结果。利用事务处理，可以保证一组操作不会中途停止，它们要么完全执行，要么完全不执行（除非明确指示）。如果没有错误发生，整组语句提交给（写到）数据库表；如果发生错误，则进行回退（撤销），将数据库恢复到某个已知且安全的状态。</p>
+<h2 id="事务（transaction）"><a href="#事务（transaction）" class="headerlink" title="事务（transaction）"></a>事务（transaction）</h2><p>指一组SQL 语句；</p>
+<h2 id="回退（rollback）"><a href="#回退（rollback）" class="headerlink" title="回退（rollback）"></a>回退（rollback）</h2><p>指撤销指定SQL 语句的过程；</p>
+<h2 id="提交（commit）"><a href="#提交（commit）" class="headerlink" title="提交（commit）"></a>提交（commit）</h2><p>指将未存储的SQL 语句结果写入数据库表；</p>
+<h2 id="保留点（savepoint）"><a href="#保留点（savepoint）" class="headerlink" title="保留点（savepoint）"></a>保留点（savepoint）</h2><p>指事务处理中设置的临时占位符（placeholder），可以对它发布回退（与回退整个事务处理不同）。</p>
+<p>事务处理用来管理INSERT、UPDATE 和DELETE 语句。不能回退SELECT语句（回退SELECT 语句也没有必要），也不能回退CREATE 或DROP 操作。事务处理中可以使用这些语句，但进行回退时，这些操作也不撤销。</p>
+<p>管理事务的关键在于将SQL 语句组分解为逻辑块，并明确规定数据何时应该回退，何时不应该回退。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="ROLLBACK"><a href="#ROLLBACK" class="headerlink" title="ROLLBACK"></a>ROLLBACK</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Orders;</span><br><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure>
+
+<h3 id="COMMIT"><a href="#COMMIT" class="headerlink" title="COMMIT"></a>COMMIT</h3><p>一般的SQL 语句都是针对数据库表直接执行和编写的。这就是所谓的隐式提交（implicit commit），即提交（写或保存）操作是自动进行的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">DELETE OrderItems WHERE order_num = 12345</span><br><span class="line">DELETE Orders WHERE order_num = 12345</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用保留点"><a href="#使用保留点" class="headerlink" title="使用保留点"></a>使用保留点</h2><p>使用简单的ROLLBACK 和COMMIT 语句，就可以写入或撤销整个事务。但是，只对简单的事务才能这样做，复杂的事务可能需要部分提交或回退。</p>
+<p>要支持回退部分事务，必须在事务处理块中的合适位置放置占位符。这样，如果需要回退，可以回退到某个占位符。</p>
+<p>在SQL 中，这些占位符称为保留点。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SAVEPOINT delete1;</span><br></pre></td></tr></table></figure>
+
+<p>每个保留点都要取能够标识它的唯一名字，以便在回退时，DBMS 知道回退到何处。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ROLLBACK TO delete1;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">start TRANSACTION</span><br><span class="line">INSERT INTO Customers(cust_id, cust_name)</span><br><span class="line">VALUES(&#x27;1000000010&#x27;, &#x27;Toys Emporium&#x27;);</span><br><span class="line">SAVE TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO Orders(order_num, order_date, cust_id)</span><br><span class="line">VALUES(20100,&#x27;2001/12/1&#x27;,&#x27;1000000010&#x27;);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 1, &#x27;BR01&#x27;, 100, 5.49);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 2, &#x27;BR03&#x27;, 100, 10.99);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用游标"><a href="#使用游标" class="headerlink" title="使用游标"></a>使用游标</h1><p>SQL 检索操作返回一组称为结果集的行，这组返回的行都是与SQL 语句相匹配的行（零行或多行）。简单地使用SELECT 语句，没有办法得到第一行、下一行或前10 行。但这是关系DBMS 功能的组成部分。</p>
+<p>有时，需要在检索出来的行中前进或后退一行或多行，这就是游标的用途所在。</p>
+<p>游标（cursor）是一个存储在DBMS 服务器上的数据库查询，它不是一条SELECT 语句，而是被该语句检索出来的结果集。在存储了游标之后，应用程序可以根据需要滚动或浏览其中的数据。</p>
+<h2 id="选项和特性"><a href="#选项和特性" class="headerlink" title="选项和特性"></a>选项和特性</h2><p>1.能够标记游标为只读，使数据能读取，但不能更新和删除。<br>2.能控制可以执行的定向操作（向前、向后、第一、最后、绝对位置、相对位置等）。<br>3.能标记某些列为可编辑的，某些列为不可编辑的。<br>4.规定范围，使游标对创建它的特定请求（如存储过程）或对所有请求可访问。<br>5.指示DBMS 对检索出的数据（而不是指出表中活动数据）进行复制，使数据在游标打开和访问期间不变化。</p>
+<p>游标主要用于交互式应用，其中用户需要滚动屏幕上的数据，并对数据进行浏览或做出更改。</p>
+<h2 id="游标的使用步骤"><a href="#游标的使用步骤" class="headerlink" title="游标的使用步骤"></a>游标的使用步骤</h2><p>1.在使用游标前，必须声明（定义）它。这个过程实际上没有检索数据，它只是定义要使用的SELECT 语句和游标选项。<br>2.一旦声明，就必须打开游标以供使用。这个过程用前面定义的SELECT语句把数据实际检索出来。<br>3.对于填有数据的游标，根据需要取出（检索）各行。<br>4.在结束游标使用时，必须关闭游标，可能的话，释放游标（有赖于具体的DBMS）。</p>
+<p>5.声明游标后，可根据需要频繁地打开和关闭游标。在游标打开时，可根据需要频繁地执行取操作</p>
+<h3 id="创建游标"><a href="#创建游标" class="headerlink" title="创建游标"></a>创建游标</h3><p>DECLARE 命名游标，并定义相应的SELECT 语句，根据需要带WHERE 和其他子句。<br><strong>游标只能用在存储过程中</strong></p>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE CustCursor CURSOR</span><br><span class="line">FOR</span><br><span class="line">SELECT * FROM Customers</span><br><span class="line">WHERE cust_email IS NULL</span><br></pre></td></tr></table></figure>
+
+<h3 id="打开游标"><a href="#打开游标" class="headerlink" title="打开游标"></a>打开游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">OPEN CURSOR CustCursor</span><br></pre></td></tr></table></figure>
+
+<p>用FETCH 语句访问游标数据。FETCH 指出要检索哪些行，从何处检索它们以及将它们放于何处（如变量名）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE TYPE CustCursor IS REF CURSOR</span><br><span class="line">	RETURN Customers%ROWTYPE;</span><br><span class="line">DECLARE CustRecord Customers%ROWTYPE</span><br><span class="line">BEGIN</span><br><span class="line">OPEN CustCursor;</span><br><span class="line">FETCH CustCursor INTO CustRecord;</span><br><span class="line">CLOSE CustCursor;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+
+<h3 id="关闭游标"><a href="#关闭游标" class="headerlink" title="关闭游标"></a>关闭游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CLOSE CustCursor</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Uniform Initialization</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/UniformeInitialization/</url>
     <content><![CDATA[<p>在C++11之前，初始化操作可以用很多种方法来实现，比如说小括号，大括号以及赋值符号，C++11之后，统一都可以使用花括号来初始化变量，当然，所有之前可以使用的方式依然可以使用。</p>
@@ -1744,6 +1827,52 @@
       </tags>
   </entry>
   <entry>
+    <title>Variadic Templates</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/VariadicTemplates/</url>
+    <content><![CDATA[<p>C++ 11引入了的一个新特性为 Variadic Templates， 即可变参数模板。同时还有一些小的改动，如可以去掉模板表达式的空格、引入空指针nullptr和自动判断当前数据类型的AUTO等。</p>
+<span id="more"></span>
+
+<h1 id="Variadic-Templates"><a href="#Variadic-Templates" class="headerlink" title="Variadic Templates"></a>Variadic Templates</h1><p>C++ 11支持任意参数类型和任意参数个数实现。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//使用可变参数模板一定会有一个空调用来结束递归调用。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//可变参数模板</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Types&gt; <span class="comment">//这里的 ... 是关键字的一部分， 即typename...。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> T&amp; firstArg, <span class="keyword">const</span> Types&amp;... args)</span></span>&#123;	<span class="comment">//这里的...要写在自定义类型Types后面</span></span><br><span class="line">    cout &lt;&lt; firstArg &lt;&lt; endl;		</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(args...);									<span class="comment">//这里的...要写在args后面。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.注意三种不同的…的应用环境，这些都是语法规则，所以记住即可。</p>
+<p>…  就是所谓的一个包。</p>
+<p>2.还要注意的是，在可变模板参数内部可以使用**sizeof…(args)**得到实参的个数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sizeof...(args) 是C++ 11的新特性。</span><br></pre></td></tr></table></figure>
+
+<p>3.如果同时定义了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempalte &lt;typename... Types&gt;</span><br><span class="line">void print(Types&amp;... args)&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译时不会报错，如果泛化和特化的同时定义，优先调用特化。所以这个定义永远不会被调用。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>1.<strong>实现函数的递归调用</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;functional&gt;</span><br><span class="line"></span><br><span class="line">class CustomerHash&#123;</span><br><span class="line">public:</span><br><span class="line">	std::size_t operator() (const Customer&amp; c) const &#123;</span><br><span class="line">		//这里的返回类型是std::size_t，所以会调用返回类型相同的hash_val函数定义。</span><br><span class="line">		return hash_val(c.fname, c.lname, c.no);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//首先调用下面这个函数，再递归调用其他函数。</span><br><span class="line">template &lt;typename... Types&gt;</span><br><span class="line">inline size_t hash_val( const Types&amp;... args)&#123;</span><br><span class="line">	size_t seed = 0;</span><br><span class="line">	hash_val(seed, args...);</span><br><span class="line">	return seed;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//可以接受任意个参数的hash_val 函数。</span><br><span class="line">template&lt;typename T, typename... Types&gt;</span><br><span class="line">inline void hash_val(size_t&amp; seed, const T&amp; val, const Type&amp;... args)&#123;</span><br><span class="line">	hash_combine(seed, val);</span><br><span class="line">	//递归调用</span><br><span class="line">	hash_val(seed, args...);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//仅支持一个参数的hash_val函数，更加特化。</span><br><span class="line">template&lt;typename T&gt;</span><br><span class="line">inline void hash_val(size_t&amp; seed, const T&amp; val)&#123;</span><br><span class="line">	hash_combine(seed, val);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//hash_combine函数</span><br><span class="line">template&lt;typename T&gt;</span><br><span class="line">inline void hash_combine&lt;size_t&amp; seed, const T&amp; val)&#123;</span><br><span class="line">	seed ^= std::hash&lt;T&gt;()(val) + 0x9e3779b9 + (seed &lt;&lt;6) + (seed&gt;&gt;2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.<strong>容器tuple实现</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template &lt;typename... Values&gt; class tuple;</span><br><span class="line">template&lt;&gt; class tuple&lt;&gt;&#123;&#125;;</span><br><span class="line"></span><br><span class="line">template &lt;typename Head, typename... Tail&gt;</span><br><span class="line">class tuple&lt;Head, Tail...&gt; </span><br><span class="line">	:private tuple&lt;Tail...&gt;&#123; // 注意这里的私有继承</span><br><span class="line">	typedef tuple&lt;Tail...&gt; inherited;</span><br><span class="line">public:</span><br><span class="line">	tuple()&#123;&#125;</span><br><span class="line">	tuple(Head v, Tail... vtail):m_head(v),inherited(vtail...)&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	Head head()&#123;return m_head&#125;</span><br><span class="line">	inherited&amp; tail()&#123;return *this;&#125;</span><br><span class="line"></span><br><span class="line">protected:</span><br><span class="line">	Head m_head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Spaces-in-template-Expressions"><a href="#Spaces-in-template-Expressions" class="headerlink" title="Spaces in template Expressions"></a>Spaces in template Expressions</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;&lt;list&gt; &gt; vec; // ok in each C++ version.</span><br><span class="line">vector&lt;&lt;list&gt;&gt; ves; //ok since C++ 11</span><br></pre></td></tr></table></figure>
+
+<h1 id="Nullptr"><a href="#Nullptr" class="headerlink" title="Nullptr"></a>Nullptr</h1><p>Ｃ++中的NULL＝０，所以使用NULL有时会发生歧义，因此，引进了一种新的基本数据类型</p>
+<p>std::nullptr_t, 定义于＜cstddef&gt;中。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// \inlude\stddef.h</span><br><span class="line">#if defined(__cplusplus) &amp;&amp; __cplusplus &gt;= 201103L</span><br><span class="line">#ifndef _GXX_NULLPTR_T</span><br><span class="line">#define _GXX_NULLPTR_T</span><br><span class="line">	typedef decltype(nullptr) nullptr_t;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fun(nullptr);        //calls f(void*)</span><br></pre></td></tr></table></figure>
+
+<h1 id="AUTO"><a href="#AUTO" class="headerlink" title="AUTO"></a>AUTO</h1><p>在C++11中，你可以通过使用auto来声明一个对象或者变量而不用具体指出其数据类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">auto i = 42; // i has type int</span><br><span class="line">double f();</span><br><span class="line">auto d = f(); // d has type double</span><br></pre></td></tr></table></figure>
+
+<p>使用auto能够避免一些非常长或者非常复杂的表达式。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;string&gt; vec;</span><br><span class="line">auto pos = v.begin();  // vector&lt;string&gt;::iterator</span><br><span class="line">auto l = [](intx)-&gt;bool&#123;  //l has the type of a lamba</span><br><span class="line">	...            // taking an int and returning a bool.</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>=default =delete</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/deafult/</url>
     <content><![CDATA[<p> 如果你自信定义了一个ctor，那么编译器就不会再给你一个 default ctor。 如果你强制加上一个 =default，就可以重新获得并使用default ctor。</p>
@@ -1788,42 +1917,82 @@
       </tags>
   </entry>
   <entry>
-    <title>Variadic Templates</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cpp11%E6%96%B0%E7%89%B9%E6%80%A7/VariadicTemplates/</url>
-    <content><![CDATA[<p>C++ 11引入了的一个新特性为 Variadic Templates， 即可变参数模板。同时还有一些小的改动，如可以去掉模板表达式的空格、引入空指针nullptr和自动判断当前数据类型的AUTO等。</p>
-<span id="more"></span>
+    <title>cpp Primer chapter 1.1</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh01_1/</url>
+    <content><![CDATA[<p> C++ Primer 第一篇学习笔记。<span id="more"></span></p>
+<h1 id="第一篇-C-概述"><a href="#第一篇-C-概述" class="headerlink" title="第一篇 C++概述"></a>第一篇 C++概述</h1><h2 id="第一章-开始"><a href="#第一章-开始" class="headerlink" title="第一章  开始"></a>第一章  开始</h2><h3 id="C-支持多种程序设计方法："><a href="#C-支持多种程序设计方法：" class="headerlink" title="C++支持多种程序设计方法："></a>C++支持多种程序设计方法：</h3><p>​    过程化程序设计方法。　主要是函数。</p>
+<p>　对抽象数据类型程序设计方法。　主要是类。</p>
+<p>​    面向对象程序设计方法。　主要是继承和动态绑定。</p>
+<h3 id="分而治之-和-逐步求精-的思想"><a href="#分而治之-和-逐步求精-的思想" class="headerlink" title="分而治之 和 逐步求精 的思想"></a>分而治之 和 逐步求精 的思想</h3><p>​        解决大问题的一种方法是，把它分解成许多小问题，理想情况下，这些小问题可以很容易地被解决，然后再把它们合在一起，就可以解决大问题了。如果新分割的小问题解决起来还是太大，就把它分割得再小一些，重复整个过程，直到能够解决每个小问题。</p>
+<h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>​    C++标准库中的名字都是在一个称作std 的名字空间中声明的，这些名字在我们的程序文本文件中是不可见的，除非我们显式地使它们可见，using 指示符告诉编译器要使用在名字空间std 中声明的名字。</p>
+<h3 id="预处理器指示符"><a href="#预处理器指示符" class="headerlink" title="预处理器指示符"></a>预处理器指示符</h3><p>如果文件名用尖括号&lt; 和&gt; 括起来表明这个文件是一个工程或标准头文件，查找过程会检查预定义的目录，我们可以通过设置搜索路径环境变量或命令行选项来修改这些目录。如果文件名用一对引号括起来。则表明该文件是用户提供的头文件查找该文件时将从当前文件目录开始。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;some_file.h&gt;</span><br><span class="line">#include &quot;my_file.h&quot;</span><br><span class="line"></span><br><span class="line">#ifndef BOOKSTORE_H</span><br><span class="line">#define BOOKSTORE_H</span><br><span class="line">/* Bookstore.h 的内容 */</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
 
-<h1 id="Variadic-Templates"><a href="#Variadic-Templates" class="headerlink" title="Variadic Templates"></a>Variadic Templates</h1><p>C++ 11支持任意参数类型和任意参数个数实现。</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//使用可变参数模板一定会有一个空调用来结束递归调用。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//可变参数模板</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Types&gt; <span class="comment">//这里的 ... 是关键字的一部分， 即typename...。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> T&amp; firstArg, <span class="keyword">const</span> Types&amp;... args)</span></span>&#123;	<span class="comment">//这里的...要写在自定义类型Types后面</span></span><br><span class="line">    cout &lt;&lt; firstArg &lt;&lt; endl;		</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(args...);									<span class="comment">//这里的...要写在args后面。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译C++程序时编译器自动定义了一个预处理器名字__cplusplus （注意前面有两个下划线）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#ifdef __cplusplus</span><br><span class="line">	// 我们要编译C++</span><br><span class="line">	// extern &quot;C&quot;</span><br><span class="line">	extern &quot;C&quot;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
 
-<p>1.注意三种不同的…的应用环境，这些都是语法规则，所以记住即可。</p>
-<p>…  就是所谓的一个包。</p>
-<p>2.还要注意的是，在可变模板参数内部可以使用**sizeof…(args)**得到实参的个数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sizeof...(args) 是C++ 11的新特性。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">__LINE__ 用来记录文件已经被编译的行数 。</span><br><span class="line"></span><br><span class="line">__FILE__ 包含正在被编译的文件的名字。</span><br><span class="line"></span><br><span class="line">__TIME__  和 __DATE__ </span><br></pre></td></tr></table></figure>
 
-<p>3.如果同时定义了：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempalte &lt;typename... Types&gt;</span><br><span class="line">void print(Types&amp;... args)&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><p>终端输入也被称为标准输入standard input，与预定义的iostream 对象 cin ，绑定在一起，直接向终端输出，也被称为标准输出standard output， 与预定义的iostream 对象cout 绑定在一起，第三个预定义iostream 对象cerr 称为标准错误standard error ，也与终端绑定cerr 通常用来产生给程序用户的警告或错误信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br></pre></td></tr></table></figure>
 
-<p>编译时不会报错，如果泛化和特化的同时定义，优先调用特化。所以这个定义永远不会被调用。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>1.<strong>实现函数的递归调用</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;functional&gt;</span><br><span class="line"></span><br><span class="line">class CustomerHash&#123;</span><br><span class="line">public:</span><br><span class="line">	std::size_t operator() (const Customer&amp; c) const &#123;</span><br><span class="line">		//这里的返回类型是std::size_t，所以会调用返回类型相同的hash_val函数定义。</span><br><span class="line">		return hash_val(c.fname, c.lname, c.no);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//首先调用下面这个函数，再递归调用其他函数。</span><br><span class="line">template &lt;typename... Types&gt;</span><br><span class="line">inline size_t hash_val( const Types&amp;... args)&#123;</span><br><span class="line">	size_t seed = 0;</span><br><span class="line">	hash_val(seed, args...);</span><br><span class="line">	return seed;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//可以接受任意个参数的hash_val 函数。</span><br><span class="line">template&lt;typename T, typename... Types&gt;</span><br><span class="line">inline void hash_val(size_t&amp; seed, const T&amp; val, const Type&amp;... args)&#123;</span><br><span class="line">	hash_combine(seed, val);</span><br><span class="line">	//递归调用</span><br><span class="line">	hash_val(seed, args...);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//仅支持一个参数的hash_val函数，更加特化。</span><br><span class="line">template&lt;typename T&gt;</span><br><span class="line">inline void hash_val(size_t&amp; seed, const T&amp; val)&#123;</span><br><span class="line">	hash_combine(seed, val);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//hash_combine函数</span><br><span class="line">template&lt;typename T&gt;</span><br><span class="line">inline void hash_combine&lt;size_t&amp; seed, const T&amp; val)&#123;</span><br><span class="line">	seed ^= std::hash&lt;T&gt;()(val) + 0x9e3779b9 + (seed &lt;&lt;6) + (seed&gt;&gt;2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>除了显式地使用换行符外我们还可以使用预定义的iostream 操纵符 endl.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//为了打开一个文件供输入或输出除了iostream 头文件外还必须包含头文件</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">ofstream outFile(nameOfFile);</span><br></pre></td></tr></table></figure>
 
-<p>2.<strong>容器tuple实现</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template &lt;typename... Values&gt; class tuple;</span><br><span class="line">template&lt;&gt; class tuple&lt;&gt;&#123;&#125;;</span><br><span class="line"></span><br><span class="line">template &lt;typename Head, typename... Tail&gt;</span><br><span class="line">class tuple&lt;Head, Tail...&gt; </span><br><span class="line">	:private tuple&lt;Tail...&gt;&#123; // 注意这里的私有继承</span><br><span class="line">	typedef tuple&lt;Tail...&gt; inherited;</span><br><span class="line">public:</span><br><span class="line">	tuple()&#123;&#125;</span><br><span class="line">	tuple(Head v, Tail... vtail):m_head(v),inherited(vtail...)&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	Head head()&#123;return m_head&#125;</span><br><span class="line">	inherited&amp; tail()&#123;return *this;&#125;</span><br><span class="line"></span><br><span class="line">protected:</span><br><span class="line">	Head m_head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h1 id="Spaces-in-template-Expressions"><a href="#Spaces-in-template-Expressions" class="headerlink" title="Spaces in template Expressions"></a>Spaces in template Expressions</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;&lt;list&gt; &gt; vec; // ok in each C++ version.</span><br><span class="line">vector&lt;&lt;list&gt;&gt; ves; //ok since C++ 11</span><br></pre></td></tr></table></figure>
 
-<h1 id="Nullptr"><a href="#Nullptr" class="headerlink" title="Nullptr"></a>Nullptr</h1><p>Ｃ++中的NULL＝０，所以使用NULL有时会发生歧义，因此，引进了一种新的基本数据类型</p>
-<p>std::nullptr_t, 定义于＜cstddef&gt;中。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// \inlude\stddef.h</span><br><span class="line">#if defined(__cplusplus) &amp;&amp; __cplusplus &gt;= 201103L</span><br><span class="line">#ifndef _GXX_NULLPTR_T</span><br><span class="line">#define _GXX_NULLPTR_T</span><br><span class="line">	typedef decltype(nullptr) nullptr_t;</span><br></pre></td></tr></table></figure>
+<h2 id="第二章-C-浏览"><a href="#第二章-C-浏览" class="headerlink" title="第二章  C++浏览"></a>第二章  C++浏览</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>虽然C++对数组类型提供了内置支持，但是这种支持仅限于用来读写单个元素的机制，C++不支持数组的抽象，也不支持对整个数组的操作。</p>
+<h3 id="动态内存分配和指针"><a href="#动态内存分配和指针" class="headerlink" title="动态内存分配和指针"></a>动态内存分配和指针</h3><p>在C++中指针的主要用处是管理和操纵动态分配的内存。<br>静态与动态内存分配的两个主要区别是：<br>    1.静态对象是有名字的变量，我们直接对其进行操作，而动态对象是没有名字的变量，我们通过指针间接地对它进行操作。<br>    2.静态对象的分配与释放由编译器自动处理，程序员需要理解这一点，但不需要做任何事情，相反，动态对象的分配与释放必须由程序员显式地管理，相对来说比较容易出错，它通过new 和delete 两个表达式来完成。</p>
+<h4 id="new的两种分配方式："><a href="#new的两种分配方式：" class="headerlink" title="new的两种分配方式："></a>new的两种分配方式：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//第一种：分配特定类型的单个对象</span><br><span class="line">int *pint = new int( 1024 );</span><br><span class="line">//第二种：用于分配特定类型和维数的数组</span><br><span class="line">int *pia = new int[ 4 ];</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fun(nullptr);        //calls f(void*)</span><br></pre></td></tr></table></figure>
+<h4 id="delete的释放方法："><a href="#delete的释放方法：" class="headerlink" title="delete的释放方法："></a>delete的释放方法：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//单一对象的delete 表达式形式如下</span><br><span class="line">// 删除单个对象</span><br><span class="line">delete pint;</span><br><span class="line">//数组形式的delete 表达式如下</span><br><span class="line">// 删除一个对象数组</span><br><span class="line">delete [] pia;</span><br></pre></td></tr></table></figure>
 
-<h1 id="AUTO"><a href="#AUTO" class="headerlink" title="AUTO"></a>AUTO</h1><p>在C++11中，你可以通过使用auto来声明一个对象或者变量而不用具体指出其数据类型。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">auto i = 42; // i has type int</span><br><span class="line">double f();</span><br><span class="line">auto d = f(); // d has type double</span><br></pre></td></tr></table></figure>
+<h3 id="Class-概述"><a href="#Class-概述" class="headerlink" title="Class 概述"></a>Class 概述</h3><h4 id="类名和类体："><a href="#类名和类体：" class="headerlink" title="类名和类体："></a>类名和类体：</h4><p>类定义包括两个部分：类头class head 由关键字class 与相关联的类名构成。类体class body 由花括号括起来以分号结束。类头本身也用作类的声明。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 在程序中声明IntArray 类但是不提供定义</span><br><span class="line">class IntArray;</span><br></pre></td></tr></table></figure>
 
-<p>使用auto能够避免一些非常长或者非常复杂的表达式。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;string&gt; vec;</span><br><span class="line">auto pos = v.begin();  // vector&lt;string&gt;::iterator</span><br><span class="line">auto l = [](intx)-&gt;bool&#123;  //l has the type of a lamba</span><br><span class="line">	...            // taking an int and returning a bool.</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>类体包含成员定义,以及访问标签,如public 和private .类的成员包括该类能执行的操作和代表类抽象所必需的数据.这些操作称为成员函数member function 或方法 method。</p>
+<h4 id="成员访问操作符：-和-gt"><a href="#成员访问操作符：-和-gt" class="headerlink" title="成员访问操作符：  .   和 -&gt;"></a>成员访问操作符：  .   和 -&gt;</h4><h4 id="public-和-private"><a href="#public-和-private" class="headerlink" title="public 和 private"></a>public 和 private</h4><p>关键字private 和public 控制对类成员的访问,出现在类体中公有public 部分的成员,在一般程序的任何地方都可以访问它们,出现在私有private 部分的成员,只能在该类的成员函数或友元friend 中被访问.</p>
+<p>由于C++不允许成员函数与数据成员共享同一个名字，所以在这样的情况下，一般的习惯是在数据成员名字前面加一个下划线_。、</p>
+<h4 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h4><p>内联函数在它的调用点上被展开,一般来说内联函数不会引入任何函数调用.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">array.size() 展开为 array._size;</span><br></pre></td></tr></table></figure>
+
+<h4 id="构造函数和函数重载"><a href="#构造函数和函数重载" class="headerlink" title="构造函数和函数重载"></a>构造函数和函数重载</h4><p>构造函数是一种特殊的类成员函数，专门用于初始化对象。如果构造函数被定义了，那么在类的每个对象第一次被使用之前，这构造函数就被自动应用在对象上。</p>
+<p>为了定义一个构造函数，我们只要给它与类相同的名字即可，另外我们不能给构造函数指定返回值，但是可以给类定义多个构造函数，尽管它们都具有相同的名字，但只要编译器能够根据参数表区分它们就行。</p>
+<p>被声明为static 的数据成员，是一类特殊的共享数据成员。无论这个类的对象被定义了多少个，静态数据成员在程序中也只有一份，这是在类的所有对象之间共享数据的一种方式。</p>
+<h4 id="域操作符"><a href="#域操作符" class="headerlink" title="域操作符"></a>域操作符</h4><p>双冒号:: 操作符被称为域操作符。可以非正式地把域看作是一个可视窗口， 全局域的对象在它被定义的整个文件里(一直到文件末尾)都是可见的。</p>
+<p>C++类的关键特征是接口与实现的分离。接口是一些用户可以应用到类对象上的操作的集合，它由三部分构成这些操作的名字、它们的返回值、以及它们的参数表。一般地这就是该类用户所需要知道的全部内容。私有实现包括为支持公有接口所必需的算法和数据。</p>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>在C++中被继承的类被称作基类， 新类从基类派生而来，我们把它叫做基类的派生类或子类型。</p>
+<h3 id="泛型设计"><a href="#泛型设计" class="headerlink" title="泛型设计"></a>泛型设计</h3><h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><p>C++的模板设施提供了一种机制它能够将类成函数定义内部的类型和值参数化。</p>
+<p>模板机制也支持面向对象的程序设计，类模板可以作为基类或派生类。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;typename T&gt;</span><br><span class="line">template&lt;class T&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="泛型算法"><a href="#泛型算法" class="headerlink" title="泛型算法"></a>泛型算法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">搜索算法</span><br><span class="line">find() find_if() search() binary_search() count() count_if()</span><br><span class="line">分类排序与通用排序算法</span><br><span class="line">sort() partial_sort() merge() partition() rotate() reverse() random_shuffle()</span><br><span class="line">删除算法</span><br><span class="line">unique() remove()</span><br><span class="line">算术算法</span><br><span class="line">accumulate() partial_sum() inner_product() adjacent_difference()</span><br><span class="line">生成和变异算法</span><br><span class="line">generate() fill() transformation() copy( for_each()</span><br><span class="line">关系算法</span><br><span class="line">equal() min 和max()</span><br></pre></td></tr></table></figure>
+
+<p>泛型算法接受一对迭代器，它们标记了要遍历元素的范围。</p>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>异常处理为响应运行时刻的程序异常,提供了一个标准的语言级的设施.它支持统一的语法和风格,也允许每个程序员进行微调.</p>
+<p>异常处理机制的主要构成如下:</p>
+<ol>
+<li><p>程序中异常出现的点.</p>
+</li>
+<li><p>程序中异常被处理的点.</p>
+<p>典型地,程序异常的抛出与处理位于独立的函数或成员函数调用中.找到处理代码通常要涉及到展开程序调用栈,一旦异常被处理完毕就恢复正常的程序执行,但不是在发生异常的地方恢复执行过程,而是在处理异常的<br>地方恢复执行过程.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catch(string exceptionMsg)&#123;</span><br><span class="line">    log_message( exceptionMsg );</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>catch 子句与try 块相关联,一个try 块用一个或多个catch 子句将一条或多条语句组织起来.</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">try&#123;</span><br><span class="line"></span><br><span class="line">&#125;catch()&#123;</span><br><span class="line"></span><br><span class="line">&#125;catrch( ... )&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="命名空间-1"><a href="#命名空间-1" class="headerlink" title="命名空间"></a>命名空间</h3><p>名字空间机制允许我们封装名字，否则这些名字就有可能会污染影响全局名字空间。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace Cplusplus_Primer_3E &#123;</span><br><span class="line">template &lt;class elemType&gt;</span><br><span class="line">class Array &#123; ... &#125;;</span><br><span class="line">// ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果名字空间内的声明对程序而言不是立即可见的，那么我们可以使用限定修饰名字符，格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace_identifier::entity_name</span><br></pre></td></tr></table></figure>
+
+<p>名字空间别名允许用一个可替代的短的或更一般的名字与一个现有的名字空间关联起来。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 提供一个更一般化的别名</span><br><span class="line">namespace LIB = IBM_Canada_Laboratory;</span><br><span class="line">// 提供一个更短的别名</span><br><span class="line">namespace DFA = Disney_Feature_Animation;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">using std::string;</span><br><span class="line">std::string;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -1927,92 +2096,6 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast, reinterpret_cast, const_cast, dynamic_cast </span><br></pre></td></tr></table></figure>
 
 <p>他们本质上都是模板类。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 1.1</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh01_1/</url>
-    <content><![CDATA[<p> C++ Primer 第一篇学习笔记。<span id="more"></span></p>
-<h1 id="第一篇-C-概述"><a href="#第一篇-C-概述" class="headerlink" title="第一篇 C++概述"></a>第一篇 C++概述</h1><h2 id="第一章-开始"><a href="#第一章-开始" class="headerlink" title="第一章  开始"></a>第一章  开始</h2><h3 id="C-支持多种程序设计方法："><a href="#C-支持多种程序设计方法：" class="headerlink" title="C++支持多种程序设计方法："></a>C++支持多种程序设计方法：</h3><p>​    过程化程序设计方法。　主要是函数。</p>
-<p>　对抽象数据类型程序设计方法。　主要是类。</p>
-<p>​    面向对象程序设计方法。　主要是继承和动态绑定。</p>
-<h3 id="分而治之-和-逐步求精-的思想"><a href="#分而治之-和-逐步求精-的思想" class="headerlink" title="分而治之 和 逐步求精 的思想"></a>分而治之 和 逐步求精 的思想</h3><p>​        解决大问题的一种方法是，把它分解成许多小问题，理想情况下，这些小问题可以很容易地被解决，然后再把它们合在一起，就可以解决大问题了。如果新分割的小问题解决起来还是太大，就把它分割得再小一些，重复整个过程，直到能够解决每个小问题。</p>
-<h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>​    C++标准库中的名字都是在一个称作std 的名字空间中声明的，这些名字在我们的程序文本文件中是不可见的，除非我们显式地使它们可见，using 指示符告诉编译器要使用在名字空间std 中声明的名字。</p>
-<h3 id="预处理器指示符"><a href="#预处理器指示符" class="headerlink" title="预处理器指示符"></a>预处理器指示符</h3><p>如果文件名用尖括号&lt; 和&gt; 括起来表明这个文件是一个工程或标准头文件，查找过程会检查预定义的目录，我们可以通过设置搜索路径环境变量或命令行选项来修改这些目录。如果文件名用一对引号括起来。则表明该文件是用户提供的头文件查找该文件时将从当前文件目录开始。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;some_file.h&gt;</span><br><span class="line">#include &quot;my_file.h&quot;</span><br><span class="line"></span><br><span class="line">#ifndef BOOKSTORE_H</span><br><span class="line">#define BOOKSTORE_H</span><br><span class="line">/* Bookstore.h 的内容 */</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-
-<p>编译C++程序时编译器自动定义了一个预处理器名字__cplusplus （注意前面有两个下划线）。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#ifdef __cplusplus</span><br><span class="line">	// 我们要编译C++</span><br><span class="line">	// extern &quot;C&quot;</span><br><span class="line">	extern &quot;C&quot;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">__LINE__ 用来记录文件已经被编译的行数 。</span><br><span class="line"></span><br><span class="line">__FILE__ 包含正在被编译的文件的名字。</span><br><span class="line"></span><br><span class="line">__TIME__  和 __DATE__ </span><br></pre></td></tr></table></figure>
-
-<h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><p>终端输入也被称为标准输入standard input，与预定义的iostream 对象 cin ，绑定在一起，直接向终端输出，也被称为标准输出standard output， 与预定义的iostream 对象cout 绑定在一起，第三个预定义iostream 对象cerr 称为标准错误standard error ，也与终端绑定cerr 通常用来产生给程序用户的警告或错误信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br></pre></td></tr></table></figure>
-
-<p>除了显式地使用换行符外我们还可以使用预定义的iostream 操纵符 endl.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//为了打开一个文件供输入或输出除了iostream 头文件外还必须包含头文件</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">ofstream outFile(nameOfFile);</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="第二章-C-浏览"><a href="#第二章-C-浏览" class="headerlink" title="第二章  C++浏览"></a>第二章  C++浏览</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>虽然C++对数组类型提供了内置支持，但是这种支持仅限于用来读写单个元素的机制，C++不支持数组的抽象，也不支持对整个数组的操作。</p>
-<h3 id="动态内存分配和指针"><a href="#动态内存分配和指针" class="headerlink" title="动态内存分配和指针"></a>动态内存分配和指针</h3><p>在C++中指针的主要用处是管理和操纵动态分配的内存。<br>静态与动态内存分配的两个主要区别是：<br>    1.静态对象是有名字的变量，我们直接对其进行操作，而动态对象是没有名字的变量，我们通过指针间接地对它进行操作。<br>    2.静态对象的分配与释放由编译器自动处理，程序员需要理解这一点，但不需要做任何事情，相反，动态对象的分配与释放必须由程序员显式地管理，相对来说比较容易出错，它通过new 和delete 两个表达式来完成。</p>
-<h4 id="new的两种分配方式："><a href="#new的两种分配方式：" class="headerlink" title="new的两种分配方式："></a>new的两种分配方式：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//第一种：分配特定类型的单个对象</span><br><span class="line">int *pint = new int( 1024 );</span><br><span class="line">//第二种：用于分配特定类型和维数的数组</span><br><span class="line">int *pia = new int[ 4 ];</span><br></pre></td></tr></table></figure>
-
-<h4 id="delete的释放方法："><a href="#delete的释放方法：" class="headerlink" title="delete的释放方法："></a>delete的释放方法：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//单一对象的delete 表达式形式如下</span><br><span class="line">// 删除单个对象</span><br><span class="line">delete pint;</span><br><span class="line">//数组形式的delete 表达式如下</span><br><span class="line">// 删除一个对象数组</span><br><span class="line">delete [] pia;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Class-概述"><a href="#Class-概述" class="headerlink" title="Class 概述"></a>Class 概述</h3><h4 id="类名和类体："><a href="#类名和类体：" class="headerlink" title="类名和类体："></a>类名和类体：</h4><p>类定义包括两个部分：类头class head 由关键字class 与相关联的类名构成。类体class body 由花括号括起来以分号结束。类头本身也用作类的声明。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 在程序中声明IntArray 类但是不提供定义</span><br><span class="line">class IntArray;</span><br></pre></td></tr></table></figure>
-
-<p>类体包含成员定义,以及访问标签,如public 和private .类的成员包括该类能执行的操作和代表类抽象所必需的数据.这些操作称为成员函数member function 或方法 method。</p>
-<h4 id="成员访问操作符：-和-gt"><a href="#成员访问操作符：-和-gt" class="headerlink" title="成员访问操作符：  .   和 -&gt;"></a>成员访问操作符：  .   和 -&gt;</h4><h4 id="public-和-private"><a href="#public-和-private" class="headerlink" title="public 和 private"></a>public 和 private</h4><p>关键字private 和public 控制对类成员的访问,出现在类体中公有public 部分的成员,在一般程序的任何地方都可以访问它们,出现在私有private 部分的成员,只能在该类的成员函数或友元friend 中被访问.</p>
-<p>由于C++不允许成员函数与数据成员共享同一个名字，所以在这样的情况下，一般的习惯是在数据成员名字前面加一个下划线_。、</p>
-<h4 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h4><p>内联函数在它的调用点上被展开,一般来说内联函数不会引入任何函数调用.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">array.size() 展开为 array._size;</span><br></pre></td></tr></table></figure>
-
-<h4 id="构造函数和函数重载"><a href="#构造函数和函数重载" class="headerlink" title="构造函数和函数重载"></a>构造函数和函数重载</h4><p>构造函数是一种特殊的类成员函数，专门用于初始化对象。如果构造函数被定义了，那么在类的每个对象第一次被使用之前，这构造函数就被自动应用在对象上。</p>
-<p>为了定义一个构造函数，我们只要给它与类相同的名字即可，另外我们不能给构造函数指定返回值，但是可以给类定义多个构造函数，尽管它们都具有相同的名字，但只要编译器能够根据参数表区分它们就行。</p>
-<p>被声明为static 的数据成员，是一类特殊的共享数据成员。无论这个类的对象被定义了多少个，静态数据成员在程序中也只有一份，这是在类的所有对象之间共享数据的一种方式。</p>
-<h4 id="域操作符"><a href="#域操作符" class="headerlink" title="域操作符"></a>域操作符</h4><p>双冒号:: 操作符被称为域操作符。可以非正式地把域看作是一个可视窗口， 全局域的对象在它被定义的整个文件里(一直到文件末尾)都是可见的。</p>
-<p>C++类的关键特征是接口与实现的分离。接口是一些用户可以应用到类对象上的操作的集合，它由三部分构成这些操作的名字、它们的返回值、以及它们的参数表。一般地这就是该类用户所需要知道的全部内容。私有实现包括为支持公有接口所必需的算法和数据。</p>
-<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>在C++中被继承的类被称作基类， 新类从基类派生而来，我们把它叫做基类的派生类或子类型。</p>
-<h3 id="泛型设计"><a href="#泛型设计" class="headerlink" title="泛型设计"></a>泛型设计</h3><h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><p>C++的模板设施提供了一种机制它能够将类成函数定义内部的类型和值参数化。</p>
-<p>模板机制也支持面向对象的程序设计，类模板可以作为基类或派生类。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;typename T&gt;</span><br><span class="line">template&lt;class T&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="泛型算法"><a href="#泛型算法" class="headerlink" title="泛型算法"></a>泛型算法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">搜索算法</span><br><span class="line">find() find_if() search() binary_search() count() count_if()</span><br><span class="line">分类排序与通用排序算法</span><br><span class="line">sort() partial_sort() merge() partition() rotate() reverse() random_shuffle()</span><br><span class="line">删除算法</span><br><span class="line">unique() remove()</span><br><span class="line">算术算法</span><br><span class="line">accumulate() partial_sum() inner_product() adjacent_difference()</span><br><span class="line">生成和变异算法</span><br><span class="line">generate() fill() transformation() copy( for_each()</span><br><span class="line">关系算法</span><br><span class="line">equal() min 和max()</span><br></pre></td></tr></table></figure>
-
-<p>泛型算法接受一对迭代器，它们标记了要遍历元素的范围。</p>
-<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>异常处理为响应运行时刻的程序异常,提供了一个标准的语言级的设施.它支持统一的语法和风格,也允许每个程序员进行微调.</p>
-<p>异常处理机制的主要构成如下:</p>
-<ol>
-<li><p>程序中异常出现的点.</p>
-</li>
-<li><p>程序中异常被处理的点.</p>
-<p>典型地,程序异常的抛出与处理位于独立的函数或成员函数调用中.找到处理代码通常要涉及到展开程序调用栈,一旦异常被处理完毕就恢复正常的程序执行,但不是在发生异常的地方恢复执行过程,而是在处理异常的<br>地方恢复执行过程.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catch(string exceptionMsg)&#123;</span><br><span class="line">    log_message( exceptionMsg );</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>catch 子句与try 块相关联,一个try 块用一个或多个catch 子句将一条或多条语句组织起来.</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">try&#123;</span><br><span class="line"></span><br><span class="line">&#125;catch()&#123;</span><br><span class="line"></span><br><span class="line">&#125;catrch( ... )&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="命名空间-1"><a href="#命名空间-1" class="headerlink" title="命名空间"></a>命名空间</h3><p>名字空间机制允许我们封装名字，否则这些名字就有可能会污染影响全局名字空间。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace Cplusplus_Primer_3E &#123;</span><br><span class="line">template &lt;class elemType&gt;</span><br><span class="line">class Array &#123; ... &#125;;</span><br><span class="line">// ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果名字空间内的声明对程序而言不是立即可见的，那么我们可以使用限定修饰名字符，格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">namespace_identifier::entity_name</span><br></pre></td></tr></table></figure>
-
-<p>名字空间别名允许用一个可替代的短的或更一般的名字与一个现有的名字空间关联起来。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 提供一个更一般化的别名</span><br><span class="line">namespace LIB = IBM_Canada_Laboratory;</span><br><span class="line">// 提供一个更短的别名</span><br><span class="line">namespace DFA = Disney_Feature_Animation;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">using std::string;</span><br><span class="line">std::string;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>学习</category>
@@ -2284,6 +2367,25 @@
       </tags>
   </entry>
   <entry>
+    <title>cpp Primer chapter 3.4</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_4/</url>
+    <content><![CDATA[<p> C++ Primer 第三篇第十章学习笔记。<span id="more"></span></p>
+<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十章-函数模板"><a href="#第十章-函数模板" class="headerlink" title="第十章  函数模板"></a>第十章  函数模板</h2><pre><code>     函数模板提供一种用来自动生成各种类型函数实例的算法。程序员对于函数接口参数和返回类型中的全部或者部分类型进行参数化， 而函数体保持不变。
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;class T1, typename T2, int num&gt;</span><br><span class="line">//其中class、typename 是模板类型参数， int num 是非模板类型参数。</span><br></pre></td></tr></table></figure>
+
+<p>在函数模板参数表中关键字typename 和class 的意义相同，可以互换，使用它们两个都可以被用来声明同一模板参数表中的不同模板类型参数。</p>
+<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>函数模板指定了怎样根据一组或更多实际类型或值构造出独立的函数。这个构造过程被称为模板实例化，这个过程是隐式发生的，它可以被看作是函数模板调用或取函数模板的地址的副作用。</p>
+<p>用函数实参的类型来决定模板实参的类型和值的过程被称为模板实参推演。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp Primer chapter 3.3</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_3/</url>
     <content><![CDATA[<p> C++ Primer 第三篇第九章学习笔记。<span id="more"></span></p>
@@ -2378,25 +2480,6 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 3.4</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_4/</url>
-    <content><![CDATA[<p> C++ Primer 第三篇第十章学习笔记。<span id="more"></span></p>
-<h1 id="第三篇-基于过程的程序设计"><a href="#第三篇-基于过程的程序设计" class="headerlink" title="第三篇 基于过程的程序设计"></a>第三篇 基于过程的程序设计</h1><h2 id="第十章-函数模板"><a href="#第十章-函数模板" class="headerlink" title="第十章  函数模板"></a>第十章  函数模板</h2><pre><code>     函数模板提供一种用来自动生成各种类型函数实例的算法。程序员对于函数接口参数和返回类型中的全部或者部分类型进行参数化， 而函数体保持不变。
-</code></pre>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">template&lt;class T1, typename T2, int num&gt;</span><br><span class="line">//其中class、typename 是模板类型参数， int num 是非模板类型参数。</span><br></pre></td></tr></table></figure>
-
-<p>在函数模板参数表中关键字typename 和class 的意义相同，可以互换，使用它们两个都可以被用来声明同一模板参数表中的不同模板类型参数。</p>
-<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>函数模板指定了怎样根据一组或更多实际类型或值构造出独立的函数。这个构造过程被称为模板实例化，这个过程是隐式发生的，它可以被看作是函数模板调用或取函数模板的地址的副作用。</p>
-<p>用函数实参的类型来决定模板实参的类型和值的过程被称为模板实参推演。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cpp Primer chapter 3.5</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_5/</url>
     <content><![CDATA[<p> C++ Primer 第三篇第十一章学习笔记。<span id="more"></span></p>
@@ -2430,6 +2513,18 @@
       </tags>
   </entry>
   <entry>
+    <title>cpp Primer chapter 03</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04/</url>
+    <content><![CDATA[<p> C++ Primer 第四篇第十二章学习笔记。<span id="more"></span></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp Primer chapter 3.6</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh03_6/</url>
     <content><![CDATA[<p> C++ Primer 第三篇第十二章学习笔记。<span id="more"></span></p>
@@ -2453,18 +2548,6 @@
 <p>例如为了计数一个容器中小于或等于10 的元素的个数，我们可能会向count_if()传递一个less_equal 函数对象以及一个被绑定为10 的实参。</p>
 <p>2.取反器： negator 是一个将函数对象的值翻转的函数适配器。</p>
 <p>例如为了计数一个容器中所有大于10 的元素的个数，我们可以向count_if()传递less_equal 函数对象的negator ，该函数对象有一个实参被绑定为10。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 03</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04/</url>
-    <content><![CDATA[<p> C++ Primer 第四篇第十二章学习笔记。<span id="more"></span></p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -2520,6 +2603,24 @@
       </tags>
   </entry>
   <entry>
+    <title>cpp Primer chapter 4.2</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04_2/</url>
+    <content><![CDATA[<p> C++ Primer 第四篇第十四章学习笔记。<span id="more"></span></p>
+<h1 id="第四篇-基于对象的程序设计"><a href="#第四篇-基于对象的程序设计" class="headerlink" title="第四篇  基于对象的程序设计"></a>第四篇  基于对象的程序设计</h1><h3 id="第十四章-类的初始化、赋值和析构"><a href="#第十四章-类的初始化、赋值和析构" class="headerlink" title="第十四章 类的初始化、赋值和析构"></a>第十四章 类的初始化、赋值和析构</h3><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数上惟一的语法限制是，它不能指定返回类型，甚至void 也不行。</p>
+<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>并不是每一个类都要求有析构函数，析构函数主要被用来放弃在类对象的构造函数或生命期中获得的资源，如释放互斥锁或删除由操作符new 分配的内存。</p>
+<p>一般地，析构函数可以执行“类设计者希望在最后一次使用对象之后执行的任何操作”。</p>
+<h3 id="类对象数组"><a href="#类对象数组" class="headerlink" title="类对象数组"></a>类对象数组</h3><p>类对象数组与内置类型数组的定义方式相同。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Account table[ 16 ];</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp Primer chapter 03</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04_3/</url>
     <content><![CDATA[<p> C++ Primer 第四篇第十五章学习笔记。<span id="more"></span></p>
@@ -2531,24 +2632,6 @@
 <p>如果该操作符的左操作数必须是其他的类型，那么重载操作符必须是名字空间成员。</p>
 <p>C++要求：赋值= 、下标[] 、调用() 和成员访问箭头-&gt; 操作符必须被定义为类成员操作符，任何把这些操作符定义为名字空间成员的定义都会被标记为编译时刻错误。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 错误: 必须是类成员</span><br><span class="line">char&amp; operator[]( String &amp; ,int ix );</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cpp Primer chapter 4.2</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh04_2/</url>
-    <content><![CDATA[<p> C++ Primer 第四篇第十四章学习笔记。<span id="more"></span></p>
-<h1 id="第四篇-基于对象的程序设计"><a href="#第四篇-基于对象的程序设计" class="headerlink" title="第四篇  基于对象的程序设计"></a>第四篇  基于对象的程序设计</h1><h3 id="第十四章-类的初始化、赋值和析构"><a href="#第十四章-类的初始化、赋值和析构" class="headerlink" title="第十四章 类的初始化、赋值和析构"></a>第十四章 类的初始化、赋值和析构</h3><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数上惟一的语法限制是，它不能指定返回类型，甚至void 也不行。</p>
-<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>并不是每一个类都要求有析构函数，析构函数主要被用来放弃在类对象的构造函数或生命期中获得的资源，如释放互斥锁或删除由操作符new 分配的内存。</p>
-<p>一般地，析构函数可以执行“类设计者希望在最后一次使用对象之后执行的任何操作”。</p>
-<h3 id="类对象数组"><a href="#类对象数组" class="headerlink" title="类对象数组"></a>类对象数组</h3><p>类对象数组与内置类型数组的定义方式相同。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Account table[ 16 ];</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>

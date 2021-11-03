@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="C++," />
+  <meta name="keywords" content="数据结构," />
 
 
 
@@ -77,17 +77,17 @@
 
 
 
-<meta name="description" content="记录C++过程中遇到的一些问题 C++好复杂啊。(¯ㅿ¯;)">
+<meta name="description" content="数据结构和算法哈希算法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++学习过程中遇到的问题-01">
-<meta property="og:url" content="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/Cpp/cppProblem01/index.html">
+<meta property="og:title" content="DSA 基础知识 09">
+<meta property="og:url" content="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_09/index.html">
 <meta property="og:site_name" content="越长大越孤单">
-<meta property="og:description" content="记录C++过程中遇到的一些问题 C++好复杂啊。(¯ㅿ¯;)">
+<meta property="og:description" content="数据结构和算法哈希算法。">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-06-17T07:58:05.000Z">
-<meta property="article:modified_time" content="2021-08-15T12:15:19.006Z">
+<meta property="article:published_time" content="2021-11-03T13:28:51.000Z">
+<meta property="article:modified_time" content="2021-11-03T13:22:56.215Z">
 <meta property="article:author" content="wangzhang">
-<meta property="article:tag" content="C++">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
 
 
@@ -122,7 +122,7 @@
 
 
 
-  <title>C++学习过程中遇到的问题-01 | 越长大越孤单</title>
+  <title>DSA 基础知识 09 | 越长大越孤单</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/Cpp/cppProblem01/">
+    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_09/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C++学习过程中遇到的问题-01</h1>
+          <h1 class="post-title" itemprop="name headline">DSA 基础知识 09</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-06-17T15:58:05+08:00">
-                2021-06-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-03T21:28:51+08:00">
+                2021-11-03
               </time>
             
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-15T20:15:19+08:00">
-                2021-08-15
+              <time title="更新于" itemprop="dateModified" datetime="2021-11-03T21:22:56+08:00">
+                2021-11-03
               </time>
             
           </span>
@@ -398,62 +398,29 @@
       
 
       
-        <h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊。(<em>¯ㅿ¯</em>;)</p>
-<span id="more"></span>
-
-<h2 id="输入cin-指令无效"><a href="#输入cin-指令无效" class="headerlink" title="输入cin 指令无效"></a>输入cin 指令无效</h2><p>​    在一个简单的交互程序中，使用 cin 来读取输入时，第一次读取输入的字符串正常读取，第二次读取输入的数字时命令被忽略，直接跳过执行。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cin &gt;&gt; number; <span class="comment">//通常情况会进行输入读取一个数值，前提是cin正常。如果cin被核定为false，则cin就不会被执行啦。</span></span><br></pre></td></tr></table></figure>
-
-<p>   上述例子中，由于输入字符串时，输入了结束符进行退出，所以 cin 已经被核定为false了，所以下边的 cin&gt;&gt;number 无法正常执行输入操作。</p>
-<p>cin 被核定为 false 的情况：</p>
-<p>​    （1）遇到结束符。</p>
-<p>​    （2）遇到非法输入。</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    使用cin.clear() 和 cin.sync() 使 cin 恢复正常状态。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//两者需要同时使用。</span></span><br><span class="line">    cin.<span class="built_in">sync</span>();</span><br><span class="line">    cin.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
-
-<p>   更多的具体细节可以搜索函数的定义和功能。</p>
-<h2 id="Null-与-nullptr"><a href="#Null-与-nullptr" class="headerlink" title="Null 与 nullptr"></a>Null 与 nullptr</h2><p>Null在C++中定义为0，在很多场合（尤其涉及到指针时）。因此更加提倡使用 nullptr 来代替Null。</p>
-<h2 id="using用法"><a href="#using用法" class="headerlink" title="using用法"></a>using用法</h2><p>C/C++中可以使用  typedef 来定义别名。被重定义的类型并不是一个新的类型，仅仅只是原有的类型取了一个新的名字。</p>
-<p>使用 typedef 重定义类型是很方便的，但它也有一些限制，比如，无法重定义一个模板。</p>
-<p>而using 的别名语法覆盖了 typedef 的全部功能。using 别名语法比 typedef 更加清晰。因为 typedef 的别名语法本质上类似一种解方程的思路。而 using 语法通过赋值来定义别名，和我们平时的思考方式一致。</p>
-<p>因此很多情况二者可以互换  但更多情况下最好使用using。</p>
-<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>析构函数（destructor）是成员函数的一种，它的名字与类名相同，但前面要加<code>~</code>，没有参数和返回值。一个类有且仅有一个析构函数。如果定义类时没写析构函数，则编译器生成默认析构函数。析构函数在对象消亡时即自动被调用。可以定义析构函数在对象消亡前做善后工作。例如，对象如果在生存期间用 new 运算符动态分配了内存，则在各处写 delete 语句以确保程序的每条执行路径都能释放这片内存是比较麻烦的事情。有了析构函数，只要在析构函数中调用 delete 语句，就能确保对象运行中用 new 运算符分配的空间在对象消亡时被释放。</p>
-<h2 id="const的不同用法"><a href="#const的不同用法" class="headerlink" title="const的不同用法"></a>const的不同用法</h2><p>关键问题点：const 属于修饰符 ，关键是看const 修饰的位置在那里</p>
-<p>​    在 C++ 中const是用来修饰内置类型变量，自定义对象，成员函数，返回值，函数参数。</p>
-<p>​    C++ const 允许指定一个语义约束，编译器会强制实施这个约束，允许程序员告诉编译器某值是保持不变的。如果在编程中确实有某个值保持不变，就应该明确使用const，这样可以获得编译器的帮助。</p>
-<h3 id="修饰普通类型变量"><a href="#修饰普通类型变量" class="headerlink" title="修饰普通类型变量"></a>修饰普通类型变量</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int num = 7;</span><br><span class="line">num = 8;//错误，num不可修改。</span><br></pre></td></tr></table></figure>
-
-<h3 id="修饰指针变量"><a href="#修饰指针变量" class="headerlink" title="修饰指针变量"></a>修饰指针变量</h3><p>const 修饰指针变量有以下三种情况。</p>
-<ul>
-<li>A: const 修饰指针指向的内容，则内容为不可变量。</li>
-<li>B: const 修饰指针，则指针为不可变量。</li>
-<li>C: const 修饰指针和指针指向的内容，则指针和指针指向的内容都为不可变量。</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//A情形：</span><br><span class="line">const int *p = 8;</span><br><span class="line">//左定值，指针指向的内容不可改变。</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//B情形:</span><br><span class="line">int a = 8;</span><br><span class="line">int* const p = &amp;a;</span><br><span class="line">*p =9; //正确</span><br><span class="line">int b = 7;</span><br><span class="line">p = &amp;b; //错误</span><br><span class="line">//对于 const 指针 p 其指向的内存地址不能够被改变，但其内容可以改变。简称，右定向。因为 const 位于 * 号的右边。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//C情形</span><br><span class="line">int a = 8;</span><br><span class="line">const int * const  p = &amp;a;</span><br><span class="line">//const p 的指向的内容和指向的内存地址都已固定，不可改变。</span><br></pre></td></tr></table></figure>
-
-<p>根据 const 位于 * 号的位置不同，可总结三句话便于记忆的话：**”左定值，右定向，const修饰不变量”**。</p>
-<p>int const *a 和 const int *a 的意义是相同的 他们两个的作用等价</p>
-<h3 id="const参数传递和函数返回值"><a href="#const参数传递和函数返回值" class="headerlink" title="const参数传递和函数返回值"></a>const参数传递和函数返回值</h3><p>对于 const 修饰函数参数可以分为三种情况。</p>
-<p>A：值传递的 const 修饰传递，一般这种情况不需要 const 修饰，因为函数会自动产生临时变量复制实参值。</p>
-<p>B：当 const 参数为指针时，可以防止指针被意外篡改。</p>
-<p>C：自定义类型的参数传递，需要临时对象复制参数，对于临时对象的构造，需要调用构造函数，比较浪费时间，因此我们采取 const 外加引用传递的方法。并且对于一般的 int、double 等内置类型，我们不采用引用的传递方式。</p>
-<p>Const 修饰返回值分三种情况。</p>
-<p>A：const 修饰内置类型的返回值，修饰与不修饰返回值作用一样。</p>
-<p>B: const 修饰自定义类型的作为返回值，此时返回的值不能作为左值使用，既不能被赋值，也不能被修改。</p>
-<p>C: const 修饰返回的指针或者引用，是否返回一个指向 const 的指针，取决于我们想让用户干什么。</p>
-<h3 id="const修饰类成员函数"><a href="#const修饰类成员函数" class="headerlink" title="const修饰类成员函数"></a>const修饰类成员函数</h3><p>const 修饰类成员函数，其目的是防止成员函数修改被调用对象的值，如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
-<p><strong>注意：</strong>const 关键字不能与 static 关键字同时使用，因为 static 关键字修饰静态成员函数，静态成员函数不含有 this 指针，即不能实例化，const 成员函数必须具体到某一实例。</p>
-<p>如果有个成员函数想修改对象中的某一个成员可以使用 mutable 关键字修饰这个成员，被 mutable 关键字修饰的成员可以处于不断变化中.</p>
-<h2 id="int-array"><a href="#int-array" class="headerlink" title="int array[[]][][]"></a>int array[[]][][]</h2><p>如果想要将一个二维数组当作函数形参或应用， 则必须实现定义第二维的大小，相比之下，更应该使用vector&lt;vector<int> &gt;.</p>
-<p>此外C++11有了一个新的array容器。</p>
-<h2 id="函数返回值为引用类型"><a href="#函数返回值为引用类型" class="headerlink" title="函数返回值为引用类型"></a>函数返回值为引用类型</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">template &lt;typename T&gt;</span><br><span class="line">Vector&lt;T&gt;&amp; Vector&lt;T&gt;::operator=(Vector&lt;T&gt; const&amp; V)&#123;  //重载 =</span><br><span class="line">    //释放原有内容</span><br><span class="line">    if(_elem)</span><br><span class="line">        delete[] _elem;</span><br><span class="line">    //整体复制</span><br><span class="line">    copyFrom(V._elem, 0, V.size());</span><br><span class="line">    //返回当前对象的引用，以便链式复制</span><br><span class="line">    return *this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>返回类型为引用类型，需要注意返回值是全局变量、局部变量、类对象等。防止发生错误。</p>
-<p>对应很多不同的情况，值得仔细研究一下。</p>
+        <h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>哈希算法。<span id="more"></span></p>
+<h2 id="哈希算法"><a href="#哈希算法" class="headerlink" title="哈希算法"></a>哈希算法</h2><p>将任意长度的二进制值串映射为固定长度的二进制值串，这个映射的规则就是<strong>哈希算法</strong>，而通过原始数据映射之后得到的二进制值串就是<strong>哈希值</strong>。但是，要想设计一个优秀的哈希算法并不容易，一个优秀的哈希算法需要满足的几点<strong>要求</strong>：</p>
+<p>1.从哈希值不能反向推导出原始数据（所以哈希算法也叫单向哈希算法）；</p>
+<p>2.对输入数据非常敏感，哪怕原始数据只修改了一个 Bit，最后得到的哈希值也大不相同；</p>
+<p>3.散列冲突的概率要很小，对于不同的原始数据，哈希值相同的概率非常小；</p>
+<p>4.哈希算法的执行效率要尽量高效，针对较长的文本，也能快速地计算出哈希值。</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>1.安全加密</p>
+<p>最常用于加密的哈希算法是<strong>MD5</strong>（MD5 Message-Digest Algorithm，MD5 消息摘要算法）和<strong>SHA</strong>（Secure Hash Algorithm，安全散列算法）。对用于加密的哈希算法来说，有两点格外重要。第一点是很难根据哈希值反向推导出原始数据，第二点是散列冲突的概率要很小。</p>
+<p>2.唯一标识</p>
+<p>通过对文件内容、目录等信息进行哈希算法处理后的值进行比对，判断是否相同来进一步判断两个文件是否为统一文件。</p>
+<p>3.数据校验</p>
+<p>通过相同的哈希算法，对下载好的文件块逐一求哈希值，然后跟种子文件中保存的哈希值比对。如果不同，说明这个文件块不完整或者被篡改了，需要再重新从其他宿主机器上下载这个文件块。</p>
+<p>4.散列函数</p>
+<p>散列函数也是哈希算法的一种应用。</p>
+<p>散列函数对于散列算法计算得到的值，是否能反向解密也并不关心。散列函数中用到的散列算法，更加关注散列后的值是否能平均分布，也就是，一组数据是否能均匀地散列在各个槽中。除此之外，散列函数执行的快慢，也会影响散列表的性能，所以，散列函数用的散列算法一般都比较简单，比较追求效率。</p>
+<p>5.负载均衡</p>
+<p>负载均衡算法有很多，比如轮询、随机、加权轮询等。那如何才能实现一个会话粘滞（session sticky）的负载均衡算法呢？也就是说，我们需要在同一个客户端上，在一次会话中的所有请求都路由到同一个服务器上。</p>
+<p>如果借助哈希算法，这些问题都可以非常完美地解决。<strong>我们可以通过哈希算法，对客户端 IP 地址或者会话 ID 计算哈希值，将取得的哈希值与服务器列表的大小进行取模运算，最终得到的值就是应该被路由到的服务器编号。</strong> 这样，我们就可以把同一个 IP 过来的所有请求，都路由到同一个后端服务器上。</p>
+<p>6.数据分片</p>
+<p>针对这种海量数据的处理问题，我们可以采用多机分布式处理。借助这种分片的思路，可以突破单机内存、CPU 等资源的限制。</p>
+<p>7.分布式存储</p>
+<p>现在互联网面对的都是海量的数据、海量的用户。我们为了提高数据的读取、写入能力，一般都采用分布式的方式来存储数据，比如分布式缓存。我们有海量的数据需要缓存，所以一个缓存机器肯定是不够的。于是，我们就需要将数据分布在多台机器上。</p>
+<p>我们可以借用前面数据分片的思想，即通过哈希算法对数据取哈希值，然后对机器个数取模，这个最终值就是应该存储的缓存机器编号。</p>
 
       
     </div>
@@ -471,7 +438,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
           
         </div>
       
@@ -484,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/%E5%85%B6%E4%BB%96/learing-route/" rel="next" title="learing_route">
-                <i class="fa fa-chevron-left"></i> learing_route
+              <a href="/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_08/" rel="next" title="DSA 基础知识 08">
+                <i class="fa fa-chevron-left"></i> DSA 基础知识 08
               </a>
             
           </div>
@@ -493,10 +460,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/%E5%AD%A6%E4%B9%A0/Git/gitPushProblem/" rel="prev" title="git使用过程中遇到的一些问题-01">
-                git使用过程中遇到的一些问题-01 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -648,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95C-%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="nav-text">记录C++过程中遇到的一些问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5cin-%E6%8C%87%E4%BB%A4%E6%97%A0%E6%95%88"><span class="nav-text">输入cin 指令无效</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-text">原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Null-%E4%B8%8E-nullptr"><span class="nav-text">Null 与 nullptr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#using%E7%94%A8%E6%B3%95"><span class="nav-text">using用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="nav-text">析构函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const%E7%9A%84%E4%B8%8D%E5%90%8C%E7%94%A8%E6%B3%95"><span class="nav-text">const的不同用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E9%A5%B0%E6%99%AE%E9%80%9A%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F"><span class="nav-text">修饰普通类型变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E9%A5%B0%E6%8C%87%E9%92%88%E5%8F%98%E9%87%8F"><span class="nav-text">修饰指针变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E5%92%8C%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-text">const参数传递和函数返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const%E4%BF%AE%E9%A5%B0%E7%B1%BB%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-text">const修饰类成员函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#int-array"><span class="nav-text">int array[[]][][]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC%E4%B8%BA%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-text">函数返回值为引用类型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95"><span class="nav-text">数据结构和算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95"><span class="nav-text">哈希算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8"><span class="nav-text">应用</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
