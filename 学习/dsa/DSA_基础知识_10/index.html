@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="MySQL," />
+  <meta name="keywords" content="数据结构," />
 
 
 
@@ -77,17 +77,17 @@
 
 
 
-<meta name="description" content="MySQL学习笔记。对数据进行分组和进行查询。">
+<meta name="description" content="数据结构和算法非线性结构——二叉树。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL 基础知识 06">
-<meta property="og:url" content="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_06/index.html">
+<meta property="og:title" content="DSA 基础知识 10">
+<meta property="og:url" content="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_10/index.html">
 <meta property="og:site_name" content="越长大越孤单">
-<meta property="og:description" content="MySQL学习笔记。对数据进行分组和进行查询。">
+<meta property="og:description" content="数据结构和算法非线性结构——二叉树。">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-08-14T10:01:08.000Z">
-<meta property="article:modified_time" content="2021-09-05T11:10:49.542Z">
+<meta property="article:published_time" content="2021-11-04T12:28:51.000Z">
+<meta property="article:modified_time" content="2021-11-04T15:30:33.489Z">
 <meta property="article:author" content="wangzhang">
-<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
 
 
@@ -122,7 +122,7 @@
 
 
 
-  <title>MySQL 基础知识 06 | 越长大越孤单</title>
+  <title>DSA 基础知识 10 | 越长大越孤单</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_06/">
+    <link itemprop="mainEntityOfPage" href="http://wz1114841863.github.io/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MySQL 基础知识 06</h1>
+          <h1 class="post-title" itemprop="name headline">DSA 基础知识 10</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-14T18:01:08+08:00">
-                2021-08-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-04T20:28:51+08:00">
+                2021-11-04
               </time>
             
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-09-05T19:10:49+08:00">
-                2021-09-05
+              <time title="更新于" itemprop="dateModified" datetime="2021-11-04T23:30:33+08:00">
+                2021-11-04
               </time>
             
           </span>
@@ -398,63 +398,41 @@
       
 
       
-        <p>MySQL学习笔记。对数据进行分组和进行查询。<span id="more"></span></p>
-<h1 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h1><p>使用分组可以将数据分为多个逻辑组，对每个组进行聚集计算。</p>
-<p>分组是使用SELECT 语句的<strong>GROUP BY</strong> 子句建立的。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">GROUP BY vend_id;</span><br></pre></td></tr></table></figure>
+        <h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>非线性结构——二叉树。<span id="more"></span></p>
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h3><img src = "/images/DSA/02.jpg">
 
-<p>GROUP BY 子句指示DBMS 分组数据，然后对每个组而不是整个结果集进行聚集。</p>
-<h2 id="GROUP-BY-子句"><a href="#GROUP-BY-子句" class="headerlink" title="GROUP BY 子句"></a>GROUP BY 子句</h2><p> 1.GROUP BY 子句可以包含任意数目的列，因而可以对分组进行嵌套，更细致地进行数据分组。</p>
-<p> 2.如果在GROUP BY 子句中嵌套了分组，数据将在最后指定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</p>
-<p> 3.GROUP BY 子句中列出的每一列都必须是检索列或有效的表达式（但不能是聚集函数）。如果在SELECT 中使用表达式，则必须在GROUP BY子句中指定相同的表达式。不能使用别名。</p>
-<p> 4.大多数SQL 实现不允许GROUP BY 列带有长度可变的数据类型（如文本或备注型字段）。</p>
-<p> 5.除聚集计算语句外，SELECT 语句中的每一列都必须在GROUP BY 子句中给出。</p>
-<p> 6.如果分组列中包含具有NULL 值的行，则NULL 将作为一个分组返回。如果列中有多行NULL 值，它们将分为一组。</p>
-<p> 7.GROUP BY 子句必须出现在WHERE 子句之后，ORDER BY 子句之前。</p>
-<h2 id="过滤分组"><a href="#过滤分组" class="headerlink" title="过滤分组"></a>过滤分组</h2><p>除了能用GROUP BY 分组数据外，SQL 还允许过滤分组，规定包括哪些分组，排除哪些分组。</p>
-<p>目前为止所学过的所有类型的WHERE 子句都可以用<strong>HAVING</strong> 来替代。唯一的差别是，<strong>WHERE过滤行，而HAVING 过滤分组。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_id, COUNT(*) AS orders</span><br><span class="line">FROM Orders</span><br><span class="line">GROUP BY cust_id</span><br><span class="line">HAVING COUNT(*) &gt;= 2;</span><br></pre></td></tr></table></figure>
+<h3 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h3><h4 id="链式存储法"><a href="#链式存储法" class="headerlink" title="链式存储法"></a>链式存储法</h4><p>每个节点有三个字段，其中一个存储数据，另外两个是指向左右子节点的指针。我们只要拎住根节点，就可以通过左右子节点的指针，把整棵树都串起来。</p>
+<h4 id="顺序存储法"><a href="#顺序存储法" class="headerlink" title="顺序存储法"></a>顺序存储法</h4><p>把根节点存储在下标 i = 1 的位置，那左子节点存储在下标 2 * i = 2 的位置，右子节点存储在 2 * i + 1 = 3 的位置。以此类推，B 节点的左子节点存储在 2 * i = 2 * 2 = 4 的位置，右子节点存储在 2 * i + 1 = 2 * 2 + 1 = 5 的位置。适合存储<strong>完全二叉树</strong>。</p>
+<h3 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h3><p><strong>前序遍历</strong>是指，对于树中的任意节点来说，<strong>先打印这个节点</strong>，然后再打印它的左子树，最后打印它的右子树。</p>
+<p><strong>中序遍历</strong>是指，对于树中的任意节点来说，先打印它的左子树，<strong>然后再打印它本身</strong>，最后打印它的右子树。</p>
+<p><strong>后序遍历</strong>是指，对于树中的任意节点来说，先打印它的左子树，然后再打印它的右子树，<strong>最后打印这个节点本身</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//递归方程</span><br><span class="line">前序遍历的递推公式：</span><br><span class="line">preOrder(r) = print r-&gt;preOrder(r-&gt;left)-&gt;preOrder(r-&gt;right)</span><br><span class="line"> </span><br><span class="line">中序遍历的递推公式：</span><br><span class="line">inOrder(r) = inOrder(r-&gt;left)-&gt;print r-&gt;inOrder(r-&gt;right)</span><br><span class="line"> </span><br><span class="line">后序遍历的递推公式：</span><br><span class="line">postOrder(r) = postOrder(r-&gt;left)-&gt;postOrder(r-&gt;right)-&gt;print r</span><br></pre></td></tr></table></figure>
 
-<p>WHERE 在数据分组前进行过滤，HAVING 在数据分组后进行过滤。这是一个重要的区别，WHERE 排除的行不包括在分组中。这可能会改变计算值，从而影响HAVING 子句中基于这些值过滤掉的分组。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_id, COUNT(*) AS num_prods</span><br><span class="line">FROM Products</span><br><span class="line">WHERE prod_price &gt;= 4</span><br><span class="line">GROUP BY vend_id</span><br><span class="line">HAVING COUNT(*) &gt;= 2;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">//伪代码</span><br><span class="line">void preOrder(Node* root) &#123;</span><br><span class="line">  if (root == null)&#123;</span><br><span class="line">    	return;</span><br><span class="line">  &#125; </span><br><span class="line">  cout &lt;&lt; root &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">  preOrder(root-&gt;left);</span><br><span class="line">  preOrder(root-&gt;right);</span><br><span class="line">  return ;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void inOrder(Node* root) &#123;</span><br><span class="line">  if (root == null)&#123;</span><br><span class="line">  	 return ;</span><br><span class="line">  &#125;</span><br><span class="line">  inOrder(root-&gt;left);</span><br><span class="line">  cout &lt;&lt; root &lt;&lt; endl;</span><br><span class="line">  inOrder(root-&gt;right);</span><br><span class="line">  return ;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void postOrder(Node* root) &#123;</span><br><span class="line">  if (root == null) </span><br><span class="line">  	return;</span><br><span class="line">  postOrder(root-&gt;left);</span><br><span class="line">  postOrder(root-&gt;right);</span><br><span class="line">  cout &lt;&lt; root &lt;&lt; endl;</span><br><span class="line">  return ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src = "/images/MySQL/MySQL06.png">
+<p>每个节点最多会被访问两次，所以遍历操作的时间复杂度，跟节点的个数 n 成正比，也就是说<strong>二叉树遍历的时间复杂度是 O(n)。</strong></p>
+<h3 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h3><p>二叉查找树要求，在树中的任意一个节点，其左子树中的每个节点的值，都要小于这个节点的值，而右子树节点的值都大于这个节点的值。 </p>
+<h4 id="二叉查找树的查找操作"><a href="#二叉查找树的查找操作" class="headerlink" title="二叉查找树的查找操作"></a>二叉查找树的查找操作</h4><p>先取根节点，如果它等于我们要查找的数据，那就返回。如果要查找的数据比根节点的值小，那就在左子树中递归查找；如果要查找的数据比根节点的值大，那就在右子树中递归查找。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class BinarySearchTree &#123;</span><br><span class="line">  private Node tree;</span><br><span class="line"> </span><br><span class="line">  public Node find(int data) &#123;</span><br><span class="line">    Node p = tree;</span><br><span class="line">    while (p != null) &#123;</span><br><span class="line">      if (data &lt; p.data) p = p.left;</span><br><span class="line">      else if (data &gt; p.data) p = p.right;</span><br><span class="line">      else return p;</span><br><span class="line">    &#125;</span><br><span class="line">    return null;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  public static class Node &#123;</span><br><span class="line">    private int data;</span><br><span class="line">    private Node left;</span><br><span class="line">    private Node right;</span><br><span class="line"> </span><br><span class="line">    public Node(int data) &#123;</span><br><span class="line">      this.data = data;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;= 3;</span><br></pre></td></tr></table></figure>
+<h4 id="二叉查找树的插入操作"><a href="#二叉查找树的插入操作" class="headerlink" title="二叉查找树的插入操作"></a>二叉查找树的插入操作</h4><p>新插入的数据一般都是在叶子节点上，所以我们只需要从根节点开始，依次比较要插入的数据和节点的大小关系。</p>
+<p>如果要插入的数据比节点的数据大，并且节点的右子树为空，就将新数据直接插到右子节点的位置；如果不为空，就再递归遍历右子树，查找插入位置。同理，如果要插入的数据比节点数值小，并且节点的左子树为空，就将新数据插入到左子节点的位置；如果不为空，就再递归遍历左子树，查找插入位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public void insert(int data) &#123;</span><br><span class="line">  if (tree == null) &#123;</span><br><span class="line">    tree = new Node(data);</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  Node p = tree;</span><br><span class="line">  while (p != null) &#123;</span><br><span class="line">    if (data &gt; p.data) &#123;</span><br><span class="line">      if (p.right == null) &#123;</span><br><span class="line">        p.right = new Node(data);</span><br><span class="line">        return;</span><br><span class="line">      &#125;</span><br><span class="line">      p = p.right;</span><br><span class="line">    &#125; else &#123; // data &lt; p.data</span><br><span class="line">      if (p.left == null) &#123;</span><br><span class="line">        p.left = new Node(data);</span><br><span class="line">        return;</span><br><span class="line">      &#125;</span><br><span class="line">      p = p.left;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT order_num, COUNT(*) AS items</span><br><span class="line">FROM OrderItems</span><br><span class="line">GROUP BY order_num</span><br><span class="line">HAVING COUNT(*) &gt;= 3</span><br><span class="line">ORDER BY items, order_num;</span><br></pre></td></tr></table></figure>
+<h4 id="二叉查找树的删除操作"><a href="#二叉查找树的删除操作" class="headerlink" title="二叉查找树的删除操作"></a>二叉查找树的删除操作</h4><p>需要分三种情况来处理：</p>
+<p>第一种情况是，如果要删除的节点没有子节点，我们只需要直接将父节点中，指向要删除节点的指针置为 null。</p>
+<p>第二种情况是，如果要删除的节点只有一个子节点（只有左子节点或者右子节点），我们只需要更新父节点中，指向要删除节点的指针，让它指向要删除节点的子节点就可以了。</p>
+<p>第三种情况是，如果要删除的节点有两个子节点，这就比较复杂了。我们需要找到这个节点的右子树中的最小节点，把它替换到要删除的节点上。然后再删除掉这个最小节点，因为最小节点肯定没有左子节点（如果有左子结点，那就不是最小节点了）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public void delete(int data) &#123;</span><br><span class="line">  Node p = tree; // p 指向要删除的节点，初始化指向根节点</span><br><span class="line">  Node pp = null; // pp 记录的是 p 的父节点</span><br><span class="line">  while (p != null &amp;&amp; p.data != data) &#123;</span><br><span class="line">    pp = p;</span><br><span class="line">    if (data &gt; p.data) p = p.right;</span><br><span class="line">    else p = p.left;</span><br><span class="line">  &#125;</span><br><span class="line">  if (p == null) return; // 没有找到</span><br><span class="line"> </span><br><span class="line">  // 要删除的节点有两个子节点</span><br><span class="line">  if (p.left != null &amp;&amp; p.right != null) &#123; // 查找右子树中最小节点</span><br><span class="line">    Node minP = p.right;</span><br><span class="line">    Node minPP = p; // minPP 表示 minP 的父节点</span><br><span class="line">    while (minP.left != null) &#123;</span><br><span class="line">      minPP = minP;</span><br><span class="line">      minP = minP.left;</span><br><span class="line">    &#125;</span><br><span class="line">    p.data = minP.data; // 将 minP 的数据替换到 p 中</span><br><span class="line">    p = minP; // 下面就变成了删除 minP 了</span><br><span class="line">    pp = minPP;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 删除节点是叶子节点或者仅有一个子节点</span><br><span class="line">  Node child; // p 的子节点</span><br><span class="line">  if (p.left != null) child = p.left;</span><br><span class="line">  else if (p.right != null) child = p.right;</span><br><span class="line">  else child = null;</span><br><span class="line"> </span><br><span class="line">  if (pp == null) tree = child; // 删除的是根节点</span><br><span class="line">  else if (pp.left == p) pp.left = child;</span><br><span class="line">  else pp.right = child;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="进行子查询"><a href="#进行子查询" class="headerlink" title="进行子查询"></a>进行子查询</h1><p>列出订购物品RGAN01 的所有顾客：</p>
-<p>1.检索包含物品 RGAN01的所有订单编号。</p>
-<p>2.检索具有前一步骤列出的顶单编号的顾客的ID。</p>
-<p>3.检索前一步骤返回的所有顾客的顾客信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FROM Customers</span><br><span class="line">WHERE cust_id IN (SELECT cust_id</span><br><span class="line">				  FROM Orders</span><br><span class="line">				  WHERE order_num IN (SELECT order_num</span><br><span class="line">									  FROM OrderItems</span><br><span class="line">							  		  WHERE prod_id = &#x27;RGAN01&#x27;));</span><br></pre></td></tr></table></figure>
-
-<p><strong>作为子查询的SELECT 语句只能查询单个列。企图检索多个列将返回错误。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_state,</span><br><span class="line">		(SELECT COUNT(*)</span><br><span class="line">			FROM Orders</span><br><span class="line">			WHERE Orders.cust_id = Customers.cust_id) AS orders</span><br><span class="line">FROM Customers</span><br><span class="line">ORDER BY cust_name;</span><br></pre></td></tr></table></figure>
-
-<h1 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h1><h2 id="UNION-并集"><a href="#UNION-并集" class="headerlink" title="UNION  并集"></a>UNION  并集</h2><p>SQL 允许执行多个查询（多条SELECT 语句），并将结果作为一个查询结果集返回。这些组合查询通常称为并（union）或复合查询（compound query）。</p>
-<p>主要有两种情况需要使用组合查询：</p>
-<ol>
-<li>在一个查询中从不同的表返回结构数据；</li>
-<li>对一个表执行多个查询，按一个查询返回数据。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;;</span><br><span class="line">3. 列数据类型必须兼容：类型不必完全相同，但必须是DBMS 可以隐含</span><br><span class="line">转换的类型（例如，不同的数值类型或不同的日期类型）。</span><br></pre></td></tr></table></figure>
-
-<p>1.UNION 必须由两条或两条以上的SELECT 语句组成，语句之间用关键字UNION 分隔（因此，如果组合四条SELECT 语句，将要使用三个UNION关键字）。<br>2.UNION 中的每个查询必须包含相同的列、表达式或聚集函数（不过，各个列不需要以相同的次序列出）。</p>
-<p>3.列数据类型必须兼容：类型不必完全相同，但必须是DBMS 可以隐含转换的类型（例如，不同的数值类型或不同的日期类型）。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION ALL</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>使用UNION ALL，DBMS 不取消重复的行。</p>
-<p>SELECT 语句的输出用ORDER BY 子句排序。在用UNION 组合查询时，只能使用一条ORDER BY 子句，它必须位于最后一条SELECT 语句之后。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_state IN (&#x27;IL&#x27;,&#x27;IN&#x27;,&#x27;MI&#x27;)</span><br><span class="line">UNION</span><br><span class="line">SELECT cust_name, cust_contact, cust_email</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE cust_name = &#x27;Fun4All&#x27;</span><br><span class="line">ORDER BY cust_name, cust_contact;</span><br></pre></td></tr></table></figure>
-
-<h2 id="INTERSECT-交集"><a href="#INTERSECT-交集" class="headerlink" title="INTERSECT  交集"></a>INTERSECT  交集</h2><p>MySQL不支持<code>INTERSECT</code>操作符。 但是可以模拟<code>INTERSECT</code>操作符。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT product_id, product_name</span><br><span class="line">    FROM Product</span><br><span class="line">INTERSECT</span><br><span class="line">SELECT product_id, product_name</span><br><span class="line">    FROM Product2</span><br><span class="line">ORDER BY product_id;</span><br></pre></td></tr></table></figure>
-
-<h2 id="EXCEPT-减法"><a href="#EXCEPT-减法" class="headerlink" title="EXCEPT 减法"></a>EXCEPT 减法</h2><p>MYSQL不支持EXCEPT操作符。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product</span><br><span class="line">EXCEPT</span><br><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product2</span><br><span class="line">ORDER BY product_id;</span><br></pre></td></tr></table></figure>
-
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p><strong>中序遍历二叉查找树，可以输出有序的数据序列，时间复杂度是 O(n)，非常高效</strong>。因此，二叉查找树也叫作二叉排序树。</p>
+<h4 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h4><p>散列表的插入、删除、查找操作的时间复杂度可以做到常量级的 O(1)，非常高效。而二叉查找树在比较平衡的情况下，插入、删除、查找操作时间复杂度才是 O(logn)，相对散列表，好像并没有什么优势，那我们为什么还要用二叉查找树呢？</p>
+<p>第一，散列表中的数据是无序存储的，如果要输出有序的数据，需要先进行排序。而对于二叉查找树来说，我们只需要中序遍历，就可以在 O(n) 的时间复杂度内，输出有序的数据序列。</p>
+<p>第二，散列表扩容耗时很多，而且当遇到散列冲突时，性能不稳定，尽管二叉查找树的性能不稳定，但是在工程中，我们最常用的平衡二叉查找树的性能非常稳定，时间复杂度稳定在 O(logn)。</p>
+<p>第三，笼统地来说，尽管散列表的查找等操作的时间复杂度是常量级的，但因为哈希冲突的存在，这个常量不一定比 logn 小，所以实际的查找速度可能不一定比 O(logn) 快。加上哈希函数的耗时，也不一定就比平衡二叉查找树的效率高。</p>
+<p>第四，散列表的构造比二叉查找树要复杂，需要考虑的东西很多。比如散列函数的设计、冲突解决办法、扩容、缩容等。平衡二叉查找树只需要考虑平衡性这一个问题，而且这个问题的解决方案比较成熟、固定。</p>
+<p>最后，为了避免过多的散列冲突，散列表装载因子不能太大，特别是基于开放寻址法解决冲突的散列表，不然会浪费一定的存储空间。</p>
+<p>综合这几点，平衡二叉查找树在某些方面还是优于散列表的，所以，这两者的存在并不冲突。我们在实际的开发过程中，需要结合具体的需求来选择使用哪一个。</p>
 
       
     </div>
@@ -472,7 +450,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
           
         </div>
       
@@ -485,8 +463,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_05/" rel="next" title="MySQL 基础知识 05">
-                <i class="fa fa-chevron-left"></i> MySQL 基础知识 05
+              <a href="/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_09/" rel="next" title="DSA 基础知识 09">
+                <i class="fa fa-chevron-left"></i> DSA 基础知识 09
               </a>
             
           </div>
@@ -494,10 +472,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh05_1/" rel="prev" title="cpp Primer chapter 5.1">
-                cpp Primer chapter 5.1 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -649,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E6%95%B0%E6%8D%AE"><span class="nav-text">分组数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GROUP-BY-%E5%AD%90%E5%8F%A5"><span class="nav-text">GROUP BY 子句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E6%BB%A4%E5%88%86%E7%BB%84"><span class="nav-text">过滤分组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E8%A1%8C%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-text">进行子查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="nav-text">组合查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UNION-%E5%B9%B6%E9%9B%86"><span class="nav-text">UNION  并集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INTERSECT-%E4%BA%A4%E9%9B%86"><span class="nav-text">INTERSECT  交集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EXCEPT-%E5%87%8F%E6%B3%95"><span class="nav-text">EXCEPT 减法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95"><span class="nav-text">数据结构和算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-text">基础概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F"><span class="nav-text">存储方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E6%B3%95"><span class="nav-text">链式存储法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E6%B3%95"><span class="nav-text">顺序存储法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-text">二叉树的遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91"><span class="nav-text">二叉查找树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91%E7%9A%84%E6%9F%A5%E6%89%BE%E6%93%8D%E4%BD%9C"><span class="nav-text">二叉查找树的查找操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91%E7%9A%84%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C"><span class="nav-text">二叉查找树的插入操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91%E7%9A%84%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C"><span class="nav-text">二叉查找树的删除操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-text">特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-text">对比</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
