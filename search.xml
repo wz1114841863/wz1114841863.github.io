@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Introduce</title>
+    <url>/%E5%85%B6%E4%BB%96/introduce/</url>
+    <content><![CDATA[<p>无意间看到可以用GitHub来发博客，便心血来潮自己也搞了一个。</p>
+<span id="more"></span>正好刚考上研究生，希望能够用来记录自己的一些学习路线或者学习心得之类的，也希望自己不要太懒惰(笑)。
+
+
+
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>闲聊</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo_init</title>
     <url>/%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE/hexo-init/</url>
     <content><![CDATA[<h1 id="踩坑日记："><a href="#踩坑日记：" class="headerlink" title="踩坑日记："></a>踩坑日记：</h1><p>​    该踩的坑是一个都没少踩，记录一下自己踩的一些坑吧，好多都忘了。</p>
@@ -38,22 +54,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Introduce</title>
-    <url>/%E5%85%B6%E4%BB%96/introduce/</url>
-    <content><![CDATA[<p>无意间看到可以用GitHub来发博客，便心血来潮自己也搞了一个。</p>
-<span id="more"></span>正好刚考上研究生，希望能够用来记录自己的一些学习路线或者学习心得之类的，也希望自己不要太懒惰(笑)。
-
-
-
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>闲聊</tag>
       </tags>
   </entry>
   <entry>
@@ -221,7 +221,7 @@
     <content><![CDATA[<h1 id="记录C-过程中遇到的一些问题"><a href="#记录C-过程中遇到的一些问题" class="headerlink" title="记录C++过程中遇到的一些问题"></a>记录C++过程中遇到的一些问题</h1><p> C++好复杂啊  + 1。(<em>¯ㅿ¯</em>;)</p>
 <span id="more"></span>
 
-<h2 id="make-pair报错"><a href="#make-pair报错" class="headerlink" title="make_pair报错"></a>make_pair报错</h2><p>使用语句：</p>
+<h3 id="make-pair报错"><a href="#make-pair报错" class="headerlink" title="make_pair报错"></a>make_pair报错</h3><p>使用语句：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nodeDepth.emplace_back(make_pair&lt;int, TreeNode*&gt;(depth, stk.top()));</span><br></pre></td></tr></table></figure>
 
 <p>会直接报错，<strong>Cannot convert parameter from ‘int’ to ‘int &amp;&amp;’</strong></p>
@@ -232,12 +232,77 @@
 <p>解决方法：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.直接使用pair</span><br><span class="line">nodeDepth.emplace_back(pair&lt;int, TreeNode*&gt;(depth, stk.top()));</span><br><span class="line">2.用int(depth)将左值转为右值</span><br><span class="line">nodeDepth.emplace_back(make_pair&lt;int, TreeNode*&gt;(int(depth), stk.top()));</span><br></pre></td></tr></table></figure>
 
+<h3 id="某些操作符重载函数只能是成员函数-非成员函数"><a href="#某些操作符重载函数只能是成员函数-非成员函数" class="headerlink" title="某些操作符重载函数只能是成员函数 / 非成员函数?"></a>某些操作符重载函数只能是成员函数 / 非成员函数?</h3><p>出自于c++ primer 5中的一句话：</p>
+<blockquote>
+<p>  <strong>赋值（=）、下标（[]）、调用（()）和成员访问箭头（-&gt;）运算符必须是成员（函数）。</strong></p>
+</blockquote>
+<p>同样，有些操作符只能是非成员函数。</p>
+<blockquote>
+<p>  1.不能把操作符+写作为类的成员函数:那样只能实现复数+复数操作。因为加法具有交换律。<br>  2.操作符重载的第一参数永远是左边的数。</p>
+</blockquote>
+<h3 id="返回值最好是initialize-list"><a href="#返回值最好是initialize-list" class="headerlink" title="返回值最好是initialize list"></a>返回值最好是initialize list</h3><p>使用Clion时发现，返回值一个对象时会报警告，它建议你最好使用initialize list来返回一个对象，可能有助于提升效率。</p>
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DSA 基础知识 02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_02/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数组和链表都是线性表，存储方式和操作方式的区别已经理解的比较清楚。</p>
+<p>栈和队列同样也是线性表，主要的区别还是在于队列是先进先出，而栈是先进后出，所以适用于不同的场景。</p>
+<span id="more"></span>
+
+<h2 id="如何轻松写出正确的链表代码"><a href="#如何轻松写出正确的链表代码" class="headerlink" title="如何轻松写出正确的链表代码"></a>如何轻松写出正确的链表代码</h2><ol>
+<li><p>理解指针或引用的含义</p>
+<p>  将某个变量赋值给指针，实际上就是将这个变量的地址赋值给指针，或者反过来说，指针中存储了这个变量的内存地址，指向了这个变量，通过指针就能找到这个变量。</p>
+</li>
+<li><p>   警惕指针丢失和内存泄漏</p>
+</li>
+</ol>
+<pre><code> 插入结点时，一定要注意操作的顺序，删除链表结点时，也一定要记得手动释放内存空间。
+</code></pre>
+<ol start="3">
+<li><p>利用哨兵简化实现难度</p>
+<p>  针对链表的插入、删除操作，需要对插入第一个结点和删除最后一个结点的情况进行特殊处理。</p>
+</li>
+<li><p>  重点留意边界条件处理</p>
+</li>
+</ol>
+<ul>
+<li>  如果链表为空时，代码是否能正常工作？</li>
+<li>  如果链表只包含一个结点时，代码是否能正常工作？</li>
+<li>  如果链表只包含两个结点时，代码是否能正常工作？</li>
+<li>  代码逻辑在处理头结点和尾结点的时候，是否能正常工作？</li>
+</ul>
+<ol start="5">
+<li><p>举例画图，辅助思考</p>
+<p>  通过举例和画图来帮助理解。</p>
+</li>
+<li><p>  多写多练，没有捷径</p>
+</li>
+</ol>
+<h2 id="栈-和-队列"><a href="#栈-和-队列" class="headerlink" title="栈 和 队列"></a>栈 和 队列</h2><p>​        特定的数据结构是对特定场景的抽象，数组或链表暴露了太多的操作接口，操作上的确灵活自由，但使用时就比较不可控，自然也就更容易出错。</p>
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>​        栈既可以用数组来实现，也可以用链表来实现。用数组实现的栈，我们叫作<strong>顺序栈</strong>，用链表实现的栈，我们叫作<strong>链式栈</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//基于数组实现的顺序栈</span><br><span class="line">public class ArrayStack&#123;</span><br><span class="line">	private String[] items; //数组</span><br><span class="line">	private int count; //栈中元素个数</span><br><span class="line">	private int n; //栈的大小</span><br><span class="line">	</span><br><span class="line">	//初始化数组，申请一个大小为n的空间</span><br><span class="line">	public ArrayStack(int n)&#123;</span><br><span class="line">		this.items = new Stirng[n];</span><br><span class="line">		this.n = n;</span><br><span class="line">		this.count = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//入栈操作</span><br><span class="line">	public boolean push(String item)&#123;</span><br><span class="line">		//数组空间不够了，直接返回 false， 入栈失败。</span><br><span class="line">		if(count == n)</span><br><span class="line">			return false;</span><br><span class="line">		//将item入栈，count++</span><br><span class="line">		items[count] = item;</span><br><span class="line">		++count;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//出栈操作</span><br><span class="line">	public String pop()&#123;</span><br><span class="line">		//栈为空， 则直接返回 null</span><br><span class="line">		if(count == 0)</span><br><span class="line">			return null;</span><br><span class="line">		//返回下标为count-1的元素， 并且栈中元素个数count-1</span><br><span class="line">		String tmp = items[count-1];</span><br><span class="line">		--count;</span><br><span class="line">		</span><br><span class="line">		return tmp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 用数组实现的队列</span><br><span class="line">public class ArrayQueue &#123;</span><br><span class="line">  // 数组：items，数组大小：n</span><br><span class="line">  private String[] items;</span><br><span class="line">  private int n = 0;</span><br><span class="line">  // head 表示队头下标，tail 表示队尾下标</span><br><span class="line">  private int head = 0;</span><br><span class="line">  private int tail = 0;</span><br><span class="line"> </span><br><span class="line">  // 申请一个大小为 capacity 的数组</span><br><span class="line">  public ArrayQueue(int capacity) &#123;</span><br><span class="line">    items = new String[capacity];</span><br><span class="line">    n = capacity;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 入队</span><br><span class="line">  public boolean enqueue(String item) &#123;</span><br><span class="line">    // 如果 tail == n 表示队列已经满了</span><br><span class="line">    if (tail == n) return false;</span><br><span class="line">    items[tail] = item;</span><br><span class="line">    ++tail;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 出队</span><br><span class="line">  public String dequeue() &#123;</span><br><span class="line">    // 如果 head == tail 表示队列为空</span><br><span class="line">    if (head == tail) return null;</span><br><span class="line">    // 为了让其他语言的同学看的更加明确，把 -- 操作放到单独一行来写了</span><br><span class="line">    String ret = items[head];</span><br><span class="line">    ++head;</span><br><span class="line">    return ret;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用数组来实现队列的时候，在 tail==n 时，会有数据搬移操作，这样入队操作性能就会受到影响。可以考虑使用<strong>循环队列</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//循环队列</span><br><span class="line">public class CircularQueue &#123;</span><br><span class="line">  // 数组：items，数组大小：n</span><br><span class="line">  private String[] items;</span><br><span class="line">  private int n = 0;</span><br><span class="line">  // head 表示队头下标，tail 表示队尾下标</span><br><span class="line">  private int head = 0;</span><br><span class="line">  private int tail = 0;</span><br><span class="line"> </span><br><span class="line">  // 申请一个大小为 capacity 的数组</span><br><span class="line">  public CircularQueue(int capacity) &#123;</span><br><span class="line">    items = new String[capacity];</span><br><span class="line">    n = capacity;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 入队</span><br><span class="line">  public boolean enqueue(String item) &#123;</span><br><span class="line">    // 队列满了</span><br><span class="line">    if ((tail + 1) % n == head) return false;</span><br><span class="line">    items[tail] = item;</span><br><span class="line">    tail = (tail + 1) % n;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 出队</span><br><span class="line">  public String dequeue() &#123;</span><br><span class="line">    // 如果 head == tail 表示队列为空</span><br><span class="line">    if (head == tail) return null;</span><br><span class="line">    String ret = items[head];</span><br><span class="line">    head = (head + 1) % n;</span><br><span class="line">    return ret;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>阻塞队列：</strong>阻塞队列其实就是在队列基础上增加了阻塞操作。简单来说，就是在队列为空的时候，从队头取数据会被阻塞。因为此时还没有数据可取，直到队列中有了数据才能返回；如果队列已经满了，那么插入数据的操作就会被阻塞，直到队列中有空闲位置后再插入数据，然后再返回。</p>
+<p><strong>并发队列：</strong>线程安全的队列我们叫作并发队列。最简单直接的实现方式是直接在 enqueue()、dequeue() 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -304,62 +369,6 @@
 <h3 id="二分递归"><a href="#二分递归" class="headerlink" title="二分递归"></a>二分递归</h3><p>分而治之：将大问题分解为若干规模更小的子问题，再通过递归机制分别求解。这种分解持续进行，直到子问题规模缩减至平凡情况。这也就是所谓的分而治之（divide-and-conquer）策略。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arraySum(int A[], int lo, int hi)&#123;</span><br><span class="line">	if( lo == hi)&#123;</span><br><span class="line">		return A[lo];</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int mi = (lo + hi) &gt;&gt; 1;</span><br><span class="line">		return sum(A, lo, mi) + sum(A, mi+1, hi);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//O(hi - lo +1)</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DSA 基础知识 02</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_02/</url>
-    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>数组和链表都是线性表，存储方式和操作方式的区别已经理解的比较清楚。</p>
-<p>栈和队列同样也是线性表，主要的区别还是在于队列是先进先出，而栈是先进后出，所以适用于不同的场景。</p>
-<span id="more"></span>
-
-<h2 id="如何轻松写出正确的链表代码"><a href="#如何轻松写出正确的链表代码" class="headerlink" title="如何轻松写出正确的链表代码"></a>如何轻松写出正确的链表代码</h2><ol>
-<li><p>理解指针或引用的含义</p>
-<p>  将某个变量赋值给指针，实际上就是将这个变量的地址赋值给指针，或者反过来说，指针中存储了这个变量的内存地址，指向了这个变量，通过指针就能找到这个变量。</p>
-</li>
-<li><p>   警惕指针丢失和内存泄漏</p>
-</li>
-</ol>
-<pre><code> 插入结点时，一定要注意操作的顺序，删除链表结点时，也一定要记得手动释放内存空间。
-</code></pre>
-<ol start="3">
-<li><p>利用哨兵简化实现难度</p>
-<p>  针对链表的插入、删除操作，需要对插入第一个结点和删除最后一个结点的情况进行特殊处理。</p>
-</li>
-<li><p>  重点留意边界条件处理</p>
-</li>
-</ol>
-<ul>
-<li>  如果链表为空时，代码是否能正常工作？</li>
-<li>  如果链表只包含一个结点时，代码是否能正常工作？</li>
-<li>  如果链表只包含两个结点时，代码是否能正常工作？</li>
-<li>  代码逻辑在处理头结点和尾结点的时候，是否能正常工作？</li>
-</ul>
-<ol start="5">
-<li><p>举例画图，辅助思考</p>
-<p>  通过举例和画图来帮助理解。</p>
-</li>
-<li><p>  多写多练，没有捷径</p>
-</li>
-</ol>
-<h2 id="栈-和-队列"><a href="#栈-和-队列" class="headerlink" title="栈 和 队列"></a>栈 和 队列</h2><p>​        特定的数据结构是对特定场景的抽象，数组或链表暴露了太多的操作接口，操作上的确灵活自由，但使用时就比较不可控，自然也就更容易出错。</p>
-<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>​        栈既可以用数组来实现，也可以用链表来实现。用数组实现的栈，我们叫作<strong>顺序栈</strong>，用链表实现的栈，我们叫作<strong>链式栈</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//基于数组实现的顺序栈</span><br><span class="line">public class ArrayStack&#123;</span><br><span class="line">	private String[] items; //数组</span><br><span class="line">	private int count; //栈中元素个数</span><br><span class="line">	private int n; //栈的大小</span><br><span class="line">	</span><br><span class="line">	//初始化数组，申请一个大小为n的空间</span><br><span class="line">	public ArrayStack(int n)&#123;</span><br><span class="line">		this.items = new Stirng[n];</span><br><span class="line">		this.n = n;</span><br><span class="line">		this.count = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//入栈操作</span><br><span class="line">	public boolean push(String item)&#123;</span><br><span class="line">		//数组空间不够了，直接返回 false， 入栈失败。</span><br><span class="line">		if(count == n)</span><br><span class="line">			return false;</span><br><span class="line">		//将item入栈，count++</span><br><span class="line">		items[count] = item;</span><br><span class="line">		++count;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//出栈操作</span><br><span class="line">	public String pop()&#123;</span><br><span class="line">		//栈为空， 则直接返回 null</span><br><span class="line">		if(count == 0)</span><br><span class="line">			return null;</span><br><span class="line">		//返回下标为count-1的元素， 并且栈中元素个数count-1</span><br><span class="line">		String tmp = items[count-1];</span><br><span class="line">		--count;</span><br><span class="line">		</span><br><span class="line">		return tmp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​    </p>
-<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 用数组实现的队列</span><br><span class="line">public class ArrayQueue &#123;</span><br><span class="line">  // 数组：items，数组大小：n</span><br><span class="line">  private String[] items;</span><br><span class="line">  private int n = 0;</span><br><span class="line">  // head 表示队头下标，tail 表示队尾下标</span><br><span class="line">  private int head = 0;</span><br><span class="line">  private int tail = 0;</span><br><span class="line"> </span><br><span class="line">  // 申请一个大小为 capacity 的数组</span><br><span class="line">  public ArrayQueue(int capacity) &#123;</span><br><span class="line">    items = new String[capacity];</span><br><span class="line">    n = capacity;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 入队</span><br><span class="line">  public boolean enqueue(String item) &#123;</span><br><span class="line">    // 如果 tail == n 表示队列已经满了</span><br><span class="line">    if (tail == n) return false;</span><br><span class="line">    items[tail] = item;</span><br><span class="line">    ++tail;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 出队</span><br><span class="line">  public String dequeue() &#123;</span><br><span class="line">    // 如果 head == tail 表示队列为空</span><br><span class="line">    if (head == tail) return null;</span><br><span class="line">    // 为了让其他语言的同学看的更加明确，把 -- 操作放到单独一行来写了</span><br><span class="line">    String ret = items[head];</span><br><span class="line">    ++head;</span><br><span class="line">    return ret;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>用数组来实现队列的时候，在 tail==n 时，会有数据搬移操作，这样入队操作性能就会受到影响。可以考虑使用<strong>循环队列</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//循环队列</span><br><span class="line">public class CircularQueue &#123;</span><br><span class="line">  // 数组：items，数组大小：n</span><br><span class="line">  private String[] items;</span><br><span class="line">  private int n = 0;</span><br><span class="line">  // head 表示队头下标，tail 表示队尾下标</span><br><span class="line">  private int head = 0;</span><br><span class="line">  private int tail = 0;</span><br><span class="line"> </span><br><span class="line">  // 申请一个大小为 capacity 的数组</span><br><span class="line">  public CircularQueue(int capacity) &#123;</span><br><span class="line">    items = new String[capacity];</span><br><span class="line">    n = capacity;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 入队</span><br><span class="line">  public boolean enqueue(String item) &#123;</span><br><span class="line">    // 队列满了</span><br><span class="line">    if ((tail + 1) % n == head) return false;</span><br><span class="line">    items[tail] = item;</span><br><span class="line">    tail = (tail + 1) % n;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // 出队</span><br><span class="line">  public String dequeue() &#123;</span><br><span class="line">    // 如果 head == tail 表示队列为空</span><br><span class="line">    if (head == tail) return null;</span><br><span class="line">    String ret = items[head];</span><br><span class="line">    head = (head + 1) % n;</span><br><span class="line">    return ret;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>阻塞队列：</strong>阻塞队列其实就是在队列基础上增加了阻塞操作。简单来说，就是在队列为空的时候，从队头取数据会被阻塞。因为此时还没有数据可取，直到队列中有了数据才能返回；如果队列已经满了，那么插入数据的操作就会被阻塞，直到队列中有空闲位置后再插入数据，然后再返回。</p>
-<p><strong>并发队列：</strong>线程安全的队列我们叫作并发队列。最简单直接的实现方式是直接在 enqueue()、dequeue() 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -486,6 +495,14 @@
 <p>计数排序只能用在<strong>数据范围不大</strong>的场景中，如果数据范围 k 比要排序的数据 n 大很多，就不适合用计数排序了。而且，计数排序<strong>只能给非负整数排序</strong>，如果要排序的数据是其他类型的，要将其在不改变相对大小的情况下，<strong>转化为非负整数</strong>。</p>
 <h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><p>基数排序对要排序的数据是有要求的，需要可以<strong>分割出独立的“位”来比较</strong>，而且位之间<strong>有递进的关系</strong>，如果 a 数据的高位比 b 数据大，那剩下的低位就不用比较了。除此之外，每一位的数据范围不能太大，要可以用线性排序算法来排序，否则，基数排序的时间复杂度就无法做到 O(n) 了</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><img src = "/images/DSA/01.jpg">
+
+
+
+<h2 id="递归树"><a href="#递归树" class="headerlink" title="递归树"></a>递归树</h2><p>递归的思想就是，将大问题分解为小问题来求解，然后再将小问题分解为小小问题。这样一层一层地分解，直到问题的数据规模被分解得足够小，不用继续递归分解为止。</p>
+<p>如果把这个一层一层的分解过程画成图，它其实就是一棵树。给这棵树起一个名字，就叫作<strong>递归树</strong>。</p>
+<p>分别计算每一层的时间n，只需要知道这棵树的高度 h，用高度 h 乘以每一层的时间消耗 n，就可以得到总的时间复杂度 O(n∗h)。</p>
+<h3 id="关键"><a href="#关键" class="headerlink" title="关键"></a>关键</h3><p>1.计算每一层操作所需要的时间。</p>
+<p>2.计算树的深度。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -698,147 +715,165 @@
       </tags>
   </entry>
   <entry>
-    <title>Deep Learning</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_01/</url>
-    <content><![CDATA[<h1 id="Deep-Learning-入门"><a href="#Deep-Learning-入门" class="headerlink" title="Deep Learning 入门"></a>Deep Learning 入门</h1><p>​    记录Deep Learning 学习过程中遇到的一些问题。<span id="more"></span></p>
-<h2 id="saturating-nonlinearity-和-non-saturating-nonlinearity"><a href="#saturating-nonlinearity-和-non-saturating-nonlinearity" class="headerlink" title="saturating nonlinearity 和 non-saturating nonlinearity"></a>saturating nonlinearity 和 non-saturating nonlinearity</h2><p>在AlexNet论文《 ImageNet Classification with Deep Convolutional Neural Networks》第3节中提到了饱和非线性（saturating nonlinearity）和非饱和非线性（non-saturating nonlinearity）的概念。</p>
-<h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>一个饱和的激活函数，会将输出结果压缩到有限的区间。</p>
-<p>如果函数是非饱和的，那么有：</p>
-<p>​    当x趋近无穷大时，f(x)也趋近于无穷大。</p>
-<p>反之，则为饱和函数。</p>
-<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><ol>
-<li>  ReLU激活函数定义为f ( x ) = m a x ( 0 , x )，  f(x)=max(0,x)f(x)=max(0,x)，由于x-&gt;+∞时，f(x)也趋近于正无穷，因此ReLU不饱和。</li>
-<li>  sigmoid激活函数定义f(x) = 1 / (1 + exp(-x)), 由于它将实数压缩到区间[ 0 , 1 ]之间，因此sigmoid是饱和的。</li>
-<li>  tanh激活函数定义为tanh(x) = (1 - exp(-zx)) / (1 + exp(-zx)) , 由于它将实数压缩到区间[ − 1 , 1 ] 之间，因此tanh是饱和的.</li>
-</ol>
-<p>论文中提到说，饱和非线性的激活函数训练时比非饱和非线性的激活函数要慢的多。</p>
-<h2 id="Data-Augmentation"><a href="#Data-Augmentation" class="headerlink" title="Data Augmentation"></a>Data Augmentation</h2><p>大型数据集是成功应用深度学习网络的先决条件。在深度学习中，为了丰富图像数据的训练集，更好的提取图像特征，泛化模型（防止模型过拟合），一般都会对图像数据进行数据增强（Data Augmentation）。</p>
-<h3 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h3><p>AlexNet：针对具有3通道的彩色图片的训练任务，进行减去图片均值的预处理操作。</p>
-<p>- Color Jittering：对颜色的数据增强：图像亮度、饱和度、对比度变化；<br>- PCA Jittering：首先按照RGB三个颜色通道计算均值和标准差，再在整个训练集上计算协方差矩阵，进行特征分解，得到特征向量和特征值，用来做PCA Jittering；<br>- Random Scale：尺度变换；<br>- Random Crop：采用随机图像差值方式，对图像进行裁剪、缩放；包括Scale Jittering方法（VGG及ResNet模型使用）或者尺度和长宽比增强变换；<br>- Horizontal/Vertical Flip：水平/垂直翻转；<br>- Shift：平移变换；<br>- Rotation/Reflection：旋转/仿射变换；<br>- Noise：高斯噪声、模糊处理；<br>- Label shuffle：类别不平衡数据的增广；</p>
-<p>需要注意的是，在对图片做Affine时，可能还需要对对应的标签做相应的处理，比如BBox， keypoints，以及polygons等。</p>
-<h2 id="End-to-end"><a href="#End-to-end" class="headerlink" title="End-to-end"></a>End-to-end</h2><p>与机器学习不同，卷积神经网络的输入是由原始像素值或是经过简单预处理（例如居中、缩放）的像素值组成的，不需要进行其余更加精心的设计，来达到更好的预期结果。</p>
-<h2 id="ReLU-与-Sigmoid"><a href="#ReLU-与-Sigmoid" class="headerlink" title="ReLU 与 Sigmoid"></a>ReLU 与 Sigmoid</h2><p>在AlexNet中，提出了ReLU这样一个激活函数。</p>
-<p>ReLU 对比于 SIgmoid 的优势：</p>
-<ol>
-<li>  ReLU激活函数的计算更简单，它不需要如sigmoid激活函数那般复杂的求幂运算。</li>
-<li>  当使用不同的参数初始化方法时，ReLU激活函数使训练模型更加容易。 当sigmoid激活函数的输出非常接近于0或1时，这些区域的梯度几乎为0，因此反向传播无法继续更新一些模型参数。 相反，ReLU激活函数在正区间的梯度总是1。 因此，如果模型参数没有正确初始化，sigmoid函数可能在正区间内得到几乎为0的梯度，从而使模型无法得到有效的训练。</li>
-</ol>
-<h2 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h2><p>以下摘选自&lt;&lt; Alexnet &gt;&gt;.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">将许多不同模型的预测结合起来是降低测试误差的一个非常成功的方法，但对于需要花费几天来训练的大型神经网络来说，这似乎太昂贵了。然而，有一个非常有效的模型结合版本，它只花费两倍的训练成本。这种最近引入的技术，叫做“dropout”，它会以0.5的概率对每个隐层神经元的输出设为0。那些“失活的”的神经元不再进行前向传播并且不参与反向传播。因此每次输入时，神经网络会采样一个不同的架构，但所有架构共享权重。这个技术减少了复杂的神经元互适应，因为一个神经元不能依赖特定的其它神经元的存在。因此，神经元被强迫学习更鲁棒的特征，它在与许多不同的其它神经元的随机子集结合时是有用的。在测试时，我们使用所有的神经元但它们的输出乘以0.5，对指数级的许多失活网络的预测分布进行几何平均，这是一种合理的近似。</span><br></pre></td></tr></table></figure>
+    <title>DSA 基础知识 11</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_11/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>动态数据结构——红黑树。<span id="more"></span></p>
+<h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p>二叉查找树在频繁的动态更新过程中，可能会出现树的高度远大于 log2n 的情况，从而导致各个操作的效率下降。极端情况下，二叉树会退化为链表，时间复杂度会退化到 O(n)。要解决这个复杂度退化的问题，需要设计一种平衡二叉查找树，其中最经典的就是<strong>红黑树</strong>。</p>
+<p>红黑树是一种平衡二叉查找树。它是为了解决普通二叉查找树在数据更新的过程中，复杂度退化的问题而产生的。红黑树的高度近似 <strong>logn</strong>，所以它是近似平衡，插入、删除、查找操作的时间复杂度都是 O(logn)。</p>
+<h3 id="平衡查找二叉树"><a href="#平衡查找二叉树" class="headerlink" title="平衡查找二叉树"></a>平衡查找二叉树</h3><p>平衡二叉树：二叉树中任意一个节点的左右子树的高度相差不能大于 1。</p>
+<p>平衡查找二叉树：既满足平衡二叉树的定义也满足查找树。</p>
+<p>但实际上红黑树并未严格满足上面的定义。</p>
+<h3 id="红黑树的定义"><a href="#红黑树的定义" class="headerlink" title="红黑树的定义"></a>红黑树的定义</h3><p>红黑树的英文是“Red-Black Tree”，简称 R-B Tree。它是一种不严格的平衡二叉查找树。<strong>红黑树是“近似平衡”的。</strong></p>
+<p>红黑树中的节点，一类被标记为黑色，一类被标记为红色。除此之外，一棵红黑树还需要满足这样几个要求：</p>
+<ul>
+<li>  根节点是黑色的；</li>
+<li>  每个叶子节点都是黑色的空节点（NIL），也就是说，叶子节点不存储数据；</li>
+<li>  任何相邻的节点都不能同时为红色，也就是说，红色节点是被黑色节点隔开的；</li>
+<li>  每个节点，从该节点到达其可达叶子节点的所有路径，都包含相同数目的黑色节点；</li>
+</ul>
+<h3 id="红黑树的实现"><a href="#红黑树的实现" class="headerlink" title="红黑树的实现"></a>红黑树的实现</h3><h4 id="左旋-和-右旋"><a href="#左旋-和-右旋" class="headerlink" title="左旋 和 右旋"></a>左旋 和 右旋</h4><img src="/images/DSA/03.jpg">
 
-<p>dropout是一种有效的能够降低overfitting 的方法。</p>
-<h2 id="1-1的卷积核"><a href="#1-1的卷积核" class="headerlink" title="1*1的卷积核"></a>1*1的卷积核</h2><p>主要作用：</p>
-<ol>
-<li><p>降维(减少参数)。</p>
-<p>  在3 * 3、5 * 5的网络前面添加1 * 1的卷积层，能够减少网络参数的个数。</p>
-<p>  同时在并行pooling层后面加入1×1卷积层后也可以降低输出的feature map数量<strong>（feature map尺寸指W、H是共享权值的sliding window，feature map 的数量就是channels）</strong></p>
-<p>  GoogLeNet利用1×1的卷积降维后，得到了更为紧凑的网络结构，虽然总共有22层，但是参数数量却只是8层的AlexNet的十二分之一（当然也有很大一部分原因是去掉了全连接层）。</p>
-</li>
-<li><p>升维（用最少的参数拓宽网络channal）</p>
-<p>  假设上一层输出为 3 * 3 * 64， 使用 1 * 1 * 256，这样一个卷积核，只用64*256个参数就能把网络channel从64拓宽四倍到256。</p>
-</li>
-<li><p>   跨通道信息交互（channal 的变换）</p>
-</li>
-</ol>
-<pre><code> 使用1 * 1卷积核，实现降维和升维的操作其实就是channel间信息的线性组合变化，3 * 3，64 channels的卷积核后面添加一个1 * 1，28channels的卷积核，就变成了3 * 3，28channels的卷积核，原来的64个channels就可以理解为跨通道线性组合变成了28channels，这就是通道间的信息交互。
-</code></pre>
-<ol start="4">
-<li><p>增加了非线性</p>
-<p>  1 * 1卷积核本身实现的是线性操作，增加非线性实际是因为1 * 1卷积核后面所跟的ReLU激活函数。</p>
-</li>
-</ol>
+<h4 id="红黑树的插入"><a href="#红黑树的插入" class="headerlink" title="红黑树的插入"></a>红黑树的插入</h4><p>红黑树规定，插入的节点必须是<strong>红色</strong>的。而且，二叉查找树中新插入的节点都是放在<strong>叶子节点</strong>上。</p>
+<p>关于插入操作的平衡调整，有两种非常好处理的特殊情况：</p>
+<ul>
+<li>  如果插入节点的父节点是黑色的，那我们什么都不用做，它仍然满足红黑树的定义。</li>
+<li>  如果插入的节点是根节点，那我们直接改变它的颜色，把它变成黑色就可以了。</li>
+</ul>
+<p>除此之外，其他情况都会违背红黑树的定义，于是我们就需要进行调整，调整的过程包含两种基础的操作：<strong>左右旋转</strong>和<strong>改变颜色</strong>。</p>
+<p>红黑树的平衡调整过程是一个迭代的过程。我们把正在处理的节点叫作<strong>关注节点</strong>。关注节点会随着不停地迭代处理，而不断发生变化。最开始的关注节点就是新插入的节点。新节点插入之后，如果红黑树的平衡被打破，那一般会有下面三种情况。我们只需要根据每种情况的特点，不停地调整，就可以让红黑树继续符合定义，也就是继续保持平衡。</p>
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Deep Learning</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
-    <title>Machine learning</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/%E8%A5%BF%E7%93%9C%E4%B9%A601/</url>
-    <content><![CDATA[<h1 id="西瓜书阅读笔记"><a href="#西瓜书阅读笔记" class="headerlink" title="西瓜书阅读笔记"></a>西瓜书阅读笔记</h1><p>​    记录西瓜书学习过程中的理解的一些知识点。<span id="more"></span></p>
-<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>​        将物理或抽象对象的集合分成由类似的对象组成的多个类的过程被称为聚类。由聚类所生成的簇是一组数据对象的集合，这些对象与同一个簇中的对象彼此相似，与其他簇中的对象相异。</p>
-<p>​        聚类是一种机器学习技术，它涉及到数据点的分组。给定一组数据点，我们可以使用聚类算法将每个数据点划分为一个特定的组。理论上，同一组中的数据点应该具有相似的属性和/或特征，而不同组中的数据点应该具有高度不同的属性和/或特征。聚类是一种无监督学习的方法，是许多领域中常用的统计数据分析技术。</p>
-<h2 id="假设空间-与-版本空间"><a href="#假设空间-与-版本空间" class="headerlink" title="假设空间 与 版本空间"></a>假设空间 与 版本空间</h2><p><strong>假设空间</strong>：属性所有可能取值组成的可能的样本</p>
-<p><strong>版本空间</strong>：与已知数据集一致的所有假设的子集集合。</p>
-<img src = "/images/DeepLearning/06.png">
+    <title>DSA 基础知识 12</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_12/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>特殊的树——堆。<span id="more"></span></p>
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>堆这种数据结构的应用场景非常多，最经典的莫过于堆排序了。堆排序是一种原地的、时间复杂度为 O(nlogn)的排序算法。</p>
+<p>堆是一种特殊的树，堆需要满足两种条件。</p>
+<p>1.堆是一个完全二叉树。</p>
+<p>2.堆中的每一个节点的值都必须大于等于（小于等于）其子树中节点的值。</p>
+<h3 id="堆的实现"><a href="#堆的实现" class="headerlink" title="堆的实现"></a>堆的实现</h3><p>完全二叉树比较适合用数组来存储。用数组来存储完全二叉树是非常节省存储空间的。因为不需要存储左右子节点的指针，单纯地通过数组的下标，就可以找到一个节点的左右子节点和父节点。</p>
+<h3 id="堆的操作"><a href="#堆的操作" class="headerlink" title="堆的操作"></a>堆的操作</h3><p>对变动后的堆进行调整，让其重新满足堆的特性，这个过程叫作<strong>堆化</strong>（heapify）。</p>
+<h3 id="1-往堆中插入一个元素"><a href="#1-往堆中插入一个元素" class="headerlink" title="1.往堆中插入一个元素"></a>1.往堆中插入一个元素</h3><p><strong>从下往上</strong></p>
+<p>堆化非常简单，就是顺着节点所在的路径，向上或者向下，对比，然后交换。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Heap &#123;</span><br><span class="line">  private int[] a; // 数组，从下标 1 开始存储数据</span><br><span class="line">  private int n;  // 堆可以存储的最大数据个数</span><br><span class="line">  private int count; // 堆中已经存储的数据个数</span><br><span class="line"> </span><br><span class="line">  public Heap(int capacity) &#123;</span><br><span class="line">    a = new int[capacity + 1];</span><br><span class="line">    n = capacity;</span><br><span class="line">    count = 0;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  public void insert(int data) &#123;</span><br><span class="line">    if (count &gt;= n) return; // 堆满了</span><br><span class="line">    ++count;</span><br><span class="line">    a[count] = data;</span><br><span class="line">    int i = count;</span><br><span class="line">    while (i/2 &gt; 0 &amp;&amp; a[i] &gt; a[i/2]) &#123; // 自下往上堆化</span><br><span class="line">      swap(a, i, i/2); // swap() 函数作用：交换下标为 i 和 i/2 的两个元素</span><br><span class="line">      i = i/2;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
-<p>（绿色加号代表正类样本，红色小圈代表负类样本）</p>
-<p>GB 是最大泛化正假设边界(maximally General positive hypothesis Boundary),；</p>
-<p>SB 是最大精确正假设边界(maximally Specific positive hypothesis Boundary)</p>
-<p>GB与SB之间所围成的区域就是版本空间。</p>
-<p>在西瓜问题中，如何根据训练集求所对应的版本空间？</p>
-<p>①写出假设空间：先列出所有可能的样本点（即特征向量）（即每个属性都取到所有的属性值）</p>
-<p>②对应着给出的已知数据集，将与正样本不一致的、与负样本一致的假设删除。</p>
-<p>即可得出与训练集一致的假设集合，也就是版本空间了</p>
-<h3 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h3><p><strong>归纳偏好：</strong>机器学习算法在学习过程中对某种类型假设的偏好，称为“归纳偏好”或简称为“偏好”。</p>
-<p><strong>偏好的原则：</strong>奥卡姆剃刀：若有多个假设与观察一致，则选择最简单的那个。</p>
-<p><strong>没有免费的午餐定理：</strong> 无论学习算法La多好、学习算法Lb多坏，它们的期望性能是相同的。</p>
-<p>NFL定理的前提：所有问题出现的机会相同或所有问题同等重要，但实际情况不是这样，我们只需要关注自己想要解决的问题。</p>
-<p>脱离具体问题，空泛地谈“什么学习算法更好”毫无意义。</p>
-<h3 id="数据集处理"><a href="#数据集处理" class="headerlink" title="数据集处理"></a>数据集处理</h3><p>1.留出法</p>
-<p>​    单次使用留出法得到的估计结果往往不够稳定可靠，在使用留出法时，一般采用若干随机划分，重复进行试验评估后取平均值作为留出法的评估结果。</p>
-<p>2.k折交叉验证</p>
-<p>​    将数据集划分为k个大小相同的互斥子集，每个子集都尽可能奥驰数据分布的一一致性。选用k-1个子集作为训练集，余下的子集作为测试集。总共可进行K次测试，最终返回k此测试的平均值。k长取10.</p>
-<p>3.自助法</p>
-<p>适用于数据集较小的情形。原数据的总体并不大，每次抽样能反应总体的特性，并且多次抽样后能覆盖原总体，且抽样组成的新总体比原总体大。抽样方式采用有放回重抽样。自助法的核心点也是有放回的重复抽样。</p>
+<h3 id="2-删除堆顶元素"><a href="#2-删除堆顶元素" class="headerlink" title="2.删除堆顶元素"></a>2.删除堆顶元素</h3><p>从堆的定义的第二条中，任何节点的值都大于等于（或小于等于）子树节点的值，可以得知，堆顶元素存储的就是堆中数据的最大值或者最小值。</p>
+<p>删除堆顶元素，把最后一个节点放到堆顶，然后利用同样的父子节点对比方法。对于不满足父子节点大小关系的，互换两个节点，并且重复进行这个过程，直到父子节点之间满足大小关系为止。这就是<strong>从上往下的堆化方法</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void removeMax() &#123;</span><br><span class="line">  if (count == 0) return -1; // 堆中没有数据</span><br><span class="line">  a[1] = a[count];</span><br><span class="line">  --count;</span><br><span class="line">  heapify(a, count, 1);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">private void heapify(int[] a, int n, int i) &#123; // 自上往下堆化</span><br><span class="line">  while (true) &#123;</span><br><span class="line">    int maxPos = i;</span><br><span class="line">    if (i*2 &lt;= n &amp;&amp; a[i] &lt; a[i*2]) maxPos = i*2;</span><br><span class="line">    if (i*2+1 &lt;= n &amp;&amp; a[maxPos] &lt; a[i*2+1]) maxPos = i*2+1;</span><br><span class="line">    if (maxPos == i) break;</span><br><span class="line">    swap(a, i, maxPos);</span><br><span class="line">    i = maxPos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个包含 n 个节点的完全二叉树，树的高度不会超过 log2n。堆化的过程是顺着节点所在路径比较交换的，所以堆化的时间复杂度<strong>跟树的高度成正比</strong>，也就是 O(logn)。插入数据和删除堆顶元素的主要逻辑就是堆化，所以，往堆中插入一个元素和删除堆顶元素的**时间复杂度都是 O(logn)**。</p>
+<h2 id="实现堆排序"><a href="#实现堆排序" class="headerlink" title="实现堆排序"></a>实现堆排序</h2><h3 id="1-建堆"><a href="#1-建堆" class="headerlink" title="1.建堆"></a>1.建堆</h3><p><strong>自下而上</strong></p>
+<p>借助前面所讲的在堆中插入一个元素的思路。尽管数组中包含 n 个数据，但是可以假设起初堆中只包含一个数据，就是下标为 1 的数据。然后调用前面讲的插入操作，将下标从 2 到 n 的数据依次插入到堆中。这样就将包含 n 个数据的数组组织成了堆。</p>
+<p><strong>自上而下</strong></p>
+<p>从后往前处理数组，并且每个数据都是从上往下堆化。从第一个非叶子节点开始，依次堆化。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">private static void buildHeap(int[] a, int n) &#123;</span><br><span class="line">  for (int i = n/2; i &gt;= 1; --i) &#123;</span><br><span class="line">    heapify(a, n, i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">private static void heapify(int[] a, int n, int i) &#123;</span><br><span class="line">  while (true) &#123;</span><br><span class="line">    int maxPos = i;</span><br><span class="line">    if (i*2 &lt;= n &amp;&amp; a[i] &lt; a[i*2]) maxPos = i*2;</span><br><span class="line">    if (i*2+1 &lt;= n &amp;&amp; a[maxPos] &lt; a[i*2+1]) maxPos = i*2+1;</span><br><span class="line">    if (maxPos == i) break;</span><br><span class="line">    swap(a, i, maxPos);</span><br><span class="line">    i = maxPos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这段代码中，对下标从 n2n2 开始到 11 的数据进行堆化，下标是 n2+1 到 n 的节点是叶子节点不需要堆化。实际上，对于完全二叉树来说，下标从 n2+1 到 n 的节点都是叶子节点。</p>
+<p><strong>时间复杂度</strong></p>
+<p>每个节点堆化的时间复杂度是 O(logn)，那n2+1 个节点堆化的总时间复杂度是不是就是 O(nlogn)呢？这个答案虽然也没错，但是这个值还是不够精确。实际上，堆排序的建堆过程的时间复杂度是 **O(n)**。</p>
+<h3 id="2-排序"><a href="#2-排序" class="headerlink" title="2.排序"></a>2.排序</h3><p>建堆结束之后，数组中的数据已经是按照大顶堆的特性来组织的。数组中的第一个元素就是堆顶，也就是最大的元素。把它跟最后一个元素交换，那最大元素就放到了下标为 n 的位置。</p>
+<p>这个过程有点类似上面讲的“删除堆顶元素”的操作，当堆顶元素移除之后，把下标为 n 的元素放到堆顶，然后再通过堆化的方法，将剩下的 n−1 个元素重新构建成堆。堆化完成之后，我们再取堆顶的元素，放到下标是 n−1的位置，一直重复这个过程，直到最后堆中只剩下标为 1 的一个元素，排序工作就完成了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// n 表示数据的个数，数组 a 中的数据从下标 1 到 n 的位置。</span><br><span class="line">public static void sort(int[] a, int n) &#123;</span><br><span class="line">  buildHeap(a, n);</span><br><span class="line">  int k = n;</span><br><span class="line">  while (k &gt; 1) &#123;</span><br><span class="line">    swap(a, 1, k);</span><br><span class="line">    --k;</span><br><span class="line">    heapify(a, k, 1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>堆排序时<strong>原地算法</strong>，只需要常数个额外空间。</p>
+<p>堆排序包括建堆和排序两个操作，建堆过程的时间复杂度是 O(n)，排序过程的时间复杂度是 O(nlogn)，所以，堆排序**整体的时间复杂度是 O(nlogn)**。</p>
+<p>堆排序不是稳定的排序算法，因为在排序的过程，存在将堆的最后一个节点跟堆顶节点互换的操作，所以就有可能改变值相同数据的原始相对顺序。</p>
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Machine Learning</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
-    <title>Deep Learning 02</title>
-    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_AlexNet/</url>
-    <content><![CDATA[<h1 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h1><p> 深度卷积网络的开创者。将从手工对图片的的特征进行提取，进而利用机器学习的方式实现图像识别转别为由机器自己实现特征提取和图片识别。真正实现了“end-to-end”。<span id="more"></span></p>
-<h2 id="取得成功的原因"><a href="#取得成功的原因" class="headerlink" title="取得成功的原因"></a>取得成功的原因</h2><h3 id="更大更丰富的数据集"><a href="#更大更丰富的数据集" class="headerlink" title="更大更丰富的数据集"></a>更大更丰富的数据集</h3><p>包含许多特征的深度模型需要大量的有标签数据，才能显著优于基于凸优化的传统方法。越来越多的大规模的数据集给深度学习提供了数据基础。同时还包括各种各样的图像增强方法，进一步对数据集进行扩充。</p>
-<h3 id="GPU-加快神经网络的训练速度"><a href="#GPU-加快神经网络的训练速度" class="headerlink" title="GPU-加快神经网络的训练速度"></a>GPU-加快神经网络的训练速度</h3><p>GPU特殊的硬件结构使得矩阵运算更加迅速。极大的减少了网络训练的时间。GPU强大的运算能力使得CNN的是实现成为了可能。</p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="使用ReLU作为激活函数"><a href="#使用ReLU作为激活函数" class="headerlink" title="使用ReLU作为激活函数"></a>使用ReLU作为激活函数</h3><p>作者通过实验证明，ReLU相比于Sigmoid等其他激活函数，更容易进行训练，达到同样的识别精度所需要的时间和迭代次数更少。</p>
-<p>同时ReLU也成为最为常见的激活函数。</p>
-<h3 id="在多块GPU上同时进行计算"><a href="#在多块GPU上同时进行计算" class="headerlink" title="在多块GPU上同时进行计算"></a>在多块GPU上同时进行计算</h3><p>由于当时的GPU性能还不是太强，所以作者采用了两块GPU来实现网络的计算。如今GPU的计算能力已经得到了飞速提升，但更大型的网络依旧需要使用多个GPU并行计算。同时GPU硬件加速也是一个重要的研究方向。</p>
-<h3 id="LRN"><a href="#LRN" class="headerlink" title="LＲＮ"></a>LＲＮ</h3><p>作者提出的一种局部归一化的方法，在后来的VGGNet中证明用处不大。</p>
-<h3 id="重叠池化"><a href="#重叠池化" class="headerlink" title="重叠池化"></a>重叠池化</h3><p>之前的池化层都是池化层的大小等于步进，这里作者采用了池化层的大小大于步进，因此会产生部分重叠。作者通过实验证明，这样做有利于抑制过拟合。</p>
-<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>AlexNet网络结构相对简单，使用了8层卷积神经网络，前5层是卷积层，剩下的3层是全连接层。中间还包括池化层和激活层。</p>
-<img src = "/images/DeepLearning/01.png">
-
-<p>这里将两部分网络拼在了一起，易于理解。</p>
-<p>值得注意的一点：原图输入224 × 224，实际上进行了随机裁剪，实际大小为227 × 227。</p>
-<p>AlexNet的第一层，卷积窗口的形状是 11×11。 由于ImageNet中大多数图像的宽和高比MNIST图像的多10倍以上，因此，需要一个更大的卷积窗口来捕获目标。 第二层中的卷积窗口形状被缩减为 5×55×5，然后是 3×33×3。 此外，在第一层、第二层和第五层卷积层之后，加入窗口形状为 3×33×3、步幅为2的最大汇聚层。 而且，AlexNet的卷积通道数目是LeNet的10倍。</p>
-<p>在最后一个卷积层后有两个全连接层，分别有4096个输出。 这两个巨大的全连接层拥有将近1GB的模型参数。 </p>
-<h3 id="网络大小的计算"><a href="#网络大小的计算" class="headerlink" title="网络大小的计算"></a>网络大小的计算</h3><p>这里参考了《鱼书》。</p>
-<img src = "/images/DeepLearning/03.png">
-
-<img src = "/images/DeepLearning/02.png">
-
-<h2 id="抑制过拟合的方法"><a href="#抑制过拟合的方法" class="headerlink" title="抑制过拟合的方法"></a>抑制过拟合的方法</h2><h3 id="图像增广"><a href="#图像增广" class="headerlink" title="图像增广"></a>图像增广</h3><p>作者做了两种处理。</p>
-<p>１.　对２５６＊２５６的图像进行裁剪。变为大小为２２４＊２２４，同时进行翻转。</p>
-<p>这样一张照片就变为了２０４８张，但是这样的处理，图片的关联性是很大的。</p>
-<p>２.　ＰＣＡ处理：对图像进行一系列的计算处理，排除光照等其他因素引起的问题。</p>
-<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><p>下面摘抄于原文，很好的解释了dropout的使用原因和作用。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Combining the predictions of many different models is a very successful way to reduce test errors, but it appears to be too expensive for big neural networks that already take several days to train. There is, however, a very efficient version of model combination that only costs about a factor of two during training. The recently-introduced technique, called “dropout”, consists of setting to zero the output of each hidden neuron with probability 0.5. The neurons which are “dropped out” in this way do not contribute to the forward pass and do not participate in backpropagation. So every time an input is presented, the neural network samples a different architecture, but all these architectures share weights. This technique reduces complex co-adaptations of neurons, since a neuron cannot rely on the presence of particular other neurons. It is, therefore, forced to learn more robust features that are useful in conjunction with many different random subsets of the other neurons. At test time, we use all the neurons but multiply their outputs by 0.5, which is a reasonable approximation to taking the geometric mean of the predictive distributions produced by the exponentially-many dropout networks.</span><br></pre></td></tr></table></figure>
-
-<p>简单理解就是，Dropout将集成学习的效果（模拟地）通过一个网络实现了，所有的这些网络全都共用权重。</p>
-<h2 id="更多的细节"><a href="#更多的细节" class="headerlink" title="更多的细节"></a>更多的细节</h2><h3 id="SGD-Momentum-权重衰减"><a href="#SGD-Momentum-权重衰减" class="headerlink" title="SGD+Momentum+权重衰减"></a>SGD+Momentum+权重衰减</h3><p>作者在更新参数时使用了较为复杂的更新方式，而并不是简单拿到SGD。</p>
-<h3 id="参数初始值"><a href="#参数初始值" class="headerlink" title="参数初始值"></a>参数初始值</h3><p>权重使用了高斯分布来初始化。</p>
-<p>偏置部分层使用了 0 ，其余层使用了1。</p>
-<p>lr也就是学习率，最初设置为0.01，每次学习停止时，就将lr除于10，进一步更新参数。</p>
-<h2 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h2><img src = "/images/DeepLearning/04.jpg">
-
-<h3 id="进一步分析"><a href="#进一步分析" class="headerlink" title="进一步分析"></a>进一步分析</h3><img src = "/images/DeepLearning/05.png">
-
-<p>作者了考虑由最后4096维隐藏层的图像引起的特征激活，认为如果两幅图像产生的特征激活向量具有较小的欧氏分离，我们可以说神经网络的高层认为它们是相似的。这里的特征激活向量应该是所有前面层计算出来的结果。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>作者认为：更深的网络层数 + 更丰富的数据集 + 更强大的运算/更多的训练时间 = 更好的识别效果。</p>
+    <title>DSA 基础知识 13</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_13/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>堆的应用。<span id="more"></span></p>
+<h2 id="优先级队列"><a href="#优先级队列" class="headerlink" title="优先级队列"></a>优先级队列</h2><p>优先级队列，顾名思义，它首先应该是一个队列。队列最大的特性就是先进先出。不过，在优先级队列中，数据的出队顺序不是先进先出，而是按照优先级来，优先级最高的，最先出队。</p>
+<p>如何实现一个优先级队列呢？方法有很多，但是用堆来实现是最直接、最高效的。这是因为，堆和优先级队列非常相似。一个堆就可以看作一个优先级队列。很多时候，它们只是概念上的区分而已。往优先级队列中插入一个元素，就相当于往堆中插入一个元素；从优先级队列中取出优先级最高的元素，就相当于取出堆顶元素。</p>
+<h2 id="利用堆求-Top-K"><a href="#利用堆求-Top-K" class="headerlink" title="利用堆求 Top K"></a>利用堆求 Top K</h2><p>求 Top K 的问题可以抽象成两类。一类是针对静态数据集合，也就是说数据集合事先确定，不会再变。另一类是针对动态数据集合，也就是说数据集合事先并不确定，有数据动态地加入到集合中</p>
+<p>针对静态数据，如何在一个包含 n 个数据的数组中，查找前 K 大数据呢？我们可以维护一个大小为 K 的小顶堆，顺序遍历数组，从数组中取出取数据与堆顶元素比较。如果比堆顶元素大，我们就把堆顶元素删除，并且将这个元素插入到堆中；如果比堆顶元素小，则不做处理，继续遍历数组。这样等数组中的数据都遍历完之后，堆中的数据就是前 K 大数据了。</p>
+<p>遍历数组需要 O(n) 的时间复杂度，一次堆化操作需要 O(logK) 的时间复杂度，所以最坏情况下，n 个元素都入堆一次，所以时间复杂度就是 O(nlogK)。</p>
+<p>针对动态数据求得 Top K 就是实时 Top K， 我们可以一直都维护一个 K 大小的小顶堆，当有数据被添加到集合中时，我们就拿它与堆顶的元素对比。如果比堆顶元素大，我们就把堆顶元素删除，并且将这个元素插入到堆中；如果比堆顶元素小，则不做处理。这样，无论任何时候需要查询当前的前 K 大数据，我们都可以里立刻返回给他</p>
+<h3 id="利用堆求中位数"><a href="#利用堆求中位数" class="headerlink" title="利用堆求中位数"></a>利用堆求中位数</h3><p>对于一组<strong>静态数据</strong>，中位数是固定的，我们可以先排序，第 n/2 个数据就是中位数。每次询问中位数的时候，我们直接返回这个固定的值就好了。所以，尽管排序的代价比较大，但是边际成本会很小。</p>
+<p>对于一组<strong>动态数据</strong>，需要维护两个堆，一个大顶堆，一个小顶堆。大顶堆中存储前半部分数据，小顶堆中存储后半部分数据，且小顶堆中的数据都大于大顶堆中的数据。</p>
+<p>也就是说，如果有 n 个数据，n 是偶数，我们从小到大排序，那前 n/2 个数据存储在大顶堆中，后 n/2 个数据存储在小顶堆中。这样，大顶堆中的堆顶元素就是我们要找的中位数。如果 n 是奇数，情况是类似的，大顶堆就存储 n2+1 个数据，小顶堆中就存储 n/2 个数据。</p>
+<p>如果新加入的数据小于等于大顶堆的堆顶元素，我们就将这个新数据插入到大顶堆；如果新加入的数据大于等于小顶堆的堆顶元素，我们就将这个新数据插入到小顶堆。之后进行调整，可以从一个堆中不停地将堆顶元素移动到另一个堆，来让两个堆中的数据个数满足上面的约定。</p>
+<p>于是，我们就可以利用两个堆，一个大顶堆、一个小顶堆，实现在动态数据集合中求中位数的操作。插入数据因为需要涉及堆化，所以时间复杂度变成了 O(logn)，但是求中位数我们只需要返回大顶堆的堆顶元素就可以了，所以时间复杂度就是 O(1)。</p>
+<p>实际上，利用两个堆不仅可以快速求出中位数，还可以快速求其他百分位的数据，原理是类似的。区别在于大、小顶堆元素的个数。</p>
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Deep Learning</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DSA 基础知识 14</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_14/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>非线性数据结构——图。<span id="more"></span></p>
+<h2 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h2><p>图中的元素我们就叫作<strong>顶点</strong>（vertex）。图中的一个顶点可以与任意其他顶点建立连接关系，这种建立的关系叫作<strong>边</strong>（edge），跟顶点相连接的边的条数就叫做顶点的<strong>度</strong>。</p>
+<p>图分为 <strong>无向图和有向图</strong>。无向图中有“度”这个概念，表示一个顶点有多少条边。在有向图中，把度分为<strong>入度</strong>（In-degree）和<strong>出度</strong>（Out-degree）。</p>
+<p>此外图还包括<strong>带权图</strong>（weighted graph）。在带权图中，每条边都有一个<strong>权重</strong>（weight）</p>
+<h2 id="图的存储方式"><a href="#图的存储方式" class="headerlink" title="图的存储方式"></a>图的存储方式</h2><h3 id="邻接矩阵存储方法"><a href="#邻接矩阵存储方法" class="headerlink" title="邻接矩阵存储方法"></a>邻接矩阵存储方法</h3><p>图最直观的一种存储方法就是，<strong>邻接矩阵</strong>（Adjacency Matrix）。</p>
+<p>邻接矩阵的底层依赖一个二维数组。对于无向图来说，如果顶点 i 与顶点 j 之间有边，我们就将 A[i][j]和 A[i][j]标记为 1；对于有向图来说，如果顶点 i 到顶点 j 之间，有一条箭头从顶点 i 指向顶点 j 的边，那我们就将 A[i][j]标记为 1。同理，如果有一条箭头从顶点 j 指向顶点 i 的边，我们就将 A[j][i]标记为 1。对于带权图，数组中就存储相应的权重。</p>
+<img src="/images/DSA/04.jpg">
+
+<p>用邻接矩阵来表示一个图，虽然简单、直观，但是比较浪费存储空间。</p>
+<h3 id="邻接表存储方法"><a href="#邻接表存储方法" class="headerlink" title="邻接表存储方法"></a>邻接表存储方法</h3><p>邻接表有点像散列表, 每个顶点对应一条链表，链表中存储的是与这个顶点相连接的其他顶点。</p>
+<p>邻接表存储起来比较节省空间，但是使用起来就比较耗时间。</p>
+<p>可以将邻接表中的链表改成平衡二叉查找树。这样，我们就可以更加快速地查找两个顶点之间是否存在边了。当然，这里的二叉查找树可以换成其他动态数据结构，比如跳表、散列表等。除此之外，我们还可以将链表改成有序动态数组，可以通过二分查找的方法来快速定位两个顶点之间否是存在边。</p>
+<h3 id="图的搜索"><a href="#图的搜索" class="headerlink" title="图的搜索"></a>图的搜索</h3><p>算法是作用于具体数据结构之上的，深度优先搜索算法和广度优先搜索算法都是基于“图”这种数据结构的。这是因为，图这种数据结构的表达能力很强，大部分涉及搜索的场景都可以抽象成“图”。</p>
+<p>图上的搜索算法，最直接的理解就是，在图中找出从一个顶点出发，到另一个顶点的路径。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//利用邻接表来存储图</span><br><span class="line">public class Graph &#123; // 无向图</span><br><span class="line">  private int v; // 顶点的个数</span><br><span class="line">  private LinkedList&lt;Integer&gt; adj[]; // 邻接表</span><br><span class="line"> </span><br><span class="line">  public Graph(int v) &#123;</span><br><span class="line">    this.v = v;</span><br><span class="line">    adj = new LinkedList[v];</span><br><span class="line">    for (int i=0; i&lt;v; ++i) &#123;</span><br><span class="line">      adj[i] = new LinkedList&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  public void addEdge(int s, int t) &#123; // 无向图一条边存两次</span><br><span class="line">    adj[s].add(t);</span><br><span class="line">    adj[t].add(s);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="广度优先搜索（BFS）"><a href="#广度优先搜索（BFS）" class="headerlink" title="广度优先搜索（BFS）"></a>广度优先搜索（BFS）</h4><p>广度优先搜索（Breadth-First-Search）直观地讲，它其实就是一种“地毯式”层层推进的搜索策略，即先查找离起始顶点最近的，然后是次近的，依次往外搜索。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void bfs(int s, int t) &#123;</span><br><span class="line">  if (s == t) return;</span><br><span class="line">  boolean[] visited = new boolean[v]; //用来记录已经背访问过的节点。</span><br><span class="line">  visited[s]=true;</span><br><span class="line">  Queue&lt;Integer&gt; queue = new LinkedList&lt;&gt;(); //用来存储已经别访问但相邻顶点还未被访问的顶点。</span><br><span class="line">  queue.add(s);</span><br><span class="line">  int[] prev = new int[v]; //用来记录搜索路径</span><br><span class="line">  for (int i = 0; i &lt; v; ++i) &#123;</span><br><span class="line">    prev[i] = -1;</span><br><span class="line">  &#125;</span><br><span class="line">  while (queue.size() != 0) &#123;</span><br><span class="line">    int w = queue.poll();</span><br><span class="line">   for (int i = 0; i &lt; adj[w].size(); ++i) &#123;</span><br><span class="line">      int q = adj[w].get(i);</span><br><span class="line">      if (!visited[q]) &#123;</span><br><span class="line">        prev[q] = w;</span><br><span class="line">        if (q == t) &#123;</span><br><span class="line">          print(prev, s, t);</span><br><span class="line">          return;</span><br><span class="line">        &#125;</span><br><span class="line">        visited[q] = true;</span><br><span class="line">        queue.add(q);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">private void print(int[] prev, int s, int t) &#123; // 递归打印 s-&gt;t 的路径</span><br><span class="line">  if (prev[t] != -1 &amp;&amp; t != s) &#123;</span><br><span class="line">    print(prev, s, prev[t]);</span><br><span class="line">  &#125;</span><br><span class="line">  System.out.print(t + &quot; &quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最坏情况下，终止顶点 t 离起始顶点 s 很远，需要遍历完整个图才能找到。这个时候，每个顶点都要进出一遍队列，每个边也都会被访问一次，所以，**广度优先搜索的时间复杂度是 O(V+E)**，其中，V 表示顶点的个数，E 表示边的个数。当然，对于一个连通图来说，也就是说一个图中的所有顶点都是连通的，E 肯定要大于等于 V-1，所以，广度优先搜索的时间复杂度也可以简写为 O(E)。</p>
+<p>广度优先搜索的空间消耗主要在几个辅助变量 visited 数组、queue 队列、prev 数组上。这三个存储空间的大小都不会超过顶点的个数，所以**空间复杂度是 O(V)**。</p>
+<h4 id="深度优先搜索（DFS）"><a href="#深度优先搜索（DFS）" class="headerlink" title="深度优先搜索（DFS）"></a>深度优先搜索（DFS）</h4><p>深度优先搜索（Depth-First-Search），简称 DFS。最直观的例子就是“走迷宫”。</p>
+<p>深度优先搜索用的是一种比较著名的算法思想，<strong>回溯思想</strong>。这种思想解决问题的过程，非常适合用递归来实现。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">boolean found = false; // 全局变量或者类成员变量</span><br><span class="line"> </span><br><span class="line">public void dfs(int s, int t) &#123;</span><br><span class="line">  found = false;</span><br><span class="line">  boolean[] visited = new boolean[v];</span><br><span class="line">  int[] prev = new int[v];</span><br><span class="line">  for (int i = 0; i &lt; v; ++i) &#123;</span><br><span class="line">    prev[i] = -1;</span><br><span class="line">  &#125;</span><br><span class="line">  recurDfs(s, t, visited, prev);</span><br><span class="line">  print(prev, s, t);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">private void recurDfs(int w, int t, boolean[] visited, int[] prev) &#123;</span><br><span class="line">  if (found == true) return;</span><br><span class="line">  visited[w] = true;</span><br><span class="line">  if (w == t) &#123;</span><br><span class="line">    found = true;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  for (int i = 0; i &lt; adj[w].size(); ++i) &#123;</span><br><span class="line">    int q = adj[w].get(i);</span><br><span class="line">    if (!visited[q]) &#123;</span><br><span class="line">      prev[q] = w;</span><br><span class="line">      recurDfs(q, t, visited, prev);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每条边最多会被访问两次，一次是遍历，一次是回退。所以，深度优先搜索算法的**时间复杂度是 O(E)**，E 表示边的个数。</p>
+<p>深度优先搜索算法的消耗内存主要是 visited、prev 数组和递归调用栈。visited、prev 数组的大小跟顶点的个数 V 成正比，递归调用栈的最大深度不会超过顶点的个数，所以**总的空间复杂度就是 O(V)**。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DSA 基础知识 15</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DSA/DSA_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_15/</url>
+    <content><![CDATA[<h1 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h1><p>单模式字符串匹配算法。<span id="more"></span></p>
+<h2 id="BF算法"><a href="#BF算法" class="headerlink" title="BF算法"></a>BF算法</h2><p>BF 算法中的 BF 是 Brute Force 的缩写，中文叫作暴力匹配算法，也叫朴素匹配算法。从名字可以看出，这种算法的字符串匹配方式很“暴力”，当然也就会比较简单、好懂，但相应的性能也不高。</p>
+<p>在字符串 A 中查找字符串 B，那字符串 A 就是主串，字符串 B 就是模式串。我们把主串的长度记作 n，模式串的长度记作 m。因为我们是在主串中查找模式串，所以 n&gt;m。</p>
+<p>BF 算法的思想可以用一句话来概括，那就是，<strong>在主串中，检查起始位置分别是 0、1、2…n-m 且长度为 m 的 n-m+1 个子串，看有没有跟模式串匹配的</strong>。</p>
+<p>在极端情况下，比如主串是“aaaaa…aaaaaa”（省略号表示有很多重复的字符 a），模式串是“aaaaab”。我们每次都比对 m 个字符，要比对 n-m+1 次，所以，这种算法的最坏情况时间复杂度是 O(n*m)。</p>
+<h2 id="RK-算法"><a href="#RK-算法" class="headerlink" title="RK 算法"></a>RK 算法</h2><p>RK 算法的思路是这样的：通过哈希算法对主串中的 n-m+1 个子串分别求哈希值，然后逐个与模式串的哈希值比较大小。如果某个子串的哈希值与模式串相等，那就说明对应的子串和模式串匹配了（这里先不考虑哈希冲突的问题，后面我们会讲到）。因为哈希值是一个数字，数字之间比较是否相等是非常快速的，所以模式串和子串比较的效率就提高了。</p>
+<p>不过，通过哈希算法计算子串的哈希值的时候，我们需要遍历子串中的每个字符。尽管模式串与子串比较的效率提高了，但是，算法整体的效率并没有提高。但通过巧妙的设计哈希算法就有可能够提高计算效率。</p>
+<p>整个 RK 算法包含两部分，计算子串哈希值和模式串哈希值与子串哈希值之间的比较。第一部分可以通过设计特殊的哈希算法，只需要扫描一遍主串就能计算出所有子串的哈希值了，所以这部分的时间复杂度是 O(n)。模式串哈希值与每个子串哈希值之间的比较的时间复杂度是 O(1)，总共需要比较 n-m+1 个子串的哈希值，所以，这部分的时间复杂度也是 O(n)。所以，RK 算法整体的**时间复杂度就是 O(n)**。</p>
+<p><strong>存在的问题：</strong>需要解决哈希冲突带来的麻烦。</p>
+<p>解决方法很简单。当我们发现一个子串的哈希值跟模式串的哈希值相等的时候，我们只需要再对比一下子串和模式串本身就好了。</p>
+<p>但哈希算法的冲突概率要相对控制得低一些，如果存在大量冲突，就会导致 RK 算法的时间复杂度退化，效率下降。极端情况下，如果存在大量的冲突，每次都要再对比子串和模式串本身，那时间复杂度就会退化成 O(n*m)。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -1039,6 +1074,193 @@
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Deep Learning</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_01/</url>
+    <content><![CDATA[<h1 id="Deep-Learning-入门"><a href="#Deep-Learning-入门" class="headerlink" title="Deep Learning 入门"></a>Deep Learning 入门</h1><p>​    记录Deep Learning 学习过程中遇到的一些问题。<span id="more"></span></p>
+<h2 id="saturating-nonlinearity-和-non-saturating-nonlinearity"><a href="#saturating-nonlinearity-和-non-saturating-nonlinearity" class="headerlink" title="saturating nonlinearity 和 non-saturating nonlinearity"></a>saturating nonlinearity 和 non-saturating nonlinearity</h2><p>在AlexNet论文《 ImageNet Classification with Deep Convolutional Neural Networks》第3节中提到了饱和非线性（saturating nonlinearity）和非饱和非线性（non-saturating nonlinearity）的概念。</p>
+<h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>一个饱和的激活函数，会将输出结果压缩到有限的区间。</p>
+<p>如果函数是非饱和的，那么有：</p>
+<p>​    当x趋近无穷大时，f(x)也趋近于无穷大。</p>
+<p>反之，则为饱和函数。</p>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><ol>
+<li>  ReLU激活函数定义为f ( x ) = m a x ( 0 , x )，  f(x)=max(0,x)f(x)=max(0,x)，由于x-&gt;+∞时，f(x)也趋近于正无穷，因此ReLU不饱和。</li>
+<li>  sigmoid激活函数定义f(x) = 1 / (1 + exp(-x)), 由于它将实数压缩到区间[ 0 , 1 ]之间，因此sigmoid是饱和的。</li>
+<li>  tanh激活函数定义为tanh(x) = (1 - exp(-zx)) / (1 + exp(-zx)) , 由于它将实数压缩到区间[ − 1 , 1 ] 之间，因此tanh是饱和的.</li>
+</ol>
+<p>论文中提到说，饱和非线性的激活函数训练时比非饱和非线性的激活函数要慢的多。</p>
+<h2 id="Data-Augmentation"><a href="#Data-Augmentation" class="headerlink" title="Data Augmentation"></a>Data Augmentation</h2><p>大型数据集是成功应用深度学习网络的先决条件。在深度学习中，为了丰富图像数据的训练集，更好的提取图像特征，泛化模型（防止模型过拟合），一般都会对图像数据进行数据增强（Data Augmentation）。</p>
+<h3 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h3><p>AlexNet：针对具有3通道的彩色图片的训练任务，进行减去图片均值的预处理操作。</p>
+<p>- Color Jittering：对颜色的数据增强：图像亮度、饱和度、对比度变化；<br>- PCA Jittering：首先按照RGB三个颜色通道计算均值和标准差，再在整个训练集上计算协方差矩阵，进行特征分解，得到特征向量和特征值，用来做PCA Jittering；<br>- Random Scale：尺度变换；<br>- Random Crop：采用随机图像差值方式，对图像进行裁剪、缩放；包括Scale Jittering方法（VGG及ResNet模型使用）或者尺度和长宽比增强变换；<br>- Horizontal/Vertical Flip：水平/垂直翻转；<br>- Shift：平移变换；<br>- Rotation/Reflection：旋转/仿射变换；<br>- Noise：高斯噪声、模糊处理；<br>- Label shuffle：类别不平衡数据的增广；</p>
+<p>需要注意的是，在对图片做Affine时，可能还需要对对应的标签做相应的处理，比如BBox， keypoints，以及polygons等。</p>
+<h2 id="End-to-end"><a href="#End-to-end" class="headerlink" title="End-to-end"></a>End-to-end</h2><p>与机器学习不同，卷积神经网络的输入是由原始像素值或是经过简单预处理（例如居中、缩放）的像素值组成的，不需要进行其余更加精心的设计，来达到更好的预期结果。</p>
+<h2 id="ReLU-与-Sigmoid"><a href="#ReLU-与-Sigmoid" class="headerlink" title="ReLU 与 Sigmoid"></a>ReLU 与 Sigmoid</h2><p>在AlexNet中，提出了ReLU这样一个激活函数。</p>
+<p>ReLU 对比于 SIgmoid 的优势：</p>
+<ol>
+<li>  ReLU激活函数的计算更简单，它不需要如sigmoid激活函数那般复杂的求幂运算。</li>
+<li>  当使用不同的参数初始化方法时，ReLU激活函数使训练模型更加容易。 当sigmoid激活函数的输出非常接近于0或1时，这些区域的梯度几乎为0，因此反向传播无法继续更新一些模型参数。 相反，ReLU激活函数在正区间的梯度总是1。 因此，如果模型参数没有正确初始化，sigmoid函数可能在正区间内得到几乎为0的梯度，从而使模型无法得到有效的训练。</li>
+</ol>
+<h2 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h2><p>以下摘选自&lt;&lt; Alexnet &gt;&gt;.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">将许多不同模型的预测结合起来是降低测试误差的一个非常成功的方法，但对于需要花费几天来训练的大型神经网络来说，这似乎太昂贵了。然而，有一个非常有效的模型结合版本，它只花费两倍的训练成本。这种最近引入的技术，叫做“dropout”，它会以0.5的概率对每个隐层神经元的输出设为0。那些“失活的”的神经元不再进行前向传播并且不参与反向传播。因此每次输入时，神经网络会采样一个不同的架构，但所有架构共享权重。这个技术减少了复杂的神经元互适应，因为一个神经元不能依赖特定的其它神经元的存在。因此，神经元被强迫学习更鲁棒的特征，它在与许多不同的其它神经元的随机子集结合时是有用的。在测试时，我们使用所有的神经元但它们的输出乘以0.5，对指数级的许多失活网络的预测分布进行几何平均，这是一种合理的近似。</span><br></pre></td></tr></table></figure>
+
+<p>dropout是一种有效的能够降低overfitting 的方法。</p>
+<h2 id="1-1的卷积核"><a href="#1-1的卷积核" class="headerlink" title="1*1的卷积核"></a>1*1的卷积核</h2><p>主要作用：</p>
+<ol>
+<li><p>降维(减少参数)。</p>
+<p>  在3 * 3、5 * 5的网络前面添加1 * 1的卷积层，能够减少网络参数的个数。</p>
+<p>  同时在并行pooling层后面加入1×1卷积层后也可以降低输出的feature map数量<strong>（feature map尺寸指W、H是共享权值的sliding window，feature map 的数量就是channels）</strong></p>
+<p>  GoogLeNet利用1×1的卷积降维后，得到了更为紧凑的网络结构，虽然总共有22层，但是参数数量却只是8层的AlexNet的十二分之一（当然也有很大一部分原因是去掉了全连接层）。</p>
+</li>
+<li><p>升维（用最少的参数拓宽网络channal）</p>
+<p>  假设上一层输出为 3 * 3 * 64， 使用 1 * 1 * 256，这样一个卷积核，只用64*256个参数就能把网络channel从64拓宽四倍到256。</p>
+</li>
+<li><p>   跨通道信息交互（channal 的变换）</p>
+</li>
+</ol>
+<pre><code> 使用1 * 1卷积核，实现降维和升维的操作其实就是channel间信息的线性组合变化，3 * 3，64 channels的卷积核后面添加一个1 * 1，28channels的卷积核，就变成了3 * 3，28channels的卷积核，原来的64个channels就可以理解为跨通道线性组合变成了28channels，这就是通道间的信息交互。
+</code></pre>
+<ol start="4">
+<li><p>增加了非线性</p>
+<p>  1 * 1卷积核本身实现的是线性操作，增加非线性实际是因为1 * 1卷积核后面所跟的ReLU激活函数。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Deep Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Deep Learning</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_02/</url>
+    <content><![CDATA[<h1 id="Deep-Learning-入门"><a href="#Deep-Learning-入门" class="headerlink" title="Deep Learning 入门"></a>Deep Learning 入门</h1><p>​    记录Deep Learning 学习过程中遇到的一些问题。<span id="more"></span></p>
+<h2 id="pytorch-中的一些函数"><a href="#pytorch-中的一些函数" class="headerlink" title="pytorch 中的一些函数"></a>pytorch 中的一些函数</h2><h3 id="pytorch中的object-grad-zero"><a href="#pytorch中的object-grad-zero" class="headerlink" title="pytorch中的object.grad.zero_()"></a>pytorch中的object.grad.zero_()</h3><p>在默认情况下，PyTorch会累积梯度，需要使用 object.grad.zero_()来清除object的梯度值。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 定义优化算法</span><br><span class="line">def sgd(params, lr, batch_size):</span><br><span class="line">    &quot;&quot;&quot;小批量随机梯度下降。&quot;&quot;&quot;</span><br><span class="line">    with torch.no_grad(): #不进入pytorch的计算图中去</span><br><span class="line">        for param in params:</span><br><span class="line">            param -= lr * param.grad / batch_size</span><br><span class="line">            param.grad.zero_()</span><br></pre></td></tr></table></figure>
+
+<p>所以这段代码的意思是迭代param时不需要构建计算图，并且迭代完成后就把param.grad清零，因为再一次调用sgd时就是下一个batch得到的param.grad，batch和batch是没有关系的。</p>
+<h3 id="pytorch-中的-torch-matmul"><a href="#pytorch-中的-torch-matmul" class="headerlink" title="pytorch 中的 torch.matmul"></a>pytorch 中的 torch.matmul</h3><p>torch.mm才是传统意义上的矩阵乘法。torch.matmul会进行广播。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">广播机制条件：其中任意一个tensor必须至少有一个维度要么相等，从两个tensor的size末尾开始比较，要么其中一个为1，要么其中一个不存在，满足其一即可。</span><br></pre></td></tr></table></figure>
+
+<p>1）如果是两个1维的，就向量内积；<br>2）如果两个都是2维的，就矩阵相乘<br>3）如果第一个是1维，第二个是2维；<strong>填充第一个</strong>使得能够和第二个参数相乘；如果第一个是2维，第二个是1维，就是<strong>矩阵和向量相乘</strong>；</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">x = torch.tensor([[1, 2],[3, 4]])</span><br><span class="line">print(x.shape)</span><br><span class="line">w = torch.tensor([1, 2])</span><br><span class="line">print(w.shape)</span><br><span class="line">x_w = torch.matmul(x, w)</span><br><span class="line">print(x_w)</span><br><span class="line">print(x_w.shape)</span><br><span class="line">w_x = torch.matmul(w, x)</span><br><span class="line">print(w_x)</span><br><span class="line">print(w_x.shape)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">torch.Size([2, 2])</span><br><span class="line">torch.Size([2])</span><br><span class="line">tensor([ 5, 11])</span><br><span class="line">torch.Size([2])</span><br><span class="line">tensor([ 7, 10])</span><br><span class="line">torch.Size([2])</span><br></pre></td></tr></table></figure>
+
+<h3 id="pytorch-中的-len"><a href="#pytorch-中的-len" class="headerlink" title="pytorch 中的 len()"></a>pytorch 中的 len()</h3><p>len(Tensor):<br> 返回Tensor的第0维长度，将样本横向堆叠的时候可以返回样本的数量。</p>
+<h3 id="with-torch-no-grad"><a href="#with-torch-no-grad" class="headerlink" title="with torch.no_grad()"></a>with torch.no_grad()</h3><p>因为验证集的时候，只是想通过网络看一下训练的效果，并不是想通过验证集来更新网络时，就可以使用with torch.no_grad()。最终，torch.save就是保存的训练集的训练模型。</p>
+<h3 id="pytorch-中提示进程意外结束"><a href="#pytorch-中提示进程意外结束" class="headerlink" title="pytorch 中提示进程意外结束"></a>pytorch 中提示进程意外结束</h3><p>出现类似的问题是因为PyTorch的DataLoader中有一个参数叫做num_workers<br>num_workers (int, optional): how many subprocesses to use for data loading. 0 means that the data will be loaded in the main process. (default: <code>0</code>)</p>
+<p>在windows中是不能使用多个子进程加载数据的，在linux系统中可以。所以在windows中要将num_workers设置为0的。<br>同样，在d2l这本书中，也出现了类似的问题，通过将进程数设置为0即可解决。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from torch.utils import data data.DataLoader(train_dataset, batch_size=args.bs, num_workers=0, shuffle=True, drop_last=True)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Deep Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Deep Learning 02</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/DL_AlexNet/</url>
+    <content><![CDATA[<h1 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h1><p> 深度卷积网络的开创者。将从手工对图片的的特征进行提取，进而利用机器学习的方式实现图像识别转别为由机器自己实现特征提取和图片识别。真正实现了“end-to-end”。<span id="more"></span></p>
+<h2 id="取得成功的原因"><a href="#取得成功的原因" class="headerlink" title="取得成功的原因"></a>取得成功的原因</h2><h3 id="更大更丰富的数据集"><a href="#更大更丰富的数据集" class="headerlink" title="更大更丰富的数据集"></a>更大更丰富的数据集</h3><p>包含许多特征的深度模型需要大量的有标签数据，才能显著优于基于凸优化的传统方法。越来越多的大规模的数据集给深度学习提供了数据基础。同时还包括各种各样的图像增强方法，进一步对数据集进行扩充。</p>
+<h3 id="GPU-加快神经网络的训练速度"><a href="#GPU-加快神经网络的训练速度" class="headerlink" title="GPU-加快神经网络的训练速度"></a>GPU-加快神经网络的训练速度</h3><p>GPU特殊的硬件结构使得矩阵运算更加迅速。极大的减少了网络训练的时间。GPU强大的运算能力使得CNN的是实现成为了可能。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="使用ReLU作为激活函数"><a href="#使用ReLU作为激活函数" class="headerlink" title="使用ReLU作为激活函数"></a>使用ReLU作为激活函数</h3><p>作者通过实验证明，ReLU相比于Sigmoid等其他激活函数，更容易进行训练，达到同样的识别精度所需要的时间和迭代次数更少。</p>
+<p>同时ReLU也成为最为常见的激活函数。</p>
+<h3 id="在多块GPU上同时进行计算"><a href="#在多块GPU上同时进行计算" class="headerlink" title="在多块GPU上同时进行计算"></a>在多块GPU上同时进行计算</h3><p>由于当时的GPU性能还不是太强，所以作者采用了两块GPU来实现网络的计算。如今GPU的计算能力已经得到了飞速提升，但更大型的网络依旧需要使用多个GPU并行计算。同时GPU硬件加速也是一个重要的研究方向。</p>
+<h3 id="LRN"><a href="#LRN" class="headerlink" title="LＲＮ"></a>LＲＮ</h3><p>作者提出的一种局部归一化的方法，在后来的VGGNet中证明用处不大。</p>
+<h3 id="重叠池化"><a href="#重叠池化" class="headerlink" title="重叠池化"></a>重叠池化</h3><p>之前的池化层都是池化层的大小等于步进，这里作者采用了池化层的大小大于步进，因此会产生部分重叠。作者通过实验证明，这样做有利于抑制过拟合。</p>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>AlexNet网络结构相对简单，使用了8层卷积神经网络，前5层是卷积层，剩下的3层是全连接层。中间还包括池化层和激活层。</p>
+<img src = "/images/DeepLearning/01.png">
+
+<p>这里将两部分网络拼在了一起，易于理解。</p>
+<p>值得注意的一点：原图输入224 × 224，实际上进行了随机裁剪，实际大小为227 × 227。</p>
+<p>AlexNet的第一层，卷积窗口的形状是 11×11。 由于ImageNet中大多数图像的宽和高比MNIST图像的多10倍以上，因此，需要一个更大的卷积窗口来捕获目标。 第二层中的卷积窗口形状被缩减为 5×55×5，然后是 3×33×3。 此外，在第一层、第二层和第五层卷积层之后，加入窗口形状为 3×33×3、步幅为2的最大汇聚层。 而且，AlexNet的卷积通道数目是LeNet的10倍。</p>
+<p>在最后一个卷积层后有两个全连接层，分别有4096个输出。 这两个巨大的全连接层拥有将近1GB的模型参数。 </p>
+<h3 id="网络大小的计算"><a href="#网络大小的计算" class="headerlink" title="网络大小的计算"></a>网络大小的计算</h3><p>这里参考了《鱼书》。</p>
+<img src = "/images/DeepLearning/03.png">
+
+<img src = "/images/DeepLearning/02.png">
+
+<h2 id="抑制过拟合的方法"><a href="#抑制过拟合的方法" class="headerlink" title="抑制过拟合的方法"></a>抑制过拟合的方法</h2><h3 id="图像增广"><a href="#图像增广" class="headerlink" title="图像增广"></a>图像增广</h3><p>作者做了两种处理。</p>
+<p>１.　对２５６＊２５６的图像进行裁剪。变为大小为２２４＊２２４，同时进行翻转。</p>
+<p>这样一张照片就变为了２０４８张，但是这样的处理，图片的关联性是很大的。</p>
+<p>２.　ＰＣＡ处理：对图像进行一系列的计算处理，排除光照等其他因素引起的问题。</p>
+<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><p>下面摘抄于原文，很好的解释了dropout的使用原因和作用。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Combining the predictions of many different models is a very successful way to reduce test errors, but it appears to be too expensive for big neural networks that already take several days to train. There is, however, a very efficient version of model combination that only costs about a factor of two during training. The recently-introduced technique, called “dropout”, consists of setting to zero the output of each hidden neuron with probability 0.5. The neurons which are “dropped out” in this way do not contribute to the forward pass and do not participate in backpropagation. So every time an input is presented, the neural network samples a different architecture, but all these architectures share weights. This technique reduces complex co-adaptations of neurons, since a neuron cannot rely on the presence of particular other neurons. It is, therefore, forced to learn more robust features that are useful in conjunction with many different random subsets of the other neurons. At test time, we use all the neurons but multiply their outputs by 0.5, which is a reasonable approximation to taking the geometric mean of the predictive distributions produced by the exponentially-many dropout networks.</span><br></pre></td></tr></table></figure>
+
+<p>简单理解就是，Dropout将集成学习的效果（模拟地）通过一个网络实现了，所有的这些网络全都共用权重。</p>
+<h2 id="更多的细节"><a href="#更多的细节" class="headerlink" title="更多的细节"></a>更多的细节</h2><h3 id="SGD-Momentum-权重衰减"><a href="#SGD-Momentum-权重衰减" class="headerlink" title="SGD+Momentum+权重衰减"></a>SGD+Momentum+权重衰减</h3><p>作者在更新参数时使用了较为复杂的更新方式，而并不是简单拿到SGD。</p>
+<h3 id="参数初始值"><a href="#参数初始值" class="headerlink" title="参数初始值"></a>参数初始值</h3><p>权重使用了高斯分布来初始化。</p>
+<p>偏置部分层使用了 0 ，其余层使用了1。</p>
+<p>lr也就是学习率，最初设置为0.01，每次学习停止时，就将lr除于10，进一步更新参数。</p>
+<h2 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h2><img src = "/images/DeepLearning/04.jpg">
+
+<h3 id="进一步分析"><a href="#进一步分析" class="headerlink" title="进一步分析"></a>进一步分析</h3><img src = "/images/DeepLearning/05.png">
+
+<p>作者了考虑由最后4096维隐藏层的图像引起的特征激活，认为如果两幅图像产生的特征激活向量具有较小的欧氏分离，我们可以说神经网络的高层认为它们是相似的。这里的特征激活向量应该是所有前面层计算出来的结果。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>作者认为：更深的网络层数 + 更丰富的数据集 + 更强大的运算/更多的训练时间 = 更好的识别效果。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Deep Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LHY Machine learning</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/LHY_ML_01/</url>
+    <content><![CDATA[<h1 id="李宏毅深度学习笔记"><a href="#李宏毅深度学习笔记" class="headerlink" title="李宏毅深度学习笔记"></a>李宏毅深度学习笔记</h1><p>记录李宏毅网课学习过程中的一些疑问和解答。<span id="more"></span></p>
+<h2 id="Loss-Function-的区别"><a href="#Loss-Function-的区别" class="headerlink" title="Loss Function 的区别"></a>Loss Function 的区别</h2><p>MAE、MSE 、RMSE 和 Cross -entropy的区别</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine learning</title>
+    <url>/%E5%AD%A6%E4%B9%A0/DeepLearning/%E8%A5%BF%E7%93%9C%E4%B9%A601/</url>
+    <content><![CDATA[<h1 id="西瓜书阅读笔记"><a href="#西瓜书阅读笔记" class="headerlink" title="西瓜书阅读笔记"></a>西瓜书阅读笔记</h1><p>​    记录西瓜书学习过程中的理解的一些知识点。<span id="more"></span></p>
+<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>​        将物理或抽象对象的集合分成由类似的对象组成的多个类的过程被称为聚类。由聚类所生成的簇是一组数据对象的集合，这些对象与同一个簇中的对象彼此相似，与其他簇中的对象相异。</p>
+<p>​        聚类是一种机器学习技术，它涉及到数据点的分组。给定一组数据点，我们可以使用聚类算法将每个数据点划分为一个特定的组。理论上，同一组中的数据点应该具有相似的属性和/或特征，而不同组中的数据点应该具有高度不同的属性和/或特征。聚类是一种无监督学习的方法，是许多领域中常用的统计数据分析技术。</p>
+<h2 id="假设空间-与-版本空间"><a href="#假设空间-与-版本空间" class="headerlink" title="假设空间 与 版本空间"></a>假设空间 与 版本空间</h2><p><strong>假设空间</strong>：属性所有可能取值组成的可能的样本</p>
+<p><strong>版本空间</strong>：与已知数据集一致的所有假设的子集集合。</p>
+<img src = "/images/DeepLearning/06.png">
+
+<p>（绿色加号代表正类样本，红色小圈代表负类样本）</p>
+<p>GB 是最大泛化正假设边界(maximally General positive hypothesis Boundary),；</p>
+<p>SB 是最大精确正假设边界(maximally Specific positive hypothesis Boundary)</p>
+<p>GB与SB之间所围成的区域就是版本空间。</p>
+<p>在西瓜问题中，如何根据训练集求所对应的版本空间？</p>
+<p>①写出假设空间：先列出所有可能的样本点（即特征向量）（即每个属性都取到所有的属性值）</p>
+<p>②对应着给出的已知数据集，将与正样本不一致的、与负样本一致的假设删除。</p>
+<p>即可得出与训练集一致的假设集合，也就是版本空间了</p>
+<h3 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h3><p><strong>归纳偏好：</strong>机器学习算法在学习过程中对某种类型假设的偏好，称为“归纳偏好”或简称为“偏好”。</p>
+<p><strong>偏好的原则：</strong>奥卡姆剃刀：若有多个假设与观察一致，则选择最简单的那个。</p>
+<p><strong>没有免费的午餐定理：</strong> 无论学习算法La多好、学习算法Lb多坏，它们的期望性能是相同的。</p>
+<p>NFL定理的前提：所有问题出现的机会相同或所有问题同等重要，但实际情况不是这样，我们只需要关注自己想要解决的问题。</p>
+<p>脱离具体问题，空泛地谈“什么学习算法更好”毫无意义。</p>
+<h3 id="数据集处理"><a href="#数据集处理" class="headerlink" title="数据集处理"></a>数据集处理</h3><p>1.留出法</p>
+<p>​    单次使用留出法得到的估计结果往往不够稳定可靠，在使用留出法时，一般采用若干随机划分，重复进行试验评估后取平均值作为留出法的评估结果。</p>
+<p>2.k折交叉验证</p>
+<p>​    将数据集划分为k个大小相同的互斥子集，每个子集都尽可能奥驰数据分布的一一致性。选用k-1个子集作为训练集，余下的子集作为测试集。总共可进行K次测试，最终返回k此测试的平均值。k长取10.</p>
+<p>3.自助法</p>
+<p>适用于数据集较小的情形。原数据的总体并不大，每次抽样能反应总体的特性，并且多次抽样后能覆盖原总体，且抽样组成的新总体比原总体大。抽样方式采用有放回重抽样。自助法的核心点也是有放回的重复抽样。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -1590,6 +1812,61 @@
       </tags>
   </entry>
   <entry>
+    <title>MySQL 基础知识 09</title>
+    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_09/</url>
+    <content><![CDATA[<p>MySQL学习笔记。使用事务避免仅执行了部分语句。<span id="more"></span></p>
+<h1 id="管理事务"><a href="#管理事务" class="headerlink" title="管理事务"></a>管理事务</h1><p>使用事务处理（transaction processing），通过确保成批的SQL 操作要么完全执行，要么完全不执行，来维护数据库的完整性。</p>
+<p>事务处理是一种机制，用来管理必须成批执行的SQL 操作，保证数据库不包含不完整的操作结果。利用事务处理，可以保证一组操作不会中途停止，它们要么完全执行，要么完全不执行（除非明确指示）。如果没有错误发生，整组语句提交给（写到）数据库表；如果发生错误，则进行回退（撤销），将数据库恢复到某个已知且安全的状态。</p>
+<h2 id="事务（transaction）"><a href="#事务（transaction）" class="headerlink" title="事务（transaction）"></a>事务（transaction）</h2><p>指一组SQL 语句；</p>
+<h2 id="回退（rollback）"><a href="#回退（rollback）" class="headerlink" title="回退（rollback）"></a>回退（rollback）</h2><p>指撤销指定SQL 语句的过程；</p>
+<h2 id="提交（commit）"><a href="#提交（commit）" class="headerlink" title="提交（commit）"></a>提交（commit）</h2><p>指将未存储的SQL 语句结果写入数据库表；</p>
+<h2 id="保留点（savepoint）"><a href="#保留点（savepoint）" class="headerlink" title="保留点（savepoint）"></a>保留点（savepoint）</h2><p>指事务处理中设置的临时占位符（placeholder），可以对它发布回退（与回退整个事务处理不同）。</p>
+<p>事务处理用来管理INSERT、UPDATE 和DELETE 语句。不能回退SELECT语句（回退SELECT 语句也没有必要），也不能回退CREATE 或DROP 操作。事务处理中可以使用这些语句，但进行回退时，这些操作也不撤销。</p>
+<p>管理事务的关键在于将SQL 语句组分解为逻辑块，并明确规定数据何时应该回退，何时不应该回退。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="ROLLBACK"><a href="#ROLLBACK" class="headerlink" title="ROLLBACK"></a>ROLLBACK</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Orders;</span><br><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure>
+
+<h3 id="COMMIT"><a href="#COMMIT" class="headerlink" title="COMMIT"></a>COMMIT</h3><p>一般的SQL 语句都是针对数据库表直接执行和编写的。这就是所谓的隐式提交（implicit commit），即提交（写或保存）操作是自动进行的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">DELETE OrderItems WHERE order_num = 12345</span><br><span class="line">DELETE Orders WHERE order_num = 12345</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用保留点"><a href="#使用保留点" class="headerlink" title="使用保留点"></a>使用保留点</h2><p>使用简单的ROLLBACK 和COMMIT 语句，就可以写入或撤销整个事务。但是，只对简单的事务才能这样做，复杂的事务可能需要部分提交或回退。</p>
+<p>要支持回退部分事务，必须在事务处理块中的合适位置放置占位符。这样，如果需要回退，可以回退到某个占位符。</p>
+<p>在SQL 中，这些占位符称为保留点。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SAVEPOINT delete1;</span><br></pre></td></tr></table></figure>
+
+<p>每个保留点都要取能够标识它的唯一名字，以便在回退时，DBMS 知道回退到何处。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ROLLBACK TO delete1;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">start TRANSACTION</span><br><span class="line">INSERT INTO Customers(cust_id, cust_name)</span><br><span class="line">VALUES(&#x27;1000000010&#x27;, &#x27;Toys Emporium&#x27;);</span><br><span class="line">SAVE TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO Orders(order_num, order_date, cust_id)</span><br><span class="line">VALUES(20100,&#x27;2001/12/1&#x27;,&#x27;1000000010&#x27;);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 1, &#x27;BR01&#x27;, 100, 5.49);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 2, &#x27;BR03&#x27;, 100, 10.99);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用游标"><a href="#使用游标" class="headerlink" title="使用游标"></a>使用游标</h1><p>SQL 检索操作返回一组称为结果集的行，这组返回的行都是与SQL 语句相匹配的行（零行或多行）。简单地使用SELECT 语句，没有办法得到第一行、下一行或前10 行。但这是关系DBMS 功能的组成部分。</p>
+<p>有时，需要在检索出来的行中前进或后退一行或多行，这就是游标的用途所在。</p>
+<p>游标（cursor）是一个存储在DBMS 服务器上的数据库查询，它不是一条SELECT 语句，而是被该语句检索出来的结果集。在存储了游标之后，应用程序可以根据需要滚动或浏览其中的数据。</p>
+<h2 id="选项和特性"><a href="#选项和特性" class="headerlink" title="选项和特性"></a>选项和特性</h2><p>1.能够标记游标为只读，使数据能读取，但不能更新和删除。<br>2.能控制可以执行的定向操作（向前、向后、第一、最后、绝对位置、相对位置等）。<br>3.能标记某些列为可编辑的，某些列为不可编辑的。<br>4.规定范围，使游标对创建它的特定请求（如存储过程）或对所有请求可访问。<br>5.指示DBMS 对检索出的数据（而不是指出表中活动数据）进行复制，使数据在游标打开和访问期间不变化。</p>
+<p>游标主要用于交互式应用，其中用户需要滚动屏幕上的数据，并对数据进行浏览或做出更改。</p>
+<h2 id="游标的使用步骤"><a href="#游标的使用步骤" class="headerlink" title="游标的使用步骤"></a>游标的使用步骤</h2><p>1.在使用游标前，必须声明（定义）它。这个过程实际上没有检索数据，它只是定义要使用的SELECT 语句和游标选项。<br>2.一旦声明，就必须打开游标以供使用。这个过程用前面定义的SELECT语句把数据实际检索出来。<br>3.对于填有数据的游标，根据需要取出（检索）各行。<br>4.在结束游标使用时，必须关闭游标，可能的话，释放游标（有赖于具体的DBMS）。</p>
+<p>5.声明游标后，可根据需要频繁地打开和关闭游标。在游标打开时，可根据需要频繁地执行取操作</p>
+<h3 id="创建游标"><a href="#创建游标" class="headerlink" title="创建游标"></a>创建游标</h3><p>DECLARE 命名游标，并定义相应的SELECT 语句，根据需要带WHERE 和其他子句。<br><strong>游标只能用在存储过程中</strong></p>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE CustCursor CURSOR</span><br><span class="line">FOR</span><br><span class="line">SELECT * FROM Customers</span><br><span class="line">WHERE cust_email IS NULL</span><br></pre></td></tr></table></figure>
+
+<h3 id="打开游标"><a href="#打开游标" class="headerlink" title="打开游标"></a>打开游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">OPEN CURSOR CustCursor</span><br></pre></td></tr></table></figure>
+
+<p>用FETCH 语句访问游标数据。FETCH 指出要检索哪些行，从何处检索它们以及将它们放于何处（如变量名）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE TYPE CustCursor IS REF CURSOR</span><br><span class="line">	RETURN Customers%ROWTYPE;</span><br><span class="line">DECLARE CustRecord Customers%ROWTYPE</span><br><span class="line">BEGIN</span><br><span class="line">OPEN CustCursor;</span><br><span class="line">FETCH CustCursor INTO CustRecord;</span><br><span class="line">CLOSE CustCursor;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+
+<h3 id="关闭游标"><a href="#关闭游标" class="headerlink" title="关闭游标"></a>关闭游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CLOSE CustCursor</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL 基础知识 10</title>
     <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_10/</url>
     <content><![CDATA[<p>MySQL学习笔记。SQL的一些特性和其他功能。<span id="more"></span></p>
@@ -1686,95 +1963,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MySQL 基础知识 09</title>
-    <url>/%E5%AD%A6%E4%B9%A0/MySQL/MySQL_09/</url>
-    <content><![CDATA[<p>MySQL学习笔记。使用事务避免仅执行了部分语句。<span id="more"></span></p>
-<h1 id="管理事务"><a href="#管理事务" class="headerlink" title="管理事务"></a>管理事务</h1><p>使用事务处理（transaction processing），通过确保成批的SQL 操作要么完全执行，要么完全不执行，来维护数据库的完整性。</p>
-<p>事务处理是一种机制，用来管理必须成批执行的SQL 操作，保证数据库不包含不完整的操作结果。利用事务处理，可以保证一组操作不会中途停止，它们要么完全执行，要么完全不执行（除非明确指示）。如果没有错误发生，整组语句提交给（写到）数据库表；如果发生错误，则进行回退（撤销），将数据库恢复到某个已知且安全的状态。</p>
-<h2 id="事务（transaction）"><a href="#事务（transaction）" class="headerlink" title="事务（transaction）"></a>事务（transaction）</h2><p>指一组SQL 语句；</p>
-<h2 id="回退（rollback）"><a href="#回退（rollback）" class="headerlink" title="回退（rollback）"></a>回退（rollback）</h2><p>指撤销指定SQL 语句的过程；</p>
-<h2 id="提交（commit）"><a href="#提交（commit）" class="headerlink" title="提交（commit）"></a>提交（commit）</h2><p>指将未存储的SQL 语句结果写入数据库表；</p>
-<h2 id="保留点（savepoint）"><a href="#保留点（savepoint）" class="headerlink" title="保留点（savepoint）"></a>保留点（savepoint）</h2><p>指事务处理中设置的临时占位符（placeholder），可以对它发布回退（与回退整个事务处理不同）。</p>
-<p>事务处理用来管理INSERT、UPDATE 和DELETE 语句。不能回退SELECT语句（回退SELECT 语句也没有必要），也不能回退CREATE 或DROP 操作。事务处理中可以使用这些语句，但进行回退时，这些操作也不撤销。</p>
-<p>管理事务的关键在于将SQL 语句组分解为逻辑块，并明确规定数据何时应该回退，何时不应该回退。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h2 id="ROLLBACK"><a href="#ROLLBACK" class="headerlink" title="ROLLBACK"></a>ROLLBACK</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM Orders;</span><br><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure>
-
-<h3 id="COMMIT"><a href="#COMMIT" class="headerlink" title="COMMIT"></a>COMMIT</h3><p>一般的SQL 语句都是针对数据库表直接执行和编写的。这就是所谓的隐式提交（implicit commit），即提交（写或保存）操作是自动进行的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">START TRANSACTION</span><br><span class="line">DELETE OrderItems WHERE order_num = 12345</span><br><span class="line">DELETE Orders WHERE order_num = 12345</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用保留点"><a href="#使用保留点" class="headerlink" title="使用保留点"></a>使用保留点</h2><p>使用简单的ROLLBACK 和COMMIT 语句，就可以写入或撤销整个事务。但是，只对简单的事务才能这样做，复杂的事务可能需要部分提交或回退。</p>
-<p>要支持回退部分事务，必须在事务处理块中的合适位置放置占位符。这样，如果需要回退，可以回退到某个占位符。</p>
-<p>在SQL 中，这些占位符称为保留点。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SAVEPOINT delete1;</span><br></pre></td></tr></table></figure>
-
-<p>每个保留点都要取能够标识它的唯一名字，以便在回退时，DBMS 知道回退到何处。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ROLLBACK TO delete1;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">start TRANSACTION</span><br><span class="line">INSERT INTO Customers(cust_id, cust_name)</span><br><span class="line">VALUES(&#x27;1000000010&#x27;, &#x27;Toys Emporium&#x27;);</span><br><span class="line">SAVE TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO Orders(order_num, order_date, cust_id)</span><br><span class="line">VALUES(20100,&#x27;2001/12/1&#x27;,&#x27;1000000010&#x27;);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 1, &#x27;BR01&#x27;, 100, 5.49);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">INSERT INTO OrderItems(order_num, order_item, prod_id, quantity,</span><br><span class="line">➥item_price)</span><br><span class="line">VALUES(20100, 2, &#x27;BR03&#x27;, 100, 10.99);</span><br><span class="line">IF @@ERROR &lt;&gt; 0 ROLLBACK TRANSACTION StartOrder;</span><br><span class="line">COMMIT TRANSACTION</span><br></pre></td></tr></table></figure>
-
-<h1 id="使用游标"><a href="#使用游标" class="headerlink" title="使用游标"></a>使用游标</h1><p>SQL 检索操作返回一组称为结果集的行，这组返回的行都是与SQL 语句相匹配的行（零行或多行）。简单地使用SELECT 语句，没有办法得到第一行、下一行或前10 行。但这是关系DBMS 功能的组成部分。</p>
-<p>有时，需要在检索出来的行中前进或后退一行或多行，这就是游标的用途所在。</p>
-<p>游标（cursor）是一个存储在DBMS 服务器上的数据库查询，它不是一条SELECT 语句，而是被该语句检索出来的结果集。在存储了游标之后，应用程序可以根据需要滚动或浏览其中的数据。</p>
-<h2 id="选项和特性"><a href="#选项和特性" class="headerlink" title="选项和特性"></a>选项和特性</h2><p>1.能够标记游标为只读，使数据能读取，但不能更新和删除。<br>2.能控制可以执行的定向操作（向前、向后、第一、最后、绝对位置、相对位置等）。<br>3.能标记某些列为可编辑的，某些列为不可编辑的。<br>4.规定范围，使游标对创建它的特定请求（如存储过程）或对所有请求可访问。<br>5.指示DBMS 对检索出的数据（而不是指出表中活动数据）进行复制，使数据在游标打开和访问期间不变化。</p>
-<p>游标主要用于交互式应用，其中用户需要滚动屏幕上的数据，并对数据进行浏览或做出更改。</p>
-<h2 id="游标的使用步骤"><a href="#游标的使用步骤" class="headerlink" title="游标的使用步骤"></a>游标的使用步骤</h2><p>1.在使用游标前，必须声明（定义）它。这个过程实际上没有检索数据，它只是定义要使用的SELECT 语句和游标选项。<br>2.一旦声明，就必须打开游标以供使用。这个过程用前面定义的SELECT语句把数据实际检索出来。<br>3.对于填有数据的游标，根据需要取出（检索）各行。<br>4.在结束游标使用时，必须关闭游标，可能的话，释放游标（有赖于具体的DBMS）。</p>
-<p>5.声明游标后，可根据需要频繁地打开和关闭游标。在游标打开时，可根据需要频繁地执行取操作</p>
-<h3 id="创建游标"><a href="#创建游标" class="headerlink" title="创建游标"></a>创建游标</h3><p>DECLARE 命名游标，并定义相应的SELECT 语句，根据需要带WHERE 和其他子句。<br><strong>游标只能用在存储过程中</strong></p>
-<hr>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE CustCursor CURSOR</span><br><span class="line">FOR</span><br><span class="line">SELECT * FROM Customers</span><br><span class="line">WHERE cust_email IS NULL</span><br></pre></td></tr></table></figure>
-
-<h3 id="打开游标"><a href="#打开游标" class="headerlink" title="打开游标"></a>打开游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">OPEN CURSOR CustCursor</span><br></pre></td></tr></table></figure>
-
-<p>用FETCH 语句访问游标数据。FETCH 指出要检索哪些行，从何处检索它们以及将它们放于何处（如变量名）。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DECLARE TYPE CustCursor IS REF CURSOR</span><br><span class="line">	RETURN Customers%ROWTYPE;</span><br><span class="line">DECLARE CustRecord Customers%ROWTYPE</span><br><span class="line">BEGIN</span><br><span class="line">OPEN CustCursor;</span><br><span class="line">FETCH CustCursor INTO CustRecord;</span><br><span class="line">CLOSE CustCursor;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
-
-<h3 id="关闭游标"><a href="#关闭游标" class="headerlink" title="关闭游标"></a>关闭游标</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CLOSE CustCursor</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一些有用的小技巧</title>
-    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/systemUsing_01/</url>
-    <content><![CDATA[<h1 id="系统配置及软件安装"><a href="#系统配置及软件安装" class="headerlink" title="系统配置及软件安装"></a>系统配置及软件安装</h1><p>遇到的一些有用的软件或者一些比较有用的设置。<span id="more"></span></p>
-<h2 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h2><p>推荐使用Typora来编写MarkDown文档。</p>
-<h3 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h3><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
-
-<p>注意：修改上述的typora文件路径：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot; --&gt; “修改成你自己的文件路径”</span><br></pre></td></tr></table></figure>
-
-<p>2.保存后重命名，修改后缀为  .reg 文件。</p>
-<p>3.双击执行，一路点是就行。</p>
-<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><img src = "/images/createMd/createMd01.png">
-
-<h2 id="Adobe-Acrobat-Pro-DC设置文档打开时铺满全局"><a href="#Adobe-Acrobat-Pro-DC设置文档打开时铺满全局" class="headerlink" title="Adobe Acrobat Pro DC设置文档打开时铺满全局"></a>Adobe Acrobat Pro DC设置文档打开时铺满全局</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>修改首选项里的页面设置，全局视图—&gt;适合宽度。</p>
-<h4 id="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"><a href="#缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。" class="headerlink" title="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"></a>缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。</h4><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>选中所有书签（ctrl+A）——属性——动作——添加动作选择——执行菜单项——添加——“视图&gt;缩放&gt;适合宽度”</p>
-<p>这样点击书签后，就是适合宽度了。</p>
-<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。<!--more--></p>
-<h2 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h2><p>   没想到语言选择第一步就难住了我，安装的是中文版到但是一直没能成功设置为中文。直到看到一个鬼才方法。具体步骤如下：</p>
-<p>​    1.找到Ubuntu中Language support软件</p>
-<p>​    2.打开软件后添加简体中文语言包</p>
-<p>​    3.现在依然显示汉语为灰色无法选中，但是可以拖动！！！将汉语那一框拖动到最上面去，然后重启就可以了。</p>
-<p>参考的博客链接为：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>系统配置</category>
-      </categories>
-      <tags>
-        <tag>system</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>OpenCV-Tutorials</title>
     <url>/%E5%AD%A6%E4%B9%A0/OpenCV/openCVtutorials/</url>
     <content><![CDATA[<h2 id="OpenCV官网例程实现"><a href="#OpenCV官网例程实现" class="headerlink" title="OpenCV官网例程实现"></a>OpenCV官网例程实现</h2><p>OpenCV官网提供了一系列例程，先照着实现一下，同时记录遇到的一些问题。</p>
@@ -1816,6 +2004,40 @@
       </categories>
       <tags>
         <tag>OpenCV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一些有用的小技巧</title>
+    <url>/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/Systems/systemUsing_01/</url>
+    <content><![CDATA[<h1 id="系统配置及软件安装"><a href="#系统配置及软件安装" class="headerlink" title="系统配置及软件安装"></a>系统配置及软件安装</h1><p>遇到的一些有用的软件或者一些比较有用的设置。<span id="more"></span></p>
+<h2 id="Windows右键新建中增加新建md文件"><a href="#Windows右键新建中增加新建md文件" class="headerlink" title="Windows右键新建中增加新建md文件"></a>Windows右键新建中增加新建md文件</h2><p>推荐使用Typora来编写MarkDown文档。</p>
+<h3 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h3><p> 1.右键新建 .txt 文件，不用命名不重要， 在文件中写进以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md]</span><br><span class="line">@=&quot;typora.md&quot;</span><br><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\OpenWithProgids]</span><br><span class="line">&quot;Typora.md&quot;=&quot;&quot;</span><br><span class="line">&quot;VSCode.md&quot;=&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.md\ShellNew]</span><br><span class="line">&quot;NullFile&quot;=&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>注意：修改上述的typora文件路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;icon&quot;=&quot;D:\\Typora\\typora.exe&quot; --&gt; “修改成你自己的文件路径”</span><br></pre></td></tr></table></figure>
+
+<p>2.保存后重命名，修改后缀为  .reg 文件。</p>
+<p>3.双击执行，一路点是就行。</p>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><img src = "/images/createMd/createMd01.png">
+
+<h2 id="Adobe-Acrobat-Pro-DC设置文档打开时铺满全局"><a href="#Adobe-Acrobat-Pro-DC设置文档打开时铺满全局" class="headerlink" title="Adobe Acrobat Pro DC设置文档打开时铺满全局"></a>Adobe Acrobat Pro DC设置文档打开时铺满全局</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>修改首选项里的页面设置，全局视图—&gt;适合宽度。</p>
+<h4 id="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"><a href="#缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。" class="headerlink" title="缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。"></a>缺点：点击书签访问时，依旧会出现不能铺满屏幕的状况。</h4><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>选中所有书签（ctrl+A）——属性——动作——添加动作选择——执行菜单项——添加——“视图&gt;缩放&gt;适合宽度”</p>
+<p>这样点击书签后，就是适合宽度了。</p>
+<h2 id="使用Ubuntu图形界面"><a href="#使用Ubuntu图形界面" class="headerlink" title="使用Ubuntu图形界面"></a>使用Ubuntu图形界面</h2><p>​    之前使用一直都用服务器所以没有接触过Ubuntu的图形界面，还是第一次电脑上装Ubuntu系统。<!--more--></p>
+<h2 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h2><p>   没想到语言选择第一步就难住了我，安装的是中文版到但是一直没能成功设置为中文。直到看到一个鬼才方法。具体步骤如下：</p>
+<p>​    1.找到Ubuntu中Language support软件</p>
+<p>​    2.打开软件后添加简体中文语言包</p>
+<p>​    3.现在依然显示汉语为灰色无法选中，但是可以拖动！！！将汉语那一框拖动到最上面去，然后重启就可以了。</p>
+<p>参考的博客链接为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://blog.csdn.net/qq_42007712/article/details/82832725?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.base</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>系统配置</category>
+      </categories>
+      <tags>
+        <tag>system</tag>
       </tags>
   </entry>
   <entry>
@@ -1963,68 +2185,6 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 2.1</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_1/</url>
-    <content><![CDATA[<p>C++ Primer 第二篇第三章学习笔记。<span id="more"></span></p>
-<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第三章-C-数字类型"><a href="#第三章-C-数字类型" class="headerlink" title="第三章 C++数字类型"></a>第三章 C++数字类型</h2><h3 id="内置数据类型"><a href="#内置数据类型" class="headerlink" title="内置数据类型"></a>内置数据类型</h3><p>其他语言常见的所有类型：</p>
-<p>int, short, long int,  long long int, double, float, char,</p>
-<p>如果一个变量是在全局域内定义的那么系统会保证给它提供初始值0.</p>
-<p>如果变量是在局部域l内定义的,或是通过new 表达式动态分配的.则系统不会向它提供初始值0 .这些对象被称为是未初始化的.</p>
-<p>每种内置数据类型都支持一种特殊的构造函数语法,可将对象初始化为0.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int ival = int();</span><br><span class="line">double dval = double();</span><br></pre></td></tr></table></figure>
-
-<h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><p>不同之处在于指针所指的对象的类型上，指针的类型可以指示编译器怎样解释特定地址上内存的内容，以及该内存区域应该跨越多少内存单元。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt; *p1, p2;</span><br><span class="line">//p1指针，p2不是。</span><br></pre></td></tr></table></figure>
-
-<p>如果我们要做的仅仅是持有地址值，那么指针的实际类型就不重要了。</p>
-<p>C++提供了一种特殊的指针类型来支持这种需求，空void* 类型指针，它可以被任何数据指针类型的地址值赋值(函数指针不能赋值给它).</p>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>string 类型能够自动将C 风格的字符串转换成string 对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">string s1;</span><br><span class="line">const char *pc = &quot;a character array&quot;;</span><br><span class="line">s1 = pc; // ok</span><br></pre></td></tr></table></figure>
-
-<p>反向的转换不能自动执行，对隐式地将string 对象转换成C 风格的字符串string类型没有提供支持。</p>
-<p>为了防止字符数组被程序直接处理，c_str()返回了一个指向常量数组的指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const char *str = s1.c_str(); // ok</span><br></pre></td></tr></table></figure>
-
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>引用， 有时候又称为别名alias 。它可以用作对象的另一个名字，通过引用，我们可以间接地操纵对象，使用方式类似于指针，但是不需要指针的语法。在实际的程序中引用主要被用作函数的形式参数——通常将类对象传递给一个函数。</p>
-<p>引用类型由类型标识符和一个取地址操作符来定义，引用必须被初始化。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int ival = 1024;</span><br><span class="line">// ok: refVal 是一个指向ival 的引用</span><br><span class="line">int &amp;refVal = ival;</span><br><span class="line">// 错误引用必须被初始化为指向一个对象</span><br><span class="line">int &amp;refVal2;</span><br></pre></td></tr></table></figure>
-
-<p>一旦引用已经定义，它就不能再指向其他的对象。</p>
-<p>引用的所有操作实际上都被应用在它所指的对象身上，包括取地址操作符。</p>
-<p>指针和引用有两个主要区别：</p>
-<p>​    1.引用必须总是指向一个对象，如果用一个引用给另一个引用赋值，那么改变的是被引用的对象，而不是引用本身。</p>
-<p>​    2.引用之间的赋值是第二个不同。</p>
-<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><p>枚举不但定义了整数常量而且还把它们组成一个集合。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum open_modes&#123; input = 1, output, append &#125;;</span><br><span class="line">//input、output 和append 是枚举成员。它们代表了能用来初始化和赋值open_modes 类型变量的值的全集</span><br></pre></td></tr></table></figure>
-
-<p>枚举的限制：</p>
-<ol>
-<li> 不能打印枚举成员的实际枚举名。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//解决方案</span><br><span class="line">cout &lt;&lt; open_modes_table[ input ] &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>  不能使用枚举成员进行迭代</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 不支持</span><br><span class="line">for ( open_modes  iter = input; iter != append; ++iter )&#123;</span><br><span class="line">	// ..</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="volatile-限定修饰符"><a href="#volatile-限定修饰符" class="headerlink" title="volatile 限定修饰符"></a>volatile 限定修饰符</h3><p>当一个对象的值可能会在编译器的控制或监测之外被改变时，例如一个被系统时钟更新的变量，那么该对象应该声明成volatile， 因此编译器执行的某些例行优化行为不能应用在已指定为volatile 的对象上。</p>
-<p>volatile 修饰符的主要目的是提示编译器，该对象的值可能在编译器未监测到的情况下被改变，因此编译器不能武断地对引用这些对象的代码作优化处理。</p>
-<h3 id="pair类型"><a href="#pair类型" class="headerlink" title="pair类型"></a>pair类型</h3><p>pair 类也是标准库的一部分，它使得我们可以在单个对象内部把相同类型或不同类型的两个值关联起来。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;utility&gt;</span><br></pre></td></tr></table></figure>
-
-<p>我们可以用成员访问符号访问pair 中的单个元素,它们的名字为first 和second.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pair&lt; string, string &gt; author( &quot;James&quot;, &quot;Joyce&quot; );</span><br><span class="line">author.first == &quot;James&quot;;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cpp Primer chapter 1.1</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh01_1/</url>
     <content><![CDATA[<p> C++ Primer 第一篇学习笔记。<span id="more"></span></p>
@@ -2111,27 +2271,6 @@
       </tags>
   </entry>
   <entry>
-    <title>cpp Primer chapter 2.3</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_3/</url>
-    <content><![CDATA[<p>C++ Primer 第二篇第五章学习笔记。<span id="more"></span></p>
-<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第五章-语句"><a href="#第五章-语句" class="headerlink" title="第五章  语句"></a>第五章  语句</h2><p>与其他语言差别不大。</p>
-<h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch()&#123;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	default:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(int i=0; i&lt;n; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">for(int i=0; i&lt;k; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//C++这里的i是局部变量，</span><br></pre></td></tr></table></figure>
-
-<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>break 语句终止最近的while, do while, for 或switch 语句.</p>
-<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>continue 语句导致最近的循环语句的当前迭代结束,执行权被传递给条件计算部分.</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cpp Primer chapter 2.2</title>
     <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_2/</url>
     <content><![CDATA[<p>C++ Primer 第二篇第四章学习笔记。<span id="more"></span></p>
@@ -2163,6 +2302,89 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast, reinterpret_cast, const_cast, dynamic_cast </span><br></pre></td></tr></table></figure>
 
 <p>他们本质上都是模板类。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 2.3</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_3/</url>
+    <content><![CDATA[<p>C++ Primer 第二篇第五章学习笔记。<span id="more"></span></p>
+<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第五章-语句"><a href="#第五章-语句" class="headerlink" title="第五章  语句"></a>第五章  语句</h2><p>与其他语言差别不大。</p>
+<h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else if()&#123;</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch()&#123;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	case:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">	default:</span><br><span class="line">		//...</span><br><span class="line">		break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(int i=0; i&lt;n; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">for(int i=0; i&lt;k; i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//C++这里的i是局部变量，</span><br></pre></td></tr></table></figure>
+
+<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>break 语句终止最近的while, do while, for 或switch 语句.</p>
+<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>continue 语句导致最近的循环语句的当前迭代结束,执行权被传递给条件计算部分.</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cpp Primer chapter 2.1</title>
+    <url>/%E5%AD%A6%E4%B9%A0/Cpp/cppPrimer/cppPrimerCh02_1/</url>
+    <content><![CDATA[<p>C++ Primer 第二篇第三章学习笔记。<span id="more"></span></p>
+<h1 id="第二篇-基本语言"><a href="#第二篇-基本语言" class="headerlink" title="第二篇 基本语言"></a>第二篇 基本语言</h1><h2 id="第三章-C-数字类型"><a href="#第三章-C-数字类型" class="headerlink" title="第三章 C++数字类型"></a>第三章 C++数字类型</h2><h3 id="内置数据类型"><a href="#内置数据类型" class="headerlink" title="内置数据类型"></a>内置数据类型</h3><p>其他语言常见的所有类型：</p>
+<p>int, short, long int,  long long int, double, float, char,</p>
+<p>如果一个变量是在全局域内定义的那么系统会保证给它提供初始值0.</p>
+<p>如果变量是在局部域l内定义的,或是通过new 表达式动态分配的.则系统不会向它提供初始值0 .这些对象被称为是未初始化的.</p>
+<p>每种内置数据类型都支持一种特殊的构造函数语法,可将对象初始化为0.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int ival = int();</span><br><span class="line">double dval = double();</span><br></pre></td></tr></table></figure>
+
+<h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><p>不同之处在于指针所指的对象的类型上，指针的类型可以指示编译器怎样解释特定地址上内存的内容，以及该内存区域应该跨越多少内存单元。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt; *p1, p2;</span><br><span class="line">//p1指针，p2不是。</span><br></pre></td></tr></table></figure>
+
+<p>如果我们要做的仅仅是持有地址值，那么指针的实际类型就不重要了。</p>
+<p>C++提供了一种特殊的指针类型来支持这种需求，空void* 类型指针，它可以被任何数据指针类型的地址值赋值(函数指针不能赋值给它).</p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>string 类型能够自动将C 风格的字符串转换成string 对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">string s1;</span><br><span class="line">const char *pc = &quot;a character array&quot;;</span><br><span class="line">s1 = pc; // ok</span><br></pre></td></tr></table></figure>
+
+<p>反向的转换不能自动执行，对隐式地将string 对象转换成C 风格的字符串string类型没有提供支持。</p>
+<p>为了防止字符数组被程序直接处理，c_str()返回了一个指向常量数组的指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const char *str = s1.c_str(); // ok</span><br></pre></td></tr></table></figure>
+
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>引用， 有时候又称为别名alias 。它可以用作对象的另一个名字，通过引用，我们可以间接地操纵对象，使用方式类似于指针，但是不需要指针的语法。在实际的程序中引用主要被用作函数的形式参数——通常将类对象传递给一个函数。</p>
+<p>引用类型由类型标识符和一个取地址操作符来定义，引用必须被初始化。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int ival = 1024;</span><br><span class="line">// ok: refVal 是一个指向ival 的引用</span><br><span class="line">int &amp;refVal = ival;</span><br><span class="line">// 错误引用必须被初始化为指向一个对象</span><br><span class="line">int &amp;refVal2;</span><br></pre></td></tr></table></figure>
+
+<p>一旦引用已经定义，它就不能再指向其他的对象。</p>
+<p>引用的所有操作实际上都被应用在它所指的对象身上，包括取地址操作符。</p>
+<p>指针和引用有两个主要区别：</p>
+<p>​    1.引用必须总是指向一个对象，如果用一个引用给另一个引用赋值，那么改变的是被引用的对象，而不是引用本身。</p>
+<p>​    2.引用之间的赋值是第二个不同。</p>
+<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><p>枚举不但定义了整数常量而且还把它们组成一个集合。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum open_modes&#123; input = 1, output, append &#125;;</span><br><span class="line">//input、output 和append 是枚举成员。它们代表了能用来初始化和赋值open_modes 类型变量的值的全集</span><br></pre></td></tr></table></figure>
+
+<p>枚举的限制：</p>
+<ol>
+<li> 不能打印枚举成员的实际枚举名。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//解决方案</span><br><span class="line">cout &lt;&lt; open_modes_table[ input ] &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>  不能使用枚举成员进行迭代</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 不支持</span><br><span class="line">for ( open_modes  iter = input; iter != append; ++iter )&#123;</span><br><span class="line">	// ..</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="volatile-限定修饰符"><a href="#volatile-限定修饰符" class="headerlink" title="volatile 限定修饰符"></a>volatile 限定修饰符</h3><p>当一个对象的值可能会在编译器的控制或监测之外被改变时，例如一个被系统时钟更新的变量，那么该对象应该声明成volatile， 因此编译器执行的某些例行优化行为不能应用在已指定为volatile 的对象上。</p>
+<p>volatile 修饰符的主要目的是提示编译器，该对象的值可能在编译器未监测到的情况下被改变，因此编译器不能武断地对引用这些对象的代码作优化处理。</p>
+<h3 id="pair类型"><a href="#pair类型" class="headerlink" title="pair类型"></a>pair类型</h3><p>pair 类也是标准库的一部分，它使得我们可以在单个对象内部把相同类型或不同类型的两个值关联起来。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;utility&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以用成员访问符号访问pair 中的单个元素,它们的名字为first 和second.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pair&lt; string, string &gt; author( &quot;James&quot;, &quot;Joyce&quot; );</span><br><span class="line">author.first == &quot;James&quot;;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>学习</category>
